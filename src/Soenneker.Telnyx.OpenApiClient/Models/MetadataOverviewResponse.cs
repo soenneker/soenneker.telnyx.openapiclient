@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Map of supported query parameter names to their definitions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse_query_parameters? QueryParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty? QueryParameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse_query_parameters QueryParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty QueryParameters { get; set; }
 #endif
         /// <summary>The record_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo.CreateFromDiscriminatorValue); } },
-                { "query_parameters", n => { QueryParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse_query_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse_query_parameters.CreateFromDiscriminatorValue); } },
+                { "query_parameters", n => { QueryParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty.CreateFromDiscriminatorValue); } },
                 { "record_types", n => { RecordTypes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse_query_parameters>("query_parameters", QueryParameters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty>("query_parameters", QueryParameters);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo>("record_types", RecordTypes);
             writer.WriteAdditionalData(AdditionalData);
         }

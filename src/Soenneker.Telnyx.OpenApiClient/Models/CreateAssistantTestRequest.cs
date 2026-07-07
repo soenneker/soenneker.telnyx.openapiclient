@@ -52,13 +52,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Evaluation criteria used to assess the assistant&apos;s performance. Each rubric item contains a name and specific criteria for evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric>? Rubric { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem>? Rubric { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric> Rubric { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem> Rubric { get; set; }
 #endif
-        /// <summary>The telnyx_conversation_channel property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel? TelnyxConversationChannel { get; set; }
+        /// <summary>The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel? TelnyxConversationChannel { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel TelnyxConversationChannel { get; set; }
+#endif
         /// <summary>Optional test suite name to group related tests together. Useful for organizing tests by feature, team, or release cycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,8 +103,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "max_duration_seconds", n => { MaxDurationSeconds = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "rubric", n => { Rubric = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel>(); } },
+                { "rubric", n => { Rubric = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel.CreateFromDiscriminatorValue); } },
                 { "test_suite", n => { TestSuite = n.GetStringValue(); } },
             };
         }
@@ -114,8 +120,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteIntValue("max_duration_seconds", MaxDurationSeconds);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric>("rubric", Rubric);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel>("telnyx_conversation_channel", TelnyxConversationChannel);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem>("rubric", Rubric);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("test_suite", TestSuite);
             writer.WriteAdditionalData(AdditionalData);
         }

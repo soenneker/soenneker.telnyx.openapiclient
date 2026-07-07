@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequest_AnnounceMethod? AnnounceMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestAnnounceMethod? AnnounceMethod { get; set; }
         /// <summary>The URL to call to announce something to the participant. The URL may return an MP3 fileo a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether the participant should be on hold.</summary>
         public bool? Hold { get; set; }
         /// <summary>The HTTP method to use when calling the `HoldUrl`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequest_HoldMethod? HoldMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestHoldMethod? HoldMethod { get; set; }
         /// <summary>The URL to be called using the `HoldMethod` for music that plays when the participant is on hold. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,14 +85,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequest_AnnounceMethod>(); } },
+                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestAnnounceMethod>(); } },
                 { "AnnounceUrl", n => { AnnounceUrl = n.GetStringValue(); } },
                 { "BeepOnExit", n => { BeepOnExit = n.GetBoolValue(); } },
                 { "CallSidToCoach", n => { CallSidToCoach = n.GetStringValue(); } },
                 { "Coaching", n => { Coaching = n.GetBoolValue(); } },
                 { "EndConferenceOnExit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "Hold", n => { Hold = n.GetBoolValue(); } },
-                { "HoldMethod", n => { HoldMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequest_HoldMethod>(); } },
+                { "HoldMethod", n => { HoldMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestHoldMethod>(); } },
                 { "HoldUrl", n => { HoldUrl = n.GetStringValue(); } },
                 { "Muted", n => { Muted = n.GetBoolValue(); } },
                 { "WaitUrl", n => { WaitUrl = n.GetStringValue(); } },
@@ -105,14 +105,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequest_AnnounceMethod>("AnnounceMethod", AnnounceMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestAnnounceMethod>("AnnounceMethod", AnnounceMethod);
             writer.WriteStringValue("AnnounceUrl", AnnounceUrl);
             writer.WriteBoolValue("BeepOnExit", BeepOnExit);
             writer.WriteStringValue("CallSidToCoach", CallSidToCoach);
             writer.WriteBoolValue("Coaching", Coaching);
             writer.WriteBoolValue("EndConferenceOnExit", EndConferenceOnExit);
             writer.WriteBoolValue("Hold", Hold);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequest_HoldMethod>("HoldMethod", HoldMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestHoldMethod>("HoldMethod", HoldMethod);
             writer.WriteStringValue("HoldUrl", HoldUrl);
             writer.WriteBoolValue("Muted", Muted);
             writer.WriteStringValue("WaitUrl", WaitUrl);

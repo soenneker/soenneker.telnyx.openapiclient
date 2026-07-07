@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The verify_channel_id property</summary>
         public Guid? VerifyChannelId { get; set; }
         /// <summary>Depending on the type of verification, the `verify_channel_id`points to one of the following channel ids;---verify_channel_type | verify_channel_id------------------- | -----------------sms, psd2           | messaging_idcall, flashcall     | call_control_id---</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord_verify_channel_type? VerifyChannelType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecordVerifyChannelType? VerifyChannelType { get; set; }
         /// <summary>The verify_profile_id property</summary>
         public Guid? VerifyProfileId { get; set; }
         /// <summary>Currency amount for Verify Usage Fee</summary>
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "verification_status", n => { VerificationStatus = n.GetStringValue(); } },
                 { "verify_channel_id", n => { VerifyChannelId = n.GetGuidValue(); } },
-                { "verify_channel_type", n => { VerifyChannelType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord_verify_channel_type>(); } },
+                { "verify_channel_type", n => { VerifyChannelType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecordVerifyChannelType>(); } },
                 { "verify_profile_id", n => { VerifyProfileId = n.GetGuidValue(); } },
                 { "verify_usage_fee", n => { VerifyUsageFee = n.GetStringValue(); } },
             };
@@ -150,7 +150,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("verification_status", VerificationStatus);
             writer.WriteGuidValue("verify_channel_id", VerifyChannelId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord_verify_channel_type>("verify_channel_type", VerifyChannelType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecordVerifyChannelType>("verify_channel_type", VerifyChannelType);
             writer.WriteGuidValue("verify_profile_id", VerifyProfileId);
             writer.WriteStringValue("verify_usage_fee", VerifyUsageFee);
             writer.WriteAdditionalData(AdditionalData);

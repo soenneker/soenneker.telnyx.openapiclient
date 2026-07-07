@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.room_sessions.item collection</summary>
         /// <param name="position">The unique identifier of a room session.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.WithRoom_session_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.WithRoom_session_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.WithRoomSessionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.WithRoomSessionItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("room_session_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.WithRoom_session_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("roomSessionId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.WithRoomSessionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,25 +49,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions
         /// <summary>
         /// View a list of room sessions.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Room_sessions4XXError">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VideoGenericErrorResponseResponse">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsRequestBuilder.Room_sessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsRequestBuilder.Room_sessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsRequestBuilder.Room_sessionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsRequestBuilder.Room_sessionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Room_sessions4XXError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.VideoGenericErrorResponseResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

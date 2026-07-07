@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RequirementId { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirement_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirementStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "field_type", n => { FieldType = n.GetStringValue(); } },
                 { "field_value", n => { FieldValue = n.GetStringValue(); } },
                 { "requirement_id", n => { RequirementId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirement_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirementStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("field_type", FieldType);
             writer.WriteStringValue("field_value", FieldValue);
             writer.WriteStringValue("requirement_id", RequirementId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirement_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirementStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

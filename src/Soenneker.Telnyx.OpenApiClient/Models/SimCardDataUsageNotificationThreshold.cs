@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Amount { get; set; }
 #endif
         /// <summary>The unit property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold_unit? Unit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThresholdUnit? Unit { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
-                { "unit", n => { Unit = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold_unit>(); } },
+                { "unit", n => { Unit = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThresholdUnit>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold_unit>("unit", Unit);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThresholdUnit>("unit", Unit);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

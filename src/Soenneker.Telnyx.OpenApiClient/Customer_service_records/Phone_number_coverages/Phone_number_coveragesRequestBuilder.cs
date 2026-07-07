@@ -36,33 +36,33 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_c
         /// <summary>
         /// Verify the coverage for a list of phone numbers.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyPhoneNumberCoverage201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Phone_number_coverages401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Phone_number_coverages403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Phone_number_coverages422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Phone_number_coverages500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordUnauthorizedErrorResponseResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordForbiddenErrorResponseResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordUnprocessableEntityErrorResponseResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnexpectedErrorResponseResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyPhoneNumberCoverage201Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyCustomerServiceRecordPhoneNumberCoverageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyPhoneNumberCoverage201Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyCustomerServiceRecordPhoneNumberCoverageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Phone_number_coverages401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Phone_number_coverages403Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Phone_number_coverages422Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Phone_number_coverages500Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordUnauthorizedErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordForbiddenErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordUnprocessableEntityErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.UnexpectedErrorResponseResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyPhoneNumberCoverage201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerifyPhoneNumberCoverage201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Verify the coverage for a list of phone numbers.
@@ -72,11 +72,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_c
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyCustomerServiceRecordPhoneNumberCoverageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyCustomerServiceRecordPhoneNumberCoverageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

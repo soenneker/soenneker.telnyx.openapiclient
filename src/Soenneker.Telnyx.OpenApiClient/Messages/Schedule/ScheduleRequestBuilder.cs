@@ -36,18 +36,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Schedule
         /// <summary>
         /// &quot;Schedule a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to schedule a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.SchedulePostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessageResponseResponseJson4"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.SchedulePostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessageResponseResponseJson4?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.SchedulePostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessageResponseResponseJson4> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Schedule
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.SchedulePostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.SchedulePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MessageResponseResponseJson4>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MessageResponseResponseJson4.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Schedule a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to schedule a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.&quot;

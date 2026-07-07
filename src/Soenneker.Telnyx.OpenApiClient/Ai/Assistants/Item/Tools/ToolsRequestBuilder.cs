@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools
 {
     /// <summary>
-    /// Builds and executes requests for operations under \ai\assistants\{assistant_id}\tools
+    /// Builds and executes requests for operations under \ai\assistants\{assistantId}\tools
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.assistants.item.tools.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item.WithTool_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item.WithTool_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the tool.</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item.WithToolItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item.WithToolItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("tool_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item.WithTool_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("toolId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item.WithToolItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}/tools", pathParameters)
+        public ToolsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistantId}/tools", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}/tools", rawUrl)
+        public ToolsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistantId}/tools", rawUrl)
         {
         }
     }

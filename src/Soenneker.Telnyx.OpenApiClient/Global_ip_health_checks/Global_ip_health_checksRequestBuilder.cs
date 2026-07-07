@@ -49,18 +49,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
         /// <summary>
         /// List all Global IP health checks.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpHealthChecks200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksRequestBuilder.Global_ip_health_checksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpHealthChecks200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksRequestBuilder.Global_ip_health_checksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksRequestBuilder.Global_ip_health_checksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpHealthChecks200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksRequestBuilder.Global_ip_health_checksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -69,12 +69,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpHealthChecks200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpHealthChecks200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a Global IP health check.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpHealthCheck202Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -82,11 +82,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpHealthCheck202Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheck body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpHealthCheck202Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheck body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpHealthCheck202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpHealthCheck202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all Global IP health checks.
@@ -125,11 +125,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheck body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheck body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

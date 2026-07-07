@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Carrier { get; set; }
 #endif
         /// <summary>The line-type of the sender.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFrom_line_type? LineType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFromLineType? LineType { get; set; }
         /// <summary>Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFrom_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFromStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFrom"/> and sets the default values.
         /// </summary>
@@ -60,9 +60,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "carrier", n => { Carrier = n.GetStringValue(); } },
-                { "line_type", n => { LineType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFrom_line_type>(); } },
+                { "line_type", n => { LineType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFromLineType>(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFrom_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFromStatus>(); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("carrier", Carrier);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFrom_line_type>("line_type", LineType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFromLineType>("line_type", LineType);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFrom_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponseDataFromStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

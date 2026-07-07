@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -105,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Authorize
 #endif
             /// <summary>PKCE code challenge method</summary>
             [QueryParameter("code_challenge_method")]
-            public global::Soenneker.Telnyx.OpenApiClient.Oauth.Authorize.GetCode_challenge_methodQueryParameterType? CodeChallengeMethod { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AuthorizeOAuthCodeChallengeMethodParameter? CodeChallengeMethod { get; set; }
             /// <summary>Redirect URI</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Authorize
 #endif
             /// <summary>OAuth response type</summary>
             [QueryParameter("response_type")]
-            public global::Soenneker.Telnyx.OpenApiClient.Oauth.Authorize.GetResponse_typeQueryParameterType? ResponseType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AuthorizeOAuthResponseTypeParameter? ResponseType { get; set; }
             /// <summary>Space-separated list of requested scopes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

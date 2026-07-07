@@ -102,6 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateCampaignRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            AutoRenewal = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

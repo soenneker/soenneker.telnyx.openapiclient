@@ -30,6 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public RefreshRoomClientTokenRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            TokenTtlSecs = 600;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

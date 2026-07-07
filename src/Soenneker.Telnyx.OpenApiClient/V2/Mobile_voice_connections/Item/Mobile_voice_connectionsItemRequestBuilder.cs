@@ -36,58 +36,58 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item
         /// <summary>
         /// Delete a Mobile Voice Connection
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a Mobile Voice Connection
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a Mobile Voice Connection
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobileVoiceConnection200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsPatchResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobileVoiceConnection200Response?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsPatchResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobileVoiceConnection200Response> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item.Mobile_voice_connectionsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobileVoiceConnection200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobileVoiceConnection200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete a Mobile Voice Connection

@@ -41,6 +41,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CallRequestAnsweringMachineDetectionConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            AfterGreetingSilenceMillis = 800;
+            BetweenWordsSilenceMillis = 50;
+            GreetingDurationMillis = 3500;
+            GreetingSilenceDurationMillis = 1500;
+            GreetingTotalAnalysisTimeMillis = 5000;
+            InitialSilenceMillis = 3500;
+            MaximumNumberOfWords = 5;
+            MaximumWordLengthMillis = 3500;
+            SilenceThreshold = 256;
+            TotalAnalysisTimeMillis = 3500;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

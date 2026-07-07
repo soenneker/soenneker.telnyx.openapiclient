@@ -10,11 +10,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "phone_call")]
         #pragma warning disable CS1591
-        Phone_call,
+        PhoneCall,
         #pragma warning restore CS1591
         [EnumMember(Value = "sms_chat")]
         #pragma warning disable CS1591
-        Sms_chat,
+        SmsChat,
         #pragma warning restore CS1591
     }
 }

@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string AlternateResourceId { get; set; }
 #endif
         /// <summary>Indicates if the change was made by Telnyx on your behalf, the organization owner, a member of your organization, or in the case of managed accounts, the account manager.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog_change_made_by? ChangeMadeBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditLogChangeMadeBy? ChangeMadeBy { get; set; }
         /// <summary>Details of the changes made to the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alternate_resource_id", n => { AlternateResourceId = n.GetStringValue(); } },
-                { "change_made_by", n => { ChangeMadeBy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog_change_made_by>(); } },
+                { "change_made_by", n => { ChangeMadeBy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditLogChangeMadeBy>(); } },
                 { "change_type", n => { ChangeType = n.GetStringValue(); } },
                 { "changes", n => { Changes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges>(global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alternate_resource_id", AlternateResourceId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog_change_made_by>("change_made_by", ChangeMadeBy);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditLogChangeMadeBy>("change_made_by", ChangeMadeBy);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges>("changes", Changes);
             writer.WriteStringValue("change_type", ChangeType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);

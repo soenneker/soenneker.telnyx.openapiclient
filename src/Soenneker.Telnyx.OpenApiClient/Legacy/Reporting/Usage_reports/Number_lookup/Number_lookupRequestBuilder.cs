@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_l
     public partial class Number_lookupRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.legacy.reporting.usage_reports.number_lookup.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Item.Number_lookupItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Item.Number_lookupItemRequestBuilder this[string position]
         {

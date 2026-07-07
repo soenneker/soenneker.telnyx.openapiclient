@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>True if all requirements are met for every phone number, false otherwise.</summary>
         public bool? RequirementsMet { get; private set; }
         /// <summary>The status of the order.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrder_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderStatus? Status { get; private set; }
         /// <summary>The sub_number_orders_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "phone_numbers_count", n => { PhoneNumbersCount = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrder_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderStatus>(); } },
                 { "sub_number_orders_ids", n => { SubNumberOrdersIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };

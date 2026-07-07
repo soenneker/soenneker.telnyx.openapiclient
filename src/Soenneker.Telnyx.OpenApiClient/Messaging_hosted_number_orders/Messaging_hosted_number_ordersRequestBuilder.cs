@@ -55,17 +55,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders
         /// <summary>
         /// List messaging hosted number orders
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumberOrderResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersRequestBuilder.Messaging_hosted_number_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumberOrderResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersRequestBuilder.Messaging_hosted_number_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersRequestBuilder.Messaging_hosted_number_ordersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumberOrderResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersRequestBuilder.Messaging_hosted_number_ordersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -73,23 +73,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumberOrderResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumberOrderResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a messaging hosted number order
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMessagingHostedNumberOrderResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessagingHostedNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMessagingHostedNumberOrderResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessagingHostedNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessagingHostedNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMessagingHostedNumberOrderResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessagingHostedNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMessagingHostedNumberOrderResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMessagingHostedNumberOrderResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List messaging hosted number orders

@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Proxy { get; set; }
 #endif
         /// <summary>The transport protocol used for SIP signaling when communicating with the external SIP peer. One of UDP, TLS, or TCP.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings_transport? Transport { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport? Transport { get; set; }
         /// <summary>The SIP username used to authenticate with the external SIP peer for registrations and outbound calls. Must start with a letter or number and contain only letters, numbers, hyphens, and underscores.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "outbound_proxy", n => { OutboundProxy = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "proxy", n => { Proxy = n.GetStringValue(); } },
-                { "transport", n => { Transport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings_transport>(); } },
+                { "transport", n => { Transport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("outbound_proxy", OutboundProxy);
             writer.WriteStringValue("password", Password);
             writer.WriteStringValue("proxy", Proxy);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings_transport>("transport", Transport);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>("transport", Transport);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }

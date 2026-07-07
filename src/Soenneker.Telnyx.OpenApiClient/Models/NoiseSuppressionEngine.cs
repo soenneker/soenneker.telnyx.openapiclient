@@ -23,5 +23,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         AiCoustics,
         #pragma warning restore CS1591
+        [EnumMember(Value = "aic_l_quail")]
+        #pragma warning disable CS1591
+        AicLQuail,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "aic_l_rook")]
+        #pragma warning disable CS1591
+        AicLRook,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "aic_s_quail")]
+        #pragma warning disable CS1591
+        AicSQuail,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "aic_s_rook")]
+        #pragma warning disable CS1591
+        AicSRook,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "quail_voice_focus_s")]
+        #pragma warning disable CS1591
+        QuailVoiceFocusS,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "quail_voice_focus_xs")]
+        #pragma warning disable CS1591
+        QuailVoiceFocusXs,
+        #pragma warning restore CS1591
     }
 }

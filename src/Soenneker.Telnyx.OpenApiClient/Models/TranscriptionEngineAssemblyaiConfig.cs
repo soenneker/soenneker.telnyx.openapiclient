@@ -17,16 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether to send also interim results. If set to false, only final results will be sent.</summary>
         public bool? InterimResults { get; set; }
         /// <summary>Engine identifier for AssemblyAI transcription service</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig_transcription_engine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfigTranscriptionEngine? TranscriptionEngine { get; set; }
         /// <summary>The model to use for transcription.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig_transcription_model? TranscriptionModel { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfigTranscriptionModel? TranscriptionModel { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig"/> and sets the default values.
         /// </summary>
         public TranscriptionEngineAssemblyaiConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            TranscriptionModel = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig_transcription_model.AssemblyaiUniversalStreaming;
+            InterimResults = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,8 +47,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "interim_results", n => { InterimResults = n.GetBoolValue(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig_transcription_engine>(); } },
-                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig_transcription_model>(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfigTranscriptionEngine>(); } },
+                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfigTranscriptionModel>(); } },
             };
         }
         /// <summary>
@@ -59,8 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("interim_results", InterimResults);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig_transcription_model>("transcription_model", TranscriptionModel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfigTranscriptionEngine>("transcription_engine", TranscriptionEngine);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfigTranscriptionModel>("transcription_model", TranscriptionModel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

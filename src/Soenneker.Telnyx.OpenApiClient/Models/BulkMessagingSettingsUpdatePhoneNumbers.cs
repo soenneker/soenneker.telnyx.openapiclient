@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Pending { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbers_record_type? RecordType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRecordType? RecordType { get; private set; }
         /// <summary>Phoned numbers updated successfully.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "failed", n => { Failed = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "order_id", n => { OrderId = n.GetGuidValue(); } },
                 { "pending", n => { Pending = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbers_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRecordType>(); } },
                 { "success", n => { Success = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }

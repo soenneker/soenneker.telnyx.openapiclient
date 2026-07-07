@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The supervisor role to switch to. &apos;barge&apos; allows speaking to both parties, &apos;whisper&apos; allows speaking to caller only, &apos;monitor&apos; allows listening only.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SwitchSupervisorRoleRequest_role? Role { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SwitchSupervisorRoleRequestRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SwitchSupervisorRoleRequest"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SwitchSupervisorRoleRequest_role>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SwitchSupervisorRoleRequestRole>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SwitchSupervisorRoleRequest_role>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SwitchSupervisorRoleRequestRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

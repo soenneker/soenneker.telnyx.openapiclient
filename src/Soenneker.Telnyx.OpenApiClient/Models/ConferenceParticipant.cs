@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether the conference soft-ends when this participant exits.</summary>
         public bool? SoftEndConferenceOnExit { get; set; }
         /// <summary>Status of the participant.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipant_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantStatus? Status { get; set; }
         /// <summary>Timestamp when the participant was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>List of call control IDs this participant is whispering to.</summary>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "muted", n => { Muted = n.GetBoolValue(); } },
                 { "on_hold", n => { OnHold = n.GetBoolValue(); } },
                 { "soft_end_conference_on_exit", n => { SoftEndConferenceOnExit = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipant_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "whisper_call_control_ids", n => { WhisperCallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("muted", Muted);
             writer.WriteBoolValue("on_hold", OnHold);
             writer.WriteBoolValue("soft_end_conference_on_exit", SoftEndConferenceOnExit);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipant_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("whisper_call_control_ids", WhisperCallControlIds);
             writer.WriteAdditionalData(AdditionalData);

@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,18 +59,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The tool_calls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_calls>? ToolCalls { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolCallsItemProperty>? ToolCalls { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_calls> ToolCalls { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolCallsItemProperty> ToolCalls { get; set; }
 #endif
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice? ToolChoice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice? ToolChoice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice ToolChoice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice ToolChoice { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq"/> and sets the default values.
@@ -98,13 +98,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
-                { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_calls>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_calls.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice.CreateFromDiscriminatorValue); } },
+                { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolCallsItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolCallsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -115,13 +115,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("role", Role);
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
             writer.WriteStringValue("tool_call_id", ToolCallId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_calls>("tool_calls", ToolCalls);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice>("tool_choice", ToolChoice);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolCallsItemProperty>("tool_calls", ToolCalls);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice>("tool_choice", ToolChoice);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

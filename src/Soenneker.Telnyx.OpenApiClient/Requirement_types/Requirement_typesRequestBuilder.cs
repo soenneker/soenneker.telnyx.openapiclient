@@ -49,18 +49,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_types
         /// <summary>
         /// List all requirement types ordered by created_at descending
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirementTypes200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocumentsErrors">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocumentsErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirementTypes200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirementTypes200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_types
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.DocumentsErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.DocumentsErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirementTypes200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirementTypes200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all requirement types ordered by created_at descending
@@ -119,11 +119,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_types
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Requirement_types.GetSortQueryParameterType[]? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SortRequirementTypesConsolidatedItem[]? Sort { get; set; }
 #nullable restore
 #else
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Requirement_types.GetSortQueryParameterType[] Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SortRequirementTypesConsolidatedItem[] Sort { get; set; }
 #endif
         }
     }

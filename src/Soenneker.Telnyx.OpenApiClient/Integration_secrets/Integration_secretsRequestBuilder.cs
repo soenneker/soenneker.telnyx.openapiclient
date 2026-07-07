@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Integration_secrets
     public partial class Integration_secretsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.integration_secrets.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Integration_secrets.Item.Integration_secretsItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Integration_secrets.Item.Integration_secretsItemRequestBuilder this[string position]
         {

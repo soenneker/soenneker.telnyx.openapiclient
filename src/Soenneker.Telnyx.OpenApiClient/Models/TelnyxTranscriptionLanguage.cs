@@ -217,7 +217,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "is")]
         #pragma warning disable CS1591
-        Is,
+        IsValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "hy")]
         #pragma warning disable CS1591
@@ -373,7 +373,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "as")]
         #pragma warning disable CS1591
-        As,
+        AsValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "tt")]
         #pragma warning disable CS1591
@@ -405,7 +405,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "auto_detect")]
         #pragma warning disable CS1591
-        Auto_detect,
+        AutoDetect,
         #pragma warning restore CS1591
     }
 }

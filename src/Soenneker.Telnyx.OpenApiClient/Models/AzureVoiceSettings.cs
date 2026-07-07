@@ -31,9 +31,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string DeploymentId { get; set; }
 #endif
         /// <summary>Audio effect to apply.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_effect? Effect { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsEffect? Effect { get; set; }
         /// <summary>Voice gender filter.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_gender? Gender { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsGender? Gender { get; set; }
         /// <summary>The Azure region for the Speech service (e.g., `eastus`, `westeurope`). Required when using a custom API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Region { get; set; }
 #endif
         /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/> and sets the default values.
         /// </summary>
@@ -71,10 +71,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "deployment_id", n => { DeploymentId = n.GetStringValue(); } },
-                { "effect", n => { Effect = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_effect>(); } },
-                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_gender>(); } },
+                { "effect", n => { Effect = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsEffect>(); } },
+                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsGender>(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsType>(); } },
             };
         }
         /// <summary>
@@ -86,10 +86,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteStringValue("deployment_id", DeploymentId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_effect>("effect", Effect);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_gender>("gender", Gender);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsEffect>("effect", Effect);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsGender>("gender", Gender);
             writer.WriteStringValue("region", Region);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string To { get; set; }
 #endif
         /// <summary>The protocol for sending the message, either SMS or MMS.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequest_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequestType? Type { get; set; }
         /// <summary>If the profile this number is associated with has webhooks, use them for delivery notifications. If webhooks are also specified on the message itself, they will be attempted first, then those on the profile.</summary>
         public bool? UseProfileWebhooks { get; set; }
         /// <summary>The failover URL where webhooks related to this message will be sent if sending to the primary URL fails.</summary>
@@ -92,6 +92,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateScheduledMessageRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            AutoDetect = false;
+            UseProfileWebhooks = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -119,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequest_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequestType>(); } },
                 { "use_profile_webhooks", n => { UseProfileWebhooks = n.GetBoolValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -140,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("to", To);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequest_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledMessageRequestType>("type", Type);
             writer.WriteBoolValue("use_profile_webhooks", UseProfileWebhooks);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);

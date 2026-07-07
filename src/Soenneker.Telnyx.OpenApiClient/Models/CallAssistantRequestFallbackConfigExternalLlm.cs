@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Authentication method used when connecting to the external LLM endpoint.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm_authentication_method? AuthenticationMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlmAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>Base URL for the external LLM endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CallAssistantRequestFallbackConfigExternalLlm()
         {
             AdditionalData = new Dictionary<string, object>();
-            AuthenticationMethod = global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm_authentication_method.Token;
+            ForwardMetadata = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "authentication_method", n => { AuthenticationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm_authentication_method>(); } },
+                { "authentication_method", n => { AuthenticationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlmAuthenticationMethod>(); } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "certificate_ref", n => { CertificateRef = n.GetStringValue(); } },
                 { "forward_metadata", n => { ForwardMetadata = n.GetBoolValue(); } },
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm_authentication_method>("authentication_method", AuthenticationMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlmAuthenticationMethod>("authentication_method", AuthenticationMethod);
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("certificate_ref", CertificateRef);
             writer.WriteBoolValue("forward_metadata", ForwardMetadata);

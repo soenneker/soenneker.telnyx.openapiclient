@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "US")]
         #pragma warning disable CS1591
-        US,
+        Us,
         #pragma warning restore CS1591
     }
 }

@@ -30,6 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateQueueRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            MaxSize = 300;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

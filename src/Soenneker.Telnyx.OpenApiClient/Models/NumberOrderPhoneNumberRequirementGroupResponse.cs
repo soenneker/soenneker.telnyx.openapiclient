@@ -67,10 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The regulatory_requirements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponse_regulatory_requirements>? RegulatoryRequirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponseRegulatoryRequirementsItem>? RegulatoryRequirements { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponse_regulatory_requirements> RegulatoryRequirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponseRegulatoryRequirementsItem> RegulatoryRequirements { get; set; }
 #endif
         /// <summary>The requirements_met property</summary>
         public bool? RequirementsMet { get; set; }
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponse_regulatory_requirements>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponse_regulatory_requirements.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponseRegulatoryRequirementsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponseRegulatoryRequirementsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
                 { "requirements_status", n => { RequirementsStatus = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteStringValue("phone_number_type", PhoneNumberType);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponse_regulatory_requirements>("regulatory_requirements", RegulatoryRequirements);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementGroupResponseRegulatoryRequirementsItem>("regulatory_requirements", RegulatoryRequirements);
             writer.WriteBoolValue("requirements_met", RequirementsMet);
             writer.WriteStringValue("requirements_status", RequirementsStatus);
             writer.WriteStringValue("status", Status);

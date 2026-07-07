@@ -2,7 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Terms_of_service.Agreements;
+using Soenneker.Telnyx.OpenApiClient.Terms_of_service.Branded_calling;
+using Soenneker.Telnyx.OpenApiClient.Terms_of_service.Info;
 using Soenneker.Telnyx.OpenApiClient.Terms_of_service.Number_reputation;
+using Soenneker.Telnyx.OpenApiClient.Terms_of_service.Status;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,10 +19,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Terms_of_service
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Terms_of_serviceRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The agreements property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Agreements.AgreementsRequestBuilder Agreements
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Agreements.AgreementsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The branded_calling property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Branded_calling.Branded_callingRequestBuilder Branded_calling
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Branded_calling.Branded_callingRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The info property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Info.InfoRequestBuilder Info
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Info.InfoRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The number_reputation property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Number_reputation.Number_reputationRequestBuilder Number_reputation
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Number_reputation.Number_reputationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The status property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Status.StatusRequestBuilder Status
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Status.StatusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Terms_of_serviceRequestBuilder"/> and sets the default values.

@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports
             get => new global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.reports.mdr_usage_reports.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item.Mdr_usage_reportsItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item.Mdr_usage_reportsItemRequestBuilder this[Guid position]
         {

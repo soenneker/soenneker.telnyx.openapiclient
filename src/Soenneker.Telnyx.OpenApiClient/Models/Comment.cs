@@ -31,11 +31,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Commenter { get; private set; }
 #endif
         /// <summary>The commenter_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Comment_commenter_type? CommenterType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommenterType? CommenterType { get; private set; }
         /// <summary>The comment_record_id property</summary>
         public Guid? CommentRecordId { get; set; }
         /// <summary>The comment_record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Comment_comment_record_type? CommentRecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType? CommentRecordType { get; set; }
         /// <summary>An ISO 8901 datetime string denoting when the comment was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The id property</summary>
@@ -71,9 +71,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "comment_record_id", n => { CommentRecordId = n.GetGuidValue(); } },
-                { "comment_record_type", n => { CommentRecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Comment_comment_record_type>(); } },
+                { "comment_record_type", n => { CommentRecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType>(); } },
                 { "commenter", n => { Commenter = n.GetStringValue(); } },
-                { "commenter_type", n => { CommenterType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Comment_commenter_type>(); } },
+                { "commenter_type", n => { CommenterType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommenterType>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "read_at", n => { ReadAt = n.GetDateTimeOffsetValue(); } },
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("body", Body);
             writer.WriteGuidValue("comment_record_id", CommentRecordId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Comment_comment_record_type>("comment_record_type", CommentRecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType>("comment_record_type", CommentRecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

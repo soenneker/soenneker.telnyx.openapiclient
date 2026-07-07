@@ -15,6 +15,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The client_side_tool property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty? ClientSideTool { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty ClientSideTool { get; set; }
+#endif
         /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,34 +34,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The function property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_function? Function { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty? Function { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_function Function { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty Function { get; set; }
 #endif
         /// <summary>The handoff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_handoff? Handoff { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty? Handoff { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_handoff Handoff { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty Handoff { get; set; }
 #endif
         /// <summary>The invite property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_invite? Invite { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty? Invite { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_invite Invite { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty Invite { get; set; }
 #endif
         /// <summary>The retrieval property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_retrieval? Retrieval { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty? Retrieval { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_retrieval Retrieval { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty Retrieval { get; set; }
 #endif
         /// <summary>The timeout_ms property</summary>
         public int? TimeoutMs { get; set; }
@@ -68,10 +76,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The webhook property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_webhook? Webhook { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty? Webhook { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_webhook Webhook { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty Webhook { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest"/> and sets the default values.
@@ -79,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateSharedToolRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            TimeoutMs = 5000;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -98,14 +107,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "client_side_tool", n => { ClientSideTool = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty.CreateFromDiscriminatorValue); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
-                { "function", n => { Function = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_function>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_function.CreateFromDiscriminatorValue); } },
-                { "handoff", n => { Handoff = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_handoff>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_handoff.CreateFromDiscriminatorValue); } },
-                { "invite", n => { Invite = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_invite>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_invite.CreateFromDiscriminatorValue); } },
-                { "retrieval", n => { Retrieval = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_retrieval>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_retrieval.CreateFromDiscriminatorValue); } },
+                { "function", n => { Function = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty.CreateFromDiscriminatorValue); } },
+                { "handoff", n => { Handoff = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty.CreateFromDiscriminatorValue); } },
+                { "invite", n => { Invite = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty.CreateFromDiscriminatorValue); } },
+                { "retrieval", n => { Retrieval = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty.CreateFromDiscriminatorValue); } },
                 { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_webhook>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_webhook.CreateFromDiscriminatorValue); } },
+                { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -115,14 +125,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty>("client_side_tool", ClientSideTool);
             writer.WriteStringValue("display_name", DisplayName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_function>("function", Function);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_handoff>("handoff", Handoff);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_invite>("invite", Invite);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_retrieval>("retrieval", Retrieval);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty>("function", Function);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty>("handoff", Handoff);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty>("invite", Invite);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty>("retrieval", Retrieval);
             writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteStringValue("type", Type);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest_webhook>("webhook", Webhook);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty>("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

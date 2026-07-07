@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.integrations.connections.item collection</summary>
         /// <param name="position">The user integration connection identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections.Item.WithUser_connection_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections.Item.WithUser_connection_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections.Item.WithUserConnectionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections.Item.WithUserConnectionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("user_connection_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections.Item.WithUser_connection_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("userConnectionId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections.Item.WithUserConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationConnectionsListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationConnectionsListResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationConnectionsListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationConnectionsListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

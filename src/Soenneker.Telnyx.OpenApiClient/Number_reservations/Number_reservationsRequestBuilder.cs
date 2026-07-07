@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_reservations
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.number_reservations.item collection</summary>
         /// <param name="position">The number reservation ID.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Item.WithNumber_reservation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Item.WithNumber_reservation_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Item.WithNumberReservationItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Item.WithNumberReservationItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("number_reservation_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Item.WithNumber_reservation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("numberReservationId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Item.WithNumberReservationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_reservations
         /// <summary>
         /// Gets a paginated list of phone number reservations.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberReservationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 400 status code</exception>
@@ -59,11 +59,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_reservations
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsRequestBuilder.Number_reservationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberReservationsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsRequestBuilder.Number_reservationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsRequestBuilder.Number_reservationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberReservationsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsRequestBuilder.Number_reservationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -75,12 +75,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_reservations
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberReservationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberReservationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a Phone Number Reservation for multiple numbers.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservationResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_reservations
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberReservationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservationResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberReservationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberReservationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservationResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberReservationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_reservations
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Number_reservations.Number_reservationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservationResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets a paginated list of phone number reservations.

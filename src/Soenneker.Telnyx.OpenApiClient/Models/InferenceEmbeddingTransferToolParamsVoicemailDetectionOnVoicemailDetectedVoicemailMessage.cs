@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Message { get; set; }
 #endif
         /// <summary>The type of voicemail message. Use &apos;message&apos; to leave a specific TTS message, or &apos;warm_transfer_instructions&apos; to play the warm transfer audio.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessageType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("message", Message);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

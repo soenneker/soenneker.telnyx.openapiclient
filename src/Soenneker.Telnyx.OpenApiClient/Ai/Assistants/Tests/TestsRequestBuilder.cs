@@ -25,15 +25,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestSuites.TestSuitesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.assistants.tests.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.Item.WithTest_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.Item.WithTest_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the test.</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.Item.WithTestItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.Item.WithTestItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("test_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.Item.WithTest_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("testId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.Item.WithTestItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestsRequestBuilder.TestsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
         /// <param name="body">Request model for creating a new assistant test.This model defines all the required and optional parameters needed to createa comprehensive test for an AI assistant, including test configuration,evaluation criteria, and scheduling options.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

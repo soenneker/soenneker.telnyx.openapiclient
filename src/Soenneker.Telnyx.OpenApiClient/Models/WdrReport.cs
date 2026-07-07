@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StartTime { get; set; }
 #endif
         /// <summary>Indicates the status of the report, which is updated asynchronously.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WdrReport_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WdrReportStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "report_url", n => { ReportUrl = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WdrReport_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WdrReportStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("end_time", EndTime);
             writer.WriteStringValue("report_url", ReportUrl);
             writer.WriteStringValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WdrReport_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WdrReportStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

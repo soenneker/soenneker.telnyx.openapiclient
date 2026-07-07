@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
         /// <summary>
         /// Delete a notification profile.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationProfile200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 400 status code</exception>
@@ -44,11 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationProfile200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationProfile200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -58,12 +58,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a notification profile.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationProfile200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 400 status code</exception>
@@ -72,11 +72,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationProfile200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationProfile200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -87,12 +87,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a notification profile.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationProfile200Response"/></returns>
         /// <param name="body">A Collection of Notification Channels</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,11 +101,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesPatchResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationProfile200Response?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesPatchResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationProfile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationProfile200Response> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationProfile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item.Notification_profilesPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete a notification profile.

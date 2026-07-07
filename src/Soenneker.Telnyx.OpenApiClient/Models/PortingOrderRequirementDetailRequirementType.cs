@@ -16,10 +16,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The acceptance criteria for the requirement type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType_acceptance_criteria? AcceptanceCriteria { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementTypeAcceptanceCriteriaProperty? AcceptanceCriteria { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType_acceptance_criteria AcceptanceCriteria { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementTypeAcceptanceCriteriaProperty AcceptanceCriteria { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "acceptance_criteria", n => { AcceptanceCriteria = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType_acceptance_criteria>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType_acceptance_criteria.CreateFromDiscriminatorValue); } },
+                { "acceptance_criteria", n => { AcceptanceCriteria = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementTypeAcceptanceCriteriaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementTypeAcceptanceCriteriaProperty.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "example", n => { Example = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType_acceptance_criteria>("acceptance_criteria", AcceptanceCriteria);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementTypeAcceptanceCriteriaProperty>("acceptance_criteria", AcceptanceCriteria);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("example", Example);
             writer.WriteStringValue("id", Id);

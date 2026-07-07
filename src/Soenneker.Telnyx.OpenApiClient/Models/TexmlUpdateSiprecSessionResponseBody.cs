@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Sid { get; set; }
 #endif
         /// <summary>The status of the siprec session.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBody_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBodyStatus? Status { get; set; }
         /// <summary>The URI of the siprec session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBody_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBodyStatus>(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("date_updated", DateUpdated);
             writer.WriteStringValue("error_code", ErrorCode);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBody_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBodyStatus>("status", Status);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

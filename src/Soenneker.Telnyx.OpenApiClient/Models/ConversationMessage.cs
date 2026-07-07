@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The datetime the message was created on the conversation. This does not necesarily correspond to the time the message was sent. The best field to use to determine the time the end user experienced the message is `sent_at`.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The role of the message sender.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage_role? Role { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageRole? Role { get; set; }
         /// <summary>The datetime the message was sent to the end user.</summary>
         public DateTimeOffset? SentAt { get; set; }
         /// <summary>The message content. Can be null for tool calls.</summary>
@@ -31,10 +31,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Optional tool calls made by the assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage_tool_calls>? ToolCalls { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageToolCallsItem>? ToolCalls { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage_tool_calls> ToolCalls { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageToolCallsItem> ToolCalls { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage"/> and sets the default values.
@@ -62,10 +62,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage_role>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageRole>(); } },
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage_tool_calls>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage_tool_calls.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageToolCallsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageToolCallsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -76,10 +76,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage_role>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageRole>("role", Role);
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
             writer.WriteStringValue("text", Text);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessage_tool_calls>("tool_calls", ToolCalls);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageToolCallsItem>("tool_calls", ToolCalls);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

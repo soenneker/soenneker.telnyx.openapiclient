@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string AniOverride { get; set; }
 #endif
         /// <summary>Specifies when we apply your ani_override setting. Only applies when ani_override is not blank.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_ani_override_type? AniOverrideType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpAniOverrideType? AniOverrideType { get; set; }
         /// <summary>Forces all SIP calls originated on this connection to be &quot;parked&quot; instead of &quot;bridged&quot; to the destination specified on the URI. Parked calls will return ringback to the caller and will await for a Call Control command to define which action will be taken next.</summary>
         public bool? CallParkingEnabled { get; set; }
         /// <summary>When set, this will limit the total number of outbound calls to phone numbers associated with this connection.</summary>
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>When set, ringback will not wait for indication before sending ringback tone to calling party.</summary>
         public bool? InstantRingbackEnabled { get; set; }
         /// <summary>The ip_authentication_method property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_ip_authentication_method? IpAuthenticationMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpIpAuthenticationMethod? IpAuthenticationMethod { get; set; }
         /// <summary>The ip_authentication_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string OutboundVoiceProfileId { get; set; }
 #endif
         /// <summary>This setting only affects connections with Fax-type Outbound Voice Profiles. The setting dictates whether or not Telnyx sends a t.38 reinvite.&lt;br/&gt;&lt;br/&gt; By default, Telnyx will send the re-invite. If set to `customer`, the caller is expected to send the t.38 reinvite.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_t38_reinvite_source? T38ReinviteSource { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpT38ReinviteSource? T38ReinviteSource { get; set; }
         /// <summary>Numerical chars only, exactly 4 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,9 +74,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public OutboundIp()
         {
             AdditionalData = new Dictionary<string, object>();
-            AniOverrideType = global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_ani_override_type.Always;
-            IpAuthenticationMethod = global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_ip_authentication_method.TechPrefixpChargeInfo;
-            T38ReinviteSource = global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_t38_reinvite_source.Customer;
+            CallParkingEnabled = false;
+            GenerateRingbackTone = false;
+            InstantRingbackEnabled = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -97,16 +97,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ani_override", n => { AniOverride = n.GetStringValue(); } },
-                { "ani_override_type", n => { AniOverrideType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_ani_override_type>(); } },
+                { "ani_override_type", n => { AniOverrideType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpAniOverrideType>(); } },
                 { "call_parking_enabled", n => { CallParkingEnabled = n.GetBoolValue(); } },
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "generate_ringback_tone", n => { GenerateRingbackTone = n.GetBoolValue(); } },
                 { "instant_ringback_enabled", n => { InstantRingbackEnabled = n.GetBoolValue(); } },
-                { "ip_authentication_method", n => { IpAuthenticationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_ip_authentication_method>(); } },
+                { "ip_authentication_method", n => { IpAuthenticationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpIpAuthenticationMethod>(); } },
                 { "ip_authentication_token", n => { IpAuthenticationToken = n.GetStringValue(); } },
                 { "localization", n => { Localization = n.GetStringValue(); } },
                 { "outbound_voice_profile_id", n => { OutboundVoiceProfileId = n.GetStringValue(); } },
-                { "t38_reinvite_source", n => { T38ReinviteSource = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_t38_reinvite_source>(); } },
+                { "t38_reinvite_source", n => { T38ReinviteSource = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpT38ReinviteSource>(); } },
                 { "tech_prefix", n => { TechPrefix = n.GetStringValue(); } },
             };
         }
@@ -118,16 +118,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("ani_override", AniOverride);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_ani_override_type>("ani_override_type", AniOverrideType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpAniOverrideType>("ani_override_type", AniOverrideType);
             writer.WriteBoolValue("call_parking_enabled", CallParkingEnabled);
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteBoolValue("generate_ringback_tone", GenerateRingbackTone);
             writer.WriteBoolValue("instant_ringback_enabled", InstantRingbackEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_ip_authentication_method>("ip_authentication_method", IpAuthenticationMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpIpAuthenticationMethod>("ip_authentication_method", IpAuthenticationMethod);
             writer.WriteStringValue("ip_authentication_token", IpAuthenticationToken);
             writer.WriteStringValue("localization", Localization);
             writer.WriteStringValue("outbound_voice_profile_id", OutboundVoiceProfileId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp_t38_reinvite_source>("t38_reinvite_source", T38ReinviteSource);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIpT38ReinviteSource>("t38_reinvite_source", T38ReinviteSource);
             writer.WriteStringValue("tech_prefix", TechPrefix);
             writer.WriteAdditionalData(AdditionalData);
         }

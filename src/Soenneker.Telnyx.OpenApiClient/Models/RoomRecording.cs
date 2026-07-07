@@ -59,9 +59,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 timestamp when the room recording has stated.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>Shows the room recording status.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecordingStatus? Status { get; set; }
         /// <summary>Shows the room recording type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecordingType? Type { get; set; }
         /// <summary>ISO 8601 timestamp when the room recording was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -102,8 +102,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "session_id", n => { SessionId = n.GetGuidValue(); } },
                 { "size_mb", n => { SizeMb = n.GetFloatValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecordingStatus>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecordingType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -126,8 +126,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("session_id", SessionId);
             writer.WriteFloatValue("size_mb", SizeMb);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecordingStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecordingType>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

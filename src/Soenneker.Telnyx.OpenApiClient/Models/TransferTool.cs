@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams Transfer { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "transfer", n => { Transfer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams>("transfer", Transfer);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

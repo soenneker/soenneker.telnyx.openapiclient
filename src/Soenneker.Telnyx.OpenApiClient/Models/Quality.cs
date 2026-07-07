@@ -17,15 +17,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "very_high")]
         #pragma warning disable CS1591
-        Very_high,
+        VeryHigh,
         #pragma warning restore CS1591
         [EnumMember(Value = "ultra_light")]
         #pragma warning disable CS1591
-        Ultra_light,
+        UltraLight,
         #pragma warning restore CS1591
         [EnumMember(Value = "ultra_dark")]
         #pragma warning disable CS1591
-        Ultra_dark,
+        UltraDark,
         #pragma warning restore CS1591
     }
 }

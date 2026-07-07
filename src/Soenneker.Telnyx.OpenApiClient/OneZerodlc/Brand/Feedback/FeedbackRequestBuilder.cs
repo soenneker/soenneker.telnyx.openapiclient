@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Feedback
     public partial class FeedbackRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.OneZerodlc.brand.feedback.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the brand.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Feedback.Item.WithBrandItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Feedback.Item.WithBrandItemRequestBuilder this[string position]
         {

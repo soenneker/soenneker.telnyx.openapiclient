@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The list of phone numbers which you own and are in an editable state</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponse_found>? Found { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponseFoundItem>? Found { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponse_found> Found { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponseFoundItem> Found { get; set; }
 #endif
         /// <summary>Phone numbers that are not found in the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "found", n => { Found = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponse_found>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponse_found.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "found", n => { Found = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponseFoundItem>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponseFoundItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "not_found", n => { NotFound = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponse_found>("found", Found);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberVerifyOwnershipResponseFoundItem>("found", Found);
             writer.WriteCollectionOfPrimitiveValues<string>("not_found", NotFound);
             writer.WriteAdditionalData(AdditionalData);
         }

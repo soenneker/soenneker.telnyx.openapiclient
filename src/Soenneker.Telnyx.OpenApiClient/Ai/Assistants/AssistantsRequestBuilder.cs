@@ -37,15 +37,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.assistants.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the assistant.</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("assistant_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("assistantId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Voice synthesis provider used for this design.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryData_provider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryDataProvider? Provider { get; set; }
         /// <summary>List of TTS model identifiers supported by this design&apos;s provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> ProviderSupportedModels { get; set; }
 #endif
         /// <summary>Identifies the resource type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryData_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryDataRecordType? RecordType { get; set; }
         /// <summary>Timestamp when the voice design was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -69,9 +69,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryData_provider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryDataProvider>(); } },
                 { "provider_supported_models", n => { ProviderSupportedModels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryData_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryDataRecordType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -85,9 +85,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryData_provider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryDataProvider>("provider", Provider);
             writer.WriteCollectionOfPrimitiveValues<string>("provider_supported_models", ProviderSupportedModels);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryData_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignSummaryDataRecordType>("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

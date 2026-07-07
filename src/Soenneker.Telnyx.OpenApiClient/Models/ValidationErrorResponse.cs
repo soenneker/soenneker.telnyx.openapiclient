@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Validation error details keyed by field name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse_errors? Errors { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty? Errors { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse_errors Errors { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty Errors { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse_errors>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse_errors.CreateFromDiscriminatorValue); } },
+                { "errors", n => { Errors = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse_errors>("errors", Errors);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

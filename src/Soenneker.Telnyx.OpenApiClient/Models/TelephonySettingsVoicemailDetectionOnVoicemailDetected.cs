@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class TelephonySettingsVoicemailDetectionOnVoicemailDetected : IAdditionalDataHolder, IParsable
     {
         /// <summary>The action to take when voicemail is detected.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected_action? Action { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetectedAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Configuration for the voicemail message to leave. Only applicable when action is &apos;leave_message_and_stop_assistant&apos;.</summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected_action>(); } },
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetectedAction>(); } },
                 { "voicemail_message", n => { VoicemailMessage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetectedVoicemailMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetectedVoicemailMessage.CreateFromDiscriminatorValue); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected_action>("action", Action);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetectedAction>("action", Action);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetectedVoicemailMessage>("voicemail_message", VoicemailMessage);
             writer.WriteAdditionalData(AdditionalData);
         }

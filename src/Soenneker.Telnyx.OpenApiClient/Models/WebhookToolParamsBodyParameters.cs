@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The properties of the body parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters_properties? Properties { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParametersPropertiesProperty? Properties { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters_properties Properties { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParametersPropertiesProperty Properties { get; set; }
 #endif
         /// <summary>The required properties of the body parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Required { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParametersType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters"/> and sets the default values.
         /// </summary>
@@ -58,9 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "properties", n => { Properties = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters_properties>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters_properties.CreateFromDiscriminatorValue); } },
+                { "properties", n => { Properties = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParametersPropertiesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParametersPropertiesProperty.CreateFromDiscriminatorValue); } },
                 { "required", n => { Required = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParametersType>(); } },
             };
         }
         /// <summary>
@@ -70,9 +70,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters_properties>("properties", Properties);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParametersPropertiesProperty>("properties", Properties);
             writer.WriteCollectionOfPrimitiveValues<string>("required", Required);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParametersType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string OrganizationId { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AlphanumericSenderId_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AlphanumericSenderIdRecordType? RecordType { get; set; }
         /// <summary>A US long code number to use as fallback when sending to US destinations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetGuidValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AlphanumericSenderId_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AlphanumericSenderIdRecordType>(); } },
                 { "us_long_code_fallback", n => { UsLongCodeFallback = n.GetStringValue(); } },
             };
         }
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("messaging_profile_id", MessagingProfileId);
             writer.WriteStringValue("organization_id", OrganizationId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AlphanumericSenderId_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AlphanumericSenderIdRecordType>("record_type", RecordType);
             writer.WriteStringValue("us_long_code_fallback", UsLongCodeFallback);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "RFC 2833")]
         #pragma warning disable CS1591
-        RFC2833,
+        Rfc2833,
         #pragma warning restore CS1591
         [EnumMember(Value = "Inband")]
         #pragma warning disable CS1591
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "SIP INFO")]
         #pragma warning disable CS1591
-        SIPINFO,
+        SipInfo,
         #pragma warning restore CS1591
     }
 }

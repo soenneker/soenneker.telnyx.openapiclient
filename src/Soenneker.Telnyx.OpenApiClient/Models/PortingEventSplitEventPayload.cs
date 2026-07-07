@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The list of porting phone numbers that were moved to the new porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload_porting_phone_numbers>? PortingPhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem>? PortingPhoneNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload_porting_phone_numbers> PortingPhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem> PortingPhoneNumbers { get; set; }
 #endif
         /// <summary>The new porting order that the phone numbers was moved to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom.CreateFromDiscriminatorValue); } },
-                { "porting_phone_numbers", n => { PortingPhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload_porting_phone_numbers>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload_porting_phone_numbers.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "porting_phone_numbers", n => { PortingPhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom>("from", From);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload_porting_phone_numbers>("porting_phone_numbers", PortingPhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem>("porting_phone_numbers", PortingPhoneNumbers);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo>("to", To);
             writer.WriteAdditionalData(AdditionalData);
         }

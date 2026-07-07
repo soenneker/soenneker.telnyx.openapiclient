@@ -49,17 +49,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions
         /// <summary>
         /// This API allows listing a paginated collection a SIM card group actions. It allows to explore a collection of existing asynchronous operation using specific filters.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardGroupActions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsRequestBuilder.Sim_card_group_actionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardGroupActions200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsRequestBuilder.Sim_card_group_actionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsRequestBuilder.Sim_card_group_actionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardGroupActions200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsRequestBuilder.Sim_card_group_actionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions
             {
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.Sim_card_group_actionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardGroupActions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardGroupActions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This API allows listing a paginated collection a SIM card group actions. It allows to explore a collection of existing asynchronous operation using specific filters.
@@ -108,10 +108,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions
             public Guid? FiltersimCardGroupId { get; set; }
             /// <summary>Filter by a specific status of the resource&apos;s lifecycle.</summary>
             [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.GetFilterStatusQueryParameterType? Filterstatus { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.FilterBasicStatusLifecycle? Filterstatus { get; set; }
             /// <summary>Filter by action type.</summary>
             [QueryParameter("filter%5Btype%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.GetFilterTypeQueryParameterType? Filtertype { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardGroupActionsFilterTypeParameter? Filtertype { get; set; }
             /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }

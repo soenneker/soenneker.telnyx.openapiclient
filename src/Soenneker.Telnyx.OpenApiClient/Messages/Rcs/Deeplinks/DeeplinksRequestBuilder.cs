@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Rcs.Deeplinks
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messages.rcs.deeplinks.item collection</summary>
         /// <param name="position">RCS agent ID</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.Deeplinks.Item.WithAgent_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.Deeplinks.Item.WithAgent_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.Deeplinks.Item.WithAgentItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.Deeplinks.Item.WithAgentItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("agent_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.Deeplinks.Item.WithAgent_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("agentId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.Deeplinks.Item.WithAgentItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

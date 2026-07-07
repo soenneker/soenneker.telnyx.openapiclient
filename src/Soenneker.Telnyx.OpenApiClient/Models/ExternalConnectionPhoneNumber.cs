@@ -15,10 +15,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The acquired_capabilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumber_acquired_capabilities?>? AcquiredCapabilities { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem?>? AcquiredCapabilities { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumber_acquired_capabilities?> AcquiredCapabilities { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem?> AcquiredCapabilities { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "acquired_capabilities", n => { AcquiredCapabilities = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumber_acquired_capabilities>()?.AsList(); } },
+                { "acquired_capabilities", n => { AcquiredCapabilities = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem>()?.AsList(); } },
                 { "civic_address_id", n => { CivicAddressId = n.GetGuidValue(); } },
                 { "displayed_country_code", n => { DisplayedCountryCode = n.GetStringValue(); } },
                 { "location_id", n => { LocationId = n.GetGuidValue(); } },
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumber_acquired_capabilities>("acquired_capabilities", AcquiredCapabilities);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem>("acquired_capabilities", AcquiredCapabilities);
             writer.WriteGuidValue("civic_address_id", CivicAddressId);
             writer.WriteStringValue("displayed_country_code", DisplayedCountryCode);
             writer.WriteGuidValue("location_id", LocationId);

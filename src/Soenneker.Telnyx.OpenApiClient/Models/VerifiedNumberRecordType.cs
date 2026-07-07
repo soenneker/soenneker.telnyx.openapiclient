@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "verified_number")]
         #pragma warning disable CS1591
-        Verified_number,
+        VerifiedNumber,
         #pragma warning restore CS1591
     }
 }

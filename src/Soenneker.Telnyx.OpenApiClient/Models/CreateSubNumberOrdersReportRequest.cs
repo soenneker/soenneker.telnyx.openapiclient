@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Filter by specific order request ID</summary>
         public Guid? OrderRequestId { get; set; }
         /// <summary>Filter by order status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequestStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest"/> and sets the default values.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at_lt", n => { CreatedAtLt = n.GetDateTimeOffsetValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "order_request_id", n => { OrderRequestId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequestStatus>(); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at_lt", CreatedAtLt);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteGuidValue("order_request_id", OrderRequestId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequestStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

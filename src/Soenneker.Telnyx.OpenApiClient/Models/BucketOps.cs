@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The number of bytes sent</summary>
         public int? BytesSent { get; set; }
         /// <summary>The category of the bucket operation</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps_category? Category { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsCategory? Category { get; set; }
         /// <summary>The number of operations</summary>
         public int? Ops { get; set; }
         /// <summary>The number of successful operations</summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "bytes_received", n => { BytesReceived = n.GetIntValue(); } },
                 { "bytes_sent", n => { BytesSent = n.GetIntValue(); } },
-                { "category", n => { Category = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps_category>(); } },
+                { "category", n => { Category = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsCategory>(); } },
                 { "ops", n => { Ops = n.GetIntValue(); } },
                 { "successful_ops", n => { SuccessfulOps = n.GetIntValue(); } },
             };
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("bytes_received", BytesReceived);
             writer.WriteIntValue("bytes_sent", BytesSent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps_category>("category", Category);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsCategory>("category", Category);
             writer.WriteIntValue("ops", Ops);
             writer.WriteIntValue("successful_ops", SuccessfulOps);
             writer.WriteAdditionalData(AdditionalData);

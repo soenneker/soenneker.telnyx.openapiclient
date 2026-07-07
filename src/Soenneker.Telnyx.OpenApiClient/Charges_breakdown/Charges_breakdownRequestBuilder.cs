@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Charges_breakdown
             public Date? EndDate { get; set; }
             /// <summary>Response format</summary>
             [QueryParameter("format")]
-            public global::Soenneker.Telnyx.OpenApiClient.Charges_breakdown.GetFormatQueryParameterType? Format { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetMonthlyChargesBreakdownFormatParameter? Format { get; set; }
             /// <summary>Start date for the charges breakdown in ISO date format (YYYY-MM-DD)</summary>
             [QueryParameter("start_date")]
             public Date? StartDate { get; set; }

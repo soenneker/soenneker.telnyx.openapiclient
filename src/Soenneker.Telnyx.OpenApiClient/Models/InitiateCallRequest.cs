@@ -8,34 +8,34 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember3"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefault"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithTeXml"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithUrl"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InitiateCallRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefault"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember1? InitiateCallRequestMember1 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefault? InitiateCallRequestApplicationDefault { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember1 InitiateCallRequestMember1 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefault InitiateCallRequestApplicationDefault { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithTeXml"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember2? InitiateCallRequestMember2 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithTeXml? InitiateCallRequestWithTeXml { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember2 InitiateCallRequestMember2 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithTeXml InitiateCallRequestWithTeXml { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithUrl"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember3? InitiateCallRequestMember3 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithUrl? InitiateCallRequestWithUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember3 InitiateCallRequestMember3 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithUrl InitiateCallRequestWithUrl { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,17 +47,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("InitiateCallRequestApplicationDefault".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InitiateCallRequestMember1 = new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember1();
+                result.InitiateCallRequestApplicationDefault = new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefault();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("InitiateCallRequestWithTeXml".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InitiateCallRequestMember2 = new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember2();
+                result.InitiateCallRequestWithTeXml = new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithTeXml();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("InitiateCallRequestWithUrl".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InitiateCallRequestMember3 = new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember3();
+                result.InitiateCallRequestWithUrl = new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithUrl();
             }
             return result;
         }
@@ -67,17 +67,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(InitiateCallRequestMember1 != null)
+            if(InitiateCallRequestApplicationDefault != null)
             {
-                return InitiateCallRequestMember1.GetFieldDeserializers();
+                return InitiateCallRequestApplicationDefault.GetFieldDeserializers();
             }
-            else if(InitiateCallRequestMember2 != null)
+            else if(InitiateCallRequestWithTeXml != null)
             {
-                return InitiateCallRequestMember2.GetFieldDeserializers();
+                return InitiateCallRequestWithTeXml.GetFieldDeserializers();
             }
-            else if(InitiateCallRequestMember3 != null)
+            else if(InitiateCallRequestWithUrl != null)
             {
-                return InitiateCallRequestMember3.GetFieldDeserializers();
+                return InitiateCallRequestWithUrl.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -88,17 +88,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(InitiateCallRequestMember1 != null)
+            if(InitiateCallRequestApplicationDefault != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember1>(null, InitiateCallRequestMember1);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefault>(null, InitiateCallRequestApplicationDefault);
             }
-            else if(InitiateCallRequestMember2 != null)
+            else if(InitiateCallRequestWithTeXml != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember2>(null, InitiateCallRequestMember2);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithTeXml>(null, InitiateCallRequestWithTeXml);
             }
-            else if(InitiateCallRequestMember3 != null)
+            else if(InitiateCallRequestWithUrl != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestMember3>(null, InitiateCallRequestMember3);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithUrl>(null, InitiateCallRequestWithUrl);
             }
         }
     }

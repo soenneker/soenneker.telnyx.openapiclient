@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When `dual`, final audio file will be stereo recorded with the conference creator on the first channel, and the rest on the second channel.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_channels? Channels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestChannels? Channels { get; set; }
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `conference_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,20 +33,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CustomFileName { get; set; }
 #endif
         /// <summary>The audio file format used when storing the conference recording. Can be either `mp3` or `wav`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestFormat? Format { get; set; }
         /// <summary>If enabled, a beep sound will be played at the start of a recording.</summary>
         public bool? PlayBeep { get; set; }
         /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim? Trim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestTrim? Trim { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest"/> and sets the default values.
         /// </summary>
         public StartConferenceRecordingRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Channels = global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_channels.Single;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,13 +65,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_channels>(); } },
+                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestChannels>(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "custom_file_name", n => { CustomFileName = n.GetStringValue(); } },
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestFormat>(); } },
                 { "play_beep", n => { PlayBeep = n.GetBoolValue(); } },
                 { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
-                { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim>(); } },
+                { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestTrim>(); } },
             };
         }
         /// <summary>
@@ -82,13 +81,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_channels>("channels", Channels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestChannels>("channels", Channels);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("custom_file_name", CustomFileName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestFormat>("format", Format);
             writer.WriteBoolValue("play_beep", PlayBeep);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim>("trim", Trim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestTrim>("trim", Trim);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

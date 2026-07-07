@@ -36,18 +36,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration
         /// <summary>
         /// It validates whether SIM card registration codes are valid or not.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistrationCodeValidations"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SimCardRegistrationCodeValidations"/></returns>
         /// <param name="body">The object containing the Array of SIM card registration codes.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistrationCodeValidations?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateRegistrationCodes body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardRegistrationCodeValidations?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateRegistrationCodesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistrationCodeValidations> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateRegistrationCodes body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardRegistrationCodeValidations> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateRegistrationCodesRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration
             {
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistrationCodeValidations>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistrationCodeValidations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardRegistrationCodeValidations>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SimCardRegistrationCodeValidations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// It validates whether SIM card registration codes are valid or not.
@@ -66,11 +66,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateRegistrationCodes body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateRegistrationCodesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateRegistrationCodes body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateRegistrationCodesRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -36,17 +36,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
         /// <summary>
         /// List phone numbers with messaging settings
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingSettingsResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingRequestBuilder.MessagingRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingSettingsResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingRequestBuilder.MessagingRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingRequestBuilder.MessagingRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingSettingsResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingRequestBuilder.MessagingRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingSettingsResponseResponseJson>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingSettingsResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List phone numbers with messaging settings
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
 #endif
             /// <summary>Filter by phone number type.</summary>
             [QueryParameter("filter%5Btype%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.GetFilterTypeQueryParameterType? Filtertype { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersWithMessagingSettingsFilterTypeParameter? Filtertype { get; set; }
             /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
 #endif
             /// <summary>Sort by phone number.</summary>
             [QueryParameter("sort%5Bphone_number%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.GetSortPhone_numberQueryParameterType? SortphoneNumber { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersWithMessagingSettingsSortPhoneNumberParameter? SortphoneNumber { get; set; }
         }
     }
 }

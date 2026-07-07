@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrderStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrderStatus>(); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber>("phone_numbers", PhoneNumbers);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrderStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

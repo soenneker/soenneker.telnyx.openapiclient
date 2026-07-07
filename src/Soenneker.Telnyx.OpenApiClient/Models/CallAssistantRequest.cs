@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Map of dynamic variables and their default values. Dynamic variables can be referenced in instructions, greeting, and tool definitions using the `{{variable_name}}` syntax. Call-control-agent automatically merges in `telnyx_call_*` variables (telnyx_call_to, telnyx_call_from, telnyx_conversation_channel, telnyx_agent_target, telnyx_end_user_target, telnyx_call_caller_id_name) and custom header variables.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_dynamic_variables? DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestDynamicVariablesProperty? DynamicVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_dynamic_variables DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestDynamicVariablesProperty DynamicVariables { get; set; }
 #endif
         /// <summary>External LLM configuration for bringing your own LLM endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,10 +74,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>MCP (Model Context Protocol) server configurations for extending the assistant&apos;s capabilities with external tools and data sources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_mcp_servers>? McpServers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestMcpServersItemProperty>? McpServers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_mcp_servers> McpServers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestMcpServersItemProperty> McpServers { get; set; }
 #endif
         /// <summary>LLM model override for this call. If omitted, the assistant&apos;s configured model is used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,10 +98,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Observability configuration for the assistant session, including Langfuse integration for tracing and monitoring.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_observability_settings? ObservabilitySettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty? ObservabilitySettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_observability_settings ObservabilitySettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty ObservabilitySettings { get; set; }
 #endif
         /// <summary>Deprecated — use `llm_api_key_ref` instead. Integration secret identifier for the OpenAI API key. This field is maintained for backward compatibility; `llm_api_key_ref` is the canonical field name and supports all LLM providers.</summary>
         [Obsolete("")]
@@ -115,10 +115,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Inline tool definitions available to the assistant (webhook, retrieval, transfer, hangup, etc.). Overrides the assistant&apos;s stored tools if provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CallAssistantRequest_tools>? Tools { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem>? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CallAssistantRequest_tools> Tools { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem> Tools { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest"/> and sets the default values.
@@ -145,19 +145,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_dynamic_variables.CreateFromDiscriminatorValue); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "external_llm", n => { ExternalLlm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm.CreateFromDiscriminatorValue); } },
                 { "fallback_config", n => { FallbackConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig.CreateFromDiscriminatorValue); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "llm_api_key_ref", n => { LlmApiKeyRef = n.GetStringValue(); } },
-                { "mcp_servers", n => { McpServers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_mcp_servers>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_mcp_servers.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "mcp_servers", n => { McpServers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestMcpServersItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestMcpServersItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "observability_settings", n => { ObservabilitySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_observability_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_observability_settings.CreateFromDiscriminatorValue); } },
+                { "observability_settings", n => { ObservabilitySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty.CreateFromDiscriminatorValue); } },
                 { "openai_api_key_ref", n => { OpenaiApiKeyRef = n.GetStringValue(); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CallAssistantRequest_tools>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CallAssistantRequest_tools.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -167,175 +167,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_dynamic_variables>("dynamic_variables", DynamicVariables);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm>("external_llm", ExternalLlm);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig>("fallback_config", FallbackConfig);
             writer.WriteStringValue("greeting", Greeting);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("llm_api_key_ref", LlmApiKeyRef);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_mcp_servers>("mcp_servers", McpServers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestMcpServersItemProperty>("mcp_servers", McpServers);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_observability_settings>("observability_settings", ObservabilitySettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty>("observability_settings", ObservabilitySettings);
             writer.WriteStringValue("openai_api_key_ref", OpenaiApiKeyRef);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CallAssistantRequest_tools>("tools", Tools);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem>("tools", Tools);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CallAssistantRequest_tools : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool? BookAppointmentTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool BookAppointmentTool { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool? CallControlRetrievalTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool CallControlRetrievalTool { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool? CheckAvailabilityTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool CheckAvailabilityTool { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool? HangupTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool HangupTool { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool? TransferTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool TransferTool { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool? WebhookTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool WebhookTool { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CallAssistantRequest_tools"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CallAssistantRequest_tools CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CallAssistantRequest_tools();
-                if("book_appointment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.BookAppointmentTool = new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool();
-                }
-                else if("retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CallControlRetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool();
-                }
-                else if("check_availability".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CheckAvailabilityTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool();
-                }
-                else if("hangup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.HangupTool = new global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool();
-                }
-                else if("transfer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.TransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool();
-                }
-                else if("webhook".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BookAppointmentTool != null)
-                {
-                    return BookAppointmentTool.GetFieldDeserializers();
-                }
-                else if(CallControlRetrievalTool != null)
-                {
-                    return CallControlRetrievalTool.GetFieldDeserializers();
-                }
-                else if(CheckAvailabilityTool != null)
-                {
-                    return CheckAvailabilityTool.GetFieldDeserializers();
-                }
-                else if(HangupTool != null)
-                {
-                    return HangupTool.GetFieldDeserializers();
-                }
-                else if(TransferTool != null)
-                {
-                    return TransferTool.GetFieldDeserializers();
-                }
-                else if(WebhookTool != null)
-                {
-                    return WebhookTool.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(BookAppointmentTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool>(null, BookAppointmentTool);
-                }
-                else if(CallControlRetrievalTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool>(null, CallControlRetrievalTool);
-                }
-                else if(CheckAvailabilityTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool>(null, CheckAvailabilityTool);
-                }
-                else if(HangupTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool>(null, HangupTool);
-                }
-                else if(TransferTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool>(null, TransferTool);
-                }
-                else if(WebhookTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool>(null, WebhookTool);
-                }
-            }
         }
     }
 }

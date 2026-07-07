@@ -49,10 +49,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Group(s) of numbers to order. You can have multiple ordering_groups objects added to a single request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups>? OrderingGroups { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItem>? OrderingGroups { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups> OrderingGroups { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItem> OrderingGroups { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest"/> and sets the default values.
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
-                { "ordering_groups", n => { OrderingGroups = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups>(global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ordering_groups", n => { OrderingGroups = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups>("ordering_groups", OrderingGroups);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItem>("ordering_groups", OrderingGroups);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

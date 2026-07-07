@@ -39,10 +39,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of participant resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex_participants>? Participants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndexParticipantsItemProperty>? Participants { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex_participants> Participants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndexParticipantsItemProperty> Participants { get; set; }
 #endif
         /// <summary>The recordings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "next_page_uri", n => { NextPageUri = n.GetStringValue(); } },
                 { "page", n => { Page = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "participants", n => { Participants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex_participants>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex_participants.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "participants", n => { Participants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndexParticipantsItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndexParticipantsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "recordings", n => { Recordings = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start", n => { Start = n.GetIntValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("next_page_uri", NextPageUri);
             writer.WriteIntValue("page", Page);
             writer.WriteIntValue("page_size", PageSize);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex_participants>("participants", Participants);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndexParticipantsItemProperty>("participants", Participants);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource>("recordings", Recordings);
             writer.WriteIntValue("start", Start);
             writer.WriteStringValue("uri", Uri);

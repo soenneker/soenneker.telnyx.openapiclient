@@ -49,19 +49,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ar_en")]
         #pragma warning disable CS1591
-        Ar_en,
+        ArEn,
         #pragma warning restore CS1591
         [EnumMember(Value = "cmn_en")]
         #pragma warning disable CS1591
-        Cmn_en,
+        CmnEn,
         #pragma warning restore CS1591
         [EnumMember(Value = "en_ms")]
         #pragma warning disable CS1591
-        En_ms,
+        EnMs,
         #pragma warning restore CS1591
         [EnumMember(Value = "en_ta")]
         #pragma warning disable CS1591
-        En_ta,
+        EnTa,
         #pragma warning restore CS1591
         [EnumMember(Value = "tl")]
         #pragma warning disable CS1591
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "cmn_en_ms_ta")]
         #pragma warning disable CS1591
-        Cmn_en_ms_ta,
+        CmnEnMsTa,
         #pragma warning restore CS1591
     }
 }

@@ -16,10 +16,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Accepted payment schemes. Currently only the `exact` EVM scheme is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_accepts>? Accepts { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsAcceptsItem>? Accepts { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_accepts> Accepts { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsAcceptsItem> Accepts { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accepts", n => { Accepts = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_accepts>(global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_accepts.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "accepts", n => { Accepts = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsAcceptsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsAcceptsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "resource", n => { Resource = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsResource>(global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsResource.CreateFromDiscriminatorValue); } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_accepts>("accepts", Accepts);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsAcceptsItem>("accepts", Accepts);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsResource>("resource", Resource);
             writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);

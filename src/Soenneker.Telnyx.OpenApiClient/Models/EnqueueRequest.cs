@@ -50,6 +50,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public EnqueueRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            KeepAfterHangup = false;
+            MaxSize = 100;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

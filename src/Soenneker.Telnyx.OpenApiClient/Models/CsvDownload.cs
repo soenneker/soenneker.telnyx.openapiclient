@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Indicates the completion level of the CSV report. Only complete CSV download requests will be able to be retrieved.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CsvDownload_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CsvDownloadStatus? Status { get; set; }
         /// <summary>The URL at which the CSV file can be retrieved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,7 +46,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CsvDownload()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.CsvDownload_status.Pending;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CsvDownload_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CsvDownloadStatus>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -79,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CsvDownload_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CsvDownloadStatus>("status", Status);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

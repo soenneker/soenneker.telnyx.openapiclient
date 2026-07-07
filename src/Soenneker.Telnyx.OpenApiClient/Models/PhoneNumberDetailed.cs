@@ -12,6 +12,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class PhoneNumberDetailed : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>ISO 8601 formatted date indicating when the phone number was first activated (transitioned from purchase-pending or port-pending to active). Will be null for numbers that have not yet been activated, or for legacy numbers activated before this field was tracked.</summary>
+        public DateTimeOffset? ActivatedAt { get; private set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identifies the billing group associated with the phone number.</summary>
@@ -77,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates whether emergency services are enabled for this number.</summary>
         public bool? EmergencyEnabled { get; private set; }
         /// <summary>Indicates the status of the provisioning of emergency services for the phone number. This field contains information about activity that may be ongoing for a number where it either is being provisioned or deprovisioned but is not yet enabled/disabled.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_emergency_status? EmergencyStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedEmergencyStatus? EmergencyStatus { get; set; }
         /// <summary>If someone attempts to port your phone number away from Telnyx and your phone number has an external PIN set, Telnyx will attempt to verify that you provided the correct external PIN to the winning carrier. Note that not all carriers cooperate with this security mechanism.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_inbound_call_screening? InboundCallScreening { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedInboundCallScreening? InboundCallScreening { get; set; }
         /// <summary>Identifies the messaging profile associated with the phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -123,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; private set; }
 #endif
         /// <summary>&quot;The phone number&apos;s type.Note: For numbers purchased prior to July 2023 or when fetching a number&apos;s details immediately after a purchase completes, the legacy values `tollfree`, `shortcode` or `longcode` may be returned instead.&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_phone_number_type? PhoneNumberType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedPhoneNumberType? PhoneNumberType { get; private set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was purchased.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,9 +143,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_source_type? SourceType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedSourceType? SourceType { get; private set; }
         /// <summary>The phone number&apos;s current status.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedStatus? Status { get; private set; }
         /// <summary>Indicates whether T38 Fax Gateway for inbound calls to this number.</summary>
         public bool? T38FaxGatewayEnabled { get; private set; }
         /// <summary>A list of user-assigned tags to help manage the phone number.</summary>
@@ -168,7 +170,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public PhoneNumberDetailed()
         {
             AdditionalData = new Dictionary<string, object>();
-            InboundCallScreening = global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_inbound_call_screening.Disabled;
+            CallForwardingEnabled = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -188,6 +190,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "activated_at", n => { ActivatedAt = n.GetDateTimeOffsetValue(); } },
                 { "billing_group_id", n => { BillingGroupId = n.GetStringValue(); } },
                 { "call_forwarding_enabled", n => { CallForwardingEnabled = n.GetBoolValue(); } },
                 { "call_recording_enabled", n => { CallRecordingEnabled = n.GetBoolValue(); } },
@@ -201,19 +204,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "deletion_lock_enabled", n => { DeletionLockEnabled = n.GetBoolValue(); } },
                 { "emergency_address_id", n => { EmergencyAddressId = n.GetStringValue(); } },
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
-                { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_emergency_status>(); } },
+                { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedEmergencyStatus>(); } },
                 { "external_pin", n => { ExternalPin = n.GetStringValue(); } },
                 { "hd_voice_enabled", n => { HdVoiceEnabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_inbound_call_screening>(); } },
+                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedInboundCallScreening>(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "messaging_profile_name", n => { MessagingProfileName = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedPhoneNumberType>(); } },
                 { "purchased_at", n => { PurchasedAt = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_source_type>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_status>(); } },
+                { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedSourceType>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedStatus>(); } },
                 { "t38_fax_gateway_enabled", n => { T38FaxGatewayEnabled = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -230,10 +233,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteBoolValue("deletion_lock_enabled", DeletionLockEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_emergency_status>("emergency_status", EmergencyStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedEmergencyStatus>("emergency_status", EmergencyStatus);
             writer.WriteStringValue("external_pin", ExternalPin);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_inbound_call_screening>("inbound_call_screening", InboundCallScreening);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailedInboundCallScreening>("inbound_call_screening", InboundCallScreening);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteStringValue("messaging_profile_name", MessagingProfileName);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

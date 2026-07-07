@@ -106,7 +106,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ConferenceGatherUsingAudioRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            InterDigitTimeoutMillis = 5000;
+            MaximumDigits = 128;
+            MaximumTries = 3;
+            MinimumDigits = 1;
+            StopPlaybackOnDtmf = true;
             TerminatingDigit = "#";
+            TimeoutMillis = 60000;
             ValidDigits = "0123456789#*";
         }
         /// <summary>

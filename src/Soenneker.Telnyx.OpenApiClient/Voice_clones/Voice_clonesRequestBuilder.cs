@@ -174,7 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones
 #endif
             /// <summary>Filter by voice synthesis provider. Case-insensitive.</summary>
             [QueryParameter("filter%5Bprovider%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Voice_clones.GetFilterProviderQueryParameterType? Filterprovider { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.FilterProvider? Filterprovider { get; set; }
             /// <summary>Page number for pagination (1-based).</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
@@ -183,7 +183,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones
             public int? Pagesize { get; set; }
             /// <summary>Sort order. Prefix with `-` for descending. Defaults to `-created_at`.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Voice_clones.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsSort? Sort { get; set; }
         }
     }
 }

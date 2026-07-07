@@ -49,40 +49,40 @@ namespace Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles
         /// <summary>
         /// Get all outbound voice profiles belonging to the user that match the given filters.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListOutboundVoiceProfilesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesRequestBuilder.Outbound_voice_profilesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOutboundVoiceProfilesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesRequestBuilder.Outbound_voice_profilesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesRequestBuilder.Outbound_voice_profilesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOutboundVoiceProfilesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesRequestBuilder.Outbound_voice_profilesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOutboundVoiceProfilesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOutboundVoiceProfilesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create an outbound voice profile.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all outbound voice profiles belonging to the user that match the given filters.
@@ -162,7 +162,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles
 #endif
             /// <summary>&quot;Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt;-&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;&quot;</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SortOutboundVoiceProfile? Sort { get; set; }
         }
     }
 }

@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The ID of the AI assistant associated with this messaging profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AiAssistantId { get; set; }
+#nullable restore
+#else
+        public string AiAssistantId { get; set; }
+#endif
         /// <summary>The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings NumberPoolSettings { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequest_record_type? RecordType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequestRecordType? RecordType { get; private set; }
         /// <summary>Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.</summary>
         public bool? SmartEncoding { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
@@ -83,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string V1Secret { get; set; }
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1, v2, or a legacy 2010-04-01 format.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequest_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequestWebhookApiVersion? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this messaging profile will be sent if sending to the primary URL fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,6 +122,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateMessagingProfileRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            MmsFallBackToSms = false;
+            MmsTranscoding = false;
+            MobileOnly = false;
+            SmartEncoding = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -133,6 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_assistant_id", n => { AiAssistantId = n.GetStringValue(); } },
                 { "alpha_sender", n => { AlphaSender = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "daily_spend_limit", n => { DailySpendLimit = n.GetStringValue(); } },
@@ -144,12 +157,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "mobile_only", n => { MobileOnly = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number_pool_settings", n => { NumberPoolSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequest_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequestRecordType>(); } },
                 { "smart_encoding", n => { SmartEncoding = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url_shortener_settings", n => { UrlShortenerSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings.CreateFromDiscriminatorValue); } },
                 { "v1_secret", n => { V1Secret = n.GetStringValue(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequest_webhook_api_version>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequestWebhookApiVersion>(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
                 { "whitelisted_destinations", n => { WhitelistedDestinations = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -162,6 +175,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("ai_assistant_id", AiAssistantId);
             writer.WriteStringValue("alpha_sender", AlphaSender);
             writer.WriteStringValue("daily_spend_limit", DailySpendLimit);
             writer.WriteBoolValue("daily_spend_limit_enabled", DailySpendLimitEnabled);
@@ -174,7 +188,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("smart_encoding", SmartEncoding);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>("url_shortener_settings", UrlShortenerSettings);
             writer.WriteStringValue("v1_secret", V1Secret);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequest_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequestWebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("whitelisted_destinations", WhitelistedDestinations);

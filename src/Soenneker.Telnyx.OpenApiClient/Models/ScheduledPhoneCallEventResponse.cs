@@ -32,6 +32,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Duration of the call in seconds</summary>
         public int? CallDuration { get; set; }
+        /// <summary>Per-call telephony overrides applied when a scheduled phone-call eventdispatches. Phone-call events only. New per-call dispatch options should beadded here rather than as top-level event fields.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings? CallSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings CallSettings { get; set; }
+#endif
         /// <summary>&quot;Values: busy, canceled, no-answer, ringing, completed, failed, in-progress&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The conversation_metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_conversation_metadata? ConversationMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseConversationMetadataProperty? ConversationMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_conversation_metadata ConversationMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseConversationMetadataProperty ConversationMetadata { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -63,10 +71,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A map of dynamic variable names to values. These variables can be referenced in the assistant&apos;s instructions and messages using {{variable_name}} syntax.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_dynamic_variables? DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseDynamicVariablesProperty? DynamicVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_dynamic_variables DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseDynamicVariablesProperty DynamicVariables { get; set; }
 #endif
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,7 +103,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ScheduledEventId { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus? Status { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseStatus? Status { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseStatus Status { get; set; }
+#endif
         /// <summary>The telnyx_agent_target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,6 +134,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ScheduledPhoneCallEventResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            MaxRetriesClientErrors = 0;
+            RetryCount = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -142,12 +158,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
                 { "call_attempts", n => { CallAttempts = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantScheduledCallAttempt>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantScheduledCallAttempt.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "call_duration", n => { CallDuration = n.GetIntValue(); } },
+                { "call_settings", n => { CallSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings.CreateFromDiscriminatorValue); } },
                 { "call_status", n => { CallStatus = n.GetStringValue(); } },
                 { "conversation_id", n => { ConversationId = n.GetStringValue(); } },
-                { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_conversation_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_conversation_metadata.CreateFromDiscriminatorValue); } },
+                { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseConversationMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseConversationMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dispatched_at", n => { DispatchedAt = n.GetDateTimeOffsetValue(); } },
-                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_dynamic_variables.CreateFromDiscriminatorValue); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "max_retries_client_errors", n => { MaxRetriesClientErrors = n.GetIntValue(); } },
                 { "retry_attempts", n => { RetryAttempts = n.GetIntValue(); } },
@@ -155,7 +172,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "retry_interval_secs", n => { RetryIntervalSecs = n.GetIntValue(); } },
                 { "scheduled_at_fixed_datetime", n => { ScheduledAtFixedDatetime = n.GetDateTimeOffsetValue(); } },
                 { "scheduled_event_id", n => { ScheduledEventId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus>(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseStatus.CreateFromDiscriminatorValue); } },
                 { "telnyx_agent_target", n => { TelnyxAgentTarget = n.GetStringValue(); } },
                 { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>(); } },
                 { "telnyx_end_user_target", n => { TelnyxEndUserTarget = n.GetStringValue(); } },
@@ -171,12 +188,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("assistant_id", AssistantId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantScheduledCallAttempt>("call_attempts", CallAttempts);
             writer.WriteIntValue("call_duration", CallDuration);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings>("call_settings", CallSettings);
             writer.WriteStringValue("call_status", CallStatus);
             writer.WriteStringValue("conversation_id", ConversationId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_conversation_metadata>("conversation_metadata", ConversationMetadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseConversationMetadataProperty>("conversation_metadata", ConversationMetadata);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("dispatched_at", DispatchedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_dynamic_variables>("dynamic_variables", DynamicVariables);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
             writer.WriteIntValue("max_retries_client_errors", MaxRetriesClientErrors);
             writer.WriteIntValue("retry_attempts", RetryAttempts);
@@ -184,7 +202,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("retry_interval_secs", RetryIntervalSecs);
             writer.WriteDateTimeOffsetValue("scheduled_at_fixed_datetime", ScheduledAtFixedDatetime);
             writer.WriteStringValue("scheduled_event_id", ScheduledEventId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponseStatus>("status", Status);
             writer.WriteStringValue("telnyx_agent_target", TelnyxAgentTarget);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("telnyx_end_user_target", TelnyxEndUserTarget);

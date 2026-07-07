@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
 {
     /// <summary>
-    /// Builds and executes requests for operations under \texml\Accounts\{account_sid}\Conferences
+    /// Builds and executes requests for operations under \texml\Accounts\{accountSid}\Conferences
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConferencesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Conferences.item collection</summary>
-        /// <param name="position">The ConferenceSid that uniquely identifies a conference.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.WithConference_sItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.WithConference_sItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.WithConferenceSItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.WithConferenceSItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("conference_sid", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.WithConference_sItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("conferenceSid", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.WithConferenceSItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Conferences{?DateCreated*,DateUpdated*,FriendlyName*,Page*,PageSize*,PageToken*,Status*}", pathParameters)
+        public ConferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Conferences{?DateCreated*,DateUpdated*,FriendlyName*,Page*,PageSize*,PageToken*,Status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Conferences{?DateCreated*,DateUpdated*,FriendlyName*,Page*,PageSize*,PageToken*,Status*}", rawUrl)
+        public ConferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Conferences{?DateCreated*,DateUpdated*,FriendlyName*,Page*,PageSize*,PageToken*,Status*}", rawUrl)
         {
         }
         /// <summary>
@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
             public string PageToken { get; set; }
 #endif
             /// <summary>Filters conferences by status.</summary>
-            public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceStatusEnum? Status { get; set; }
         }
     }
 }

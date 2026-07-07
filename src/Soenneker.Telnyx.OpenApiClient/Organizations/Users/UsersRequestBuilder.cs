@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Organizations.Users
         /// <summary>
         /// Returns a list of the users in your organization.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListOrganizationUsersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
@@ -63,11 +63,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Organizations.Users
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOrganizationUsersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOrganizationUsersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Organizations.Users
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.UsersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOrganizationUsersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOrganizationUsersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of the users in your organization.
@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Organizations.Users
 #endif
             /// <summary>Filter by user status</summary>
             [QueryParameter("filter%5Buser_status%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.GetFilterUser_statusQueryParameterType? FilteruserStatus { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.FilterOrganizationUserStatus? FilteruserStatus { get; set; }
             /// <summary>When set to true, includes the groups array for each user in the response. The groups array contains objects with id and name for each group the user belongs to.</summary>
             [QueryParameter("include_groups")]
             public bool? IncludeGroups { get; set; }

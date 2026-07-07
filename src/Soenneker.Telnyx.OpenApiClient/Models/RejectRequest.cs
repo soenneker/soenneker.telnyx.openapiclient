@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Cause for call rejection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RejectRequest_cause? Cause { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RejectRequestCause? Cause { get; set; }
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cause", n => { Cause = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RejectRequest_cause>(); } },
+                { "cause", n => { Cause = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RejectRequestCause>(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
             };
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RejectRequest_cause>("cause", Cause);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RejectRequestCause>("cause", Cause);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteAdditionalData(AdditionalData);

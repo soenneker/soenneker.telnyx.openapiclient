@@ -19,17 +19,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Language to use for speech recognition</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage? Language { get; set; }
         /// <summary>Engine identifier for Speechmatics transcription service</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig_transcription_engine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionEngine? TranscriptionEngine { get; set; }
         /// <summary>The model to use for transcription.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig_transcription_model? TranscriptionModel { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel? TranscriptionModel { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig"/> and sets the default values.
         /// </summary>
         public TranscriptionEngineSpeechmaticsConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            Language = global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage.En;
-            TranscriptionModel = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig_transcription_model.SpeechmaticsStandard;
+            InterimResults = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -51,8 +50,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "interim_results", n => { InterimResults = n.GetBoolValue(); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage>(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig_transcription_engine>(); } },
-                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig_transcription_model>(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionEngine>(); } },
+                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel>(); } },
             };
         }
         /// <summary>
@@ -64,8 +63,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("interim_results", InterimResults);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage>("language", Language);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig_transcription_model>("transcription_model", TranscriptionModel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionEngine>("transcription_engine", TranscriptionEngine);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel>("transcription_model", TranscriptionModel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Consent
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.oauth.consent.item collection</summary>
         /// <param name="position">OAuth consent token</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Oauth.Consent.Item.WithConsent_tokenItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Oauth.Consent.Item.WithConsent_tokenItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Oauth.Consent.Item.WithConsentTokenItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Oauth.Consent.Item.WithConsentTokenItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("consent_token", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Oauth.Consent.Item.WithConsent_tokenItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("consentToken", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Oauth.Consent.Item.WithConsentTokenItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

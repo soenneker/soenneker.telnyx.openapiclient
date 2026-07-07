@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.V
             get => new global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.Voice.Fields.FieldsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.legacy.reporting.batch_detail_records.voice.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.Voice.Item.VoiceItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.Voice.Item.VoiceItemRequestBuilder this[Guid position]
         {

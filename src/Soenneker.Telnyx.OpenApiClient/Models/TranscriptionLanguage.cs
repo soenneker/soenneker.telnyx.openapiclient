@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "af-ZA")]
         #pragma warning disable CS1591
-        AfZA,
+        AfZa,
         #pragma warning restore CS1591
         [EnumMember(Value = "am")]
         #pragma warning disable CS1591
@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "am-ET")]
         #pragma warning disable CS1591
-        AmET,
+        AmEt,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar")]
         #pragma warning disable CS1591
@@ -29,79 +29,79 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-AE")]
         #pragma warning disable CS1591
-        ArAE,
+        ArAe,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-BH")]
         #pragma warning disable CS1591
-        ArBH,
+        ArBh,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-DZ")]
         #pragma warning disable CS1591
-        ArDZ,
+        ArDz,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-EG")]
         #pragma warning disable CS1591
-        ArEG,
+        ArEg,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-IL")]
         #pragma warning disable CS1591
-        ArIL,
+        ArIl,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-IQ")]
         #pragma warning disable CS1591
-        ArIQ,
+        ArIq,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-JO")]
         #pragma warning disable CS1591
-        ArJO,
+        ArJo,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-KW")]
         #pragma warning disable CS1591
-        ArKW,
+        ArKw,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-LB")]
         #pragma warning disable CS1591
-        ArLB,
+        ArLb,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-MA")]
         #pragma warning disable CS1591
-        ArMA,
+        ArMa,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-MR")]
         #pragma warning disable CS1591
-        ArMR,
+        ArMr,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-OM")]
         #pragma warning disable CS1591
-        ArOM,
+        ArOm,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-PS")]
         #pragma warning disable CS1591
-        ArPS,
+        ArPs,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-QA")]
         #pragma warning disable CS1591
-        ArQA,
+        ArQa,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-SA")]
         #pragma warning disable CS1591
-        ArSA,
+        ArSa,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-TN")]
         #pragma warning disable CS1591
-        ArTN,
+        ArTn,
         #pragma warning restore CS1591
         [EnumMember(Value = "ar-YE")]
         #pragma warning disable CS1591
-        ArYE,
+        ArYe,
         #pragma warning restore CS1591
         [EnumMember(Value = "as")]
         #pragma warning disable CS1591
-        As,
+        AsValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "auto_detect")]
         #pragma warning disable CS1591
-        Auto_detect,
+        AutoDetect,
         #pragma warning restore CS1591
         [EnumMember(Value = "az")]
         #pragma warning disable CS1591
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "az-AZ")]
         #pragma warning disable CS1591
-        AzAZ,
+        AzAz,
         #pragma warning restore CS1591
         [EnumMember(Value = "ba")]
         #pragma warning disable CS1591
@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "bg-BG")]
         #pragma warning disable CS1591
-        BgBG,
+        BgBg,
         #pragma warning restore CS1591
         [EnumMember(Value = "bn")]
         #pragma warning disable CS1591
@@ -133,11 +133,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "bn-BD")]
         #pragma warning disable CS1591
-        BnBD,
+        BnBd,
         #pragma warning restore CS1591
         [EnumMember(Value = "bn-IN")]
         #pragma warning disable CS1591
-        BnIN,
+        BnIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "bo")]
         #pragma warning disable CS1591
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "bs-BA")]
         #pragma warning disable CS1591
-        BsBA,
+        BsBa,
         #pragma warning restore CS1591
         [EnumMember(Value = "ca")]
         #pragma warning disable CS1591
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ca-ES")]
         #pragma warning disable CS1591
-        CaES,
+        CaEs,
         #pragma warning restore CS1591
         [EnumMember(Value = "cs")]
         #pragma warning disable CS1591
@@ -169,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "cs-CZ")]
         #pragma warning disable CS1591
-        CsCZ,
+        CsCz,
         #pragma warning restore CS1591
         [EnumMember(Value = "cy")]
         #pragma warning disable CS1591
@@ -181,7 +181,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "da-DK")]
         #pragma warning disable CS1591
-        DaDK,
+        DaDk,
         #pragma warning restore CS1591
         [EnumMember(Value = "de")]
         #pragma warning disable CS1591
@@ -189,15 +189,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "de-AT")]
         #pragma warning disable CS1591
-        DeAT,
+        DeAt,
         #pragma warning restore CS1591
         [EnumMember(Value = "de-CH")]
         #pragma warning disable CS1591
-        DeCH,
+        DeCh,
         #pragma warning restore CS1591
         [EnumMember(Value = "de-DE")]
         #pragma warning disable CS1591
-        DeDE,
+        DeDe,
         #pragma warning restore CS1591
         [EnumMember(Value = "el")]
         #pragma warning disable CS1591
@@ -205,7 +205,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "el-GR")]
         #pragma warning disable CS1591
-        ElGR,
+        ElGr,
         #pragma warning restore CS1591
         [EnumMember(Value = "en")]
         #pragma warning disable CS1591
@@ -213,67 +213,67 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "en-AU")]
         #pragma warning disable CS1591
-        EnAU,
+        EnAu,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-CA")]
         #pragma warning disable CS1591
-        EnCA,
+        EnCa,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-GB")]
         #pragma warning disable CS1591
-        EnGB,
+        EnGb,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-GH")]
         #pragma warning disable CS1591
-        EnGH,
+        EnGh,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-HK")]
         #pragma warning disable CS1591
-        EnHK,
+        EnHk,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-IE")]
         #pragma warning disable CS1591
-        EnIE,
+        EnIe,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-IN")]
         #pragma warning disable CS1591
-        EnIN,
+        EnIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-KE")]
         #pragma warning disable CS1591
-        EnKE,
+        EnKe,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-NG")]
         #pragma warning disable CS1591
-        EnNG,
+        EnNg,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-NZ")]
         #pragma warning disable CS1591
-        EnNZ,
+        EnNz,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-PH")]
         #pragma warning disable CS1591
-        EnPH,
+        EnPh,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-PK")]
         #pragma warning disable CS1591
-        EnPK,
+        EnPk,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-SG")]
         #pragma warning disable CS1591
-        EnSG,
+        EnSg,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-TZ")]
         #pragma warning disable CS1591
-        EnTZ,
+        EnTz,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-US")]
         #pragma warning disable CS1591
-        EnUS,
+        EnUs,
         #pragma warning restore CS1591
         [EnumMember(Value = "en-ZA")]
         #pragma warning disable CS1591
-        EnZA,
+        EnZa,
         #pragma warning restore CS1591
         [EnumMember(Value = "es")]
         #pragma warning disable CS1591
@@ -285,83 +285,83 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "es-AR")]
         #pragma warning disable CS1591
-        EsAR,
+        EsAr,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-BO")]
         #pragma warning disable CS1591
-        EsBO,
+        EsBo,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-CL")]
         #pragma warning disable CS1591
-        EsCL,
+        EsCl,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-CO")]
         #pragma warning disable CS1591
-        EsCO,
+        EsCo,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-CR")]
         #pragma warning disable CS1591
-        EsCR,
+        EsCr,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-DO")]
         #pragma warning disable CS1591
-        EsDO,
+        EsDo,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-EC")]
         #pragma warning disable CS1591
-        EsEC,
+        EsEc,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-ES")]
         #pragma warning disable CS1591
-        EsES,
+        EsEs,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-GT")]
         #pragma warning disable CS1591
-        EsGT,
+        EsGt,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-HN")]
         #pragma warning disable CS1591
-        EsHN,
+        EsHn,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-MX")]
         #pragma warning disable CS1591
-        EsMX,
+        EsMx,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-NI")]
         #pragma warning disable CS1591
-        EsNI,
+        EsNi,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-PA")]
         #pragma warning disable CS1591
-        EsPA,
+        EsPa,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-PE")]
         #pragma warning disable CS1591
-        EsPE,
+        EsPe,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-PR")]
         #pragma warning disable CS1591
-        EsPR,
+        EsPr,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-PY")]
         #pragma warning disable CS1591
-        EsPY,
+        EsPy,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-SV")]
         #pragma warning disable CS1591
-        EsSV,
+        EsSv,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-US")]
         #pragma warning disable CS1591
-        EsUS,
+        EsUs,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-UY")]
         #pragma warning disable CS1591
-        EsUY,
+        EsUy,
         #pragma warning restore CS1591
         [EnumMember(Value = "es-VE")]
         #pragma warning disable CS1591
-        EsVE,
+        EsVe,
         #pragma warning restore CS1591
         [EnumMember(Value = "et")]
         #pragma warning disable CS1591
@@ -369,7 +369,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "et-EE")]
         #pragma warning disable CS1591
-        EtEE,
+        EtEe,
         #pragma warning restore CS1591
         [EnumMember(Value = "eu")]
         #pragma warning disable CS1591
@@ -377,7 +377,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "eu-ES")]
         #pragma warning disable CS1591
-        EuES,
+        EuEs,
         #pragma warning restore CS1591
         [EnumMember(Value = "fa")]
         #pragma warning disable CS1591
@@ -385,7 +385,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "fa-IR")]
         #pragma warning disable CS1591
-        FaIR,
+        FaIr,
         #pragma warning restore CS1591
         [EnumMember(Value = "fi")]
         #pragma warning disable CS1591
@@ -393,11 +393,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "fi-FI")]
         #pragma warning disable CS1591
-        FiFI,
+        FiFi,
         #pragma warning restore CS1591
         [EnumMember(Value = "fil-PH")]
         #pragma warning disable CS1591
-        FilPH,
+        FilPh,
         #pragma warning restore CS1591
         [EnumMember(Value = "fo")]
         #pragma warning disable CS1591
@@ -409,19 +409,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "fr-BE")]
         #pragma warning disable CS1591
-        FrBE,
+        FrBe,
         #pragma warning restore CS1591
         [EnumMember(Value = "fr-CA")]
         #pragma warning disable CS1591
-        FrCA,
+        FrCa,
         #pragma warning restore CS1591
         [EnumMember(Value = "fr-CH")]
         #pragma warning disable CS1591
-        FrCH,
+        FrCh,
         #pragma warning restore CS1591
         [EnumMember(Value = "fr-FR")]
         #pragma warning disable CS1591
-        FrFR,
+        FrFr,
         #pragma warning restore CS1591
         [EnumMember(Value = "gl")]
         #pragma warning disable CS1591
@@ -429,7 +429,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "gl-ES")]
         #pragma warning disable CS1591
-        GlES,
+        GlEs,
         #pragma warning restore CS1591
         [EnumMember(Value = "gu")]
         #pragma warning disable CS1591
@@ -437,7 +437,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "gu-IN")]
         #pragma warning disable CS1591
-        GuIN,
+        GuIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "ha")]
         #pragma warning disable CS1591
@@ -457,7 +457,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "hi-IN")]
         #pragma warning disable CS1591
-        HiIN,
+        HiIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "hr")]
         #pragma warning disable CS1591
@@ -465,7 +465,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "hr-HR")]
         #pragma warning disable CS1591
-        HrHR,
+        HrHr,
         #pragma warning restore CS1591
         [EnumMember(Value = "ht")]
         #pragma warning disable CS1591
@@ -477,7 +477,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "hu-HU")]
         #pragma warning disable CS1591
-        HuHU,
+        HuHu,
         #pragma warning restore CS1591
         [EnumMember(Value = "hy")]
         #pragma warning disable CS1591
@@ -485,7 +485,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "hy-AM")]
         #pragma warning disable CS1591
-        HyAM,
+        HyAm,
         #pragma warning restore CS1591
         [EnumMember(Value = "id")]
         #pragma warning disable CS1591
@@ -493,15 +493,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "id-ID")]
         #pragma warning disable CS1591
-        IdID,
+        IdId,
         #pragma warning restore CS1591
         [EnumMember(Value = "is")]
         #pragma warning disable CS1591
-        Is,
+        IsValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "is-IS")]
         #pragma warning disable CS1591
-        IsIS,
+        IsIs,
         #pragma warning restore CS1591
         [EnumMember(Value = "it")]
         #pragma warning disable CS1591
@@ -509,15 +509,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "it-CH")]
         #pragma warning disable CS1591
-        ItCH,
+        ItCh,
         #pragma warning restore CS1591
         [EnumMember(Value = "it-IT")]
         #pragma warning disable CS1591
-        ItIT,
+        ItIt,
         #pragma warning restore CS1591
         [EnumMember(Value = "iw-IL")]
         #pragma warning disable CS1591
-        IwIL,
+        IwIl,
         #pragma warning restore CS1591
         [EnumMember(Value = "ja")]
         #pragma warning disable CS1591
@@ -525,11 +525,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ja-JP")]
         #pragma warning disable CS1591
-        JaJP,
+        JaJp,
         #pragma warning restore CS1591
         [EnumMember(Value = "jv-ID")]
         #pragma warning disable CS1591
-        JvID,
+        JvId,
         #pragma warning restore CS1591
         [EnumMember(Value = "jw")]
         #pragma warning disable CS1591
@@ -541,7 +541,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ka-GE")]
         #pragma warning disable CS1591
-        KaGE,
+        KaGe,
         #pragma warning restore CS1591
         [EnumMember(Value = "kk")]
         #pragma warning disable CS1591
@@ -549,7 +549,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "kk-KZ")]
         #pragma warning disable CS1591
-        KkKZ,
+        KkKz,
         #pragma warning restore CS1591
         [EnumMember(Value = "km")]
         #pragma warning disable CS1591
@@ -557,7 +557,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "km-KH")]
         #pragma warning disable CS1591
-        KmKH,
+        KmKh,
         #pragma warning restore CS1591
         [EnumMember(Value = "kn")]
         #pragma warning disable CS1591
@@ -565,7 +565,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "kn-IN")]
         #pragma warning disable CS1591
-        KnIN,
+        KnIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "ko")]
         #pragma warning disable CS1591
@@ -573,7 +573,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ko-KR")]
         #pragma warning disable CS1591
-        KoKR,
+        KoKr,
         #pragma warning restore CS1591
         [EnumMember(Value = "la")]
         #pragma warning disable CS1591
@@ -593,7 +593,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "lo-LA")]
         #pragma warning disable CS1591
-        LoLA,
+        LoLa,
         #pragma warning restore CS1591
         [EnumMember(Value = "lt")]
         #pragma warning disable CS1591
@@ -601,7 +601,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "lt-LT")]
         #pragma warning disable CS1591
-        LtLT,
+        LtLt,
         #pragma warning restore CS1591
         [EnumMember(Value = "lv")]
         #pragma warning disable CS1591
@@ -609,7 +609,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "lv-LV")]
         #pragma warning disable CS1591
-        LvLV,
+        LvLv,
         #pragma warning restore CS1591
         [EnumMember(Value = "mg")]
         #pragma warning disable CS1591
@@ -625,7 +625,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "mk-MK")]
         #pragma warning disable CS1591
-        MkMK,
+        MkMk,
         #pragma warning restore CS1591
         [EnumMember(Value = "ml")]
         #pragma warning disable CS1591
@@ -633,7 +633,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ml-IN")]
         #pragma warning disable CS1591
-        MlIN,
+        MlIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "mn")]
         #pragma warning disable CS1591
@@ -641,7 +641,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "mn-MN")]
         #pragma warning disable CS1591
-        MnMN,
+        MnMn,
         #pragma warning restore CS1591
         [EnumMember(Value = "mr")]
         #pragma warning disable CS1591
@@ -649,7 +649,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "mr-IN")]
         #pragma warning disable CS1591
-        MrIN,
+        MrIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "ms")]
         #pragma warning disable CS1591
@@ -657,7 +657,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ms-MY")]
         #pragma warning disable CS1591
-        MsMY,
+        MsMy,
         #pragma warning restore CS1591
         [EnumMember(Value = "mt")]
         #pragma warning disable CS1591
@@ -669,7 +669,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "my-MM")]
         #pragma warning disable CS1591
-        MyMM,
+        MyMm,
         #pragma warning restore CS1591
         [EnumMember(Value = "ne")]
         #pragma warning disable CS1591
@@ -677,7 +677,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ne-NP")]
         #pragma warning disable CS1591
-        NeNP,
+        NeNp,
         #pragma warning restore CS1591
         [EnumMember(Value = "nl")]
         #pragma warning disable CS1591
@@ -685,11 +685,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "nl-BE")]
         #pragma warning disable CS1591
-        NlBE,
+        NlBe,
         #pragma warning restore CS1591
         [EnumMember(Value = "nl-NL")]
         #pragma warning disable CS1591
-        NlNL,
+        NlNl,
         #pragma warning restore CS1591
         [EnumMember(Value = "nn")]
         #pragma warning disable CS1591
@@ -701,7 +701,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "no-NO")]
         #pragma warning disable CS1591
-        NoNO,
+        NoNo,
         #pragma warning restore CS1591
         [EnumMember(Value = "oc")]
         #pragma warning disable CS1591
@@ -713,7 +713,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "pa-Guru-IN")]
         #pragma warning disable CS1591
-        PaGuruIN,
+        PaGuruIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "pl")]
         #pragma warning disable CS1591
@@ -721,7 +721,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "pl-PL")]
         #pragma warning disable CS1591
-        PlPL,
+        PlPl,
         #pragma warning restore CS1591
         [EnumMember(Value = "ps")]
         #pragma warning disable CS1591
@@ -733,11 +733,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "pt-BR")]
         #pragma warning disable CS1591
-        PtBR,
+        PtBr,
         #pragma warning restore CS1591
         [EnumMember(Value = "pt-PT")]
         #pragma warning disable CS1591
-        PtPT,
+        PtPt,
         #pragma warning restore CS1591
         [EnumMember(Value = "ro")]
         #pragma warning disable CS1591
@@ -745,7 +745,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ro-RO")]
         #pragma warning disable CS1591
-        RoRO,
+        RoRo,
         #pragma warning restore CS1591
         [EnumMember(Value = "ru")]
         #pragma warning disable CS1591
@@ -753,11 +753,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ru-RU")]
         #pragma warning disable CS1591
-        RuRU,
+        RuRu,
         #pragma warning restore CS1591
         [EnumMember(Value = "rw-RW")]
         #pragma warning disable CS1591
-        RwRW,
+        RwRw,
         #pragma warning restore CS1591
         [EnumMember(Value = "sa")]
         #pragma warning disable CS1591
@@ -773,7 +773,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "si-LK")]
         #pragma warning disable CS1591
-        SiLK,
+        SiLk,
         #pragma warning restore CS1591
         [EnumMember(Value = "sk")]
         #pragma warning disable CS1591
@@ -781,7 +781,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "sk-SK")]
         #pragma warning disable CS1591
-        SkSK,
+        SkSk,
         #pragma warning restore CS1591
         [EnumMember(Value = "sl")]
         #pragma warning disable CS1591
@@ -789,7 +789,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "sl-SI")]
         #pragma warning disable CS1591
-        SlSI,
+        SlSi,
         #pragma warning restore CS1591
         [EnumMember(Value = "sn")]
         #pragma warning disable CS1591
@@ -805,7 +805,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "sq-AL")]
         #pragma warning disable CS1591
-        SqAL,
+        SqAl,
         #pragma warning restore CS1591
         [EnumMember(Value = "sr")]
         #pragma warning disable CS1591
@@ -813,7 +813,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "sr-RS")]
         #pragma warning disable CS1591
-        SrRS,
+        SrRs,
         #pragma warning restore CS1591
         [EnumMember(Value = "ss-latn-za")]
         #pragma warning disable CS1591
@@ -821,7 +821,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "st-ZA")]
         #pragma warning disable CS1591
-        StZA,
+        StZa,
         #pragma warning restore CS1591
         [EnumMember(Value = "su")]
         #pragma warning disable CS1591
@@ -829,7 +829,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "su-ID")]
         #pragma warning disable CS1591
-        SuID,
+        SuId,
         #pragma warning restore CS1591
         [EnumMember(Value = "sv")]
         #pragma warning disable CS1591
@@ -837,7 +837,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "sv-SE")]
         #pragma warning disable CS1591
-        SvSE,
+        SvSe,
         #pragma warning restore CS1591
         [EnumMember(Value = "sw")]
         #pragma warning disable CS1591
@@ -845,11 +845,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "sw-KE")]
         #pragma warning disable CS1591
-        SwKE,
+        SwKe,
         #pragma warning restore CS1591
         [EnumMember(Value = "sw-TZ")]
         #pragma warning disable CS1591
-        SwTZ,
+        SwTz,
         #pragma warning restore CS1591
         [EnumMember(Value = "ta")]
         #pragma warning disable CS1591
@@ -857,19 +857,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ta-IN")]
         #pragma warning disable CS1591
-        TaIN,
+        TaIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "ta-LK")]
         #pragma warning disable CS1591
-        TaLK,
+        TaLk,
         #pragma warning restore CS1591
         [EnumMember(Value = "ta-MY")]
         #pragma warning disable CS1591
-        TaMY,
+        TaMy,
         #pragma warning restore CS1591
         [EnumMember(Value = "ta-SG")]
         #pragma warning disable CS1591
-        TaSG,
+        TaSg,
         #pragma warning restore CS1591
         [EnumMember(Value = "te")]
         #pragma warning disable CS1591
@@ -877,7 +877,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "te-IN")]
         #pragma warning disable CS1591
-        TeIN,
+        TeIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "tg")]
         #pragma warning disable CS1591
@@ -889,7 +889,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "th-TH")]
         #pragma warning disable CS1591
-        ThTH,
+        ThTh,
         #pragma warning restore CS1591
         [EnumMember(Value = "tk")]
         #pragma warning disable CS1591
@@ -909,11 +909,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "tr-TR")]
         #pragma warning disable CS1591
-        TrTR,
+        TrTr,
         #pragma warning restore CS1591
         [EnumMember(Value = "ts-ZA")]
         #pragma warning disable CS1591
-        TsZA,
+        TsZa,
         #pragma warning restore CS1591
         [EnumMember(Value = "tt")]
         #pragma warning disable CS1591
@@ -925,7 +925,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "uk-UA")]
         #pragma warning disable CS1591
-        UkUA,
+        UkUa,
         #pragma warning restore CS1591
         [EnumMember(Value = "ur")]
         #pragma warning disable CS1591
@@ -933,11 +933,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ur-IN")]
         #pragma warning disable CS1591
-        UrIN,
+        UrIn,
         #pragma warning restore CS1591
         [EnumMember(Value = "ur-PK")]
         #pragma warning disable CS1591
-        UrPK,
+        UrPk,
         #pragma warning restore CS1591
         [EnumMember(Value = "uz")]
         #pragma warning disable CS1591
@@ -945,11 +945,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "uz-UZ")]
         #pragma warning disable CS1591
-        UzUZ,
+        UzUz,
         #pragma warning restore CS1591
         [EnumMember(Value = "ve-ZA")]
         #pragma warning disable CS1591
-        VeZA,
+        VeZa,
         #pragma warning restore CS1591
         [EnumMember(Value = "vi")]
         #pragma warning disable CS1591
@@ -957,11 +957,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "vi-VN")]
         #pragma warning disable CS1591
-        ViVN,
+        ViVn,
         #pragma warning restore CS1591
         [EnumMember(Value = "xh-ZA")]
         #pragma warning disable CS1591
-        XhZA,
+        XhZa,
         #pragma warning restore CS1591
         [EnumMember(Value = "yi")]
         #pragma warning disable CS1591
@@ -973,7 +973,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "yue-Hant-HK")]
         #pragma warning disable CS1591
-        YueHantHK,
+        YueHantHk,
         #pragma warning restore CS1591
         [EnumMember(Value = "zh")]
         #pragma warning disable CS1591
@@ -981,11 +981,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "zh-TW")]
         #pragma warning disable CS1591
-        ZhTW,
+        ZhTw,
         #pragma warning restore CS1591
         [EnumMember(Value = "zu-ZA")]
         #pragma warning disable CS1591
-        ZuZA,
+        ZuZa,
         #pragma warning restore CS1591
     }
 }

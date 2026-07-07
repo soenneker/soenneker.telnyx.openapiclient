@@ -23,6 +23,7 @@ using Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions;
 using Soenneker.Telnyx.OpenApiClient.Bundle_pricing;
 using Soenneker.Telnyx.OpenApiClient.Call_control_applications;
 using Soenneker.Telnyx.OpenApiClient.Call_events;
+using Soenneker.Telnyx.OpenApiClient.Call_reasons;
 using Soenneker.Telnyx.OpenApiClient.Calls;
 using Soenneker.Telnyx.OpenApiClient.Channel_zones;
 using Soenneker.Telnyx.OpenApiClient.Charges_breakdown;
@@ -36,10 +37,18 @@ using Soenneker.Telnyx.OpenApiClient.Custom_storage_credentials;
 using Soenneker.Telnyx.OpenApiClient.Customer_service_records;
 using Soenneker.Telnyx.OpenApiClient.Detail_records;
 using Soenneker.Telnyx.OpenApiClient.Dialogflow_connections;
+using Soenneker.Telnyx.OpenApiClient.Dir;
 using Soenneker.Telnyx.OpenApiClient.Document_links;
 using Soenneker.Telnyx.OpenApiClient.Documents;
 using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses;
 using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints;
+using Soenneker.Telnyx.OpenApiClient.Email_blocks;
+using Soenneker.Telnyx.OpenApiClient.Email_domains;
+using Soenneker.Telnyx.OpenApiClient.Email_events;
+using Soenneker.Telnyx.OpenApiClient.Email_messages;
+using Soenneker.Telnyx.OpenApiClient.Email_templates;
+using Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups;
+using Soenneker.Telnyx.OpenApiClient.Email_validations;
 using Soenneker.Telnyx.OpenApiClient.Enterprises;
 using Soenneker.Telnyx.OpenApiClient.External_connections;
 using Soenneker.Telnyx.OpenApiClient.Fax_applications;
@@ -58,6 +67,7 @@ using Soenneker.Telnyx.OpenApiClient.Global_ip_usage;
 using Soenneker.Telnyx.OpenApiClient.Global_ips;
 using Soenneker.Telnyx.OpenApiClient.Inbound_channels;
 using Soenneker.Telnyx.OpenApiClient.Inexplicit_number_orders;
+using Soenneker.Telnyx.OpenApiClient.Infringement_claims;
 using Soenneker.Telnyx.OpenApiClient.Integration_secrets;
 using Soenneker.Telnyx.OpenApiClient.Inventory_coverage;
 using Soenneker.Telnyx.OpenApiClient.Invoices;
@@ -268,6 +278,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Call_events.Call_eventsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The call_reasons property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Call_reasons.Call_reasonsRequestBuilder Call_reasons
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Call_reasons.Call_reasonsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The calls property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Calls.CallsRequestBuilder Calls
         {
@@ -333,6 +348,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Dialogflow_connectionsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The dir property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Dir.DirRequestBuilder Dir
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Dir.DirRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The document_links property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksRequestBuilder Document_links
         {
@@ -352,6 +372,41 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder Dynamic_emergency_endpoints
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email_blocks property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_blocks.Email_blocksRequestBuilder Email_blocks
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_blocks.Email_blocksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email_domains property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_domains.Email_domainsRequestBuilder Email_domains
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_domains.Email_domainsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email_events property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_events.Email_eventsRequestBuilder Email_events
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_events.Email_eventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email_messages property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_messages.Email_messagesRequestBuilder Email_messages
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_messages.Email_messagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email_templates property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_templates.Email_templatesRequestBuilder Email_templates
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_templates.Email_templatesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email_unsubscribe_groups property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Email_unsubscribe_groupsRequestBuilder Email_unsubscribe_groups
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Email_unsubscribe_groupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email_validations property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_validations.Email_validationsRequestBuilder Email_validations
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_validations.Email_validationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The enterprises property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Enterprises.EnterprisesRequestBuilder Enterprises
@@ -442,6 +497,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Inexplicit_number_orders.Inexplicit_number_ordersRequestBuilder Inexplicit_number_orders
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Inexplicit_number_orders.Inexplicit_number_ordersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The infringement_claims property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Infringement_claims.Infringement_claimsRequestBuilder Infringement_claims
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Infringement_claims.Infringement_claimsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The integration_secrets property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Integration_secrets.Integration_secretsRequestBuilder Integration_secrets

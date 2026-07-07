@@ -59,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The ordering_groups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups>? OrderingGroups { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItem>? OrderingGroups { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups> OrderingGroups { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItem> OrderingGroups { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
-                { "ordering_groups", n => { OrderingGroups = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups>(global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ordering_groups", n => { OrderingGroups = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups>("ordering_groups", OrderingGroups);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItem>("ordering_groups", OrderingGroups);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

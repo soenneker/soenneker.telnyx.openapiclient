@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Indicates the completion status of the background update.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobStatus? Status { get; private set; }
         /// <summary>The successful_operations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobSuccessfulOperation> SuccessfulOperations { get; private set; }
 #endif
         /// <summary>Identifies the type of the background job.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob_type? Type { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobType? Type { get; private set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,7 +84,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public PhoneNumbersJob()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob_status.Pending;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -111,9 +110,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "pending_operations", n => { PendingOperations = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPendingOperation>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPendingOperation.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobStatus>(); } },
                 { "successful_operations", n => { SuccessfulOperations = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobSuccessfulOperation>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobSuccessfulOperation.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

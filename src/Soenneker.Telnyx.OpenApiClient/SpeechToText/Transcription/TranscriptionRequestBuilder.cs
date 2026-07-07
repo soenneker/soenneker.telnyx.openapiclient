@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         {
         }
         /// <summary>
-        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
+        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">Binary request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
+        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             return new global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
+        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptionRequestBuilderGetQueryParameters 
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             public int? Endpointing { get; set; }
             /// <summary>The format of input audio stream.</summary>
             [QueryParameter("input_format")]
-            public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.GetInput_formatQueryParameterType? InputFormat { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InputFormat? InputFormat { get; set; }
             /// <summary>Whether to receive interim transcription results.</summary>
             [QueryParameter("interim_results")]
             public bool? InterimResults { get; set; }
@@ -156,7 +156,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
 #endif
             /// <summary>The transcription engine to use for processing the audio stream.</summary>
             [QueryParameter("transcription_engine")]
-            public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.GetTranscription_engineQueryParameterType? TranscriptionEngine { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngine? TranscriptionEngine { get; set; }
         }
     }
 }

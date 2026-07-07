@@ -15,14 +15,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The verification_method property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequest_verification_method? VerificationMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequestVerificationMethod? VerificationMethod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequest"/> and sets the default values.
         /// </summary>
         public WhatsappResendVerificationRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            VerificationMethod = global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequest_verification_method.Sms;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -42,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequest_verification_method>(); } },
+                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequestVerificationMethod>(); } },
             };
         }
         /// <summary>
@@ -52,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequest_verification_method>("verification_method", VerificationMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequestVerificationMethod>("verification_method", VerificationMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

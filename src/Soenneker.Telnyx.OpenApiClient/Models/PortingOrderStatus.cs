@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType> Details { get; set; }
 #endif
         /// <summary>The value property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus_value? Value { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusValue>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType>("details", Details);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus_value>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

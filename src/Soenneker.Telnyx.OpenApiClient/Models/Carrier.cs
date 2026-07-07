@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string NormalizedCarrier { get; set; }
 #endif
         /// <summary>A phone number type that identifies the type of service associated with the requested phone number</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Carrier_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CarrierType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Carrier"/> and sets the default values.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "mobile_network_code", n => { MobileNetworkCode = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "normalized_carrier", n => { NormalizedCarrier = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Carrier_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CarrierType>(); } },
             };
         }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("mobile_network_code", MobileNetworkCode);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("normalized_carrier", NormalizedCarrier);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Carrier_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CarrierType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

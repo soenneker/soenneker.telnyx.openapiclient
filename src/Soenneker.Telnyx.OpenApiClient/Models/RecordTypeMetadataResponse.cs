@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Example queries and responses for this record type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponse_examples? Examples { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponseExamplesProperty? Examples { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponse_examples Examples { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponseExamplesProperty Examples { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "aliases", n => { Aliases = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "child_relationships", n => { ChildRelationships = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChildRelationshipInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.ChildRelationshipInfo.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "event", n => { Event = n.GetStringValue(); } },
-                { "examples", n => { Examples = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponse_examples>(global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponse_examples.CreateFromDiscriminatorValue); } },
+                { "examples", n => { Examples = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponseExamplesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponseExamplesProperty.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipMetadata.CreateFromDiscriminatorValue); } },
                 { "parent_relationships", n => { ParentRelationships = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ParentRelationshipInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.ParentRelationshipInfo.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "product", n => { Product = n.GetStringValue(); } },
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("aliases", Aliases);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChildRelationshipInfo>("child_relationships", ChildRelationships);
             writer.WriteStringValue("event", Event);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponse_examples>("examples", Examples);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponseExamplesProperty>("examples", Examples);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipMetadata>("meta", Meta);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ParentRelationshipInfo>("parent_relationships", ParentRelationships);
             writer.WriteStringValue("product", Product);

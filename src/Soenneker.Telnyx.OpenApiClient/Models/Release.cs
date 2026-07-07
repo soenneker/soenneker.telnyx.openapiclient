@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ErrorMessage { get; set; }
 #endif
         /// <summary>Represents the status of the release on Microsoft Teams.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Release_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReleaseStatus? Status { get; set; }
         /// <summary>The telephone_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Release()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.Release_status.Pending_upload;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -72,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Release_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReleaseStatus>(); } },
                 { "telephone_numbers", n => { TelephoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TnReleaseEntry>(global::Soenneker.Telnyx.OpenApiClient.Models.TnReleaseEntry.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tenant_id", n => { TenantId = n.GetGuidValue(); } },
                 { "ticket_id", n => { TicketId = n.GetGuidValue(); } },
@@ -87,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("error_message", ErrorMessage);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Release_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReleaseStatus>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TnReleaseEntry>("telephone_numbers", TelephoneNumbers);
             writer.WriteGuidValue("tenant_id", TenantId);
             writer.WriteGuidValue("ticket_id", TicketId);

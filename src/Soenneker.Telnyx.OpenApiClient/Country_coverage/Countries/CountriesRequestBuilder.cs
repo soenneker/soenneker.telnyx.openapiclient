@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.country_coverage.countries.item collection</summary>
         /// <param name="position">Country ISO code.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountry_codeItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountry_codeItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountryCodeItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountryCodeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("country_code", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountry_codeItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("countryCode", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountryCodeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

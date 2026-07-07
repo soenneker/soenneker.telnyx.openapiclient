@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Group
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messages.group.item collection</summary>
         /// <param name="position">The group message ID.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Group.Item.WithMessage_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Messages.Group.Item.WithMessage_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Group.Item.WithMessageItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Group.Item.WithMessageItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("message_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Messages.Group.Item.WithMessage_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("messageId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messages.Group.Item.WithMessageItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

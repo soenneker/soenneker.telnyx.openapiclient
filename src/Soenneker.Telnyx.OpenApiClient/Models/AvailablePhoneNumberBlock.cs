@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The range property</summary>
         public int? Range { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlock_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlockRecordType? RecordType { get; set; }
         /// <summary>The region_information property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "features", n => { Features = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>(global::Soenneker.Telnyx.OpenApiClient.Models.Feature.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "range", n => { Range = n.GetIntValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlock_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlockRecordType>(); } },
                 { "region_information", n => { RegionInformation = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>(global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>("features", Features);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteIntValue("range", Range);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlock_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlockRecordType>("record_type", RecordType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>("region_information", RegionInformation);
             writer.WriteAdditionalData(AdditionalData);
         }

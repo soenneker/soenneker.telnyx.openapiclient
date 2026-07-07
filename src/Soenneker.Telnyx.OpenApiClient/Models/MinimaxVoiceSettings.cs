@@ -15,13 +15,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enhances recognition for specific languages and dialects during MiniMax TTS synthesis. Default is null (no boost). Set to &apos;auto&apos; for automatic language detection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_language_boost? LanguageBoost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsLanguageBoost? LanguageBoost { get; set; }
         /// <summary>Voice pitch adjustment. Default is 0.</summary>
         public int? Pitch { get; set; }
         /// <summary>Speech speed multiplier. Default is 1.0.</summary>
         public float? Speed { get; set; }
         /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsType? Type { get; set; }
         /// <summary>Speech volume multiplier. Default is 1.0.</summary>
         public float? Vol { get; set; }
         /// <summary>
@@ -30,7 +30,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public MinimaxVoiceSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            LanguageBoost = global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_language_boost.Auto;
+            Pitch = 0;
+            Speed = 1.0f;
+            Vol = 1.0f;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,10 +52,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "language_boost", n => { LanguageBoost = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_language_boost>(); } },
+                { "language_boost", n => { LanguageBoost = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsLanguageBoost>(); } },
                 { "pitch", n => { Pitch = n.GetIntValue(); } },
                 { "speed", n => { Speed = n.GetFloatValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsType>(); } },
                 { "vol", n => { Vol = n.GetFloatValue(); } },
             };
         }
@@ -64,10 +66,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_language_boost>("language_boost", LanguageBoost);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsLanguageBoost>("language_boost", LanguageBoost);
             writer.WriteIntValue("pitch", Pitch);
             writer.WriteFloatValue("speed", Speed);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsType>("type", Type);
             writer.WriteFloatValue("vol", Vol);
             writer.WriteAdditionalData(AdditionalData);
         }

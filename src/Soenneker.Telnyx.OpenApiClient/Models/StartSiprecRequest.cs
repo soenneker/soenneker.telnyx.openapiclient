@@ -37,17 +37,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Sets `Session-Expires` header to the INVITE. A reinvite is sent every half the value set. Usefull for session keep alive. Minimum value is 90, set to 0 to disable.</summary>
         public int? SessionTimeoutSecs { get; set; }
         /// <summary>Specifies which track should be sent on siprec session.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_siprec_track? SiprecTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSiprecTrack? SiprecTrack { get; set; }
         /// <summary>Specifies SIP transport protocol.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_sip_transport? SipTransport { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSipTransport? SipTransport { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest"/> and sets the default values.
         /// </summary>
         public StartSiprecRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            SiprecTrack = global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_siprec_track.Both_tracks;
-            SipTransport = global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_sip_transport.Udp;
+            SessionTimeoutSecs = 1800;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -72,8 +71,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "include_metadata_custom_headers", n => { IncludeMetadataCustomHeaders = n.GetBoolValue(); } },
                 { "secure", n => { Secure = n.GetBoolValue(); } },
                 { "session_timeout_secs", n => { SessionTimeoutSecs = n.GetIntValue(); } },
-                { "sip_transport", n => { SipTransport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_sip_transport>(); } },
-                { "siprec_track", n => { SiprecTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_siprec_track>(); } },
+                { "sip_transport", n => { SipTransport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSipTransport>(); } },
+                { "siprec_track", n => { SiprecTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSiprecTrack>(); } },
             };
         }
         /// <summary>
@@ -88,8 +87,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("include_metadata_custom_headers", IncludeMetadataCustomHeaders);
             writer.WriteBoolValue("secure", Secure);
             writer.WriteIntValue("session_timeout_secs", SessionTimeoutSecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_siprec_track>("siprec_track", SiprecTrack);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_sip_transport>("sip_transport", SipTransport);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSiprecTrack>("siprec_track", SiprecTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSipTransport>("sip_transport", SipTransport);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

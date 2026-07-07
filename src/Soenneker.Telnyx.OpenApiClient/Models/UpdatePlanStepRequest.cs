@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequest_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequestMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequest_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequestMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StepStatus? Status { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequest_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequest_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequestMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StepStatus>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequest_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePlanStepRequestMetadataProperty>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StepStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

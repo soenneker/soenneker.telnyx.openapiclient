@@ -27,10 +27,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The directions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_directions?>? Directions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseDirectionsItem?>? Directions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_directions?> Directions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseDirectionsItem?> Directions { get; set; }
 #endif
         /// <summary>The end_date property</summary>
         public DateTimeOffset? EndDate { get; set; }
@@ -63,10 +63,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The record_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_record_types?>? RecordTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseRecordTypesItem?>? RecordTypes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_record_types?> RecordTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseRecordTypesItem?> RecordTypes { get; set; }
 #endif
         /// <summary>The report_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The start_date property</summary>
         public DateTimeOffset? StartDate { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -117,17 +117,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "connections", n => { Connections = n.GetCollectionOfPrimitiveValues<long?>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "directions", n => { Directions = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_directions>()?.AsList(); } },
+                { "directions", n => { Directions = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseDirectionsItem>()?.AsList(); } },
                 { "end_date", n => { EndDate = n.GetDateTimeOffsetValue(); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Filter>(global::Soenneker.Telnyx.OpenApiClient.Models.Filter.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "profiles", n => { Profiles = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "record_types", n => { RecordTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_record_types>()?.AsList(); } },
+                { "record_types", n => { RecordTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseRecordTypesItem>()?.AsList(); } },
                 { "report_name", n => { ReportName = n.GetStringValue(); } },
                 { "report_url", n => { ReportUrl = n.GetStringValue(); } },
                 { "start_date", n => { StartDate = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -140,17 +140,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<long?>("connections", Connections);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_directions>("directions", Directions);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseDirectionsItem>("directions", Directions);
             writer.WriteDateTimeOffsetValue("end_date", EndDate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Filter>("filters", Filters);
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("profiles", Profiles);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_record_types>("record_types", RecordTypes);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseRecordTypesItem>("record_types", RecordTypes);
             writer.WriteStringValue("report_name", ReportName);
             writer.WriteStringValue("report_url", ReportUrl);
             writer.WriteDateTimeOffsetValue("start_date", StartDate);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponseStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

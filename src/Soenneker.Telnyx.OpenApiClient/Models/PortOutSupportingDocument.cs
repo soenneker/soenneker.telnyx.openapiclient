@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Identifies the type of the document</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortOutSupportingDocument_type? Type { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortOutSupportingDocumentType? Type { get; private set; }
         /// <summary>Supporting document last changed timestamp in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "portout_id", n => { PortoutId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortOutSupportingDocument_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortOutSupportingDocumentType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

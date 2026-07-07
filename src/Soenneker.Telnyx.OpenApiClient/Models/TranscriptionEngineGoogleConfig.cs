@@ -33,19 +33,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Defines minimum number of speakers in the conversation.</summary>
         public int? MinSpeakerCount { get; set; }
         /// <summary>The model to use for transcription.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_model? Model { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigModel? Model { get; set; }
         /// <summary>Enables profanity_filter.</summary>
         public bool? ProfanityFilter { get; set; }
         /// <summary>Speech context to improve transcription accuracy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_speech_context>? SpeechContext { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>? SpeechContext { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_speech_context> SpeechContext { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem> SpeechContext { get; set; }
 #endif
         /// <summary>Engine identifier for Google transcription service</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_transcription_engine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigTranscriptionEngine? TranscriptionEngine { get; set; }
         /// <summary>Enables enhanced transcription, this works for models `phone_call` and `video`.</summary>
         public bool? UseEnhanced { get; set; }
         /// <summary>
@@ -54,7 +54,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TranscriptionEngineGoogleConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            Language = global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage.En;
+            EnableSpeakerDiarization = false;
+            InterimResults = false;
+            MaxSpeakerCount = 6;
+            MinSpeakerCount = 2;
+            ProfanityFilter = false;
+            UseEnhanced = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -80,10 +85,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>(); } },
                 { "max_speaker_count", n => { MaxSpeakerCount = n.GetIntValue(); } },
                 { "min_speaker_count", n => { MinSpeakerCount = n.GetIntValue(); } },
-                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_model>(); } },
+                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigModel>(); } },
                 { "profanity_filter", n => { ProfanityFilter = n.GetBoolValue(); } },
-                { "speech_context", n => { SpeechContext = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_speech_context>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_speech_context.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_transcription_engine>(); } },
+                { "speech_context", n => { SpeechContext = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigTranscriptionEngine>(); } },
                 { "use_enhanced", n => { UseEnhanced = n.GetBoolValue(); } },
             };
         }
@@ -100,10 +105,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>("language", Language);
             writer.WriteIntValue("max_speaker_count", MaxSpeakerCount);
             writer.WriteIntValue("min_speaker_count", MinSpeakerCount);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_model>("model", Model);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigModel>("model", Model);
             writer.WriteBoolValue("profanity_filter", ProfanityFilter);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_speech_context>("speech_context", SpeechContext);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>("speech_context", SpeechContext);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigTranscriptionEngine>("transcription_engine", TranscriptionEngine);
             writer.WriteBoolValue("use_enhanced", UseEnhanced);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -9,15 +9,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "StartCallRecordingAPI")]
         #pragma warning disable CS1591
-        StartCallRecordingAPI,
+        StartCallRecordingApi,
         #pragma warning restore CS1591
         [EnumMember(Value = "StartConferenceRecordingAPI")]
         #pragma warning disable CS1591
-        StartConferenceRecordingAPI,
+        StartConferenceRecordingApi,
         #pragma warning restore CS1591
         [EnumMember(Value = "OutboundAPI")]
         #pragma warning disable CS1591
-        OutboundAPI,
+        OutboundApi,
         #pragma warning restore CS1591
         [EnumMember(Value = "DialVerb")]
         #pragma warning disable CS1591

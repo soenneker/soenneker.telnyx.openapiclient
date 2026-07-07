@@ -9,47 +9,47 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "10")]
         #pragma warning disable CS1591
-        OneZero,
+        Value10,
         #pragma warning restore CS1591
         [EnumMember(Value = "100")]
         #pragma warning disable CS1591
-        OneZeroZero,
+        Value100,
         #pragma warning restore CS1591
         [EnumMember(Value = "1,000")]
         #pragma warning disable CS1591
-        OneZeroZeroZero,
+        Value1Comma000,
         #pragma warning restore CS1591
         [EnumMember(Value = "10,000")]
         #pragma warning disable CS1591
-        OneZeroZeroZeroZero,
+        Value10Comma000,
         #pragma warning restore CS1591
         [EnumMember(Value = "100,000")]
         #pragma warning disable CS1591
-        OneZeroZeroZeroZeroZero,
+        Value100Comma000,
         #pragma warning restore CS1591
         [EnumMember(Value = "250,000")]
         #pragma warning disable CS1591
-        TwoFiveZeroZeroZeroZero,
+        Value250Comma000,
         #pragma warning restore CS1591
         [EnumMember(Value = "500,000")]
         #pragma warning disable CS1591
-        FiveZeroZeroZeroZeroZero,
+        Value500Comma000,
         #pragma warning restore CS1591
         [EnumMember(Value = "750,000")]
         #pragma warning disable CS1591
-        SevenFiveZeroZeroZeroZero,
+        Value750Comma000,
         #pragma warning restore CS1591
         [EnumMember(Value = "1,000,000")]
         #pragma warning disable CS1591
-        OneZeroZeroZeroZeroZeroZero,
+        Value1Comma000Comma000,
         #pragma warning restore CS1591
         [EnumMember(Value = "5,000,000")]
         #pragma warning disable CS1591
-        FiveZeroZeroZeroZeroZeroZero,
+        Value5Comma000Comma000,
         #pragma warning restore CS1591
         [EnumMember(Value = "10,000,000+")]
         #pragma warning disable CS1591
-        OneZeroZeroZeroZeroZeroZeroZero_plus,
+        Value10Comma000Comma000Plus,
         #pragma warning restore CS1591
     }
 }

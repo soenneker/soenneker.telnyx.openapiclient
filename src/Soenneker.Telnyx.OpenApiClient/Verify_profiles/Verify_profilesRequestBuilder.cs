@@ -26,14 +26,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.verify_profiles.item collection</summary>
         /// <param name="position">The identifier of the Verify profile to delete.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item.WithVerify_profile_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item.WithVerify_profile_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item.WithVerifyProfileItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item.WithVerifyProfileItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("verify_profile_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item.WithVerify_profile_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("verifyProfileId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item.WithVerifyProfileItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyErrors">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -127,11 +127,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

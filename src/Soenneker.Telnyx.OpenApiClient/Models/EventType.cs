@@ -10,27 +10,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "status_change")]
         #pragma warning disable CS1591
-        Status_change,
+        StatusChange,
         #pragma warning restore CS1591
         [EnumMember(Value = "step_started")]
         #pragma warning disable CS1591
-        Step_started,
+        StepStarted,
         #pragma warning restore CS1591
         [EnumMember(Value = "step_completed")]
         #pragma warning disable CS1591
-        Step_completed,
+        StepCompleted,
         #pragma warning restore CS1591
         [EnumMember(Value = "step_failed")]
         #pragma warning disable CS1591
-        Step_failed,
+        StepFailed,
         #pragma warning restore CS1591
         [EnumMember(Value = "tool_call")]
         #pragma warning disable CS1591
-        Tool_call,
+        ToolCall,
         #pragma warning restore CS1591
         [EnumMember(Value = "tool_result")]
         #pragma warning disable CS1591
-        Tool_result,
+        ToolResult,
         #pragma warning restore CS1591
         [EnumMember(Value = "message")]
         #pragma warning disable CS1591

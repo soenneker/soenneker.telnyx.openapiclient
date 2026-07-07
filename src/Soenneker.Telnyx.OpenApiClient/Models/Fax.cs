@@ -79,9 +79,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The quality of the fax. The `ultra` settings provides the highest quality available, but also present longer fax processing times. `ultra_light` is best suited for images, wihle `ultra_dark` is best suited for text.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Quality? Quality { get; set; }
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Fax_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxRecordType? RecordType { get; set; }
         /// <summary>Status of the fax</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Fax_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxStatus? Status { get; set; }
         /// <summary>If store_media was set to true, this is a link to temporary location. Link expires after 10 minutes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,7 +124,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Fax()
         {
             AdditionalData = new Dictionary<string, object>();
-            Quality = global::Soenneker.Telnyx.OpenApiClient.Models.Quality.High;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -155,8 +154,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "media_url", n => { MediaUrl = n.GetStringValue(); } },
                 { "preview_url", n => { PreviewUrl = n.GetStringValue(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Quality>(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Fax_record_type>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Fax_status>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxRecordType>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxStatus>(); } },
                 { "store_media", n => { StoreMedia = n.GetBoolValue(); } },
                 { "stored_media_url", n => { StoredMediaUrl = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
@@ -183,8 +182,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteStringValue("preview_url", PreviewUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Quality>("quality", Quality);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Fax_record_type>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Fax_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxStatus>("status", Status);
             writer.WriteStringValue("stored_media_url", StoredMediaUrl);
             writer.WriteBoolValue("store_media", StoreMedia);
             writer.WriteStringValue("to", To);

@@ -36,18 +36,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
         /// <summary>
         /// List Virtual Cross Connects Cloud Coverage.&lt;br /&gt;&lt;br /&gt;This endpoint shows which cloud regions are available for the `location_code` your Virtual Cross Connect will be provisioned in.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnectCoverage200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageRequestBuilder.Virtual_cross_connects_coverageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnectCoverage200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageRequestBuilder.Virtual_cross_connects_coverageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageRequestBuilder.Virtual_cross_connects_coverageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnectCoverage200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageRequestBuilder.Virtual_cross_connects_coverageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage.Virtual_cross_connects_coverageGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnectCoverage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnectCoverage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List Virtual Cross Connects Cloud Coverage.&lt;br /&gt;&lt;br /&gt;This endpoint shows which cloud regions are available for the `location_code` your Virtual Cross Connect will be provisioned in.

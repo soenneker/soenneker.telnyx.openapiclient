@@ -31,6 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public PaginatedVerificationRequestStatus()
         {
             AdditionalData = new Dictionary<string, object>();
+            TotalRecords = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

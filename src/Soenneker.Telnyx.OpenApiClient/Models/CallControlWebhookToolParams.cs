@@ -33,13 +33,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The headers to be sent to the external tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_headers>? Headers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsHeadersItem>? Headers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_headers> Headers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsHeadersItem> Headers { get; set; }
 #endif
         /// <summary>The HTTP method to be used when calling the external tool.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_method? Method { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsMethod? Method { get; set; }
         /// <summary>The name of the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +78,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CallControlWebhookToolParams()
         {
             AdditionalData = new Dictionary<string, object>();
-            Method = global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_method.POST;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -100,8 +99,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "body_parameters", n => { BodyParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsBodyParameters>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsBodyParameters.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "headers", n => { Headers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_headers.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "method", n => { Method = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_method>(); } },
+                { "headers", n => { Headers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsHeadersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsHeadersItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "method", n => { Method = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsMethod>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "path_parameters", n => { PathParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsPathParameters>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsPathParameters.CreateFromDiscriminatorValue); } },
                 { "query_parameters", n => { QueryParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsQueryParameters>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsQueryParameters.CreateFromDiscriminatorValue); } },
@@ -117,8 +116,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsBodyParameters>("body_parameters", BodyParameters);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_headers>("headers", Headers);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams_method>("method", Method);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsHeadersItem>("headers", Headers);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsMethod>("method", Method);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsPathParameters>("path_parameters", PathParameters);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParamsQueryParameters>("query_parameters", QueryParameters);

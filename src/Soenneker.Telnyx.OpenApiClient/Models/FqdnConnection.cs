@@ -214,10 +214,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public FqdnConnection()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
-            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType.RFC2833;
-            TransportProtocol = global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol.UDP;
-            WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.WebhookApiVersion.One;
+            CallCostInWebhooks = false;
+            DefaultOnHoldComfortNoiseEnabled = true;
+            EncodeContactHeaderEnabled = false;
+            MicrosoftTeamsSbc = false;
+            OnnetT38PassthroughEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

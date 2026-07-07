@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail NewThisMonth { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ComparativeLine_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ComparativeLineType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ComparativeLine"/> and sets the default values.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "existing_this_month", n => { ExistingThisMonth = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail>(global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "new_this_month", n => { NewThisMonth = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail>(global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparativeLine_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparativeLineType>(); } },
             };
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail>("existing_this_month", ExistingThisMonth);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail>("new_this_month", NewThisMonth);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparativeLine_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparativeLineType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

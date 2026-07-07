@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The json_schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReq_json_schema? JsonSchema { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReqJsonSchema? JsonSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReq_json_schema JsonSchema { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReqJsonSchema JsonSchema { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
-                { "json_schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReq_json_schema>(global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReq_json_schema.CreateFromDiscriminatorValue); } },
+                { "json_schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReqJsonSchema>(global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReqJsonSchema.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "webhook", n => { Webhook = n.GetStringValue(); } },
             };
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReq_json_schema>("json_schema", JsonSchema);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateUpdateReqJsonSchema>("json_schema", JsonSchema);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);

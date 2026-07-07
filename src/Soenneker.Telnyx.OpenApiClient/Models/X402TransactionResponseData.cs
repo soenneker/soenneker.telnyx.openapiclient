@@ -49,9 +49,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string QuoteId { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseData_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseDataRecordType? RecordType { get; set; }
         /// <summary>The settlement status of the transaction.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseData_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseDataStatus? Status { get; set; }
         /// <summary>The on-chain transaction hash, if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,8 +90,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "quote_id", n => { QuoteId = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseData_record_type>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseData_status>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseDataRecordType>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseDataStatus>(); } },
                 { "tx_hash", n => { TxHash = n.GetStringValue(); } },
             };
         }
@@ -107,8 +107,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("quote_id", QuoteId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseData_record_type>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseData_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseDataRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponseDataStatus>("status", Status);
             writer.WriteStringValue("tx_hash", TxHash);
             writer.WriteAdditionalData(AdditionalData);
         }

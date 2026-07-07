@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The additional_usages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest_additional_usages?>? AdditionalUsages { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem?>? AdditionalUsages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest_additional_usages?> AdditionalUsages { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem?> AdditionalUsages { get; set; }
 #endif
         /// <summary>Identifies the civic address to assign all phone numbers to.</summary>
         public Guid? CivicAddressId { get; set; }
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> NumberIds { get; set; }
 #endif
         /// <summary>&quot;The use case of the upload request. NOTE: `calling_user_assignment` is not supported for toll free numbers.&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest_usage? Usage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage? Usage { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest"/> and sets the default values.
         /// </summary>
@@ -61,11 +61,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "additional_usages", n => { AdditionalUsages = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest_additional_usages>()?.AsList(); } },
+                { "additional_usages", n => { AdditionalUsages = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem>()?.AsList(); } },
                 { "civic_address_id", n => { CivicAddressId = n.GetGuidValue(); } },
                 { "location_id", n => { LocationId = n.GetGuidValue(); } },
                 { "number_ids", n => { NumberIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "usage", n => { Usage = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest_usage>(); } },
+                { "usage", n => { Usage = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage>(); } },
             };
         }
         /// <summary>
@@ -75,11 +75,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest_additional_usages>("additional_usages", AdditionalUsages);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem>("additional_usages", AdditionalUsages);
             writer.WriteGuidValue("civic_address_id", CivicAddressId);
             writer.WriteGuidValue("location_id", LocationId);
             writer.WriteCollectionOfPrimitiveValues<string>("number_ids", NumberIds);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest_usage>("usage", Usage);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

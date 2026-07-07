@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether this requirement applies to branded_calling, ordering, porting, or both ordering and porting</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirement_action? Action { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The 2-character (ISO 3166-1 alpha-2) country code where this requirement applies</summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Locality { get; set; }
 #endif
         /// <summary>Indicates the phone_number_type this requirement applies to. Leave blank if this requirement applies to all number_types.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirement_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementPhoneNumberType? PhoneNumberType { get; set; }
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,12 +93,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirement_action>(); } },
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementAction>(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "locality", n => { Locality = n.GetStringValue(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirement_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementPhoneNumberType>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirements_types", n => { RequirementsTypes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType>(global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -111,10 +111,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirement_action>("action", Action);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementAction>("action", Action);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("locality", Locality);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirement_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementPhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

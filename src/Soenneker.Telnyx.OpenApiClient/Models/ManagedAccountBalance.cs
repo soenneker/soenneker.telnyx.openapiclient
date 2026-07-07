@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Currency { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountBalance_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountBalanceRecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountBalance"/> and sets the default values.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "balance", n => { Balance = n.GetStringValue(); } },
                 { "credit_limit", n => { CreditLimit = n.GetStringValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountBalance_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountBalanceRecordType>(); } },
             };
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("balance", Balance);
             writer.WriteStringValue("credit_limit", CreditLimit);
             writer.WriteStringValue("currency", Currency);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountBalance_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountBalanceRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

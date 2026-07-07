@@ -15,10 +15,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Specifies the activation ranges for this porting phone number block. The activation range must be within the phone number range and should not overlap with other activation ranges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_activation_ranges>? ActivationRanges { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockActivationRangesItem>? ActivationRanges { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_activation_ranges> ActivationRanges { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockActivationRangesItem> ActivationRanges { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange PhoneNumberRange { get; set; }
 #endif
         /// <summary>Specifies the phone number type for this porting phone number block.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberType? PhoneNumberType { get; set; }
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,12 +79,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activation_ranges", n => { ActivationRanges = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_activation_ranges>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_activation_ranges.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "activation_ranges", n => { ActivationRanges = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockActivationRangesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockActivationRangesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_number_range", n => { PhoneNumberRange = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange.CreateFromDiscriminatorValue); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberType>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -96,10 +96,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_activation_ranges>("activation_ranges", ActivationRanges);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockActivationRangesItem>("activation_ranges", ActivationRanges);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange>("phone_number_range", PhoneNumberRange);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

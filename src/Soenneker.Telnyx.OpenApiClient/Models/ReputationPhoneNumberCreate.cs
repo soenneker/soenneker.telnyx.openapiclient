@@ -9,12 +9,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReputationPhoneNumberCreate : IAdditionalDataHolder, IParsable
+    public partial class ReputationPhoneNumberCreate : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>List of phone numbers to associate for reputation monitoring (max 100)</summary>
+        /// <summary>1–100 phone numbers in E.164 format with a leading `+`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? PhoneNumbers { get; set; }
@@ -22,13 +20,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> PhoneNumbers { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberCreate"/> and sets the default values.
-        /// </summary>
-        public ReputationPhoneNumberCreate()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -58,7 +49,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers", PhoneNumbers);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

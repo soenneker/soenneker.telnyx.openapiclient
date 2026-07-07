@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventData_payload? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EventDataPayloadProperty? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventData_payload Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EventDataPayloadProperty Payload { get; set; }
 #endif
         /// <summary>The run_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "agent_id", n => { AgentId = n.GetStringValue(); } },
                 { "event_id", n => { EventId = n.GetStringValue(); } },
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventData_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.EventData_payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventDataPayloadProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.EventDataPayloadProperty.CreateFromDiscriminatorValue); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "step_id", n => { StepId = n.GetStringValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("agent_id", AgentId);
             writer.WriteStringValue("event_id", EventId);
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventData_payload>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventDataPayloadProperty>("payload", Payload);
             writer.WriteStringValue("run_id", RunId);
             writer.WriteStringValue("step_id", StepId);
             writer.WriteStringValue("summary", Summary);

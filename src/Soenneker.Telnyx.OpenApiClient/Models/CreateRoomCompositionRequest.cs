@@ -35,10 +35,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Describes the video layout of the room composition in terms of regions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest_video_layout? VideoLayout { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty? VideoLayout { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest_video_layout VideoLayout { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty VideoLayout { get; set; }
 #endif
         /// <summary>The failover URL where webhooks related to this room composition will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "format", n => { Format = n.GetStringValue(); } },
                 { "resolution", n => { Resolution = n.GetStringValue(); } },
                 { "session_id", n => { SessionId = n.GetGuidValue(); } },
-                { "video_layout", n => { VideoLayout = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest_video_layout>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest_video_layout.CreateFromDiscriminatorValue); } },
+                { "video_layout", n => { VideoLayout = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty.CreateFromDiscriminatorValue); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("format", Format);
             writer.WriteStringValue("resolution", Resolution);
             writer.WriteGuidValue("session_id", SessionId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest_video_layout>("video_layout", VideoLayout);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty>("video_layout", VideoLayout);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string AmdStatusCallback { get; set; }
 #endif
         /// <summary>HTTP request type used for `AmdStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_AmdStatusCallbackMethod? AmdStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestAmdStatusCallbackMethod? AmdStatusCallbackMethod { get; set; }
         /// <summary>The SID of the TeXML application that will handle the new participant&apos;s call. Required unless joining an existing conference by its ConferenceSid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ApplicationSid { get; set; }
 #endif
         /// <summary>Whether to play a notification beep to the conference when the participant enters and exits.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Beep? Beep { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestBeep? Beep { get; set; }
         /// <summary>To be used as the caller id name (SIP From Display Name) presented to the destination (`To` number). The string should have a maximum of 128 characters, containing only letters, numbers, spaces, and `-_~!.+` special characters. If ommited, the display name will be the same as the number in the `From` field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether the participant is coaching another call. When `true`, `CallSidToCoach` has to be given.</summary>
         public bool? Coaching { get; set; }
         /// <summary>Whether to record the conference the participant is joining. Defualts to `do-not-record`. The boolean values `true` and `false` are synonymous with `record-from-start` and `do-not-record` respectively.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceRecord? ConferenceRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord? ConferenceRecord { get; set; }
         /// <summary>The URL the conference recording callbacks will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ConferenceRecordingStatusCallbackEvent { get; set; }
 #endif
         /// <summary>HTTP request type used for `ConferenceRecordingStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceRecordingStatusCallbackMethod? ConferenceRecordingStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecordingStatusCallbackMethod? ConferenceRecordingStatusCallbackMethod { get; set; }
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected. The timer only starts when the speech is detected. Please note that the transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite)</summary>
         public int? ConferenceRecordingTimeout { get; set; }
         /// <summary>The URL the conference callbacks will be sent to.</summary>
@@ -95,16 +95,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ConferenceStatusCallbackEvent { get; set; }
 #endif
         /// <summary>HTTP request type used for `ConferenceStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceStatusCallbackMethod? ConferenceStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceStatusCallbackMethod? ConferenceStatusCallbackMethod { get; set; }
         /// <summary>Whether to trim any leading and trailing silence from the conference recording. Defaults to `trim-silence`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceTrim? ConferenceTrim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceTrim? ConferenceTrim { get; set; }
         /// <summary>Custom HTTP headers to be sent with the call. Each header should be an object with &apos;name&apos; and &apos;value&apos; properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders>? CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem>? CustomHeaders { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders> CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem> CustomHeaders { get; set; }
 #endif
         /// <summary>Whether participant shall be bridged to conference before the participant answers (from early media if available). Defaults to `false`.</summary>
         public bool? EarlyMedia { get; set; }
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Label { get; set; }
 #endif
         /// <summary>Whether to detect if a human or an answering machine picked up the call. Use `Enable` if you would like to ne notified as soon as the called party is identified. Use `DetectMessageEnd`, if you would like to leave a message on an answering machine.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_MachineDetection? MachineDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection? MachineDetection { get; set; }
         /// <summary>If initial silence duration is greater than this value, consider it a machine. Ignored when `premium` detection is used.</summary>
         public int? MachineDetectionSilenceTimeout { get; set; }
         /// <summary>Silence duration threshold after a greeting message or voice for it be considered human. Ignored when `premium` detection is used.</summary>
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether to record the entire participant&apos;s call leg. Defaults to `false`.</summary>
         public bool? Record { get; set; }
         /// <summary>The number of channels in the final recording. Defaults to `mono`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingChannels? RecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingChannels? RecordingChannels { get; set; }
         /// <summary>The URL the recording callbacks will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -169,9 +169,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordingStatusCallbackEvent { get; set; }
 #endif
         /// <summary>HTTP request type used for `RecordingStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingTrack? RecordingTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingTrack? RecordingTrack { get; set; }
         /// <summary>The password to use for SIP authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -207,7 +207,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StatusCallbackEvent { get; set; }
 #endif
         /// <summary>HTTP request type used for `StatusCallback`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_StatusCallbackMethod? StatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestStatusCallbackMethod? StatusCallbackMethod { get; set; }
         /// <summary>The maximum duration of the call in seconds.</summary>
         public int? TimeLimit { get; set; }
         /// <summary>The number of seconds that we should allow the phone to ring before assuming there is no answer. Can be an integer between 5 and 120, inclusive. The default value is 30.</summary>
@@ -221,7 +221,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string To { get; set; }
 #endif
         /// <summary>Whether to trim any leading and trailing silence from the recording. Defaults to `trim-silence`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Trim? Trim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestTrim? Trim { get; set; }
         /// <summary>The URL to call for an audio file to play while the participant is waiting for the conference to start.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -236,6 +236,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DialConferenceParticipantRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            CancelPlaybackOnDetectMessageEnd = true;
+            CancelPlaybackOnMachineDetection = true;
+            ConferenceRecordingTimeout = 0;
+            EarlyMedia = false;
+            MachineDetectionSilenceTimeout = 3500;
+            MachineDetectionSpeechEndThreshold = 800;
+            MachineDetectionSpeechThreshold = 3500;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -256,29 +263,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "AmdStatusCallback", n => { AmdStatusCallback = n.GetStringValue(); } },
-                { "AmdStatusCallbackMethod", n => { AmdStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_AmdStatusCallbackMethod>(); } },
+                { "AmdStatusCallbackMethod", n => { AmdStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestAmdStatusCallbackMethod>(); } },
                 { "ApplicationSid", n => { ApplicationSid = n.GetStringValue(); } },
-                { "Beep", n => { Beep = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Beep>(); } },
+                { "Beep", n => { Beep = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestBeep>(); } },
                 { "CallSidToCoach", n => { CallSidToCoach = n.GetStringValue(); } },
                 { "CallerId", n => { CallerId = n.GetStringValue(); } },
                 { "CancelPlaybackOnDetectMessageEnd", n => { CancelPlaybackOnDetectMessageEnd = n.GetBoolValue(); } },
                 { "CancelPlaybackOnMachineDetection", n => { CancelPlaybackOnMachineDetection = n.GetBoolValue(); } },
                 { "Coaching", n => { Coaching = n.GetBoolValue(); } },
-                { "ConferenceRecord", n => { ConferenceRecord = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceRecord>(); } },
+                { "ConferenceRecord", n => { ConferenceRecord = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord>(); } },
                 { "ConferenceRecordingStatusCallback", n => { ConferenceRecordingStatusCallback = n.GetStringValue(); } },
                 { "ConferenceRecordingStatusCallbackEvent", n => { ConferenceRecordingStatusCallbackEvent = n.GetStringValue(); } },
-                { "ConferenceRecordingStatusCallbackMethod", n => { ConferenceRecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceRecordingStatusCallbackMethod>(); } },
+                { "ConferenceRecordingStatusCallbackMethod", n => { ConferenceRecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecordingStatusCallbackMethod>(); } },
                 { "ConferenceRecordingTimeout", n => { ConferenceRecordingTimeout = n.GetIntValue(); } },
                 { "ConferenceStatusCallback", n => { ConferenceStatusCallback = n.GetStringValue(); } },
                 { "ConferenceStatusCallbackEvent", n => { ConferenceStatusCallbackEvent = n.GetStringValue(); } },
-                { "ConferenceStatusCallbackMethod", n => { ConferenceStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceStatusCallbackMethod>(); } },
-                { "ConferenceTrim", n => { ConferenceTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceTrim>(); } },
-                { "CustomHeaders", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders>(global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ConferenceStatusCallbackMethod", n => { ConferenceStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceStatusCallbackMethod>(); } },
+                { "ConferenceTrim", n => { ConferenceTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceTrim>(); } },
+                { "CustomHeaders", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "EarlyMedia", n => { EarlyMedia = n.GetBoolValue(); } },
                 { "EndConferenceOnExit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "From", n => { From = n.GetStringValue(); } },
                 { "Label", n => { Label = n.GetStringValue(); } },
-                { "MachineDetection", n => { MachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_MachineDetection>(); } },
+                { "MachineDetection", n => { MachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection>(); } },
                 { "MachineDetectionSilenceTimeout", n => { MachineDetectionSilenceTimeout = n.GetIntValue(); } },
                 { "MachineDetectionSpeechEndThreshold", n => { MachineDetectionSpeechEndThreshold = n.GetIntValue(); } },
                 { "MachineDetectionSpeechThreshold", n => { MachineDetectionSpeechThreshold = n.GetIntValue(); } },
@@ -287,21 +294,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "Muted", n => { Muted = n.GetBoolValue(); } },
                 { "PreferredCodecs", n => { PreferredCodecs = n.GetStringValue(); } },
                 { "Record", n => { Record = n.GetBoolValue(); } },
-                { "RecordingChannels", n => { RecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingChannels>(); } },
+                { "RecordingChannels", n => { RecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingChannels>(); } },
                 { "RecordingStatusCallback", n => { RecordingStatusCallback = n.GetStringValue(); } },
                 { "RecordingStatusCallbackEvent", n => { RecordingStatusCallbackEvent = n.GetStringValue(); } },
-                { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingStatusCallbackMethod>(); } },
-                { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingTrack>(); } },
+                { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingStatusCallbackMethod>(); } },
+                { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingTrack>(); } },
                 { "SipAuthPassword", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "SipAuthUsername", n => { SipAuthUsername = n.GetStringValue(); } },
                 { "StartConferenceOnEnter", n => { StartConferenceOnEnter = n.GetBoolValue(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
                 { "StatusCallbackEvent", n => { StatusCallbackEvent = n.GetStringValue(); } },
-                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_StatusCallbackMethod>(); } },
+                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestStatusCallbackMethod>(); } },
                 { "TimeLimit", n => { TimeLimit = n.GetIntValue(); } },
                 { "Timeout", n => { Timeout = n.GetIntValue(); } },
                 { "To", n => { To = n.GetStringValue(); } },
-                { "Trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Trim>(); } },
+                { "Trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestTrim>(); } },
                 { "WaitUrl", n => { WaitUrl = n.GetStringValue(); } },
             };
         }
@@ -313,29 +320,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("AmdStatusCallback", AmdStatusCallback);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_AmdStatusCallbackMethod>("AmdStatusCallbackMethod", AmdStatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestAmdStatusCallbackMethod>("AmdStatusCallbackMethod", AmdStatusCallbackMethod);
             writer.WriteStringValue("ApplicationSid", ApplicationSid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Beep>("Beep", Beep);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestBeep>("Beep", Beep);
             writer.WriteStringValue("CallerId", CallerId);
             writer.WriteStringValue("CallSidToCoach", CallSidToCoach);
             writer.WriteBoolValue("CancelPlaybackOnDetectMessageEnd", CancelPlaybackOnDetectMessageEnd);
             writer.WriteBoolValue("CancelPlaybackOnMachineDetection", CancelPlaybackOnMachineDetection);
             writer.WriteBoolValue("Coaching", Coaching);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceRecord>("ConferenceRecord", ConferenceRecord);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord>("ConferenceRecord", ConferenceRecord);
             writer.WriteStringValue("ConferenceRecordingStatusCallback", ConferenceRecordingStatusCallback);
             writer.WriteStringValue("ConferenceRecordingStatusCallbackEvent", ConferenceRecordingStatusCallbackEvent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceRecordingStatusCallbackMethod>("ConferenceRecordingStatusCallbackMethod", ConferenceRecordingStatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecordingStatusCallbackMethod>("ConferenceRecordingStatusCallbackMethod", ConferenceRecordingStatusCallbackMethod);
             writer.WriteIntValue("ConferenceRecordingTimeout", ConferenceRecordingTimeout);
             writer.WriteStringValue("ConferenceStatusCallback", ConferenceStatusCallback);
             writer.WriteStringValue("ConferenceStatusCallbackEvent", ConferenceStatusCallbackEvent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceStatusCallbackMethod>("ConferenceStatusCallbackMethod", ConferenceStatusCallbackMethod);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceTrim>("ConferenceTrim", ConferenceTrim);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders>("CustomHeaders", CustomHeaders);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceStatusCallbackMethod>("ConferenceStatusCallbackMethod", ConferenceStatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceTrim>("ConferenceTrim", ConferenceTrim);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem>("CustomHeaders", CustomHeaders);
             writer.WriteBoolValue("EarlyMedia", EarlyMedia);
             writer.WriteBoolValue("EndConferenceOnExit", EndConferenceOnExit);
             writer.WriteStringValue("From", From);
             writer.WriteStringValue("Label", Label);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_MachineDetection>("MachineDetection", MachineDetection);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection>("MachineDetection", MachineDetection);
             writer.WriteIntValue("MachineDetectionSilenceTimeout", MachineDetectionSilenceTimeout);
             writer.WriteIntValue("MachineDetectionSpeechEndThreshold", MachineDetectionSpeechEndThreshold);
             writer.WriteIntValue("MachineDetectionSpeechThreshold", MachineDetectionSpeechThreshold);
@@ -344,21 +351,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("Muted", Muted);
             writer.WriteStringValue("PreferredCodecs", PreferredCodecs);
             writer.WriteBoolValue("Record", Record);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingChannels>("RecordingChannels", RecordingChannels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingChannels>("RecordingChannels", RecordingChannels);
             writer.WriteStringValue("RecordingStatusCallback", RecordingStatusCallback);
             writer.WriteStringValue("RecordingStatusCallbackEvent", RecordingStatusCallbackEvent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_RecordingTrack>("RecordingTrack", RecordingTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingTrack>("RecordingTrack", RecordingTrack);
             writer.WriteStringValue("SipAuthPassword", SipAuthPassword);
             writer.WriteStringValue("SipAuthUsername", SipAuthUsername);
             writer.WriteBoolValue("StartConferenceOnEnter", StartConferenceOnEnter);
             writer.WriteStringValue("StatusCallback", StatusCallback);
             writer.WriteStringValue("StatusCallbackEvent", StatusCallbackEvent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_StatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestStatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
             writer.WriteIntValue("TimeLimit", TimeLimit);
             writer.WriteIntValue("Timeout", Timeout);
             writer.WriteStringValue("To", To);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Trim>("Trim", Trim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestTrim>("Trim", Trim);
             writer.WriteStringValue("WaitUrl", WaitUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

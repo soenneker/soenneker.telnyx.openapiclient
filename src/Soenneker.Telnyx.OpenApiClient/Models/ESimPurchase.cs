@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The group SIMCardGroup identification. This attribute can be &lt;code&gt;null&lt;/code&gt; when it&apos;s present in an associated resource.</summary>
         public Guid? SimCardGroupId { get; set; }
         /// <summary>Status on which the SIM cards will be set after being successfully registered.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchaseStatus? Status { get; set; }
         /// <summary>Searchable tags associated with the SIM cards</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ESimPurchase()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase_status.Enabled;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -73,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "amount", n => { Amount = n.GetIntValue(); } },
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchaseStatus>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "whitelabel_name", n => { WhitelabelName = n.GetStringValue(); } },
             };
@@ -88,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("amount", Amount);
             writer.WriteStringValue("product", Product);
             writer.WriteGuidValue("sim_card_group_id", SimCardGroupId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchaseStatus>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("whitelabel_name", WhitelabelName);
             writer.WriteAdditionalData(AdditionalData);

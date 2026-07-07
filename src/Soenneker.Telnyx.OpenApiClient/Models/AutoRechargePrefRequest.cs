@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The invoice_enabled property</summary>
         public bool? InvoiceEnabled { get; set; }
         /// <summary>The payment preference for auto recharge.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequest_preference? Preference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequestPreference? Preference { get; set; }
         /// <summary>The amount to recharge the account, the actual recharge amount will be the amount necessary to reach the threshold amount plus the recharge amount.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "invoice_enabled", n => { InvoiceEnabled = n.GetBoolValue(); } },
-                { "preference", n => { Preference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequest_preference>(); } },
+                { "preference", n => { Preference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequestPreference>(); } },
                 { "recharge_amount", n => { RechargeAmount = n.GetStringValue(); } },
                 { "threshold_amount", n => { ThresholdAmount = n.GetStringValue(); } },
             };
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("invoice_enabled", InvoiceEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequest_preference>("preference", Preference);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequestPreference>("preference", Preference);
             writer.WriteStringValue("recharge_amount", RechargeAmount);
             writer.WriteStringValue("threshold_amount", ThresholdAmount);
             writer.WriteAdditionalData(AdditionalData);

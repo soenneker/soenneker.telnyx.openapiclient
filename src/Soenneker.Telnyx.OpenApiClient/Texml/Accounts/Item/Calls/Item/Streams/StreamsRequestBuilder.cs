@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams
 {
     /// <summary>
-    /// Builds and executes requests for operations under \texml\Accounts\{account_sid}\Calls\{call_sid}\Streams
+    /// Builds and executes requests for operations under \texml\Accounts\{accountSid}\Calls\{callSid}\Streams
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StreamsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Calls.item.Streams.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams.Item.WithStreaming_sidJsonItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams.Item.WithStreaming_sidJsonItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams.Item.WithStreamingSidJsonItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams.Item.WithStreamingSidJsonItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("streaming_sid", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams.Item.WithStreaming_sidJsonItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("streamingSid", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams.Item.WithStreamingSidJsonItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StreamsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Calls/{call_sid}/Streams", pathParameters)
+        public StreamsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Calls/{callSid}/Streams", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StreamsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Calls/{call_sid}/Streams", rawUrl)
+        public StreamsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Calls/{callSid}/Streams", rawUrl)
         {
         }
     }

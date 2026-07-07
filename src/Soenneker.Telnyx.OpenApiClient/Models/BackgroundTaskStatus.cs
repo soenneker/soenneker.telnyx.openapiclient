@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "partial_success")]
         #pragma warning disable CS1591
-        Partial_success,
+        PartialSuccess,
         #pragma warning restore CS1591
     }
 }

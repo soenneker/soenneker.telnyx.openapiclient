@@ -38,6 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public EmbeddingSimilaritySearchRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            NumOfDocs = 3;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -17,13 +17,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of possible assistants that can receive a handoff.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants>? AiAssistants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>? AiAssistants { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants> AiAssistants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem> AiAssistants { get; set; }
 #endif
         /// <summary>With the unified voice mode all assistants share the same voice, making the handoff transparent to the user. With the distinct voice mode all assistants retain their voice configuration, providing the experience of a conference call with a team of assistants.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_voice_mode? VoiceMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode? VoiceMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams"/> and sets the default values.
         /// </summary>
@@ -49,8 +49,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ai_assistants", n => { AiAssistants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants>(global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "voice_mode", n => { VoiceMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_voice_mode>(); } },
+                { "ai_assistants", n => { AiAssistants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "voice_mode", n => { VoiceMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode>(); } },
             };
         }
         /// <summary>
@@ -60,8 +60,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants>("ai_assistants", AiAssistants);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_voice_mode>("voice_mode", VoiceMode);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>("ai_assistants", AiAssistants);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode>("voice_mode", VoiceMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

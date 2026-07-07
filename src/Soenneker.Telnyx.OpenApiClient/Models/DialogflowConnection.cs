@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ConversationProfileId { get; set; }
 #endif
         /// <summary>Determine which Dialogflow will be used.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_dialogflow_api? DialogflowApi { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionDialogflowApi? DialogflowApi { get; set; }
         /// <summary>Which Dialogflow environment will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,10 +43,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The JSON map to connect your Dialoglow account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account? ServiceAccount { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty? ServiceAccount { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account ServiceAccount { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty ServiceAccount { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection"/> and sets the default values.
@@ -54,7 +54,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DialogflowConnection()
         {
             AdditionalData = new Dictionary<string, object>();
-            DialogflowApi = global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_dialogflow_api.Es;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -75,10 +74,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conversation_profile_id", n => { ConversationProfileId = n.GetStringValue(); } },
-                { "dialogflow_api", n => { DialogflowApi = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_dialogflow_api>(); } },
+                { "dialogflow_api", n => { DialogflowApi = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionDialogflowApi>(); } },
                 { "environment", n => { Environment = n.GetStringValue(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
-                { "service_account", n => { ServiceAccount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account>(global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account.CreateFromDiscriminatorValue); } },
+                { "service_account", n => { ServiceAccount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -89,10 +88,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("conversation_profile_id", ConversationProfileId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_dialogflow_api>("dialogflow_api", DialogflowApi);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionDialogflowApi>("dialogflow_api", DialogflowApi);
             writer.WriteStringValue("environment", Environment);
             writer.WriteStringValue("location", Location);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account>("service_account", ServiceAccount);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty>("service_account", ServiceAccount);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

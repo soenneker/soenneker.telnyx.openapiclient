@@ -33,20 +33,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The conversation_metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_conversation_metadata? ConversationMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseConversationMetadataProperty? ConversationMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_conversation_metadata ConversationMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseConversationMetadataProperty ConversationMetadata { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>A map of dynamic variable names to values. These variables can be referenced in the assistant&apos;s instructions and messages using {{variable_name}} syntax.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables? DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseDynamicVariablesProperty? DynamicVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseDynamicVariablesProperty DynamicVariables { get; set; }
 #endif
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ScheduledEventId { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus? Status { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus? Status { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus Status { get; set; }
+#endif
         /// <summary>The telnyx_agent_target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ScheduledSmsEventResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            RetryCount = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -123,14 +130,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
                 { "conversation_id", n => { ConversationId = n.GetStringValue(); } },
-                { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_conversation_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_conversation_metadata.CreateFromDiscriminatorValue); } },
+                { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseConversationMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseConversationMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables.CreateFromDiscriminatorValue); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "retry_count", n => { RetryCount = n.GetIntValue(); } },
                 { "scheduled_at_fixed_datetime", n => { ScheduledAtFixedDatetime = n.GetDateTimeOffsetValue(); } },
                 { "scheduled_event_id", n => { ScheduledEventId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus>(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus.CreateFromDiscriminatorValue); } },
                 { "telnyx_agent_target", n => { TelnyxAgentTarget = n.GetStringValue(); } },
                 { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>(); } },
                 { "telnyx_end_user_target", n => { TelnyxEndUserTarget = n.GetStringValue(); } },
@@ -146,14 +153,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
             writer.WriteStringValue("conversation_id", ConversationId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_conversation_metadata>("conversation_metadata", ConversationMetadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseConversationMetadataProperty>("conversation_metadata", ConversationMetadata);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables>("dynamic_variables", DynamicVariables);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
             writer.WriteIntValue("retry_count", RetryCount);
             writer.WriteDateTimeOffsetValue("scheduled_at_fixed_datetime", ScheduledAtFixedDatetime);
             writer.WriteStringValue("scheduled_event_id", ScheduledEventId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus>("status", Status);
             writer.WriteStringValue("telnyx_agent_target", TelnyxAgentTarget);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("telnyx_end_user_target", TelnyxEndUserTarget);

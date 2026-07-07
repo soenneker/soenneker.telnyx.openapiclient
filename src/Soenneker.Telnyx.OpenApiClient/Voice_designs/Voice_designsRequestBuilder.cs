@@ -176,7 +176,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_designs
             public int? Pagesize { get; set; }
             /// <summary>Sort order. Prefix with `-` for descending. Defaults to `-created_at`.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Voice_designs.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsSort? Sort { get; set; }
         }
     }
 }

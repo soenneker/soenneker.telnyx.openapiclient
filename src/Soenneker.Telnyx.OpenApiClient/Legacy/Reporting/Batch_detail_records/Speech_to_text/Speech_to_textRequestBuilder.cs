@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.S
     public partial class Speech_to_textRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.legacy.reporting.batch_detail_records.speech_to_text.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.Speech_to_text.Item.Speech_to_textItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.Speech_to_text.Item.Speech_to_textItemRequestBuilder this[Guid position]
         {

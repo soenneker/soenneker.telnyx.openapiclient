@@ -37,10 +37,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionData_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionDataMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionData_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionDataMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The mission_id property</summary>
         public Guid? MissionId { get; set; }
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "execution_mode", n => { ExecutionMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExecutionMode>(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionData_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.MissionData_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionDataMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MissionDataMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "mission_id", n => { MissionId = n.GetGuidValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExecutionMode>("execution_mode", ExecutionMode);
             writer.WriteStringValue("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionData_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionDataMetadataProperty>("metadata", Metadata);
             writer.WriteGuidValue("mission_id", MissionId);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);

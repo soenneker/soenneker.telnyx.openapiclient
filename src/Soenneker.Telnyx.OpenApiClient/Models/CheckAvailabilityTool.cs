@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams CheckAvailability { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "check_availability", n => { CheckAvailability = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams>("check_availability", CheckAvailability);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

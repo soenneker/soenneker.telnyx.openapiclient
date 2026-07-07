@@ -23,6 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public PostConversationSettingsReq()
         {
             AdditionalData = new Dictionary<string, object>();
+            Enabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

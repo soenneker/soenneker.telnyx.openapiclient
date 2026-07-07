@@ -9,27 +9,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "8000")]
         #pragma warning disable CS1591
-        EightZeroZeroZero,
+        Value8000,
         #pragma warning restore CS1591
         [EnumMember(Value = "16000")]
         #pragma warning disable CS1591
-        OneSixZeroZeroZero,
+        Value16000,
         #pragma warning restore CS1591
         [EnumMember(Value = "22050")]
         #pragma warning disable CS1591
-        TwoTwoZeroFiveZero,
+        Value22050,
         #pragma warning restore CS1591
         [EnumMember(Value = "32000")]
         #pragma warning disable CS1591
-        ThreeTwoZeroZeroZero,
+        Value32000,
         #pragma warning restore CS1591
         [EnumMember(Value = "44100")]
         #pragma warning disable CS1591
-        FourFourOneZeroZero,
+        Value44100,
         #pragma warning restore CS1591
         [EnumMember(Value = "48000")]
         #pragma warning disable CS1591
-        FourEightZeroZeroZero,
+        Value48000,
         #pragma warning restore CS1591
     }
 }

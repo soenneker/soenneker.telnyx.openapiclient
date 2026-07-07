@@ -31,6 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public StartSpeakingPlan()
         {
             AdditionalData = new Dictionary<string, object>();
+            WaitSeconds = 0.4f;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

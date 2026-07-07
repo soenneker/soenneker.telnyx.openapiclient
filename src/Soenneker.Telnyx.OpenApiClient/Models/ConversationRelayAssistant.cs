@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Custom key-value parameters forwarded to the Conversation Relay session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistant_dynamic_variables? DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistantDynamicVariablesProperty? DynamicVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistant_dynamic_variables DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistantDynamicVariablesProperty DynamicVariables { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistant"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistant_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistant_dynamic_variables.CreateFromDiscriminatorValue); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistantDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistantDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistant_dynamic_variables>("dynamic_variables", DynamicVariables);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayAssistantDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

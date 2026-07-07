@@ -33,18 +33,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorMetaProperty2? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorMetaProperty2 Meta { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSourceProperty? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSourceProperty Source { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,8 +81,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorMetaProperty2>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorMetaProperty2.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSourceProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSourceProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -95,8 +95,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorMetaProperty2>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSourceProperty>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

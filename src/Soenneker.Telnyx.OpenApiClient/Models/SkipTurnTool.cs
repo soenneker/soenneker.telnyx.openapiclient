@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams SkipTurn { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "skip_turn", n => { SkipTurn = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams>("skip_turn", SkipTurn);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

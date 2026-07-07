@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats_Branch1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsBranch1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceSdkCallReportStats : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats_Branch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats_Branch1? VoiceSdkCallReportStatsBranch1 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsBranch1? VoiceSdkCallReportStatsBranch1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats_Branch1 VoiceSdkCallReportStatsBranch1 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsBranch1 VoiceSdkCallReportStatsBranch1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1? VoiceSdkCallReportStatsMember1 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2? VoiceSdkCallReportStatsOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1 VoiceSdkCallReportStatsMember1 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2 VoiceSdkCallReportStatsOneOf2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -41,11 +41,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats();
             if("VoiceSdkCallReportStats_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VoiceSdkCallReportStatsBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats_Branch1();
+                result.VoiceSdkCallReportStatsBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsBranch1();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("VoiceSdkCallReportStatsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VoiceSdkCallReportStatsMember1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1();
+                result.VoiceSdkCallReportStatsOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2();
             }
             return result;
         }
@@ -59,9 +59,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 return VoiceSdkCallReportStatsBranch1.GetFieldDeserializers();
             }
-            else if(VoiceSdkCallReportStatsMember1 != null)
+            else if(VoiceSdkCallReportStatsOneOf2 != null)
             {
-                return VoiceSdkCallReportStatsMember1.GetFieldDeserializers();
+                return VoiceSdkCallReportStatsOneOf2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -74,11 +74,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(VoiceSdkCallReportStatsBranch1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats_Branch1>(null, VoiceSdkCallReportStatsBranch1);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsBranch1>(null, VoiceSdkCallReportStatsBranch1);
             }
-            else if(VoiceSdkCallReportStatsMember1 != null)
+            else if(VoiceSdkCallReportStatsOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1>(null, VoiceSdkCallReportStatsMember1);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2>(null, VoiceSdkCallReportStatsOneOf2);
             }
         }
     }

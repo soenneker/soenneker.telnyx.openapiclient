@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers
     public partial class Phone_numbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.v2.whatsapp.phone_numbers.item collection</summary>
-        /// <param name="position">Phone number (E.164 format)</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("phoneNumber", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,17 +49,17 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers
         /// <summary>
         /// List Whatsapp phone numbers
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersRequestBuilder.Phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersRequestBuilder.Phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersRequestBuilder.Phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersRequestBuilder.Phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Phone_numbersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List Whatsapp phone numbers

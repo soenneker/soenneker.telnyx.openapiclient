@@ -49,54 +49,54 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients
         /// <summary>
         /// Retrieve a paginated list of OAuth clients for the authenticated user
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OauthError">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsRequestBuilder.Oauth_clientsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsRequestBuilder.Oauth_clientsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsRequestBuilder.Oauth_clientsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsRequestBuilder.Oauth_clientsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.OauthError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new OAuth client
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateOAuthClient201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OauthError">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OauthError">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OauthError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateOAuthClient201Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateOAuthClient201Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.OauthError.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.OauthError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.OauthError.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateOAuthClient201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateOAuthClient201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a paginated list of OAuth clients for the authenticated user
@@ -156,7 +156,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients
         {
             /// <summary>Filter by allowed grant type</summary>
             [QueryParameter("filter%5Ballowed_grant_types%5D%5Bcontains%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.GetFilterAllowed_grant_typesContainsQueryParameterType? FilterallowedGrantTypescontains { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClientsFilterAllowedGrantTypesContainsParameter? FilterallowedGrantTypescontains { get; set; }
             /// <summary>Filter by client ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -169,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients
 #endif
             /// <summary>Filter by client type</summary>
             [QueryParameter("filter%5Bclient_type%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.GetFilterClient_typeQueryParameterType? FilterclientType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClientsFilterClientTypeParameter? FilterclientType { get; set; }
             /// <summary>Filter by exact client name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

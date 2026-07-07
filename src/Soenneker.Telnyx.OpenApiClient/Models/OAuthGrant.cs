@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Timestamp when the grant was last used</summary>
         public DateTimeOffset? LastUsedAt { get; set; }
         /// <summary>Record type identifier</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthGrant_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthGrantRecordType? RecordType { get; set; }
         /// <summary>List of granted OAuth scopes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthGrant_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthGrantRecordType>(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthGrant_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthGrantRecordType>("record_type", RecordType);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteAdditionalData(AdditionalData);
         }

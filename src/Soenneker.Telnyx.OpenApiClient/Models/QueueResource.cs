@@ -55,10 +55,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A list of related resources identified by their relative URIs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource_subresource_uris? SubresourceUris { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.QueueResourceSubresourceUrisProperty? SubresourceUris { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource_subresource_uris SubresourceUris { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.QueueResourceSubresourceUrisProperty SubresourceUris { get; set; }
 #endif
         /// <summary>The relative URI for this queue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
                 { "max_size", n => { MaxSize = n.GetIntValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "subresource_uris", n => { SubresourceUris = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource_subresource_uris>(global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource_subresource_uris.CreateFromDiscriminatorValue); } },
+                { "subresource_uris", n => { SubresourceUris = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueResourceSubresourceUrisProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.QueueResourceSubresourceUrisProperty.CreateFromDiscriminatorValue); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("date_updated", DateUpdated);
             writer.WriteIntValue("max_size", MaxSize);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource_subresource_uris>("subresource_uris", SubresourceUris);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueResourceSubresourceUrisProperty>("subresource_uris", SubresourceUris);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

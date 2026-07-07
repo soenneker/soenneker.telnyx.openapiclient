@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Tags { get; set; }
 #endif
         /// <summary>The webhook_api_version property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateWebhookApiVersion? WebhookApiVersion { get; set; }
         /// <summary>The webhook_event_failover_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateInbound.CreateFromDiscriminatorValue); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateOutbound.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_webhook_api_version>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateWebhookApiVersion>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateInbound>("inbound", Inbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateOutbound>("outbound", Outbound);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateWebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

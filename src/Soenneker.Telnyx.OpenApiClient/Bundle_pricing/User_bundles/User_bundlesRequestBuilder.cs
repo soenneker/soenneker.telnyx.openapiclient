@@ -32,14 +32,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.bundle_pricing.user_bundles.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUserBundleItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUserBundleItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("user_bundle_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("userBundleId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUserBundleItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -64,10 +64,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse5XXError">When receiving a 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BundlePricingBadRequestErrorResponseResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnauthorizedErrorResponseResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BundlePricingGenericErrorResponseResponse">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.User_bundlesRequestBuilder.User_bundlesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -80,10 +79,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse401Error.CreateFromDiscriminatorValue },
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse5XXError.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BundlePricingBadRequestErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.UnauthorizedErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.BundlePricingGenericErrorResponseResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

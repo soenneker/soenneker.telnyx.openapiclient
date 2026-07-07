@@ -27,14 +27,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Azure region to use for speech recognition</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AzureTranscriptionRegion? Region { get; set; }
         /// <summary>Engine identifier for Azure transcription service</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig_transcription_engine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfigTranscriptionEngine? TranscriptionEngine { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig"/> and sets the default values.
         /// </summary>
         public TranscriptionEngineAzureConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            Language = global::Soenneker.Telnyx.OpenApiClient.Models.AzureTranscriptionLanguage.En;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -57,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureTranscriptionLanguage>(); } },
                 { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureTranscriptionRegion>(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig_transcription_engine>(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfigTranscriptionEngine>(); } },
             };
         }
         /// <summary>
@@ -70,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureTranscriptionLanguage>("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureTranscriptionRegion>("region", Region);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfigTranscriptionEngine>("transcription_engine", TranscriptionEngine);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

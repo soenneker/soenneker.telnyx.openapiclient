@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "SRTP")]
         #pragma warning disable CS1591
-        SRTP,
+        Srtp,
         #pragma warning restore CS1591
     }
 }

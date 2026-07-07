@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string SipFromId { get; private set; }
 #endif
         /// <summary>Status of dynamic emergency address</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpoint_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpointStatus? Status { get; private set; }
         /// <summary>ISO 8601 formatted date of when the resource was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sip_from_id", n => { SipFromId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpoint_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpointStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

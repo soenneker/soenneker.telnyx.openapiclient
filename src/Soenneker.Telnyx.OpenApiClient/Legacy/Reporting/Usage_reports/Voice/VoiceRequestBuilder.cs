@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice
     public partial class VoiceRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.legacy.reporting.usage_reports.voice.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.Item.VoiceItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.Item.VoiceItemRequestBuilder this[Guid position]
         {

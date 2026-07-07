@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string BrandDisplayName { get; set; }
 #endif
         /// <summary>Campaign status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaign_campaignStatus? CampaignStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignCampaignStatus? CampaignStatus { get; set; }
         /// <summary>Date and time that the brand was created at.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -273,7 +273,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ageGated", n => { AgeGated = n.GetBoolValue(); } },
                 { "assignedPhoneNumbersCount", n => { AssignedPhoneNumbersCount = n.GetDoubleValue(); } },
                 { "brandDisplayName", n => { BrandDisplayName = n.GetStringValue(); } },
-                { "campaignStatus", n => { CampaignStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaign_campaignStatus>(); } },
+                { "campaignStatus", n => { CampaignStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignCampaignStatus>(); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "directLending", n => { DirectLending = n.GetBoolValue(); } },
@@ -319,7 +319,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("ageGated", AgeGated);
             writer.WriteDoubleValue("assignedPhoneNumbersCount", AssignedPhoneNumbersCount);
             writer.WriteStringValue("brandDisplayName", BrandDisplayName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaign_campaignStatus>("campaignStatus", CampaignStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignCampaignStatus>("campaignStatus", CampaignStatus);
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("directLending", DirectLending);

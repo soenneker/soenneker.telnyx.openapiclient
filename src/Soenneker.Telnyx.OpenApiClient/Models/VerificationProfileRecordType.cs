@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "verification_profile")]
         #pragma warning disable CS1591
-        Verification_profile,
+        VerificationProfile,
         #pragma warning restore CS1591
     }
 }

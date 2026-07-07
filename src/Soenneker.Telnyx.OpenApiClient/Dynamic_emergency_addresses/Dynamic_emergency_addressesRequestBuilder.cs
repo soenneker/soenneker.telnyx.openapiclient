@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses
         /// <summary>
         /// Returns the dynamic emergency addresses according to filters
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyAddresses200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors">When receiving a 400 status code</exception>
@@ -59,11 +59,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesRequestBuilder.Dynamic_emergency_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyAddresses200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesRequestBuilder.Dynamic_emergency_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesRequestBuilder.Dynamic_emergency_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyAddresses200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesRequestBuilder.Dynamic_emergency_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -75,12 +75,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyAddresses200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyAddresses200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a dynamic emergency address.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateDynamicEmergencyAddress201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateDynamicEmergencyAddress201Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateDynamicEmergencyAddress201Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Dynamic_emergency_addressesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateDynamicEmergencyAddress201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateDynamicEmergencyAddress201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the dynamic emergency addresses according to filters

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token
 {
     /// <summary>
-    /// Builds and executes requests for operations under \rooms\{room_id}\actions\generate_join_client_token
+    /// Builds and executes requests for operations under \rooms\{roomId}\actions\generate_join_client_token
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Generate_join_client_tokenRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Generate_join_client_tokenRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms/{room_id}/actions/generate_join_client_token", pathParameters)
+        public Generate_join_client_tokenRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms/{roomId}/actions/generate_join_client_token", pathParameters)
         {
         }
         /// <summary>
@@ -30,24 +30,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Generate_join_client_tokenRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms/{room_id}/actions/generate_join_client_token", rawUrl)
+        public Generate_join_client_tokenRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms/{roomId}/actions/generate_join_client_token", rawUrl)
         {
         }
         /// <summary>
         /// Synchronously create an Client Token to join a Room. Client Token is necessary to join a Telnyx Room. Client Token will expire after `token_ttl_secs`, a Refresh Token is also provided to refresh a Client Token, the Refresh Token expires after `refresh_token_ttl_secs`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token.Generate_join_client_tokenPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientToken201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VideoError">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token.Generate_join_client_tokenPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientTokenRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientToken201Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientTokenRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token.Generate_join_client_tokenPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientTokenRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientToken201Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientTokenRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
             {
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.VideoError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token.Generate_join_client_tokenPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token.Generate_join_client_tokenPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientToken201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientToken201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Synchronously create an Client Token to join a Room. Client Token is necessary to join a Telnyx Room. Client Token will expire after `token_ttl_secs`, a Refresh Token is also provided to refresh a Client Token, the Refresh Token expires after `refresh_token_ttl_secs`.

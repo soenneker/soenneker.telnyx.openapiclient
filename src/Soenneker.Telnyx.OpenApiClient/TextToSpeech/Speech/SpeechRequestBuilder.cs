@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
         {
             /// <summary>Audio output format override. Supported for Telnyx models. `pcm` and `wav` are available for `Natural`/`NaturalHD` models. The `Ultra` model outputs PCM at 24kHz s16le or MP3 at 128kbps 24kHz.</summary>
             [QueryParameter("audio_format")]
-            public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.GetAudio_formatQueryParameterType? AudioFormat { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AudioFormat? AudioFormat { get; set; }
             /// <summary>When `true`, bypass the audio cache and generate fresh audio.</summary>
             [QueryParameter("disable_cache")]
             public bool? DisableCache { get; set; }
@@ -152,7 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
 #endif
             /// <summary>TTS provider. Defaults to `telnyx` if not specified. Ignored when `voice` is provided.</summary>
             [QueryParameter("provider")]
-            public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.GetProviderQueryParameterType? Provider { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.Provider? Provider { get; set; }
             /// <summary>Client-provided socket identifier for tracking. If not provided, one is generated server-side.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -163,7 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
             [QueryParameter("socket_id")]
             public string SocketId { get; set; }
 #endif
-            /// <summary>Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id` (e.g. `telnyx.NaturalHD.Telnyx_Alloy`, `Telnyx.Ultra.&lt;voice_id&gt;`, or `azure.en-US-AvaMultilingualNeural`). When provided, the `provider`, `model_id`, and `voice_id` are extracted automatically. Takes precedence over individual `provider`/`model_id`/`voice_id` parameters.</summary>
+            /// <summary>Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id` (e.g. `telnyx.NaturalHD.Telnyx_Alloy`, `Telnyx.Ultra.&lt;voice_id&gt;`, `Telnyx.Bayan.Ahmed`, `Telnyx.Sukhan.urdu-professor`, or `azure.en-US-AvaMultilingualNeural`). When provided, the `provider`, `model_id`, and `voice_id` are extracted automatically. Takes precedence over individual `provider`/`model_id`/`voice_id` parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("voice")]

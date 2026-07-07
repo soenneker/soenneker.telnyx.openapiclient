@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string FriendlyName { get; set; }
 #endif
         /// <summary>The reason why a conference ended. When a conference is in progress, will be null.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_reason_conference_ended? ReasonConferenceEnded { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceReasonConferenceEnded? ReasonConferenceEnded { get; set; }
         /// <summary>A string representing the region where the conference is hosted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,14 +81,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Sid { get; set; }
 #endif
         /// <summary>The status of this conference.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceStatus? Status { get; set; }
         /// <summary>A list of related resources identified by their relative URIs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_subresource_uris? SubresourceUris { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceSubresourceUrisProperty? SubresourceUris { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_subresource_uris SubresourceUris { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceSubresourceUrisProperty SubresourceUris { get; set; }
 #endif
         /// <summary>The relative URI for this conference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -129,11 +129,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "date_created", n => { DateCreated = n.GetStringValue(); } },
                 { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
                 { "friendly_name", n => { FriendlyName = n.GetStringValue(); } },
-                { "reason_conference_ended", n => { ReasonConferenceEnded = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_reason_conference_ended>(); } },
+                { "reason_conference_ended", n => { ReasonConferenceEnded = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceReasonConferenceEnded>(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_status>(); } },
-                { "subresource_uris", n => { SubresourceUris = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_subresource_uris>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_subresource_uris.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceStatus>(); } },
+                { "subresource_uris", n => { SubresourceUris = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceSubresourceUrisProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceSubresourceUrisProperty.CreateFromDiscriminatorValue); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -150,11 +150,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("date_created", DateCreated);
             writer.WriteStringValue("date_updated", DateUpdated);
             writer.WriteStringValue("friendly_name", FriendlyName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_reason_conference_ended>("reason_conference_ended", ReasonConferenceEnded);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceReasonConferenceEnded>("reason_conference_ended", ReasonConferenceEnded);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_status>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource_subresource_uris>("subresource_uris", SubresourceUris);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceSubresourceUrisProperty>("subresource_uris", SubresourceUris);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

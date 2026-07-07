@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.PhoneNumberAssignmentByProfi
     public partial class PhoneNumberAssignmentByProfileRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.OneZerodlc.phoneNumberAssignmentByProfile.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the task.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.PhoneNumberAssignmentByProfile.Item.WithTaskItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.PhoneNumberAssignmentByProfile.Item.WithTaskItemRequestBuilder this[string position]
         {
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.PhoneNumberAssignmentByProfi
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors">When receiving a 4XX status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.PhoneNumberAssignmentByProfi
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

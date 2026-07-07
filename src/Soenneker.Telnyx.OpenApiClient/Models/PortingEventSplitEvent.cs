@@ -17,15 +17,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates the notification methods used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_available_notification_methods?>? AvailableNotificationMethods { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventAvailableNotificationMethodsItem?>? AvailableNotificationMethods { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_available_notification_methods?> AvailableNotificationMethods { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventAvailableNotificationMethodsItem?> AvailableNotificationMethods { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Identifies the event type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_event_type? EventType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventEventType? EventType { get; set; }
         /// <summary>Uniquely identifies the event.</summary>
         public Guid? Id { get; set; }
         /// <summary>The webhook payload for the porting_order.split event</summary>
@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload Payload { get; set; }
 #endif
         /// <summary>The status of the payload generation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_payload_status? PayloadStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadStatus? PayloadStatus { get; set; }
         /// <summary>Identifies the porting order associated with the event.</summary>
         public Guid? PortingOrderId { get; set; }
         /// <summary>Identifies the type of the resource.</summary>
@@ -75,12 +75,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "available_notification_methods", n => { AvailableNotificationMethods = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_available_notification_methods>()?.AsList(); } },
+                { "available_notification_methods", n => { AvailableNotificationMethods = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventAvailableNotificationMethodsItem>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_event_type>(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventEventType>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload.CreateFromDiscriminatorValue); } },
-                { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_payload_status>(); } },
+                { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadStatus>(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -93,12 +93,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_available_notification_methods>("available_notification_methods", AvailableNotificationMethods);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventAvailableNotificationMethodsItem>("available_notification_methods", AvailableNotificationMethods);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_event_type>("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventEventType>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload>("payload", Payload);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent_payload_status>("payload_status", PayloadStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadStatus>("payload_status", PayloadStatus);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

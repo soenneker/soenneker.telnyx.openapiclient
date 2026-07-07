@@ -83,10 +83,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem>? To { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsToItem>? To { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem> To { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsToItem> To { get; set; }
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -132,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RcsToItem>(global::Soenneker.Telnyx.OpenApiClient.Models.RcsToItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "wait_seconds", n => { WaitSeconds = n.GetFloatValue(); } },
             };
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem>("to", To);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RcsToItem>("to", To);
             writer.WriteStringValue("type", Type);
             writer.WriteFloatValue("wait_seconds", WaitSeconds);
             writer.WriteAdditionalData(AdditionalData);

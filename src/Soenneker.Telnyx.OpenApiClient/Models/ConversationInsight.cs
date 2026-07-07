@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of insights extracted from the conversation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight_conversation_insights>? ConversationInsights { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightConversationInsightsItem>? ConversationInsights { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight_conversation_insights> ConversationInsights { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightConversationInsightsItem> ConversationInsights { get; set; }
 #endif
         /// <summary>Timestamp of when the object was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>Current status of the insight generation for the conversation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight"/> and sets the default values.
         /// </summary>
@@ -59,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conversation_insights", n => { ConversationInsights = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight_conversation_insights>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight_conversation_insights.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "conversation_insights", n => { ConversationInsights = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightConversationInsightsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightConversationInsightsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightStatus>(); } },
             };
         }
         /// <summary>
@@ -72,10 +72,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight_conversation_insights>("conversation_insights", ConversationInsights);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightConversationInsightsItem>("conversation_insights", ConversationInsights);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsight_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

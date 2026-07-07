@@ -49,10 +49,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_features?>? Features { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderFeaturesItem?>? Features { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_features?> Features { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderFeaturesItem?> Features { get; set; }
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
@@ -67,10 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phone_number_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderPhoneNumberType? PhoneNumberType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_phone_number_type PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderPhoneNumberType PhoneNumberType { get; set; }
 #endif
         /// <summary>The quantity property</summary>
         public int? Quantity { get; set; }
@@ -79,10 +79,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderStatus? Status { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_status Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderStatus Status { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder"/> and sets the default values.
@@ -91,6 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             CountryCode = "US";
+            Quantity = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -114,13 +115,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "comments", n => { Comments = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
-                { "features", n => { Features = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_features>()?.AsList(); } },
+                { "features", n => { Features = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderFeaturesItem>()?.AsList(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "orders", n => { Orders = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_phone_number_type>(global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_phone_number_type.CreateFromDiscriminatorValue); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderPhoneNumberType>(global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderPhoneNumberType.CreateFromDiscriminatorValue); } },
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
                 { "requirement_group_id", n => { RequirementGroupId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_status>(global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_status.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -134,13 +135,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("comments", Comments);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("customer_reference", CustomerReference);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_features>("features", Features);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderFeaturesItem>("features", Features);
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("orders", Orders);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderPhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteIntValue("quantity", Quantity);
             writer.WriteGuidValue("requirement_group_id", RequirementGroupId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder_status>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

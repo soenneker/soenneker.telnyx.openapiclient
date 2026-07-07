@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The antivirus scan status of the document.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_av_scan_status? AvScanStatus { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentAllOf2AvScanStatus? AvScanStatus { get; private set; }
         /// <summary>The document&apos;s content_type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,13 +69,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates the document&apos;s filesize</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_size? Size { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentAllOf2Size? Size { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_size Size { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentAllOf2Size Size { get; private set; }
 #endif
         /// <summary>Indicates the current document reviewing status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentAllOf2Status? Status { get; private set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "av_scan_status", n => { AvScanStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_av_scan_status>(); } },
+                { "av_scan_status", n => { AvScanStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentAllOf2AvScanStatus>(); } },
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
@@ -117,8 +117,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sha256", n => { Sha256 = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_size>(global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_size.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_status>(); } },
+                { "size", n => { Size = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentAllOf2Size>(global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentAllOf2Size.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentAllOf2Status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

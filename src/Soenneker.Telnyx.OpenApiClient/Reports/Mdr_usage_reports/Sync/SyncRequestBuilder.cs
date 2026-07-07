@@ -90,10 +90,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SyncRequestBuilderGetQueryParameters 
         {
+            /// <summary>Type of aggregation to apply to the results.</summary>
             [QueryParameter("aggregation_type")]
-            public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.GetAggregation_typeQueryParameterType? AggregationType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetMdrUsageReportSyncAggregationTypeParameter? AggregationType { get; set; }
+            /// <summary>End of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("end_date")]
             public DateTimeOffset? EndDate { get; set; }
+            /// <summary>Filter results by profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("profiles")]
@@ -103,6 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync
             [QueryParameter("profiles")]
             public string[] Profiles { get; set; }
 #endif
+            /// <summary>Start of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("start_date")]
             public DateTimeOffset? StartDate { get; set; }
         }

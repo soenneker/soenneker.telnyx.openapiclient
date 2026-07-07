@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Timestamp when the voice clone was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Gender of the voice clone.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_gender? Gender { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender? Gender { get; set; }
         /// <summary>Unique identifier for the voice clone.</summary>
         public Guid? Id { get; set; }
         /// <summary>Voice style description. If not explicitly set on upload, falls back to the source design&apos;s prompt text.</summary>
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Language { get; set; }
 #endif
         /// <summary>TTS model identifier for the voice clone.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_model_id? ModelId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataModelId? ModelId { get; set; }
         /// <summary>Name of the voice clone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Voice synthesis provider used for this clone.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_provider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataProvider? Provider { get; set; }
         /// <summary>List of TTS model identifiers supported by this clone&apos;s provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,13 +66,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ProviderVoiceId { get; set; }
 #endif
         /// <summary>Identifies the resource type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataRecordType? RecordType { get; set; }
         /// <summary>UUID of the source voice design. `null` for upload-based clones.</summary>
         public Guid? SourceVoiceDesignId { get; set; }
         /// <summary>Version of the source voice design used. `null` for upload-based clones.</summary>
         public int? SourceVoiceDesignVersion { get; set; }
         /// <summary>Clone status. pending for Ultra clones while on-prem import is in progress, active once ready, failed if verification timed out, expired if not kept alive.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataStatus? Status { get; set; }
         /// <summary>Timestamp when the voice clone was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -101,19 +101,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_gender>(); } },
+                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
-                { "model_id", n => { ModelId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_model_id>(); } },
+                { "model_id", n => { ModelId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataModelId>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_provider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataProvider>(); } },
                 { "provider_supported_models", n => { ProviderSupportedModels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "provider_voice_id", n => { ProviderVoiceId = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataRecordType>(); } },
                 { "source_voice_design_id", n => { SourceVoiceDesignId = n.GetGuidValue(); } },
                 { "source_voice_design_version", n => { SourceVoiceDesignVersion = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -125,19 +125,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_gender>("gender", Gender);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender>("gender", Gender);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("language", Language);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_model_id>("model_id", ModelId);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataModelId>("model_id", ModelId);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_provider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataProvider>("provider", Provider);
             writer.WriteCollectionOfPrimitiveValues<string>("provider_supported_models", ProviderSupportedModels);
             writer.WriteStringValue("provider_voice_id", ProviderVoiceId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataRecordType>("record_type", RecordType);
             writer.WriteGuidValue("source_voice_design_id", SourceVoiceDesignId);
             writer.WriteIntValue("source_voice_design_version", SourceVoiceDesignVersion);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Telnyx provider-specific parameters. Use `voice_speed` and `temperature` for `Natural` and `NaturalHD` models. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`.
+    /// Telnyx provider-specific parameters. Use `voice_speed` and `temperature` for `Natural` and `NaturalHD` models. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`, and don&apos;t support `voice_speed`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TelnyxProviderParams : IAdditionalDataHolder, IParsable
@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Emotion control for the Ultra model. Adjusts the emotional tone of the synthesized speech.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams_emotion? Emotion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion? Emotion { get; set; }
         /// <summary>Audio response format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? SamplingRate { get; set; }
         /// <summary>Sampling temperature. Applies to `Natural` and `NaturalHD` models only.</summary>
         public float? Temperature { get; set; }
-        /// <summary>&quot;Voice speed multiplier. Applies to all models. Range: 0.5 to 2.0.&quot;</summary>
+        /// <summary>&quot;Voice speed multiplier. Applies to all models except `Bayan` and `Sukhan`, which don&apos;t support it. Range: 0.5 to 2.0.&quot;</summary>
         public float? VoiceSpeed { get; set; }
         /// <summary>&quot;Volume level for the Ultra model. Range: 0.0 to 2.0.&quot;</summary>
         public float? Volume { get; set; }
@@ -40,6 +40,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             ResponseFormat = "mp3";
+            SamplingRate = 24000;
+            Temperature = 0.5f;
+            VoiceSpeed = 1.0f;
+            Volume = 1.0f;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -59,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "emotion", n => { Emotion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams_emotion>(); } },
+                { "emotion", n => { Emotion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion>(); } },
                 { "response_format", n => { ResponseFormat = n.GetStringValue(); } },
                 { "sampling_rate", n => { SamplingRate = n.GetIntValue(); } },
                 { "temperature", n => { Temperature = n.GetFloatValue(); } },
@@ -74,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams_emotion>("emotion", Emotion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion>("emotion", Emotion);
             writer.WriteStringValue("response_format", ResponseFormat);
             writer.WriteIntValue("sampling_rate", SamplingRate);
             writer.WriteFloatValue("temperature", Temperature);

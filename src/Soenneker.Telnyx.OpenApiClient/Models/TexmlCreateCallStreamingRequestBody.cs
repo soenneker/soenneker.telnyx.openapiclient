@@ -52,10 +52,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TexmlCreateCallStreamingRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            BidirectionalCodec = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec.PCMU;
-            BidirectionalMode = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode.Mp3;
-            StatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod.POST;
-            Track = global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack.Inbound_track;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

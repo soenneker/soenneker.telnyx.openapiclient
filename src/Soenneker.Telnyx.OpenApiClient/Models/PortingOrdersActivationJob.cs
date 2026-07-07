@@ -15,14 +15,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 formatted date indicating when the activation job should be executed. This time should be between some activation window.</summary>
         public DateTimeOffset? ActivateAt { get; set; }
         /// <summary>Specifies the type of this activation job</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_activation_type? ActivationType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationType? ActivationType { get; set; }
         /// <summary>List of allowed activation windows for this activation job</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_activation_windows>? ActivationWindows { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem>? ActivationWindows { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_activation_windows> ActivationWindows { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem> ActivationWindows { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Specifies the status of this activation job</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
@@ -68,12 +68,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "activate_at", n => { ActivateAt = n.GetDateTimeOffsetValue(); } },
-                { "activation_type", n => { ActivationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_activation_type>(); } },
-                { "activation_windows", n => { ActivationWindows = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_activation_windows>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_activation_windows.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "activation_type", n => { ActivationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationType>(); } },
+                { "activation_windows", n => { ActivationWindows = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -85,9 +85,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("activate_at", ActivateAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_activation_type>("activation_type", ActivationType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_activation_windows>("activation_windows", ActivationWindows);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJob_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationType>("activation_type", ActivationType);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem>("activation_windows", ActivationWindows);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -41,18 +41,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The region_information property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_region_information>? RegionInformation { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem>? RegionInformation { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_region_information> RegionInformation { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem> RegionInformation { get; set; }
 #endif
         /// <summary>The regulatory_requirements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_regulatory_requirements>? RegulatoryRequirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem>? RegulatoryRequirements { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_regulatory_requirements> RegulatoryRequirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem> RegulatoryRequirements { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers"/> and sets the default values.
@@ -82,8 +82,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "region_information", n => { RegionInformation = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_region_information>(global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_region_information.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_regulatory_requirements>(global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_regulatory_requirements.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "region_information", n => { RegionInformation = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem>(global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -93,8 +93,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_region_information>("region_information", RegionInformation);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbers_regulatory_requirements>("regulatory_requirements", RegulatoryRequirements);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem>("region_information", RegionInformation);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem>("regulatory_requirements", RegulatoryRequirements);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

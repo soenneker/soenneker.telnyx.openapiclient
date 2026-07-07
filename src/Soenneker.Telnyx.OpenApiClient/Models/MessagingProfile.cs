@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string OrganizationId { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile_record_type? RecordType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileRecordType? RecordType { get; private set; }
         /// <summary>Indicates whether message content redaction is enabled for this profile.</summary>
         public bool? RedactionEnabled { get; set; }
         /// <summary>Determines how much information is redacted in messages for privacy or compliance purposes.</summary>
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string V1Secret { get; set; }
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1, v2, or a legacy 2010-04-01 format.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileWebhookApiVersion? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this messaging profile will be sent if sending to the primary URL fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,6 +150,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public MessagingProfile()
         {
             AdditionalData = new Dictionary<string, object>();
+            MmsFallBackToSms = false;
+            MmsTranscoding = false;
+            MobileOnly = false;
+            RedactionEnabled = false;
+            RedactionLevel = 2;
+            SmartEncoding = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -183,7 +189,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number_pool_settings", n => { NumberPoolSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings.CreateFromDiscriminatorValue); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileRecordType>(); } },
                 { "redaction_enabled", n => { RedactionEnabled = n.GetBoolValue(); } },
                 { "redaction_level", n => { RedactionLevel = n.GetIntValue(); } },
                 { "resource_group_id", n => { ResourceGroupId = n.GetStringValue(); } },
@@ -191,7 +197,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url_shortener_settings", n => { UrlShortenerSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings.CreateFromDiscriminatorValue); } },
                 { "v1_secret", n => { V1Secret = n.GetStringValue(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile_webhook_api_version>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileWebhookApiVersion>(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
                 { "whitelisted_destinations", n => { WhitelistedDestinations = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -222,7 +228,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("smart_encoding", SmartEncoding);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>("url_shortener_settings", UrlShortenerSettings);
             writer.WriteStringValue("v1_secret", V1Secret);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileWebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("whitelisted_destinations", WhitelistedDestinations);

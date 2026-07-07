@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enables emotionally expressive speech using SSML emotion tags. When enabled, the assistant uses audio tags like angry, excited, content, and sad to add emotional nuance. Only supported for Telnyx Ultra voices.</summary>
         public bool? ExpressiveMode { get; set; }
         /// <summary>Enhances recognition for specific languages and dialects during MiniMax TTS synthesis. Default is null (no boost). Set to &apos;auto&apos; for automatic language detection. Only applicable when using MiniMax voices.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings_language_boost? LanguageBoost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost? LanguageBoost { get; set; }
         /// <summary>Determines how closely the AI should adhere to the original voice when attempting to replicate it. Only applicable when using ElevenLabs.</summary>
         public double? SimilarityBoost { get; set; }
         /// <summary>Adjusts speech velocity. 1.0 is default speed; values less than 1.0 slow speech; values greater than 1.0 accelerate it. Only applicable when using ElevenLabs.</summary>
@@ -60,7 +60,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public VoiceSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            LanguageBoost = global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings_language_boost.Auto;
+            ExpressiveMode = false;
+            SimilarityBoost = 0.75;
+            Speed = 1.0;
+            Style = 0;
+            Temperature = 0.5;
+            UseSpeakerBoost = true;
+            VoiceSpeed = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -83,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "background_audio", n => { BackgroundAudio = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio.CreateFromDiscriminatorValue); } },
                 { "expressive_mode", n => { ExpressiveMode = n.GetBoolValue(); } },
-                { "language_boost", n => { LanguageBoost = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings_language_boost>(); } },
+                { "language_boost", n => { LanguageBoost = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost>(); } },
                 { "similarity_boost", n => { SimilarityBoost = n.GetDoubleValue(); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
                 { "style", n => { Style = n.GetDoubleValue(); } },
@@ -103,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio>("background_audio", BackgroundAudio);
             writer.WriteBoolValue("expressive_mode", ExpressiveMode);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings_language_boost>("language_boost", LanguageBoost);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost>("language_boost", LanguageBoost);
             writer.WriteDoubleValue("similarity_boost", SimilarityBoost);
             writer.WriteDoubleValue("speed", Speed);
             writer.WriteDoubleValue("style", Style);

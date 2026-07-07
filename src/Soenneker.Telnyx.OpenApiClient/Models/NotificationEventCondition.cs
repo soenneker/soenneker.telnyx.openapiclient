@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Dictates whether a notification channel id needs to be provided when creating a notficiation setting.</summary>
         public bool? AllowMultipleChannels { get; set; }
         /// <summary>The associated_record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition_associated_record_type? AssociatedRecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionAssociatedRecordType? AssociatedRecordType { get; set; }
         /// <summary>Dictates whether a notification setting will take effect immediately.</summary>
         public bool? Asynchronous { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
@@ -59,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition_parameters>? Parameters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionParametersItem>? Parameters { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition_parameters> Parameters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionParametersItem> Parameters { get; set; }
 #endif
         /// <summary>Dictates the supported notification channel types that can be emitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allow_multiple_channels", n => { AllowMultipleChannels = n.GetBoolValue(); } },
-                { "associated_record_type", n => { AssociatedRecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition_associated_record_type>(); } },
+                { "associated_record_type", n => { AssociatedRecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionAssociatedRecordType>(); } },
                 { "asynchronous", n => { Asynchronous = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "notification_event_id", n => { NotificationEventId = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition_parameters.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionParametersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionParametersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "supported_channels", n => { SupportedChannels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -121,14 +121,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_multiple_channels", AllowMultipleChannels);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition_associated_record_type>("associated_record_type", AssociatedRecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionAssociatedRecordType>("associated_record_type", AssociatedRecordType);
             writer.WriteBoolValue("asynchronous", Asynchronous);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("notification_event_id", NotificationEventId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition_parameters>("parameters", Parameters);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionParametersItem>("parameters", Parameters);
             writer.WriteCollectionOfPrimitiveValues<string>("supported_channels", SupportedChannels);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

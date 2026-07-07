@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The item type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictAliasItem_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictAliasItemType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictAliasItem_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictAliasItemType>(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alias", Alias);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictAliasItem_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictAliasItemType>("type", Type);
         }
     }
 }

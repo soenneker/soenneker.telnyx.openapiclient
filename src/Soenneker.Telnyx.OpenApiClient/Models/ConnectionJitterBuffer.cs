@@ -27,6 +27,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ConnectionJitterBuffer()
         {
             AdditionalData = new Dictionary<string, object>();
+            EnableJitterBuffer = false;
+            JitterbufferMsecMax = 200;
+            JitterbufferMsecMin = 60;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

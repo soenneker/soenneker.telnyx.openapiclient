@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the header to add.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader_name? Name { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipHeaderName? Name { get; set; }
         /// <summary>The value of the header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "name", n => { Name = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader_name>(); } },
+                { "name", n => { Name = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeaderName>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader_name>("name", Name);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeaderName>("name", Name);
             writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

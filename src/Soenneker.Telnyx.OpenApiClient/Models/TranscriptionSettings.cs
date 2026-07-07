@@ -30,8 +30,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-streaming` is a multilingual streaming model with configurable turn detection.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` is a multilingual streaming model with automatic language detection and configurable endpointing.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model? Model { get; set; }
+        /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-streaming` is a multilingual streaming model with configurable turn detection.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` is a multilingual streaming model with automatic language detection and configurable endpointing.- `parakeet/tdt-0.6b-v3` is a multilingual transcription model with automatic language detection.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel? Model { get; set; }
         /// <summary>Region on third party cloud providers (currently Azure) if using one of their models. Some regions require `api_key_ref`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
-                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model>(); } },
+                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel>(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig.CreateFromDiscriminatorValue); } },
             };
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteStringValue("language", Language);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model>("model", Model);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel>("model", Model);
             writer.WriteStringValue("region", Region);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>("settings", Settings);
             writer.WriteAdditionalData(AdditionalData);

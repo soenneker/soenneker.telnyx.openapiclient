@@ -57,10 +57,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The requested_scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseData_requested_scopes>? RequestedScopes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseDataRequestedScopesItem>? RequestedScopes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseData_requested_scopes> RequestedScopes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseDataRequestedScopesItem> RequestedScopes { get; set; }
 #endif
         /// <summary>URL of the client&apos;s terms of service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "policy_uri", n => { PolicyUri = n.GetStringValue(); } },
                 { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
-                { "requested_scopes", n => { RequestedScopes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseData_requested_scopes>(global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseData_requested_scopes.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "requested_scopes", n => { RequestedScopes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseDataRequestedScopesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseDataRequestedScopesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tos_uri", n => { TosUri = n.GetStringValue(); } },
                 { "verified", n => { Verified = n.GetBoolValue(); } },
             };
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("policy_uri", PolicyUri);
             writer.WriteStringValue("redirect_uri", RedirectUri);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseData_requested_scopes>("requested_scopes", RequestedScopes);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConsentTokenResponseDataRequestedScopesItem>("requested_scopes", RequestedScopes);
             writer.WriteStringValue("tos_uri", TosUri);
             writer.WriteBoolValue("verified", Verified);
             writer.WriteAdditionalData(AdditionalData);

@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
 #endif
             /// <summary>Filter voices by provider. If omitted, voices from all providers are returned.</summary>
             [QueryParameter("provider")]
-            public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.GetProviderQueryParameterType? Provider { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListVoicesProviderParameter? Provider { get; set; }
         }
     }
 }

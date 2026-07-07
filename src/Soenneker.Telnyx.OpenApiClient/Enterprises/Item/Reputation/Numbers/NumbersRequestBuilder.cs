@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item;
+using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Refresh;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -13,21 +14,26 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
 {
     /// <summary>
-    /// Builds and executes requests for operations under \enterprises\{enterprise_id}\reputation\numbers
+    /// Builds and executes requests for operations under \enterprises\{enterpriseId}\reputation\numbers
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NumbersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The refresh property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Refresh.RefreshRequestBuilder Refresh
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Refresh.RefreshRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.enterprises.item.reputation.numbers.item collection</summary>
-        /// <param name="position">Phone number in E.164 format</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("phoneNumber", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NumbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise_id}/reputation/numbers{?page%5Bnumber%5D*,page%5Bsize%5D*,phone_number*}", pathParameters)
+        public NumbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterpriseId}/reputation/numbers{?filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Bphone_number%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,17 +49,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NumbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise_id}/reputation/numbers{?page%5Bnumber%5D*,page%5Bsize%5D*,phone_number*}", rawUrl)
+        public NumbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterpriseId}/reputation/numbers{?filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Bphone_number%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
-        /// List all phone numbers associated with an enterprise for Number Reputation monitoring.Returns phone numbers with their cached reputation data (if available). Supports pagination and filtering by phone number.
+        /// Paginated list of phone numbers registered for reputation monitoring under this enterprise. The response includes the latest reputation snapshot per number where one has been collected.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.NumbersRequestBuilder.NumbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -66,21 +72,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Associate one or more phone numbers with an enterprise for Number Reputation monitoring.**Validations:**- Phone numbers must be in E.164 format (e.g., `+16035551234`)- Phone numbers must be in-service and belong to your account (verified via Warehouse)- Phone numbers must be US local numbers- Phone numbers cannot already be associated with any enterprise**Note:** This operation is atomic — if any number fails validation, the entire request fails.**Maximum:** 100 phone numbers per request.
+        /// &quot;Add up to 100 phone numbers to reputation monitoring on this enterprise. Each must be in E.164 format (`+1NPANXXXXXX` for US/CA) and belong to your Telnyx phone-number inventory.**Prerequisite**: reputation must already be enabled on this enterprise (see `POST .../reputation`).**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberList"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberList?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -94,14 +100,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all phone numbers associated with an enterprise for Number Reputation monitoring.Returns phone numbers with their cached reputation data (if available). Supports pagination and filtering by phone number.
+        /// Paginated list of phone numbers registered for reputation monitoring under this enterprise. The response includes the latest reputation snapshot per number where one has been collected.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -120,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
             return requestInfo;
         }
         /// <summary>
-        /// Associate one or more phone numbers with an enterprise for Number Reputation monitoring.**Validations:**- Phone numbers must be in E.164 format (e.g., `+16035551234`)- Phone numbers must be in-service and belong to your account (verified via Warehouse)- Phone numbers must be US local numbers- Phone numbers cannot already be associated with any enterprise**Note:** This operation is atomic — if any number fails validation, the entire request fails.**Maximum:** 100 phone numbers per request.
+        /// &quot;Add up to 100 phone numbers to reputation monitoring on this enterprise. Each must be in E.164 format (`+1NPANXXXXXX` for US/CA) and belong to your Telnyx phone-number inventory.**Prerequisite**: reputation must already be enabled on this enterprise (see `POST .../reputation`).**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -151,27 +157,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
             return new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.NumbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all phone numbers associated with an enterprise for Number Reputation monitoring.Returns phone numbers with their cached reputation data (if available). Supports pagination and filtering by phone number.
+        /// Paginated list of phone numbers registered for reputation monitoring under this enterprise. The response includes the latest reputation snapshot per number where one has been collected.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class NumbersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Page number (1-indexed)</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>Number of items per page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Filter by specific phone number (E.164 format)</summary>
+            /// <summary>Partial match on phone number. Must contain at least 5 digits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("phone_number")]
-            public string? PhoneNumber { get; set; }
+            [QueryParameter("filter%5Bphone_number%5D%5Bcontains%5D")]
+            public string? FilterphoneNumbercontains { get; set; }
 #nullable restore
 #else
-            [QueryParameter("phone_number")]
-            public string PhoneNumber { get; set; }
+            [QueryParameter("filter%5Bphone_number%5D%5Bcontains%5D")]
+            public string FilterphoneNumbercontains { get; set; }
 #endif
+            /// <summary>Exact phone-number match (E.164).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
+            public string? FilterphoneNumbereq { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
+            public string FilterphoneNumbereq { get; set; }
+#endif
+            /// <summary>1-based page number. Out-of-range values return an empty page with correct meta.</summary>
+            [QueryParameter("page%5Bnumber%5D")]
+            public int? Pagenumber { get; set; }
+            /// <summary>Items per page. Default 10. Maximum 250; values above are clamped to 250.</summary>
+            [QueryParameter("page%5Bsize%5D")]
+            public int? Pagesize { get; set; }
         }
     }
 }

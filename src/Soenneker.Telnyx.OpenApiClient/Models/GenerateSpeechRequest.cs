@@ -58,9 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams Minimax { get; set; }
 #endif
         /// <summary>Determines the response format. `binary_output` returns raw audio bytes, `base64_output` returns base64-encoded audio in JSON.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_output_type? OutputType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestOutputType? OutputType { get; set; }
         /// <summary>TTS provider. Required unless `voice` is provided.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_provider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestProvider? Provider { get; set; }
         /// <summary>Resemble AI provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.RimeProviderParams Rime { get; set; }
 #endif
-        /// <summary>Telnyx provider-specific parameters. Use `voice_speed` and `temperature` for `Natural` and `NaturalHD` models. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`.</summary>
+        /// <summary>Telnyx provider-specific parameters. Use `voice_speed` and `temperature` for `Natural` and `NaturalHD` models. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`, and don&apos;t support `voice_speed`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams? Telnyx { get; set; }
@@ -94,8 +94,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>Text type. Use `ssml` for SSML-formatted input (supported by AWS and Azure).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_text_type? TextType { get; set; }
-        /// <summary>&quot;Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id`. Examples: `telnyx.NaturalHD.Alloy`, `Telnyx.Ultra.&lt;voice_id&gt;`, `azure.en-US-AvaMultilingualNeural`, `aws.Polly.Generative.Lucia`. When provided, `provider`, `model_id`, and `voice_id` are extracted automatically and take precedence over individual parameters.&quot;</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestTextType? TextType { get; set; }
+        /// <summary>&quot;Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id`. Examples: `telnyx.NaturalHD.Alloy`, `Telnyx.Ultra.&lt;voice_id&gt;`, `Telnyx.Bayan.Ahmed`, `Telnyx.Sukhan.urdu-professor`, `azure.en-US-AvaMultilingualNeural`, `aws.Polly.Generative.Lucia`. When provided, `provider`, `model_id`, and `voice_id` are extracted automatically and take precedence over individual parameters.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Voice { get; set; }
@@ -106,18 +106,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Provider-specific voice settings. Contents vary by provider — see provider-specific parameter objects below.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty? VoiceSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty VoiceSettings { get; set; }
 #endif
         /// <summary>xAI provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams? Xai { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams? Xai { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams Xai { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams Xai { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest"/> and sets the default values.
@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public GenerateSpeechRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            OutputType = global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_output_type.Binary_output;
+            DisableCache = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -151,16 +151,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "elevenlabs", n => { Elevenlabs = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "minimax", n => { Minimax = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams.CreateFromDiscriminatorValue); } },
-                { "output_type", n => { OutputType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_output_type>(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_provider>(); } },
+                { "output_type", n => { OutputType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestOutputType>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestProvider>(); } },
                 { "resemble", n => { Resemble = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams.CreateFromDiscriminatorValue); } },
                 { "rime", n => { Rime = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RimeProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.RimeProviderParams.CreateFromDiscriminatorValue); } },
                 { "telnyx", n => { Telnyx = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "text_type", n => { TextType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_text_type>(); } },
+                { "text_type", n => { TextType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestTextType>(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
-                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings.CreateFromDiscriminatorValue); } },
-                { "xai", n => { Xai = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty.CreateFromDiscriminatorValue); } },
+                { "xai", n => { Xai = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -176,16 +176,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams>("elevenlabs", Elevenlabs);
             writer.WriteStringValue("language", Language);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams>("minimax", Minimax);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_output_type>("output_type", OutputType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_provider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestOutputType>("output_type", OutputType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestProvider>("provider", Provider);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams>("resemble", Resemble);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RimeProviderParams>("rime", Rime);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams>("telnyx", Telnyx);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_text_type>("text_type", TextType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestTextType>("text_type", TextType);
             writer.WriteStringValue("voice", Voice);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings>("voice_settings", VoiceSettings);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams>("xai", Xai);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams>("xai", Xai);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

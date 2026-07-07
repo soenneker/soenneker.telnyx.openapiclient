@@ -26,13 +26,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Metadata to add to the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata Metadata { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case developer.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_role? Role { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage"/> and sets the default values.
         /// </summary>
@@ -59,8 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_role>(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageRole>(); } },
             };
         }
         /// <summary>
@@ -71,8 +71,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_role>("role", Role);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

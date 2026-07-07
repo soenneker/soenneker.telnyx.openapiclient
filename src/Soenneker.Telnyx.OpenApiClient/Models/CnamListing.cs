@@ -31,6 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CnamListing()
         {
             AdditionalData = new Dictionary<string, object>();
+            CnamListingEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

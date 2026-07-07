@@ -31,14 +31,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CommandId { get; set; }
 #endif
         /// <summary>Optionally specify a `stream_type`. This should match the `stream_type` that was used in `fork_start` command to properly stop the fork.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StopForkingRequest_stream_type? StreamType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StopForkingRequestStreamType? StreamType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StopForkingRequest"/> and sets the default values.
         /// </summary>
         public StopForkingRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            StreamType = global::Soenneker.Telnyx.OpenApiClient.Models.StopForkingRequest_stream_type.Raw;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -60,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "stream_type", n => { StreamType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StopForkingRequest_stream_type>(); } },
+                { "stream_type", n => { StreamType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StopForkingRequestStreamType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StopForkingRequest_stream_type>("stream_type", StreamType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StopForkingRequestStreamType>("stream_type", StreamType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.verifications.by_phone_number.item collection</summary>
         /// <param name="position">The phone number associated with the verifications to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("phoneNumber", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -25,18 +25,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The result_payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_result_payload? ResultPayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestResultPayloadProperty? ResultPayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_result_payload ResultPayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestResultPayloadProperty ResultPayload { get; set; }
 #endif
         /// <summary>The result_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,8 +74,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_metadata.CreateFromDiscriminatorValue); } },
-                { "result_payload", n => { ResultPayload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_result_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_result_payload.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "result_payload", n => { ResultPayload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestResultPayloadProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestResultPayloadProperty.CreateFromDiscriminatorValue); } },
                 { "result_summary", n => { ResultSummary = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RunStatus>(); } },
             };
@@ -88,8 +88,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_metadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequest_result_payload>("result_payload", ResultPayload);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestMetadataProperty>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMissionRunRequestResultPayloadProperty>("result_payload", ResultPayload);
             writer.WriteStringValue("result_summary", ResultSummary);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RunStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);

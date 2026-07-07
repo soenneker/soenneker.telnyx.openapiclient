@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Audit_events
 #endif
             /// <summary>Set the order of the results by the creation date.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Audit_events.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.Sort? Sort { get; set; }
         }
     }
 }

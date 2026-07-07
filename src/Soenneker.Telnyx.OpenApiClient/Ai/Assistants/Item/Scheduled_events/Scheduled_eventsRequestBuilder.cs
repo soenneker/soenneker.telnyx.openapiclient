@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
 {
     /// <summary>
-    /// Builds and executes requests for operations under \ai\assistants\{assistant_id}\scheduled_events
+    /// Builds and executes requests for operations under \ai\assistants\{assistantId}\scheduled_events
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Scheduled_eventsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.assistants.item.scheduled_events.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Item.WithEvent_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Item.WithEvent_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the event.</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Item.WithEventItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Item.WithEventItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("event_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Item.WithEvent_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("eventId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Item.WithEventItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Scheduled_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}/scheduled_events{?conversation_channel*,from_date*,page*,to_date*}", pathParameters)
+        public Scheduled_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistantId}/scheduled_events{?conversation_channel*,from_date*,page*,to_date*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Scheduled_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}/scheduled_events{?conversation_channel*,from_date*,page*,to_date*}", rawUrl)
+        public Scheduled_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistantId}/scheduled_events{?conversation_channel*,from_date*,page*,to_date*}", rawUrl)
         {
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledEventResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledEventResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledEventResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -150,8 +150,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Scheduled_eventsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter results by conversation channel.</summary>
             [QueryParameter("conversation_channel")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? ConversationChannel { get; set; }
+            /// <summary>Start of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("from_date")]
             public DateTimeOffset? FromDate { get; set; }
             /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
@@ -164,6 +166,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
+            /// <summary>End of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("to_date")]
             public DateTimeOffset? ToDate { get; set; }
         }

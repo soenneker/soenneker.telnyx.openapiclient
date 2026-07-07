@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; private set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettings_record_type? RecordType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettingsRecordType? RecordType { get; private set; }
         /// <summary>Tags associated with this phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string TrafficType { get; private set; }
 #endif
         /// <summary>The type of the phone number</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettings_type? Type { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettingsType? Type { get; private set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
@@ -127,10 +127,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettings_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettingsRecordType>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "traffic_type", n => { TrafficType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettings_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettingsType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }

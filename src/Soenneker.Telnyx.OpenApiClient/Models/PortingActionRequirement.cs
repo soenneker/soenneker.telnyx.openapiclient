@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PortingOrderId { get; set; }
 #endif
         /// <summary>Identifies the type of the resource</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirement_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirementRecordType? RecordType { get; set; }
         /// <summary>The ID of the requirement type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RequirementTypeId { get; set; }
 #endif
         /// <summary>Current status of the action requirement</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirement_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirementStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -101,9 +101,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirement_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirementRecordType>(); } },
                 { "requirement_type_id", n => { RequirementTypeId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirement_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirementStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -120,9 +120,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("porting_order_id", PortingOrderId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirement_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirementRecordType>("record_type", RecordType);
             writer.WriteStringValue("requirement_type_id", RequirementTypeId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirement_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingActionRequirementStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

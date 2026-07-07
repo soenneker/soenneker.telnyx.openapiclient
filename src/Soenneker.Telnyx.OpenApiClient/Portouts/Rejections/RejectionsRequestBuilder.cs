@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Rejections
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.portouts.rejections.item collection</summary>
         /// <param name="position">Identifies a port out order.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortoutItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortoutItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("portout_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("portoutId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortoutItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

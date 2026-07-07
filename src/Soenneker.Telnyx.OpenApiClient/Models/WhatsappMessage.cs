@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string To { get; set; }
 #endif
         /// <summary>Message type - must be set to &quot;WHATSAPP&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessage_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageType? Type { get; set; }
         /// <summary>The URL where webhooks related to this message will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "from", n => { From = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetGuidValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessage_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageType>(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
                 { "whatsapp_message", n => { WhatsappMessageProp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent.CreateFromDiscriminatorValue); } },
             };
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("from", From);
             writer.WriteGuidValue("messaging_profile_id", MessagingProfileId);
             writer.WriteStringValue("to", To);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessage_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageType>("type", Type);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent>("whatsapp_message", WhatsappMessageProp);
             writer.WriteAdditionalData(AdditionalData);

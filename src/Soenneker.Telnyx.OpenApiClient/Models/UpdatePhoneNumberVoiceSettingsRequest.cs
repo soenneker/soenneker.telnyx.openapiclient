@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing CnamListing { get; set; }
 #endif
         /// <summary>The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest_inbound_call_screening? InboundCallScreening { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequestInboundCallScreening? InboundCallScreening { get; set; }
         /// <summary>The media features settings for a phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,15 +61,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string TranslatedNumber { get; set; }
 #endif
         /// <summary>Controls whether a number is billed per minute or uses your concurrent channels.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest_usage_payment_method? UsagePaymentMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequestUsagePaymentMethod? UsagePaymentMethod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest"/> and sets the default values.
         /// </summary>
         public UpdatePhoneNumberVoiceSettingsRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            InboundCallScreening = global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest_inbound_call_screening.Disabled;
-            UsagePaymentMethod = global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest_usage_payment_method.PayPerMinute;
+            CallerIdNameEnabled = false;
+            TechPrefixEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -93,11 +93,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_recording", n => { CallRecording = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording.CreateFromDiscriminatorValue); } },
                 { "caller_id_name_enabled", n => { CallerIdNameEnabled = n.GetBoolValue(); } },
                 { "cnam_listing", n => { CnamListing = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing>(global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing.CreateFromDiscriminatorValue); } },
-                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest_inbound_call_screening>(); } },
+                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequestInboundCallScreening>(); } },
                 { "media_features", n => { MediaFeatures = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures>(global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures.CreateFromDiscriminatorValue); } },
                 { "tech_prefix_enabled", n => { TechPrefixEnabled = n.GetBoolValue(); } },
                 { "translated_number", n => { TranslatedNumber = n.GetStringValue(); } },
-                { "usage_payment_method", n => { UsagePaymentMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest_usage_payment_method>(); } },
+                { "usage_payment_method", n => { UsagePaymentMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequestUsagePaymentMethod>(); } },
             };
         }
         /// <summary>
@@ -111,11 +111,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding>("call_forwarding", CallForwarding);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording>("call_recording", CallRecording);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing>("cnam_listing", CnamListing);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest_inbound_call_screening>("inbound_call_screening", InboundCallScreening);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequestInboundCallScreening>("inbound_call_screening", InboundCallScreening);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures>("media_features", MediaFeatures);
             writer.WriteBoolValue("tech_prefix_enabled", TechPrefixEnabled);
             writer.WriteStringValue("translated_number", TranslatedNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest_usage_payment_method>("usage_payment_method", UsagePaymentMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequestUsagePaymentMethod>("usage_payment_method", UsagePaymentMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

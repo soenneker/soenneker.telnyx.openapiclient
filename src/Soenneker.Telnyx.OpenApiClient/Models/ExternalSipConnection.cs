@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "operator_connect")]
         #pragma warning disable CS1591
-        Operator_connect,
+        OperatorConnect,
         #pragma warning restore CS1591
     }
 }

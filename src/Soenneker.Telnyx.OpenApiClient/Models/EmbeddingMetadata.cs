@@ -43,10 +43,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The loader_metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata? LoaderMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadataLoaderMetadataProperty? LoaderMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata LoaderMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadataLoaderMetadataProperty LoaderMetadata { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "checksum", n => { Checksum = n.GetStringValue(); } },
                 { "embedding", n => { Embedding = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
-                { "loader_metadata", n => { LoaderMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata.CreateFromDiscriminatorValue); } },
+                { "loader_metadata", n => { LoaderMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadataLoaderMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadataLoaderMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetStringValue(); } },
             };
         }
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("checksum", Checksum);
             writer.WriteStringValue("embedding", Embedding);
             writer.WriteStringValue("filename", Filename);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata>("loader_metadata", LoaderMetadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadataLoaderMetadataProperty>("loader_metadata", LoaderMetadata);
             writer.WriteStringValue("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }

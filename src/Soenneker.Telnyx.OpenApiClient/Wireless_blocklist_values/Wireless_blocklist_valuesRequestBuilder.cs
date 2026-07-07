@@ -36,18 +36,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values
         /// <summary>
         /// Retrieve all wireless blocklist values for a given blocklist type.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values.Wireless_blocklist_valuesRequestBuilder.Wireless_blocklist_valuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values.Wireless_blocklist_valuesRequestBuilder.Wireless_blocklist_valuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values.Wireless_blocklist_valuesRequestBuilder.Wireless_blocklist_valuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values.Wireless_blocklist_valuesRequestBuilder.Wireless_blocklist_valuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve all wireless blocklist values for a given blocklist type.
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values
         {
             /// <summary>The Wireless Blocklist type for which to list possible values (e.g., `country`, `mcc`, `plmn`).</summary>
             [QueryParameter("type")]
-            public global::Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values.GetTypeQueryParameterType? Type { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAllTypeParameter? Type { get; set; }
         }
     }
 }

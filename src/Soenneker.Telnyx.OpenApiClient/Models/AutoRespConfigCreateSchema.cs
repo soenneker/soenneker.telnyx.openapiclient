@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Keywords { get; set; }
 #endif
         /// <summary>The op property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchema_op? Op { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchemaOp? Op { get; set; }
         /// <summary>The resp_text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchema_op>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchemaOp>(); } },
                 { "resp_text", n => { RespText = n.GetStringValue(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteCollectionOfPrimitiveValues<string>("keywords", Keywords);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchema_op>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchemaOp>("op", Op);
             writer.WriteStringValue("resp_text", RespText);
             writer.WriteAdditionalData(AdditionalData);
         }

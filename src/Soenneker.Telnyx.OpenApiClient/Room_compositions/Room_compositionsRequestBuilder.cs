@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.room_compositions.item collection</summary>
         /// <param name="position">The unique identifier of a room composition.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoom_composition_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoom_composition_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoomCompositionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoomCompositionItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("room_composition_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoom_composition_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("roomCompositionId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoomCompositionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,41 +49,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
         /// <summary>
         /// View a list of room compositions.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomCompositions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Room_compositions4XXError">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VideoGenericErrorResponseResponse">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomCompositions200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomCompositions200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Room_compositions4XXError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.VideoGenericErrorResponseResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomCompositions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomCompositions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Asynchronously create a room composition.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomComposition202Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VideoErrors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomComposition202Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomComposition202Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.VideoErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomComposition202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomComposition202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

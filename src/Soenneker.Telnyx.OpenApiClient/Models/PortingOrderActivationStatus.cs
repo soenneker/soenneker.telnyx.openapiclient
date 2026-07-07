@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "New")]
         #pragma warning disable CS1591
-        New,
+        NewValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "Pending")]
         #pragma warning disable CS1591
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "Activate RDY")]
         #pragma warning disable CS1591
-        ActivateRDY,
+        ActivateRdy,
         #pragma warning restore CS1591
         [EnumMember(Value = "Disconnect Pending")]
         #pragma warning disable CS1591

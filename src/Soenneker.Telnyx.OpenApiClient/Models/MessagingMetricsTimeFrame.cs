@@ -9,27 +9,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "1h")]
         #pragma warning disable CS1591
-        Oneh,
+        Value1H,
         #pragma warning restore CS1591
         [EnumMember(Value = "3h")]
         #pragma warning disable CS1591
-        Threeh,
+        Value3H,
         #pragma warning restore CS1591
         [EnumMember(Value = "24h")]
         #pragma warning disable CS1591
-        TwoFourh,
+        Value24H,
         #pragma warning restore CS1591
         [EnumMember(Value = "3d")]
         #pragma warning disable CS1591
-        Threed,
+        Value3D,
         #pragma warning restore CS1591
         [EnumMember(Value = "7d")]
         #pragma warning disable CS1591
-        Sevend,
+        Value7D,
         #pragma warning restore CS1591
         [EnumMember(Value = "30d")]
         #pragma warning disable CS1591
-        ThreeZerod,
+        Value30D,
         #pragma warning restore CS1591
     }
 }

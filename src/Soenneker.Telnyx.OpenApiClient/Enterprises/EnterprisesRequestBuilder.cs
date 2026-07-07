@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
     public partial class EnterprisesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.enterprises.item collection</summary>
-        /// <param name="position">Unique identifier of the enterprise (UUID)</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterprise_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterprise_ItemRequestBuilder this[Guid position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterpriseItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterpriseItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("enterprise_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterprise_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("enterpriseId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterpriseItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EnterprisesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises{?legal_name*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public EnterprisesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises{?filter%5Blegal_name%5D%5Bcontains%5D*,legal_name*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,16 +43,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EnterprisesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises{?legal_name*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public EnterprisesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises{?filter%5Blegal_name%5D%5Bcontains%5D*,legal_name*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
-        /// Retrieve a paginated list of enterprises associated with your account.
+        /// Return the enterprises you own, paginated. The default page size is 20; the maximum is 250.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseListPublic"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseListPublic?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Enterprises.EnterprisesRequestBuilder.EnterprisesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,20 +65,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseListPublic>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseListPublic.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new enterprise for Branded Calling / Number Reputation services.Registers the enterprise in the Branded Calling / Number Reputation services, enabling it to create Display Identity Records (DIRs) or enroll in Number Reputation monitoring.**Required Fields:** `legal_name`, `doing_business_as`, `organization_type`, `country_code`, `website`, `fein`, `industry`, `number_of_employees`, `organization_legal_type`, `organization_contact`, `billing_contact`, `organization_physical_address`, `billing_address`
+        /// Create the legal entity (enterprise) that represents your business on the Telnyx platform.The response carries a server-assigned `id` you use for every subsequent call. An enterprise is created once and reused; the API collects all required fields up front.Common failure modes:- `422` - a required field is missing or malformed (the response `errors[].source.pointer` names the field).- `409` - an enterprise with the same identifying details already exists under your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -92,14 +92,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a paginated list of enterprises associated with your account.
+        /// Return the enterprises you own, paginated. The default page size is 20; the maximum is 250.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
             return requestInfo;
         }
         /// <summary>
-        /// Create a new enterprise for Branded Calling / Number Reputation services.Registers the enterprise in the Branded Calling / Number Reputation services, enabling it to create Display Identity Records (DIRs) or enroll in Number Reputation monitoring.**Required Fields:** `legal_name`, `doing_business_as`, `organization_type`, `country_code`, `website`, `fein`, `industry`, `number_of_employees`, `organization_legal_type`, `organization_contact`, `billing_contact`, `organization_physical_address`, `billing_address`
+        /// Create the legal entity (enterprise) that represents your business on the Telnyx platform.The response carries a server-assigned `id` you use for every subsequent call. An enterprise is created once and reused; the API collects all required fields up front.Common failure modes:- `422` - a required field is missing or malformed (the response `errors[].source.pointer` names the field).- `409` - an enterprise with the same identifying details already exists under your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -149,12 +149,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
             return new global::Soenneker.Telnyx.OpenApiClient.Enterprises.EnterprisesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve a paginated list of enterprises associated with your account.
+        /// Return the enterprises you own, paginated. The default page size is 20; the maximum is 250.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EnterprisesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by legal name (partial match)</summary>
+            /// <summary>Case-insensitive partial match on legal name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Blegal_name%5D%5Bcontains%5D")]
+            public string? FilterlegalNamecontains { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Blegal_name%5D%5Bcontains%5D")]
+            public string FilterlegalNamecontains { get; set; }
+#endif
+            /// <summary>Filter by legal name (partial match).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("legal_name")]
@@ -164,10 +174,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
             [QueryParameter("legal_name")]
             public string LegalName { get; set; }
 #endif
-            /// <summary>Page number (1-indexed)</summary>
+            /// <summary>1-based page number. Out-of-range values return an empty page with correct meta.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>Number of items per page</summary>
+            /// <summary>Items per page. Default 10. Maximum 250; values above are clamped to 250.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

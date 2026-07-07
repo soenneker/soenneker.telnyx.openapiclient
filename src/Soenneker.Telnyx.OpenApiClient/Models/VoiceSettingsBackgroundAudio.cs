@@ -8,34 +8,34 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember3"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceSettingsBackgroundAudio : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1? VoiceSettingsBackgroundAudioMember1 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1? VoiceSettingsBackgroundAudioOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1 VoiceSettingsBackgroundAudioMember1 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1 VoiceSettingsBackgroundAudioOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember2? VoiceSettingsBackgroundAudioMember2 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2? VoiceSettingsBackgroundAudioOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember2 VoiceSettingsBackgroundAudioMember2 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2 VoiceSettingsBackgroundAudioOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember3? VoiceSettingsBackgroundAudioMember3 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3? VoiceSettingsBackgroundAudioOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember3 VoiceSettingsBackgroundAudioMember3 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3 VoiceSettingsBackgroundAudioOneOf3 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,17 +47,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("VoiceSettingsBackgroundAudioOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VoiceSettingsBackgroundAudioMember1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1();
+                result.VoiceSettingsBackgroundAudioOneOf1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("VoiceSettingsBackgroundAudioOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VoiceSettingsBackgroundAudioMember2 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember2();
+                result.VoiceSettingsBackgroundAudioOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("VoiceSettingsBackgroundAudioOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VoiceSettingsBackgroundAudioMember3 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember3();
+                result.VoiceSettingsBackgroundAudioOneOf3 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3();
             }
             return result;
         }
@@ -67,17 +67,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(VoiceSettingsBackgroundAudioMember1 != null)
+            if(VoiceSettingsBackgroundAudioOneOf1 != null)
             {
-                return VoiceSettingsBackgroundAudioMember1.GetFieldDeserializers();
+                return VoiceSettingsBackgroundAudioOneOf1.GetFieldDeserializers();
             }
-            else if(VoiceSettingsBackgroundAudioMember2 != null)
+            else if(VoiceSettingsBackgroundAudioOneOf2 != null)
             {
-                return VoiceSettingsBackgroundAudioMember2.GetFieldDeserializers();
+                return VoiceSettingsBackgroundAudioOneOf2.GetFieldDeserializers();
             }
-            else if(VoiceSettingsBackgroundAudioMember3 != null)
+            else if(VoiceSettingsBackgroundAudioOneOf3 != null)
             {
-                return VoiceSettingsBackgroundAudioMember3.GetFieldDeserializers();
+                return VoiceSettingsBackgroundAudioOneOf3.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -88,17 +88,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(VoiceSettingsBackgroundAudioMember1 != null)
+            if(VoiceSettingsBackgroundAudioOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1>(null, VoiceSettingsBackgroundAudioMember1);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1>(null, VoiceSettingsBackgroundAudioOneOf1);
             }
-            else if(VoiceSettingsBackgroundAudioMember2 != null)
+            else if(VoiceSettingsBackgroundAudioOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember2>(null, VoiceSettingsBackgroundAudioMember2);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2>(null, VoiceSettingsBackgroundAudioOneOf2);
             }
-            else if(VoiceSettingsBackgroundAudioMember3 != null)
+            else if(VoiceSettingsBackgroundAudioOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember3>(null, VoiceSettingsBackgroundAudioMember3);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3>(null, VoiceSettingsBackgroundAudioOneOf3);
             }
         }
     }

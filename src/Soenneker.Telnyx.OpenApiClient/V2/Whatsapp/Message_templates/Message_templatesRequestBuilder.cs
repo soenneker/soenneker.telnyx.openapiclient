@@ -36,17 +36,17 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates
         /// <summary>
         /// List Whatsapp message templates
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesRequestBuilder.Message_templatesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesRequestBuilder.Message_templatesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesRequestBuilder.Message_templatesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesRequestBuilder.Message_templatesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,23 +54,23 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateListResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a Whatsapp message template
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.Message_templatesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List Whatsapp message templates
@@ -139,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates
         {
             /// <summary>Filter by category</summary>
             [QueryParameter("filter%5Bcategory%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Message_templates.GetFilterCategoryQueryParameterType? Filtercategory { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListWhatsappTemplatesFilterCategoryParameter? Filtercategory { get; set; }
             /// <summary>Search templates by name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

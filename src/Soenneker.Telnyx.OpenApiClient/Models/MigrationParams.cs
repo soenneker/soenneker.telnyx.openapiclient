@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Current speed of the migration.</summary>
         public int? Speed { get; private set; }
         /// <summary>Status of the migration.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParams_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParamsStatus? Status { get; private set; }
         /// <summary>Bucket name to migrate the data into. Will default to the same name as the `source_bucket_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "refresh", n => { Refresh = n.GetBoolValue(); } },
                 { "source_id", n => { SourceId = n.GetStringValue(); } },
                 { "speed", n => { Speed = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParams_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParamsStatus>(); } },
                 { "target_bucket_name", n => { TargetBucketName = n.GetStringValue(); } },
                 { "target_region", n => { TargetRegion = n.GetStringValue(); } },
             };

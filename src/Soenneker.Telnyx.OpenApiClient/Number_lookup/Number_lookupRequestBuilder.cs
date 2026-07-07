@@ -16,15 +16,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_lookup
     public partial class Number_lookupRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.number_lookup.item collection</summary>
-        /// <param name="position">The phone number to be looked up</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("phoneNumber", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

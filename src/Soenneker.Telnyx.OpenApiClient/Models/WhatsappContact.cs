@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The addresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_addresses>? Addresses { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactAddressesItem>? Addresses { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_addresses> Addresses { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactAddressesItem> Addresses { get; set; }
 #endif
         /// <summary>The birthday property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The emails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_emails>? Emails { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactEmailsItem>? Emails { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_emails> Emails { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactEmailsItem> Emails { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,18 +57,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phones property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_phones>? Phones { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactPhonesItem>? Phones { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_phones> Phones { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactPhonesItem> Phones { get; set; }
 #endif
         /// <summary>The urls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_urls>? Urls { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactUrlsItem>? Urls { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_urls> Urls { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactUrlsItem> Urls { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact"/> and sets the default values.
@@ -95,13 +95,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "addresses", n => { Addresses = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_addresses>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_addresses.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "addresses", n => { Addresses = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactAddressesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactAddressesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "birthday", n => { Birthday = n.GetStringValue(); } },
-                { "emails", n => { Emails = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_emails>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_emails.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "emails", n => { Emails = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactEmailsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactEmailsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org", n => { Org = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactOrg>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactOrg.CreateFromDiscriminatorValue); } },
-                { "phones", n => { Phones = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_phones>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_phones.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "urls", n => { Urls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_urls>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_urls.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phones", n => { Phones = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactPhonesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactPhonesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "urls", n => { Urls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactUrlsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactUrlsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -111,13 +111,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_addresses>("addresses", Addresses);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactAddressesItem>("addresses", Addresses);
             writer.WriteStringValue("birthday", Birthday);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_emails>("emails", Emails);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactEmailsItem>("emails", Emails);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactOrg>("org", Org);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_phones>("phones", Phones);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContact_urls>("urls", Urls);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactPhonesItem>("phones", Phones);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappContactUrlsItem>("urls", Urls);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Services { get; set; }
 #endif
         /// <summary>The type of the traffic policy profile.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrafficPolicyProfile_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrafficPolicyProfileType? Type { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "limit_bw_kbps", n => { LimitBwKbps = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "services", n => { Services = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrafficPolicyProfile_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrafficPolicyProfileType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("ip_ranges", IpRanges);
             writer.WriteIntValue("limit_bw_kbps", LimitBwKbps);
             writer.WriteCollectionOfPrimitiveValues<string>("services", Services);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrafficPolicyProfile_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrafficPolicyProfileType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

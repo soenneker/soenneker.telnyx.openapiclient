@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Code { get; set; }
 #endif
         /// <summary>Identifies if the verification code has been accepted or rejected. Only permitted if custom_code was used for the verification.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestByIdStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestByIdStatus>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestByIdStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

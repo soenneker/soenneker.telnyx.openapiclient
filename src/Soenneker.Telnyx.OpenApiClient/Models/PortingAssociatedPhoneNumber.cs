@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the action to take with this phone number during partial porting.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber_action? Action { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the country code for this associated phone number. It is a two-letter ISO 3166-1 alpha-2 country code.</summary>
@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange PhoneNumberRange { get; set; }
 #endif
         /// <summary>Specifies the phone number type for this associated phone number.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberType? PhoneNumberType { get; set; }
         /// <summary>Identifies the porting order associated with this phone number.</summary>
         public Guid? PortingOrderId { get; set; }
         /// <summary>Identifies the type of the resource.</summary>
@@ -75,12 +75,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber_action>(); } },
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberAction>(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_number_range", n => { PhoneNumberRange = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange.CreateFromDiscriminatorValue); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberType>(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -93,10 +93,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber_action>("action", Action);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberAction>("action", Action);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange>("phone_number_range", PhoneNumberRange);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteAdditionalData(AdditionalData);
         }

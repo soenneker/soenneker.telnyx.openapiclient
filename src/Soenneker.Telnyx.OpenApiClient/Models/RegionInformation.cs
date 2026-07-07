@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RegionName { get; set; }
 #endif
         /// <summary>The region_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation_region_type? RegionType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformationRegionType? RegionType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "region_name", n => { RegionName = n.GetStringValue(); } },
-                { "region_type", n => { RegionType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation_region_type>(); } },
+                { "region_type", n => { RegionType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformationRegionType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("region_name", RegionName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation_region_type>("region_type", RegionType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformationRegionType>("region_type", RegionType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

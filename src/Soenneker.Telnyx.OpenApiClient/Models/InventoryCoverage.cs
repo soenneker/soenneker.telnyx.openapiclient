@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The count property</summary>
         public int? Count { get; set; }
         /// <summary>The coverage_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_coverage_type? CoverageType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageCoverageType? CoverageType { get; set; }
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,9 +47,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The number_range property</summary>
         public int? NumberRange { get; set; }
         /// <summary>The number_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_number_type? NumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageNumberType? NumberType { get; set; }
         /// <summary>The phone_number_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoveragePhoneNumberType? PhoneNumberType { get; set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,12 +86,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "administrative_area", n => { AdministrativeArea = n.GetStringValue(); } },
                 { "advance_requirements", n => { AdvanceRequirements = n.GetBoolValue(); } },
                 { "count", n => { Count = n.GetIntValue(); } },
-                { "coverage_type", n => { CoverageType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_coverage_type>(); } },
+                { "coverage_type", n => { CoverageType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageCoverageType>(); } },
                 { "group", n => { Group = n.GetStringValue(); } },
                 { "group_type", n => { GroupType = n.GetStringValue(); } },
                 { "number_range", n => { NumberRange = n.GetIntValue(); } },
-                { "number_type", n => { NumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_number_type>(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_phone_number_type>(); } },
+                { "number_type", n => { NumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageNumberType>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoveragePhoneNumberType>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
         }
@@ -105,12 +105,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("administrative_area", AdministrativeArea);
             writer.WriteBoolValue("advance_requirements", AdvanceRequirements);
             writer.WriteIntValue("count", Count);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_coverage_type>("coverage_type", CoverageType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageCoverageType>("coverage_type", CoverageType);
             writer.WriteStringValue("group", Group);
             writer.WriteStringValue("group_type", GroupType);
             writer.WriteIntValue("number_range", NumberRange);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_number_type>("number_type", NumberType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageNumberType>("number_type", NumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoveragePhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }

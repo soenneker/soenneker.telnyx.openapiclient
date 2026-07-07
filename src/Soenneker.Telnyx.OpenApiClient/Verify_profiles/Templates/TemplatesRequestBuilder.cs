@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.verify_profiles.templates.item collection</summary>
         /// <param name="position">The identifier of the message template to update.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates.Item.WithTemplate_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates.Item.WithTemplate_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates.Item.WithTemplateItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates.Item.WithTemplateItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("template_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates.Item.WithTemplate_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("templateId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates.Item.WithTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

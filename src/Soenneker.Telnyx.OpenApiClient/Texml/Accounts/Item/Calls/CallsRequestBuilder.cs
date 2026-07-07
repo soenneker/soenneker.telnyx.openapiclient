@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
 {
     /// <summary>
-    /// Builds and executes requests for operations under \texml\Accounts\{account_sid}\Calls
+    /// Builds and executes requests for operations under \texml\Accounts\{accountSid}\Calls
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Calls.item collection</summary>
-        /// <param name="position">The CallSid that identifies the call to update.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCallSItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCallSItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("call_sid", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("callSid", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCallSItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,Status*,To*}", pathParameters)
+        public CallsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,Status*,To*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,Status*,To*}", rawUrl)
+        public CallsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,Status*,To*}", rawUrl)
         {
         }
         /// <summary>
@@ -227,7 +227,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
             public string StartTimeLt { get; set; }
 #endif
             /// <summary>Filters calls by status.</summary>
-            public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.StatusEnum? Status { get; set; }
             /// <summary>Filters calls by the to number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

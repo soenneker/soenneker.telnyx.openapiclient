@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Cld { get; set; }
 #endif
         /// <summary>Filter type for CLD matching</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Filter_cld_filter? CldFilter { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterCldFilter? CldFilter { get; set; }
         /// <summary>Calling line identification (caller ID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,9 +42,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Cli { get; set; }
 #endif
         /// <summary>Filter type for CLI matching</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Filter_cli_filter? CliFilter { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterCliFilter? CliFilter { get; set; }
         /// <summary>Logical operator for combining filters</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Filter_filter_type? FilterType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterFilterType? FilterType { get; set; }
         /// <summary>Tag name to filter by</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,10 +80,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "billing_group", n => { BillingGroup = n.GetStringValue(); } },
                 { "cld", n => { Cld = n.GetStringValue(); } },
-                { "cld_filter", n => { CldFilter = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Filter_cld_filter>(); } },
+                { "cld_filter", n => { CldFilter = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FilterCldFilter>(); } },
                 { "cli", n => { Cli = n.GetStringValue(); } },
-                { "cli_filter", n => { CliFilter = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Filter_cli_filter>(); } },
-                { "filter_type", n => { FilterType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Filter_filter_type>(); } },
+                { "cli_filter", n => { CliFilter = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FilterCliFilter>(); } },
+                { "filter_type", n => { FilterType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FilterFilterType>(); } },
                 { "tags_list", n => { TagsList = n.GetStringValue(); } },
             };
         }
@@ -96,10 +96,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("billing_group", BillingGroup);
             writer.WriteStringValue("cld", Cld);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Filter_cld_filter>("cld_filter", CldFilter);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FilterCldFilter>("cld_filter", CldFilter);
             writer.WriteStringValue("cli", Cli);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Filter_cli_filter>("cli_filter", CliFilter);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Filter_filter_type>("filter_type", FilterType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FilterCliFilter>("cli_filter", CliFilter);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FilterFilterType>("filter_type", FilterType);
             writer.WriteStringValue("tags_list", TagsList);
             writer.WriteAdditionalData(AdditionalData);
         }

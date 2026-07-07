@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The field_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement_field_type? FieldType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementFieldType? FieldType { get; private set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement_field_type>(); } },
+                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementFieldType>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirement_id", n => { RequirementId = n.GetGuidValue(); } },
             };

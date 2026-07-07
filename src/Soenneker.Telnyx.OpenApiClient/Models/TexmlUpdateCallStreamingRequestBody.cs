@@ -22,7 +22,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TexmlUpdateCallStreamingRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.StreamStatus.Stopped;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

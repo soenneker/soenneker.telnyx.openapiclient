@@ -34,10 +34,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ElevenLabs voice settings (stability, similarity_boost, etc.).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams_voice_settings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParamsVoiceSettingsProperty? VoiceSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams_voice_settings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParamsVoiceSettingsProperty VoiceSettings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams"/> and sets the default values.
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "api_key", n => { ApiKey = n.GetStringValue(); } },
                 { "language_code", n => { LanguageCode = n.GetStringValue(); } },
-                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams_voice_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams_voice_settings.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParamsVoiceSettingsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParamsVoiceSettingsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key", ApiKey);
             writer.WriteStringValue("language_code", LanguageCode);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams_voice_settings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParamsVoiceSettingsProperty>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,18 +18,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Key-value arguments to use for the webhook test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_arguments? Arguments { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestArgumentsProperty? Arguments { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_arguments Arguments { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestArgumentsProperty Arguments { get; set; }
 #endif
         /// <summary>Key-value dynamic variables to use for the webhook test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_dynamic_variables? DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestDynamicVariablesProperty? DynamicVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_dynamic_variables DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestDynamicVariablesProperty DynamicVariables { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_arguments>(global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_arguments.CreateFromDiscriminatorValue); } },
-                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_dynamic_variables.CreateFromDiscriminatorValue); } },
+                { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestArgumentsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestArgumentsProperty.CreateFromDiscriminatorValue); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_arguments>("arguments", Arguments);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_dynamic_variables>("dynamic_variables", DynamicVariables);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestArgumentsProperty>("arguments", Arguments);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequestDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

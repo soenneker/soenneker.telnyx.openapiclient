@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams Handoff { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "handoff", n => { Handoff = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams>("handoff", Handoff);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

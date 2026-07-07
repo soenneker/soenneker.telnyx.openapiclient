@@ -25,13 +25,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Private key file in JSON format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest_project_account_json_file? ProjectAccountJsonFile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty? ProjectAccountJsonFile { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest_project_account_json_file ProjectAccountJsonFile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty ProjectAccountJsonFile { get; set; }
 #endif
         /// <summary>Type of mobile push credential. Should be &lt;code&gt;android&lt;/code&gt; here</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest"/> and sets the default values.
         /// </summary>
@@ -58,8 +58,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alias", n => { Alias = n.GetStringValue(); } },
-                { "project_account_json_file", n => { ProjectAccountJsonFile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest_project_account_json_file>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest_project_account_json_file.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest_type>(); } },
+                { "project_account_json_file", n => { ProjectAccountJsonFile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestType>(); } },
             };
         }
         /// <summary>
@@ -70,8 +70,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alias", Alias);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest_project_account_json_file>("project_account_json_file", ProjectAccountJsonFile);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty>("project_account_json_file", ProjectAccountJsonFile);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

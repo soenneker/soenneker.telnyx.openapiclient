@@ -106,7 +106,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public FaxApplication()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

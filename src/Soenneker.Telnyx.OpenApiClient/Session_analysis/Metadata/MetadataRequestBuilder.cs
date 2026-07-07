@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Session_analysis.Metadata
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.session_analysis.metadata.item collection</summary>
         /// <param name="position">The record type identifier (e.g. &quot;call-control&quot;).</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Session_analysis.Metadata.Item.WithRecord_typeItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Session_analysis.Metadata.Item.WithRecord_typeItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Session_analysis.Metadata.Item.WithRecordTypeItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Session_analysis.Metadata.Item.WithRecordTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("record_type", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Session_analysis.Metadata.Item.WithRecord_typeItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("recordType", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Session_analysis.Metadata.Item.WithRecordTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

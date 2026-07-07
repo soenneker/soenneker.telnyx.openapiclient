@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequest_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequestMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequest_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequestMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The parent_step_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequest_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequest_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequestMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "parent_step_id", n => { ParentStepId = n.GetStringValue(); } },
                 { "sequence", n => { Sequence = n.GetIntValue(); } },
                 { "step_id", n => { StepId = n.GetStringValue(); } },
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequest_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePlanStepRequestMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("parent_step_id", ParentStepId);
             writer.WriteIntValue("sequence", Sequence);
             writer.WriteStringValue("step_id", StepId);

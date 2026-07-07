@@ -84,9 +84,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateOutboundVoiceProfileRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            ServicePlan = global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan.Global;
-            TrafficType = global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType.Conversational;
-            UsagePaymentMethod = global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod.RateDeck;
+            DailySpendLimitEnabled = false;
+            Enabled = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

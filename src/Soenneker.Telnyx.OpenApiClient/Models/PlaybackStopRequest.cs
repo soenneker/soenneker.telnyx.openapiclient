@@ -46,6 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public PlaybackStopRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Overlay = false;
             Stop = "all";
         }
         /// <summary>

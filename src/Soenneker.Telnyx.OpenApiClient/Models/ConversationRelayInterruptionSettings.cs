@@ -29,9 +29,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ConversationRelayInterruptionSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            Interruptible = global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible.Any;
-            InterruptibleGreeting = global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible.Any;
-            WelcomeGreetingInterruptible = global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible.Any;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

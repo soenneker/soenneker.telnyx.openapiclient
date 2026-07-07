@@ -25,14 +25,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string SipSubdomain { get; set; }
 #endif
         /// <summary>&quot;This option can be enabled to receive calls from: \&quot;Anyone\&quot; (any SIP endpoint in the public Internet) or \&quot;Only my connections\&quot; (any connection assigned to the same Telnyx user).&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound_sip_subdomain_receive_settings? SipSubdomainReceiveSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInboundSipSubdomainReceiveSettings? SipSubdomainReceiveSettings { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound"/> and sets the default values.
         /// </summary>
         public FaxApplicationInbound()
         {
             AdditionalData = new Dictionary<string, object>();
-            SipSubdomainReceiveSettings = global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound_sip_subdomain_receive_settings.From_anyone;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -54,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "sip_subdomain", n => { SipSubdomain = n.GetStringValue(); } },
-                { "sip_subdomain_receive_settings", n => { SipSubdomainReceiveSettings = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound_sip_subdomain_receive_settings>(); } },
+                { "sip_subdomain_receive_settings", n => { SipSubdomainReceiveSettings = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInboundSipSubdomainReceiveSettings>(); } },
             };
         }
         /// <summary>
@@ -66,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteStringValue("sip_subdomain", SipSubdomain);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound_sip_subdomain_receive_settings>("sip_subdomain_receive_settings", SipSubdomainReceiveSettings);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInboundSipSubdomainReceiveSettings>("sip_subdomain_receive_settings", SipSubdomainReceiveSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

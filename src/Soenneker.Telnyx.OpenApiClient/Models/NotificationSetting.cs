@@ -67,13 +67,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSetting_parameters>? Parameters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem>? Parameters { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSetting_parameters> Parameters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem> Parameters { get; set; }
 #endif
         /// <summary>Most preferences apply immediately; however, other may needs to propagate.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSetting_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingStatus? Status { get; private set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
@@ -108,8 +108,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "notification_channel_id", n => { NotificationChannelId = n.GetStringValue(); } },
                 { "notification_event_condition_id", n => { NotificationEventConditionId = n.GetStringValue(); } },
                 { "notification_profile_id", n => { NotificationProfileId = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSetting_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSetting_parameters.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSetting_status>(); } },
+                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("notification_channel_id", NotificationChannelId);
             writer.WriteStringValue("notification_event_condition_id", NotificationEventConditionId);
             writer.WriteStringValue("notification_profile_id", NotificationProfileId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSetting_parameters>("parameters", Parameters);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem>("parameters", Parameters);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

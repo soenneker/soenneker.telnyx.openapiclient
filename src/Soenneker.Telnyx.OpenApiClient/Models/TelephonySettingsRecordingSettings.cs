@@ -16,11 +16,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of channels for the recording. &apos;single&apos; for mono, &apos;dual&apos; for stereo.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_channels? Channels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettingsChannels? Channels { get; set; }
         /// <summary>Whether call recording is enabled. When set to false, calls will not be recorded regardless of other recording configuration.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The format of the recording file.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_format? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettingsFormat? Format { get; set; }
         /// <summary>When enabled, the call recording will stop when the conversation ends (for example, when the assistant hangs up or the call is transferred). When disabled, recording continues until the call itself ends.</summary>
         public bool? StopOnConversationEnd { get; set; }
         /// <summary>
@@ -29,8 +29,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TelephonySettingsRecordingSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            Channels = global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_channels.Dual;
-            Format = global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_format.Mp3;
+            Enabled = true;
+            StopOnConversationEnd = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,9 +50,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_channels>(); } },
+                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettingsChannels>(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_format>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettingsFormat>(); } },
                 { "stop_on_conversation_end", n => { StopOnConversationEnd = n.GetBoolValue(); } },
             };
         }
@@ -63,9 +63,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_channels>("channels", Channels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettingsChannels>("channels", Channels);
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_format>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettingsFormat>("format", Format);
             writer.WriteBoolValue("stop_on_conversation_end", StopOnConversationEnd);
             writer.WriteAdditionalData(AdditionalData);
         }

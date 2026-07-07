@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The call_forwarding_enabled property</summary>
         public bool? CallForwardingEnabled { get; set; }
         /// <summary>The forwarding_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallForwarding_forwarding_type? ForwardingType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallForwardingForwardingType? ForwardingType { get; set; }
         /// <summary>The forwards_to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "call_forwarding_enabled", n => { CallForwardingEnabled = n.GetBoolValue(); } },
-                { "forwarding_type", n => { ForwardingType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallForwarding_forwarding_type>(); } },
+                { "forwarding_type", n => { ForwardingType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallForwardingForwardingType>(); } },
                 { "forwards_to", n => { ForwardsTo = n.GetStringValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("call_forwarding_enabled", CallForwardingEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallForwarding_forwarding_type>("forwarding_type", ForwardingType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallForwardingForwardingType>("forwarding_type", ForwardingType);
             writer.WriteStringValue("forwards_to", ForwardsTo);
             writer.WriteAdditionalData(AdditionalData);
         }

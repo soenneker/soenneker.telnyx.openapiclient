@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string LastSeen { get; private set; }
 #endif
         /// <summary>The type of the session, &apos;registration&apos; being the initial authentication session and &apos;data&apos; the actual data transfer sessions.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLog_log_type? LogType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLogLogType? LogType { get; private set; }
         /// <summary>It&apos;s a three decimal digit that identifies a country.&lt;br/&gt;&lt;br/&gt;This code is commonly seen joined with a Mobile Network Code (MNC) in a tuple that allows identifying a carrier known as PLMN (Public Land Mobile Network) code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -175,7 +175,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ipv4", n => { Ipv4 = n.GetStringValue(); } },
                 { "ipv6", n => { Ipv6 = n.GetStringValue(); } },
                 { "last_seen", n => { LastSeen = n.GetStringValue(); } },
-                { "log_type", n => { LogType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLog_log_type>(); } },
+                { "log_type", n => { LogType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLogLogType>(); } },
                 { "mobile_country_code", n => { MobileCountryCode = n.GetStringValue(); } },
                 { "mobile_network_code", n => { MobileNetworkCode = n.GetStringValue(); } },
                 { "radio_access_technology", n => { RadioAccessTechnology = n.GetStringValue(); } },

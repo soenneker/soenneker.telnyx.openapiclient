@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Global IP Health check params.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params? HealthCheckParams { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams? HealthCheckParams { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params HealthCheckParams { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams HealthCheckParams { get; set; }
 #endif
         /// <summary>Global IP Health check type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "health_check_params", n => { HealthCheckParams = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params.CreateFromDiscriminatorValue); } },
+                { "health_check_params", n => { HealthCheckParams = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams.CreateFromDiscriminatorValue); } },
                 { "health_check_type", n => { HealthCheckType = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params>("health_check_params", HealthCheckParams);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams>("health_check_params", HealthCheckParams);
             writer.WriteStringValue("health_check_type", HealthCheckType);
             writer.WriteAdditionalData(AdditionalData);
         }

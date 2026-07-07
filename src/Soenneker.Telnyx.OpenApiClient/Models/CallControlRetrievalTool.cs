@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds Retrieval { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "retrieval", n => { Retrieval = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalToolType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds>("retrieval", Retrieval);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

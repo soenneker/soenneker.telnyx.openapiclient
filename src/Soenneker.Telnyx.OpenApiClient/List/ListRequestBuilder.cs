@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.List.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.List
     public partial class ListRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.list.item collection</summary>
-        /// <param name="position">Channel zone identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithChannel_zone_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.List.Item.WithChannel_zone_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithChannelZoneItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.List.Item.WithChannelZoneItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("channel_zone_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.List.Item.WithChannel_zone_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("channelZoneId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.List.Item.WithChannelZoneItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -48,20 +49,20 @@ namespace Soenneker.Telnyx.OpenApiClient.List
         /// <summary>
         /// Retrieve a list of all phone numbers using Channel Billing, grouped by Zone.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.List.ListGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetAllNumbersChannelZones200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.List.ListGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetAllNumbersChannelZones200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.List.ListGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetAllNumbersChannelZones200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.List.ListGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.List.ListGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetAllNumbersChannelZones200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetAllNumbersChannelZones200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a list of all phone numbers using Channel Billing, grouped by Zone.

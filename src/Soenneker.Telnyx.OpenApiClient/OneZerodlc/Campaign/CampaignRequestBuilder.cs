@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign
             get => new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Usecase.UsecaseRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.OneZerodlc.campaign.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the campaign.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Item.WithCampaignItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Item.WithCampaignItemRequestBuilder this[string position]
         {
@@ -61,27 +61,27 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign
         /// <summary>
         /// Retrieve a list of campaigns associated with a supplied `brandId`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCSP"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCsp"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCSP?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.CampaignRequestBuilder.CampaignRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCsp?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.CampaignRequestBuilder.CampaignRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCSP> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.CampaignRequestBuilder.CampaignRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCsp> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.CampaignRequestBuilder.CampaignRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCSP>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCSP.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCsp>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCsp.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a list of campaigns associated with a supplied `brandId`.
@@ -117,6 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CampaignRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter results by brand id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("brandId")]
@@ -134,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign
             public int? RecordsPerPage { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by createdAt in descending order.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetCampaignsSortParameter? Sort { get; set; }
         }
     }
 }

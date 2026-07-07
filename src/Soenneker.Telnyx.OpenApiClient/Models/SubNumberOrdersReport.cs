@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string OrderType { get; private set; }
 #endif
         /// <summary>Indicates the completion level of the sub number orders report. The report must have a status of &apos;success&apos; before it can be downloaded.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>The ID of the user who created the report.</summary>
@@ -46,7 +46,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public SubNumberOrdersReport()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_status.Pending;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -70,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "order_type", n => { OrderType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
             };
@@ -83,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters>("filters", Filters);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

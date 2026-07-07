@@ -33,6 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public InferenceEmbeddingInterruptionSettings()
         {
             AdditionalData = new Dictionary<string, object>();
+            Enable = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

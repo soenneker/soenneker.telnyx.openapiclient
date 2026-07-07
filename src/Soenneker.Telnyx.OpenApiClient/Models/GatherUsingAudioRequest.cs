@@ -94,7 +94,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public GatherUsingAudioRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            InterDigitTimeoutMillis = 5000;
+            MaximumDigits = 128;
+            MaximumTries = 3;
+            MinimumDigits = 1;
             TerminatingDigit = "#";
+            TimeoutMillis = 60000;
             ValidDigits = "0123456789#*";
         }
         /// <summary>

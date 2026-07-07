@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>The verification_method property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequest_verification_method? VerificationMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequestVerificationMethod? VerificationMethod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequest"/> and sets the default values.
         /// </summary>
@@ -47,7 +47,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Language = "en_US";
-            VerificationMethod = global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequest_verification_method.Sms;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -70,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequest_verification_method>(); } },
+                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequestVerificationMethod>(); } },
             };
         }
         /// <summary>
@@ -83,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequest_verification_method>("verification_method", VerificationMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequestVerificationMethod>("verification_method", VerificationMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

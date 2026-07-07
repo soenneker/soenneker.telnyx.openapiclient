@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The invoice_enabled property</summary>
         public bool? InvoiceEnabled { get; set; }
         /// <summary>The payment preference for auto recharge.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePref_preference? Preference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefPreference? Preference { get; set; }
         /// <summary>The amount to recharge the account, the actual recharge amount will be the amount necessary to reach the threshold amount plus the recharge amount.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "invoice_enabled", n => { InvoiceEnabled = n.GetBoolValue(); } },
-                { "preference", n => { Preference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePref_preference>(); } },
+                { "preference", n => { Preference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefPreference>(); } },
                 { "recharge_amount", n => { RechargeAmount = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "threshold_amount", n => { ThresholdAmount = n.GetStringValue(); } },
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("invoice_enabled", InvoiceEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePref_preference>("preference", Preference);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefPreference>("preference", Preference);
             writer.WriteStringValue("recharge_amount", RechargeAmount);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("threshold_amount", ThresholdAmount);

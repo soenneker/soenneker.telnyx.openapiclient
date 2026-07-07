@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Template parameter values for header, body, and button components.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate_components>? Components { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplateComponentsItem>? Components { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate_components> Components { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplateComponentsItem> Components { get; set; }
 #endif
         /// <summary>Template language. Required unless template_id is provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "components", n => { Components = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate_components>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate_components.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "components", n => { Components = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplateComponentsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplateComponentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "language", n => { Language = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplateLanguage>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplateLanguage.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "template_id", n => { TemplateId = n.GetStringValue(); } },
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate_components>("components", Components);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplateComponentsItem>("components", Components);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplateLanguage>("language", Language);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("template_id", TemplateId);

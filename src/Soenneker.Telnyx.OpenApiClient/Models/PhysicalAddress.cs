@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>State or province</summary>
+        /// <summary>State or province code (e.g. `IL`, `ON`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdministrativeArea { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AdministrativeArea { get; set; }
 #endif
-        /// <summary>City name</summary>
+        /// <summary>The city property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? City { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string City { get; set; }
 #endif
-        /// <summary>Country name (e.g., United States)</summary>
+        /// <summary>ISO 3166-1 alpha-2 code (currently `US` or `CA`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Country { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Country { get; set; }
 #endif
-        /// <summary>Additional address line (suite, apt, etc.)</summary>
+        /// <summary>The extended_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExtendedAddress { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExtendedAddress { get; set; }
 #endif
-        /// <summary>ZIP or postal code</summary>
+        /// <summary>The postal_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostalCode { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PostalCode { get; set; }
 #endif
-        /// <summary>Street address</summary>
+        /// <summary>The street_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StreetAddress { get; set; }

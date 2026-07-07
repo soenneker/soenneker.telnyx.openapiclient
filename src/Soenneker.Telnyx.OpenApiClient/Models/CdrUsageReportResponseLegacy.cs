@@ -52,10 +52,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_result? Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacyResultProperty? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_result Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacyResultProperty Result { get; set; }
 #endif
         /// <summary>The start_time property</summary>
         public DateTimeOffset? StartTime { get; set; }
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "product_breakdown", n => { ProductBreakdown = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "report_url", n => { ReportUrl = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_result>(global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_result.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacyResultProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacyResultProperty.CreateFromDiscriminatorValue); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetIntValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("product_breakdown", ProductBreakdown);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("report_url", ReportUrl);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_result>("result", Result);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacyResultProperty>("result", Result);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
             writer.WriteIntValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

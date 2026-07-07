@@ -34,20 +34,20 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers
         {
         }
         /// <summary>
-        /// Retrieve the canonical list of supported speech-to-text providers, models, accepted language codes, and the service types each model supports.Service types:  * `streaming` — standalone WebSocket transcription via `/speech-to-text/transcription`.  * `file_transcription` — file-based transcription via `/ai/audio/transcriptions`.  * `in_call_transcription` — live call transcription via Call Control `transcription_start`.Use this endpoint to discover which (provider, model) combinations are available for the surface you need, and which language codes each accepts. `auto` in a `languages` array indicates the provider performs language detection.
+        /// Retrieve the canonical list of supported speech-to-text providers, models, accepted language codes, and the service types each model supports.Service types:  * `streaming` — standalone WebSocket transcription via `/speech-to-text/transcription`.  * `file_based` — file-based transcription via `/ai/audio/transcriptions`.  * `in_call` — live call transcription via Call Control `transcription_start`.  * `ai_assistant` — STT configured on a Call Control AI Assistant via voice-assistant `TranscriptionConfig` (covers both live-streaming and non-streaming/batch models).Use this endpoint to discover which (provider, model) combinations are available for the surface you need, and which language codes each accepts. `auto` in a `languages` array indicates the provider performs language detection.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.STTProvidersResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SttProvidersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpeechToTextErrors">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpeechToTextErrors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.STTProvidersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers.ProvidersRequestBuilder.ProvidersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SttProvidersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers.ProvidersRequestBuilder.ProvidersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.STTProvidersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers.ProvidersRequestBuilder.ProvidersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SttProvidersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers.ProvidersRequestBuilder.ProvidersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -56,10 +56,10 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.SpeechToTextErrors.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.SpeechToTextErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.STTProvidersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.STTProvidersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SttProvidersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SttProvidersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve the canonical list of supported speech-to-text providers, models, accepted language codes, and the service types each model supports.Service types:  * `streaming` — standalone WebSocket transcription via `/speech-to-text/transcription`.  * `file_transcription` — file-based transcription via `/ai/audio/transcriptions`.  * `in_call_transcription` — live call transcription via Call Control `transcription_start`.Use this endpoint to discover which (provider, model) combinations are available for the surface you need, and which language codes each accepts. `auto` in a `languages` array indicates the provider performs language detection.
+        /// Retrieve the canonical list of supported speech-to-text providers, models, accepted language codes, and the service types each model supports.Service types:  * `streaming` — standalone WebSocket transcription via `/speech-to-text/transcription`.  * `file_based` — file-based transcription via `/ai/audio/transcriptions`.  * `in_call` — live call transcription via Call Control `transcription_start`.  * `ai_assistant` — STT configured on a Call Control AI Assistant via voice-assistant `TranscriptionConfig` (covers both live-streaming and non-streaming/batch models).Use this endpoint to discover which (provider, model) combinations are available for the surface you need, and which language codes each accepts. `auto` in a `languages` array indicates the provider performs language detection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,17 +87,17 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers
             return new global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers.ProvidersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve the canonical list of supported speech-to-text providers, models, accepted language codes, and the service types each model supports.Service types:  * `streaming` — standalone WebSocket transcription via `/speech-to-text/transcription`.  * `file_transcription` — file-based transcription via `/ai/audio/transcriptions`.  * `in_call_transcription` — live call transcription via Call Control `transcription_start`.Use this endpoint to discover which (provider, model) combinations are available for the surface you need, and which language codes each accepts. `auto` in a `languages` array indicates the provider performs language detection.
+        /// Retrieve the canonical list of supported speech-to-text providers, models, accepted language codes, and the service types each model supports.Service types:  * `streaming` — standalone WebSocket transcription via `/speech-to-text/transcription`.  * `file_based` — file-based transcription via `/ai/audio/transcriptions`.  * `in_call` — live call transcription via Call Control `transcription_start`.  * `ai_assistant` — STT configured on a Call Control AI Assistant via voice-assistant `TranscriptionConfig` (covers both live-streaming and non-streaming/batch models).Use this endpoint to discover which (provider, model) combinations are available for the surface you need, and which language codes each accepts. `auto` in a `languages` array indicates the provider performs language detection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ProvidersRequestBuilderGetQueryParameters 
         {
             /// <summary>Filter to entries for a specific STT provider. The enum mirrors the providers advertised across the speech-to-text spec (including `google` and `telnyx`, which are accepted as WebSocket transcription engines). A provider that has no models currently registered for any service type will return an empty `data` array rather than an error.</summary>
             [QueryParameter("provider")]
-            public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers.GetProviderQueryParameterType? Provider { get; set; }
-            /// <summary>Filter to entries that support the given service type.</summary>
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListSttProvidersProviderParameter? Provider { get; set; }
+            /// <summary>Filter to entries that support the given service type. For backward compatibility with the values that briefly shipped before the product-aligned rename, the legacy aliases `file_transcription`, `in_call_transcription`, and `ai_assistant_transcription` are silently accepted and normalized to `file_based`, `in_call`, and `ai_assistant` respectively. The response always emits the canonical (post-rename) values.</summary>
             [QueryParameter("service_type")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.STTServiceType? ServiceType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SttServiceType? ServiceType { get; set; }
         }
     }
 }

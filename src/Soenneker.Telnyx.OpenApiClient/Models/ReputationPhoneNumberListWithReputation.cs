@@ -7,28 +7,29 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// List of reputation-monitored phone numbers, each carrying its current reputation data.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ReputationPhoneNumberListWithReputation : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumber>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumber> Data { get; set; }
 #endif
-        /// <summary>The meta property</summary>
+        /// <summary>JSON:API pagination metadata returned with every paginated list response. Page numbering is 1-based. `page_size` reports the number of items actually returned in `data` for this page; the requested size is taken from the `page[size]` query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetaInfo? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationPaginationMeta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetaInfo Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationPaginationMeta Meta { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation"/> and sets the default values.
@@ -55,8 +56,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetaInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.MetaInfo.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationPaginationMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationPaginationMeta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +67,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetaInfo>("meta", Meta);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumber>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationPaginationMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

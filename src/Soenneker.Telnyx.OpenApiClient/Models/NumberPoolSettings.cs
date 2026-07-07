@@ -31,6 +31,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public NumberPoolSettings()
         {
             AdditionalData = new Dictionary<string, object>();
+            Geomatch = false;
+            StickySender = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

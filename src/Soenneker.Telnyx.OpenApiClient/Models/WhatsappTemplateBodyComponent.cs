@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "example", n => { Example = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentExample>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentExample.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentExample>("example", Example);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

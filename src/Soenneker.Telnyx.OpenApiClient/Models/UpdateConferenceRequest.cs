@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get; set; }
         /// <summary>Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. &quot;barge&quot; means the supervisor enters the conference as a normal participant. This is the same as &quot;none&quot;. &quot;monitor&quot; means the supervisor is muted but can hear all participants. &quot;whisper&quot; means that only the specified &quot;whisper_call_control_ids&quot; can hear the supervisor. Defaults to &quot;none&quot;.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role? SupervisorRole { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequestSupervisorRole? SupervisorRole { get; set; }
         /// <summary>Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
-                { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role>(); } },
+                { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequestSupervisorRole>(); } },
                 { "whisper_call_control_ids", n => { WhisperCallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role>("supervisor_role", SupervisorRole);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequestSupervisorRole>("supervisor_role", SupervisorRole);
             writer.WriteCollectionOfPrimitiveValues<string>("whisper_call_control_ids", WhisperCallControlIds);
             writer.WriteAdditionalData(AdditionalData);
         }

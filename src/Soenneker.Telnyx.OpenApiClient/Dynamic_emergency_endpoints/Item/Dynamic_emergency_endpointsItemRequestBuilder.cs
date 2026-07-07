@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item
         /// <summary>
         /// Deletes the dynamic emergency endpoint based on the ID provided
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDynamicEmergencyEndpoint200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors">When receiving a 400 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDynamicEmergencyEndpoint200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDynamicEmergencyEndpoint200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -62,12 +62,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDynamicEmergencyEndpoint200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDynamicEmergencyEndpoint200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the dynamic emergency endpoint based on the ID provided
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetDynamicEmergencyEndpoint200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors">When receiving a 400 status code</exception>
@@ -77,11 +77,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetDynamicEmergencyEndpoint200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetDynamicEmergencyEndpoint200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.EmergencyErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetDynamicEmergencyEndpoint200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetDynamicEmergencyEndpoint200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the dynamic emergency endpoint based on the ID provided

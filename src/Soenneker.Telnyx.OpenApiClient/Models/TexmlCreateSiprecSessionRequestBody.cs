@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Sets `Session-Expires` header to the INVITE. A reinvite is sent every half the value set. Usefull for session keep alive. Minimum value is 90, set to 0 to disable.</summary>
         public int? SessionTimeoutSecs { get; set; }
         /// <summary>Specifies SIP transport protocol.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_SipTransport? SipTransport { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodySipTransport? SipTransport { get; set; }
         /// <summary>URL destination for Telnyx to send status callback events to for the siprec session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,16 +47,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StatusCallback { get; set; }
 #endif
         /// <summary>HTTP request type used for `StatusCallback`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_StatusCallbackMethod? StatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodyStatusCallbackMethod? StatusCallbackMethod { get; set; }
         /// <summary>The track to be used for siprec session. Can be `both_tracks`, `inbound_track` or `outbound_track`. Defaults to `both_tracks`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_Track? Track { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodyTrack? Track { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody"/> and sets the default values.
         /// </summary>
         public TexmlCreateSiprecSessionRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            SipTransport = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_SipTransport.Udp;
+            SessionTimeoutSecs = 1800;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -81,10 +81,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "Name", n => { Name = n.GetStringValue(); } },
                 { "Secure", n => { Secure = n.GetBoolValue(); } },
                 { "SessionTimeoutSecs", n => { SessionTimeoutSecs = n.GetIntValue(); } },
-                { "SipTransport", n => { SipTransport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_SipTransport>(); } },
+                { "SipTransport", n => { SipTransport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodySipTransport>(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
-                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_StatusCallbackMethod>(); } },
-                { "Track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_Track>(); } },
+                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodyStatusCallbackMethod>(); } },
+                { "Track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodyTrack>(); } },
             };
         }
         /// <summary>
@@ -99,10 +99,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("Name", Name);
             writer.WriteBoolValue("Secure", Secure);
             writer.WriteIntValue("SessionTimeoutSecs", SessionTimeoutSecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_SipTransport>("SipTransport", SipTransport);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodySipTransport>("SipTransport", SipTransport);
             writer.WriteStringValue("StatusCallback", StatusCallback);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_StatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBody_Track>("Track", Track);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodyStatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionRequestBodyTrack>("Track", Track);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

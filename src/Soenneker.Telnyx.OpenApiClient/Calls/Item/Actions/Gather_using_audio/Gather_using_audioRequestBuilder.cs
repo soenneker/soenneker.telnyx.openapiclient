@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio
 {
     /// <summary>
-    /// Builds and executes requests for operations under \calls\{call_control_id}\actions\gather_using_audio
+    /// Builds and executes requests for operations under \calls\{callControlId}\actions\gather_using_audio
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Gather_using_audioRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Gather_using_audioRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calls/{call_control_id}/actions/gather_using_audio", pathParameters)
+        public Gather_using_audioRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calls/{callControlId}/actions/gather_using_audio", pathParameters)
         {
         }
         /// <summary>
@@ -30,13 +30,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Gather_using_audioRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calls/{call_control_id}/actions/gather_using_audio", rawUrl)
+        public Gather_using_audioRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calls/{callControlId}/actions/gather_using_audio", rawUrl)
         {
         }
         /// <summary>
         /// Play an audio file on the call until the required DTMF signals are gathered to build interactive menus.You can pass a list of valid digits along with an &apos;invalid_audio_url&apos;, which will be played back at the beginning of each prompt. Playback will be interrupted when a DTMF signal is received. The `Answer command must be issued before the `gather_using_audio` command.**Expected Webhooks:**- `call.playback.started`- `call.playback.ended`- `call.dtmf.received` (you may receive many of these webhooks)- `call.gather.ended`
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio.Gather_using_audioPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson10"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -44,11 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio.Gather_using_audioPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAudioRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson10?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAudioRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio.Gather_using_audioPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAudioRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson10> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAudioRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio.Gather_using_audioPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio.Gather_using_audioPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson10>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson10.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Play an audio file on the call until the required DTMF signals are gathered to build interactive menus.You can pass a list of valid digits along with an &apos;invalid_audio_url&apos;, which will be played back at the beginning of each prompt. Playback will be interrupted when a DTMF signal is received. The `Answer command must be issued before the `gather_using_audio` command.**Expected Webhooks:**- `call.playback.started`- `call.playback.ended`- `call.dtmf.received` (you may receive many of these webhooks)- `call.gather.ended`

@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Usage_reports
 #endif
             /// <summary>Specify the response format (csv or json). JSON is returned by default, even if not specified.</summary>
             [QueryParameter("format")]
-            public global::Soenneker.Telnyx.OpenApiClient.Usage_reports.GetFormatQueryParameterType? Format { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetUsageReportsFormatParameter? Format { get; set; }
             /// <summary>Return the aggregations for all Managed Accounts under the user making the request.</summary>
             [QueryParameter("managed_accounts")]
             public bool? ManagedAccounts { get; set; }

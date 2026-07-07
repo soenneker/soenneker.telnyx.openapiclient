@@ -23,10 +23,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Map of usecase metadata for each MNO. Key is the network ID of the MNO (e.g. 10017), Value is the mno metadata for the usecase.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata? MnoMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty? MnoMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata MnoMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty MnoMetadata { get; set; }
 #endif
         /// <summary>Campaign monthly subscription fee</summary>
         public double? MonthlyFee { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "annualFee", n => { AnnualFee = n.GetDoubleValue(); } },
                 { "maxSubUsecases", n => { MaxSubUsecases = n.GetIntValue(); } },
                 { "minSubUsecases", n => { MinSubUsecases = n.GetIntValue(); } },
-                { "mnoMetadata", n => { MnoMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata.CreateFromDiscriminatorValue); } },
+                { "mnoMetadata", n => { MnoMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "monthlyFee", n => { MonthlyFee = n.GetDoubleValue(); } },
                 { "quarterlyFee", n => { QuarterlyFee = n.GetDoubleValue(); } },
                 { "usecase", n => { Usecase = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("annualFee", AnnualFee);
             writer.WriteIntValue("maxSubUsecases", MaxSubUsecases);
             writer.WriteIntValue("minSubUsecases", MinSubUsecases);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata>("mnoMetadata", MnoMetadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty>("mnoMetadata", MnoMetadata);
             writer.WriteDoubleValue("monthlyFee", MonthlyFee);
             writer.WriteDoubleValue("quarterlyFee", QuarterlyFee);
             writer.WriteStringValue("usecase", Usecase);

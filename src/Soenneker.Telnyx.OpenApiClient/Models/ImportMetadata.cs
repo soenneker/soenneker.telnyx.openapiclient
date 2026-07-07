@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ImportId { get; set; }
 #endif
         /// <summary>Provider the assistant was imported from.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata_import_provider? ImportProvider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadataImportProvider? ImportProvider { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "import_id", n => { ImportId = n.GetStringValue(); } },
-                { "import_provider", n => { ImportProvider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata_import_provider>(); } },
+                { "import_provider", n => { ImportProvider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadataImportProvider>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("import_id", ImportId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata_import_provider>("import_provider", ImportProvider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadataImportProvider>("import_provider", ImportProvider);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

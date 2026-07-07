@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>For specific porting orders, we may require additional steps to be taken before submitting the porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_additional_steps?>? AdditionalSteps { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem?>? AdditionalSteps { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_additional_steps?> AdditionalSteps { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem?> AdditionalSteps { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
@@ -85,10 +85,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The misc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc? Misc { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscComposed? Misc { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc Misc { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscComposed Misc { get; set; }
 #endif
         /// <summary>Identifies the old service provider</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber> PhoneNumbers { get; set; }
 #endif
         /// <summary>The type of the phone number</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberType? PhoneNumberType { get; set; }
         /// <summary>Count of phone numbers associated with this porting order</summary>
         public int? PortingPhoneNumbersCount { get; private set; }
         /// <summary>Identifies the type of the resource.</summary>
@@ -206,7 +206,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "activation_settings", n => { ActivationSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings.CreateFromDiscriminatorValue); } },
-                { "additional_steps", n => { AdditionalSteps = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_additional_steps>()?.AsList(); } },
+                { "additional_steps", n => { AdditionalSteps = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "customer_group_reference", n => { CustomerGroupReference = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
@@ -215,11 +215,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "end_user", n => { EndUser = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "messaging", n => { Messaging = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging.CreateFromDiscriminatorValue); } },
-                { "misc", n => { Misc = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc.CreateFromDiscriminatorValue); } },
+                { "misc", n => { Misc = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscComposed>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscComposed.CreateFromDiscriminatorValue); } },
                 { "old_service_provider_ocn", n => { OldServiceProviderOcn = n.GetStringValue(); } },
                 { "parent_support_key", n => { ParentSupportKey = n.GetStringValue(); } },
                 { "phone_number_configuration", n => { PhoneNumberConfiguration = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration.CreateFromDiscriminatorValue); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberType>(); } },
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "porting_phone_numbers_count", n => { PortingPhoneNumbersCount = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
@@ -241,16 +241,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings>("activation_settings", ActivationSettings);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_additional_steps>("additional_steps", AdditionalSteps);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem>("additional_steps", AdditionalSteps);
             writer.WriteStringValue("customer_group_reference", CustomerGroupReference);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments>("documents", Documents);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser>("end_user", EndUser);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging>("messaging", Messaging);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc>("misc", Misc);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscComposed>("misc", Misc);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration>("phone_number_configuration", PhoneNumberConfiguration);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber>("phone_numbers", PhoneNumbers);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement>("requirements", Requirements);
             writer.WriteBoolValue("requirements_met", RequirementsMet);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus>("status", Status);

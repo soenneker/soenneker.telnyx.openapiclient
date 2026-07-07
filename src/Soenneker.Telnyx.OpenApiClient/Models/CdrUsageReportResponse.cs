@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The aggregation_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_aggregation_type? AggregationType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseAggregationType? AggregationType { get; set; }
         /// <summary>The connections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the resource</summary>
         public Guid? Id { get; set; }
         /// <summary>The product_breakdown property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_product_breakdown? ProductBreakdown { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseProductBreakdown? ProductBreakdown { get; set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,15 +51,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_result? Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseResultProperty? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_result Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseResultProperty Result { get; set; }
 #endif
         /// <summary>The start_time property</summary>
         public DateTimeOffset? StartTime { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -87,17 +87,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregation_type", n => { AggregationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_aggregation_type>(); } },
+                { "aggregation_type", n => { AggregationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseAggregationType>(); } },
                 { "connections", n => { Connections = n.GetCollectionOfPrimitiveValues<long?>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "product_breakdown", n => { ProductBreakdown = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_product_breakdown>(); } },
+                { "product_breakdown", n => { ProductBreakdown = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseProductBreakdown>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "report_url", n => { ReportUrl = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_result>(global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_result.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseResultProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseResultProperty.CreateFromDiscriminatorValue); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -108,17 +108,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_aggregation_type>("aggregation_type", AggregationType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseAggregationType>("aggregation_type", AggregationType);
             writer.WriteCollectionOfPrimitiveValues<long?>("connections", Connections);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
             writer.WriteGuidValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_product_breakdown>("product_breakdown", ProductBreakdown);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseProductBreakdown>("product_breakdown", ProductBreakdown);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("report_url", ReportUrl);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_result>("result", Result);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseResultProperty>("result", Result);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

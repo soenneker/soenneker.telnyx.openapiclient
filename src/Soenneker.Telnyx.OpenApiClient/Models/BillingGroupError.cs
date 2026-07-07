@@ -27,10 +27,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupError_meta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupErrorMetaProperty? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupError_meta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupErrorMetaProperty Meta { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetIntValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupError_meta>(global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupError_meta.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupErrorMetaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupErrorMetaProperty.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupErrorSource>(global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupErrorSource.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("code", Code);
             writer.WriteStringValue("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupError_meta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupErrorMetaProperty>("meta", Meta);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroupErrorSource>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);

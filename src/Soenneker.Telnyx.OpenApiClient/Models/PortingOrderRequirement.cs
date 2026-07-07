@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Type of value expected on field_value field</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement_field_type? FieldType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementFieldType? FieldType { get; set; }
         /// <summary>identifies the document that satisfies this requirement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement_field_type>(); } },
+                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementFieldType>(); } },
                 { "field_value", n => { FieldValue = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirement_type_id", n => { RequirementTypeId = n.GetStringValue(); } },
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement_field_type>("field_type", FieldType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementFieldType>("field_type", FieldType);
             writer.WriteStringValue("field_value", FieldValue);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("requirement_type_id", RequirementTypeId);

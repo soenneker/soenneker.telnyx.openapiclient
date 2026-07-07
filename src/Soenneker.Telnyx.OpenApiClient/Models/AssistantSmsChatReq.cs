@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The conversation_metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReq_conversation_metadata? ConversationMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReqConversationMetadataProperty? ConversationMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReq_conversation_metadata ConversationMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReqConversationMetadataProperty ConversationMetadata { get; set; }
 #endif
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReq_conversation_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReq_conversation_metadata.CreateFromDiscriminatorValue); } },
+                { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReqConversationMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReqConversationMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "should_create_conversation", n => { ShouldCreateConversation = n.GetBoolValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReq_conversation_metadata>("conversation_metadata", ConversationMetadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatReqConversationMetadataProperty>("conversation_metadata", ConversationMetadata);
             writer.WriteStringValue("from", From);
             writer.WriteBoolValue("should_create_conversation", ShouldCreateConversation);
             writer.WriteStringValue("text", Text);

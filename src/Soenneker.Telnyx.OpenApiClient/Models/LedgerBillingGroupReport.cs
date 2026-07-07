@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Uniquely identifies the organization that owns the resource.</summary>
         public Guid? OrganizationId { get; set; }
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReport_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReportRecordType? RecordType { get; set; }
         /// <summary>External url of the ledger billing group report, if the status is complete</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ReportUrl { get; set; }
 #endif
         /// <summary>Status of the ledger billing group report</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReport_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReportStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -62,9 +62,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReport_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReportRecordType>(); } },
                 { "report_url", n => { ReportUrl = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReport_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReportStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -78,9 +78,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("organization_id", OrganizationId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReport_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReportRecordType>("record_type", RecordType);
             writer.WriteStringValue("report_url", ReportUrl);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReport_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LedgerBillingGroupReportStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

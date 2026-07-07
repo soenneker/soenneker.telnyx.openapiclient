@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
             get => new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.SmsOtp.SmsOtpRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.OneZerodlc.brand.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the brand.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.WithBrandItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.WithBrandItemRequestBuilder this[string position]
         {
@@ -61,25 +61,25 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
         /// <summary>
         /// This endpoint is used to list all brands associated with your organization.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCSP"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCsp"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCSP?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.BrandRequestBuilder.BrandRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCsp?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.BrandRequestBuilder.BrandRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCSP> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.BrandRequestBuilder.BrandRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCsp> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.BrandRequestBuilder.BrandRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCSP>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCSP.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCsp>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BrandRecordSetCsp.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This endpoint is used to create a new brand. A brand is an entity created by The Campaign Registry (TCR) that represents an organization or a company. It is this entity that TCR created campaigns will be associated with. Each brand creation will entail an upfront, non-refundable $4 expense.
@@ -88,8 +88,8 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateBrand body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -103,8 +103,8 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -174,6 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
             [QueryParameter("brandId")]
             public string BrandId { get; set; }
 #endif
+            /// <summary>Filter results by country.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("country")]
@@ -183,6 +184,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
             [QueryParameter("country")]
             public string Country { get; set; }
 #endif
+            /// <summary>Filter results by display name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("displayName")]
@@ -192,6 +194,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
             [QueryParameter("displayName")]
             public string DisplayName { get; set; }
 #endif
+            /// <summary>Filter results by entity type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("entityType")]
@@ -201,6 +204,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
             [QueryParameter("entityType")]
             public string EntityType { get; set; }
 #endif
+            /// <summary>Page number to retrieve (1-based).</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
             /// <summary>number of records per page. maximum of 500</summary>
@@ -208,7 +212,8 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand
             public int? RecordsPerPage { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by createdAt in descending order.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetBrandsSortParameter? Sort { get; set; }
+            /// <summary>Filter results by state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("state")]

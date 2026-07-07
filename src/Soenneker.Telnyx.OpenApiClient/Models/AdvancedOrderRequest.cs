@@ -49,13 +49,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features?>? Features { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequestFeaturesItem?>? Features { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features?> Features { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequestFeaturesItem?> Features { get; set; }
 #endif
         /// <summary>The phone_number_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequestPhoneNumberType? PhoneNumberType { get; set; }
         /// <summary>The quantity property</summary>
         public int? Quantity { get; set; }
         /// <summary>The ID of the requirement group to associate with this advanced order</summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             CountryCode = "US";
-            PhoneNumberType = global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type.Local;
+            Quantity = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -91,8 +91,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "comments", n => { Comments = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
-                { "features", n => { Features = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features>()?.AsList(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type>(); } },
+                { "features", n => { Features = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequestFeaturesItem>()?.AsList(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequestPhoneNumberType>(); } },
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
                 { "requirement_group_id", n => { RequirementGroupId = n.GetGuidValue(); } },
             };
@@ -108,8 +108,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("comments", Comments);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("customer_reference", CustomerReference);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features>("features", Features);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequestFeaturesItem>("features", Features);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequestPhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteIntValue("quantity", Quantity);
             writer.WriteGuidValue("requirement_group_id", RequirementGroupId);
             writer.WriteAdditionalData(AdditionalData);

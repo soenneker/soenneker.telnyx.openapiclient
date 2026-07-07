@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Token { get; set; }
 #endif
         /// <summary>The type of secret.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateIntegrationSecretRequest_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateIntegrationSecretRequestType? Type { get; set; }
         /// <summary>The username for the secret. Required for basic type secrets, ignored otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIntegrationSecretRequest_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIntegrationSecretRequestType>(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("identifier", Identifier);
             writer.WriteStringValue("password", Password);
             writer.WriteStringValue("token", Token);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIntegrationSecretRequest_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIntegrationSecretRequestType>("type", Type);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }

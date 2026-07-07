@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The aggregation_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrPostUsageReportRequest_aggregation_type? AggregationType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrPostUsageReportRequestAggregationType? AggregationType { get; set; }
         /// <summary>The end_date property</summary>
         public DateTimeOffset? EndDate { get; set; }
         /// <summary>The profiles property</summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregation_type", n => { AggregationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrPostUsageReportRequest_aggregation_type>(); } },
+                { "aggregation_type", n => { AggregationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrPostUsageReportRequestAggregationType>(); } },
                 { "end_date", n => { EndDate = n.GetDateTimeOffsetValue(); } },
                 { "profiles", n => { Profiles = n.GetStringValue(); } },
                 { "start_date", n => { StartDate = n.GetDateTimeOffsetValue(); } },
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrPostUsageReportRequest_aggregation_type>("aggregation_type", AggregationType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrPostUsageReportRequestAggregationType>("aggregation_type", AggregationType);
             writer.WriteDateTimeOffsetValue("end_date", EndDate);
             writer.WriteStringValue("profiles", Profiles);
             writer.WriteDateTimeOffsetValue("start_date", StartDate);

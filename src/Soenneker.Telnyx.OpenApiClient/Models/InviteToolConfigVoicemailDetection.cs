@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The AMD detection mode to use. &apos;premium&apos; enables premium answering machine detection. &apos;disabled&apos; turns off AMD detection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection_detection_mode? DetectionMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionDetectionMode? DetectionMode { get; set; }
         /// <summary>Action to take when voicemail is detected on the invited call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "detection_mode", n => { DetectionMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection_detection_mode>(); } },
+                { "detection_mode", n => { DetectionMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionDetectionMode>(); } },
                 { "on_voicemail_detected", n => { OnVoicemailDetected = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected>(global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected.CreateFromDiscriminatorValue); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection_detection_mode>("detection_mode", DetectionMode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionDetectionMode>("detection_mode", DetectionMode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected>("on_voicemail_detected", OnVoicemailDetected);
             writer.WriteAdditionalData(AdditionalData);
         }

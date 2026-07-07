@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Mapping of SAML attribute names used by the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_attribute_names? IdpAttributeNames { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty? IdpAttributeNames { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_attribute_names IdpAttributeNames { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty IdpAttributeNames { get; set; }
 #endif
         /// <summary>The certificate fingerprint for the identity provider (IdP)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string IdpCertFingerprint { get; set; }
 #endif
         /// <summary>The algorithm used to generate the identity provider&apos;s (IdP) certificate fingerprint</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_cert_fingerprint_algorithm? IdpCertFingerprintAlgorithm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpCertFingerprintAlgorithm? IdpCertFingerprintAlgorithm { get; set; }
         /// <summary>The full X.509 certificate for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,7 +105,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public AuthenticationProviderSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            IdpCertFingerprintAlgorithm = global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_cert_fingerprint_algorithm.Sha1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -126,9 +125,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assertion_consumer_service_url", n => { AssertionConsumerServiceUrl = n.GetStringValue(); } },
-                { "idp_attribute_names", n => { IdpAttributeNames = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_attribute_names>(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_attribute_names.CreateFromDiscriminatorValue); } },
+                { "idp_attribute_names", n => { IdpAttributeNames = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty.CreateFromDiscriminatorValue); } },
                 { "idp_cert_fingerprint", n => { IdpCertFingerprint = n.GetStringValue(); } },
-                { "idp_cert_fingerprint_algorithm", n => { IdpCertFingerprintAlgorithm = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_cert_fingerprint_algorithm>(); } },
+                { "idp_cert_fingerprint_algorithm", n => { IdpCertFingerprintAlgorithm = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpCertFingerprintAlgorithm>(); } },
                 { "idp_certificate", n => { IdpCertificate = n.GetStringValue(); } },
                 { "idp_entity_id", n => { IdpEntityId = n.GetStringValue(); } },
                 { "idp_slo_target_url", n => { IdpSloTargetUrl = n.GetStringValue(); } },
@@ -147,9 +146,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assertion_consumer_service_url", AssertionConsumerServiceUrl);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_attribute_names>("idp_attribute_names", IdpAttributeNames);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty>("idp_attribute_names", IdpAttributeNames);
             writer.WriteStringValue("idp_cert_fingerprint", IdpCertFingerprint);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings_idp_cert_fingerprint_algorithm>("idp_cert_fingerprint_algorithm", IdpCertFingerprintAlgorithm);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpCertFingerprintAlgorithm>("idp_cert_fingerprint_algorithm", IdpCertFingerprintAlgorithm);
             writer.WriteStringValue("idp_certificate", IdpCertificate);
             writer.WriteStringValue("idp_entity_id", IdpEntityId);
             writer.WriteStringValue("idp_slo_target_url", IdpSloTargetUrl);

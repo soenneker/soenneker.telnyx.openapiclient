@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader Header { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive"/> and sets the default values.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveBody>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveBody.CreateFromDiscriminatorValue); } },
                 { "footer", n => { Footer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveFooter>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveFooter.CreateFromDiscriminatorValue); } },
                 { "header", n => { Header = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveType>(); } },
             };
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveBody>("body", Body);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveFooter>("footer", Footer);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader>("header", Header);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

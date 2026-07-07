@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code_expiration_minutes", n => { CodeExpirationMinutes = n.GetIntValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponentType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("code_expiration_minutes", CodeExpirationMinutes);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

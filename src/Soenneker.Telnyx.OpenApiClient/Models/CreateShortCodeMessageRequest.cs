@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Automatically detect if an SMS message is unusually long and exceeds a recommended limit of message parts.</summary>
         public bool? AutoDetect { get; set; }
         /// <summary>Encoding to use for the message. `auto` (default) uses smart encoding to automatically select the most efficient encoding. `gsm7` forces GSM-7 encoding (returns 400 if message contains characters that cannot be encoded). `ucs2` forces UCS-2 encoding and disables smart encoding. When set, this overrides the messaging profile&apos;s `smart_encoding` setting.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_encoding? Encoding { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequestEncoding? Encoding { get; set; }
         /// <summary>Phone number, in +E.164 format, used to send the message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string To { get; set; }
 #endif
         /// <summary>The protocol for sending the message, either SMS or MMS.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequestType? Type { get; set; }
         /// <summary>If the profile this number is associated with has webhooks, use them for delivery notifications. If webhooks are also specified on the message itself, they will be attempted first, then those on the profile.</summary>
         public bool? UseProfileWebhooks { get; set; }
         /// <summary>The failover URL where webhooks related to this message will be sent if sending to the primary URL fails.</summary>
@@ -84,7 +84,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateShortCodeMessageRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Encoding = global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_encoding.Auto;
+            AutoDetect = false;
+            UseProfileWebhooks = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -105,13 +106,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auto_detect", n => { AutoDetect = n.GetBoolValue(); } },
-                { "encoding", n => { Encoding = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_encoding>(); } },
+                { "encoding", n => { Encoding = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequestEncoding>(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "media_urls", n => { MediaUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequestType>(); } },
                 { "use_profile_webhooks", n => { UseProfileWebhooks = n.GetBoolValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -125,13 +126,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_detect", AutoDetect);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_encoding>("encoding", Encoding);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequestEncoding>("encoding", Encoding);
             writer.WriteStringValue("from", From);
             writer.WriteCollectionOfPrimitiveValues<string>("media_urls", MediaUrls);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("to", To);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequestType>("type", Type);
             writer.WriteBoolValue("use_profile_webhooks", UseProfileWebhooks);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);

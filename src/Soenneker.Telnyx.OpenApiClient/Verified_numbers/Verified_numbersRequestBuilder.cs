@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.verified_numbers.item collection</summary>
         /// <param name="position">The phone number being deleted.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("phoneNumber", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumbersErrors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumber body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumber body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -129,11 +129,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumber body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumber body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

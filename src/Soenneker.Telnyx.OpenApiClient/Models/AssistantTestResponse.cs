@@ -54,13 +54,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Evaluation criteria used to assess test performance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse_rubric>? Rubric { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseRubricItem>? Rubric { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse_rubric> Rubric { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseRubricItem> Rubric { get; set; }
 #endif
-        /// <summary>The telnyx_conversation_channel property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel? TelnyxConversationChannel { get; set; }
+        /// <summary>Communication channel used for test execution.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseTelnyxConversationChannel? TelnyxConversationChannel { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseTelnyxConversationChannel TelnyxConversationChannel { get; set; }
+#endif
         /// <summary>Unique identifier for the assistant test.</summary>
         public Guid? TestId { get; set; }
         /// <summary>Test suite grouping for organizational purposes.</summary>
@@ -102,8 +108,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "max_duration_seconds", n => { MaxDurationSeconds = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "rubric", n => { Rubric = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse_rubric>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse_rubric.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel>(); } },
+                { "rubric", n => { Rubric = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseRubricItem>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseRubricItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseTelnyxConversationChannel>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseTelnyxConversationChannel.CreateFromDiscriminatorValue); } },
                 { "test_id", n => { TestId = n.GetGuidValue(); } },
                 { "test_suite", n => { TestSuite = n.GetStringValue(); } },
             };
@@ -121,8 +127,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteIntValue("max_duration_seconds", MaxDurationSeconds);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse_rubric>("rubric", Rubric);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel>("telnyx_conversation_channel", TelnyxConversationChannel);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseRubricItem>("rubric", Rubric);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponseTelnyxConversationChannel>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteGuidValue("test_id", TestId);
             writer.WriteStringValue("test_suite", TestSuite);
             writer.WriteAdditionalData(AdditionalData);

@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         /// <summary>
         /// &quot;Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbers"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,11 +47,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbers?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbers> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbers>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbers.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).&quot;

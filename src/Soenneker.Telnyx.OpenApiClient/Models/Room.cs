@@ -74,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Room()
         {
             AdditionalData = new Dictionary<string, object>();
+            EnableRecording = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

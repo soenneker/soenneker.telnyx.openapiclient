@@ -27,28 +27,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_input? Input { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataInputProperty? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_input Input { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataInputProperty Input { get; set; }
 #endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The mission_id property</summary>
         public Guid? MissionId { get; set; }
         /// <summary>The result_payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_result_payload? ResultPayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataResultPayloadProperty? ResultPayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_result_payload ResultPayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataResultPayloadProperty ResultPayload { get; set; }
 #endif
         /// <summary>The result_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,10 +93,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "finished_at", n => { FinishedAt = n.GetDateTimeOffsetValue(); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_input>(global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_input.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_metadata.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataInputProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataInputProperty.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "mission_id", n => { MissionId = n.GetGuidValue(); } },
-                { "result_payload", n => { ResultPayload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_result_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_result_payload.CreateFromDiscriminatorValue); } },
+                { "result_payload", n => { ResultPayload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataResultPayloadProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataResultPayloadProperty.CreateFromDiscriminatorValue); } },
                 { "result_summary", n => { ResultSummary = n.GetStringValue(); } },
                 { "run_id", n => { RunId = n.GetGuidValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
@@ -113,10 +113,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error", Error);
             writer.WriteDateTimeOffsetValue("finished_at", FinishedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_input>("input", Input);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataInputProperty>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataMetadataProperty>("metadata", Metadata);
             writer.WriteGuidValue("mission_id", MissionId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunData_result_payload>("result_payload", ResultPayload);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunDataResultPayloadProperty>("result_payload", ResultPayload);
             writer.WriteStringValue("result_summary", ResultSummary);
             writer.WriteGuidValue("run_id", RunId);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);

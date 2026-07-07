@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StartingNumber { get; set; }
 #endif
         /// <summary>The status of the order.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberBlockOrderRequest_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberBlockOrderRequestStatus? Status { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the number order was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
                 { "starting_number", n => { StartingNumber = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberBlockOrderRequest_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberBlockOrderRequestStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }

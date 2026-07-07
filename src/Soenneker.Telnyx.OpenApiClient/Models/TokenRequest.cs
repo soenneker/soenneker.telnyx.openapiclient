@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CodeVerifier { get; set; }
 #endif
         /// <summary>OAuth 2.0 grant type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenRequest_grant_type? GrantType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenRequestGrantType? GrantType { get; set; }
         /// <summary>Redirect URI (for authorization_code flow)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "code_verifier", n => { CodeVerifier = n.GetStringValue(); } },
-                { "grant_type", n => { GrantType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenRequest_grant_type>(); } },
+                { "grant_type", n => { GrantType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenRequestGrantType>(); } },
                 { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "scope", n => { Scope = n.GetStringValue(); } },
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("client_secret", ClientSecret);
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("code_verifier", CodeVerifier);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenRequest_grant_type>("grant_type", GrantType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenRequestGrantType>("grant_type", GrantType);
             writer.WriteStringValue("redirect_uri", RedirectUri);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("scope", Scope);

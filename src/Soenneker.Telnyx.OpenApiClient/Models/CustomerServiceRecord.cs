@@ -45,13 +45,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The result of the CSR request. This field would be null in case of `pending` or `failed` status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result? Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordResult? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordResult Result { get; set; }
 #endif
         /// <summary>The status of the customer service record</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>Callback URL to receive webhook notifications.</summary>
@@ -92,8 +92,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status>(); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordResult>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordResult.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -107,8 +107,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result>("result", Result);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordResult>("result", Result);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordStatus>("status", Status);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

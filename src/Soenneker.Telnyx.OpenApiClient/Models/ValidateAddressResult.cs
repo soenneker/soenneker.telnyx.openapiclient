@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>Indicates whether an address is valid or invalid.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult_result? Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResultResult? Result { get; set; }
         /// <summary>The suggested property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult_result>(); } },
+                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResultResult>(); } },
                 { "suggested", n => { Suggested = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressField>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressField.CreateFromDiscriminatorValue); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>("errors", Errors);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult_result>("result", Result);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResultResult>("result", Result);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressField>("suggested", Suggested);
             writer.WriteAdditionalData(AdditionalData);
         }

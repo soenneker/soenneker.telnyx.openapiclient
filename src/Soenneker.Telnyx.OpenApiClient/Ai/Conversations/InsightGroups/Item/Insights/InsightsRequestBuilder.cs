@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Insights
 {
     /// <summary>
-    /// Builds and executes requests for operations under \ai\conversations\insight-groups\{group_id}\insights
+    /// Builds and executes requests for operations under \ai\conversations\insight-groups\{groupId}\insights
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InsightsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.conversations.insightGroups.item.insights.item collection</summary>
         /// <param name="position">The ID of the insight</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Insights.Item.WithInsight_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Insights.Item.WithInsight_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Insights.Item.WithInsightItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Insights.Item.WithInsightItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("insight_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Insights.Item.WithInsight_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("insightId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Insights.Item.WithInsightItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Ins
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InsightsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations/insight-groups/{group_id}/insights", pathParameters)
+        public InsightsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations/insight-groups/{groupId}/insights", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Ins
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InsightsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations/insight-groups/{group_id}/insights", rawUrl)
+        public InsightsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations/insight-groups/{groupId}/insights", rawUrl)
         {
         }
     }

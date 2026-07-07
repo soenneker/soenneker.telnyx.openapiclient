@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>Indicates whether this comment was created by a Telnyx Admin, user, or system</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type? UserType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersCommentUserType? UserType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment"/> and sets the default values.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type>(); } },
+                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersCommentUserType>(); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type>("user_type", UserType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersCommentUserType>("user_type", UserType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When `dual`, final audio file will be stereo recorded with the first leg on channel A, and the rest on channel B.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_channels? Channels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestChannels? Channels { get; set; }
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,19 +41,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CustomFileName { get; set; }
 #endif
         /// <summary>The audio file format used when storing the call recording. Can be either `mp3` or `wav`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_format? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestFormat? Format { get; set; }
         /// <summary>Defines the maximum length for the recording in seconds. The minimum value is 0. The maximum value is 14400. The default value is 0 (infinite)</summary>
         public int? MaxLength { get; set; }
         /// <summary>If enabled, a beep sound will be played at the start of a recording.</summary>
         public bool? PlayBeep { get; set; }
         /// <summary>The audio track to be recorded. Can be either `both`, `inbound` or `outbound`. If only single track is specified (`inbound`, `outbound`), `channels` configuration is ignored and it will be recorded as mono (single channel).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_recording_track? RecordingTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack? RecordingTrack { get; set; }
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected. The timer only starts when the speech is detected. Please note that call transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite)</summary>
         public int? TimeoutSecs { get; set; }
         /// <summary>Enable post recording transcription. The default value is false.</summary>
         public bool? Transcription { get; set; }
         /// <summary>&quot;Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`, `deepgram/nova-3` - `Deepgram Nova-3`. Note: `deepgram/nova-3` supports only `en` and `en-{Region}` languages.&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_transcription_engine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine? TranscriptionEngine { get; set; }
         /// <summary>&quot;Language code for transcription. Note: Not all languages are supported by all transcription engines (google, telnyx, deepgram). See engine-specific documentation for supported values.&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionLanguage? TranscriptionLanguage { get; set; }
         /// <summary>Defines maximum number of speakers in the conversation. Applies to `google` engine only.</summary>
@@ -65,16 +65,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enables speaker diarization. Applies to `google` engine only.</summary>
         public bool? TranscriptionSpeakerDiarization { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_trim? Trim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTrim? Trim { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest"/> and sets the default values.
         /// </summary>
         public StartRecordingRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            RecordingTrack = global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_recording_track.Both;
-            TranscriptionEngine = global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_transcription_engine.A;
-            TranscriptionLanguage = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionLanguage.EnUS;
+            MaxLength = 0;
+            TimeoutSecs = 0;
+            Transcription = false;
+            TranscriptionMaxSpeakerCount = 6;
+            TranscriptionMinSpeakerCount = 2;
+            TranscriptionProfanityFilter = false;
+            TranscriptionSpeakerDiarization = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -94,23 +98,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_channels>(); } },
+                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestChannels>(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "custom_file_name", n => { CustomFileName = n.GetStringValue(); } },
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_format>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestFormat>(); } },
                 { "max_length", n => { MaxLength = n.GetIntValue(); } },
                 { "play_beep", n => { PlayBeep = n.GetBoolValue(); } },
-                { "recording_track", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_recording_track>(); } },
+                { "recording_track", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack>(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
                 { "transcription", n => { Transcription = n.GetBoolValue(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_transcription_engine>(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine>(); } },
                 { "transcription_language", n => { TranscriptionLanguage = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionLanguage>(); } },
                 { "transcription_max_speaker_count", n => { TranscriptionMaxSpeakerCount = n.GetIntValue(); } },
                 { "transcription_min_speaker_count", n => { TranscriptionMinSpeakerCount = n.GetIntValue(); } },
                 { "transcription_profanity_filter", n => { TranscriptionProfanityFilter = n.GetBoolValue(); } },
                 { "transcription_speaker_diarization", n => { TranscriptionSpeakerDiarization = n.GetBoolValue(); } },
-                { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_trim>(); } },
+                { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTrim>(); } },
             };
         }
         /// <summary>
@@ -120,23 +124,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_channels>("channels", Channels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestChannels>("channels", Channels);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("custom_file_name", CustomFileName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_format>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestFormat>("format", Format);
             writer.WriteIntValue("max_length", MaxLength);
             writer.WriteBoolValue("play_beep", PlayBeep);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_recording_track>("recording_track", RecordingTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack>("recording_track", RecordingTrack);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
             writer.WriteBoolValue("transcription", Transcription);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_transcription_engine>("transcription_engine", TranscriptionEngine);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine>("transcription_engine", TranscriptionEngine);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionLanguage>("transcription_language", TranscriptionLanguage);
             writer.WriteIntValue("transcription_max_speaker_count", TranscriptionMaxSpeakerCount);
             writer.WriteIntValue("transcription_min_speaker_count", TranscriptionMinSpeakerCount);
             writer.WriteBoolValue("transcription_profanity_filter", TranscriptionProfanityFilter);
             writer.WriteBoolValue("transcription_speaker_diarization", TranscriptionSpeakerDiarization);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_trim>("trim", Trim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTrim>("trim", Trim);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

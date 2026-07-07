@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Region { get; set; }
 #endif
         /// <summary>Input text type. Use `ssml` for SSML-formatted input.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams_text_type? TextType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParamsTextType? TextType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams"/> and sets the default values.
         /// </summary>
@@ -81,7 +81,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             LanguageCode = "en-US";
             OutputFormat = "audio-24khz-160kbitrate-mono-mp3";
-            TextType = global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams_text_type.Text;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -108,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "language_code", n => { LanguageCode = n.GetStringValue(); } },
                 { "output_format", n => { OutputFormat = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
-                { "text_type", n => { TextType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams_text_type>(); } },
+                { "text_type", n => { TextType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParamsTextType>(); } },
             };
         }
         /// <summary>
@@ -125,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("language_code", LanguageCode);
             writer.WriteStringValue("output_format", OutputFormat);
             writer.WriteStringValue("region", Region);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams_text_type>("text_type", TextType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParamsTextType>("text_type", TextType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

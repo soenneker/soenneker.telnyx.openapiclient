@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Identifier of the resource.</summary>
+        /// <summary>Identifier of the connection associated with the credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConnectionId { get; set; }
@@ -30,21 +30,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConnectionName { get; set; }
 #endif
-        /// <summary>Outward-facing SIP settings used for registration. Password is redacted.</summary>
+        /// <summary>The credential type that was looked up.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusCredentialType? CredentialType { get; set; }
+        /// <summary>SIP username used for the registration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalUacSettings? ExternalUacSettings { get; set; }
+        public string? CredentialUsername { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalUacSettings ExternalUacSettings { get; set; }
-#endif
-        /// <summary>Internal routing target the connection delivers calls to.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InternalUacSettings? InternalUacSettings { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InternalUacSettings InternalUacSettings { get; set; }
+        public string CredentialUsername { get; set; }
 #endif
         /// <summary>SIP response from the last registration attempt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,32 +48,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LastRegistrationResponse { get; set; }
 #endif
-        /// <summary>Internal pairing state, e.g. ACTIVE or INACTIVE.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PairState { get; set; }
-#nullable restore
-#else
-        public string PairState { get; set; }
-#endif
         /// <summary>True if the endpoint is currently registered.</summary>
         public bool? Registered { get; set; }
-        /// <summary>Owner of the resource.</summary>
+        /// <summary>Detailed registration information reported by the registrar. The populated fields depend on `credential_type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails? SipRegistrationDetails { get; set; }
 #nullable restore
 #else
-        public string UserId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails SipRegistrationDetails { get; set; }
 #endif
-        /// <summary>SIP username used for the registration.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Username { get; set; }
-#nullable restore
-#else
-        public string Username { get; set; }
-#endif
+        /// <summary>Human-readable registration status derived from the registrar state.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationStatus? SipRegistrationStatusProp { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatus"/> and sets the default values.
         /// </summary>
@@ -107,13 +87,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
-                { "external_uac_settings", n => { ExternalUacSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalUacSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalUacSettings.CreateFromDiscriminatorValue); } },
-                { "internal_uac_settings", n => { InternalUacSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InternalUacSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InternalUacSettings.CreateFromDiscriminatorValue); } },
+                { "credential_type", n => { CredentialType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusCredentialType>(); } },
+                { "credential_username", n => { CredentialUsername = n.GetStringValue(); } },
                 { "last_registration_response", n => { LastRegistrationResponse = n.GetStringValue(); } },
-                { "pair_state", n => { PairState = n.GetStringValue(); } },
                 { "registered", n => { Registered = n.GetBoolValue(); } },
-                { "user_id", n => { UserId = n.GetStringValue(); } },
-                { "username", n => { Username = n.GetStringValue(); } },
+                { "sip_registration_details", n => { SipRegistrationDetails = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails>(global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails.CreateFromDiscriminatorValue); } },
+                { "sip_registration_status", n => { SipRegistrationStatusProp = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationStatus>(); } },
             };
         }
         /// <summary>
@@ -125,13 +104,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("connection_name", ConnectionName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalUacSettings>("external_uac_settings", ExternalUacSettings);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InternalUacSettings>("internal_uac_settings", InternalUacSettings);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusCredentialType>("credential_type", CredentialType);
+            writer.WriteStringValue("credential_username", CredentialUsername);
             writer.WriteStringValue("last_registration_response", LastRegistrationResponse);
-            writer.WriteStringValue("pair_state", PairState);
             writer.WriteBoolValue("registered", Registered);
-            writer.WriteStringValue("user_id", UserId);
-            writer.WriteStringValue("username", Username);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails>("sip_registration_details", SipRegistrationDetails);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationStatus>("sip_registration_status", SipRegistrationStatusProp);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

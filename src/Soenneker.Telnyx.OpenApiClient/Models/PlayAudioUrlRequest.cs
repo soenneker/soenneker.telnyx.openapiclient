@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the type of audio provided in `audio_url` or `playback_content`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest_audio_type? AudioType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType? AudioType { get; set; }
         /// <summary>The URL of a file to be played back on the call. The URL can point to either a WAV or MP3 file. media_name and audio_url cannot be used together in one request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,7 +90,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public PlayAudioUrlRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AudioType = global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest_audio_type.Mp3;
+            CacheAudio = true;
+            Overlay = false;
             TargetLegs = "self";
         }
         /// <summary>
@@ -111,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "audio_type", n => { AudioType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest_audio_type>(); } },
+                { "audio_type", n => { AudioType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType>(); } },
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "cache_audio", n => { CacheAudio = n.GetBoolValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
@@ -131,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest_audio_type>("audio_type", AudioType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType>("audio_type", AudioType);
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteBoolValue("cache_audio", CacheAudio);
             writer.WriteStringValue("client_state", ClientState);

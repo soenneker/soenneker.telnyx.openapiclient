@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Cloud provider from which to migrate data.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceCoverageParams_provider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceCoverageParamsProvider? Provider { get; set; }
         /// <summary>Provider region from which to migrate data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceCoverageParams_provider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceCoverageParamsProvider>(); } },
                 { "source_region", n => { SourceRegion = n.GetStringValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceCoverageParams_provider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceCoverageParamsProvider>("provider", Provider);
             writer.WriteStringValue("source_region", SourceRegion);
             writer.WriteAdditionalData(AdditionalData);
         }

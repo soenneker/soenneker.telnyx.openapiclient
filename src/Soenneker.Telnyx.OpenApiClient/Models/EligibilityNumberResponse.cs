@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether the phone number is eligible for hosted messaging.</summary>
         public bool? Eligible { get; set; }
         /// <summary>The eligibility status of the phone number.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumberResponse_eligible_status? EligibleStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumberResponseEligibleStatus? EligibleStatus { get; set; }
         /// <summary>The phone number in e164 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "detail", n => { Detail = n.GetStringValue(); } },
                 { "eligible", n => { Eligible = n.GetBoolValue(); } },
-                { "eligible_status", n => { EligibleStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumberResponse_eligible_status>(); } },
+                { "eligible_status", n => { EligibleStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumberResponseEligibleStatus>(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
             };
         }
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("detail", Detail);
             writer.WriteBoolValue("eligible", Eligible);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumberResponse_eligible_status>("eligible_status", EligibleStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumberResponseEligibleStatus>("eligible_status", EligibleStatus);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteAdditionalData(AdditionalData);
         }

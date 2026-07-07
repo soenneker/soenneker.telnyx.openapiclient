@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The permissions granted to the sharing token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderSharingToken_permissions?>? Permissions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderSharingTokenPermissionsItem?>? Permissions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderSharingToken_permissions?> Permissions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderSharingTokenPermissionsItem?> Permissions { get; set; }
 #endif
         /// <summary>Identifies the porting order resource being shared</summary>
         public Guid? PortingOrderId { get; set; }
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "expires_in_seconds", n => { ExpiresInSeconds = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderSharingToken_permissions>()?.AsList(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderSharingTokenPermissionsItem>()?.AsList(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteIntValue("expires_in_seconds", ExpiresInSeconds);
             writer.WriteGuidValue("id", Id);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderSharingToken_permissions>("permissions", Permissions);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderSharingTokenPermissionsItem>("permissions", Permissions);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteStringValue("token", Token);
             writer.WriteAdditionalData(AdditionalData);

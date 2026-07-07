@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A list of the resources that have been assigned to the Private Wireless Gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary>? AssignedResources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>? AssignedResources { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary> AssignedResources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary> AssignedResources { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assigned_resources", n => { AssignedResources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "assigned_resources", n => { AssignedResources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "ip_range", n => { IpRange = n.GetStringValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary>("assigned_resources", AssignedResources);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>("assigned_resources", AssignedResources);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("network_id", NetworkId);
             writer.WriteStringValue("region_code", RegionCode);

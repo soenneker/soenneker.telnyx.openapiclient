@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The start_date property</summary>
         public DateTimeOffset? StartDate { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SttDetailReportResponse_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SttDetailReportResponseStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SttDetailReportResponse"/> and sets the default values.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "start_date", n => { StartDate = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SttDetailReportResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SttDetailReportResponseStatus>(); } },
             };
         }
         /// <summary>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("start_date", StartDate);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SttDetailReportResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SttDetailReportResponseStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

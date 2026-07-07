@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 timestamp when the room composition has ended.</summary>
         public DateTimeOffset? EndedAt { get; set; }
         /// <summary>Shows format of the room composition.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_format? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionFormat? Format { get; set; }
         /// <summary>A unique identifier for the room composition.</summary>
         public Guid? Id { get; set; }
         /// <summary>The record_type property</summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 timestamp when the room composition has stated.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>Shows the room composition status.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionStatus? Status { get; set; }
         /// <summary>ISO 8601 timestamp when the room composition was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Identify the user associated with the room composition.</summary>
@@ -67,10 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Describes the video layout of the room composition in terms of regions. Limited to 2 regions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_video_layout? VideoLayout { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionVideoLayoutProperty? VideoLayout { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_video_layout VideoLayout { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionVideoLayoutProperty VideoLayout { get; set; }
 #endif
         /// <summary>The failover URL where webhooks related to this room composition will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "download_url", n => { DownloadUrl = n.GetStringValue(); } },
                 { "duration_secs", n => { DurationSecs = n.GetIntValue(); } },
                 { "ended_at", n => { EndedAt = n.GetDateTimeOffsetValue(); } },
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_format>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionFormat>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "resolution", n => { Resolution = n.GetStringValue(); } },
@@ -128,10 +128,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "session_id", n => { SessionId = n.GetGuidValue(); } },
                 { "size_mb", n => { SizeMb = n.GetFloatValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
-                { "video_layout", n => { VideoLayout = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_video_layout>(global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_video_layout.CreateFromDiscriminatorValue); } },
+                { "video_layout", n => { VideoLayout = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionVideoLayoutProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionVideoLayoutProperty.CreateFromDiscriminatorValue); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -149,17 +149,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("download_url", DownloadUrl);
             writer.WriteIntValue("duration_secs", DurationSecs);
             writer.WriteDateTimeOffsetValue("ended_at", EndedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_format>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionFormat>("format", Format);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("resolution", Resolution);
             writer.WriteGuidValue("room_id", RoomId);
             writer.WriteGuidValue("session_id", SessionId);
             writer.WriteFloatValue("size_mb", SizeMb);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteGuidValue("user_id", UserId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_video_layout>("video_layout", VideoLayout);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionVideoLayoutProperty>("video_layout", VideoLayout);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

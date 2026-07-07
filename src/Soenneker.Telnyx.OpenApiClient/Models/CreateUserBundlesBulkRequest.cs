@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequest_items>? Items { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequestItemsItem>? Items { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequest_items> Items { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequestItemsItem> Items { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequest"/> and sets the default values.
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "idempotency_key", n => { IdempotencyKey = n.GetGuidValue(); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequest_items>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequest_items.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequestItemsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequestItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("idempotency_key", IdempotencyKey);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequest_items>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserBundlesBulkRequestItemsItem>("items", Items);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

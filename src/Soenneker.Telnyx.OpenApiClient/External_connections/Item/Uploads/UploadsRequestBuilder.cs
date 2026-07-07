@@ -31,15 +31,15 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads
             get => new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Status.StatusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.uploads.item collection</summary>
-        /// <param name="position">Identifies an Upload request</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicket_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicket_ItemRequestBuilder this[Guid position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicketItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicketItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("ticket_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicket_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("ticketId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicketItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -61,20 +61,20 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads
         /// <summary>
         /// Returns a list of your Upload requests for the given external connection.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListUploadsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsRequestBuilder.UploadsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListUploadsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsRequestBuilder.UploadsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsRequestBuilder.UploadsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListUploadsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsRequestBuilder.UploadsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListUploadsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListUploadsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new Upload request to Microsoft teams with the included phone numbers. Only one of civic_address_id or location_id must be provided, not both. The maximum allowed phone numbers for the numbers_ids array is 1000.

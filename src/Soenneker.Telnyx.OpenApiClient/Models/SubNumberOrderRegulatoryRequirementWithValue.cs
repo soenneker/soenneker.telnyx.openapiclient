@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The field_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValue_field_type? FieldType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValueFieldType? FieldType { get; private set; }
         /// <summary>The value of the requirement, this could be an id to a resource or a string value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValue_field_type>(); } },
+                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValueFieldType>(); } },
                 { "field_value", n => { FieldValue = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirement_id", n => { RequirementId = n.GetGuidValue(); } },

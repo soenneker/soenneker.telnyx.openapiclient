@@ -9,15 +9,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "UDP")]
         #pragma warning disable CS1591
-        UDP,
+        Udp,
         #pragma warning restore CS1591
         [EnumMember(Value = "TCP")]
         #pragma warning disable CS1591
-        TCP,
+        Tcp,
         #pragma warning restore CS1591
         [EnumMember(Value = "TLS")]
         #pragma warning disable CS1591
-        TLS,
+        Tls,
         #pragma warning restore CS1591
     }
 }

@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enables Answering Machine Detection. When a call is answered, Telnyx runs real-time detection to determine if it was picked up by a human or a machine and sends an `call.machine.detection.ended` webhook with the analysis result. If &apos;greeting_end&apos; or &apos;detect_words&apos; is used and a &apos;machine&apos; is detected, you will receive another &apos;call.machine.greeting.ended&apos; webhook when the answering machine greeting ends with a beep or silence. If `detect_beep` is used, you will only receive &apos;call.machine.greeting.ended&apos; if a beep is detected.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_answering_machine_detection? AnsweringMachineDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetection? AnsweringMachineDetection { get; set; }
         /// <summary>Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance. Only `total_analysis_time_millis` and `greeting_duration_millis` parameters are applicable when `premium` is selected as answering_machine_detection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string FromDisplayName { get; set; }
 #endif
         /// <summary>&quot;Defines whether media should be encrypted on the new call leg. For SIP URI destinations, media encryption can also be requested per endpoint with the `secure` URI parameter: `;secure=true` or `;secure=srtp` enables SRTP, and `;secure=dtls` enables DTLS. This parameter, when set to `SRTP` or `DTLS`, takes precedence over the per-endpoint `secure` value.&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_media_encryption? MediaEncryption { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestMediaEncryption? MediaEncryption { get; set; }
         /// <summary>The media_name of a file to be played back when the transfer destination answers before bridging the call. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string MediaName { get; set; }
 #endif
         /// <summary>When enabled, DTMF tones are not passed to the call participant. The webhooks containing the DTMF information will be sent.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf? MuteDtmf { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestMuteDtmf? MuteDtmf { get; set; }
         /// <summary>Specifies behavior after the bridge ends (i.e. the opposite leg either hangs up or is transferred). If supplied with the value `self`, the current leg will be parked after unbridge. If not set, the default behavior is to hang up the leg.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,11 +103,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PreferredCodecs { get; set; }
 #endif
         /// <summary>Indicates the privacy level to be used for the call. When set to `id`, caller ID information (name and number) will be hidden from the called party. When set to `none` or omitted, caller ID will be shown normally.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_privacy? Privacy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestPrivacy? Privacy { get; set; }
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record? Record { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecord? Record { get; set; }
         /// <summary>Defines which channel should be recorded (&apos;single&apos; or &apos;dual&apos;) when `record` is specified.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels? RecordChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordChannels? RecordChannels { get; set; }
         /// <summary>The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,15 +117,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordCustomFileName { get; set; }
 #endif
         /// <summary>Defines the format of the recording (&apos;wav&apos; or &apos;mp3&apos;) when `record` is specified.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_format? RecordFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordFormat? RecordFormat { get; set; }
         /// <summary>Defines the maximum length for the recording in seconds when `record` is specified. The minimum value is 0. The maximum value is 43200. The default value is 0 (infinite).</summary>
         public int? RecordMaxLength { get; set; }
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected when `record` is specified. The timer only starts when the speech is detected. Please note that call transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite).</summary>
         public int? RecordTimeoutSecs { get; set; }
         /// <summary>The audio track to be recorded. Can be either `both`, `inbound` or `outbound`. If only single track is specified (`inbound`, `outbound`), `channels` configuration is ignored and it will be recorded as mono (single channel).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_track? RecordTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrack? RecordTrack { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_trim? RecordTrim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrim? RecordTrim { get; set; }
         /// <summary>&quot;DTMF digits to send automatically after the transfer destination answers. Useful for reaching an extension behind an IVR (e.g. `\&quot;200\&quot;` to dial extension 200 once the called party picks up). Allowed characters: `0-9`, `A-D`, `w` (0.5s pause), `W` (1s pause), `*`, `#`. Maximum 64 characters. When omitted, no automatic DTMF is sent. May also be supplied inline by appending `,&lt;digits&gt;` to `to` (e.g. `to=+18004247767,200`); if both forms are present, this explicit field takes precedence.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -159,9 +159,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader> SipHeaders { get; set; }
 #endif
         /// <summary>Defines the SIP region to be used for the call.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region? SipRegion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestSipRegion? SipRegion { get; set; }
         /// <summary>Defines SIP transport protocol to be used on the call.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol? SipTransportProtocol { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestSipTransportProtocol? SipTransportProtocol { get; set; }
         /// <summary>Use this field to modify sound effects, for example adjust the pitch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -193,10 +193,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A map of event types to retry policies. Each retry policy contains an array of `retries_ms` specifying the delays between retry attempts in milliseconds. Maximum 5 retries, total delay cannot exceed 60 seconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies? WebhookRetriesPolicies { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookRetriesPoliciesProperty? WebhookRetriesPolicies { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies WebhookRetriesPolicies { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookRetriesPoliciesProperty WebhookRetriesPolicies { get; set; }
 #endif
         /// <summary>Use this field to override the URL for which Telnyx will send subsequent webhooks to for this call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -207,33 +207,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string WebhookUrl { get; set; }
 #endif
         /// <summary>HTTP request type used for `webhook_url`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method? WebhookUrlMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlMethod? WebhookUrlMethod { get; set; }
         /// <summary>A map of event types to webhook URLs. When an event of the specified type occurs, the webhook URL associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls? WebhookUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlsProperty? WebhookUrls { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls WebhookUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlsProperty WebhookUrls { get; set; }
 #endif
         /// <summary>HTTP request method to invoke `webhook_urls`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls_method? WebhookUrlsMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlsMethod? WebhookUrlsMethod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest"/> and sets the default values.
         /// </summary>
         public TransferCallRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnsweringMachineDetection = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_answering_machine_detection.Disabled;
-            MediaEncryption = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_media_encryption.Disabled;
-            MuteDtmf = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf.None;
-            RecordChannels = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels.Dual;
-            RecordFormat = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_format.Mp3;
-            RecordTrack = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_track.Both;
-            SipRegion = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region.US;
-            SipTransportProtocol = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol.UDP;
-            WebhookUrlMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method.POST;
-            WebhookUrlsMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls_method.POST;
+            EarlyMedia = true;
+            RecordMaxLength = 0;
+            RecordTimeoutSecs = 0;
+            TimeLimitSecs = 14400;
+            TimeoutSecs = 30;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -253,7 +248,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "answering_machine_detection", n => { AnsweringMachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_answering_machine_detection>(); } },
+                { "answering_machine_detection", n => { AnsweringMachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetection>(); } },
                 { "answering_machine_detection_config", n => { AnsweringMachineDetectionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfig.CreateFromDiscriminatorValue); } },
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
@@ -262,36 +257,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "early_media", n => { EarlyMedia = n.GetBoolValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "from_display_name", n => { FromDisplayName = n.GetStringValue(); } },
-                { "media_encryption", n => { MediaEncryption = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_media_encryption>(); } },
+                { "media_encryption", n => { MediaEncryption = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestMediaEncryption>(); } },
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
-                { "mute_dtmf", n => { MuteDtmf = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf>(); } },
+                { "mute_dtmf", n => { MuteDtmf = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestMuteDtmf>(); } },
                 { "park_after_unbridge", n => { ParkAfterUnbridge = n.GetStringValue(); } },
                 { "preferred_codecs", n => { PreferredCodecs = n.GetStringValue(); } },
-                { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_privacy>(); } },
-                { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record>(); } },
-                { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels>(); } },
+                { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestPrivacy>(); } },
+                { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecord>(); } },
+                { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordChannels>(); } },
                 { "record_custom_file_name", n => { RecordCustomFileName = n.GetStringValue(); } },
-                { "record_format", n => { RecordFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_format>(); } },
+                { "record_format", n => { RecordFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordFormat>(); } },
                 { "record_max_length", n => { RecordMaxLength = n.GetIntValue(); } },
                 { "record_timeout_secs", n => { RecordTimeoutSecs = n.GetIntValue(); } },
-                { "record_track", n => { RecordTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_track>(); } },
-                { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_trim>(); } },
+                { "record_track", n => { RecordTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrack>(); } },
+                { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrim>(); } },
                 { "send_digits_on_answer", n => { SendDigitsOnAnswer = n.GetStringValue(); } },
                 { "sip_auth_password", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "sip_auth_username", n => { SipAuthUsername = n.GetStringValue(); } },
                 { "sip_headers", n => { SipHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "sip_region", n => { SipRegion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region>(); } },
-                { "sip_transport_protocol", n => { SipTransportProtocol = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol>(); } },
+                { "sip_region", n => { SipRegion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestSipRegion>(); } },
+                { "sip_transport_protocol", n => { SipTransportProtocol = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestSipTransportProtocol>(); } },
                 { "sound_modifications", n => { SoundModifications = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications>(global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications.CreateFromDiscriminatorValue); } },
                 { "target_leg_client_state", n => { TargetLegClientState = n.GetStringValue(); } },
                 { "time_limit_secs", n => { TimeLimitSecs = n.GetIntValue(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
-                { "webhook_retries_policies", n => { WebhookRetriesPolicies = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies.CreateFromDiscriminatorValue); } },
+                { "webhook_retries_policies", n => { WebhookRetriesPolicies = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookRetriesPoliciesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookRetriesPoliciesProperty.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
-                { "webhook_url_method", n => { WebhookUrlMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method>(); } },
-                { "webhook_urls", n => { WebhookUrls = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls.CreateFromDiscriminatorValue); } },
-                { "webhook_urls_method", n => { WebhookUrlsMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls_method>(); } },
+                { "webhook_url_method", n => { WebhookUrlMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlMethod>(); } },
+                { "webhook_urls", n => { WebhookUrls = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlsProperty.CreateFromDiscriminatorValue); } },
+                { "webhook_urls_method", n => { WebhookUrlsMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlsMethod>(); } },
             };
         }
         /// <summary>
@@ -301,7 +296,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_answering_machine_detection>("answering_machine_detection", AnsweringMachineDetection);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetection>("answering_machine_detection", AnsweringMachineDetection);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfig>("answering_machine_detection_config", AnsweringMachineDetectionConfig);
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteStringValue("client_state", ClientState);
@@ -310,36 +305,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("early_media", EarlyMedia);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("from_display_name", FromDisplayName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_media_encryption>("media_encryption", MediaEncryption);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestMediaEncryption>("media_encryption", MediaEncryption);
             writer.WriteStringValue("media_name", MediaName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf>("mute_dtmf", MuteDtmf);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestMuteDtmf>("mute_dtmf", MuteDtmf);
             writer.WriteStringValue("park_after_unbridge", ParkAfterUnbridge);
             writer.WriteStringValue("preferred_codecs", PreferredCodecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_privacy>("privacy", Privacy);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record>("record", Record);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels>("record_channels", RecordChannels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestPrivacy>("privacy", Privacy);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecord>("record", Record);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordChannels>("record_channels", RecordChannels);
             writer.WriteStringValue("record_custom_file_name", RecordCustomFileName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_format>("record_format", RecordFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordFormat>("record_format", RecordFormat);
             writer.WriteIntValue("record_max_length", RecordMaxLength);
             writer.WriteIntValue("record_timeout_secs", RecordTimeoutSecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_track>("record_track", RecordTrack);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_trim>("record_trim", RecordTrim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrack>("record_track", RecordTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrim>("record_trim", RecordTrim);
             writer.WriteStringValue("send_digits_on_answer", SendDigitsOnAnswer);
             writer.WriteStringValue("sip_auth_password", SipAuthPassword);
             writer.WriteStringValue("sip_auth_username", SipAuthUsername);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>("sip_headers", SipHeaders);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region>("sip_region", SipRegion);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol>("sip_transport_protocol", SipTransportProtocol);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestSipRegion>("sip_region", SipRegion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestSipTransportProtocol>("sip_transport_protocol", SipTransportProtocol);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications>("sound_modifications", SoundModifications);
             writer.WriteStringValue("target_leg_client_state", TargetLegClientState);
             writer.WriteIntValue("time_limit_secs", TimeLimitSecs);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
             writer.WriteStringValue("to", To);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies>("webhook_retries_policies", WebhookRetriesPolicies);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookRetriesPoliciesProperty>("webhook_retries_policies", WebhookRetriesPolicies);
             writer.WriteStringValue("webhook_url", WebhookUrl);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method>("webhook_url_method", WebhookUrlMethod);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls>("webhook_urls", WebhookUrls);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls_method>("webhook_urls_method", WebhookUrlsMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlMethod>("webhook_url_method", WebhookUrlMethod);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlsProperty>("webhook_urls", WebhookUrls);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestWebhookUrlsMethod>("webhook_urls_method", WebhookUrlsMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

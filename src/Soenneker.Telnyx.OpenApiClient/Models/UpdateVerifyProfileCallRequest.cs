@@ -42,6 +42,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateVerifyProfileCallRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            CodeLength = 5;
+            DefaultVerificationTimeoutSecs = 300;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

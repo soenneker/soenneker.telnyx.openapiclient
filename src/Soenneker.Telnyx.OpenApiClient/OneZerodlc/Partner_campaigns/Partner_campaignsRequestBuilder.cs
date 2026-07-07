@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns
     public partial class Partner_campaignsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.OneZerodlc.partner_campaigns.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the campaign.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns.Item.WithCampaignItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns.Item.WithCampaignItemRequestBuilder this[string position]
         {
@@ -52,8 +52,8 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignRecordSet"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignRecordSet?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns.Partner_campaignsRequestBuilder.Partner_campaignsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -66,8 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlcErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignRecordSet>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignRecordSet.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns
             public int? RecordsPerPage { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by createdAt in descending order.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetSharedCampaignsSortParameter? Sort { get; set; }
         }
     }
 }

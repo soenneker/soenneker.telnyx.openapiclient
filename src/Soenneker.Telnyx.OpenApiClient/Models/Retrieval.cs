@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds RetrievalProp { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "retrieval", n => { RetrievalProp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds>(global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds>("retrieval", RetrievalProp);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

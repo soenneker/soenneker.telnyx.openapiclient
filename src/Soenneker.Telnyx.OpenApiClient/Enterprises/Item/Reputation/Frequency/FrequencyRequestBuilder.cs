@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Frequency
 {
     /// <summary>
-    /// Builds and executes requests for operations under \enterprises\{enterprise_id}\reputation\frequency
+    /// Builds and executes requests for operations under \enterprises\{enterpriseId}\reputation\frequency
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FrequencyRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Frequency
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FrequencyRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise_id}/reputation/frequency", pathParameters)
+        public FrequencyRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterpriseId}/reputation/frequency", pathParameters)
         {
         }
         /// <summary>
@@ -30,19 +30,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Frequency
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FrequencyRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise_id}/reputation/frequency", rawUrl)
+        public FrequencyRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterpriseId}/reputation/frequency", rawUrl)
         {
         }
         /// <summary>
-        /// Update how often reputation data is automatically refreshed.**Note:** The enterprise must have `approved` reputation settings. Updating frequency on `pending` or `rejected` settings will return an error.**Available Frequencies:**- `business_daily` — Monday–Friday- `daily` — Every day including weekends- `weekly` — Once per week- `biweekly` — Once every two weeks- `monthly` — Once per month- `never` — Manual refresh only (no automatic checks)
+        /// Update how often Telnyx refreshes the reputation data for this enterprise&apos;s registered numbers. The new frequency takes effect on the next scheduled refresh.The enterprise&apos;s reputation must be in `approved` status. A request made while the status is `pending` is rejected with `400 Bad Request`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationUpdateFrequency body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -56,14 +56,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Frequency
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update how often reputation data is automatically refreshed.**Note:** The enterprise must have `approved` reputation settings. Updating frequency on `pending` or `rejected` settings will return an error.**Available Frequencies:**- `business_daily` — Monday–Friday- `daily` — Every day including weekends- `weekly` — Once per week- `biweekly` — Once every two weeks- `monthly` — Once per month- `never` — Manual refresh only (no automatic checks)
+        /// Update how often Telnyx refreshes the reputation data for this enterprise&apos;s registered numbers. The new frequency takes effect on the next scheduled refresh.The enterprise&apos;s reputation must be in `approved` status. A request made while the status is `pending` is rejected with `400 Bad Request`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

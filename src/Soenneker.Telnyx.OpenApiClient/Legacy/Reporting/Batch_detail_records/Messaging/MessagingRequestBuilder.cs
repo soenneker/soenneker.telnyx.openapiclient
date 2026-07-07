@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.M
     public partial class MessagingRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.legacy.reporting.batch_detail_records.messaging.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.Messaging.Item.MessagingItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.Messaging.Item.MessagingItemRequestBuilder this[Guid position]
         {

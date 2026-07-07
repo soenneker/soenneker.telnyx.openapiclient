@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string SampleRate { get; set; }
 #endif
         /// <summary>Input text type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams_text_type? TextType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParamsTextType? TextType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams"/> and sets the default values.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "lexicon_names", n => { LexiconNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "output_format", n => { OutputFormat = n.GetStringValue(); } },
                 { "sample_rate", n => { SampleRate = n.GetStringValue(); } },
-                { "text_type", n => { TextType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams_text_type>(); } },
+                { "text_type", n => { TextType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParamsTextType>(); } },
             };
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("lexicon_names", LexiconNames);
             writer.WriteStringValue("output_format", OutputFormat);
             writer.WriteStringValue("sample_rate", SampleRate);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams_text_type>("text_type", TextType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParamsTextType>("text_type", TextType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

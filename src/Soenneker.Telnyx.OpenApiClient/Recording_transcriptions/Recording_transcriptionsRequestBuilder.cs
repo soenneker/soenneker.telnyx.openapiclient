@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Recording_transcriptions
     public partial class Recording_transcriptionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.recording_transcriptions.item collection</summary>
-        /// <param name="position">Uniquely identifies the recording transcription by id.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecording_transcription_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecording_transcription_ItemRequestBuilder this[Guid position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecordingTranscriptionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecordingTranscriptionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("recording_transcription_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecording_transcription_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("recordingTranscriptionId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecordingTranscriptionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recording_transcriptions
         /// <summary>
         /// Returns a list of your recording transcriptions.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetRecordingTranscriptions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingsErrors">When receiving a 401 status code</exception>
@@ -57,11 +57,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Recording_transcriptions
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingsErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsRequestBuilder.Recording_transcriptionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetRecordingTranscriptions200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsRequestBuilder.Recording_transcriptionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsRequestBuilder.Recording_transcriptionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetRecordingTranscriptions200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsRequestBuilder.Recording_transcriptionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recording_transcriptions
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingsErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingsErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetRecordingTranscriptions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetRecordingTranscriptions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your recording transcriptions.

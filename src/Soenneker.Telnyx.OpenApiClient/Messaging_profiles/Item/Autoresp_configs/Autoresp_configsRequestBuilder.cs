@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
     public partial class Autoresp_configsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_profiles.item.autoresp_configs.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder this[Guid position]
+        /// <param name="position">Unique identifier of the autoresp cfg.</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutorespCfgItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutorespCfgItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("autoresp_cfg_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("autorespCfgId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutorespCfgItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -150,6 +150,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Autoresp_configsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter results by country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("country_code")]

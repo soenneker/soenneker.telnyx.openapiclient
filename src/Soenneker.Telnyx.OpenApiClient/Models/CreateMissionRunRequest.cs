@@ -17,18 +17,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_input? Input { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestInputProperty? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_input Input { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestInputProperty Input { get; set; }
 #endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest"/> and sets the default values.
@@ -55,8 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_input>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_input.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_metadata.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestInputProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestInputProperty.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestMetadataProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_input>("input", Input);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequest_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestInputProperty>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMissionRunRequestMetadataProperty>("metadata", Metadata);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

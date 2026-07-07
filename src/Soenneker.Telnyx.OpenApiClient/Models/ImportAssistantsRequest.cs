@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> ImportIds { get; set; }
 #endif
         /// <summary>The external provider to import assistants from.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequestProvider? Provider { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "import_ids", n => { ImportIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequestProvider>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteCollectionOfPrimitiveValues<string>("import_ids", ImportIds);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequestProvider>("provider", Provider);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

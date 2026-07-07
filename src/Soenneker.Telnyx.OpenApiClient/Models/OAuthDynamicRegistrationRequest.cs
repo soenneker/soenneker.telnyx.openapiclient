@@ -23,10 +23,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Array of OAuth 2.0 grant type strings that the client may use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest_grant_types?>? GrantTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem?>? GrantTypes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest_grant_types?> GrantTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem?> GrantTypes { get; set; }
 #endif
         /// <summary>URL of the client logo</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Scope { get; set; }
 #endif
         /// <summary>Authentication method for the token endpoint</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest_token_endpoint_auth_method? TokenEndpointAuthMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestTokenEndpointAuthMethod? TokenEndpointAuthMethod { get; set; }
         /// <summary>URL of the client&apos;s terms of service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,13 +78,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string TosUri { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest"/> and sets the default values.
-        /// </summary>
-        public OAuthDynamicRegistrationRequest()
-        {
-            TokenEndpointAuthMethod = global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest_token_endpoint_auth_method.Client_secret_basic;
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -104,13 +97,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "client_name", n => { ClientName = n.GetStringValue(); } },
-                { "grant_types", n => { GrantTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest_grant_types>()?.AsList(); } },
+                { "grant_types", n => { GrantTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem>()?.AsList(); } },
                 { "logo_uri", n => { LogoUri = n.GetStringValue(); } },
                 { "policy_uri", n => { PolicyUri = n.GetStringValue(); } },
                 { "redirect_uris", n => { RedirectUris = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "response_types", n => { ResponseTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "scope", n => { Scope = n.GetStringValue(); } },
-                { "token_endpoint_auth_method", n => { TokenEndpointAuthMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest_token_endpoint_auth_method>(); } },
+                { "token_endpoint_auth_method", n => { TokenEndpointAuthMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestTokenEndpointAuthMethod>(); } },
                 { "tos_uri", n => { TosUri = n.GetStringValue(); } },
             };
         }
@@ -122,13 +115,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_name", ClientName);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest_grant_types>("grant_types", GrantTypes);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem>("grant_types", GrantTypes);
             writer.WriteStringValue("logo_uri", LogoUri);
             writer.WriteStringValue("policy_uri", PolicyUri);
             writer.WriteCollectionOfPrimitiveValues<string>("redirect_uris", RedirectUris);
             writer.WriteCollectionOfPrimitiveValues<string>("response_types", ResponseTypes);
             writer.WriteStringValue("scope", Scope);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest_token_endpoint_auth_method>("token_endpoint_auth_method", TokenEndpointAuthMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestTokenEndpointAuthMethod>("token_endpoint_auth_method", TokenEndpointAuthMethod);
             writer.WriteStringValue("tos_uri", TosUri);
         }
     }

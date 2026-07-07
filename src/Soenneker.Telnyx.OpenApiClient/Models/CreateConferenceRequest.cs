@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether a beep sound should be played when participants join and/or leave the conference.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_beep_enabled? BeepEnabled { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestBeepEnabled? BeepEnabled { get; set; }
         /// <summary>Unique identifier and token for controlling the call</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Sets the region where the conference data will be hosted. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_region? Region { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestRegion? Region { get; set; }
         /// <summary>Whether the conference should be started on creation. If the conference isn&apos;t started all participants that join are automatically put on hold. Defaults to &quot;true&quot;.</summary>
         public bool? StartConferenceOnCreate { get; set; }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateConferenceRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            BeepEnabled = global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_beep_enabled.Never;
+            ComfortNoise = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_beep_enabled>(); } },
+                { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestBeepEnabled>(); } },
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "comfort_noise", n => { ComfortNoise = n.GetBoolValue(); } },
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "hold_media_name", n => { HoldMediaName = n.GetStringValue(); } },
                 { "max_participants", n => { MaxParticipants = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_region>(); } },
+                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestRegion>(); } },
                 { "start_conference_on_create", n => { StartConferenceOnCreate = n.GetBoolValue(); } },
             };
         }
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_beep_enabled>("beep_enabled", BeepEnabled);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestBeepEnabled>("beep_enabled", BeepEnabled);
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteBoolValue("comfort_noise", ComfortNoise);
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("hold_media_name", HoldMediaName);
             writer.WriteIntValue("max_participants", MaxParticipants);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_region>("region", Region);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestRegion>("region", Region);
             writer.WriteBoolValue("start_conference_on_create", StartConferenceOnCreate);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>The phone_number_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberPhoneNumberType? PhoneNumberType { get; set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,9 +69,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>True if all requirements are met for a phone number, false otherwise.</summary>
         public bool? RequirementsMet { get; private set; }
         /// <summary>Status of requirements (if applicable)</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber_requirements_status? RequirementsStatus { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementsStatus? RequirementsStatus { get; private set; }
         /// <summary>The status of the phone number in the order.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberStatus? Status { get; private set; }
         /// <summary>The sub_number_order_id property</summary>
         public Guid? SubNumberOrderId { get; set; }
         /// <summary>
@@ -107,12 +107,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "locality", n => { Locality = n.GetStringValue(); } },
                 { "order_request_id", n => { OrderRequestId = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberPhoneNumberType>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValue>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValue.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
-                { "requirements_status", n => { RequirementsStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber_requirements_status>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber_status>(); } },
+                { "requirements_status", n => { RequirementsStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberRequirementsStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberStatus>(); } },
                 { "sub_number_order_id", n => { SubNumberOrderId = n.GetGuidValue(); } },
             };
         }
@@ -129,7 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("locality", Locality);
             writer.WriteGuidValue("order_request_id", OrderRequestId);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumberPhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValue>("regulatory_requirements", RegulatoryRequirements);
             writer.WriteGuidValue("sub_number_order_id", SubNumberOrderId);
             writer.WriteAdditionalData(AdditionalData);

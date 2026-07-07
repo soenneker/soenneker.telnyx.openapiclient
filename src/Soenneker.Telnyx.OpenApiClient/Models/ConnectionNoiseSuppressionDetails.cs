@@ -18,14 +18,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>&quot;The attenuation limit value for the selected engine. Default values vary by engine: 0 for &apos;denoiser&apos;, 80 for &apos;deep_filter_net&apos;, &apos;deep_filter_net_large&apos;, and all Krisp engines (&apos;krisp_viva_tel&apos;, &apos;krisp_viva_tel_lite&apos;, &apos;krisp_viva_promodel&apos;, &apos;krisp_viva_ss&apos;), 100 for &apos;quail_voice_focus&apos;.&quot;</summary>
         public int? AttenuationLimit { get; set; }
         /// <summary>The noise suppression engine to use. &apos;denoiser&apos; is the default engine. &apos;deep_filter_net&apos; and &apos;deep_filter_net_large&apos; are alternative engines with different performance characteristics. Krisp engines (&apos;krisp_viva_tel&apos;, &apos;krisp_viva_tel_lite&apos;, &apos;krisp_viva_promodel&apos;, &apos;krisp_viva_ss&apos;) provide advanced noise suppression capabilities. &apos;quail_voice_focus&apos; provides Quail-based voice focus noise suppression.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails_engine? Engine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetailsEngine? Engine { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails"/> and sets the default values.
         /// </summary>
         public ConnectionNoiseSuppressionDetails()
         {
             AdditionalData = new Dictionary<string, object>();
-            Engine = global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails_engine.Denoiser;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attenuation_limit", n => { AttenuationLimit = n.GetIntValue(); } },
-                { "engine", n => { Engine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails_engine>(); } },
+                { "engine", n => { Engine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetailsEngine>(); } },
             };
         }
         /// <summary>
@@ -57,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("attenuation_limit", AttenuationLimit);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails_engine>("engine", Engine);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetailsEngine>("engine", Engine);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

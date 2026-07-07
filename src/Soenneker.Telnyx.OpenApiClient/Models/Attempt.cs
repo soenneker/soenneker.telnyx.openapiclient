@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 timestamp indicating when the attempt was initiated.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Attempt_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AttemptStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Attempt"/> and sets the default values.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "finished_at", n => { FinishedAt = n.GetDateTimeOffsetValue(); } },
                 { "http", n => { Http = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http>(global::Soenneker.Telnyx.OpenApiClient.Models.Http.CreateFromDiscriminatorValue); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Attempt_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AttemptStatus>(); } },
             };
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("finished_at", FinishedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http>("http", Http);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Attempt_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AttemptStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

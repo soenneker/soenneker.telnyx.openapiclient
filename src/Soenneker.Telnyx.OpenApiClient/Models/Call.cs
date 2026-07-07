@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates whether the call is alive or not. For Dial command it will always be `false` (dialing is asynchronous).</summary>
         public bool? IsAlive { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Call_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordType? RecordType { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the call started</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "end_time", n => { EndTime = n.GetStringValue(); } },
                 { "is_alive", n => { IsAlive = n.GetBoolValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Call_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordType>(); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
             };
         }
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("end_time", EndTime);
             writer.WriteBoolValue("is_alive", IsAlive);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Call_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordType>("record_type", RecordType);
             writer.WriteStringValue("start_time", StartTime);
             writer.WriteAdditionalData(AdditionalData);
         }

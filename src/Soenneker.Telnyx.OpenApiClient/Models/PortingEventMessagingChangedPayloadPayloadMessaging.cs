@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates whether the messaging port is completed.</summary>
         public bool? MessagingPortCompleted { get; set; }
         /// <summary>Indicates the messaging port status of the porting order.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessaging_messaging_port_status? MessagingPortStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessagingMessagingPortStatus? MessagingPortStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessaging"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "enable_messaging", n => { EnableMessaging = n.GetBoolValue(); } },
                 { "messaging_capable", n => { MessagingCapable = n.GetBoolValue(); } },
                 { "messaging_port_completed", n => { MessagingPortCompleted = n.GetBoolValue(); } },
-                { "messaging_port_status", n => { MessagingPortStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessaging_messaging_port_status>(); } },
+                { "messaging_port_status", n => { MessagingPortStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessagingMessagingPortStatus>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enable_messaging", EnableMessaging);
             writer.WriteBoolValue("messaging_capable", MessagingCapable);
             writer.WriteBoolValue("messaging_port_completed", MessagingPortCompleted);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessaging_messaging_port_status>("messaging_port_status", MessagingPortStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessagingMessagingPortStatus>("messaging_port_status", MessagingPortStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

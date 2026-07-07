@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
     public partial class CallsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.calls.item collection</summary>
-        /// <param name="position">Unique identifier and token for controlling the call</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.WithCall_control_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.WithCall_control_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.WithCallControlItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.WithCallControlItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("call_control_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.WithCall_control_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("callControlId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.WithCallControlItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
         /// <summary>
         /// Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.**Expected Webhooks:**- `call.initiated`- `call.answered` or `call.hangup`- `call.hold` and `call.unhold` if the call is held/unheld- `call.machine.detection.ended` if `answering_machine_detection` was requested- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected- `call.deepfake_detection.result` if `deepfake_detection` was enabled- `call.deepfake_detection.error` if `deepfake_detection` was enabled and an error occurred- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveCallStatusResponseWithRecordingId"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,11 +60,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveCallStatusResponseWithRecordingId?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveCallStatusResponseWithRecordingId> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveCallStatusResponseWithRecordingId>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveCallStatusResponseWithRecordingId.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.**Expected Webhooks:**- `call.initiated`- `call.answered` or `call.hangup`- `call.hold` and `call.unhold` if the call is held/unheld- `call.machine.detection.ended` if `answering_machine_detection` was requested- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected- `call.deepfake_detection.result` if `deepfake_detection` was enabled- `call.deepfake_detection.error` if `deepfake_detection` was enabled and an error occurred- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.

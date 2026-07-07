@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "is")]
         #pragma warning disable CS1591
-        Is,
+        IsValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "it")]
         #pragma warning disable CS1591

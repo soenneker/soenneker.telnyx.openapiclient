@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ChannelDestination { get; set; }
 #endif
         /// <summary>A Channel Type ID</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel_channel_type_id? ChannelTypeId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId? ChannelTypeId { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A UUID.</summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "channel_destination", n => { ChannelDestination = n.GetStringValue(); } },
-                { "channel_type_id", n => { ChannelTypeId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel_channel_type_id>(); } },
+                { "channel_type_id", n => { ChannelTypeId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "notification_profile_id", n => { NotificationProfileId = n.GetStringValue(); } },
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("channel_destination", ChannelDestination);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel_channel_type_id>("channel_type_id", ChannelTypeId);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId>("channel_type_id", ChannelTypeId);
             writer.WriteStringValue("notification_profile_id", NotificationProfileId);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string IdpCertFingerprint { get; set; }
 #endif
         /// <summary>The algorithm used to generate the identity provider&apos;s (IdP) certificate fingerprint</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Settings_idp_cert_fingerprint_algorithm? IdpCertFingerprintAlgorithm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm? IdpCertFingerprintAlgorithm { get; set; }
         /// <summary>The Entity ID for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,7 +47,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Settings()
         {
             AdditionalData = new Dictionary<string, object>();
-            IdpCertFingerprintAlgorithm = global::Soenneker.Telnyx.OpenApiClient.Models.Settings_idp_cert_fingerprint_algorithm.Sha1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "idp_cert_fingerprint", n => { IdpCertFingerprint = n.GetStringValue(); } },
-                { "idp_cert_fingerprint_algorithm", n => { IdpCertFingerprintAlgorithm = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Settings_idp_cert_fingerprint_algorithm>(); } },
+                { "idp_cert_fingerprint_algorithm", n => { IdpCertFingerprintAlgorithm = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm>(); } },
                 { "idp_entity_id", n => { IdpEntityId = n.GetStringValue(); } },
                 { "idp_sso_target_url", n => { IdpSsoTargetUrl = n.GetStringValue(); } },
             };
@@ -81,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("idp_cert_fingerprint", IdpCertFingerprint);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Settings_idp_cert_fingerprint_algorithm>("idp_cert_fingerprint_algorithm", IdpCertFingerprintAlgorithm);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm>("idp_cert_fingerprint_algorithm", IdpCertFingerprintAlgorithm);
             writer.WriteStringValue("idp_entity_id", IdpEntityId);
             writer.WriteStringValue("idp_sso_target_url", IdpSsoTargetUrl);
             writer.WriteAdditionalData(AdditionalData);

@@ -20,13 +20,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enhancement intensity (0.0-1.0). Only applicable for AiCoustics.</summary>
         public double? EnhancementLevel { get; set; }
         /// <summary>AiCoustics model family. &apos;sparrow&apos; optimized for human-to-human calls, &apos;quail&apos; optimized for Voice AI/STT. Only applicable for AiCoustics.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_family? Family { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigFamily? Family { get; set; }
         /// <summary>Processing mode. Only applicable for DeepFilterNet.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_mode? Mode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigMode? Mode { get; set; }
         /// <summary>The Krisp model to use. Only applicable for Krisp.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_model? Model { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigModel? Model { get; set; }
         /// <summary>AiCoustics model size. &apos;s&apos; and &apos;l&apos; work with both families. &apos;xs&apos; and &apos;xxs&apos; are sparrow-only. &apos;vf_l&apos; and &apos;vf_1_1_l&apos; are quail-only. Only applicable for AiCoustics.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_size? Size { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigSize? Size { get; set; }
         /// <summary>Suppression level (0.0-100.0). Only applicable for Krisp.</summary>
         public double? SuppressionLevel { get; set; }
         /// <summary>Voice gain multiplier (0.1-4.0). Only applicable for AiCoustics.</summary>
@@ -37,6 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public NoiseSuppressionEngineConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            AttenuationLimit = 100;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -58,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "attenuation_limit", n => { AttenuationLimit = n.GetIntValue(); } },
                 { "enhancement_level", n => { EnhancementLevel = n.GetDoubleValue(); } },
-                { "family", n => { Family = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_family>(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_mode>(); } },
-                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_model>(); } },
-                { "size", n => { Size = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_size>(); } },
+                { "family", n => { Family = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigFamily>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigMode>(); } },
+                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigModel>(); } },
+                { "size", n => { Size = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigSize>(); } },
                 { "suppression_level", n => { SuppressionLevel = n.GetDoubleValue(); } },
                 { "voice_gain", n => { VoiceGain = n.GetDoubleValue(); } },
             };
@@ -75,10 +76,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("attenuation_limit", AttenuationLimit);
             writer.WriteDoubleValue("enhancement_level", EnhancementLevel);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_family>("family", Family);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_mode>("mode", Mode);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_model>("model", Model);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_size>("size", Size);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigFamily>("family", Family);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigMode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigModel>("model", Model);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigSize>("size", Size);
             writer.WriteDoubleValue("suppression_level", SuppressionLevel);
             writer.WriteDoubleValue("voice_gain", VoiceGain);
             writer.WriteAdditionalData(AdditionalData);

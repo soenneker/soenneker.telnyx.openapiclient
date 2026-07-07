@@ -66,7 +66,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateExternalConnectionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            ExternalSipConnection = global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnectionZoomOnly.Zoom;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

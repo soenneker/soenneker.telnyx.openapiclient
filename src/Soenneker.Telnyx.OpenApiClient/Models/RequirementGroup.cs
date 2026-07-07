@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirement> RegulatoryRequirements { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroupStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "phone_number_type", n => { PhoneNumberType = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirement>(global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirement.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroupStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -128,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("phone_number_type", PhoneNumberType);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UserRequirement>("regulatory_requirements", RegulatoryRequirements);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroupStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

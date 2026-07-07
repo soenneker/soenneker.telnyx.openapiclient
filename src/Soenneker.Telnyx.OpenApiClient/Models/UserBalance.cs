@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Pending { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UserBalanceRecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance"/> and sets the default values.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "credit_limit", n => { CreditLimit = n.GetStringValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "pending", n => { Pending = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserBalanceRecordType>(); } },
             };
         }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("credit_limit", CreditLimit);
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("pending", Pending);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserBalanceRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

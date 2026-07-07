@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The value of the answering machine detection result, if this feature was enabled for the call.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_answered_by? AnsweredBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceAnsweredBy? AnsweredBy { get; set; }
         /// <summary>Caller ID, if present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string DateUpdated { get; set; }
 #endif
         /// <summary>The direction of this call.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_direction? Direction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceDirection? Direction { get; set; }
         /// <summary>The duration of this call, given in seconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StartTime { get; set; }
 #endif
         /// <summary>The status of this call.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceStatus? Status { get; set; }
         /// <summary>The phone number or SIP address that received this call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -166,11 +166,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "account_sid", n => { AccountSid = n.GetStringValue(); } },
-                { "answered_by", n => { AnsweredBy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_answered_by>(); } },
+                { "answered_by", n => { AnsweredBy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceAnsweredBy>(); } },
                 { "caller_name", n => { CallerName = n.GetStringValue(); } },
                 { "date_created", n => { DateCreated = n.GetStringValue(); } },
                 { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_direction>(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceDirection>(); } },
                 { "duration", n => { Duration = n.GetStringValue(); } },
                 { "end_time", n => { EndTime = n.GetStringValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
@@ -179,7 +179,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "price_unit", n => { PriceUnit = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceStatus>(); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "to_formatted", n => { ToFormatted = n.GetStringValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
@@ -193,11 +193,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_sid", AccountSid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_answered_by>("answered_by", AnsweredBy);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceAnsweredBy>("answered_by", AnsweredBy);
             writer.WriteStringValue("caller_name", CallerName);
             writer.WriteStringValue("date_created", DateCreated);
             writer.WriteStringValue("date_updated", DateUpdated);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_direction>("direction", Direction);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceDirection>("direction", Direction);
             writer.WriteStringValue("duration", Duration);
             writer.WriteStringValue("end_time", EndTime);
             writer.WriteStringValue("from", From);
@@ -206,7 +206,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("price_unit", PriceUnit);
             writer.WriteStringValue("sid", Sid);
             writer.WriteStringValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceStatus>("status", Status);
             writer.WriteStringValue("to", To);
             writer.WriteStringValue("to_formatted", ToFormatted);
             writer.WriteStringValue("uri", Uri);

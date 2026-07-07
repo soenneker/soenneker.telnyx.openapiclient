@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string AndroidPushCredentialId { get; set; }
 #endif
         /// <summary>The authentication strategy used by this connection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_authentication? Authentication { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionAuthentication? Authentication { get; set; }
         /// <summary>Specifies if call cost webhooks should be sent for this connection.</summary>
         public bool? CallCostInWebhooks { get; set; }
         /// <summary>The connection_name property</summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Fqdn { get; set; }
 #endif
         /// <summary>The fixed outbound authentication mode used by UAC FQDN records.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_fqdn_outbound_authentication? FqdnOutboundAuthentication { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionFqdnOutboundAuthentication? FqdnOutboundAuthentication { get; set; }
         /// <summary>FQDN records managed automatically by the UAC connection lifecycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -182,7 +182,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings RtcpSettings { get; set; }
 #endif
         /// <summary>This feature enables inbound SIP URI calls to your Credential Auth Connection. If enabled for all (unrestricted) then anyone who calls the SIP URI &lt;your-username&gt;@telnyx.com will be connected to your Connection. You can also choose to allow only calls that are originated on any Connections under your account (internal).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_sip_uri_calling_preference? SipUriCallingPreference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionSipUriCallingPreference? SipUriCallingPreference { get; set; }
         /// <summary>Tags associated with the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -208,7 +208,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UserName { get; set; }
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionWebhookApiVersion? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -233,9 +233,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UacConnection()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
-            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType.RFC2833;
-            WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_webhook_api_version.One;
+            CallCostInWebhooks = false;
+            DefaultOnHoldComfortNoiseEnabled = true;
+            EncodeContactHeaderEnabled = false;
+            OnnetT38PassthroughEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -258,7 +259,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
-                { "authentication", n => { Authentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_authentication>(); } },
+                { "authentication", n => { Authentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionAuthentication>(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
@@ -268,7 +269,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
                 { "external_uac_settings", n => { ExternalUacSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings.CreateFromDiscriminatorValue); } },
                 { "fqdn", n => { Fqdn = n.GetStringValue(); } },
-                { "fqdn_outbound_authentication", n => { FqdnOutboundAuthentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_fqdn_outbound_authentication>(); } },
+                { "fqdn_outbound_authentication", n => { FqdnOutboundAuthentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionFqdnOutboundAuthentication>(); } },
                 { "fqdns", n => { Fqdns = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Fqdn>(global::Soenneker.Telnyx.OpenApiClient.Models.Fqdn.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UacInbound.CreateFromDiscriminatorValue); } },
@@ -284,11 +285,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "registration_status", n => { RegistrationStatus = n.GetStringValue(); } },
                 { "registration_status_updated_at", n => { RegistrationStatusUpdatedAt = n.GetStringValue(); } },
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
-                { "sip_uri_calling_preference", n => { SipUriCallingPreference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_sip_uri_calling_preference>(); } },
+                { "sip_uri_calling_preference", n => { SipUriCallingPreference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionSipUriCallingPreference>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_webhook_api_version>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionWebhookApiVersion>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -304,7 +305,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_authentication>("authentication", Authentication);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionAuthentication>("authentication", Authentication);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteStringValue("created_at", CreatedAt);
@@ -314,7 +315,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings>("external_uac_settings", ExternalUacSettings);
             writer.WriteStringValue("fqdn", Fqdn);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_fqdn_outbound_authentication>("fqdn_outbound_authentication", FqdnOutboundAuthentication);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionFqdnOutboundAuthentication>("fqdn_outbound_authentication", FqdnOutboundAuthentication);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Fqdn>("fqdns", Fqdns);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInbound>("inbound", Inbound);
@@ -330,11 +331,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("registration_status", RegistrationStatus);
             writer.WriteStringValue("registration_status_updated_at", RegistrationStatusUpdatedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_sip_uri_calling_preference>("sip_uri_calling_preference", SipUriCallingPreference);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionSipUriCallingPreference>("sip_uri_calling_preference", SipUriCallingPreference);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_name", UserName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnection_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionWebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

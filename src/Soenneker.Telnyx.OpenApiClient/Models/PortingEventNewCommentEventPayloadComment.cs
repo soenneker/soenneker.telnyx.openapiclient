@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the user that create the comment.</summary>
         public Guid? UserId { get; set; }
         /// <summary>Identifies the type of the user that created the comment.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment_user_type? UserType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadCommentUserType? UserType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "inserted_at", n => { InsertedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
-                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment_user_type>(); } },
+                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadCommentUserType>(); } },
             };
         }
         /// <summary>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("inserted_at", InsertedAt);
             writer.WriteGuidValue("user_id", UserId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment_user_type>("user_type", UserType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadCommentUserType>("user_type", UserType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

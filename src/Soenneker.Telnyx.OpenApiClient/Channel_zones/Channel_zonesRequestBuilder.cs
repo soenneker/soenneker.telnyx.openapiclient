@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Channel_zones.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones
     public partial class Channel_zonesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.channel_zones.item collection</summary>
-        /// <param name="position">Channel zone identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannelZoneItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannelZoneItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("channel_zone_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("channelZoneId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannelZoneItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -48,20 +49,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones
         /// <summary>
         /// Returns the non-US voice channels for your account. voice channels allow you to use Channel Billing for calls to your Telnyx phone numbers. Please check the &lt;a href=&quot;https://support.telnyx.com/en/articles/8428806-global-channel-billing&quot;&gt;Telnyx Support Articles&lt;/a&gt; section for full information and examples of how to utilize Channel Billing.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the non-US voice channels for your account. voice channels allow you to use Channel Billing for calls to your Telnyx phone numbers. Please check the &lt;a href=&quot;https://support.telnyx.com/en/articles/8428806-global-channel-billing&quot;&gt;Telnyx Support Articles&lt;/a&gt; section for full information and examples of how to utilize Channel Billing.

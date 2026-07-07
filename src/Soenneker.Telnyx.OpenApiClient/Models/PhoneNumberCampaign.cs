@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The assignment status of the number.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign_assignmentStatus? AssignmentStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignAssignmentStatus? AssignmentStatus { get; set; }
         /// <summary>Brand ID. Empty if the number is associated to a shared campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignmentStatus", n => { AssignmentStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign_assignmentStatus>(); } },
+                { "assignmentStatus", n => { AssignmentStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignAssignmentStatus>(); } },
                 { "brandId", n => { BrandId = n.GetStringValue(); } },
                 { "campaignId", n => { CampaignId = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
@@ -132,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign_assignmentStatus>("assignmentStatus", AssignmentStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignAssignmentStatus>("assignmentStatus", AssignmentStatus);
             writer.WriteStringValue("brandId", BrandId);
             writer.WriteStringValue("campaignId", CampaignId);
             writer.WriteStringValue("createdAt", CreatedAt);

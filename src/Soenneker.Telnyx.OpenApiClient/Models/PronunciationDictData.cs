@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Identifies the resource type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictData_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictDataRecordType? RecordType { get; set; }
         /// <summary>ISO 8601 timestamp with millisecond precision.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Auto-incrementing version number. Increases by 1 on each update. Used for optimistic concurrency control and cache invalidation.</summary>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictItem>(global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictData_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictDataRecordType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "version", n => { Version = n.GetIntValue(); } },
             };
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictItem>("items", Items);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictData_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictDataRecordType>("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteIntValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

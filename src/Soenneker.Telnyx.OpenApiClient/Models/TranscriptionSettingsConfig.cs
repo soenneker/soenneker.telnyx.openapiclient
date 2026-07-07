@@ -50,6 +50,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TranscriptionSettingsConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            EagerEotThreshold = 0.8;
+            EnableEndpointDetection = false;
+            EndOfTurnConfidenceThreshold = 0.4;
+            EotThreshold = 0.8;
+            EotTimeoutMs = 5000;
+            InterimResults = false;
+            MaxTurnSilence = 1280;
+            MinTurnSilence = 400;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

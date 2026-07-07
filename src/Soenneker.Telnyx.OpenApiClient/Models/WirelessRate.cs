@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Amount { get; set; }
 #endif
         /// <summary>Currency of the rate and cost</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate_currency? Currency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRateCurrency? Currency { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
-                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate_currency>(); } },
+                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRateCurrency>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate_currency>("currency", Currency);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRateCurrency>("currency", Currency);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

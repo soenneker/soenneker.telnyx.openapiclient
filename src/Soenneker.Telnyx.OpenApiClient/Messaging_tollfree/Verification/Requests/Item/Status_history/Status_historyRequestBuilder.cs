@@ -90,8 +90,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Status_historyRequestBuilderGetQueryParameters 
         {
+            /// <summary>Page number to retrieve (1-based).</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
+            /// <summary>Number of items to return per page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

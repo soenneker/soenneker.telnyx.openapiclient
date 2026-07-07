@@ -15,11 +15,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The inbound_call_recording_channels property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording_inbound_call_recording_channels? InboundCallRecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecordingInboundCallRecordingChannels? InboundCallRecordingChannels { get; set; }
         /// <summary>The inbound_call_recording_enabled property</summary>
         public bool? InboundCallRecordingEnabled { get; set; }
         /// <summary>The inbound_call_recording_format property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording_inbound_call_recording_format? InboundCallRecordingFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecordingInboundCallRecordingFormat? InboundCallRecordingFormat { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording"/> and sets the default values.
         /// </summary>
@@ -45,9 +45,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "inbound_call_recording_channels", n => { InboundCallRecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording_inbound_call_recording_channels>(); } },
+                { "inbound_call_recording_channels", n => { InboundCallRecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecordingInboundCallRecordingChannels>(); } },
                 { "inbound_call_recording_enabled", n => { InboundCallRecordingEnabled = n.GetBoolValue(); } },
-                { "inbound_call_recording_format", n => { InboundCallRecordingFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording_inbound_call_recording_format>(); } },
+                { "inbound_call_recording_format", n => { InboundCallRecordingFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecordingInboundCallRecordingFormat>(); } },
             };
         }
         /// <summary>
@@ -57,9 +57,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording_inbound_call_recording_channels>("inbound_call_recording_channels", InboundCallRecordingChannels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecordingInboundCallRecordingChannels>("inbound_call_recording_channels", InboundCallRecordingChannels);
             writer.WriteBoolValue("inbound_call_recording_enabled", InboundCallRecordingEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording_inbound_call_recording_format>("inbound_call_recording_format", InboundCallRecordingFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecordingInboundCallRecordingFormat>("inbound_call_recording_format", InboundCallRecordingFormat);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

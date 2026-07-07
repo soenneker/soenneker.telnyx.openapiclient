@@ -41,9 +41,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordingId { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscriptionRecordType? RecordType { get; set; }
         /// <summary>The status of the recording transcription. Only `completed` has transcription text available.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscriptionStatus? Status { get; set; }
         /// <summary>The recording&apos;s transcribed text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,9 +88,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "duration_millis", n => { DurationMillis = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscriptionRecordType>(); } },
                 { "recording_id", n => { RecordingId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscriptionStatus>(); } },
                 { "transcription_text", n => { TranscriptionText = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
@@ -106,8 +106,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("duration_millis", DurationMillis);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("recording_id", RecordingId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_record_type>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscriptionRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscriptionStatus>("status", Status);
             writer.WriteStringValue("transcription_text", TranscriptionText);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

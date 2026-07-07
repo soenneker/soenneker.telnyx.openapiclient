@@ -25,18 +25,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The buttons property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_buttons>? Buttons { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem>? Buttons { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_buttons> Buttons { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem> Buttons { get; set; }
 #endif
         /// <summary>The cards property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_cards>? Cards { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem>? Cards { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_cards> Cards { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem> Cards { get; set; }
 #endif
         /// <summary>The catalog_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,10 +81,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The sections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_sections>? Sections { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem>? Sections { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_sections> Sections { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem> Sections { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction"/> and sets the default values.
@@ -112,14 +112,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "button", n => { Button = n.GetStringValue(); } },
-                { "buttons", n => { Buttons = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_buttons>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_buttons.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "cards", n => { Cards = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_cards>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_cards.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "buttons", n => { Buttons = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "cards", n => { Cards = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "catalog_id", n => { CatalogId = n.GetStringValue(); } },
                 { "mode", n => { Mode = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters.CreateFromDiscriminatorValue); } },
                 { "product_retailer_id", n => { ProductRetailerId = n.GetStringValue(); } },
-                { "sections", n => { Sections = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_sections>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_sections.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sections", n => { Sections = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -130,14 +130,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("button", Button);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_buttons>("buttons", Buttons);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_cards>("cards", Cards);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem>("buttons", Buttons);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem>("cards", Cards);
             writer.WriteStringValue("catalog_id", CatalogId);
             writer.WriteStringValue("mode", Mode);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters>("parameters", Parameters);
             writer.WriteStringValue("product_retailer_id", ProductRetailerId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction_sections>("sections", Sections);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem>("sections", Sections);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

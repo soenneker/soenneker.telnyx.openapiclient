@@ -71,9 +71,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StartTime { get; set; }
 #endif
         /// <summary>The status of the siprec session.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBodyStatus? Status { get; set; }
         /// <summary>The track used for the siprec session.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_track? Track { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBodyTrack? Track { get; set; }
         /// <summary>The URI of the siprec session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,8 +114,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_status>(); } },
-                { "track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_track>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBodyStatus>(); } },
+                { "track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBodyTrack>(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -133,8 +133,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("error_code", ErrorCode);
             writer.WriteStringValue("sid", Sid);
             writer.WriteStringValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_track>("track", Track);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBodyStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBodyTrack>("track", Track);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

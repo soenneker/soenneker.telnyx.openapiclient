@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 timestamp indicating when the first request attempt was initiated.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>&quot;Delivery status: &apos;delivered&apos; when successfuly delivered or &apos;failed&apos; if all attempts have failed.&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDelivery_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryStatus? Status { get; set; }
         /// <summary>Uniquely identifies the user that owns the webhook_delivery record.</summary>
         public Guid? UserId { get; set; }
         /// <summary>Original webhook JSON data. Payload fields vary according to event type.</summary>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDelivery_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryStatus>(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
                 { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook.CreateFromDiscriminatorValue); } },
             };
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDelivery_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryStatus>("status", Status);
             writer.WriteGuidValue("user_id", UserId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook>("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);

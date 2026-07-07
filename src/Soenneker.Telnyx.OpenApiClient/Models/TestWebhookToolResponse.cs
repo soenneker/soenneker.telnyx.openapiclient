@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponse_request? Request { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponseRequestProperty? Request { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponse_request Request { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponseRequestProperty Request { get; set; }
 #endif
         /// <summary>The response property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
-                { "request", n => { Request = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponse_request>(global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponse_request.CreateFromDiscriminatorValue); } },
+                { "request", n => { Request = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponseRequestProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponseRequestProperty.CreateFromDiscriminatorValue); } },
                 { "response", n => { Response = n.GetStringValue(); } },
                 { "status_code", n => { StatusCode = n.GetIntValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content_type", ContentType);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponse_request>("request", Request);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolResponseRequestProperty>("request", Request);
             writer.WriteStringValue("response", Response);
             writer.WriteIntValue("status_code", StatusCode);
             writer.WriteBoolValue("success", Success);

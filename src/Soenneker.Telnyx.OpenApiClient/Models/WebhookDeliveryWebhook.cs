@@ -30,13 +30,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook_payload? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhookPayloadProperty? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook_payload Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhookPayloadProperty Payload { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhookRecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook"/> and sets the default values.
         /// </summary>
@@ -65,8 +65,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "event_type", n => { EventType = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "occurred_at", n => { OccurredAt = n.GetDateTimeOffsetValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook_payload.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook_record_type>(); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhookPayloadProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhookPayloadProperty.CreateFromDiscriminatorValue); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhookRecordType>(); } },
             };
         }
         /// <summary>
@@ -79,8 +79,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("occurred_at", OccurredAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook_payload>("payload", Payload);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhook_record_type>("record_type", RecordType);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhookPayloadProperty>("payload", Payload);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDeliveryWebhookRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

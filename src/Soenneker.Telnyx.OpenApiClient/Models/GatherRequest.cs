@@ -70,7 +70,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public GatherRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            InitialTimeoutMillis = 5000;
+            InterDigitTimeoutMillis = 5000;
+            MaximumDigits = 128;
+            MinimumDigits = 1;
             TerminatingDigit = "#";
+            TimeoutMillis = 60000;
             ValidDigits = "0123456789#*";
         }
         /// <summary>

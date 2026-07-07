@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.CampaignBuilder.Brand
     public partial class BrandRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.OneZerodlc.campaignBuilder.brand.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the brand.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.CampaignBuilder.Brand.Item.WithBrandItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.CampaignBuilder.Brand.Item.WithBrandItemRequestBuilder this[string position]
         {

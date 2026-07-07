@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>This setting allows you to set the format with which the caller&apos;s number (ANI) is sent for inbound phone calls.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_ani_number_format? AniNumberFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestAniNumberFormat? AniNumberFormat { get; set; }
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
         public int? ChannelLimit { get; set; }
         /// <summary>&quot;Defines the list of codecs that Telnyx will send for inbound calls to a specific number on your portal account, in priority order. This only works when the Connection the number is assigned to uses Media Handling mode: default. OPUS and H.264 codecs are available only when using TCP or TLS transport for SIP.&quot;</summary>
@@ -28,9 +28,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Codecs { get; set; }
 #endif
         /// <summary>Default routing method to be used when a number is associated with the connection. Must be one of the routing method types or left blank, other values are not allowed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_default_routing_method? DefaultRoutingMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDefaultRoutingMethod? DefaultRoutingMethod { get; set; }
         /// <summary>The dnis_number_format property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_dnis_number_format? DnisNumberFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDnisNumberFormat? DnisNumberFormat { get; set; }
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
         public bool? GenerateRingbackTone { get; set; }
         /// <summary>When set, inbound phone calls will receive ISUP parameters via SIP headers. (Only when available and only when using TCP or TLS transport.)</summary>
@@ -40,9 +40,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>When enabled the SIP Connection will receive the Identity header with Shaken/Stir data in the SIP INVITE message of inbound calls, even when using UDP transport.</summary>
         public bool? ShakenStirEnabled { get; set; }
         /// <summary>When enabled, allows multiple devices to ring simultaneously on incoming calls.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_simultaneous_ringing? SimultaneousRinging { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSimultaneousRinging? SimultaneousRinging { get; set; }
         /// <summary>Defaults to true.</summary>
         public bool? SipCompactHeadersEnabled { get; set; }
+        /// <summary>Selects which `sip_region` to receive inbound calls from. If null, the default region (US) will be used.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSipRegion? SipRegion { get; set; }
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
         public int? Timeout1xxSecs { get; set; }
         /// <summary>&quot;Time(sec) before aborting if call is unanswered (min: 1, max: 600).&quot;</summary>
@@ -53,9 +55,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UacInboundRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AniNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_ani_number_format.E164National;
-            DnisNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_dnis_number_format.E164;
-            SimultaneousRinging = global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_simultaneous_ringing.Disabled;
+            GenerateRingbackTone = false;
+            IsupHeadersEnabled = false;
+            PrackEnabled = false;
+            ShakenStirEnabled = false;
+            SipCompactHeadersEnabled = true;
+            Timeout1xxSecs = 3;
+            Timeout2xxSecs = 90;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -75,17 +81,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ani_number_format", n => { AniNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_ani_number_format>(); } },
+                { "ani_number_format", n => { AniNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestAniNumberFormat>(); } },
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "codecs", n => { Codecs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "default_routing_method", n => { DefaultRoutingMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_default_routing_method>(); } },
-                { "dnis_number_format", n => { DnisNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_dnis_number_format>(); } },
+                { "default_routing_method", n => { DefaultRoutingMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDefaultRoutingMethod>(); } },
+                { "dnis_number_format", n => { DnisNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDnisNumberFormat>(); } },
                 { "generate_ringback_tone", n => { GenerateRingbackTone = n.GetBoolValue(); } },
                 { "isup_headers_enabled", n => { IsupHeadersEnabled = n.GetBoolValue(); } },
                 { "prack_enabled", n => { PrackEnabled = n.GetBoolValue(); } },
                 { "shaken_stir_enabled", n => { ShakenStirEnabled = n.GetBoolValue(); } },
-                { "simultaneous_ringing", n => { SimultaneousRinging = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_simultaneous_ringing>(); } },
+                { "simultaneous_ringing", n => { SimultaneousRinging = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSimultaneousRinging>(); } },
                 { "sip_compact_headers_enabled", n => { SipCompactHeadersEnabled = n.GetBoolValue(); } },
+                { "sip_region", n => { SipRegion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSipRegion>(); } },
                 { "timeout_1xx_secs", n => { Timeout1xxSecs = n.GetIntValue(); } },
                 { "timeout_2xx_secs", n => { Timeout2xxSecs = n.GetIntValue(); } },
             };
@@ -97,17 +104,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_ani_number_format>("ani_number_format", AniNumberFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestAniNumberFormat>("ani_number_format", AniNumberFormat);
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteCollectionOfPrimitiveValues<string>("codecs", Codecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_default_routing_method>("default_routing_method", DefaultRoutingMethod);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_dnis_number_format>("dnis_number_format", DnisNumberFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDefaultRoutingMethod>("default_routing_method", DefaultRoutingMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDnisNumberFormat>("dnis_number_format", DnisNumberFormat);
             writer.WriteBoolValue("generate_ringback_tone", GenerateRingbackTone);
             writer.WriteBoolValue("isup_headers_enabled", IsupHeadersEnabled);
             writer.WriteBoolValue("prack_enabled", PrackEnabled);
             writer.WriteBoolValue("shaken_stir_enabled", ShakenStirEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest_simultaneous_ringing>("simultaneous_ringing", SimultaneousRinging);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSimultaneousRinging>("simultaneous_ringing", SimultaneousRinging);
             writer.WriteBoolValue("sip_compact_headers_enabled", SipCompactHeadersEnabled);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSipRegion>("sip_region", SipRegion);
             writer.WriteIntValue("timeout_1xx_secs", Timeout1xxSecs);
             writer.WriteIntValue("timeout_2xx_secs", Timeout2xxSecs);
             writer.WriteAdditionalData(AdditionalData);

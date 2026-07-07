@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage SendMessage { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "send_message", n => { SendMessage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage>("send_message", SendMessage);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

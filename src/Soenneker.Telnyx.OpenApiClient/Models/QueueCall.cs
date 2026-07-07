@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Current position of the call in the queue</summary>
         public int? QueuePosition { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.QueueCallRecordType? RecordType { get; set; }
         /// <summary>Destination number or SIP URI of the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "is_alive", n => { IsAlive = n.GetBoolValue(); } },
                 { "queue_id", n => { QueueId = n.GetStringValue(); } },
                 { "queue_position", n => { QueuePosition = n.GetIntValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueCallRecordType>(); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "wait_time_secs", n => { WaitTimeSecs = n.GetIntValue(); } },
             };
@@ -141,7 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("is_alive", IsAlive);
             writer.WriteStringValue("queue_id", QueueId);
             writer.WriteIntValue("queue_position", QueuePosition);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueCallRecordType>("record_type", RecordType);
             writer.WriteStringValue("to", To);
             writer.WriteIntValue("wait_time_secs", WaitTimeSecs);
             writer.WriteAdditionalData(AdditionalData);

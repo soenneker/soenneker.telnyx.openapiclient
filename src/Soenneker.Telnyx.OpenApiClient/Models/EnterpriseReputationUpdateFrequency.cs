@@ -9,20 +9,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class EnterpriseReputationUpdateFrequency : IAdditionalDataHolder, IParsable
+    public partial class EnterpriseReputationUpdateFrequency : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>New frequency for refreshing reputation data</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationUpdateFrequency_check_frequency? CheckFrequency { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationUpdateFrequency"/> and sets the default values.
-        /// </summary>
-        public EnterpriseReputationUpdateFrequency()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>How often Telnyx refreshes the stored reputation data for this enterprise&apos;s registered numbers.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency? CheckFrequency { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "check_frequency", n => { CheckFrequency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationUpdateFrequency_check_frequency>(); } },
+                { "check_frequency", n => { CheckFrequency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency>(); } },
             };
         }
         /// <summary>
@@ -51,8 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationUpdateFrequency_check_frequency>("check_frequency", CheckFrequency);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency>("check_frequency", CheckFrequency);
         }
     }
 }

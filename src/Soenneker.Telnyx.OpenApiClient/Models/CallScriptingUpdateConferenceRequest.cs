@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceRequest_AnnounceMethod? AnnounceMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceRequestAnnounceMethod? AnnounceMethod { get; set; }
         /// <summary>The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceRequest_AnnounceMethod>(); } },
+                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceRequestAnnounceMethod>(); } },
                 { "AnnounceUrl", n => { AnnounceUrl = n.GetStringValue(); } },
                 { "Status", n => { Status = n.GetStringValue(); } },
             };
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceRequest_AnnounceMethod>("AnnounceMethod", AnnounceMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceRequestAnnounceMethod>("AnnounceMethod", AnnounceMethod);
             writer.WriteStringValue("AnnounceUrl", AnnounceUrl);
             writer.WriteStringValue("Status", Status);
             writer.WriteAdditionalData(AdditionalData);

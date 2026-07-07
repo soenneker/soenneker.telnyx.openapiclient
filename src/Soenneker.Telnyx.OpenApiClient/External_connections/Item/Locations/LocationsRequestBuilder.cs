@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.locations.item collection</summary>
         /// <param name="position">The ID of the location to update</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocation_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocationItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocationItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("location_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("locationId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

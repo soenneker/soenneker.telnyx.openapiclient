@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
     public partial class RequestsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_tollfree.verification.requests.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder this[Guid position]
         {
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RequestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_tollfree/verification/requests?page={page}&page_size={page_size}{&business_name*,date_end*,date_start*,phone_number*,status*}", pathParameters)
+        public RequestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_tollfree/verification/requests{?business_name*,date_end*,date_start*,phone_number*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RequestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_tollfree/verification/requests?page={page}&page_size={page_size}{&business_name*,date_end*,date_start*,phone_number*,status*}", rawUrl)
+        public RequestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_tollfree/verification/requests{?business_name*,date_end*,date_start*,phone_number*,status*}", rawUrl)
         {
         }
         /// <summary>
@@ -79,11 +79,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationErrors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/messaging_tollfree/verification/requests?page={page}&page_size={page_size}{&business_name*,date_end*,date_start*,phone_number*,status*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -121,15 +121,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/messaging_tollfree/verification/requests", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -160,15 +160,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
             [QueryParameter("business_name")]
             public string BusinessName { get; set; }
 #endif
+            /// <summary>End of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("date_end")]
             public DateTimeOffset? DateEnd { get; set; }
+            /// <summary>Start of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("date_start")]
             public DateTimeOffset? DateStart { get; set; }
+            /// <summary>Page number to retrieve (1-based).</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
             /// <summary>        Request this many records per page        This value is automatically clamped if the provided value is too large.        </summary>
             [QueryParameter("page_size")]
             public int? PageSize { get; set; }
+            /// <summary>Filter results by phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("phone_number")]
@@ -178,8 +182,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
             [QueryParameter("phone_number")]
             public string PhoneNumber { get; set; }
 #endif
+            /// <summary>Filter results by status.</summary>
             [QueryParameter("status")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus? Status { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationStatus? Status { get; set; }
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel
         /// <summary>
         /// &quot;Cancel the outbound fax that is in one of the following states: `queued`, `media.processed`, `originated` or `sending` &quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SuccessfulResponseUponAcceptingCancelFaxCommand"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ProgrammableFaxErrors">When receiving a 404 status code</exception>
@@ -44,11 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ProgrammableFaxErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SuccessfulResponseUponAcceptingCancelFaxCommand?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SuccessfulResponseUponAcceptingCancelFaxCommand> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ProgrammableFaxErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.ProgrammableFaxErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SuccessfulResponseUponAcceptingCancelFaxCommand>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SuccessfulResponseUponAcceptingCancelFaxCommand.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Cancel the outbound fax that is in one of the following states: `queued`, `media.processed`, `originated` or `sending` &quot;

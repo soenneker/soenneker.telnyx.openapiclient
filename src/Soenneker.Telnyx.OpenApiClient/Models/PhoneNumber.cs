@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumberProp { get; set; }
 #endif
         /// <summary>Phone number type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber_phone_number_type? PhoneNumberType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberPhoneNumberType? PhoneNumberType { get; private set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,9 +63,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>True if all requirements are met for a phone number, false otherwise.</summary>
         public bool? RequirementsMet { get; private set; }
         /// <summary>Status of document requirements (if applicable)</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber_requirements_status? RequirementsStatus { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberRequirementsStatus? RequirementsStatus { get; private set; }
         /// <summary>The status of the phone number in the order.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatusEnum? Status { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber"/> and sets the default values.
         /// </summary>
@@ -96,12 +96,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "country_iso_alpha2", n => { CountryIsoAlpha2 = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumberProp = n.GetStringValue(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberPhoneNumberType>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValue>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirementWithValue.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
-                { "requirements_status", n => { RequirementsStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber_requirements_status>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber_status>(); } },
+                { "requirements_status", n => { RequirementsStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberRequirementsStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatusEnum>(); } },
             };
         }
         /// <summary>

@@ -18,13 +18,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>&quot;Attenuation limit for noise suppression. Range: 0-100.&quot;</summary>
         public int? AttenuationLimit { get; set; }
         /// <summary>Mode for noise suppression configuration.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig_mode? Mode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigMode? Mode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig"/> and sets the default values.
         /// </summary>
         public TelephonySettingsNoiseSuppressionConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            AttenuationLimit = 100;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attenuation_limit", n => { AttenuationLimit = n.GetIntValue(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig_mode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigMode>(); } },
             };
         }
         /// <summary>
@@ -56,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("attenuation_limit", AttenuationLimit);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig_mode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigMode>("mode", Mode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

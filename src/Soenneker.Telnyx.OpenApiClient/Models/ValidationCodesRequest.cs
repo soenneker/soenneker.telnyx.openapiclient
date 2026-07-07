@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The verification_codes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequest_verification_codes>? VerificationCodes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem>? VerificationCodes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequest_verification_codes> VerificationCodes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem> VerificationCodes { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "verification_codes", n => { VerificationCodes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequest_verification_codes>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequest_verification_codes.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "verification_codes", n => { VerificationCodes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequest_verification_codes>("verification_codes", VerificationCodes);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem>("verification_codes", VerificationCodes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

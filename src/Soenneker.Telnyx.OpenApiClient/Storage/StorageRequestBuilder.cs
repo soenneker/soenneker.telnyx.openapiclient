@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Storage.Buckets;
+using Soenneker.Telnyx.OpenApiClient.Storage.Kvs;
 using Soenneker.Telnyx.OpenApiClient.Storage.Migration_source_coverage;
 using Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources;
 using Soenneker.Telnyx.OpenApiClient.Storage.Migrations;
@@ -22,6 +23,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage
         public global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.BucketsRequestBuilder Buckets
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.BucketsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The kvs property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Kvs.KvsRequestBuilder Kvs
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Kvs.KvsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The migration_source_coverage property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Storage.Migration_source_coverage.Migration_source_coverageRequestBuilder Migration_source_coverage

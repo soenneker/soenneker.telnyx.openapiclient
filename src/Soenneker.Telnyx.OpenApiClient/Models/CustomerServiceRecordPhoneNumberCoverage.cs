@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Additional data required to perform CSR for the phone number. Only returned if `has_csr_coverage` is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordPhoneNumberCoverage_additional_data_required?>? AdditionalDataRequired { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordPhoneNumberCoverageAdditionalDataRequiredItem?>? AdditionalDataRequired { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordPhoneNumberCoverage_additional_data_required?> AdditionalDataRequired { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordPhoneNumberCoverageAdditionalDataRequiredItem?> AdditionalDataRequired { get; set; }
 #endif
         /// <summary>Indicates whether the phone number is covered or not.</summary>
         public bool? HasCsrCoverage { get; set; }
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "additional_data_required", n => { AdditionalDataRequired = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordPhoneNumberCoverage_additional_data_required>()?.AsList(); } },
+                { "additional_data_required", n => { AdditionalDataRequired = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordPhoneNumberCoverageAdditionalDataRequiredItem>()?.AsList(); } },
                 { "has_csr_coverage", n => { HasCsrCoverage = n.GetBoolValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordPhoneNumberCoverage_additional_data_required>("additional_data_required", AdditionalDataRequired);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordPhoneNumberCoverageAdditionalDataRequiredItem>("additional_data_required", AdditionalDataRequired);
             writer.WriteBoolValue("has_csr_coverage", HasCsrCoverage);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteStringValue("reason", Reason);

@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>BETA - Enable the capture and storage of RTCP messages to create QoS reports on the Telnyx Mission Control Portal.</summary>
         public bool? CaptureEnabled { get; set; }
         /// <summary>RTCP port by default is rtp+1, it can also be set to rtcp-mux</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings_port? Port { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort? Port { get; set; }
         /// <summary>RTCP reports are sent to customers based on the frequency set. Frequency is in seconds and it can be set to values from 5 to 3000 seconds.</summary>
         public int? ReportFrequencySecs { get; set; }
         /// <summary>
@@ -26,7 +26,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ConnectionRtcpSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            Port = global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings_port.Rtp_plus_1;
+            CaptureEnabled = false;
+            ReportFrequencySecs = 5;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "capture_enabled", n => { CaptureEnabled = n.GetBoolValue(); } },
-                { "port", n => { Port = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings_port>(); } },
+                { "port", n => { Port = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort>(); } },
                 { "report_frequency_secs", n => { ReportFrequencySecs = n.GetIntValue(); } },
             };
         }
@@ -59,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("capture_enabled", CaptureEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings_port>("port", Port);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort>("port", Port);
             writer.WriteIntValue("report_frequency_secs", ReportFrequencySecs);
             writer.WriteAdditionalData(AdditionalData);
         }

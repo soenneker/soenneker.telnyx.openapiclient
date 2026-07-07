@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants;
 using Soenneker.Telnyx.OpenApiClient.Ai.Audio;
 using Soenneker.Telnyx.OpenApiClient.Ai.Clusters;
+using Soenneker.Telnyx.OpenApiClient.Ai.Conversation_histories;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings;
 using Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning;
@@ -40,6 +41,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Clusters.ClustersRequestBuilder Clusters
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Clusters.ClustersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The conversation_histories property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversation_histories.Conversation_historiesRequestBuilder Conversation_histories
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversation_histories.Conversation_historiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The conversations property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.ConversationsRequestBuilder Conversations

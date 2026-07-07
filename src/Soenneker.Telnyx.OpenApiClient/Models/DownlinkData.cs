@@ -17,14 +17,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Downlink data</summary>
         public double? Amount { get; set; }
         /// <summary>Transmission unit</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData_unit? Unit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkDataUnit? Unit { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData"/> and sets the default values.
         /// </summary>
         public DownlinkData()
         {
             AdditionalData = new Dictionary<string, object>();
-            Unit = global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData_unit.MB;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetDoubleValue(); } },
-                { "unit", n => { Unit = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData_unit>(); } },
+                { "unit", n => { Unit = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkDataUnit>(); } },
             };
         }
         /// <summary>
@@ -56,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("amount", Amount);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData_unit>("unit", Unit);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkDataUnit>("unit", Unit);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

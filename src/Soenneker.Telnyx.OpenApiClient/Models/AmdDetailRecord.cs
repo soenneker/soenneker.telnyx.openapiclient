@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Currency { get; set; }
 #endif
         /// <summary>Feature name</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord_feature? Feature { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecordFeature? Feature { get; set; }
         /// <summary>Feature invocation id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -158,7 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "cost", n => { Cost = n.GetStringValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
-                { "feature", n => { Feature = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord_feature>(); } },
+                { "feature", n => { Feature = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecordFeature>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "invoked_at", n => { InvokedAt = n.GetDateTimeOffsetValue(); } },
                 { "is_telnyx_billable", n => { IsTelnyxBillable = n.GetBoolValue(); } },
@@ -183,7 +183,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteStringValue("cost", Cost);
             writer.WriteStringValue("currency", Currency);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord_feature>("feature", Feature);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecordFeature>("feature", Feature);
             writer.WriteStringValue("id", Id);
             writer.WriteDateTimeOffsetValue("invoked_at", InvokedAt);
             writer.WriteBoolValue("is_telnyx_billable", IsTelnyxBillable);

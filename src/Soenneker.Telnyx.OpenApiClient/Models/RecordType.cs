@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "custom_storage_credentials")]
         #pragma warning disable CS1591
-        Custom_storage_credentials,
+        CustomStorageCredentials,
         #pragma warning restore CS1591
     }
 }

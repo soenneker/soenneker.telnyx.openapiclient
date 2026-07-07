@@ -15,14 +15,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The category property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_category? Category { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataCategory? Category { get; set; }
         /// <summary>Template components (header, body, footer, buttons) as submitted, including example values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_components>? Components { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataComponentsItemProperty>? Components { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_components> Components { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataComponentsItemProperty> Components { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -117,8 +117,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "category", n => { Category = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_category>(); } },
-                { "components", n => { Components = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_components>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_components.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "category", n => { Category = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataCategory>(); } },
+                { "components", n => { Components = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataComponentsItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataComponentsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
@@ -138,8 +138,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_category>("category", Category);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_components>("components", Components);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataCategory>("category", Category);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataComponentsItemProperty>("components", Components);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("language", Language);

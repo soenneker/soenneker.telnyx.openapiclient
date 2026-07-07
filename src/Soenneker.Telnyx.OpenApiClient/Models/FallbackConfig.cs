@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The external_llm property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLM? ExternalLlm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm? ExternalLlm { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLM ExternalLlm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm ExternalLlm { get; set; }
 #endif
         /// <summary>Integration secret identifier for the fallback model API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "external_llm", n => { ExternalLlm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLM>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLM.CreateFromDiscriminatorValue); } },
+                { "external_llm", n => { ExternalLlm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm.CreateFromDiscriminatorValue); } },
                 { "llm_api_key_ref", n => { LlmApiKeyRef = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLM>("external_llm", ExternalLlm);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm>("external_llm", ExternalLlm);
             writer.WriteStringValue("llm_api_key_ref", LlmApiKeyRef);
             writer.WriteStringValue("model", Model);
             writer.WriteAdditionalData(AdditionalData);

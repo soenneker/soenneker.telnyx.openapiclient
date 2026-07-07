@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams BookAppointment { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "book_appointment", n => { BookAppointment = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams>("book_appointment", BookAppointment);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

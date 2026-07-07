@@ -102,10 +102,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Mapping of token kind to price, as strings to preserve precision. Typical keys are `prompt`, `cached_prompt`, and `completion`. When pricing is available the block also includes `currency` (ISO 4217 code matching the account&apos;s configured billing currency) and `unit` (the denomination the prices are quoted in, currently always `1M_tokens` for token-priced models).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing? Pricing { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty? Pricing { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing Pricing { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty Pricing { get; set; }
 #endif
         /// <summary>Whether Telnyx currently recommends this model as the LLM powering a Telnyx AI Assistant.</summary>
         public bool? RecommendedForAssistants { get; set; }
@@ -126,14 +126,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Task { get; set; }
 #endif
         /// <summary>Billing tier the model belongs to. Used together with `pricing` to determine cost per 1M tokens.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_tier? Tier { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataTier? Tier { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata"/> and sets the default values.
         /// </summary>
         public ModelMetadata()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsFineTunable = false;
+            IsVisionSupported = false;
             Object = "model";
+            RecommendedForAssistants = false;
             Task = "text-generation";
         }
         /// <summary>
@@ -169,11 +172,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
                 { "parameters", n => { Parameters = n.GetIntValue(); } },
                 { "parameters_str", n => { ParametersStr = n.GetStringValue(); } },
-                { "pricing", n => { Pricing = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing>(global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing.CreateFromDiscriminatorValue); } },
+                { "pricing", n => { Pricing = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty.CreateFromDiscriminatorValue); } },
                 { "recommended_for_assistants", n => { RecommendedForAssistants = n.GetBoolValue(); } },
                 { "regions", n => { Regions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "task", n => { Task = n.GetStringValue(); } },
-                { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_tier>(); } },
+                { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataTier>(); } },
             };
         }
         /// <summary>
@@ -198,11 +201,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("owned_by", OwnedBy);
             writer.WriteIntValue("parameters", Parameters);
             writer.WriteStringValue("parameters_str", ParametersStr);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing>("pricing", Pricing);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty>("pricing", Pricing);
             writer.WriteBoolValue("recommended_for_assistants", RecommendedForAssistants);
             writer.WriteCollectionOfPrimitiveValues<string>("regions", Regions);
             writer.WriteStringValue("task", Task);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_tier>("tier", Tier);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataTier>("tier", Tier);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

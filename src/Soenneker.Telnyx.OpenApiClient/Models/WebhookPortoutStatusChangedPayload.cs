@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Spid { get; set; }
 #endif
         /// <summary>The new status of the port out.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayloadStatusEnum? Status { get; set; }
         /// <summary>The name of the port-out&apos;s end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "rejection_reason", n => { RejectionReason = n.GetStringValue(); } },
                 { "spid", n => { Spid = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayloadStatusEnum>(); } },
                 { "subscriber_name", n => { SubscriberName = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
             };
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers", PhoneNumbers);
             writer.WriteStringValue("rejection_reason", RejectionReason);
             writer.WriteStringValue("spid", Spid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayloadStatusEnum>("status", Status);
             writer.WriteStringValue("subscriber_name", SubscriberName);
             writer.WriteGuidValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);

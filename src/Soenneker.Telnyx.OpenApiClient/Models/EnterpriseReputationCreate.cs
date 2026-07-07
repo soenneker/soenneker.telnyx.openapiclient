@@ -9,14 +9,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class EnterpriseReputationCreate : IAdditionalDataHolder, IParsable
+    public partial class EnterpriseReputationCreate : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Frequency for automatically refreshing reputation data</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate_check_frequency? CheckFrequency { get; set; }
-        /// <summary>ID of the signed Letter of Authorization (LOA) document uploaded to the document service</summary>
+        /// <summary>Refresh cadence. Defaults to `business_daily` if omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency? CheckFrequency { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency CheckFrequency { get; set; }
+#endif
+        /// <summary>Id of the signed Letter of Authorization document, returned by the Telnyx Documents API after upload (upload via `POST /v2/documents`; see https://developers.telnyx.com/api/documents).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LoaDocumentId { get; set; }
@@ -24,14 +28,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LoaDocumentId { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate"/> and sets the default values.
-        /// </summary>
-        public EnterpriseReputationCreate()
-        {
-            AdditionalData = new Dictionary<string, object>();
-            CheckFrequency = global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate_check_frequency.Business_daily;
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -50,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "check_frequency", n => { CheckFrequency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate_check_frequency>(); } },
+                { "check_frequency", n => { CheckFrequency = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency>(global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency.CreateFromDiscriminatorValue); } },
                 { "loa_document_id", n => { LoaDocumentId = n.GetStringValue(); } },
             };
         }
@@ -61,9 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate_check_frequency>("check_frequency", CheckFrequency);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency>("check_frequency", CheckFrequency);
             writer.WriteStringValue("loa_document_id", LoaDocumentId);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

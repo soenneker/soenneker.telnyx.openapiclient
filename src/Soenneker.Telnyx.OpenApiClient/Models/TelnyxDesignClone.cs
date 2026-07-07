@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Gender of the voice clone.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone_gender? Gender { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignCloneGender? Gender { get; set; }
         /// <summary>ISO 639-1 language code for the clone. Supports the combined Telnyx language set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Voice synthesis provider. Defaults to `telnyx`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone_provider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignCloneProvider? Provider { get; set; }
         /// <summary>UUID of the source voice design to clone.</summary>
         public Guid? VoiceDesignId { get; set; }
         /// <summary>
@@ -43,7 +43,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TelnyxDesignClone()
         {
             AdditionalData = new Dictionary<string, object>();
-            Provider = global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone_provider.Telnyx;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,10 +62,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone_gender>(); } },
+                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignCloneGender>(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone_provider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignCloneProvider>(); } },
                 { "voice_design_id", n => { VoiceDesignId = n.GetGuidValue(); } },
             };
         }
@@ -77,10 +76,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone_gender>("gender", Gender);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignCloneGender>("gender", Gender);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone_provider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignCloneProvider>("provider", Provider);
             writer.WriteGuidValue("voice_design_id", VoiceDesignId);
             writer.WriteAdditionalData(AdditionalData);
         }

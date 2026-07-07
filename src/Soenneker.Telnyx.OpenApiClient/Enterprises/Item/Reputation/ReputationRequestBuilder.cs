@@ -4,7 +4,9 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Frequency;
+using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Loa;
 using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers;
+using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Remediation;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +16,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
 {
     /// <summary>
-    /// Builds and executes requests for operations under \enterprises\{enterprise_id}\reputation
+    /// Builds and executes requests for operations under \enterprises\{enterpriseId}\reputation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReputationRequestBuilder : BaseRequestBuilder
@@ -24,17 +26,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Frequency.FrequencyRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The loa property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Loa.LoaRequestBuilder Loa
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Loa.LoaRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The numbers property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.NumbersRequestBuilder Numbers
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.NumbersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The remediation property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Remediation.RemediationRequestBuilder Remediation
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Remediation.RemediationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.ReputationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReputationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise_id}/reputation", pathParameters)
+        public ReputationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterpriseId}/reputation", pathParameters)
         {
         }
         /// <summary>
@@ -42,18 +54,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReputationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise_id}/reputation", rawUrl)
+        public ReputationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterpriseId}/reputation", rawUrl)
         {
         }
         /// <summary>
-        /// Disable Number Reputation for an enterprise.This will:- Delete the reputation settings record- Log the deletion for audit purposes- Stop all future automated reputation checks**Note:** Can only be performed on `approved` reputation settings.
+        /// Disable Phone Number Reputation. All registered numbers are de-registered as a cascade. The enterprise itself is unaffected. Returns `204` on success, `404` if reputation is not enabled for this enterprise.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -66,20 +78,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve the current Number Reputation settings for an enterprise.Returns the enrollment status (`pending`, `approved`, `rejected`, `deleted`), check frequency, and any rejection reasons.Returns `404` if reputation has not been enabled for this enterprise.
+        /// &quot;Phone Number Reputation tracks how your outbound caller-IDs are perceived (spam risk, engagement, etc.) across the call-screening ecosystem. This endpoint reads the enterprise-level settings: whether the product is enabled, the refresh cadence, and the stored Letter of Authorization document id.Returns `404` if reputation has never been enabled for this enterprise.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -92,22 +104,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Enable Number Reputation service for an enterprise.**Requirements:**- Signed LOA (Letter of Authorization) document ID- Reputation check frequency (defaults to `business_daily`)- Number Reputation Terms of Service must be accepted**Flow:**1. Registers the enterprise for reputation monitoring2. Creates reputation settings with `pending` status3. Awaits admin approval before monitoring begins**Resubmission After Rejection:**If a previously rejected record exists, this endpoint will delete it and create a new `pending` record.**Available Frequencies:**- `business_daily` — Monday–Friday- `daily` — Every day- `weekly` — Once per week- `biweekly` — Once every two weeks- `monthly` — Once per month- `never` — Manual refresh only
+        /// &quot;Activate Phone Number Reputation for the given enterprise. Requires an uploaded Letter of Authorization document (the `loa_document_id` references the Telnyx Documents API) and a refresh-frequency selection. After activation, individual phone numbers can be registered via `POST .../reputation/numbers`.**Prerequisite**: the calling user must have agreed to the Phone Number Reputation Terms of Service (`POST /terms_of_service/number_reputation/agree`).Failure modes:- `403` - Phone Number Reputation Terms of Service not accepted.- `404` - enterprise does not exist or does not belong to your account.- `400` - reputation already enabled for this enterprise.- `422` - `loa_document_id` missing or `check_frequency` invalid.**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -121,15 +132,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Disable Number Reputation for an enterprise.This will:- Delete the reputation settings record- Log the deletion for audit purposes- Stop all future automated reputation checks**Note:** Can only be performed on `approved` reputation settings.
+        /// Disable Phone Number Reputation. All registered numbers are de-registered as a cascade. The enterprise itself is unaffected. Returns `204` on success, `404` if reputation is not enabled for this enterprise.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -148,7 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the current Number Reputation settings for an enterprise.Returns the enrollment status (`pending`, `approved`, `rejected`, `deleted`), check frequency, and any rejection reasons.Returns `404` if reputation has not been enabled for this enterprise.
+        /// &quot;Phone Number Reputation tracks how your outbound caller-IDs are perceived (spam risk, engagement, etc.) across the call-screening ecosystem. This endpoint reads the enterprise-level settings: whether the product is enabled, the refresh cadence, and the stored Letter of Authorization document id.Returns `404` if reputation has never been enabled for this enterprise.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,7 +177,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
             return requestInfo;
         }
         /// <summary>
-        /// Enable Number Reputation service for an enterprise.**Requirements:**- Signed LOA (Letter of Authorization) document ID- Reputation check frequency (defaults to `business_daily`)- Number Reputation Terms of Service must be accepted**Flow:**1. Registers the enterprise for reputation monitoring2. Creates reputation settings with `pending` status3. Awaits admin approval before monitoring begins**Resubmission After Rejection:**If a previously rejected record exists, this endpoint will delete it and create a new `pending` record.**Available Frequencies:**- `business_daily` — Monday–Friday- `daily` — Every day- `weekly` — Once per week- `biweekly` — Once every two weeks- `monthly` — Once per month- `never` — Manual refresh only
+        /// &quot;Activate Phone Number Reputation for the given enterprise. Requires an uploaded Letter of Authorization document (the `loa_document_id` references the Telnyx Documents API) and a refresh-frequency selection. After activation, individual phone numbers can be registered via `POST .../reputation/numbers`.**Prerequisite**: the calling user must have agreed to the Phone Number Reputation Terms of Service (`POST /terms_of_service/number_reputation/agree`).Failure modes:- `403` - Phone Number Reputation Terms of Service not accepted.- `404` - enterprise does not exist or does not belong to your account.- `400` - reputation already enabled for this enterprise.- `422` - `loa_document_id` missing or `check_frequency` invalid.**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

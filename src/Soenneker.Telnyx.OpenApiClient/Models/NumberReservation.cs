@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>The status of the entire reservation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservation_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservationStatus? Status { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the number reservation was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ReservedPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.ReservedPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservation_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReservationStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }

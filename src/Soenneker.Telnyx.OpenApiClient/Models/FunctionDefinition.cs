@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinition_parameters? Parameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinitionParametersProperty? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinition_parameters Parameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinitionParametersProperty Parameters { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinition"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinition_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinition_parameters.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinitionParametersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinitionParametersProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinition_parameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FunctionDefinitionParametersProperty>("parameters", Parameters);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

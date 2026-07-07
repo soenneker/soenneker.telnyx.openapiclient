@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig AudioVisualizerConfig { get; set; }
 #endif
         /// <summary>The default state of the widget.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_default_state? DefaultState { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsDefaultState? DefaultState { get; set; }
         /// <summary>URL for users to give feedback.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string LogoIconUrl { get; set; }
 #endif
         /// <summary>The positioning style for the widget.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_position? Position { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsPosition? Position { get; set; }
         /// <summary>URL for users to report issues.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StartCallText { get; set; }
 #endif
         /// <summary>The visual theme for the widget.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_theme? Theme { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsTheme? Theme { get; set; }
         /// <summary>URL to view conversation history.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,14 +112,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "agent_thinking_text", n => { AgentThinkingText = n.GetStringValue(); } },
                 { "audio_visualizer_config", n => { AudioVisualizerConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig.CreateFromDiscriminatorValue); } },
-                { "default_state", n => { DefaultState = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_default_state>(); } },
+                { "default_state", n => { DefaultState = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsDefaultState>(); } },
                 { "give_feedback_url", n => { GiveFeedbackUrl = n.GetStringValue(); } },
                 { "logo_icon_url", n => { LogoIconUrl = n.GetStringValue(); } },
-                { "position", n => { Position = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_position>(); } },
+                { "position", n => { Position = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsPosition>(); } },
                 { "report_issue_url", n => { ReportIssueUrl = n.GetStringValue(); } },
                 { "speak_to_interrupt_text", n => { SpeakToInterruptText = n.GetStringValue(); } },
                 { "start_call_text", n => { StartCallText = n.GetStringValue(); } },
-                { "theme", n => { Theme = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_theme>(); } },
+                { "theme", n => { Theme = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsTheme>(); } },
                 { "view_history_url", n => { ViewHistoryUrl = n.GetStringValue(); } },
             };
         }
@@ -132,14 +132,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("agent_thinking_text", AgentThinkingText);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig>("audio_visualizer_config", AudioVisualizerConfig);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_default_state>("default_state", DefaultState);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsDefaultState>("default_state", DefaultState);
             writer.WriteStringValue("give_feedback_url", GiveFeedbackUrl);
             writer.WriteStringValue("logo_icon_url", LogoIconUrl);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_position>("position", Position);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsPosition>("position", Position);
             writer.WriteStringValue("report_issue_url", ReportIssueUrl);
             writer.WriteStringValue("speak_to_interrupt_text", SpeakToInterruptText);
             writer.WriteStringValue("start_call_text", StartCallText);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings_theme>("theme", Theme);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsTheme>("theme", Theme);
             writer.WriteStringValue("view_history_url", ViewHistoryUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

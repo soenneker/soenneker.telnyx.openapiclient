@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>&lt;code&gt;Latency&lt;/code&gt; directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_anchorsite_override? AnchorsiteOverride { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationAnchorsiteOverride? AnchorsiteOverride { get; set; }
         /// <summary>A user-assigned name to help manage the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CreatedAt { get; set; }
 #endif
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_dtmf_type? DtmfType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationDtmfType? DtmfType { get; set; }
         /// <summary>Specifies whether calls to phone numbers associated with this connection should hangup after timing out.</summary>
         public bool? FirstCommandTimeout { get; set; }
         /// <summary>Specifies how many seconds to wait before timing out a dial command.</summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound Outbound { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationRecordType? RecordType { get; set; }
         /// <summary>When enabled, DTMF digits entered by users will be redacted in debug logs to protect PII data entered through IVR interactions.</summary>
         public bool? RedactDtmfDebugLogging { get; set; }
         /// <summary>Tags assigned to the Call Control Application.</summary>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationWebhookApiVersion? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as `https`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,10 +112,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CallControlApplication()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_anchorsite_override.Latency;
-            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_dtmf_type.RFC2833;
-            RecordType = global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_record_type.Call_control_application;
-            WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_webhook_api_version.One;
+            Active = true;
+            CallCostInWebhooks = false;
+            FirstCommandTimeout = false;
+            FirstCommandTimeoutSecs = 30;
+            RedactDtmfDebugLogging = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -136,21 +137,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_anchorsite_override>(); } },
+                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationAnchorsiteOverride>(); } },
                 { "application_name", n => { ApplicationName = n.GetStringValue(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_dtmf_type>(); } },
+                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationDtmfType>(); } },
                 { "first_command_timeout", n => { FirstCommandTimeout = n.GetBoolValue(); } },
                 { "first_command_timeout_secs", n => { FirstCommandTimeoutSecs = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound.CreateFromDiscriminatorValue); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationRecordType>(); } },
                 { "redact_dtmf_debug_logging", n => { RedactDtmfDebugLogging = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_webhook_api_version>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationWebhookApiVersion>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -164,21 +165,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_anchorsite_override>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationAnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("application_name", ApplicationName);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_dtmf_type>("dtmf_type", DtmfType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationDtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("first_command_timeout", FirstCommandTimeout);
             writer.WriteIntValue("first_command_timeout_secs", FirstCommandTimeoutSecs);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound>("inbound", Inbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound>("outbound", Outbound);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationRecordType>("record_type", RecordType);
             writer.WriteBoolValue("redact_dtmf_debug_logging", RedactDtmfDebugLogging);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationWebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

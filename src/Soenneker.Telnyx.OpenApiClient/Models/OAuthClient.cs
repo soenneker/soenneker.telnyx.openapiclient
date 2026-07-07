@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of allowed OAuth grant types</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_allowed_grant_types?>? AllowedGrantTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientAllowedGrantTypesItem?>? AllowedGrantTypes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_allowed_grant_types?> AllowedGrantTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientAllowedGrantTypesItem?> AllowedGrantTypes { get; set; }
 #endif
         /// <summary>List of allowed OAuth scopes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ClientSecret { get; set; }
 #endif
         /// <summary>OAuth client type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_client_type? ClientType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientClientType? ClientType { get; set; }
         /// <summary>Timestamp when the client was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>URL of the client logo</summary>
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PolicyUri { get; set; }
 #endif
         /// <summary>Record type identifier</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientRecordType? RecordType { get; set; }
         /// <summary>List of allowed redirect URIs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,17 +137,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_grant_types", n => { AllowedGrantTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_allowed_grant_types>()?.AsList(); } },
+                { "allowed_grant_types", n => { AllowedGrantTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientAllowedGrantTypesItem>()?.AsList(); } },
                 { "allowed_scopes", n => { AllowedScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
-                { "client_type", n => { ClientType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_client_type>(); } },
+                { "client_type", n => { ClientType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientClientType>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "logo_uri", n => { LogoUri = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "policy_uri", n => { PolicyUri = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientRecordType>(); } },
                 { "redirect_uris", n => { RedirectUris = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "require_pkce", n => { RequirePkce = n.GetBoolValue(); } },
                 { "tos_uri", n => { TosUri = n.GetStringValue(); } },
@@ -162,17 +162,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_allowed_grant_types>("allowed_grant_types", AllowedGrantTypes);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientAllowedGrantTypesItem>("allowed_grant_types", AllowedGrantTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_scopes", AllowedScopes);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("client_secret", ClientSecret);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_client_type>("client_type", ClientType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientClientType>("client_type", ClientType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("logo_uri", LogoUri);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("policy_uri", PolicyUri);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClient_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientRecordType>("record_type", RecordType);
             writer.WriteCollectionOfPrimitiveValues<string>("redirect_uris", RedirectUris);
             writer.WriteBoolValue("require_pkce", RequirePkce);
             writer.WriteStringValue("tos_uri", TosUri);

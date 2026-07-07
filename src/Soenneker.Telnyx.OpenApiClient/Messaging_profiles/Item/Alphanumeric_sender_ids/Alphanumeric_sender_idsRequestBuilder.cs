@@ -36,18 +36,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_se
         /// <summary>
         /// List all alphanumeric sender IDs associated with a specific messaging profile.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListProfileAlphanumericSenderIds200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder.Alphanumeric_sender_idsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListProfileAlphanumericSenderIds200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder.Alphanumeric_sender_idsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder.Alphanumeric_sender_idsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListProfileAlphanumericSenderIds200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder.Alphanumeric_sender_idsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_se
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListProfileAlphanumericSenderIds200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListProfileAlphanumericSenderIds200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all alphanumeric sender IDs associated with a specific messaging profile.
@@ -92,8 +92,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_se
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Alphanumeric_sender_idsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Page number to retrieve (1-based).</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
+            /// <summary>Number of items to return per page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

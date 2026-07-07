@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the associated document</summary>
         public Guid? DocumentId { get; set; }
         /// <summary>Identifies the type of additional document</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument_document_type? DocumentType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocumentDocumentType? DocumentType { get; set; }
         /// <summary>The filename of the related document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "document_id", n => { DocumentId = n.GetGuidValue(); } },
-                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument_document_type>(); } },
+                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocumentDocumentType>(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("content_type", ContentType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("document_id", DocumentId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument_document_type>("document_type", DocumentType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocumentDocumentType>("document_type", DocumentType);
             writer.WriteStringValue("filename", Filename);
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);

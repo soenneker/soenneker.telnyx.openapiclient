@@ -27,14 +27,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string SipSubdomain { get; set; }
 #endif
         /// <summary>&quot;This option can be enabled to receive calls from: \&quot;Anyone\&quot; (any SIP endpoint in the public Internet) or \&quot;Only my connections\&quot; (any connection assigned to the same Telnyx user).&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound_sip_subdomain_receive_settings? SipSubdomainReceiveSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInboundSipSubdomainReceiveSettings? SipSubdomainReceiveSettings { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound"/> and sets the default values.
         /// </summary>
         public TexmlApplicationInbound()
         {
             AdditionalData = new Dictionary<string, object>();
-            SipSubdomainReceiveSettings = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound_sip_subdomain_receive_settings.From_anyone;
+            ShakenStirEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "shaken_stir_enabled", n => { ShakenStirEnabled = n.GetBoolValue(); } },
                 { "sip_subdomain", n => { SipSubdomain = n.GetStringValue(); } },
-                { "sip_subdomain_receive_settings", n => { SipSubdomainReceiveSettings = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound_sip_subdomain_receive_settings>(); } },
+                { "sip_subdomain_receive_settings", n => { SipSubdomainReceiveSettings = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInboundSipSubdomainReceiveSettings>(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteBoolValue("shaken_stir_enabled", ShakenStirEnabled);
             writer.WriteStringValue("sip_subdomain", SipSubdomain);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound_sip_subdomain_receive_settings>("sip_subdomain_receive_settings", SipSubdomainReceiveSettings);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInboundSipSubdomainReceiveSettings>("sip_subdomain_receive_settings", SipSubdomainReceiveSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PrivateKey { get; set; }
 #endif
         /// <summary>Type of mobile push credential. Should be &lt;code&gt;ios&lt;/code&gt; here</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequestType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest"/> and sets the default values.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "certificate", n => { Certificate = n.GetStringValue(); } },
                 { "private_key", n => { PrivateKey = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequestType>(); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("alias", Alias);
             writer.WriteStringValue("certificate", Certificate);
             writer.WriteStringValue("private_key", PrivateKey);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

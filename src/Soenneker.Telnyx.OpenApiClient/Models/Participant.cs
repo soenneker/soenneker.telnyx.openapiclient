@@ -61,11 +61,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether the participant is put on_hold.</summary>
         public bool? OnHold { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Participant_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantRecordType? RecordType { get; set; }
         /// <summary>Whether the conference will end after the participant leaves the conference.</summary>
         public bool? SoftEndConferenceOnExit { get; set; }
         /// <summary>The status of the participant with respect to the lifecycle within the conference</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Participant_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date of when the participant was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,9 +115,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "muted", n => { Muted = n.GetBoolValue(); } },
                 { "on_hold", n => { OnHold = n.GetBoolValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantRecordType>(); } },
                 { "soft_end_conference_on_exit", n => { SoftEndConferenceOnExit = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "whisper_call_control_ids", n => { WhisperCallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -137,9 +137,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("muted", Muted);
             writer.WriteBoolValue("on_hold", OnHold);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantRecordType>("record_type", RecordType);
             writer.WriteBoolValue("soft_end_conference_on_exit", SoftEndConferenceOnExit);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantStatus>("status", Status);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("whisper_call_control_ids", WhisperCallControlIds);
             writer.WriteAdditionalData(AdditionalData);

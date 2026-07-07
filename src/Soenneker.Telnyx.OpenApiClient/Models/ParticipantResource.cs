@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether the participant is muted.</summary>
         public bool? Muted { get; set; }
         /// <summary>The status of the participant&apos;s call in the conference.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceStatus? Status { get; set; }
         /// <summary>The relative URI for this participant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "end_conference_on_exit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "hold", n => { Hold = n.GetBoolValue(); } },
                 { "muted", n => { Muted = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceStatus>(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -160,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("end_conference_on_exit", EndConferenceOnExit);
             writer.WriteBoolValue("hold", Hold);
             writer.WriteBoolValue("muted", Muted);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceStatus>("status", Status);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

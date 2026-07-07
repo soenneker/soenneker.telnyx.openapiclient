@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string OrganizationName { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountMultiListing_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountMultiListingRecordType? RecordType { get; set; }
         /// <summary>Boolean value that indicates if the billing information and charges to the managed account &quot;roll up&quot; to the manager account. If true, the managed account will not have its own balance and will use the shared balance with the manager account. This value cannot be changed after account creation without going through Telnyx support as changes require manual updates to the account ledger. Defaults to false.</summary>
         public bool? RollupBilling { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "managed_account_allow_custom_pricing", n => { ManagedAccountAllowCustomPricing = n.GetBoolValue(); } },
                 { "manager_account_id", n => { ManagerAccountId = n.GetStringValue(); } },
                 { "organization_name", n => { OrganizationName = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountMultiListing_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountMultiListingRecordType>(); } },
                 { "rollup_billing", n => { RollupBilling = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("managed_account_allow_custom_pricing", ManagedAccountAllowCustomPricing);
             writer.WriteStringValue("manager_account_id", ManagerAccountId);
             writer.WriteStringValue("organization_name", OrganizationName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountMultiListing_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountMultiListingRecordType>("record_type", RecordType);
             writer.WriteBoolValue("rollup_billing", RollupBilling);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

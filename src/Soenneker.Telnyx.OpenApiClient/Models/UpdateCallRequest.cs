@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>HTTP request type used for `FallbackUrl`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_FallbackMethod? FallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod? FallbackMethod { get; set; }
         /// <summary>A failover URL for which Telnyx will retrieve the TeXML call instructions if the Url is not responding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string FallbackUrl { get; set; }
 #endif
         /// <summary>HTTP request type used for `Url`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_Method? Method { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestMethod? Method { get; set; }
         /// <summary>The value to set the call status to. Setting the status to completed ends the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StatusCallback { get; set; }
 #endif
         /// <summary>HTTP request type used for `StatusCallback`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_StatusCallbackMethod? StatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestStatusCallbackMethod? StatusCallbackMethod { get; set; }
         /// <summary>TeXML to replace the current one with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,12 +85,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "FallbackMethod", n => { FallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_FallbackMethod>(); } },
+                { "FallbackMethod", n => { FallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod>(); } },
                 { "FallbackUrl", n => { FallbackUrl = n.GetStringValue(); } },
-                { "Method", n => { Method = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_Method>(); } },
+                { "Method", n => { Method = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestMethod>(); } },
                 { "Status", n => { Status = n.GetStringValue(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
-                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_StatusCallbackMethod>(); } },
+                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestStatusCallbackMethod>(); } },
                 { "Texml", n => { Texml = n.GetStringValue(); } },
                 { "Url", n => { Url = n.GetStringValue(); } },
             };
@@ -102,12 +102,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_FallbackMethod>("FallbackMethod", FallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod>("FallbackMethod", FallbackMethod);
             writer.WriteStringValue("FallbackUrl", FallbackUrl);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_Method>("Method", Method);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestMethod>("Method", Method);
             writer.WriteStringValue("Status", Status);
             writer.WriteStringValue("StatusCallback", StatusCallback);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest_StatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestStatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
             writer.WriteStringValue("Texml", Texml);
             writer.WriteStringValue("Url", Url);
             writer.WriteAdditionalData(AdditionalData);

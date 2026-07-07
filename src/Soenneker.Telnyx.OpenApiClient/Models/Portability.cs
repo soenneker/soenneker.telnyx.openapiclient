@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PortedDate { get; set; }
 #endif
         /// <summary>Indicates whether or not the requested phone number has been ported</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Portability_ported_status? PortedStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityPortedStatus? PortedStatus { get; set; }
         /// <summary>SPID (Service Provider ID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "lrn", n => { Lrn = n.GetStringValue(); } },
                 { "ocn", n => { Ocn = n.GetStringValue(); } },
                 { "ported_date", n => { PortedDate = n.GetStringValue(); } },
-                { "ported_status", n => { PortedStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Portability_ported_status>(); } },
+                { "ported_status", n => { PortedStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityPortedStatus>(); } },
                 { "spid", n => { Spid = n.GetStringValue(); } },
                 { "spid_carrier_name", n => { SpidCarrierName = n.GetStringValue(); } },
                 { "spid_carrier_type", n => { SpidCarrierType = n.GetStringValue(); } },
@@ -167,7 +167,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("lrn", Lrn);
             writer.WriteStringValue("ocn", Ocn);
             writer.WriteStringValue("ported_date", PortedDate);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Portability_ported_status>("ported_status", PortedStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityPortedStatus>("ported_status", PortedStatus);
             writer.WriteStringValue("spid", Spid);
             writer.WriteStringValue("spid_carrier_name", SpidCarrierName);
             writer.WriteStringValue("spid_carrier_type", SpidCarrierType);

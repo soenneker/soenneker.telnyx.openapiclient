@@ -49,17 +49,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers
         /// <summary>
         /// List all hosted numbers associated with the authenticated user.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Messaging_hosted_numbersRequestBuilder.Messaging_hosted_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Messaging_hosted_numbersRequestBuilder.Messaging_hosted_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Messaging_hosted_numbersRequestBuilder.Messaging_hosted_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Messaging_hosted_numbersRequestBuilder.Messaging_hosted_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbers200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all hosted numbers associated with the authenticated user.
@@ -126,13 +126,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers
             [QueryParameter("filter%5Bphone_number%5D%5Bcontains%5D")]
             public string FilterphoneNumbercontains { get; set; }
 #endif
+            /// <summary>Page number to retrieve (1-based).</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
+            /// <summary>Number of items to return per page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Sort by phone number.</summary>
             [QueryParameter("sort%5Bphone_number%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.GetSortPhone_numberQueryParameterType? SortphoneNumber { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingHostedNumbersSortPhoneNumberParameter? SortphoneNumber { get; set; }
         }
     }
 }

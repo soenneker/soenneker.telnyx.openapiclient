@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>Identifies if the verification code has been accepted or rejected.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponseData_response_code? ResponseCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponseDataResponseCode? ResponseCode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponseData"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "response_code", n => { ResponseCode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponseData_response_code>(); } },
+                { "response_code", n => { ResponseCode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponseDataResponseCode>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponseData_response_code>("response_code", ResponseCode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponseDataResponseCode>("response_code", ResponseCode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

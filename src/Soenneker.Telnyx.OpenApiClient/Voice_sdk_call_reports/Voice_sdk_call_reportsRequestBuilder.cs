@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports
     public partial class Voice_sdk_call_reportsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.voice_sdk_call_reports.item collection</summary>
-        /// <param name="position">Call identifier used to retrieve reports owned by the authenticated user.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCall_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCall_ItemRequestBuilder this[Guid position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCallItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCallItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("call_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCall_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("callId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCallItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports
 #endif
             /// <summary>Set the order of the results by creation date. `asc` and `created_at` sort oldest reports first; `desc` and `-created_at` sort newest reports first. If not given, results are sorted by creation date in descending order.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSort? Sort { get; set; }
         }
     }
 }

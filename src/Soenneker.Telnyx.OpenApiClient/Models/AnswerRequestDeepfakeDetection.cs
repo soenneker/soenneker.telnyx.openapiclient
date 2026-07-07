@@ -27,6 +27,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public AnswerRequestDeepfakeDetection()
         {
             AdditionalData = new Dictionary<string, object>();
+            Enabled = false;
+            RtpTimeout = 30;
+            Timeout = 15;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

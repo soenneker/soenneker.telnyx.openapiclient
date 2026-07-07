@@ -47,14 +47,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.verifications.item collection</summary>
         /// <param name="position">The identifier of the verification to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.Item.WithVerification_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Verifications.Item.WithVerification_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.Item.WithVerificationItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Verifications.Item.WithVerificationItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("verification_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Verifications.Item.WithVerification_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("verificationId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Verifications.Item.WithVerificationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

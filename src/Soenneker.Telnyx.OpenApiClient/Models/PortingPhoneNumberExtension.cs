@@ -15,10 +15,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Specifies the activation ranges for this porting phone number extension. The activation range must be within the extension range and should not overlap with other activation ranges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_activation_ranges>? ActivationRanges { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem>? ActivationRanges { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_activation_ranges> ActivationRanges { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem> ActivationRanges { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activation_ranges", n => { ActivationRanges = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_activation_ranges>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_activation_ranges.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "activation_ranges", n => { ActivationRanges = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "extension_range", n => { ExtensionRange = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_activation_ranges>("activation_ranges", ActivationRanges);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem>("activation_ranges", ActivationRanges);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange>("extension_range", ExtensionRange);
             writer.WriteGuidValue("porting_phone_number_id", PortingPhoneNumberId);
             writer.WriteAdditionalData(AdditionalData);

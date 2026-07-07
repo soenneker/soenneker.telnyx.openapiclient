@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.EnumNamespace
     public partial class EnumRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.OneZerodlc.enum.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the endpoint.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.EnumNamespace.Item.WithEndpointItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.EnumNamespace.Item.WithEndpointItemRequestBuilder this[string position]
         {

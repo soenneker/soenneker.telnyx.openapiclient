@@ -9,19 +9,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "NONE")]
         #pragma warning disable CS1591
-        NONE,
+        None,
         #pragma warning restore CS1591
         [EnumMember(Value = "DUNS")]
         #pragma warning disable CS1591
-        DUNS,
+        Duns,
         #pragma warning restore CS1591
         [EnumMember(Value = "GIIN")]
         #pragma warning disable CS1591
-        GIIN,
+        Giin,
         #pragma warning restore CS1591
         [EnumMember(Value = "LEI")]
         #pragma warning disable CS1591
-        LEI,
+        Lei,
         #pragma warning restore CS1591
     }
 }

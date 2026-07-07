@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The available_usages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Upload_available_usages?>? AvailableUsages { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UploadAvailableUsagesItem?>? AvailableUsages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Upload_available_usages?> AvailableUsages { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UploadAvailableUsagesItem?> AvailableUsages { get; set; }
 #endif
         /// <summary>A code returned by Microsoft Teams if there is an error with the upload process.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The location_id property</summary>
         public Guid? LocationId { get; set; }
         /// <summary>Represents the status of the upload on Microsoft Teams.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Upload_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UploadStatus? Status { get; set; }
         /// <summary>The tenant_id property</summary>
         public Guid? TenantId { get; set; }
         /// <summary>Uniquely identifies the resource.</summary>
@@ -60,7 +60,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Upload()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.Upload_status.Pending_upload;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -80,11 +79,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "available_usages", n => { AvailableUsages = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.Upload_available_usages>()?.AsList(); } },
+                { "available_usages", n => { AvailableUsages = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.UploadAvailableUsagesItem>()?.AsList(); } },
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
                 { "location_id", n => { LocationId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Upload_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UploadStatus>(); } },
                 { "tenant_id", n => { TenantId = n.GetGuidValue(); } },
                 { "ticket_id", n => { TicketId = n.GetGuidValue(); } },
                 { "tn_upload_entries", n => { TnUploadEntries = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry>(global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -97,11 +96,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.Upload_available_usages>("available_usages", AvailableUsages);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.UploadAvailableUsagesItem>("available_usages", AvailableUsages);
             writer.WriteStringValue("error_code", ErrorCode);
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteGuidValue("location_id", LocationId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Upload_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UploadStatus>("status", Status);
             writer.WriteGuidValue("tenant_id", TenantId);
             writer.WriteGuidValue("ticket_id", TicketId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry>("tn_upload_entries", TnUploadEntries);

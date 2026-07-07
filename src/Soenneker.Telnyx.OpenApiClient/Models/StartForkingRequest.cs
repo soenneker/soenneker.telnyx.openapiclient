@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Rx { get; set; }
 #endif
         /// <summary>Optionally specify a media type to stream. If `decrypted` selected, Telnyx will decrypt incoming SIP media before forking to the target. `rx` and `tx` are required fields if `decrypted` selected.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest_stream_type? StreamType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequestStreamType? StreamType { get; set; }
         /// <summary>The network target, &lt;udp:ip_address:port&gt;, where the call&apos;s outgoing RTP media packets should be forwarded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,7 +54,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public StartForkingRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            StreamType = global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest_stream_type.Decrypted;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -77,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "rx", n => { Rx = n.GetStringValue(); } },
-                { "stream_type", n => { StreamType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest_stream_type>(); } },
+                { "stream_type", n => { StreamType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequestStreamType>(); } },
                 { "tx", n => { Tx = n.GetStringValue(); } },
             };
         }
@@ -91,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("rx", Rx);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest_stream_type>("stream_type", StreamType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequestStreamType>("stream_type", StreamType);
             writer.WriteStringValue("tx", Tx);
             writer.WriteAdditionalData(AdditionalData);
         }

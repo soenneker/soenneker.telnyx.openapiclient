@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Message sent time</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Currency of the rate and cost</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_currency? Currency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseCurrency? Currency { get; set; }
         /// <summary>Direction of message - inbound or outbound.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>Type of message</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_message_type? MessageType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseMessageType? MessageType { get; set; }
         /// <summary>Number of parts this message has. Max number of character is 160. If message contains more characters then that it will be broken down in multiple parts</summary>
         public double? Parts { get; set; }
         /// <summary>Configured profile name. New profiles can be created and configured on Telnyx portal</summary>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>Message status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse"/> and sets the default values.
         /// </summary>
@@ -117,15 +117,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "cli", n => { Cli = n.GetStringValue(); } },
                 { "cost", n => { Cost = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_currency>(); } },
+                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseCurrency>(); } },
                 { "direction", n => { Direction = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "message_type", n => { MessageType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_message_type>(); } },
+                { "message_type", n => { MessageType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseMessageType>(); } },
                 { "parts", n => { Parts = n.GetDoubleValue(); } },
                 { "profile_name", n => { ProfileName = n.GetStringValue(); } },
                 { "rate", n => { Rate = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseStatus>(); } },
             };
         }
         /// <summary>
@@ -139,15 +139,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("cli", Cli);
             writer.WriteStringValue("cost", Cost);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_currency>("currency", Currency);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseCurrency>("currency", Currency);
             writer.WriteStringValue("direction", Direction);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_message_type>("message_type", MessageType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseMessageType>("message_type", MessageType);
             writer.WriteDoubleValue("parts", Parts);
             writer.WriteStringValue("profile_name", ProfileName);
             writer.WriteStringValue("rate", Rate);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailResponseStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

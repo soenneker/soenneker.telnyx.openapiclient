@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ErrorDescription { get; private set; }
 #endif
         /// <summary>The value property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value? Value { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatusValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatusValue>(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatusValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

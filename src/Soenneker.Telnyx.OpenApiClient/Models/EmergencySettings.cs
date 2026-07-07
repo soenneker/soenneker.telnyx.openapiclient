@@ -26,14 +26,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Allows you to enable or disable emergency services on the phone number. In order to enable emergency services, you must also set an emergency_address_id.</summary>
         public bool? EmergencyEnabled { get; set; }
         /// <summary>Represents the state of the number regarding emergency activation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings_emergency_status? EmergencyStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus? EmergencyStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings"/> and sets the default values.
         /// </summary>
         public EmergencySettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            EmergencyStatus = global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings_emergency_status.Disabled;
+            EmergencyEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "emergency_address_id", n => { EmergencyAddressId = n.GetStringValue(); } },
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
-                { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings_emergency_status>(); } },
+                { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus>(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("emergency_address_id", EmergencyAddressId);
             writer.WriteBoolValue("emergency_enabled", EmergencyEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings_emergency_status>("emergency_status", EmergencyStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus>("emergency_status", EmergencyStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -165,7 +165,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string State { get; set; }
 #endif
         /// <summary>Status of portout request</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetailsStatus? Status { get; set; }
         /// <summary>A key to reference this port out request when contacting Telnyx customer support</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -200,6 +200,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public PortoutDetails()
         {
             AdditionalData = new Dictionary<string, object>();
+            HostMessaging = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -240,7 +241,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "service_address", n => { ServiceAddress = n.GetStringValue(); } },
                 { "spid", n => { Spid = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetailsStatus>(); } },
                 { "support_key", n => { SupportKey = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
@@ -275,7 +276,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("service_address", ServiceAddress);
             writer.WriteStringValue("spid", Spid);
             writer.WriteStringValue("state", State);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetailsStatus>("status", Status);
             writer.WriteStringValue("support_key", SupportKey);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteGuidValue("user_id", UserId);

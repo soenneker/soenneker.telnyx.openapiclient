@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements PaymentRequirements { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.X402QuoteResponseData_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.X402QuoteResponseDataRecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.X402QuoteResponseData"/> and sets the default values.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetStringValue(); } },
                 { "payment_requirements", n => { PaymentRequirements = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements>(global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402QuoteResponseData_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402QuoteResponseDataRecordType>(); } },
             };
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("network", Network);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements>("payment_requirements", PaymentRequirements);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402QuoteResponseData_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402QuoteResponseDataRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

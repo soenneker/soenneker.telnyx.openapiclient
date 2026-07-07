@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The Border Gateway Protocol (BGP) Autonomous System Number (ASN). If null, value will be assigned by Telnyx.</summary>
         public double? BgpAsn { get; set; }
         /// <summary>The Virtual Private Cloud with which you would like to establish a cross connect.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate_cloud_provider? CloudProvider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCloudProvider? CloudProvider { get; set; }
         /// <summary>The region where your Virtual Private Cloud hosts are located.&lt;br /&gt;&lt;br /&gt;The available regions can be found using the /virtual_cross_connect_regions endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -169,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "bandwidth_mbps", n => { BandwidthMbps = n.GetDoubleValue(); } },
                 { "bgp_asn", n => { BgpAsn = n.GetDoubleValue(); } },
-                { "cloud_provider", n => { CloudProvider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate_cloud_provider>(); } },
+                { "cloud_provider", n => { CloudProvider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCloudProvider>(); } },
                 { "cloud_provider_region", n => { CloudProviderRegion = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
@@ -200,7 +200,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("bandwidth_mbps", BandwidthMbps);
             writer.WriteDoubleValue("bgp_asn", BgpAsn);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate_cloud_provider>("cloud_provider", CloudProvider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCloudProvider>("cloud_provider", CloudProvider);
             writer.WriteStringValue("cloud_provider_region", CloudProviderRegion);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("network_id", NetworkId);

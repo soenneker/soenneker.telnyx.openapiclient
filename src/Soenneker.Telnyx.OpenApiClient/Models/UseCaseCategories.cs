@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "2FA")]
         #pragma warning disable CS1591
-        TwoFA,
+        Value2Fa,
         #pragma warning restore CS1591
         [EnumMember(Value = "App Notifications")]
         #pragma warning disable CS1591
@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "COVID-19 Alerts")]
         #pragma warning disable CS1591
-        COVID19Alerts,
+        Covid19Alerts,
         #pragma warning restore CS1591
         [EnumMember(Value = "Career Training")]
         #pragma warning disable CS1591
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "Courier Services & Deliveries")]
         #pragma warning disable CS1591
-        CourierServicesDeliveries,
+        CourierServicesAmpersandDeliveries,
         #pragma warning restore CS1591
         [EnumMember(Value = "Emergency Alerts")]
         #pragma warning disable CS1591
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "Events & Planning")]
         #pragma warning disable CS1591
-        EventsPlanning,
+        EventsAmpersandPlanning,
         #pragma warning restore CS1591
         [EnumMember(Value = "Financial Services")]
         #pragma warning disable CS1591
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "HR / Staffing")]
         #pragma warning disable CS1591
-        HRStaffing,
+        HrStaffing,
         #pragma warning restore CS1591
         [EnumMember(Value = "Healthcare Alerts")]
         #pragma warning disable CS1591

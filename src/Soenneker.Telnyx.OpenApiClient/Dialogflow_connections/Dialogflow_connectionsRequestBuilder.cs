@@ -16,15 +16,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Dialogflow_connections
     public partial class Dialogflow_connectionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.dialogflow_connections.item collection</summary>
-        /// <param name="position">Uniquely identifies a Telnyx application (Call Control).</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnectionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnectionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("connection_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("connectionId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

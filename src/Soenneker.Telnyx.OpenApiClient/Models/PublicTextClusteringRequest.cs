@@ -48,6 +48,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public PublicTextClusteringRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            MinClusterSize = 25;
+            MinSubclusterSize = 5;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

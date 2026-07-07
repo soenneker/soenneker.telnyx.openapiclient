@@ -65,14 +65,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>The status of the account.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationUser_user_status? UserStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationUserUserStatus? UserStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationUser"/> and sets the default values.
         /// </summary>
         public OrganizationUser()
         {
             AdditionalData = new Dictionary<string, object>();
-            UserStatus = global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationUser_user_status.Enabled;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -99,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "last_sign_in_at", n => { LastSignInAt = n.GetStringValue(); } },
                 { "organization_user_bypasses_sso", n => { OrganizationUserBypassesSso = n.GetBoolValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "user_status", n => { UserStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationUser_user_status>(); } },
+                { "user_status", n => { UserStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationUserUserStatus>(); } },
             };
         }
         /// <summary>
@@ -116,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("last_sign_in_at", LastSignInAt);
             writer.WriteBoolValue("organization_user_bypasses_sso", OrganizationUserBypassesSso);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationUser_user_status>("user_status", UserStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationUserUserStatus>("user_status", UserStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

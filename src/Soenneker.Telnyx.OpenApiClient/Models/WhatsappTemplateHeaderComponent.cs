@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentExample Example { get; set; }
 #endif
         /// <summary>&quot;Header format type: TEXT (supports one variable), IMAGE, VIDEO, DOCUMENT, or LOCATION.&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent_format? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentFormat? Format { get; set; }
         /// <summary>Header text. Required when format is TEXT. Supports one variable ({{1}}). Variables cannot be at the start or end.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent"/> and sets the default values.
         /// </summary>
@@ -61,9 +61,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "example", n => { Example = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentExample>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentExample.CreateFromDiscriminatorValue); } },
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent_format>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentFormat>(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentType>(); } },
             };
         }
         /// <summary>
@@ -74,9 +74,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentExample>("example", Example);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent_format>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentFormat>("format", Format);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

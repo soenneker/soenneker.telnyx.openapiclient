@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Defines the type of this requirement type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeType? Type { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was last updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria>("acceptance_criteria", AcceptanceCriteria);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("example", Example);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

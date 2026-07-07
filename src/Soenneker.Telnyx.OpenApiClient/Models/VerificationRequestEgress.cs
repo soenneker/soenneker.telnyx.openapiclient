@@ -153,8 +153,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DoingBusinessAs { get; set; }
 #endif
-        /// <summary>Business entity classification</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType? EntityType { get; set; }
+        /// <summary>The entityType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressEntityType? EntityType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressEntityType EntityType { get; set; }
+#endif
         /// <summary>The helpMessageResponse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -173,8 +179,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string IsvReseller { get; set; }
 #endif
-        /// <summary>Message Volume Enums</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Volume? MessageVolume { get; set; }
+        /// <summary>&quot;One of the following exact values: 10; 100; 1,000; 10,000; 100,000; 250,000; 500,000; 750,000; 1,000,000; 5,000,000; 10,000,000+&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressMessageVolume? MessageVolume { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressMessageVolume MessageVolume { get; set; }
+#endif
         /// <summary>The optInConfirmationResponse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -210,10 +222,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phoneNumbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TfPhoneNumber>? PhoneNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TfPhoneNumber> PhoneNumbers { get; set; }
 #endif
         /// <summary>The privacyPolicyURL property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -239,8 +251,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string TermsAndConditionURL { get; set; }
 #endif
-        /// <summary>Tollfree usecase categories</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories? UseCase { get; set; }
+        /// <summary>The useCase property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressUseCase? UseCase { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressUseCase UseCase { get; set; }
+#endif
         /// <summary>The useCaseSummary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -257,8 +275,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string VerificationRequestId { get; set; }
 #endif
-        /// <summary>Tollfree verification status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus? VerificationStatus { get; set; }
+        /// <summary>The verificationStatus property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressVerificationStatus? VerificationStatus { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressVerificationStatus VerificationStatus { get; set; }
+#endif
         /// <summary>The webhookUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -310,23 +334,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "campaignVerifyAuthorizationToken", n => { CampaignVerifyAuthorizationToken = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType>(); } },
+                { "entityType", n => { EntityType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressEntityType>(global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressEntityType.CreateFromDiscriminatorValue); } },
                 { "helpMessageResponse", n => { HelpMessageResponse = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
-                { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>(); } },
+                { "messageVolume", n => { MessageVolume = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressMessageVolume>(global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressMessageVolume.CreateFromDiscriminatorValue); } },
                 { "optInConfirmationResponse", n => { OptInConfirmationResponse = n.GetStringValue(); } },
                 { "optInKeywords", n => { OptInKeywords = n.GetStringValue(); } },
                 { "optInWorkflow", n => { OptInWorkflow = n.GetStringValue(); } },
                 { "optInWorkflowImageURLs", n => { OptInWorkflowImageURLs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>(global::Soenneker.Telnyx.OpenApiClient.Models.Url.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "phoneNumbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phoneNumbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TfPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.TfPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "privacyPolicyURL", n => { PrivacyPolicyURL = n.GetStringValue(); } },
                 { "productionMessageContent", n => { ProductionMessageContent = n.GetStringValue(); } },
                 { "termsAndConditionURL", n => { TermsAndConditionURL = n.GetStringValue(); } },
-                { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>(); } },
+                { "useCase", n => { UseCase = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressUseCase>(global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressUseCase.CreateFromDiscriminatorValue); } },
                 { "useCaseSummary", n => { UseCaseSummary = n.GetStringValue(); } },
                 { "verificationRequestId", n => { VerificationRequestId = n.GetStringValue(); } },
-                { "verificationStatus", n => { VerificationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus>(); } },
+                { "verificationStatus", n => { VerificationStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressVerificationStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressVerificationStatus.CreateFromDiscriminatorValue); } },
                 { "webhookUrl", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -355,23 +379,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("campaignVerifyAuthorizationToken", CampaignVerifyAuthorizationToken);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType>("entityType", EntityType);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressEntityType>("entityType", EntityType);
             writer.WriteStringValue("helpMessageResponse", HelpMessageResponse);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("isvReseller", IsvReseller);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>("messageVolume", MessageVolume);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressMessageVolume>("messageVolume", MessageVolume);
             writer.WriteStringValue("optInConfirmationResponse", OptInConfirmationResponse);
             writer.WriteStringValue("optInKeywords", OptInKeywords);
             writer.WriteStringValue("optInWorkflow", OptInWorkflow);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>("optInWorkflowImageURLs", OptInWorkflowImageURLs);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>("phoneNumbers", PhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TfPhoneNumber>("phoneNumbers", PhoneNumbers);
             writer.WriteStringValue("privacyPolicyURL", PrivacyPolicyURL);
             writer.WriteStringValue("productionMessageContent", ProductionMessageContent);
             writer.WriteStringValue("termsAndConditionURL", TermsAndConditionURL);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>("useCase", UseCase);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressUseCase>("useCase", UseCase);
             writer.WriteStringValue("useCaseSummary", UseCaseSummary);
             writer.WriteStringValue("verificationRequestId", VerificationRequestId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus>("verificationStatus", VerificationStatus);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgressVerificationStatus>("verificationStatus", VerificationStatus);
             writer.WriteStringValue("webhookUrl", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

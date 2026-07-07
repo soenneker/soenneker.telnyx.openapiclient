@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The UUID of the location.</summary>
         public Guid? Id { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponseData_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponseDataRecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponseData"/> and sets the default values.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "accepted", n => { Accepted = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponseData_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponseDataRecordType>(); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("accepted", Accepted);
             writer.WriteGuidValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponseData_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponseDataRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates if call forwarding will be enabled for this number if forwards_to and forwarding_type are filled in. Defaults to true for backwards compatibility with APIV1 use of numbers endpoints.</summary>
         public bool? CallForwardingEnabled { get; set; }
         /// <summary>Call forwarding type. &apos;forwards_to&apos; must be set for this to have an effect.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding_forwarding_type? ForwardingType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwardingForwardingType? ForwardingType { get; set; }
         /// <summary>The phone number to which inbound calls to this number are forwarded. Inbound calls will not be forwarded if this field is left blank. If set, must be a +E.164-formatted phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,6 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CallForwarding()
         {
             AdditionalData = new Dictionary<string, object>();
+            CallForwardingEnabled = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "call_forwarding_enabled", n => { CallForwardingEnabled = n.GetBoolValue(); } },
-                { "forwarding_type", n => { ForwardingType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding_forwarding_type>(); } },
+                { "forwarding_type", n => { ForwardingType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallForwardingForwardingType>(); } },
                 { "forwards_to", n => { ForwardsTo = n.GetStringValue(); } },
             };
         }
@@ -65,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("call_forwarding_enabled", CallForwardingEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding_forwarding_type>("forwarding_type", ForwardingType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallForwardingForwardingType>("forwarding_type", ForwardingType);
             writer.WriteStringValue("forwards_to", ForwardsTo);
             writer.WriteAdditionalData(AdditionalData);
         }

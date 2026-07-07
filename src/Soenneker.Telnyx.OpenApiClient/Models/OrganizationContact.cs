@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>
-    /// &quot;Organization contact information. Note: the response returns this object with the phone field as &apos;phone&apos; (not &apos;phone_number&apos;).&quot;
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class OrganizationContact : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Contact&apos;s email address</summary>
+        /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }
@@ -23,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>Contact&apos;s first name</summary>
+        /// <summary>The first_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FirstName { get; set; }
@@ -31,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FirstName { get; set; }
 #endif
-        /// <summary>Contact&apos;s job title (required)</summary>
+        /// <summary>The job_title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JobTitle { get; set; }
@@ -39,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string JobTitle { get; set; }
 #endif
-        /// <summary>Contact&apos;s last name</summary>
+        /// <summary>The last_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastName { get; set; }
@@ -47,13 +46,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LastName { get; set; }
 #endif
-        /// <summary>Contact&apos;s phone number in E.164 format</summary>
+        /// <summary>E.164 format with leading `+`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Phone { get; set; }
+        public string? PhoneNumber { get; set; }
 #nullable restore
 #else
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact"/> and sets the default values.
@@ -84,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
-                { "phone", n => { Phone = n.GetStringValue(); } },
+                { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -98,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("job_title", JobTitle);
             writer.WriteStringValue("last_name", LastName);
-            writer.WriteStringValue("phone", Phone);
+            writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

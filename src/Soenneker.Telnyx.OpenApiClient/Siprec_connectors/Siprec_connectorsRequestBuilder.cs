@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Siprec_connectors
     public partial class Siprec_connectorsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.siprec_connectors.item collection</summary>
-        /// <param name="position">Uniquely identifies a SIPREC connector.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Item.WithConnector_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Item.WithConnector_nameItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Item.WithConnectorNameItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Item.WithConnectorNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("connector_name", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Item.WithConnector_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("connectorName", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Item.WithConnectorNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

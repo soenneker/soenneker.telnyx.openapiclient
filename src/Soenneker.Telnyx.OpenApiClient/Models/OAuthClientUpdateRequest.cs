@@ -15,10 +15,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of allowed OAuth grant types</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientUpdateRequest_allowed_grant_types?>? AllowedGrantTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientUpdateRequestAllowedGrantTypesItem?>? AllowedGrantTypes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientUpdateRequest_allowed_grant_types?> AllowedGrantTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientUpdateRequestAllowedGrantTypesItem?> AllowedGrantTypes { get; set; }
 #endif
         /// <summary>List of allowed OAuth scopes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_grant_types", n => { AllowedGrantTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientUpdateRequest_allowed_grant_types>()?.AsList(); } },
+                { "allowed_grant_types", n => { AllowedGrantTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientUpdateRequestAllowedGrantTypesItem>()?.AsList(); } },
                 { "allowed_scopes", n => { AllowedScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "logo_uri", n => { LogoUri = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientUpdateRequest_allowed_grant_types>("allowed_grant_types", AllowedGrantTypes);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthClientUpdateRequestAllowedGrantTypesItem>("allowed_grant_types", AllowedGrantTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_scopes", AllowedScopes);
             writer.WriteStringValue("logo_uri", LogoUri);
             writer.WriteStringValue("name", Name);

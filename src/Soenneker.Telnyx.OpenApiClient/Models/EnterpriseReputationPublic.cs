@@ -14,13 +14,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Frequency for refreshing reputation data</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublic_check_frequency? CheckFrequency { get; set; }
-        /// <summary>When the reputation settings were created</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>ID of the associated enterprise</summary>
+        /// <summary>How often Telnyx refreshes the stored reputation data for this enterprise&apos;s registered numbers.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency? CheckFrequency { get; set; }
+        /// <summary>The created_at property</summary>
+        public DateTimeOffset? CreatedAt { get; private set; }
+        /// <summary>The enterprise_id property</summary>
         public Guid? EnterpriseId { get; set; }
-        /// <summary>ID of the signed LOA document</summary>
+        /// <summary>Id of the signed LOA document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LoaDocumentId { get; set; }
@@ -28,7 +28,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LoaDocumentId { get; set; }
 #endif
-        /// <summary>Reasons for rejection (present when status is rejected)</summary>
+        /// <summary>Customer-facing Letter-of-Authorization verification state. `approved` is required (alongside reputation status) before phone numbers can be added.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic? LoaStatus { get; set; }
+        /// <summary>Populated when `status` is `rejected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? RejectionReasons { get; set; }
@@ -36,10 +38,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> RejectionReasons { get; set; }
 #endif
-        /// <summary>Current enrollment status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublic_status? Status { get; set; }
-        /// <summary>When the reputation settings were last updated</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>Lifecycle status of the enterprise&apos;s Phone Number Reputation activation.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus? Status { get; set; }
+        /// <summary>The updated_at property</summary>
+        public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublic"/> and sets the default values.
         /// </summary>
@@ -65,12 +67,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "check_frequency", n => { CheckFrequency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublic_check_frequency>(); } },
+                { "check_frequency", n => { CheckFrequency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "enterprise_id", n => { EnterpriseId = n.GetGuidValue(); } },
                 { "loa_document_id", n => { LoaDocumentId = n.GetStringValue(); } },
+                { "loa_status", n => { LoaStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic>(); } },
                 { "rejection_reasons", n => { RejectionReasons = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublic_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -81,13 +84,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublic_check_frequency>("check_frequency", CheckFrequency);
-            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency>("check_frequency", CheckFrequency);
             writer.WriteGuidValue("enterprise_id", EnterpriseId);
             writer.WriteStringValue("loa_document_id", LoaDocumentId);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic>("loa_status", LoaStatus);
             writer.WriteCollectionOfPrimitiveValues<string>("rejection_reasons", RejectionReasons);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublic_status>("status", Status);
-            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

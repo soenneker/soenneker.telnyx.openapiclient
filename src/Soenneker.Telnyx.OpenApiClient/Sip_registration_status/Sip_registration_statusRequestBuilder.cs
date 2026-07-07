@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sip_registration_status
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Sip_registration_statusRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sip_registration_status?connection_id={connection_id}&credential_type={credential_type}&user_id={user_id}", pathParameters)
+        public Sip_registration_statusRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sip_registration_status?credential_type={credential_type}{&connection_id*,username*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Sip_registration_status
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Sip_registration_statusRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sip_registration_status?connection_id={connection_id}&credential_type={credential_type}&user_id={user_id}", rawUrl)
+        public Sip_registration_statusRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sip_registration_status?credential_type={credential_type}{&connection_id*,username*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the live SIP registration state of a connection or credential. Supports UAC third-party credentials, telephony credentials, and SIP credential connections.
+        /// &quot;Returns the live SIP registration state of a UAC connection: whether it is currently registered, when it last registered, and the last response Telnyx received from the registrar. Only `uac_external_credential` is supported today.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatus"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sip_registration_status
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatus>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatus.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the live SIP registration state of a connection or credential. Supports UAC third-party credentials, telephony credentials, and SIP credential connections.
+        /// &quot;Returns the live SIP registration state of a UAC connection: whether it is currently registered, when it last registered, and the last response Telnyx received from the registrar. Only `uac_external_credential` is supported today.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,12 +80,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Sip_registration_status
             return new global::Soenneker.Telnyx.OpenApiClient.Sip_registration_status.Sip_registration_statusRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the live SIP registration state of a connection or credential. Supports UAC third-party credentials, telephony credentials, and SIP credential connections.
+        /// &quot;Returns the live SIP registration state of a UAC connection: whether it is currently registered, when it last registered, and the last response Telnyx received from the registrar. Only `uac_external_credential` is supported today.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Sip_registration_statusRequestBuilderGetQueryParameters 
         {
-            /// <summary>Identifier of the connection or credential to look up.</summary>
+            /// <summary>Identifier of the UAC connection to look up. Required when `credential_type` is `uac_external_credential`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("connection_id")]
@@ -95,18 +95,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Sip_registration_status
             [QueryParameter("connection_id")]
             public string ConnectionId { get; set; }
 #endif
-            /// <summary>The kind of credential to look up.</summary>
+            /// <summary>The kind of credential to look up. `uac_external_credential` is keyed by `connection_id`; `telephony_credential` is keyed by `username`.</summary>
             [QueryParameter("credential_type")]
-            public global::Soenneker.Telnyx.OpenApiClient.Sip_registration_status.GetCredential_typeQueryParameterType? CredentialType { get; set; }
-            /// <summary>Owner of the connection. Used to authorize the lookup.</summary>
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetSipRegistrationStatusCredentialTypeParameter? CredentialType { get; set; }
+            /// <summary>SIP username of the telephony credential to look up. Required when `credential_type` is `telephony_credential`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("user_id")]
-            public string? UserId { get; set; }
+            [QueryParameter("username")]
+            public string? Username { get; set; }
 #nullable restore
 #else
-            [QueryParameter("user_id")]
-            public string UserId { get; set; }
+            [QueryParameter("username")]
+            public string Username { get; set; }
 #endif
         }
     }

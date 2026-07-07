@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CallSessionId { get; set; }
 #endif
         /// <summary>When `dual`, the final audio file has the first leg on channel A, and the rest on channel B.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_channels? Channels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataChannels? Channels { get; set; }
         /// <summary>Uniquely identifies the conference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,11 +115,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordingStartedAt { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataRecordType? RecordType { get; set; }
         /// <summary>The kind of event that led to this recording being created.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_source? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataSource? Source { get; set; }
         /// <summary>The status of the recording. Only `completed` recordings are currently supported.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataStatus? Status { get; set; }
         /// <summary>The `to` (callee) number for the call that generated this recording.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -164,7 +164,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "call_leg_id", n => { CallLegId = n.GetStringValue(); } },
                 { "call_session_id", n => { CallSessionId = n.GetStringValue(); } },
-                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_channels>(); } },
+                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataChannels>(); } },
                 { "conference_id", n => { ConferenceId = n.GetStringValue(); } },
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
@@ -173,11 +173,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "from", n => { From = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "initiated_by", n => { InitiatedBy = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataRecordType>(); } },
                 { "recording_ended_at", n => { RecordingEndedAt = n.GetStringValue(); } },
                 { "recording_started_at", n => { RecordingStartedAt = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_source>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_status>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataSource>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataStatus>(); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
@@ -192,7 +192,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("call_leg_id", CallLegId);
             writer.WriteStringValue("call_session_id", CallSessionId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_channels>("channels", Channels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataChannels>("channels", Channels);
             writer.WriteStringValue("conference_id", ConferenceId);
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("created_at", CreatedAt);
@@ -203,9 +203,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("initiated_by", InitiatedBy);
             writer.WriteStringValue("recording_ended_at", RecordingEndedAt);
             writer.WriteStringValue("recording_started_at", RecordingStartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_record_type>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_source>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataSource>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataStatus>("status", Status);
             writer.WriteStringValue("to", To);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Keywords { get; set; }
 #endif
         /// <summary>The op property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema_op? Op { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchemaOp? Op { get; set; }
         /// <summary>The resp_text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema_op>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchemaOp>(); } },
                 { "resp_text", n => { RespText = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("keywords", Keywords);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema_op>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchemaOp>("op", Op);
             writer.WriteStringValue("resp_text", RespText);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the civic address assigned to the phone number entry.</summary>
         public Guid? CivicAddressId { get; set; }
         /// <summary>A code returned by Microsoft Teams if there is an error with the phone number entry upload.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_error_code? ErrorCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryErrorCode? ErrorCode { get; set; }
         /// <summary>A message returned by Microsoft Teams if there is an error with the upload process.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ErrorMessage { get; set; }
 #endif
         /// <summary>Represents the status of the phone number entry upload on Telnyx.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_internal_status? InternalStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryInternalStatus? InternalStatus { get; set; }
         /// <summary>Identifies the location assigned to the phone number entry.</summary>
         public Guid? LocationId { get; set; }
         /// <summary>Uniquely identifies the resource.</summary>
@@ -41,15 +41,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>Represents the status of the phone number entry upload on Microsoft Teams.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry"/> and sets the default values.
         /// </summary>
         public TnUploadEntry()
         {
             AdditionalData = new Dictionary<string, object>();
-            InternalStatus = global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_internal_status.Pending_assignment;
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_status.Pending_upload;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -70,13 +68,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "civic_address_id", n => { CivicAddressId = n.GetGuidValue(); } },
-                { "error_code", n => { ErrorCode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_error_code>(); } },
+                { "error_code", n => { ErrorCode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryErrorCode>(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
-                { "internal_status", n => { InternalStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_internal_status>(); } },
+                { "internal_status", n => { InternalStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryInternalStatus>(); } },
                 { "location_id", n => { LocationId = n.GetGuidValue(); } },
                 { "number_id", n => { NumberId = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryStatus>(); } },
             };
         }
         /// <summary>
@@ -87,13 +85,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("civic_address_id", CivicAddressId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_error_code>("error_code", ErrorCode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryErrorCode>("error_code", ErrorCode);
             writer.WriteStringValue("error_message", ErrorMessage);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_internal_status>("internal_status", InternalStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryInternalStatus>("internal_status", InternalStatus);
             writer.WriteGuidValue("location_id", LocationId);
             writer.WriteGuidValue("number_id", NumberId);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntry_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TnUploadEntryStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

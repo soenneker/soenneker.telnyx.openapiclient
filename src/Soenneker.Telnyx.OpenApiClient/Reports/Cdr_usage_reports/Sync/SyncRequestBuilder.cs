@@ -90,8 +90,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Sync
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SyncRequestBuilderGetQueryParameters 
         {
+            /// <summary>Type of aggregation to apply to the results.</summary>
             [QueryParameter("aggregation_type")]
-            public global::Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Sync.GetAggregation_typeQueryParameterType? AggregationType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetCdrUsageReportSyncAggregationTypeParameter? AggregationType { get; set; }
+            /// <summary>Filter results by connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("connections")]
@@ -101,10 +103,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Sync
             [QueryParameter("connections")]
             public double?[] Connections { get; set; }
 #endif
+            /// <summary>End of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("end_date")]
             public DateTimeOffset? EndDate { get; set; }
+            /// <summary>Filter results by product breakdown.</summary>
             [QueryParameter("product_breakdown")]
-            public global::Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Sync.GetProduct_breakdownQueryParameterType? ProductBreakdown { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetCdrUsageReportSyncProductBreakdownParameter? ProductBreakdown { get; set; }
+            /// <summary>Start of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("start_date")]
             public DateTimeOffset? StartDate { get; set; }
         }

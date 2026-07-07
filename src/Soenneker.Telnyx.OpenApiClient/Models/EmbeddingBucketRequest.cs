@@ -26,16 +26,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? DocumentChunkOverlapSize { get; set; }
         /// <summary>The document_chunk_size property</summary>
         public int? DocumentChunkSize { get; set; }
-        /// <summary>Supported models to vectorize and embed documents.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels? EmbeddingModel { get; set; }
-        /// <summary>Supported types of custom document loaders for embeddings.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders? Loader { get; set; }
+        /// <summary>The embedding_model property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel? EmbeddingModel { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel EmbeddingModel { get; set; }
+#endif
+        /// <summary>The loader property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader? Loader { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader Loader { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest"/> and sets the default values.
         /// </summary>
         public EmbeddingBucketRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            DocumentChunkOverlapSize = 512;
+            DocumentChunkSize = 1024;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -58,8 +72,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "bucket_name", n => { BucketName = n.GetStringValue(); } },
                 { "document_chunk_overlap_size", n => { DocumentChunkOverlapSize = n.GetIntValue(); } },
                 { "document_chunk_size", n => { DocumentChunkSize = n.GetIntValue(); } },
-                { "embedding_model", n => { EmbeddingModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels>(); } },
-                { "loader", n => { Loader = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders>(); } },
+                { "embedding_model", n => { EmbeddingModel = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel>(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel.CreateFromDiscriminatorValue); } },
+                { "loader", n => { Loader = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader>(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -72,8 +86,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("bucket_name", BucketName);
             writer.WriteIntValue("document_chunk_overlap_size", DocumentChunkOverlapSize);
             writer.WriteIntValue("document_chunk_size", DocumentChunkSize);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels>("embedding_model", EmbeddingModel);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders>("loader", Loader);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel>("embedding_model", EmbeddingModel);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader>("loader", Loader);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Sid { get; set; }
 #endif
         /// <summary>The status of the recording transcriptions. The transcription text will be available only when the status is completed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscriptionStatus? Status { get; set; }
         /// <summary>The recording&apos;s transcribed text</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "duration", n => { Duration = n.GetStringValue(); } },
                 { "recording_sid", n => { RecordingSid = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscriptionStatus>(); } },
                 { "transcription_text", n => { TranscriptionText = n.GetStringValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("duration", Duration);
             writer.WriteStringValue("recording_sid", RecordingSid);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscriptionStatus>("status", Status);
             writer.WriteStringValue("transcription_text", TranscriptionText);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

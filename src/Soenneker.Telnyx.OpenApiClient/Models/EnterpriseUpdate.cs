@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// All fields are optional. Only provided fields will be updated.
+    /// All fields are optional; only the ones supplied are updated. The same field-level rules from `EnterpriseCreateRequest` apply.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnterpriseUpdate : IAdditionalDataHolder, IParsable
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact BillingContact { get; set; }
 #endif
-        /// <summary>Corporate registration number</summary>
+        /// <summary>The corporate_registration_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CorporateRegistrationNumber { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CorporateRegistrationNumber { get; set; }
 #endif
-        /// <summary>Customer reference identifier</summary>
+        /// <summary>The customer_reference property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomerReference { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomerReference { get; set; }
 #endif
-        /// <summary>DBA name</summary>
+        /// <summary>The doing_business_as property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DoingBusinessAs { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DoingBusinessAs { get; set; }
 #endif
-        /// <summary>D-U-N-S Number</summary>
+        /// <summary>The dun_bradstreet_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DunBradstreetNumber { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DunBradstreetNumber { get; set; }
 #endif
-        /// <summary>&quot;Federal Employer Identification Number. Format: XX-XXXXXXX or XXXXXXXXX&quot;</summary>
+        /// <summary>The fein property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Fein { get; set; }
@@ -71,15 +71,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Fein { get; set; }
 #endif
-        /// <summary>Industry classification</summary>
+        /// <summary>The industry property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry? Industry { get; set; }
+        /// <summary>Updated state/province/country of incorporation. Optional on update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Industry { get; set; }
+        public string? JurisdictionOfIncorporation { get; set; }
 #nullable restore
 #else
-        public string Industry { get; set; }
+        public string JurisdictionOfIncorporation { get; set; }
 #endif
-        /// <summary>Legal name of the enterprise</summary>
+        /// <summary>Legal name of the enterprise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LegalName { get; set; }
@@ -87,9 +89,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LegalName { get; set; }
 #endif
-        /// <summary>Employee count range</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdate_number_of_employees? NumberOfEmployees { get; set; }
-        /// <summary>&quot;Organization contact information. Note: the response returns this object with the phone field as &apos;phone&apos; (not &apos;phone_number&apos;).&quot;</summary>
+        /// <summary>The number_of_employees property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NumberOfEmployees { get; set; }
+#nullable restore
+#else
+        public string NumberOfEmployees { get; set; }
+#endif
+        /// <summary>The organization_contact property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact? OrganizationContact { get; set; }
@@ -97,8 +105,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact OrganizationContact { get; set; }
 #endif
-        /// <summary>Legal structure type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdate_organization_legal_type? OrganizationLegalType { get; set; }
+        /// <summary>The organization_legal_type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationLegalType { get; set; }
+#nullable restore
+#else
+        public string OrganizationLegalType { get; set; }
+#endif
         /// <summary>The organization_physical_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress OrganizationPhysicalAddress { get; set; }
 #endif
-        /// <summary>SIC Code</summary>
+        /// <summary>The primary_business_domain_sic_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PrimaryBusinessDomainSicCode { get; set; }
@@ -115,7 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PrimaryBusinessDomainSicCode { get; set; }
 #endif
-        /// <summary>Professional license number</summary>
+        /// <summary>The professional_license_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProfessionalLicenseNumber { get; set; }
@@ -123,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ProfessionalLicenseNumber { get; set; }
 #endif
-        /// <summary>Company website URL</summary>
+        /// <summary>The website property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Website { get; set; }
@@ -163,11 +177,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "doing_business_as", n => { DoingBusinessAs = n.GetStringValue(); } },
                 { "dun_bradstreet_number", n => { DunBradstreetNumber = n.GetStringValue(); } },
                 { "fein", n => { Fein = n.GetStringValue(); } },
-                { "industry", n => { Industry = n.GetStringValue(); } },
+                { "industry", n => { Industry = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry>(); } },
+                { "jurisdiction_of_incorporation", n => { JurisdictionOfIncorporation = n.GetStringValue(); } },
                 { "legal_name", n => { LegalName = n.GetStringValue(); } },
-                { "number_of_employees", n => { NumberOfEmployees = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdate_number_of_employees>(); } },
+                { "number_of_employees", n => { NumberOfEmployees = n.GetStringValue(); } },
                 { "organization_contact", n => { OrganizationContact = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact>(global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact.CreateFromDiscriminatorValue); } },
-                { "organization_legal_type", n => { OrganizationLegalType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdate_organization_legal_type>(); } },
+                { "organization_legal_type", n => { OrganizationLegalType = n.GetStringValue(); } },
                 { "organization_physical_address", n => { OrganizationPhysicalAddress = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
                 { "primary_business_domain_sic_code", n => { PrimaryBusinessDomainSicCode = n.GetStringValue(); } },
                 { "professional_license_number", n => { ProfessionalLicenseNumber = n.GetStringValue(); } },
@@ -188,11 +203,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("doing_business_as", DoingBusinessAs);
             writer.WriteStringValue("dun_bradstreet_number", DunBradstreetNumber);
             writer.WriteStringValue("fein", Fein);
-            writer.WriteStringValue("industry", Industry);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry>("industry", Industry);
+            writer.WriteStringValue("jurisdiction_of_incorporation", JurisdictionOfIncorporation);
             writer.WriteStringValue("legal_name", LegalName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdate_number_of_employees>("number_of_employees", NumberOfEmployees);
+            writer.WriteStringValue("number_of_employees", NumberOfEmployees);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact>("organization_contact", OrganizationContact);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdate_organization_legal_type>("organization_legal_type", OrganizationLegalType);
+            writer.WriteStringValue("organization_legal_type", OrganizationLegalType);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress>("organization_physical_address", OrganizationPhysicalAddress);
             writer.WriteStringValue("primary_business_domain_sic_code", PrimaryBusinessDomainSicCode);
             writer.WriteStringValue("professional_license_number", ProfessionalLicenseNumber);

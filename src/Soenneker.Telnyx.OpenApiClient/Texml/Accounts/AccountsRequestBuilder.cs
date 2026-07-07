@@ -16,15 +16,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts
     public partial class AccountsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item collection</summary>
-        /// <param name="position">The id of the account the resource belongs to.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.WithAccount_sItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.WithAccount_sItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.WithAccountSItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.WithAccountSItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("account_sid", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.WithAccount_sItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("accountSid", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.WithAccountSItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

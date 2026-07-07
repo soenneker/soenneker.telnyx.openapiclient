@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Attribute { get; set; }
 #endif
         /// <summary>The operator property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Operator? Operator { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OperatorType? Operator { get; set; }
         /// <summary>The values property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attribute", n => { Attribute = n.GetStringValue(); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Operator>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OperatorType>(); } },
                 { "values", n => { Values = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("attribute", Attribute);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Operator>("operator", Operator);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OperatorType>("operator", Operator);
             writer.WriteCollectionOfPrimitiveValues<string>("values", Values);
             writer.WriteAdditionalData(AdditionalData);
         }

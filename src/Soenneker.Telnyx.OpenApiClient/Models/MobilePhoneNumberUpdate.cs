@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound Inbound { get; set; }
 #endif
         /// <summary>The inbound_call_screening property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdate_inbound_call_screening? InboundCallScreening { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInboundCallScreening? InboundCallScreening { get; set; }
         /// <summary>The noise_suppression property</summary>
         public bool? NoiseSuppression { get; set; }
         /// <summary>The outbound property</summary>
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound.CreateFromDiscriminatorValue); } },
-                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdate_inbound_call_screening>(); } },
+                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInboundCallScreening>(); } },
                 { "noise_suppression", n => { NoiseSuppression = n.GetBoolValue(); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound>("inbound", Inbound);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdate_inbound_call_screening>("inbound_call_screening", InboundCallScreening);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInboundCallScreening>("inbound_call_screening", InboundCallScreening);
             writer.WriteBoolValue("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound>("outbound", Outbound);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

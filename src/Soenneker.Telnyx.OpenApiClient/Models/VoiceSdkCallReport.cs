@@ -30,10 +30,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Reason the SDK flushed this stats report segment, for example an intermediate socket-close flush.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_flushReason? FlushReason { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty? FlushReason { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_flushReason FlushReason { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty FlushReason { get; set; }
 #endif
         /// <summary>Raw logs payload emitted by the Voice SDK and stored without normalization. Live responses commonly return an array of log entries, but object-shaped log payloads are also allowed for compatibility.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,10 +60,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>High-level call metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_summary? Summary { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty? Summary { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_summary Summary { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty Summary { get; set; }
 #endif
         /// <summary>Telnyx call leg identifier for correlating the report with call-control, SIP, and media troubleshooting data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,10 +110,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Decoded Voice SDK identifier metadata emitted by voice-sdk-proxy when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_voice_sdk_id_decoded? VoiceSdkIdDecoded { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty? VoiceSdkIdDecoded { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_voice_sdk_id_decoded VoiceSdkIdDecoded { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty VoiceSdkIdDecoded { get; set; }
 #endif
         /// <summary>Voice SDK session correlation identifier used to group stats segments for the same SDK session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,20 +151,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_id", n => { CallId = n.GetGuidValue(); } },
                 { "call_report_id", n => { CallReportId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "flushReason", n => { FlushReason = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_flushReason>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_flushReason.CreateFromDiscriminatorValue); } },
+                { "flushReason", n => { FlushReason = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty.CreateFromDiscriminatorValue); } },
                 { "logs", n => { Logs = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs.CreateFromDiscriminatorValue); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "segment", n => { Segment = n.GetIntValue(); } },
                 { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats.CreateFromDiscriminatorValue); } },
                 { "stored_at", n => { StoredAt = n.GetDateTimeOffsetValue(); } },
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_summary>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_summary.CreateFromDiscriminatorValue); } },
+                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty.CreateFromDiscriminatorValue); } },
                 { "telnyx_leg_id", n => { TelnyxLegId = n.GetStringValue(); } },
                 { "telnyx_session_id", n => { TelnyxSessionId = n.GetStringValue(); } },
                 { "user_agent", n => { UserAgent = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "voice_sdk_id", n => { VoiceSdkId = n.GetStringValue(); } },
-                { "voice_sdk_id_decoded", n => { VoiceSdkIdDecoded = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_voice_sdk_id_decoded>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_voice_sdk_id_decoded.CreateFromDiscriminatorValue); } },
+                { "voice_sdk_id_decoded", n => { VoiceSdkIdDecoded = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty.CreateFromDiscriminatorValue); } },
                 { "voice_sdk_session_id", n => { VoiceSdkSessionId = n.GetStringValue(); } },
             };
         }
@@ -178,20 +178,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("call_id", CallId);
             writer.WriteStringValue("call_report_id", CallReportId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_flushReason>("flushReason", FlushReason);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty>("flushReason", FlushReason);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs>("logs", Logs);
             writer.WriteGuidValue("organization_id", OrganizationId);
             writer.WriteIntValue("segment", Segment);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats>("stats", Stats);
             writer.WriteDateTimeOffsetValue("stored_at", StoredAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_summary>("summary", Summary);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty>("summary", Summary);
             writer.WriteStringValue("telnyx_leg_id", TelnyxLegId);
             writer.WriteStringValue("telnyx_session_id", TelnyxSessionId);
             writer.WriteStringValue("user_agent", UserAgent);
             writer.WriteGuidValue("user_id", UserId);
             writer.WriteStringValue("version", Version);
             writer.WriteStringValue("voice_sdk_id", VoiceSdkId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport_voice_sdk_id_decoded>("voice_sdk_id_decoded", VoiceSdkIdDecoded);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty>("voice_sdk_id_decoded", VoiceSdkIdDecoded);
             writer.WriteStringValue("voice_sdk_session_id", VoiceSdkSessionId);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -99,11 +99,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberInbound Inbound { get; set; }
 #endif
         /// <summary>The inbound call screening setting.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumber_inbound_call_screening? InboundCallScreening { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberInboundCallScreening? InboundCallScreening { get; set; }
         /// <summary>Indicates if mobile voice is enabled.</summary>
         public bool? MobileVoiceEnabled { get; private set; }
         /// <summary>The noise suppression setting.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumber_noise_suppression? NoiseSuppression { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberNoiseSuppression? NoiseSuppression { get; set; }
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -185,9 +185,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberInbound.CreateFromDiscriminatorValue); } },
-                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumber_inbound_call_screening>(); } },
+                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberInboundCallScreening>(); } },
                 { "mobile_voice_enabled", n => { MobileVoiceEnabled = n.GetBoolValue(); } },
-                { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumber_noise_suppression>(); } },
+                { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberNoiseSuppression>(); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberOutbound.CreateFromDiscriminatorValue); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
@@ -211,8 +211,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberInbound>("inbound", Inbound);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumber_inbound_call_screening>("inbound_call_screening", InboundCallScreening);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumber_noise_suppression>("noise_suppression", NoiseSuppression);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberInboundCallScreening>("inbound_call_screening", InboundCallScreening);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberNoiseSuppression>("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberOutbound>("outbound", Outbound);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);

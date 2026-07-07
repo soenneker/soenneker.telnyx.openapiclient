@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Raw structured context attached to the log entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry_context? Context { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntryContextProperty? Context { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry_context Context { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntryContextProperty Context { get; set; }
 #endif
         /// <summary>Log level emitted by the SDK.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry_level? Level { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntryLevel? Level { get; set; }
         /// <summary>Log message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,8 +60,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "context", n => { Context = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry_context>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry_context.CreateFromDiscriminatorValue); } },
-                { "level", n => { Level = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry_level>(); } },
+                { "context", n => { Context = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntryContextProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntryContextProperty.CreateFromDiscriminatorValue); } },
+                { "level", n => { Level = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntryLevel>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
             };
@@ -73,8 +73,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry_context>("context", Context);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry_level>("level", Level);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntryContextProperty>("context", Context);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntryLevel>("level", Level);
             writer.WriteStringValue("message", Message);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
             writer.WriteAdditionalData(AdditionalData);

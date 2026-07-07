@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Must be a valid JSON schema. If specified, the output will follow the JSON schema.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_guided_json? GuidedJson { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty? GuidedJson { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_guided_json GuidedJson { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty GuidedJson { get; set; }
 #endif
         /// <summary>If specified, the output will follow the regex pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,24 +95,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_stop? Stop { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestStop? Stop { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_stop Stop { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestStop Stop { get; set; }
 #endif
         /// <summary>Whether or not to stream data-only server-sent events as they become available.</summary>
         public bool? Stream { get; set; }
         /// <summary>Adjusts the &quot;creativity&quot; of the model. Lower values make the model more deterministic and repetitive, while higher values make the model more random and creative.</summary>
         public double? Temperature { get; set; }
         /// <summary>The tool_choice property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_tool_choice? ToolChoice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolChoice? ToolChoice { get; set; }
         /// <summary>The `function` tool type follows the same schema as the [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat). The `retrieval` tool type is unique to Telnyx. You may pass a list of [embedded storage buckets](https://developers.telnyx.com/api-reference/embeddings/embed-documents) for retrieval-augmented generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools>? Tools { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolsItem>? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools> Tools { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolsItem> Tools { get; set; }
 #endif
         /// <summary>This is used with `logprobs`. An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability.</summary>
         public int? TopLogprobs { get; set; }
@@ -126,7 +126,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ChatCompletionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            EarlyStopping = false;
+            EnableThinking = true;
+            FrequencyPenalty = 0;
+            LengthPenalty = 1;
+            Logprobs = false;
             Model = "meta-llama/Meta-Llama-3.1-8B-Instruct";
+            PresencePenalty = 0;
+            Stream = false;
+            Temperature = 0.1;
+            UseBeamSearch = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -152,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "enable_thinking", n => { EnableThinking = n.GetBoolValue(); } },
                 { "frequency_penalty", n => { FrequencyPenalty = n.GetDoubleValue(); } },
                 { "guided_choice", n => { GuidedChoice = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "guided_json", n => { GuidedJson = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_guided_json>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_guided_json.CreateFromDiscriminatorValue); } },
+                { "guided_json", n => { GuidedJson = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty.CreateFromDiscriminatorValue); } },
                 { "guided_regex", n => { GuidedRegex = n.GetStringValue(); } },
                 { "length_penalty", n => { LengthPenalty = n.GetDoubleValue(); } },
                 { "logprobs", n => { Logprobs = n.GetBoolValue(); } },
@@ -164,11 +173,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "presence_penalty", n => { PresencePenalty = n.GetDoubleValue(); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
-                { "stop", n => { Stop = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_stop>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_stop.CreateFromDiscriminatorValue); } },
+                { "stop", n => { Stop = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestStop>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestStop.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
-                { "tool_choice", n => { ToolChoice = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_tool_choice>(); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tool_choice", n => { ToolChoice = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolChoice>(); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "top_logprobs", n => { TopLogprobs = n.GetIntValue(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
                 { "use_beam_search", n => { UseBeamSearch = n.GetBoolValue(); } },
@@ -187,7 +196,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enable_thinking", EnableThinking);
             writer.WriteDoubleValue("frequency_penalty", FrequencyPenalty);
             writer.WriteCollectionOfPrimitiveValues<string>("guided_choice", GuidedChoice);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_guided_json>("guided_json", GuidedJson);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty>("guided_json", GuidedJson);
             writer.WriteStringValue("guided_regex", GuidedRegex);
             writer.WriteDoubleValue("length_penalty", LengthPenalty);
             writer.WriteBoolValue("logprobs", Logprobs);
@@ -199,157 +208,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("presence_penalty", PresencePenalty);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam>("response_format", ResponseFormat);
             writer.WriteIntValue("seed", Seed);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_stop>("stop", Stop);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestStop>("stop", Stop);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteDoubleValue("temperature", Temperature);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_tool_choice>("tool_choice", ToolChoice);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools>("tools", Tools);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolChoice>("tool_choice", ToolChoice);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolsItem>("tools", Tools);
             writer.WriteIntValue("top_logprobs", TopLogprobs);
             writer.WriteDoubleValue("top_p", TopP);
             writer.WriteBoolValue("use_beam_search", UseBeamSearch);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatCompletionRequest_stop : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? ChatCompletionRequestStopString { get; set; }
-#nullable restore
-#else
-            public string ChatCompletionRequestStopString { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_stop"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_stop CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_stop();
-                if(parseNode.GetStringValue() is string chatCompletionRequestStopStringValue)
-                {
-                    result.ChatCompletionRequestStopString = chatCompletionRequestStopStringValue;
-                }
-                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ChatCompletionRequestStopString != null)
-                {
-                    writer.WriteStringValue(null, ChatCompletionRequestStopString);
-                }
-                else if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatCompletionRequest_tools : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam? ChatCompletionToolParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam ChatCompletionToolParam { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval? Retrieval { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval Retrieval { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools();
-                if("ChatCompletionToolParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ChatCompletionToolParam = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam();
-                }
-                else if("Retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.Retrieval = new global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatCompletionToolParam != null)
-                {
-                    return ChatCompletionToolParam.GetFieldDeserializers();
-                }
-                else if(Retrieval != null)
-                {
-                    return Retrieval.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ChatCompletionToolParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam>(null, ChatCompletionToolParam);
-                }
-                else if(Retrieval != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval>(null, Retrieval);
-                }
-            }
         }
     }
 }

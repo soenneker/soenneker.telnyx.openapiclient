@@ -48,8 +48,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public NoiseSuppressionStartBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            Direction = global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection.Inbound;
-            NoiseSuppressionEngine = global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine.Denoiser;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

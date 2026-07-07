@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy EndedBy { get; set; }
 #endif
         /// <summary>Reason why the conference ended</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason? EndReason { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndReason? EndReason { get; set; }
         /// <summary>ISO 8601 formatted date of when the conference will expire</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordType? RecordType { get; set; }
         /// <summary>Region where the conference is hosted</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Region { get; set; }
 #endif
         /// <summary>Status of the conference</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date of when the conference was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,14 +111,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "end_reason", n => { EndReason = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason>(); } },
+                { "end_reason", n => { EndReason = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndReason>(); } },
                 { "ended_by", n => { EndedBy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordType>(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -132,13 +132,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy>("ended_by", EndedBy);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason>("end_reason", EndReason);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndReason>("end_reason", EndReason);
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordType>("record_type", RecordType);
             writer.WriteStringValue("region", Region);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceStatus>("status", Status);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

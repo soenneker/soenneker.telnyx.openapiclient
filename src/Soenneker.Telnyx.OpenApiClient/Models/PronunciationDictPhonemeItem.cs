@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class PronunciationDictPhonemeItem : IParsable
     {
         /// <summary>The phonetic alphabet used for the phoneme notation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItem_alphabet? Alphabet { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItemAlphabet? Alphabet { get; set; }
         /// <summary>The phoneme notation representing the desired pronunciation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The item type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItem_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItemType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -51,10 +51,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "alphabet", n => { Alphabet = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItem_alphabet>(); } },
+                { "alphabet", n => { Alphabet = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItemAlphabet>(); } },
                 { "phoneme", n => { Phoneme = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItem_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItemType>(); } },
             };
         }
         /// <summary>
@@ -64,10 +64,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItem_alphabet>("alphabet", Alphabet);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItemAlphabet>("alphabet", Alphabet);
             writer.WriteStringValue("phoneme", Phoneme);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItem_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PronunciationDictPhonemeItemType>("type", Type);
         }
     }
 }

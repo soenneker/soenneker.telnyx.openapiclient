@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string OrganizationId { get; set; }
 #endif
         /// <summary>The current status of the fine-tuning job.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJobStatus? Status { get; set; }
         /// <summary>The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running.</summary>
         public int? TrainedTokens { get; set; }
         /// <summary>The storage bucket or object used for training.</summary>
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJobStatus>(); } },
                 { "trained_tokens", n => { TrainedTokens = n.GetIntValue(); } },
                 { "training_file", n => { TrainingFile = n.GetStringValue(); } },
             };
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("organization_id", OrganizationId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJobStatus>("status", Status);
             writer.WriteIntValue("trained_tokens", TrainedTokens);
             writer.WriteStringValue("training_file", TrainingFile);
             writer.WriteAdditionalData(AdditionalData);

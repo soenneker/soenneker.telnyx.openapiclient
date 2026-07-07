@@ -24,6 +24,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DialogflowConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            AnalyzeSentiment = false;
+            PartialAutomatedAgentReply = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

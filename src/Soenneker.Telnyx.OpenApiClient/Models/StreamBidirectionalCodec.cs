@@ -9,11 +9,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         [EnumMember(Value = "PCMU")]
         #pragma warning disable CS1591
-        PCMU,
+        Pcmu,
         #pragma warning restore CS1591
         [EnumMember(Value = "PCMA")]
         #pragma warning disable CS1591
-        PCMA,
+        Pcma,
         #pragma warning restore CS1591
         [EnumMember(Value = "G722")]
         #pragma warning disable CS1591
@@ -21,11 +21,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "OPUS")]
         #pragma warning disable CS1591
-        OPUS,
+        Opus,
         #pragma warning restore CS1591
         [EnumMember(Value = "AMR-WB")]
         #pragma warning disable CS1591
-        AMRWB,
+        AmrWb,
         #pragma warning restore CS1591
         [EnumMember(Value = "L16")]
         #pragma warning disable CS1591

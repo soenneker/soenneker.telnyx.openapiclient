@@ -23,6 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public FineTuningJobHyperparameters()
         {
             AdditionalData = new Dictionary<string, object>();
+            NEpochs = 3;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

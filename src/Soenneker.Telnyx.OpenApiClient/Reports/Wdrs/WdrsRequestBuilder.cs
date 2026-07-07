@@ -100,6 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("end_date")]
             public string EndDate { get; set; }
 #endif
+            /// <summary>Filter results by identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("id")]
@@ -109,6 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("id")]
             public string Id { get; set; }
 #endif
+            /// <summary>Filter results by imsi.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("imsi")]
@@ -118,6 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("imsi")]
             public string Imsi { get; set; }
 #endif
+            /// <summary>Filter results by mcc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("mcc")]
@@ -127,6 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("mcc")]
             public string Mcc { get; set; }
 #endif
+            /// <summary>Filter results by mnc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("mnc")]
@@ -146,6 +150,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
+            /// <summary>Filter results by phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("phone_number")]
@@ -155,6 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("phone_number")]
             public string PhoneNumber { get; set; }
 #endif
+            /// <summary>Filter results by sim card id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sim_card_id")]
@@ -164,6 +170,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("sim_card_id")]
             public string SimCardId { get; set; }
 #endif
+            /// <summary>Filter results by sim group id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sim_group_id")]
@@ -173,6 +180,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("sim_group_id")]
             public string SimGroupId { get; set; }
 #endif
+            /// <summary>Filter results by sim group name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sim_group_name")]
@@ -182,6 +190,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("sim_group_name")]
             public string SimGroupName { get; set; }
 #endif
+            /// <summary>Field and direction to sort the results by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

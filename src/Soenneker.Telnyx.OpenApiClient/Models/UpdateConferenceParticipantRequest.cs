@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether entry/exit beeps are enabled for this participant.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_beep_enabled? BeepEnabled { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequestBeepEnabled? BeepEnabled { get; set; }
         /// <summary>Whether the conference should end when this participant exits.</summary>
         public bool? EndConferenceOnExit { get; set; }
         /// <summary>Whether the conference should soft-end when this participant exits. A soft end will stop new participants from joining but allow existing participants to remain.</summary>
@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_beep_enabled>(); } },
+                { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequestBeepEnabled>(); } },
                 { "end_conference_on_exit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "soft_end_conference_on_exit", n => { SoftEndConferenceOnExit = n.GetBoolValue(); } },
             };
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_beep_enabled>("beep_enabled", BeepEnabled);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequestBeepEnabled>("beep_enabled", BeepEnabled);
             writer.WriteBoolValue("end_conference_on_exit", EndConferenceOnExit);
             writer.WriteBoolValue("soft_end_conference_on_exit", SoftEndConferenceOnExit);
             writer.WriteAdditionalData(AdditionalData);

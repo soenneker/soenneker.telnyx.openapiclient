@@ -90,6 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MdrsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter results by cld.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("cld")]
@@ -99,6 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
             [QueryParameter("cld")]
             public string Cld { get; set; }
 #endif
+            /// <summary>Filter results by cli.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("cli")]
@@ -108,8 +110,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
             [QueryParameter("cli")]
             public string Cli { get; set; }
 #endif
+            /// <summary>Filter results by direction.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdrs.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetPaginatedMdrsDirectionParameter? Direction { get; set; }
             /// <summary>Pagination end date</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,6 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
             [QueryParameter("end_date")]
             public string EndDate { get; set; }
 #endif
+            /// <summary>Filter results by identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("id")]
@@ -129,8 +133,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
             [QueryParameter("id")]
             public string Id { get; set; }
 #endif
+            /// <summary>Filter results by message type.</summary>
             [QueryParameter("message_type")]
-            public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdrs.GetMessage_typeQueryParameterType? MessageType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetPaginatedMdrsMessageTypeParameter? MessageType { get; set; }
+            /// <summary>Filter results by profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("profile")]
@@ -150,8 +156,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
             [QueryParameter("start_date")]
             public string StartDate { get; set; }
 #endif
+            /// <summary>Filter results by status.</summary>
             [QueryParameter("status")]
-            public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdrs.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GetPaginatedMdrsStatusParameter? Status { get; set; }
         }
     }
 }

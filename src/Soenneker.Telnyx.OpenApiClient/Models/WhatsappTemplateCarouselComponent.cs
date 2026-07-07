@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Array of card objects, each with its own components.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent_cards>? Cards { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponentCardsItem>? Cards { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent_cards> Cards { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponentCardsItem> Cards { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent"/> and sets the default values.
         /// </summary>
@@ -50,8 +50,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cards", n => { Cards = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent_cards>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent_cards.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent_type>(); } },
+                { "cards", n => { Cards = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponentCardsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponentCardsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponentType>(); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent_cards>("cards", Cards);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent_type>("type", Type);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponentCardsItem>("cards", Cards);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

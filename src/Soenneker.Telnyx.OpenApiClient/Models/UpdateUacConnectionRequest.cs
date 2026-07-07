@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings RtcpSettings { get; set; }
 #endif
         /// <summary>This feature enables inbound SIP URI calls to your Credential Auth Connection. If enabled for all (unrestricted) then anyone who calls the SIP URI &lt;your-username&gt;@telnyx.com will be connected to your Connection. You can also choose to allow only calls that are originated on any Connections under your account (internal).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequest_sip_uri_calling_preference? SipUriCallingPreference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequestSipUriCallingPreference? SipUriCallingPreference { get; set; }
         /// <summary>Tags associated with the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UserName { get; set; }
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequest_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequestWebhookApiVersion? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -165,9 +165,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateUacConnectionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
-            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType.RFC2833;
-            WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequest_webhook_api_version.One;
+            CallCostInWebhooks = false;
+            DefaultOnHoldComfortNoiseEnabled = false;
+            EncodeContactHeaderEnabled = false;
+            OnnetT38PassthroughEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -207,10 +208,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UacOutbound.CreateFromDiscriminatorValue); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
-                { "sip_uri_calling_preference", n => { SipUriCallingPreference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequest_sip_uri_calling_preference>(); } },
+                { "sip_uri_calling_preference", n => { SipUriCallingPreference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequestSipUriCallingPreference>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequest_webhook_api_version>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequestWebhookApiVersion>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -243,10 +244,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacOutbound>("outbound", Outbound);
             writer.WriteStringValue("password", Password);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequest_sip_uri_calling_preference>("sip_uri_calling_preference", SipUriCallingPreference);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequestSipUriCallingPreference>("sip_uri_calling_preference", SipUriCallingPreference);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("user_name", UserName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequest_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUacConnectionRequestWebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

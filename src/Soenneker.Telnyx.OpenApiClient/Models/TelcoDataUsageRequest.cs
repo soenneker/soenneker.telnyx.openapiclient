@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Type of aggregation for the report</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequest_aggregationType? AggregationType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequestAggregationType? AggregationType { get; set; }
         /// <summary>End date for the usage report</summary>
         public Date? EndDate { get; set; }
         /// <summary>List of managed accounts to include in the report</summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregationType", n => { AggregationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequest_aggregationType>(); } },
+                { "aggregationType", n => { AggregationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequestAggregationType>(); } },
                 { "endDate", n => { EndDate = n.GetDateValue(); } },
                 { "managedAccounts", n => { ManagedAccounts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "startDate", n => { StartDate = n.GetDateValue(); } },
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequest_aggregationType>("aggregationType", AggregationType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequestAggregationType>("aggregationType", AggregationType);
             writer.WriteDateValue("endDate", EndDate);
             writer.WriteCollectionOfPrimitiveValues<string>("managedAccounts", ManagedAccounts);
             writer.WriteDateValue("startDate", StartDate);

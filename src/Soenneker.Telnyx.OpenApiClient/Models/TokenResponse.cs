@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Scope { get; set; }
 #endif
         /// <summary>Token type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponse_token_type? TokenType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponseTokenType? TokenType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponse"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "expires_in", n => { ExpiresIn = n.GetIntValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "scope", n => { Scope = n.GetStringValue(); } },
-                { "token_type", n => { TokenType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponse_token_type>(); } },
+                { "token_type", n => { TokenType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponseTokenType>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("expires_in", ExpiresIn);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("scope", Scope);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponse_token_type>("token_type", TokenType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponseTokenType>("token_type", TokenType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

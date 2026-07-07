@@ -46,8 +46,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TexmlCreateCallRecordingRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            RecordingChannels = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels.Dual;
-            RecordingStatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod.POST;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

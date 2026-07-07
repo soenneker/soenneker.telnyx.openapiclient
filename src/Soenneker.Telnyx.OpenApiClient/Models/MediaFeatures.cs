@@ -27,6 +27,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public MediaFeatures()
         {
             AdditionalData = new Dictionary<string, object>();
+            AcceptAnyRtpPacketsEnabled = false;
+            RtpAutoAdjustEnabled = true;
+            T38FaxGatewayEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

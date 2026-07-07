@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.ai_calls.item collection</summary>
         /// <param name="position">The ID of the TeXML connection to use for the call.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Item.WithConnection_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Item.WithConnection_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Item.WithConnectionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Item.WithConnectionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("connection_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Item.WithConnection_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("connectionId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Item.WithConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

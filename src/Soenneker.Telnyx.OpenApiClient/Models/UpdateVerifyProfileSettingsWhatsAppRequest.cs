@@ -54,6 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateVerifyProfileSettingsWhatsAppRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            DefaultVerificationTimeoutSecs = 300;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

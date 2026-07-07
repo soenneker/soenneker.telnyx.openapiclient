@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Sid { get; set; }
 #endif
         /// <summary>How the recording was started.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_source? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceSource? Source { get; set; }
         /// <summary>The timestamp of when the recording was started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,14 +93,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StartTime { get; set; }
 #endif
         /// <summary>The status of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceStatus? Status { get; set; }
         /// <summary>A list of related resources identified by their relative URIs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_subresource_uris? SubresourceUris { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceSubresourceUrisProperty? SubresourceUris { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_subresource_uris SubresourceUris { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceSubresourceUrisProperty SubresourceUris { get; set; }
 #endif
         /// <summary>The relative URI for this recording.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -145,10 +145,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "media_url", n => { MediaUrl = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceSource>(); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_status>(); } },
-                { "subresource_uris", n => { SubresourceUris = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_subresource_uris>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_subresource_uris.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceStatus>(); } },
+                { "subresource_uris", n => { SubresourceUris = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceSubresourceUrisProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceSubresourceUrisProperty.CreateFromDiscriminatorValue); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -169,10 +169,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("error_code", ErrorCode);
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceSource>("source", Source);
             writer.WriteStringValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_status>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResource_subresource_uris>("subresource_uris", SubresourceUris);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceSubresourceUrisProperty>("subresource_uris", SubresourceUris);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Number of items</summary>
         public int? Quantity { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleLine_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleLineType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SimpleLine"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "amount", n => { Amount = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleLine_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleLineType>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("quantity", Quantity);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleLine_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleLineType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

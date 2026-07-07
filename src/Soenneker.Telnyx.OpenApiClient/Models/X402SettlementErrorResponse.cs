@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponse_errors>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponseErrorsItem>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponse_errors> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponseErrorsItem> Errors { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponse_errors>(global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponse_errors.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponseErrorsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponseErrorsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponse_errors>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponseErrorsItem>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

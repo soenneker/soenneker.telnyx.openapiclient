@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_n
         /// <summary>
         /// Creates a new background job to delete all the phone numbers associated with the given block. We will only consider the phone number block as deleted after all phone numbers associated with it are removed, so multiple executions of this job may be necessary in case some of the phone numbers present errors during the deletion process.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlock"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,11 +47,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_n
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlockRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlock?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlockRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlockRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlock> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlockRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_n
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlock>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobDeletePhoneNumberBlock.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new background job to delete all the phone numbers associated with the given block. We will only consider the phone number block as deleted after all phone numbers associated with it are removed, so multiple executions of this job may be necessary in case some of the phone numbers present errors during the deletion process.

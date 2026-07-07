@@ -17,14 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite.Item
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging.rcs.test_number_invite.item.item collection</summary>
         /// <param name="position">Phone number in E164 format to invite for testing</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite.Item.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite.Item.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite.Item.Item.WithPhoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite.Item.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite.Item.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("phoneNumber", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite.Item.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

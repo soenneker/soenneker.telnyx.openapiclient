@@ -90,8 +90,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Speech_t
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Speech_to_textRequestBuilderGetQueryParameters 
         {
+            /// <summary>End of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("end_date")]
             public DateTimeOffset? EndDate { get; set; }
+            /// <summary>Start of the date range filter (inclusive, ISO 8601).</summary>
             [QueryParameter("start_date")]
             public DateTimeOffset? StartDate { get; set; }
         }

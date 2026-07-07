@@ -65,10 +65,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The sms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSMSResponse? Sms { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSmsResponse? Sms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSMSResponse Sms { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSmsResponse Sms { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public VerifyProfileResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            DailySpendLimitEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -136,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationProfileRecordType>(); } },
-                { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSMSResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSMSResponse.CreateFromDiscriminatorValue); } },
+                { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSmsResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSmsResponse.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -159,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationProfileRecordType>("record_type", RecordType);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSMSResponse>("sms", Sms);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSmsResponse>("sms", Sms);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);

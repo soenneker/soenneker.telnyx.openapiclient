@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
     public partial class NumbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.reputation.numbers.item collection</summary>
-        /// <param name="position">Phone number in E.164 format</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("phoneNumber", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NumbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reputation/numbers{?page%5Bnumber%5D*,page%5Bsize%5D*,phone_number*}", pathParameters)
+        public NumbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reputation/numbers{?filter%5Benterprise_id%5D*,filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Bphone_number%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,16 +43,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NumbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reputation/numbers{?page%5Bnumber%5D*,page%5Bsize%5D*,phone_number*}", rawUrl)
+        public NumbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reputation/numbers{?filter%5Benterprise_id%5D*,filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Bphone_number%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
-        /// List all phone numbers enrolled in Number Reputation monitoring for your account. This is a simplified endpoint that does not require an `enterprise_id` — it returns numbers across all your enterprises.Supports pagination and filtering by phone number.
+        /// Convenience alias for `GET /v2/enterprises/{enterprise_id}/reputation/numbers` that returns numbers across every enterprise you own. Useful when you don&apos;t want to look up the enterprise id first.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.NumbersRequestBuilder.NumbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,12 +65,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all phone numbers enrolled in Number Reputation monitoring for your account. This is a simplified endpoint that does not require an `enterprise_id` — it returns numbers across all your enterprises.Supports pagination and filtering by phone number.
+        /// Convenience alias for `GET /v2/enterprises/{enterprise_id}/reputation/numbers` that returns numbers across every enterprise you own. Useful when you don&apos;t want to look up the enterprise id first.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,27 +98,40 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
             return new global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.NumbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all phone numbers enrolled in Number Reputation monitoring for your account. This is a simplified endpoint that does not require an `enterprise_id` — it returns numbers across all your enterprises.Supports pagination and filtering by phone number.
+        /// Convenience alias for `GET /v2/enterprises/{enterprise_id}/reputation/numbers` that returns numbers across every enterprise you own. Useful when you don&apos;t want to look up the enterprise id first.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class NumbersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Page number (1-indexed)</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>Number of items per page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Filter by specific phone number (E.164 format)</summary>
+            /// <summary>Filter by enterprise ID.</summary>
+            [QueryParameter("filter%5Benterprise_id%5D")]
+            public Guid? FilterenterpriseId { get; set; }
+            /// <summary>Partial match on phone number. Must contain at least 5 digits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("phone_number")]
-            public string? PhoneNumber { get; set; }
+            [QueryParameter("filter%5Bphone_number%5D%5Bcontains%5D")]
+            public string? FilterphoneNumbercontains { get; set; }
 #nullable restore
 #else
-            [QueryParameter("phone_number")]
-            public string PhoneNumber { get; set; }
+            [QueryParameter("filter%5Bphone_number%5D%5Bcontains%5D")]
+            public string FilterphoneNumbercontains { get; set; }
 #endif
+            /// <summary>Exact phone-number match (E.164).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
+            public string? FilterphoneNumbereq { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
+            public string FilterphoneNumbereq { get; set; }
+#endif
+            /// <summary>1-based page number. Out-of-range values return an empty page with correct meta.</summary>
+            [QueryParameter("page%5Bnumber%5D")]
+            public int? Pagenumber { get; set; }
+            /// <summary>Items per page. Maximum 250; values above are clamped to 250.</summary>
+            [QueryParameter("page%5Bsize%5D")]
+            public int? Pagesize { get; set; }
         }
     }
 }

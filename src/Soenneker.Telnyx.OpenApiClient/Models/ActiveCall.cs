@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ClientState { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCallRecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall"/> and sets the default values.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_leg_id", n => { CallLegId = n.GetStringValue(); } },
                 { "call_session_id", n => { CallSessionId = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCallRecordType>(); } },
             };
         }
         /// <summary>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("call_leg_id", CallLegId);
             writer.WriteStringValue("call_session_id", CallSessionId);
             writer.WriteStringValue("client_state", ClientState);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCallRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
