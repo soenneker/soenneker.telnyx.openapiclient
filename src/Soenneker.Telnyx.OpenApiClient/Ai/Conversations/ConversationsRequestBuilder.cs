@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.ConversationInsights;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item;
@@ -20,6 +21,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The conversationInsights property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.ConversationInsights.ConversationInsightsRequestBuilder ConversationInsights
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.ConversationInsights.ConversationInsightsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The insightGroups property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.InsightGroupsRequestBuilder InsightGroups
         {

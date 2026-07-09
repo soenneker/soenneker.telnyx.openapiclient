@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string SenderPhoneNumber { get; set; }
 #endif
-        /// <summary>Customer pre-approved authentication template name registered on Meta</summary>
+        /// <summary>Customer pre-approved authentication template ID registered on Meta</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TemplateId { get; set; }
