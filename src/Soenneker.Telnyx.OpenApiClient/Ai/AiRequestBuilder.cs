@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Anthropic;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants;
 using Soenneker.Telnyx.OpenApiClient.Ai.Audio;
 using Soenneker.Telnyx.OpenApiClient.Ai.Clusters;
@@ -27,6 +28,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The anthropic property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Anthropic.AnthropicRequestBuilder Anthropic
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Anthropic.AnthropicRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The assistants property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.AssistantsRequestBuilder Assistants
         {
