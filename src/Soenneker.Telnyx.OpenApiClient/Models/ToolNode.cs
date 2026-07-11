@@ -63,7 +63,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ToolNode()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode_type.Tool;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

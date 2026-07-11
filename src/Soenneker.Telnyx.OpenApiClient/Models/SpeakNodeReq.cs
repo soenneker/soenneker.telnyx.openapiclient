@@ -55,7 +55,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public SpeakNodeReq()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNodeReq_type.Speak;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

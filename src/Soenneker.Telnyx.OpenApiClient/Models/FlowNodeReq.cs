@@ -107,7 +107,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public FlowNodeReq()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReq_type.Prompt;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
