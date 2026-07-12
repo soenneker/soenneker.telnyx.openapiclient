@@ -72,14 +72,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string HtmlBody { get; set; }
 #endif
-        /// <summary>Client-provided key for idempotent create semantics.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? IdempotencyKey { get; set; }
-#nullable restore
-#else
-        public string IdempotencyKey { get; set; }
-#endif
         /// <summary>When true, bypasses suppression checks for overridable blocks. Requires the `email:override` API key scope. Overrides are audited. Non-overridable suppressions (hard bounces, spam complaints, invalid addresses) cannot be bypassed.</summary>
         public bool? IgnoreSuppression { get; set; }
         /// <summary>The inline_css property</summary>
@@ -182,7 +174,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "group_id", n => { GroupId = n.GetGuidValue(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty.CreateFromDiscriminatorValue); } },
                 { "html_body", n => { HtmlBody = n.GetStringValue(); } },
-                { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "ignore_suppression", n => { IgnoreSuppression = n.GetBoolValue(); } },
                 { "inline_css", n => { InlineCss = n.GetBoolValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty.CreateFromDiscriminatorValue); } },
@@ -212,7 +203,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("group_id", GroupId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty>("headers", Headers);
             writer.WriteStringValue("html_body", HtmlBody);
-            writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteBoolValue("ignore_suppression", IgnoreSuppression);
             writer.WriteBoolValue("inline_css", InlineCss);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty>("metadata", Metadata);

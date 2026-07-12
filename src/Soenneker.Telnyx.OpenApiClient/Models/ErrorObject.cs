@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Telnyx error code. Fallback 404/500 responses from the framework may use string status codes (&apos;404&apos;, &apos;500&apos;) instead.</summary>
+        /// <summary>Telnyx error code. Edge idempotency errors use 10027 or 10036. Fallback 404/500 responses from the framework may use string status codes (&apos;404&apos;, &apos;500&apos;) instead.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectCode? Code { get; set; }
         /// <summary>Human-readable error detail. Changeset responses may return a structured object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
         /// <summary>
         /// &quot;Queues, schedules, or sandbox-sends an email message. The legacy `/v2/emails` POST routeis a backward-compatible alias for this operation.`subject` is required unless `template_id` is supplied. When using `template_id`, do notalso provide `subject`, `html_body`, or `text_body`; the template is rendered with`template_variables`.Note: template lookup failures (not found, wrong account) return 400, not 404.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.IdempotentEmailMessageResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -86,15 +86,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 413 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationSuspendedError">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.IdempotentEmailMessageResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.IdempotentEmailMessageResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -105,10 +107,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Telnyx.OpenApiClient.Models.ReputationSuspendedError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.IdempotentEmailMessageResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.IdempotentEmailMessageResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists messages sorted newest first by `inserted_at desc, id desc`. No filters other thancursor pagination are implemented. The legacy `/v2/emails` GET route is a backward-compatiblealias for this operation.

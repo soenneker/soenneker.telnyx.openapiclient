@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Telnyx error code. Fallback 404/500 responses from the framework may use string status codes (&apos;404&apos;, &apos;500&apos;) instead.</summary>
+    /// <summary>Telnyx error code. Edge idempotency errors use 10027 or 10036. Fallback 404/500 responses from the framework may use string status codes (&apos;404&apos;, &apos;500&apos;) instead.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ErrorObjectCode
     {
@@ -30,6 +30,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "10019")]
         #pragma warning disable CS1591
         Value10019,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "10027")]
+        #pragma warning disable CS1591
+        Value10027,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "10036")]
+        #pragma warning disable CS1591
+        Value10036,
         #pragma warning restore CS1591
         [EnumMember(Value = "404")]
         #pragma warning disable CS1591

@@ -56,14 +56,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
-        /// <summary>The idempotency_key property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? IdempotencyKey { get; set; }
-#nullable restore
-#else
-        public string IdempotencyKey { get; set; }
-#endif
         /// <summary>Present when true in the immediate create response. Not persisted; absent on subsequent GET requests.</summary>
         public bool? InlineCss { get; set; }
         /// <summary>The inserted_at property</summary>
@@ -149,7 +141,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "events", n => { Events = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEvent>(global::Soenneker.Telnyx.OpenApiClient.Models.MessageEvent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "inline_css", n => { InlineCss = n.GetBoolValue(); } },
                 { "inserted_at", n => { InsertedAt = n.GetDateTimeOffsetValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecordType>(); } },
@@ -177,7 +168,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEvent>("events", Events);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>("from", From);
             writer.WriteGuidValue("id", Id);
-            writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteBoolValue("inline_css", InlineCss);
             writer.WriteDateTimeOffsetValue("inserted_at", InsertedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecordType>("record_type", RecordType);
