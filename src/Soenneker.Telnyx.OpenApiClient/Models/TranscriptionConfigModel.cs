@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The speech to text model to be used by the voice assistant. Supported models include:- `deepgram/flux` (or `flux`) for live streaming turn-taking.- `deepgram/nova-3` and `deepgram/nova-2` for live streaming transcription.- `speechmatics/standard` and `speechmatics/enhanced` for live streaming transcription.- `assemblyai/universal-streaming` for live streaming transcription.- `xai/grok-stt` for live streaming transcription.- `soniox/stt-rt-v4` for live streaming multilingual transcription with automatic language detection.- `parakeet/tdt-0.6b-v3` for multilingual transcription with automatic language detection.- `azure/fast` and `azure/realtime`; Azure models require `region`, and unsupported regions require `api_key_ref`.- `google/latest_long` for non-streaming multilingual transcription.- `distil-whisper/distil-large-v2` for lower-latency English-only non-streaming transcription.- `openai/whisper-large-v3-turbo` for multilingual non-streaming transcription with automatic language detection.</summary>
+    /// <summary>The speech to text model to be used by the voice assistant. Supported models include:- `deepgram/flux` (or `flux`) for live streaming turn-taking.- `deepgram/nova-3` and `deepgram/nova-2` for live streaming transcription.- `speechmatics/standard` and `speechmatics/enhanced` for live streaming transcription.- `assemblyai/universal-streaming` for live streaming transcription.- `xai/grok-stt` for live streaming transcription.- `soniox/stt-rt-v4` for live streaming multilingual transcription with automatic language detection.- `nvidia/parakeet-v3` for multilingual transcription with automatic language detection.- `azure/fast` and `azure/realtime`; Azure models require `region`, and unsupported regions require `api_key_ref`.- `google/latest_long` for non-streaming multilingual transcription.- `distil-whisper/distil-large-v2` for lower-latency English-only non-streaming transcription.- `openai/whisper-large-v3-turbo` for multilingual non-streaming transcription with automatic language detection.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionConfigModel
     {
@@ -43,9 +43,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         SonioxSttRtV4,
         #pragma warning restore CS1591
-        [EnumMember(Value = "parakeet/tdt-0.6b-v3")]
+        [EnumMember(Value = "nvidia/parakeet-v3")]
         #pragma warning disable CS1591
-        ParakeetTdt06BV3,
+        NvidiaParakeetV3,
         #pragma warning restore CS1591
         [EnumMember(Value = "azure/fast")]
         #pragma warning disable CS1591

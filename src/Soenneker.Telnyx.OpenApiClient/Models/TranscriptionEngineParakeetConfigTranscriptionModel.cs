@@ -7,9 +7,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionEngineParakeetConfigTranscriptionModel
     {
-        [EnumMember(Value = "parakeet/tdt-0.6b-v3")]
+        [EnumMember(Value = "nvidia/parakeet-v3")]
         #pragma warning disable CS1591
-        ParakeetTdt06BV3,
+        NvidiaParakeetV3,
         #pragma warning restore CS1591
     }
 }
