@@ -188,6 +188,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestRecordTrack? RecordTrack { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestRecordTrim? RecordTrim { get; set; }
+        /// <summary>Whether to keep trying the remaining routing paths (e.g. alternate providers/gateways) for the same destination after `timeout_secs` is reached for the current attempt. When set to `false`, reaching `timeout_secs` aborts the entire dial attempt and the `call.hangup` webhook reports a `hangup_cause` of `no_answer` instead of `timeout`.</summary>
+        public bool? RetryOnTimeout { get; set; }
         /// <summary>&quot;DTMF digits to send automatically after the called party answers. Useful for reaching an extension behind an IVR (e.g. `\&quot;200\&quot;` to dial extension 200 once the called party picks up). Allowed characters: `0-9`, `A-D`, `w` (0.5s pause), `W` (1s pause), `*`, `#`. Maximum 64 characters. When omitted, no automatic DTMF is sent. May also be supplied inline by appending `,&lt;digits&gt;` to `to` (e.g. `to=+18004247767,200`); if both forms are present, this explicit field takes precedence.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -336,6 +338,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             PreventDoubleBridge = false;
             RecordMaxLength = 0;
             RecordTimeoutSecs = 0;
+            RetryOnTimeout = true;
             SendSilenceWhenIdle = false;
             StreamBidirectionalSamplingRate = 8000;
             StreamEstablishBeforeCallOriginate = false;
@@ -394,6 +397,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_timeout_secs", n => { RecordTimeoutSecs = n.GetIntValue(); } },
                 { "record_track", n => { RecordTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestRecordTrack>(); } },
                 { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestRecordTrim>(); } },
+                { "retry_on_timeout", n => { RetryOnTimeout = n.GetBoolValue(); } },
                 { "send_digits_on_answer", n => { SendDigitsOnAnswer = n.GetStringValue(); } },
                 { "send_silence_when_idle", n => { SendSilenceWhenIdle = n.GetBoolValue(); } },
                 { "sip_auth_password", n => { SipAuthPassword = n.GetStringValue(); } },
@@ -465,6 +469,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("record_timeout_secs", RecordTimeoutSecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestRecordTrack>("record_track", RecordTrack);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestRecordTrim>("record_trim", RecordTrim);
+            writer.WriteBoolValue("retry_on_timeout", RetryOnTimeout);
             writer.WriteStringValue("send_digits_on_answer", SendDigitsOnAnswer);
             writer.WriteBoolValue("send_silence_when_idle", SendSilenceWhenIdle);
             writer.WriteStringValue("sip_auth_password", SipAuthPassword);

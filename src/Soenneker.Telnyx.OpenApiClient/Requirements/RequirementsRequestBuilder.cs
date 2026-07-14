@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RequirementsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirements{?filter*,page*,sort*}", pathParameters)
+        public RequirementsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirements{?filter*,page*,sort*,version*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RequirementsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirements{?filter*,page*,sort*}", rawUrl)
+        public RequirementsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirements{?filter*,page*,sort*,version*}", rawUrl)
         {
         }
         /// <summary>
@@ -135,6 +135,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.SortRequirementsConsolidatedItem[] Sort { get; set; }
 #endif
+            /// <summary>Filter by requirement version number. When omitted, returns the currently-active version.</summary>
+            [QueryParameter("version")]
+            public int? Version { get; set; }
         }
     }
 }

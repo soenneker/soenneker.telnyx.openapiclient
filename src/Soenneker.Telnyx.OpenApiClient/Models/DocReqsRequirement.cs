@@ -32,6 +32,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CreatedAt { get; private set; }
 #endif
+        /// <summary>When this version was superseded. NULL means this is the active or pending version.</summary>
+        public DateTimeOffset? EffectiveEndAt { get; private set; }
+        /// <summary>When this version became (or will become) active.</summary>
+        public DateTimeOffset? EffectiveStartAt { get; private set; }
         /// <summary>Identifies the associated document</summary>
         public Guid? Id { get; private set; }
         /// <summary>The locality where this requirement applies</summary>
@@ -55,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Lists the requirement types necessary to fulfill this requirement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType>? RequirementsTypes { get; private set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType>? RequirementTypes { get; private set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType> RequirementsTypes { get; private set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType> RequirementTypes { get; private set; }
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was last updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,6 +72,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string UpdatedAt { get; private set; }
 #endif
+        /// <summary>Version number. Increments with each new version. Defaults to 1.</summary>
+        public int? Version { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirement"/> and sets the default values.
         /// </summary>
@@ -96,12 +102,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "action", n => { Action = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementAction>(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "effective_end_at", n => { EffectiveEndAt = n.GetDateTimeOffsetValue(); } },
+                { "effective_start_at", n => { EffectiveStartAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "locality", n => { Locality = n.GetStringValue(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementPhoneNumberType>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "requirements_types", n => { RequirementsTypes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType>(global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "requirement_types", n => { RequirementTypes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType>(global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetIntValue(); } },
             };
         }
         /// <summary>
