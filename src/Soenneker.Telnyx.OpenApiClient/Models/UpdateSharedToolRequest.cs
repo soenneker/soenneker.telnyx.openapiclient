@@ -55,6 +55,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestInviteProperty Invite { get; set; }
 #endif
+        /// <summary>The pay property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams? Pay { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams Pay { get; set; }
+#endif
         /// <summary>The retrieval property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,6 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "function", n => { Function = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestFunctionProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestFunctionProperty.CreateFromDiscriminatorValue); } },
                 { "handoff", n => { Handoff = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestHandoffProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestHandoffProperty.CreateFromDiscriminatorValue); } },
                 { "invite", n => { Invite = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestInviteProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestInviteProperty.CreateFromDiscriminatorValue); } },
+                { "pay", n => { Pay = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams.CreateFromDiscriminatorValue); } },
                 { "retrieval", n => { Retrieval = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestRetrievalProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestRetrievalProperty.CreateFromDiscriminatorValue); } },
                 { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -129,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestFunctionProperty>("function", Function);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestHandoffProperty>("handoff", Handoff);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestInviteProperty>("invite", Invite);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams>("pay", Pay);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestRetrievalProperty>("retrieval", Retrieval);
             writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteStringValue("type", Type);

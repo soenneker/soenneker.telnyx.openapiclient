@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClientSideTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DtmfTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SipReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClientSideTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DtmfTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SipReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssistantToolsItemComposed : IComposedTypeWrapper, IParsable
@@ -68,6 +68,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool InviteTool { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayTool? PayTool { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayTool PayTool { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -139,6 +147,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.InviteTool = new global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool();
             }
+            else if("PayTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PayTool = new global::Soenneker.Telnyx.OpenApiClient.Models.PayTool();
+            }
             else if("RetrievalTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool();
@@ -190,6 +202,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(InviteTool != null)
             {
                 return InviteTool.GetFieldDeserializers();
+            }
+            else if(PayTool != null)
+            {
+                return PayTool.GetFieldDeserializers();
             }
             else if(RetrievalTool != null)
             {
@@ -243,6 +259,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(InviteTool != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool>(null, InviteTool);
+            }
+            else if(PayTool != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayTool>(null, PayTool);
             }
             else if(RetrievalTool != null)
             {

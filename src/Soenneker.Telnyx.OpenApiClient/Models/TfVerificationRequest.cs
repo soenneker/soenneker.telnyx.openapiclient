@@ -156,10 +156,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Business entity classification. Must be one of the 5 valid enum values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityTypeWrapper? EntityType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequestEntityType? EntityType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityTypeWrapper EntityType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequestEntityType EntityType { get; set; }
 #endif
         /// <summary>The message returned when users text &apos;HELP&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -317,7 +317,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "campaignVerifyAuthorizationToken", n => { CampaignVerifyAuthorizationToken = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityTypeWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityTypeWrapper.CreateFromDiscriminatorValue); } },
+                { "entityType", n => { EntityType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequestEntityType>(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequestEntityType.CreateFromDiscriminatorValue); } },
                 { "helpMessageResponse", n => { HelpMessageResponse = n.GetStringValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
                 { "messageVolume", n => { MessageVolume = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequestMessageVolume>(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequestMessageVolume.CreateFromDiscriminatorValue); } },
@@ -359,7 +359,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("campaignVerifyAuthorizationToken", CampaignVerifyAuthorizationToken);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityTypeWrapper>("entityType", EntityType);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequestEntityType>("entityType", EntityType);
             writer.WriteStringValue("helpMessageResponse", HelpMessageResponse);
             writer.WriteStringValue("isvReseller", IsvReseller);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequestMessageVolume>("messageVolume", MessageVolume);

@@ -27,18 +27,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Additional metadata. Present on 401 errors with a documentation URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMeta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMetaProperty? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMeta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMetaProperty Meta { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSource? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSourceProperty? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSource Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSourceProperty Source { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,8 +75,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectCode>(); } },
                 { "detail", n => { Detail = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectDetail>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectDetail.CreateFromDiscriminatorValue); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMeta.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSource>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSource.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMetaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMetaProperty.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSourceProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSourceProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -89,8 +89,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectCode>("code", Code);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectDetail>("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMeta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSource>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMetaProperty>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSourceProperty>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

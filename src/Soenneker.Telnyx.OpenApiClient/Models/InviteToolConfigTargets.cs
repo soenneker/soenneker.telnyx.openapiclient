@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="string"/>, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigTargetsOneOf1Item&gt;
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigTargetsMember1"/>, <see cref="string"/>, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigTargetsOneOf1Item&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InviteToolConfigTargets : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigTargetsMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigTargetsMember1? InviteToolConfigTargetsMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigTargetsMember1 InviteToolConfigTargetsMember1 { get; set; }
+#endif
         /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigTargetsOneOf1Item&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +63,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(InviteToolConfigTargetsMember1 != null)
+            {
+                return InviteToolConfigTargetsMember1.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -64,7 +76,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(String != null)
+            if(InviteToolConfigTargetsMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigTargetsMember1>(null, InviteToolConfigTargetsMember1);
+            }
+            else if(String != null)
             {
                 writer.WriteStringValue(null, String);
             }
