@@ -47,5 +47,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Value500,
         #pragma warning restore CS1591
+        [EnumMember(Value = "recipient_suppressed")]
+        #pragma warning disable CS1591
+        RecipientSuppressed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "reputation_suspended")]
+        #pragma warning disable CS1591
+        ReputationSuspended,
+        #pragma warning restore CS1591
     }
 }

@@ -45,6 +45,7 @@ using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints;
 using Soenneker.Telnyx.OpenApiClient.Email_blocks;
 using Soenneker.Telnyx.OpenApiClient.Email_domains;
 using Soenneker.Telnyx.OpenApiClient.Email_events;
+using Soenneker.Telnyx.OpenApiClient.Email_inboxes;
 using Soenneker.Telnyx.OpenApiClient.Email_messages;
 using Soenneker.Telnyx.OpenApiClient.Email_templates;
 using Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups;
@@ -387,6 +388,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Email_events.Email_eventsRequestBuilder Email_events
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Email_events.Email_eventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email_inboxes property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Email_inboxesRequestBuilder Email_inboxes
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Email_inboxesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The email_messages property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Email_messages.Email_messagesRequestBuilder Email_messages
