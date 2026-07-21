@@ -34,6 +34,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The direction of the fax.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Direction? Direction { get; set; }
+        /// <summary>&quot;Customer-facing failure reason for the fax. Present on every fax object (null when the fax has not failed). Mapped from the more granular `internal_failure_reason`. Common values include: `receiver_call_dropped`, `sender_call_dropped`, `sender_canceled`, `carrier_lost`, `service_unavailable`, `fax_signaling_error`, `receiver_communication_error`, `sender_communication_error`, `receiver_decline`, `receiver_recovery_on_timer_expire`, `receiver_no_response`, `receiver_invalid_number_format`, `receiver_no_answer`, `receiver_incompatible_destination`, `receiver_unallocated_number`, `destination_unreachable`, `user_busy`, `invalid_ecm_response_from_receiver`, `fax_initial_communication_timeout`, `destination_not_in_service_plan`, `account_disabled`, `destination_invalid`, `no_outbound_profile`, `destination_not_in_countries_whitelist`, `user_channel_limit_exceeded`, `outbound_profile_channel_limit_exceeded`, `connection_channel_limit_exceeded`, `outbound_profile_daily_spend_limit_exceeded`, `unverified_origination_number`, `unverified_destination_not_allowed`, `file_format_invalid`, `file_download_failed`, `file_size_limit_exceeded`, `page_count_limit_exceeded`, `media_processing_exception`.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FailureReason { get; set; }
+#nullable restore
+#else
+        public string FailureReason { get; set; }
+#endif
         /// <summary>The phone number, in E.164 format, the fax will be sent from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,6 +60,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Identifies the type of resource.</summary>
         public Guid? Id { get; set; }
+        /// <summary>Internal, more granular failure reason for the fax. Present on every fax object (null when the fax has not failed). Useful for deeper debugging beyond the customer-facing `failure_reason`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InternalFailureReason { get; set; }
+#nullable restore
+#else
+        public string InternalFailureReason { get; set; }
+#endif
         /// <summary>&quot;The media_name used for the fax&apos;s media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. Supported formats: PDF, TIFF, JPEG, PNG, DOC, DOCX, RTF, and TXT. media_name and media_url/contents can&apos;t be submitted together.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -147,9 +163,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Direction>(); } },
+                { "failure_reason", n => { FailureReason = n.GetStringValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "from_display_name", n => { FromDisplayName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "internal_failure_reason", n => { InternalFailureReason = n.GetStringValue(); } },
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
                 { "media_url", n => { MediaUrl = n.GetStringValue(); } },
                 { "preview_url", n => { PreviewUrl = n.GetStringValue(); } },
@@ -175,9 +193,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Direction>("direction", Direction);
+            writer.WriteStringValue("failure_reason", FailureReason);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("from_display_name", FromDisplayName);
             writer.WriteGuidValue("id", Id);
+            writer.WriteStringValue("internal_failure_reason", InternalFailureReason);
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteStringValue("preview_url", PreviewUrl);
