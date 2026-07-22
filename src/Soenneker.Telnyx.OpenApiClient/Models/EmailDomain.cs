@@ -27,10 +27,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Customer DMARC policy. null means use the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DmarcPolicy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicy? DmarcPolicy { get; set; }
 #nullable restore
 #else
-        public string DmarcPolicy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicy DmarcPolicy { get; set; }
 #endif
         /// <summary>The dns_records property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dkim", n => { Dkim = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatus.CreateFromDiscriminatorValue); } },
-                { "dmarc_policy", n => { DmarcPolicy = n.GetStringValue(); } },
+                { "dmarc_policy", n => { DmarcPolicy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicy>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicy.CreateFromDiscriminatorValue); } },
                 { "dns_records", n => { DnsRecords = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord>(global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatus>("dkim", Dkim);
-            writer.WriteStringValue("dmarc_policy", DmarcPolicy);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicy>("dmarc_policy", DmarcPolicy);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord>("dns_records", DnsRecords);
             writer.WriteStringValue("domain", Domain);
             writer.WriteGuidValue("id", Id);

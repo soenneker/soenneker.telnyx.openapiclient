@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-streaming` is a multilingual streaming model with configurable turn detection.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` is a multilingual streaming model with automatic language detection and configurable endpointing.- `nvidia/parakeet-v3` is a multilingual transcription model with automatic language detection.</summary>
+    /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-streaming` is a multilingual streaming model with configurable turn detection.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` is a multilingual streaming model with automatic language detection and configurable endpointing.- `nvidia/parakeet-v3` is a multilingual transcription model with automatic language detection.- `humain/realtime` is a streaming model with native Arabic and Arabic/English code-switching support.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionSettingsModel
     {
@@ -38,6 +38,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "nvidia/parakeet-v3")]
         #pragma warning disable CS1591
         NvidiaParakeetV3,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "humain/realtime")]
+        #pragma warning disable CS1591
+        HumainRealtime,
         #pragma warning restore CS1591
         [EnumMember(Value = "distil-whisper/distil-large-v2")]
         #pragma warning disable CS1591

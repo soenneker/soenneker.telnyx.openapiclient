@@ -43,6 +43,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Parakeet,
         #pragma warning restore CS1591
+        [EnumMember(Value = "Humain")]
+        #pragma warning disable CS1591
+        Humain,
+        #pragma warning restore CS1591
         [EnumMember(Value = "A")]
         #pragma warning disable CS1591
         A,

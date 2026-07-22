@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Update the DMARC policy. The recommended _dmarc TXT record is rebuilt and its verification reset to pending.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DmarcPolicy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailDomainRequestDmarcPolicy? DmarcPolicy { get; set; }
 #nullable restore
 #else
-        public string DmarcPolicy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailDomainRequestDmarcPolicy DmarcPolicy { get; set; }
 #endif
         /// <summary>Enable or disable inbound routing for this domain</summary>
         public bool? InboundEnabled { get; set; }
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dmarc_policy", n => { DmarcPolicy = n.GetStringValue(); } },
+                { "dmarc_policy", n => { DmarcPolicy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailDomainRequestDmarcPolicy>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailDomainRequestDmarcPolicy.CreateFromDiscriminatorValue); } },
                 { "inbound_enabled", n => { InboundEnabled = n.GetBoolValue(); } },
                 { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings.CreateFromDiscriminatorValue); } },
             };
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("dmarc_policy", DmarcPolicy);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailDomainRequestDmarcPolicy>("dmarc_policy", DmarcPolicy);
             writer.WriteBoolValue("inbound_enabled", InboundEnabled);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>("tracking", Tracking);
             writer.WriteAdditionalData(AdditionalData);
