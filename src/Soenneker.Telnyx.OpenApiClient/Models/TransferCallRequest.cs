@@ -126,6 +126,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrack? RecordTrack { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrim? RecordTrim { get; set; }
+        /// <summary>When set to true, routes the call directly to the mobile device associated with the destination Telnyx Mobile number, bypassing Inbound Calls Interception configured in the Telnyx Portal under Mobile Numbers → select the number → Voice → Call Interception. Use this when transferring an intercepted call to the mobile device to prevent the call from being intercepted again. Defaults to false.</summary>
+        public bool? RouteToMobile { get; set; }
         /// <summary>&quot;DTMF digits to send automatically after the transfer destination answers. Useful for reaching an extension behind an IVR (e.g. `\&quot;200\&quot;` to dial extension 200 once the called party picks up). Allowed characters: `0-9`, `A-D`, `w` (0.5s pause), `W` (1s pause), `*`, `#`. Maximum 64 characters. When omitted, no automatic DTMF is sent. May also be supplied inline by appending `,&lt;digits&gt;` to `to` (e.g. `to=+18004247767,200`); if both forms are present, this explicit field takes precedence.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -227,6 +229,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             EarlyMedia = true;
             RecordMaxLength = 0;
             RecordTimeoutSecs = 0;
+            RouteToMobile = false;
             TimeLimitSecs = 14400;
             TimeoutSecs = 30;
         }
@@ -271,6 +274,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_timeout_secs", n => { RecordTimeoutSecs = n.GetIntValue(); } },
                 { "record_track", n => { RecordTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrack>(); } },
                 { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrim>(); } },
+                { "route_to_mobile", n => { RouteToMobile = n.GetBoolValue(); } },
                 { "send_digits_on_answer", n => { SendDigitsOnAnswer = n.GetStringValue(); } },
                 { "sip_auth_password", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "sip_auth_username", n => { SipAuthUsername = n.GetStringValue(); } },
@@ -319,6 +323,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("record_timeout_secs", RecordTimeoutSecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrack>("record_track", RecordTrack);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestRecordTrim>("record_trim", RecordTrim);
+            writer.WriteBoolValue("route_to_mobile", RouteToMobile);
             writer.WriteStringValue("send_digits_on_answer", SendDigitsOnAnswer);
             writer.WriteStringValue("sip_auth_password", SipAuthPassword);
             writer.WriteStringValue("sip_auth_username", SipAuthUsername);
