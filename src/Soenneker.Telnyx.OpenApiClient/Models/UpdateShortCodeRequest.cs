@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MessagingProfileId { get; set; }
 #endif
-        /// <summary>The tags property</summary>
+        /// <summary>Tags associated with the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tags { get; set; }

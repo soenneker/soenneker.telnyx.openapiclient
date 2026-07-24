@@ -48,6 +48,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FailureReasons { get; set; }
 #endif
+        /// <summary>The assignment status of the number towards other carriers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NonTmobileNumberMappingStatus { get; set; }
+#nullable restore
+#else
+        public string NonTmobileNumberMappingStatus { get; set; }
+#endif
         /// <summary>The phoneNumber property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,6 +87,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string TelnyxCampaignId { get; set; }
+#endif
+        /// <summary>The T-Mobile assignment status of the number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TmobileNumberMappingStatus { get; set; }
+#nullable restore
+#else
+        public string TmobileNumberMappingStatus { get; set; }
 #endif
         /// <summary>The updatedAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,10 +134,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "campaignId", n => { CampaignId = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "failureReasons", n => { FailureReasons = n.GetStringValue(); } },
+                { "nonTmobileNumberMappingStatus", n => { NonTmobileNumberMappingStatus = n.GetStringValue(); } },
                 { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
                 { "tcrBrandId", n => { TcrBrandId = n.GetStringValue(); } },
                 { "tcrCampaignId", n => { TcrCampaignId = n.GetStringValue(); } },
                 { "telnyxCampaignId", n => { TelnyxCampaignId = n.GetStringValue(); } },
+                { "tmobileNumberMappingStatus", n => { TmobileNumberMappingStatus = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -137,10 +155,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("campaignId", CampaignId);
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("failureReasons", FailureReasons);
+            writer.WriteStringValue("nonTmobileNumberMappingStatus", NonTmobileNumberMappingStatus);
             writer.WriteStringValue("phoneNumber", PhoneNumber);
             writer.WriteStringValue("tcrBrandId", TcrBrandId);
             writer.WriteStringValue("tcrCampaignId", TcrCampaignId);
             writer.WriteStringValue("telnyxCampaignId", TelnyxCampaignId);
+            writer.WriteStringValue("tmobileNumberMappingStatus", TmobileNumberMappingStatus);
             writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

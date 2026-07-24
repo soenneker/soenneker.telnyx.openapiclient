@@ -44,5 +44,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Xai,
         #pragma warning restore CS1591
+        [EnumMember(Value = "humain")]
+        #pragma warning disable CS1591
+        Humain,
+        #pragma warning restore CS1591
     }
 }

@@ -38,12 +38,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>&quot;When true, the response is streamed as Server-Sent Events (`text/event-stream`): `delta` events carry content fragments as they are generated, a final `done` event carries the full content plus `whatsapp_template`, and a terminal `error` event reports failures that happen after streaming started. When false (default), the response is a single JSON object.&quot;</summary>
+        public bool? Stream { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatReq"/> and sets the default values.
         /// </summary>
         public AssistantChatReq()
         {
             AdditionalData = new Dictionary<string, object>();
+            Stream = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,6 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "conversation_id", n => { ConversationId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "stream", n => { Stream = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -78,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("content", Content);
             writer.WriteStringValue("conversation_id", ConversationId);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("stream", Stream);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
