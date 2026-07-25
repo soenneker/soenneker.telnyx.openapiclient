@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Calling_settings;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Conversation_window;
+using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Conversational_components;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Profile;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Resend_verification;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Verify;
@@ -31,6 +32,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item
         public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Conversation_window.Conversation_windowRequestBuilder Conversation_window
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Conversation_window.Conversation_windowRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The conversational_components property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Conversational_components.Conversational_componentsRequestBuilder Conversational_components
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Conversational_components.Conversational_componentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The profile property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Profile.ProfileRequestBuilder Profile

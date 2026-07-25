@@ -52600,6 +52600,57 @@
         }
       }
     },
+    "/v2/whatsapp/phone_numbers/{phoneNumber}/conversational_components": {
+      "get": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Get phone number conversational components",
+        "operationId": "GetWhatsappConversationalComponents",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappConversationalComponentSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Update phone number conversational components",
+        "operationId": "PatchWhatsappConversationalComponents",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappUpdateConversationalComponentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappConversationalComponentSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
     "/v2/whatsapp/phone_numbers/{phoneNumber}/profile": {
       "get": {
         "tags": [
@@ -56916,10 +56967,10 @@
           }
         }
       },
-      "EnhanceInstructionsRequestInstructions": {
-        "title": "Instructions",
+      "EnhanceInstructionsRequestEnhancementPrompt": {
+        "title": "Enhancement Prompt",
         "type": "string",
-        "description": "The instructions to enhance. When omitted, the assistant\u0027s existing instructions are used.",
+        "description": "Optional guidance describing how the instructions should be enhanced. When provided, the LLM applies these requested changes in addition to fixing any identified issues.",
         "nullable": true
       },
       "ActionsParticipantsRequest": {
@@ -57898,11 +57949,16 @@
         },
         "description": "Anthropic Messages-compatible request with Telnyx extensions."
       },
-      "EnhanceInstructionsRequestEnhancementPrompt": {
-        "title": "Enhancement Prompt",
-        "type": "string",
-        "description": "Optional guidance describing how the instructions should be enhanced. When provided, the LLM applies these requested changes in addition to fixing any identified issues.",
-        "nullable": true
+      "EmbeddingBucketRequestLoader": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/SupportedEmbeddingLoaders"
+          }
+        }
       },
       "ArithmeticExpression": {
         "title": "ArithmeticExpression",
@@ -59278,14 +59334,14 @@
           ]
         }
       },
-      "EmbeddingBucketRequestLoader": {
+      "EmbeddingBucketRequestEmbeddingModel": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/SupportedEmbeddingLoaders"
+            "$ref": "#/components/schemas/SupportedEmbeddingModels"
           }
         }
       },
@@ -59316,17 +59372,6 @@
           }
         },
         "description": "AWS Polly provider-specific parameters."
-      },
-      "EmbeddingBucketRequestEmbeddingModel": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/SupportedEmbeddingModels"
-          }
-        }
       },
       "EmailValidationTypoCheckAllOf2": {
         "type": "object",
@@ -59371,6 +59416,33 @@
           },
           "results": {
             "$ref": "#/components/schemas/EmailValidationBatchDetailAllOf1ResultsProperty"
+          }
+        }
+      },
+      "EmailDomainListResponseMeta": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/OffsetPaginationMeta"
+          },
+          {
+            "$ref": "#/components/schemas/EmailCursorPaginationMeta"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "OffsetPaginationMeta": "#/components/schemas/OffsetPaginationMeta",
+            "EmailCursorPaginationMeta": "#/components/schemas/EmailCursorPaginationMeta"
           }
         }
       },
@@ -60929,31 +61001,33 @@
           "park_after_unbridge": "self"
         }
       },
-      "EmailDomainListResponseMeta": {
-        "required": [
-          "type"
-        ],
+      "EmailDomainDmarcPolicy": {
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/OffsetPaginationMeta"
-          },
-          {
-            "$ref": "#/components/schemas/EmailCursorPaginationMeta"
-          }
-        ],
         "properties": {
-          "type": {
+          "p": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
+          },
+          "pct": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
+            "default": 100
+          },
+          "rua": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
+          },
+          "sp": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
           }
         },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "OffsetPaginationMeta": "#/components/schemas/OffsetPaginationMeta",
-            "EmailCursorPaginationMeta": "#/components/schemas/EmailCursorPaginationMeta"
-          }
+        "description": "Customer DMARC policy. null means use the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "BucketApiUsageResponse": {
@@ -62084,33 +62158,34 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "EmailDomainDmarcPolicy": {
+      "DocServiceDocumentLinkAllOf2": {
         "type": "object",
         "properties": {
-          "p": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
-          },
-          "pct": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
-            "default": 100
-          },
-          "rua": {
+          "record_type": {
             "type": "string",
-            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "document_link"
           },
-          "sp": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
+          "document_id": {
+            "type": "string",
+            "description": "Identifies the associated document.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "linked_record_type": {
+            "type": "string",
+            "description": "The linked resource\u0027s record type.",
+            "readOnly": true,
+            "example": "porting_order"
+          },
+          "linked_resource_id": {
+            "type": "string",
+            "description": "Identifies the linked resource.",
+            "readOnly": true,
+            "example": "132091b4-442b-4a2a-b87f-61e707e46d54"
           }
-        },
-        "description": "Customer DMARC policy. null means use the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
-        "unrecognizedKeywords": {
-          "nullable": true
         }
       },
       "CallControlRetrievalTool": {
@@ -68390,44 +68465,6 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "DocServiceDocumentLinkAllOf2": {
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource.",
-            "readOnly": true,
-            "example": "document_link"
-          },
-          "document_id": {
-            "type": "string",
-            "description": "Identifies the associated document.",
-            "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "linked_record_type": {
-            "type": "string",
-            "description": "The linked resource\u0027s record type.",
-            "readOnly": true,
-            "example": "porting_order"
-          },
-          "linked_resource_id": {
-            "type": "string",
-            "description": "Identifies the linked resource.",
-            "readOnly": true,
-            "example": "132091b4-442b-4a2a-b87f-61e707e46d54"
-          }
-        }
-      },
-      "ConnectionAndroidPushCredentialId": {
-        "title": "Android Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Android",
-        "default": null,
-        "nullable": true,
-        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
-      },
       "DocServiceDocumentAllOf2": {
         "type": "object",
         "properties": {
@@ -68470,6 +68507,14 @@
           }
         }
       },
+      "ConnectionAndroidPushCredentialId": {
+        "title": "Android Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Android",
+        "default": null,
+        "nullable": true,
+        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
+      },
       "DefaultGatewayDefaultGateway": {
         "title": "DefaultGateway",
         "type": "object",
@@ -68495,6 +68540,41 @@
           },
           "status": {
             "$ref": "#/components/schemas/InterfaceStatus"
+          }
+        }
+      },
+      "CustomStorageConfigurationConfiguration": {
+        "required": [
+          "backend"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GcsConfigurationData"
+          },
+          {
+            "$ref": "#/components/schemas/S3ConfigurationData"
+          },
+          {
+            "$ref": "#/components/schemas/AzureConfigurationData"
+          }
+        ],
+        "properties": {
+          "backend": {
+            "title": "backend",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "backend",
+          "mapping": {
+            "gcs": "#/components/schemas/GcsConfigurationData",
+            "s3": "#/components/schemas/S3ConfigurationData",
+            "azure": "#/components/schemas/AzureConfigurationData",
+            "GcsConfigurationData": "#/components/schemas/GcsConfigurationData",
+            "S3ConfigurationData": "#/components/schemas/S3ConfigurationData",
+            "AzureConfigurationData": "#/components/schemas/AzureConfigurationData"
           }
         }
       },
@@ -68534,40 +68614,19 @@
         },
         "description": "Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering."
       },
-      "CustomStorageConfigurationConfiguration": {
-        "required": [
-          "backend"
-        ],
+      "CreateScheduledEventRequestConversationMetadataAdditionalProperties": {
         "type": "object",
-        "oneOf": [
+        "anyOf": [
           {
-            "$ref": "#/components/schemas/GcsConfigurationData"
+            "type": "string"
           },
           {
-            "$ref": "#/components/schemas/S3ConfigurationData"
+            "type": "integer"
           },
           {
-            "$ref": "#/components/schemas/AzureConfigurationData"
+            "type": "boolean"
           }
-        ],
-        "properties": {
-          "backend": {
-            "title": "backend",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "backend",
-          "mapping": {
-            "gcs": "#/components/schemas/GcsConfigurationData",
-            "s3": "#/components/schemas/S3ConfigurationData",
-            "azure": "#/components/schemas/AzureConfigurationData",
-            "GcsConfigurationData": "#/components/schemas/GcsConfigurationData",
-            "S3ConfigurationData": "#/components/schemas/S3ConfigurationData",
-            "AzureConfigurationData": "#/components/schemas/AzureConfigurationData"
-          }
-        }
+        ]
       },
       "ConnectionNoiseSuppression": {
         "enum": [
@@ -69718,7 +69777,7 @@
           }
         }
       },
-      "CreateScheduledEventRequestConversationMetadataAdditionalProperties": {
+      "CreateMsgReqMetadataAdditionalProperties": {
         "type": "object",
         "anyOf": [
           {
@@ -69729,6 +69788,12 @@
           },
           {
             "type": "boolean"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateMsgReqMetadataAdditionalPropertiesAnyOf4Item"
+            }
           }
         ]
       },
@@ -74044,25 +74109,33 @@
           }
         }
       },
-      "CreateMsgReqMetadataAdditionalProperties": {
+      "CreateMsgReqToolChoice": {
+        "title": "Tool Choice",
+        "required": [
+          "type"
+        ],
         "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
           },
           {
-            "type": "integer"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateMsgReqMetadataAdditionalPropertiesAnyOf4Item"
-            }
+            "title": "ToolChoiceObject",
+            "type": "object"
           }
-        ]
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateMsgReqToolChoice_1": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
+          }
+        }
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -74093,32 +74166,33 @@
           }
         }
       },
-      "CreateMsgReqToolChoice": {
-        "title": "Tool Choice",
-        "required": [
-          "type"
-        ],
+      "CreateEmailDomainRequestDmarcPolicy": {
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
-          },
-          {
-            "title": "ToolChoiceObject",
-            "type": "object"
-          }
-        ],
         "properties": {
-          "type": {
+          "p": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
+          },
+          "pct": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
+            "default": 100
+          },
+          "rua": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
+          },
+          "sp": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
           }
         },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateMsgReqToolChoice_1": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
-          }
+        "description": "DMARC policy. Omit/null for the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "CredentialConnection": {
@@ -74472,34 +74546,17 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "CreateEmailDomainRequestDmarcPolicy": {
+      "CreateBrandVertical": {
+        "required": [
+          "value"
+        ],
         "type": "object",
         "properties": {
-          "p": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
-          },
-          "pct": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
-            "default": 100
-          },
-          "rua": {
-            "type": "string",
-            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
-          },
-          "sp": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
+          "value": {
+            "$ref": "#/components/schemas/Vertical"
           }
         },
-        "description": "DMARC policy. Omit/null for the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
-        "unrecognizedKeywords": {
-          "nullable": true
-        }
+        "description": "Vertical or industry segment of the brand."
       },
       "CredentialsResponse": {
         "title": "CredentialsResponse",
@@ -74927,17 +74984,18 @@
           }
         }
       },
-      "CreateBrandVertical": {
+      "CreateBrandStockExchange": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/Vertical"
+            "$ref": "#/components/schemas/StockExchange"
           }
         },
-        "description": "Vertical or industry segment of the brand."
+        "description": "(Required for public company) stock exchange.",
+        "example": "NASDAQ"
       },
       "DeepgramNova2Config": {
         "title": "DeepgramNova2Config",
@@ -81322,18 +81380,17 @@
           }
         }
       },
-      "CreateBrandStockExchange": {
+      "CreateBrandEntityType": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/StockExchange"
+            "$ref": "#/components/schemas/EntityType"
           }
         },
-        "description": "(Required for public company) stock exchange.",
-        "example": "NASDAQ"
+        "description": "Entity type behind the brand. This is the form of business establishment."
       },
       "FaxMediaProcessed": {
         "type": "object",
@@ -81624,18 +81681,6 @@
           }
         }
       },
-      "CreateBrandEntityType": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/EntityType"
-          }
-        },
-        "description": "Entity type behind the brand. This is the form of business establishment."
-      },
       "CreateAssistantTestRequestTelnyxConversationChannel": {
         "required": [
           "value"
@@ -81648,6 +81693,72 @@
         },
         "description": "The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.",
         "example": "web_chat"
+      },
+      "ConversationRelayStartRequestVoiceSettings": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AwsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/MinimaxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AzureVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/RimeVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/ResembleVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/InworldVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/XaiVoiceSettings"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "The settings associated with the voice selected",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+            "aws": "#/components/schemas/AwsVoiceSettings",
+            "minimax": "#/components/schemas/MinimaxVoiceSettings",
+            "azure": "#/components/schemas/AzureVoiceSettings",
+            "rime": "#/components/schemas/RimeVoiceSettings",
+            "resemble": "#/components/schemas/ResembleVoiceSettings",
+            "inworld": "#/components/schemas/InworldVoiceSettings",
+            "xai": "#/components/schemas/XaiVoiceSettings",
+            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
+            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
+            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
+            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
+            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
+            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
+            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
+            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
+            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
+          }
+        }
       },
       "FlowEdge": {
         "title": "FlowEdge",
@@ -82238,7 +82349,7 @@
           ]
         }
       },
-      "ConversationRelayStartRequestVoiceSettings": {
+      "ConversationRelayLanguageVoiceSettings": {
         "required": [
           "type"
         ],
@@ -83996,7 +84107,7 @@
         },
         "description": "Humain provider-specific parameters. Unlike other providers, Humain has no format/sample-rate negotiation (output is always PCM16 24kHz mono) and no language parameter \u2014 language is fixed per voice."
       },
-      "ConversationRelayLanguageVoiceSettings": {
+      "ConversationRelayEmbeddedConfigVoiceSettings": {
         "required": [
           "type"
         ],
@@ -86096,38 +86207,20 @@
           }
         }
       },
-      "ConversationRelayEmbeddedConfigVoiceSettings": {
+      "ConversationFlowReqNodesItem": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+            "$ref": "#/components/schemas/FlowNodeReq"
           },
           {
-            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+            "$ref": "#/components/schemas/ToolNodeReq"
           },
           {
-            "$ref": "#/components/schemas/AwsVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/MinimaxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AzureVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/RimeVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/ResembleVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/InworldVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/XaiVoiceSettings"
+            "$ref": "#/components/schemas/SpeakNodeReq"
           }
         ],
         "properties": {
@@ -86137,28 +86230,15 @@
             "description": "Union discriminator"
           }
         },
-        "description": "The settings associated with the voice selected",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
-            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-            "aws": "#/components/schemas/AwsVoiceSettings",
-            "minimax": "#/components/schemas/MinimaxVoiceSettings",
-            "azure": "#/components/schemas/AzureVoiceSettings",
-            "rime": "#/components/schemas/RimeVoiceSettings",
-            "resemble": "#/components/schemas/ResembleVoiceSettings",
-            "inworld": "#/components/schemas/InworldVoiceSettings",
-            "xai": "#/components/schemas/XaiVoiceSettings",
-            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
-            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
-            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
-            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
-            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
-            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
-            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
-            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
-            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
+            "prompt": "#/components/schemas/FlowNodeReq",
+            "tool": "#/components/schemas/ToolNodeReq",
+            "speak": "#/components/schemas/SpeakNodeReq",
+            "FlowNodeReq": "#/components/schemas/FlowNodeReq",
+            "ToolNodeReq": "#/components/schemas/ToolNodeReq",
+            "SpeakNodeReq": "#/components/schemas/SpeakNodeReq"
           }
         }
       },
@@ -88415,20 +88495,20 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "ConversationFlowReqNodesItem": {
+      "ConversationFlowNodesItem": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/FlowNodeReq"
+            "$ref": "#/components/schemas/FlowNode"
           },
           {
-            "$ref": "#/components/schemas/ToolNodeReq"
+            "$ref": "#/components/schemas/ToolNode"
           },
           {
-            "$ref": "#/components/schemas/SpeakNodeReq"
+            "$ref": "#/components/schemas/SpeakNode"
           }
         ],
         "properties": {
@@ -88441,12 +88521,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "prompt": "#/components/schemas/FlowNodeReq",
-            "tool": "#/components/schemas/ToolNodeReq",
-            "speak": "#/components/schemas/SpeakNodeReq",
-            "FlowNodeReq": "#/components/schemas/FlowNodeReq",
-            "ToolNodeReq": "#/components/schemas/ToolNodeReq",
-            "SpeakNodeReq": "#/components/schemas/SpeakNodeReq"
+            "prompt": "#/components/schemas/FlowNode",
+            "speak": "#/components/schemas/SpeakNode",
+            "tool": "#/components/schemas/ToolNode",
+            "FlowNode": "#/components/schemas/FlowNode",
+            "ToolNode": "#/components/schemas/ToolNode",
+            "SpeakNode": "#/components/schemas/SpeakNode"
           }
         }
       },
@@ -88571,20 +88651,38 @@
           }
         }
       },
-      "ConversationFlowNodesItem": {
+      "ConferenceSpeakRequestVoiceSettings": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/FlowNode"
+            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
           },
           {
-            "$ref": "#/components/schemas/ToolNode"
+            "$ref": "#/components/schemas/TelnyxVoiceSettings"
           },
           {
-            "$ref": "#/components/schemas/SpeakNode"
+            "$ref": "#/components/schemas/AwsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/MinimaxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AzureVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/RimeVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/ResembleVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/InworldVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/XaiVoiceSettings"
           }
         ],
         "properties": {
@@ -88594,15 +88692,28 @@
             "description": "Union discriminator"
           }
         },
+        "description": "The settings associated with the voice selected",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "prompt": "#/components/schemas/FlowNode",
-            "speak": "#/components/schemas/SpeakNode",
-            "tool": "#/components/schemas/ToolNode",
-            "FlowNode": "#/components/schemas/FlowNode",
-            "ToolNode": "#/components/schemas/ToolNode",
-            "SpeakNode": "#/components/schemas/SpeakNode"
+            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+            "aws": "#/components/schemas/AwsVoiceSettings",
+            "minimax": "#/components/schemas/MinimaxVoiceSettings",
+            "azure": "#/components/schemas/AzureVoiceSettings",
+            "rime": "#/components/schemas/RimeVoiceSettings",
+            "resemble": "#/components/schemas/ResembleVoiceSettings",
+            "inworld": "#/components/schemas/InworldVoiceSettings",
+            "xai": "#/components/schemas/XaiVoiceSettings",
+            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
+            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
+            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
+            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
+            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
+            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
+            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
+            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
+            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
           }
         }
       },
@@ -89764,71 +89875,20 @@
           }
         }
       },
-      "ConferenceSpeakRequestVoiceSettings": {
-        "required": [
-          "type"
-        ],
+      "ChatCompletionSystemMessageParamContent": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+            "title": "Content String",
+            "type": "string"
           },
           {
-            "$ref": "#/components/schemas/TelnyxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AwsVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/MinimaxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AzureVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/RimeVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/ResembleVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/InworldVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/XaiVoiceSettings"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChatCompletionSystemMessageParamContentTextAndImageArrayItem"
+            }
           }
-        ],
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "The settings associated with the voice selected",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
-            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-            "aws": "#/components/schemas/AwsVoiceSettings",
-            "minimax": "#/components/schemas/MinimaxVoiceSettings",
-            "azure": "#/components/schemas/AzureVoiceSettings",
-            "rime": "#/components/schemas/RimeVoiceSettings",
-            "resemble": "#/components/schemas/ResembleVoiceSettings",
-            "inworld": "#/components/schemas/InworldVoiceSettings",
-            "xai": "#/components/schemas/XaiVoiceSettings",
-            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
-            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
-            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
-            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
-            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
-            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
-            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
-            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
-            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
-          }
-        }
+        ]
       },
       "MobileNetworkOperator": {
         "title": "MobileNetworkOperator",
@@ -90448,20 +90508,21 @@
           }
         }
       },
-      "ChatCompletionSystemMessageParamContent": {
+      "ChatCompletionRequestStop": {
         "type": "object",
         "oneOf": [
           {
-            "title": "Content String",
             "type": "string"
           },
           {
+            "maxItems": 4,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChatCompletionSystemMessageParamContentTextAndImageArrayItem"
+              "type": "string"
             }
           }
-        ]
+        ],
+        "description": "Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence."
       },
       "MonthDetail": {
         "required": [
@@ -92871,21 +92932,32 @@
           ]
         }
       },
-      "ChatCompletionRequestStop": {
+      "ChatCompletionRequestToolsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/ChatCompletionToolParam"
           },
           {
-            "maxItems": 4,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/Retrieval"
           }
         ],
-        "description": "Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence."
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ChatCompletionToolParam": "#/components/schemas/ChatCompletionToolParam",
+            "Retrieval": "#/components/schemas/Retrieval"
+          }
+        }
       },
       "OutboundCallRecording": {
         "type": "object",
@@ -93725,32 +93797,25 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "ChatCompletionRequestToolsItem": {
-        "required": [
-          "type"
-        ],
+      "CallRequestTo": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ChatCompletionToolParam"
+            "type": "string",
+            "example": "\u002B18005550100 or sip:username@sip.telnyx.com;secure=srtp"
           },
           {
-            "$ref": "#/components/schemas/Retrieval"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "\u002B18005550100",
+              "sip:username@sip.telnyx.com;secure=srtp"
+            ]
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ChatCompletionToolParam": "#/components/schemas/ChatCompletionToolParam",
-            "Retrieval": "#/components/schemas/Retrieval"
-          }
-        }
+        "description": "The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append \u0060;secure=true\u0060 or \u0060;secure=srtp\u0060 to enable SRTP media encryption for that endpoint, or \u0060;secure=dtls\u0060 to enable DTLS media encryption for that endpoint. If \u0060media_encryption\u0060 is set to \u0060SRTP\u0060 or \u0060DTLS\u0060, it takes precedence over any per-endpoint \u0060secure\u0060 URI parameter. For a single string destination, you may append a comma followed by DTMF digits (e.g. \u0060\u002B18004247767,200\u0060) to play those digits as DTMF once the called party answers \u2014 equivalent to setting \u0060send_digits_on_answer\u0060 separately. If both are present, the explicit \u0060send_digits_on_answer\u0060 parameter takes precedence. This shorthand is not supported when \u0060to\u0060 is an array."
       },
       "Plmn": {
         "title": "Public land mobile network",
@@ -93772,25 +93837,22 @@
           }
         }
       },
-      "CallRequestTo": {
+      "CallControlTransferToolParamsTargets": {
         "type": "object",
         "oneOf": [
           {
-            "type": "string",
-            "example": "\u002B18005550100 or sip:username@sip.telnyx.com;secure=srtp"
-          },
-          {
             "type": "array",
             "items": {
-              "type": "string"
-            },
-            "example": [
-              "\u002B18005550100",
-              "sip:username@sip.telnyx.com;secure=srtp"
-            ]
+              "$ref": "#/components/schemas/CallControlTransferToolParamsTargetsOneOf1Item"
+            }
+          },
+          {
+            "type": "string",
+            "description": "A dynamic variable string like \u0060{{ targets }}\u0060 where \u0060targets\u0060 is returned by the dynamic variables webhook and resolves to an array of target objects at runtime.",
+            "example": "{{ targets }}"
           }
         ],
-        "description": "The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append \u0060;secure=true\u0060 or \u0060;secure=srtp\u0060 to enable SRTP media encryption for that endpoint, or \u0060;secure=dtls\u0060 to enable DTLS media encryption for that endpoint. If \u0060media_encryption\u0060 is set to \u0060SRTP\u0060 or \u0060DTLS\u0060, it takes precedence over any per-endpoint \u0060secure\u0060 URI parameter. For a single string destination, you may append a comma followed by DTMF digits (e.g. \u0060\u002B18004247767,200\u0060) to play those digits as DTMF once the called party answers \u2014 equivalent to setting \u0060send_digits_on_answer\u0060 separately. If both are present, the explicit \u0060send_digits_on_answer\u0060 parameter takes precedence. This shorthand is not supported when \u0060to\u0060 is an array."
+        "description": "The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to. This can also be a dynamic variable string like \u0060{{ targets }}\u0060 where \u0060targets\u0060 is returned by the dynamic variables webhook and resolves to an array of target objects at runtime."
       },
       "PwgAssignedResourcesSummary": {
         "type": "object",
@@ -96250,22 +96312,19 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "CallControlTransferToolParamsTargets": {
+      "CallAssistantRequestDynamicVariablesAdditionalProperties": {
         "type": "object",
         "oneOf": [
           {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CallControlTransferToolParamsTargetsOneOf1Item"
-            }
+            "type": "string"
           },
           {
-            "type": "string",
-            "description": "A dynamic variable string like \u0060{{ targets }}\u0060 where \u0060targets\u0060 is returned by the dynamic variables webhook and resolves to an array of target objects at runtime.",
-            "example": "{{ targets }}"
+            "type": "number"
+          },
+          {
+            "type": "boolean"
           }
-        ],
-        "description": "The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to. This can also be a dynamic variable string like \u0060{{ targets }}\u0060 where \u0060targets\u0060 is returned by the dynamic variables webhook and resolves to an array of target objects at runtime."
+        ]
       },
       "PlaybackStopRequest": {
         "title": "Playback Stop Request",
@@ -100286,19 +100345,55 @@
           ]
         }
       },
-      "CallAssistantRequestDynamicVariablesAdditionalProperties": {
+      "CallAssistantRequestToolsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/BookAppointmentTool"
           },
           {
-            "type": "number"
+            "$ref": "#/components/schemas/CheckAvailabilityTool"
           },
           {
-            "type": "boolean"
+            "$ref": "#/components/schemas/WebhookTool"
+          },
+          {
+            "$ref": "#/components/schemas/HangupTool"
+          },
+          {
+            "$ref": "#/components/schemas/TransferTool"
+          },
+          {
+            "$ref": "#/components/schemas/CallControlRetrievalTool"
           }
-        ]
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "book_appointment": "#/components/schemas/BookAppointmentTool",
+            "check_availability": "#/components/schemas/CheckAvailabilityTool",
+            "webhook": "#/components/schemas/WebhookTool",
+            "hangup": "#/components/schemas/HangupTool",
+            "transfer": "#/components/schemas/TransferTool",
+            "retrieval": "#/components/schemas/CallControlRetrievalTool",
+            "BookAppointmentTool": "#/components/schemas/BookAppointmentTool",
+            "CheckAvailabilityTool": "#/components/schemas/CheckAvailabilityTool",
+            "WebhookTool": "#/components/schemas/WebhookTool",
+            "HangupTool": "#/components/schemas/HangupTool",
+            "TransferTool": "#/components/schemas/TransferTool",
+            "CallControlRetrievalTool": "#/components/schemas/CallControlRetrievalTool"
+          }
+        }
       },
       "RecordingTrack": {
         "enum": [
@@ -100753,55 +100848,28 @@
           }
         }
       },
-      "CallAssistantRequestToolsItem": {
+      "BrandLoaRenderRequestSignature": {
         "required": [
-          "type"
+          "image_base64"
         ],
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/BookAppointmentTool"
-          },
-          {
-            "$ref": "#/components/schemas/CheckAvailabilityTool"
-          },
-          {
-            "$ref": "#/components/schemas/WebhookTool"
-          },
-          {
-            "$ref": "#/components/schemas/HangupTool"
-          },
-          {
-            "$ref": "#/components/schemas/TransferTool"
-          },
-          {
-            "$ref": "#/components/schemas/CallControlRetrievalTool"
-          }
-        ],
         "properties": {
-          "type": {
-            "title": "type",
+          "image_base64": {
+            "maxLength": 60000,
+            "minLength": 1,
             "type": "string",
-            "description": "Union discriminator"
+            "description": "PNG image, base64-encoded."
+          },
+          "signer_name": {
+            "maxLength": 200,
+            "type": "string",
+            "description": "Optional. When absent the rendered PDF falls back to the enterprise contact\u0027s legal name.",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           }
         },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "book_appointment": "#/components/schemas/BookAppointmentTool",
-            "check_availability": "#/components/schemas/CheckAvailabilityTool",
-            "webhook": "#/components/schemas/WebhookTool",
-            "hangup": "#/components/schemas/HangupTool",
-            "transfer": "#/components/schemas/TransferTool",
-            "retrieval": "#/components/schemas/CallControlRetrievalTool",
-            "BookAppointmentTool": "#/components/schemas/BookAppointmentTool",
-            "CheckAvailabilityTool": "#/components/schemas/CheckAvailabilityTool",
-            "WebhookTool": "#/components/schemas/WebhookTool",
-            "HangupTool": "#/components/schemas/HangupTool",
-            "TransferTool": "#/components/schemas/TransferTool",
-            "CallControlRetrievalTool": "#/components/schemas/CallControlRetrievalTool"
-          }
-        }
+        "description": "Optional. When provided the rendered PDF embeds the signature image, printed name, and signed-at date. When absent the PDF is returned unsigned so the customer can sign externally and upload it via the Documents API."
       },
       "RegionIn": {
         "type": "object",
@@ -104090,28 +104158,80 @@
         },
         "description": "The send_message tool allows the assistant to send SMS or MMS messages to the end user. The \u0027to\u0027 and \u0027from\u0027 addresses are automatically determined from the conversation context, and the message text is generated by the assistant unless a message_template is provided for runtime variable substitution."
       },
-      "BrandLoaRenderRequestSignature": {
+      "BrandLoaRenderRequestAgent": {
         "required": [
-          "image_base64"
+          "legal_name",
+          "street_address",
+          "city",
+          "administrative_area",
+          "postal_code",
+          "country",
+          "contact_name",
+          "contact_title",
+          "contact_email",
+          "contact_phone"
         ],
         "type": "object",
         "properties": {
-          "image_base64": {
-            "maxLength": 60000,
-            "minLength": 1,
-            "type": "string",
-            "description": "PNG image, base64-encoded."
+          "legal_name": {
+            "maxLength": 200,
+            "type": "string"
           },
-          "signer_name": {
+          "dba": {
             "maxLength": 200,
             "type": "string",
-            "description": "Optional. When absent the rendered PDF falls back to the enterprise contact\u0027s legal name.",
             "unrecognizedKeywords": {
               "nullable": true
             }
+          },
+          "street_address": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "extended_address": {
+            "maxLength": 255,
+            "type": "string",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
+          },
+          "city": {
+            "maxLength": 120,
+            "type": "string"
+          },
+          "administrative_area": {
+            "maxLength": 120,
+            "type": "string"
+          },
+          "postal_code": {
+            "maxLength": 30,
+            "type": "string"
+          },
+          "country": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "example": "US"
+          },
+          "contact_name": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "contact_title": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "contact_email": {
+            "type": "string",
+            "format": "email"
+          },
+          "contact_phone": {
+            "maxLength": 30,
+            "type": "string",
+            "example": "\u002B13125550000"
           }
         },
-        "description": "Optional. When provided the rendered PDF embeds the signature image, printed name, and signed-at date. When absent the PDF is returned unsigned so the customer can sign externally and upload it via the Documents API."
+        "description": "Optional. The third-party reseller / partner managing the enterprise\u0027s phone numbers. Omit when working directly with Telnyx; the LOA marks the Authorized Agent block as N/A."
       },
       "SendSipInfoRequest": {
         "title": "Send SIP Info Request",
@@ -106218,81 +106338,6 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
-      "BrandLoaRenderRequestAgent": {
-        "required": [
-          "legal_name",
-          "street_address",
-          "city",
-          "administrative_area",
-          "postal_code",
-          "country",
-          "contact_name",
-          "contact_title",
-          "contact_email",
-          "contact_phone"
-        ],
-        "type": "object",
-        "properties": {
-          "legal_name": {
-            "maxLength": 200,
-            "type": "string"
-          },
-          "dba": {
-            "maxLength": 200,
-            "type": "string",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
-          },
-          "street_address": {
-            "maxLength": 255,
-            "type": "string"
-          },
-          "extended_address": {
-            "maxLength": 255,
-            "type": "string",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
-          },
-          "city": {
-            "maxLength": 120,
-            "type": "string"
-          },
-          "administrative_area": {
-            "maxLength": 120,
-            "type": "string"
-          },
-          "postal_code": {
-            "maxLength": 30,
-            "type": "string"
-          },
-          "country": {
-            "maxLength": 2,
-            "minLength": 2,
-            "type": "string",
-            "example": "US"
-          },
-          "contact_name": {
-            "maxLength": 200,
-            "type": "string"
-          },
-          "contact_title": {
-            "maxLength": 200,
-            "type": "string"
-          },
-          "contact_email": {
-            "type": "string",
-            "format": "email"
-          },
-          "contact_phone": {
-            "maxLength": 30,
-            "type": "string",
-            "example": "\u002B13125550000"
-          }
-        },
-        "description": "Optional. The third-party reseller / partner managing the enterprise\u0027s phone numbers. Omit when working directly with Telnyx; the LOA marks the Authorized Agent block as N/A."
-      },
       "AuditEventChangesFrom": {
         "required": [
           "type"
@@ -106337,6 +106382,51 @@
           }
         },
         "example": 54321
+      },
+      "AuditEventChangesTo": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AuditEventChangesToBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/AuditEventChangesToBranch2"
+          },
+          {
+            "$ref": "#/components/schemas/AuditEventChangesToBranch3"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/AuditEventChangesToBranch5"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "The new value of the field. Can be any JSON type.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AuditEventChangesTo_1": "#/components/schemas/AuditEventChangesToBranch1",
+            "AuditEventChangesTo_2": "#/components/schemas/AuditEventChangesToBranch2",
+            "AuditEventChangesTo_3": "#/components/schemas/AuditEventChangesToBranch3",
+            "AuditEventChangesTo_5": "#/components/schemas/AuditEventChangesToBranch5"
+          }
+        },
+        "example": 12345
       },
       "StoredPaymentTransactionRequest": {
         "required": [
@@ -106508,31 +106598,47 @@
           ]
         }
       },
-      "AuditEventChangesTo": {
+      "AssistantToolsItemComposed": {
         "required": [
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
-            "$ref": "#/components/schemas/AuditEventChangesToBranch1"
+            "$ref": "#/components/schemas/InferenceEmbeddingWebhookTool"
           },
           {
-            "$ref": "#/components/schemas/AuditEventChangesToBranch2"
+            "$ref": "#/components/schemas/ClientSideTool"
           },
           {
-            "$ref": "#/components/schemas/AuditEventChangesToBranch3"
+            "$ref": "#/components/schemas/RetrievalTool"
           },
           {
-            "type": "object"
+            "$ref": "#/components/schemas/HandoffTool"
           },
           {
-            "$ref": "#/components/schemas/AuditEventChangesToBranch5"
+            "$ref": "#/components/schemas/HangupTool"
           },
           {
-            "enum": [
-              null
-            ]
+            "$ref": "#/components/schemas/InferenceEmbeddingTransferTool"
+          },
+          {
+            "$ref": "#/components/schemas/InviteTool"
+          },
+          {
+            "$ref": "#/components/schemas/SipReferTool"
+          },
+          {
+            "$ref": "#/components/schemas/DtmfTool"
+          },
+          {
+            "$ref": "#/components/schemas/SendMessageTool"
+          },
+          {
+            "$ref": "#/components/schemas/SkipTurnTool"
+          },
+          {
+            "$ref": "#/components/schemas/PayTool"
           }
         ],
         "properties": {
@@ -106541,17 +106647,23 @@
             "description": "Union discriminator"
           }
         },
-        "description": "The new value of the field. Can be any JSON type.",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "AuditEventChangesTo_1": "#/components/schemas/AuditEventChangesToBranch1",
-            "AuditEventChangesTo_2": "#/components/schemas/AuditEventChangesToBranch2",
-            "AuditEventChangesTo_3": "#/components/schemas/AuditEventChangesToBranch3",
-            "AuditEventChangesTo_5": "#/components/schemas/AuditEventChangesToBranch5"
+            "InferenceEmbeddingWebhookTool": "#/components/schemas/InferenceEmbeddingWebhookTool",
+            "ClientSideTool": "#/components/schemas/ClientSideTool",
+            "RetrievalTool": "#/components/schemas/RetrievalTool",
+            "HandoffTool": "#/components/schemas/HandoffTool",
+            "HangupTool": "#/components/schemas/HangupTool",
+            "InferenceEmbeddingTransferTool": "#/components/schemas/InferenceEmbeddingTransferTool",
+            "InviteTool": "#/components/schemas/InviteTool",
+            "SipReferTool": "#/components/schemas/SipReferTool",
+            "DtmfTool": "#/components/schemas/DtmfTool",
+            "SendMessageTool": "#/components/schemas/SendMessageTool",
+            "SkipTurnTool": "#/components/schemas/SkipTurnTool",
+            "PayTool": "#/components/schemas/PayTool"
           }
-        },
-        "example": 12345
+        }
       },
       "StreamStatus": {
         "enum": [
@@ -106639,72 +106751,18 @@
           "value": "gold"
         }
       },
-      "AssistantToolsItemComposed": {
+      "AssistantTestResponseTelnyxConversationChannel": {
         "required": [
-          "type"
+          "value"
         ],
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/InferenceEmbeddingWebhookTool"
-          },
-          {
-            "$ref": "#/components/schemas/ClientSideTool"
-          },
-          {
-            "$ref": "#/components/schemas/RetrievalTool"
-          },
-          {
-            "$ref": "#/components/schemas/HandoffTool"
-          },
-          {
-            "$ref": "#/components/schemas/HangupTool"
-          },
-          {
-            "$ref": "#/components/schemas/InferenceEmbeddingTransferTool"
-          },
-          {
-            "$ref": "#/components/schemas/InviteTool"
-          },
-          {
-            "$ref": "#/components/schemas/SipReferTool"
-          },
-          {
-            "$ref": "#/components/schemas/DtmfTool"
-          },
-          {
-            "$ref": "#/components/schemas/SendMessageTool"
-          },
-          {
-            "$ref": "#/components/schemas/SkipTurnTool"
-          },
-          {
-            "$ref": "#/components/schemas/PayTool"
-          }
-        ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
+          "value": {
+            "$ref": "#/components/schemas/TelnyxConversationChannel"
           }
         },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "InferenceEmbeddingWebhookTool": "#/components/schemas/InferenceEmbeddingWebhookTool",
-            "ClientSideTool": "#/components/schemas/ClientSideTool",
-            "RetrievalTool": "#/components/schemas/RetrievalTool",
-            "HandoffTool": "#/components/schemas/HandoffTool",
-            "HangupTool": "#/components/schemas/HangupTool",
-            "InferenceEmbeddingTransferTool": "#/components/schemas/InferenceEmbeddingTransferTool",
-            "InviteTool": "#/components/schemas/InviteTool",
-            "SipReferTool": "#/components/schemas/SipReferTool",
-            "DtmfTool": "#/components/schemas/DtmfTool",
-            "SendMessageTool": "#/components/schemas/SendMessageTool",
-            "SkipTurnTool": "#/components/schemas/SkipTurnTool",
-            "PayTool": "#/components/schemas/PayTool"
-          }
-        }
+        "description": "Communication channel used for test execution.",
+        "example": "web_chat"
       },
       "SttDeleteDetailReportResponse": {
         "type": "object",
@@ -107442,18 +107500,19 @@
           "content": "Get the user\u0027s favorite color"
         }
       },
-      "AssistantTestResponseTelnyxConversationChannel": {
-        "required": [
-          "value"
-        ],
+      "AssistantSmsChatReqConversationMetadataAdditionalProperties": {
         "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/TelnyxConversationChannel"
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
           }
-        },
-        "description": "Communication channel used for test execution.",
-        "example": "web_chat"
+        ]
       },
       "TfPhoneNumber": {
         "title": "PhoneNumber",
@@ -111061,19 +111120,55 @@
         "nullable": true,
         "example": "12"
       },
-      "AssistantSmsChatReqConversationMetadataAdditionalProperties": {
+      "AssistantToolsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/BookAppointmentTool"
           },
           {
-            "type": "integer"
+            "$ref": "#/components/schemas/CheckAvailabilityTool"
           },
           {
-            "type": "boolean"
+            "$ref": "#/components/schemas/WebhookTool"
+          },
+          {
+            "$ref": "#/components/schemas/HangupTool"
+          },
+          {
+            "$ref": "#/components/schemas/TransferTool"
+          },
+          {
+            "$ref": "#/components/schemas/CallControlRetrievalTool"
           }
-        ]
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "book_appointment": "#/components/schemas/BookAppointmentTool",
+            "check_availability": "#/components/schemas/CheckAvailabilityTool",
+            "webhook": "#/components/schemas/WebhookTool",
+            "hangup": "#/components/schemas/HangupTool",
+            "transfer": "#/components/schemas/TransferTool",
+            "retrieval": "#/components/schemas/CallControlRetrievalTool",
+            "BookAppointmentTool": "#/components/schemas/BookAppointmentTool",
+            "CheckAvailabilityTool": "#/components/schemas/CheckAvailabilityTool",
+            "WebhookTool": "#/components/schemas/WebhookTool",
+            "HangupTool": "#/components/schemas/HangupTool",
+            "TransferTool": "#/components/schemas/TransferTool",
+            "CallControlRetrievalTool": "#/components/schemas/CallControlRetrievalTool"
+          }
+        }
       },
       "TexmlRecordingPrice": {
         "type": "string",
@@ -111175,56 +111270,6 @@
           }
         }
       },
-      "AssistantToolsItem": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/BookAppointmentTool"
-          },
-          {
-            "$ref": "#/components/schemas/CheckAvailabilityTool"
-          },
-          {
-            "$ref": "#/components/schemas/WebhookTool"
-          },
-          {
-            "$ref": "#/components/schemas/HangupTool"
-          },
-          {
-            "$ref": "#/components/schemas/TransferTool"
-          },
-          {
-            "$ref": "#/components/schemas/CallControlRetrievalTool"
-          }
-        ],
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "book_appointment": "#/components/schemas/BookAppointmentTool",
-            "check_availability": "#/components/schemas/CheckAvailabilityTool",
-            "webhook": "#/components/schemas/WebhookTool",
-            "hangup": "#/components/schemas/HangupTool",
-            "transfer": "#/components/schemas/TransferTool",
-            "retrieval": "#/components/schemas/CallControlRetrievalTool",
-            "BookAppointmentTool": "#/components/schemas/BookAppointmentTool",
-            "CheckAvailabilityTool": "#/components/schemas/CheckAvailabilityTool",
-            "WebhookTool": "#/components/schemas/WebhookTool",
-            "HangupTool": "#/components/schemas/HangupTool",
-            "TransferTool": "#/components/schemas/TransferTool",
-            "CallControlRetrievalTool": "#/components/schemas/CallControlRetrievalTool"
-          }
-        }
-      },
       "AssignmentTaskStatusResponseStatus": {
         "title": "TaskStatus",
         "enum": [
@@ -111260,6 +111305,21 @@
           ]
         }
       },
+      "AnthropicMessageRequestSystem": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        ],
+        "description": "System prompt. Can be a string or an array of content blocks following the Anthropic API format."
+      },
       "TexmlStatusCallbackMethod": {
         "enum": [
           "GET",
@@ -111284,20 +111344,17 @@
           ]
         }
       },
-      "AnthropicMessageRequestSystem": {
+      "ActionsParticipantsRequestParticipants": {
         "type": "object",
         "oneOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsWrapper"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsBranch2"
           }
         ],
-        "description": "System prompt. Can be a string or an array of content blocks following the Anthropic API format."
+        "description": "Either a list of participant id to perform the action on, or the keyword \u0022all\u0022 to perform the action on all participant."
       },
       "TexmlUpdateCallRecordingRequestBody": {
         "title": "Texml Create Call Recording Request Body",
@@ -111491,18 +111548,6 @@
           }
         }
       },
-      "ActionsParticipantsRequestParticipants": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsBranch2"
-          }
-        ],
-        "description": "Either a list of participant id to perform the action on, or the keyword \u0022all\u0022 to perform the action on all participant."
-      },
       "AiAssistantStartRequestMessageHistoryItem": {
         "required": [
           "role"
@@ -111545,6 +111590,62 @@
             "ToolMessage": "#/components/schemas/ToolMessage",
             "SystemMessage": "#/components/schemas/SystemMessage",
             "DeveloperMessage": "#/components/schemas/DeveloperMessage"
+          }
+        }
+      },
+      "AiAssistantStartRequestVoiceSettings": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AwsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AzureVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/RimeVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/ResembleVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/XaiVoiceSettings"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "The settings associated with the voice selected",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+            "aws": "#/components/schemas/AwsVoiceSettings",
+            "azure": "#/components/schemas/AzureVoiceSettings",
+            "rime": "#/components/schemas/RimeVoiceSettings",
+            "resemble": "#/components/schemas/ResembleVoiceSettings",
+            "xai": "#/components/schemas/XaiVoiceSettings",
+            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
+            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
+            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
+            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
+            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
+            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
+            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
           }
         }
       },
@@ -114353,59 +114454,48 @@
         "default": 2,
         "example": 1
       },
-      "AiAssistantStartRequestVoiceSettings": {
+      "AiAssistantAddMessagesRequestMessagesItem": {
         "required": [
-          "type"
+          "role"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+            "$ref": "#/components/schemas/UserMessage"
           },
           {
-            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+            "$ref": "#/components/schemas/AssistantMessage"
           },
           {
-            "$ref": "#/components/schemas/AwsVoiceSettings"
+            "$ref": "#/components/schemas/ToolMessage"
           },
           {
-            "$ref": "#/components/schemas/AzureVoiceSettings"
+            "$ref": "#/components/schemas/SystemMessage"
           },
           {
-            "$ref": "#/components/schemas/RimeVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/ResembleVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/XaiVoiceSettings"
+            "$ref": "#/components/schemas/DeveloperMessage"
           }
         ],
         "properties": {
-          "type": {
-            "title": "type",
+          "role": {
+            "title": "role",
             "type": "string",
             "description": "Union discriminator"
           }
         },
-        "description": "The settings associated with the voice selected",
         "discriminator": {
-          "propertyName": "type",
+          "propertyName": "role",
           "mapping": {
-            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
-            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-            "aws": "#/components/schemas/AwsVoiceSettings",
-            "azure": "#/components/schemas/AzureVoiceSettings",
-            "rime": "#/components/schemas/RimeVoiceSettings",
-            "resemble": "#/components/schemas/ResembleVoiceSettings",
-            "xai": "#/components/schemas/XaiVoiceSettings",
-            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
-            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
-            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
-            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
-            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
-            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
-            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
+            "user": "#/components/schemas/UserMessage",
+            "assistant": "#/components/schemas/AssistantMessage",
+            "tool": "#/components/schemas/ToolMessage",
+            "system": "#/components/schemas/SystemMessage",
+            "developer": "#/components/schemas/DeveloperMessage",
+            "UserMessage": "#/components/schemas/UserMessage",
+            "AssistantMessage": "#/components/schemas/AssistantMessage",
+            "ToolMessage": "#/components/schemas/ToolMessage",
+            "SystemMessage": "#/components/schemas/SystemMessage",
+            "DeveloperMessage": "#/components/schemas/DeveloperMessage"
           }
         }
       },
@@ -118068,48 +118158,16 @@
           }
         }
       },
-      "AiAssistantAddMessagesRequestMessagesItem": {
-        "required": [
-          "role"
-        ],
+      "VideoGenericErrorResponseResponse": {
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/UserMessage"
-          },
-          {
-            "$ref": "#/components/schemas/AssistantMessage"
-          },
-          {
-            "$ref": "#/components/schemas/ToolMessage"
-          },
-          {
-            "$ref": "#/components/schemas/SystemMessage"
-          },
-          {
-            "$ref": "#/components/schemas/DeveloperMessage"
-          }
-        ],
         "properties": {
-          "role": {
-            "title": "role",
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "message": {
             "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "role",
-          "mapping": {
-            "user": "#/components/schemas/UserMessage",
-            "assistant": "#/components/schemas/AssistantMessage",
-            "tool": "#/components/schemas/ToolMessage",
-            "system": "#/components/schemas/SystemMessage",
-            "developer": "#/components/schemas/DeveloperMessage",
-            "UserMessage": "#/components/schemas/UserMessage",
-            "AssistantMessage": "#/components/schemas/AssistantMessage",
-            "ToolMessage": "#/components/schemas/ToolMessage",
-            "SystemMessage": "#/components/schemas/SystemMessage",
-            "DeveloperMessage": "#/components/schemas/DeveloperMessage"
+            "example": "Error"
           }
         }
       },
@@ -119044,16 +119102,14 @@
           "name": "Engineering"
         }
       },
-      "VideoGenericErrorResponseResponse": {
+      "CustomerServiceRecordUnprocessableEntityErrorResponseResponse": {
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "example": false
-          },
-          "message": {
-            "type": "string",
-            "example": "Error"
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerServiceRecordUnprocessableEntityError"
+            }
           }
         }
       },
@@ -121123,13 +121179,13 @@
           }
         }
       },
-      "CustomerServiceRecordUnprocessableEntityErrorResponseResponse": {
+      "CustomerServiceRecordUnauthorizedErrorResponseResponse": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CustomerServiceRecordUnprocessableEntityError"
+              "$ref": "#/components/schemas/UnauthorizedError"
             }
           }
         }
@@ -121984,13 +122040,13 @@
         "nullable": true,
         "example": "https://failover.example.com"
       },
-      "CustomerServiceRecordUnauthorizedErrorResponseResponse": {
+      "CustomerServiceRecordForbiddenErrorResponseResponse": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UnauthorizedError"
+              "$ref": "#/components/schemas/ForbiddenError"
             }
           }
         }
@@ -122325,6 +122381,33 @@
             "type": "string",
             "description": "Window type. Currently always 24h when present.",
             "example": "24h"
+          }
+        }
+      },
+      "WhatsappConversationalComponent": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "example": "whatsapp_conversational_component"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Phone number in E164 format"
+          },
+          "ice_breakers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of ice breakers"
+          },
+          "commands": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WhatsappConversationalComponentCommandsItem"
+            },
+            "description": "List of commands"
           }
         }
       },
@@ -122841,6 +122924,25 @@
           }
         },
         "description": "Optional header displayed at the top of the message."
+      },
+      "WhatsappUpdateConversationalComponentRequest": {
+        "type": "object",
+        "properties": {
+          "commands": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WhatsappUpdateConversationalComponentRequestCommandsItem"
+            },
+            "description": "List of commands"
+          },
+          "ice_breakers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of ice breakers"
+          }
+        }
       },
       "WhatsappUpdateProfileRequest": {
         "type": "object",
@@ -123763,17 +123865,6 @@
           ]
         }
       },
-      "CustomerServiceRecordForbiddenErrorResponseResponse": {
-        "type": "object",
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ForbiddenError"
-            }
-          }
-        }
-      },
       "BundlePricingUnprocessableEntityErrorResponseResponse": {
         "type": "object",
         "properties": {
@@ -123792,6 +123883,17 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BundlePricingNotFoundErrorResponseResponseErrorsItem"
+            }
+          }
+        }
+      },
+      "BundlePricingGenericErrorResponseResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BundlePricingGenericErrorResponseResponseErrorsItem"
             }
           }
         }
@@ -123969,13 +124071,13 @@
           }
         }
       },
-      "BundlePricingGenericErrorResponseResponse": {
+      "BundlePricingBadRequestErrorResponseResponse": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BundlePricingGenericErrorResponseResponseErrorsItem"
+              "$ref": "#/components/schemas/BundlePricingBadRequestErrorResponseResponseErrorsItem"
             }
           }
         }
@@ -124061,14 +124163,11 @@
         },
         "description": "JSON:API pagination metadata returned with every paginated list response. Page numbering is 1-based. \u0060page_size\u0060 reports the number of items actually returned in \u0060data\u0060 for this page; the requested size is taken from the \u0060page[size]\u0060 query parameter."
       },
-      "BundlePricingBadRequestErrorResponseResponse": {
+      "WhatsappUserDataResponseResponse": {
         "type": "object",
         "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BundlePricingBadRequestErrorResponseResponseErrorsItem"
-            }
+          "data": {
+            "$ref": "#/components/schemas/WhatsappUserData"
           }
         }
       },
@@ -124643,11 +124742,11 @@
           }
         }
       },
-      "WhatsappUserDataResponseResponse": {
+      "WhatsappTemplateSingleResponseResponse": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/WhatsappUserData"
+            "$ref": "#/components/schemas/WhatsappTemplateData"
           }
         }
       },
@@ -124673,14 +124772,6 @@
           }
         }
       },
-      "WhatsappTemplateSingleResponseResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/WhatsappTemplateData"
-          }
-        }
-      },
       "WhatsappTemplateListResponseResponse": {
         "type": "object",
         "properties": {
@@ -124692,6 +124783,14 @@
           },
           "meta": {
             "$ref": "#/components/schemas/MessagingPaginationMeta"
+          }
+        }
+      },
+      "WhatsappProfileSingleResponseResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WhatsappProfileData"
           }
         }
       },
@@ -125029,14 +125128,6 @@
           }
         }
       },
-      "WhatsappProfileSingleResponseResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/WhatsappProfileData"
-          }
-        }
-      },
       "WhatsappPhonesListResponseResponse": {
         "type": "object",
         "properties": {
@@ -125048,6 +125139,14 @@
           },
           "meta": {
             "$ref": "#/components/schemas/MessagingPaginationMeta"
+          }
+        }
+      },
+      "WhatsappConversationalComponentSingleResponseResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WhatsappConversationalComponent"
           }
         }
       },
@@ -127658,6 +127757,12 @@
             }
           ]
         }
+      },
+      "EnhanceInstructionsRequestInstructions": {
+        "title": "Instructions",
+        "type": "string",
+        "description": "The instructions to enhance. When omitted, the assistant\u0027s existing instructions are used.",
+        "nullable": true
       },
       "EnterpriseReputationCreateCheckFrequency": {
         "required": [
@@ -137864,6 +137969,17 @@
           }
         }
       },
+      "WhatsappConversationalComponentCommandsItem": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
       "WhatsappInteractiveAction": {
         "type": "object",
         "properties": {
@@ -138165,6 +138281,17 @@
         },
         "description": "Sample values for header variables."
       },
+      "WhatsappUpdateConversationalComponentRequestCommandsItem": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
       "X402PaymentRequirementsResource": {
         "type": "object",
         "properties": {
@@ -138330,6 +138457,20 @@
           }
         }
       },
+      "BundlePricingGenericErrorResponseResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
       "BillingGroupErrorSource": {
         "type": "object",
         "properties": {
@@ -138362,7 +138503,7 @@
       "BillingErrorMeta": {
         "type": "object"
       },
-      "BundlePricingGenericErrorResponseResponseErrorsItem": {
+      "BundlePricingBadRequestErrorResponseResponseErrorsItem": {
         "type": "object",
         "properties": {
           "code": {
@@ -138425,20 +138566,6 @@
           }
         },
         "description": "Optional pointer at the offending field of the request."
-      },
-      "BundlePricingBadRequestErrorResponseResponseErrorsItem": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          }
-        }
       },
       "CallControlErrorSource": {
         "type": "object",
@@ -153176,6 +153303,65 @@
           ]
         }
       },
+      "EmailDomainDmarcPolicyP": {
+        "enum": [
+          "none",
+          "quarantine",
+          "reject"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Policy applied to messages that fail alignment.",
+        "x-ms-enum": {
+          "name": "EmailDomainDmarcPolicyP",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "quarantine",
+              "name": "Quarantine"
+            },
+            {
+              "value": "reject",
+              "name": "Reject"
+            }
+          ]
+        }
+      },
+      "EmailDomainDmarcPolicySp": {
+        "enum": [
+          "none",
+          "quarantine",
+          "reject"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Policy for subdomains. Omitted from the record when null.",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
+        "x-ms-enum": {
+          "name": "EmailDomainDmarcPolicySp",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "quarantine",
+              "name": "Quarantine"
+            },
+            {
+              "value": "reject",
+              "name": "Reject"
+            }
+          ]
+        }
+      },
       "BucketOpsCategory": {
         "enum": [
           "list_bucket",
@@ -153669,65 +153855,6 @@
             {
               "value": "from_anyone",
               "name": "FromAnyone"
-            }
-          ]
-        }
-      },
-      "EmailDomainDmarcPolicyP": {
-        "enum": [
-          "none",
-          "quarantine",
-          "reject"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Policy applied to messages that fail alignment.",
-        "x-ms-enum": {
-          "name": "EmailDomainDmarcPolicyP",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "none",
-              "name": "None"
-            },
-            {
-              "value": "quarantine",
-              "name": "Quarantine"
-            },
-            {
-              "value": "reject",
-              "name": "Reject"
-            }
-          ]
-        }
-      },
-      "EmailDomainDmarcPolicySp": {
-        "enum": [
-          "none",
-          "quarantine",
-          "reject"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Policy for subdomains. Omitted from the record when null.",
-        "unrecognizedKeywords": {
-          "nullable": true
-        },
-        "x-ms-enum": {
-          "name": "EmailDomainDmarcPolicySp",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "none",
-              "name": "None"
-            },
-            {
-              "value": "quarantine",
-              "name": "Quarantine"
-            },
-            {
-              "value": "reject",
-              "name": "Reject"
             }
           ]
         }
@@ -186958,6 +187085,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/WhatsappConversationWindowResponseResponse"
+            }
+          }
+        }
+      },
+      "WhatsappConversationalComponentSingleResponse": {
+        "description": "Successful response with Whatsapp conversational components",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/WhatsappConversationalComponentSingleResponseResponse"
             }
           }
         }
