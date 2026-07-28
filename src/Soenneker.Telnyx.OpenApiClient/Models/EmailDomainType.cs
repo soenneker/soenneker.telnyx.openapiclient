@@ -16,5 +16,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Shared,
         #pragma warning restore CS1591
+        [EnumMember(Value = "shared_inbound")]
+        #pragma warning disable CS1591
+        SharedInbound,
+        #pragma warning restore CS1591
     }
 }

@@ -20,11 +20,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Guid? Id { get; set; }
         /// <summary>The inbox_id property</summary>
         public Guid? InboxId { get; set; }
+        /// <summary>Mutable thread labels used for agent workflow state. Independent of the labels on the thread&apos;s messages, and distinct from the send-time `tags` on outbound messages.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Labels { get; set; }
+#nullable restore
+#else
+        public List<string> Labels { get; set; }
+#endif
         /// <summary>The last_message_at property</summary>
         public DateTimeOffset? LastMessageAt { get; set; }
         /// <summary>The last_message_id property</summary>
         public Guid? LastMessageId { get; set; }
-        /// <summary>The message_count property</summary>
+        /// <summary>Total inbound and outbound messages in the thread.</summary>
         public int? MessageCount { get; set; }
         /// <summary>The preview property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Subject { get; set; }
 #endif
-        /// <summary>The unread_count property</summary>
+        /// <summary>Unread inbound messages; outbound messages never increment this count.</summary>
         public int? UnreadCount { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -76,6 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "inbox_id", n => { InboxId = n.GetGuidValue(); } },
+                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "last_message_at", n => { LastMessageAt = n.GetDateTimeOffsetValue(); } },
                 { "last_message_id", n => { LastMessageId = n.GetGuidValue(); } },
                 { "message_count", n => { MessageCount = n.GetIntValue(); } },
@@ -96,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("inbox_id", InboxId);
+            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteDateTimeOffsetValue("last_message_at", LastMessageAt);
             writer.WriteGuidValue("last_message_id", LastMessageId);
             writer.WriteIntValue("message_count", MessageCount);

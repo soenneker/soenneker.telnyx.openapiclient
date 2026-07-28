@@ -73,10 +73,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The tracking property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings? Tracking { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings? Tracking { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings Tracking { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings Tracking { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainType? Type { get; set; }
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainRecordType>(); } },
                 { "reputation", n => { Reputation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainReputation>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainReputation.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainStatus>(); } },
-                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings.CreateFromDiscriminatorValue); } },
+                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "usable_for_inbound", n => { UsableForInbound = n.GetBoolValue(); } },
@@ -157,7 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainRecordType>("record_type", RecordType);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainReputation>("reputation", Reputation);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainStatus>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>("tracking", Tracking);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings>("tracking", Tracking);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainType>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteBoolValue("usable_for_inbound", UsableForInbound);

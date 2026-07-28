@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GcsConfigurationData"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GcsConfigurationData"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomStorageConfigurationConfiguration : IComposedTypeWrapper, IParsable
@@ -37,6 +37,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData S3ConfigurationData { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData? S3GenericConfigurationData { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData S3GenericConfigurationData { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -59,6 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.S3ConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData();
             }
+            else if("s3-generic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.S3GenericConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData();
+            }
             return result;
         }
         /// <summary>
@@ -78,6 +90,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(S3ConfigurationData != null)
             {
                 return S3ConfigurationData.GetFieldDeserializers();
+            }
+            else if(S3GenericConfigurationData != null)
+            {
+                return S3GenericConfigurationData.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -99,6 +115,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(S3ConfigurationData != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData>(null, S3ConfigurationData);
+            }
+            else if(S3GenericConfigurationData != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData>(null, S3GenericConfigurationData);
             }
         }
     }

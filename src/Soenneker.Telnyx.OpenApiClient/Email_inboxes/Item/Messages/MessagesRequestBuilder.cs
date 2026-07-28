@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages{?filter%5Bfrom%5D*,filter%5Bread%5D*,filter%5Breceived_after%5D*,filter%5Breceived_before%5D*,filter%5Bsearch%5D*,filter%5Bsubject%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", pathParameters)
+        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages{?filter%5Bfrom%5D*,filter%5Blabel%5D*,filter%5Bread%5D*,filter%5Breceived_after%5D*,filter%5Breceived_before%5D*,filter%5Bsearch%5D*,filter%5Bsubject%5D*,filter%5Bunread%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages{?filter%5Bfrom%5D*,filter%5Bread%5D*,filter%5Breceived_after%5D*,filter%5Breceived_before%5D*,filter%5Bsearch%5D*,filter%5Bsubject%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", rawUrl)
+        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages{?filter%5Bfrom%5D*,filter%5Blabel%5D*,filter%5Bread%5D*,filter%5Breceived_after%5D*,filter%5Breceived_before%5D*,filter%5Bsearch%5D*,filter%5Bsubject%5D*,filter%5Bunread%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -119,6 +119,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages
             [QueryParameter("filter%5Bfrom%5D")]
             public string Filterfrom { get; set; }
 #endif
+            /// <summary>Returns only messages carrying this label. Matching is exact and case-sensitive. Reserved `telnyx:` labels can be filtered on even though they cannot be written by customers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Blabel%5D")]
+            public string? Filterlabel { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Blabel%5D")]
+            public string Filterlabel { get; set; }
+#endif
             /// <summary>Whether the message has a read timestamp.</summary>
             [QueryParameter("filter%5Bread%5D")]
             public bool? Filterread { get; set; }
@@ -148,6 +158,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages
             [QueryParameter("filter%5Bsubject%5D")]
             public string Filtersubject { get; set; }
 #endif
+            /// <summary>Whether the message has no read timestamp. Set to `true` to return only unread messages.</summary>
+            [QueryParameter("filter%5Bunread%5D")]
+            public bool? Filterunread { get; set; }
             /// <summary>Opaque cursor returned by the previous page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

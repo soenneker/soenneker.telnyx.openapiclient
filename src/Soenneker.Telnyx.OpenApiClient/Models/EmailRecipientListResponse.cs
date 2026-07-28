@@ -9,53 +9,43 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class EmailMessageSuppressedItem : IAdditionalDataHolder, IParsable
+    public partial class EmailRecipientListResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The override_allowed property</summary>
-        public bool? OverrideAllowed { get; set; }
-        /// <summary>The reason property</summary>
+        /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipient>? Data { get; set; }
 #nullable restore
 #else
-        public string Reason { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipient> Data { get; set; }
 #endif
-        /// <summary>The scope property</summary>
+        /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Scope { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponseMeta? Meta { get; set; }
 #nullable restore
 #else
-        public string Scope { get; set; }
-#endif
-        /// <summary>The to property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? To { get; set; }
-#nullable restore
-#else
-        public string To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponseMeta Meta { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponse"/> and sets the default values.
         /// </summary>
-        public EmailMessageSuppressedItem()
+        public EmailRecipientListResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,10 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "override_allowed", n => { OverrideAllowed = n.GetBoolValue(); } },
-                { "reason", n => { Reason = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetStringValue(); } },
-                { "to", n => { To = n.GetStringValue(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipient>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipient.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponseMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponseMeta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,10 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("override_allowed", OverrideAllowed);
-            writer.WriteStringValue("reason", Reason);
-            writer.WriteStringValue("scope", Scope);
-            writer.WriteStringValue("to", To);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipient>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailRecipientListResponseMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

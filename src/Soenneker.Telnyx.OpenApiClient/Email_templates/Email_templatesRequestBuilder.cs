@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates
         {
         }
         /// <summary>
-        /// Lists templates sorted newest first by `inserted_at desc, id desc`.
+        /// Lists templates sorted newest first by `created_at desc, id desc`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists templates sorted newest first by `inserted_at desc, id desc`.
+        /// Lists templates sorted newest first by `created_at desc, id desc`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,7 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates
             return new global::Soenneker.Telnyx.OpenApiClient.Email_templates.Email_templatesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists templates sorted newest first by `inserted_at desc, id desc`.
+        /// Lists templates sorted newest first by `created_at desc, id desc`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Email_templatesRequestBuilderGetQueryParameters 

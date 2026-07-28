@@ -16,6 +16,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         S3,
         #pragma warning restore CS1591
+        [EnumMember(Value = "s3-generic")]
+        #pragma warning disable CS1591
+        S3Generic,
+        #pragma warning restore CS1591
         [EnumMember(Value = "azure")]
         #pragma warning disable CS1591
         Azure,

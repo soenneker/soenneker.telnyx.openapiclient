@@ -5,12 +5,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum InboundMessageStatus
+    public enum EmailRecipientRecordType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "received")]
+        [EnumMember(Value = "email_recipient")]
         #pragma warning disable CS1591
-        Received,
+        EmailRecipient,
         #pragma warning restore CS1591
     }
 }

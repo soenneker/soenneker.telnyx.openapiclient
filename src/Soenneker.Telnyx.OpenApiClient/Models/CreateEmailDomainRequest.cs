@@ -35,10 +35,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The tracking property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings? Tracking { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings? Tracking { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings Tracking { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings Tracking { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequest"/> and sets the default values.
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "dmarc_policy", n => { DmarcPolicy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy.CreateFromDiscriminatorValue); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "inbound_enabled", n => { InboundEnabled = n.GetBoolValue(); } },
-                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings.CreateFromDiscriminatorValue); } },
+                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy>("dmarc_policy", DmarcPolicy);
             writer.WriteStringValue("domain", Domain);
             writer.WriteBoolValue("inbound_enabled", InboundEnabled);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>("tracking", Tracking);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings>("tracking", Tracking);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

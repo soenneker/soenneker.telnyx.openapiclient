@@ -20,5 +20,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Failed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "not_required")]
+        #pragma warning disable CS1591
+        NotRequired,
+        #pragma warning restore CS1591
     }
 }

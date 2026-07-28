@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Content { get; set; }
 #endif
+        /// <summary>MIME Content-ID used to reference an inline attachment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContentId { get; set; }
+#nullable restore
+#else
+        public string ContentId { get; set; }
+#endif
         /// <summary>MIME content type. Defaults to &quot;application/octet-stream&quot; when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,6 +37,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string ContentType { get; set; }
+#endif
+        /// <summary>MIME disposition (`attachment` or `inline`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Disposition { get; set; }
+#nullable restore
+#else
+        public string Disposition { get; set; }
 #endif
         /// <summary>Attachment filename. Defaults to &quot;attachment&quot; when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public AttachmentRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Disposition = "attachment";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -64,7 +81,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetStringValue(); } },
+                { "content_id", n => { ContentId = n.GetStringValue(); } },
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
+                { "disposition", n => { Disposition = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
             };
         }
@@ -76,7 +95,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
+            writer.WriteStringValue("content_id", ContentId);
             writer.WriteStringValue("content_type", ContentType);
+            writer.WriteStringValue("disposition", Disposition);
             writer.WriteStringValue("filename", Filename);
             writer.WriteAdditionalData(AdditionalData);
         }

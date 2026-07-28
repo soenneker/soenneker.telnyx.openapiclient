@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ThreadsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/threads{?page%5Bafter%5D*,page%5Bsize%5D*}", pathParameters)
+        public ThreadsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/threads{?filter%5Blabel%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ThreadsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/threads{?page%5Bafter%5D*,page%5Bsize%5D*}", rawUrl)
+        public ThreadsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/threads{?filter%5Blabel%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -109,6 +109,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ThreadsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Returns only threads carrying this label. Thread labels are independent of the labels on the thread&apos;s messages.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Blabel%5D")]
+            public string? Filterlabel { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Blabel%5D")]
+            public string Filterlabel { get; set; }
+#endif
             /// <summary>Opaque cursor returned by the previous page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

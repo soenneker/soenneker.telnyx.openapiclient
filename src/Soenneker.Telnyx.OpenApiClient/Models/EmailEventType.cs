@@ -68,5 +68,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Unsubscribed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "daily_limit_exceeded")]
+        #pragma warning disable CS1591
+        DailyLimitExceeded,
+        #pragma warning restore CS1591
     }
 }

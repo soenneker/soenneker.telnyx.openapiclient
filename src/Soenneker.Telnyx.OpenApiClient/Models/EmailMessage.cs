@@ -38,6 +38,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress> Cc { get; set; }
 #endif
+        /// <summary>The created_at property</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,8 +60,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Guid? Id { get; set; }
         /// <summary>Present when true in the immediate create response. Not persisted; absent on subsequent GET requests.</summary>
         public bool? InlineCss { get; set; }
-        /// <summary>The inserted_at property</summary>
-        public DateTimeOffset? InsertedAt { get; set; }
+        /// <summary>&quot;Per-status recipient counts for the message. Present only for outbound messageswith recipient rows. Keys are recipient statuses, values are counts.Example: `{\&quot;delivered\&quot;: 998, \&quot;bounced\&quot;: 2}`.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecipientStatusesProperty? RecipientStatuses { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecipientStatusesProperty RecipientStatuses { get; set; }
+#endif
         /// <summary>The record_type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecordType? RecordType { get; set; }
         /// <summary>The reply_to property</summary>
@@ -72,8 +80,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Present when sandbox mode was used.</summary>
         public bool? Sandbox { get; set; }
-        /// <summary>Present when a send_at value was stored. Persists even after the scheduled send has been processed or cancelled.</summary>
-        public DateTimeOffset? SendAt { get; set; }
+        /// <summary>Present when a scheduled_at value was stored. Persists even after the scheduled send has been processed or cancelled.</summary>
+        public DateTimeOffset? ScheduledAt { get; set; }
         /// <summary>Current status of an email message. Lifecycle statuses (queued, scheduled, etc.) are set on creation. Delivery statuses (delivered, bounced, etc.) are updated by delivery event consumers.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageStatus? Status { get; set; }
         /// <summary>The subject property</summary>
@@ -83,14 +91,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Subject { get; set; }
-#endif
-        /// <summary>Present when one or more recipients were suppressed at send time. Each entry lists the suppressed recipient, reason, scope, and whether the block was overridable.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem>? Suppressed { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem> Suppressed { get; set; }
 #endif
         /// <summary>The template_id property</summary>
         public Guid? TemplateId { get; set; }
@@ -138,18 +138,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "bcc", n => { Bcc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "events", n => { Events = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEvent>(global::Soenneker.Telnyx.OpenApiClient.Models.MessageEvent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "inline_css", n => { InlineCss = n.GetBoolValue(); } },
-                { "inserted_at", n => { InsertedAt = n.GetDateTimeOffsetValue(); } },
+                { "recipient_statuses", n => { RecipientStatuses = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecipientStatusesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecipientStatusesProperty.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecordType>(); } },
                 { "reply_to", n => { ReplyTo = n.GetStringValue(); } },
                 { "sandbox", n => { Sandbox = n.GetBoolValue(); } },
-                { "send_at", n => { SendAt = n.GetDateTimeOffsetValue(); } },
+                { "scheduled_at", n => { ScheduledAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageStatus>(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
-                { "suppressed", n => { Suppressed = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "template_id", n => { TemplateId = n.GetGuidValue(); } },
                 { "template_variables", n => { TemplateVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageTemplateVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageTemplateVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -165,18 +165,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentResponse>("attachments", Attachments);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>("bcc", Bcc);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>("cc", Cc);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEvent>("events", Events);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>("from", From);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("inline_css", InlineCss);
-            writer.WriteDateTimeOffsetValue("inserted_at", InsertedAt);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecipientStatusesProperty>("recipient_statuses", RecipientStatuses);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecordType>("record_type", RecordType);
             writer.WriteStringValue("reply_to", ReplyTo);
             writer.WriteBoolValue("sandbox", Sandbox);
-            writer.WriteDateTimeOffsetValue("send_at", SendAt);
+            writer.WriteDateTimeOffsetValue("scheduled_at", ScheduledAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageStatus>("status", Status);
             writer.WriteStringValue("subject", Subject);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageSuppressedItem>("suppressed", Suppressed);
             writer.WriteGuidValue("template_id", TemplateId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageTemplateVariablesProperty>("template_variables", TemplateVariables);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>("to", To);

@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// Recipient email addresses must be unique across `to`, `cc`, and `bcc` after case-insensitive normalization. Duplicate recipients return `400 Bad Request`.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class CreateEmailRequest : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -38,6 +39,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput> Cc { get; set; }
 #endif
+        /// <summary>Telnyx message UUID of the message this send forwards. Forwardedmessages start a NEW thread per RFC 5322 — NO `In-Reply-To` or`References` headers are set on the outbound MIME. The id isrecorded in the message&apos;s metadata for EDR provenance only.The id is validated as a UUID but is NOT looked up against themessage store — existence is the caller&apos;s responsibility (theforward is pure metadata; it does not affect delivery). Cannot becombined with `in_reply_to_message_id` (422).</summary>
+        public Guid? ForwardOfMessageId { get; set; }
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FromName { get; set; }
 #endif
-        /// <summary>Optional unsubscribe group ID. Associates the message with an unsubscribe group for group-scoped suppression handling.</summary>
+        /// <summary>Optional unsubscribe-group UUID used for group-scoped suppression checks and unsubscribe handling.</summary>
         public Guid? GroupId { get; set; }
         /// <summary>Custom email headers. Write-only; not returned in responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty Headers { get; set; }
 #endif
-        /// <summary>HTML email body. Write-only; not returned in responses.</summary>
+        /// <summary>HTML email body. Returned only by `GET /email_messages/{id}`; omitted from create and list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? HtmlBody { get; set; }
@@ -72,10 +75,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string HtmlBody { get; set; }
 #endif
-        /// <summary>When true, bypasses suppression checks for overridable blocks. Requires the `email:override` API key scope. Overrides are audited. Non-overridable suppressions (hard bounces, spam complaints, invalid addresses) cannot be bypassed.</summary>
+        /// <summary>When true, allows delivery to recipients whose suppressions explicitlypermit an override. Hard bounces, spam complaints, and invalid-addresssuppressions cannot be overridden. Requires the `email:override` API scope.</summary>
         public bool? IgnoreSuppression { get; set; }
         /// <summary>The inline_css property</summary>
         public bool? InlineCss { get; set; }
+        /// <summary>&quot;Telnyx message UUID of the message this send replies to. When provided,the API sets RFC 5322 `In-Reply-To` and `References` headers on theoutbound MIME so the recipient&apos;s mailbox (Gmail/Outlook) threads itcorrectly. The parent is looked up under the caller&apos;s account scope;a UUID belonging to another account yields a non-enumerating 404.Wire-only (Phase 1): the API sets the headers and does NOT resolve ormutate `thread_id` on the server side. Messages sent without thisparameter are standalone (no threading headers injected).Cannot be combined with `forward_of_message_id` (422).&quot;</summary>
+        public Guid? InReplyToMessageId { get; set; }
         /// <summary>Custom metadata. Write-only; not returned in responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,9 +97,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput ReplyTo { get; set; }
 #endif
+        /// <summary>Indicates a reply-all intent. In Phase 1 (wire-only) this does notchange the threading headers — recipient selection is customer-controlled (`to`/`cc`), and a thread is not defined by its audience.When the referenced message has no thread context, reply-alldegrades to a plain reply (parent ID only in `References`). Theresolution engine (separate work) will expand the ancestor chainat a later phase with no API change.Only meaningful alongside `in_reply_to_message_id`.</summary>
+        public bool? ReplyToAll { get; set; }
         /// <summary>The sandbox_mode property</summary>
         public bool? SandboxMode { get; set; }
-        /// <summary>Future ISO 8601 time to schedule sending. Invalid or past timestamps are silently ignored and the email is sent immediately.</summary>
+        /// <summary>Future ISO 8601 time to schedule sending. Invalid or past timestampsare silently ignored and the email is sent immediately. The legacyalias `send_at` is still accepted for backward compatibility; whenboth are provided, `scheduled_at` wins.</summary>
+        public DateTimeOffset? ScheduledAt { get; set; }
+        /// <summary>Deprecated alias for `scheduled_at`.</summary>
+        [Obsolete("")]
         public DateTimeOffset? SendAt { get; set; }
         /// <summary>Required unless `template_id` is supplied. When using a template, the template&apos;s subject is rendered; if the template has no subject or renders empty, the request returns 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -104,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Subject { get; set; }
 #endif
-        /// <summary>Tags for categorization. Write-only; not returned in responses.</summary>
+        /// <summary>Tags for categorization and reporting. Stored on the message and propagated to Email Detail Records. Not returned in API responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tags { get; set; }
@@ -122,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty TemplateVariables { get; set; }
 #endif
-        /// <summary>Plain text email body. Write-only; not returned in responses.</summary>
+        /// <summary>Plain text email body. Returned only by `GET /email_messages/{id}`; omitted from create and list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TextBody { get; set; }
@@ -138,6 +148,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput> To { get; set; }
 #endif
+        /// <summary>Per-send open and click tracking overrides. Omitted properties inherit the sender domain&apos;s tracking settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings? TrackingSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings TrackingSettings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest"/> and sets the default values.
         /// </summary>
@@ -146,6 +164,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             IgnoreSuppression = false;
             InlineCss = false;
+            ReplyToAll = false;
             SandboxMode = false;
         }
         /// <summary>
@@ -169,16 +188,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "bcc", n => { Bcc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "forward_of_message_id", n => { ForwardOfMessageId = n.GetGuidValue(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue); } },
                 { "from_name", n => { FromName = n.GetStringValue(); } },
                 { "group_id", n => { GroupId = n.GetGuidValue(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty.CreateFromDiscriminatorValue); } },
                 { "html_body", n => { HtmlBody = n.GetStringValue(); } },
                 { "ignore_suppression", n => { IgnoreSuppression = n.GetBoolValue(); } },
+                { "in_reply_to_message_id", n => { InReplyToMessageId = n.GetGuidValue(); } },
                 { "inline_css", n => { InlineCss = n.GetBoolValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "reply_to", n => { ReplyTo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue); } },
+                { "reply_to_all", n => { ReplyToAll = n.GetBoolValue(); } },
                 { "sandbox_mode", n => { SandboxMode = n.GetBoolValue(); } },
+                { "scheduled_at", n => { ScheduledAt = n.GetDateTimeOffsetValue(); } },
                 { "send_at", n => { SendAt = n.GetDateTimeOffsetValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -186,6 +209,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "template_variables", n => { TemplateVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
                 { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tracking_settings", n => { TrackingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -198,6 +222,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>("attachments", Attachments);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("bcc", Bcc);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("cc", Cc);
+            writer.WriteGuidValue("forward_of_message_id", ForwardOfMessageId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("from", From);
             writer.WriteStringValue("from_name", FromName);
             writer.WriteGuidValue("group_id", GroupId);
@@ -205,9 +230,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("html_body", HtmlBody);
             writer.WriteBoolValue("ignore_suppression", IgnoreSuppression);
             writer.WriteBoolValue("inline_css", InlineCss);
+            writer.WriteGuidValue("in_reply_to_message_id", InReplyToMessageId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("reply_to", ReplyTo);
+            writer.WriteBoolValue("reply_to_all", ReplyToAll);
             writer.WriteBoolValue("sandbox_mode", SandboxMode);
+            writer.WriteDateTimeOffsetValue("scheduled_at", ScheduledAt);
             writer.WriteDateTimeOffsetValue("send_at", SendAt);
             writer.WriteStringValue("subject", Subject);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
@@ -215,6 +243,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty>("template_variables", TemplateVariables);
             writer.WriteStringValue("text_body", TextBody);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("to", To);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>("tracking_settings", TrackingSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

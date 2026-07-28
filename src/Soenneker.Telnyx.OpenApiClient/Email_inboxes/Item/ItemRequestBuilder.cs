@@ -3,6 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts;
+using Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Filters;
 using Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages;
 using Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads;
 using Soenneker.Telnyx.OpenApiClient.Models;
@@ -19,6 +21,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The drafts property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts.DraftsRequestBuilder Drafts
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts.DraftsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The filters property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Filters.FiltersRequestBuilder Filters
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Filters.FiltersRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The messages property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.MessagesRequestBuilder Messages
         {

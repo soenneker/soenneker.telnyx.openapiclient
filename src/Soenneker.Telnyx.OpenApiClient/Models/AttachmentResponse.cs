@@ -7,13 +7,22 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// EDR-aligned attachment metadata. The base64 `content` is never returned.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class AttachmentResponse : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>MIME Content-ID for inline references.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContentId { get; set; }
+#nullable restore
+#else
+        public string ContentId { get; set; }
+#endif
         /// <summary>The content_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,6 +30,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string ContentType { get; set; }
+#endif
+        /// <summary>MIME disposition (e.g. `attachment` or `inline`). Runtime passes through the stored value without enforcing an enum.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Disposition { get; set; }
+#nullable restore
+#else
+        public string Disposition { get; set; }
 #endif
         /// <summary>The filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,12 +47,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Filename { get; set; }
 #endif
+        /// <summary>SHA-256 hex digest of the attachment content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Sha256 { get; set; }
+#nullable restore
+#else
+        public string Sha256 { get; set; }
+#endif
+        /// <summary>Attachment size in bytes.</summary>
+        public int? SizeBytes { get; set; }
+        /// <summary>Telnyx-hosted public URL for the attachment content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
+        public string Url { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentResponse"/> and sets the default values.
         /// </summary>
         public AttachmentResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            Disposition = "attachment";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,8 +91,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "content_id", n => { ContentId = n.GetStringValue(); } },
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
+                { "disposition", n => { Disposition = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
+                { "sha256", n => { Sha256 = n.GetStringValue(); } },
+                { "size_bytes", n => { SizeBytes = n.GetIntValue(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,8 +107,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("content_id", ContentId);
             writer.WriteStringValue("content_type", ContentType);
+            writer.WriteStringValue("disposition", Disposition);
             writer.WriteStringValue("filename", Filename);
+            writer.WriteStringValue("sha256", Sha256);
+            writer.WriteIntValue("size_bytes", SizeBytes);
+            writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

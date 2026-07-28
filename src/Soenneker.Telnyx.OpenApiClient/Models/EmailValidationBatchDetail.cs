@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchStatus? Status { get; set; }
         /// <summary>The total property</summary>
         public int? Total { get; set; }
-        /// <summary>Omitted from the response entirely (not null) when unset.</summary>
+        /// <summary>The webhook_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get; set; }

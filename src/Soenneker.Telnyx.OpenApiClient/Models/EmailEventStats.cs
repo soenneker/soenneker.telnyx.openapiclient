@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Event counts for the queried time range. Only the ten listed event types are counted; other valid event types (scheduled, cancelled, sandbox, sending, rejected) are not included in stats.</summary>
+        /// <summary>Recipient-level outcome counts for the queried time range. Each to, cc, and bcc recipient counts separately; repeated events of the same type for the same message and recipient count once. Partial MTA injection results count successful recipients as sent and unsuccessful recipients as failed. Only the ten listed event types are counted; other valid event types (scheduled, cancelled, sandbox, sending, rejected) are not included in stats.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventCounts? Counts { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventCounts Counts { get; set; }
 #endif
-        /// <summary>Event rates as percentages (0-100+), rounded to 2 decimal places.</summary>
+        /// <summary>Recipient-level event rates as percentages, rounded to 2 decimal places.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventRates? Rates { get; set; }

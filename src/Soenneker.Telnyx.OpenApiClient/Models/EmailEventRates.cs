@@ -8,24 +8,24 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Event rates as percentages (0-100+), rounded to 2 decimal places.
+    /// Recipient-level event rates as percentages, rounded to 2 decimal places.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmailEventRates : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>bounced / queued as a percentage.</summary>
+        /// <summary>Bounced recipients / queued recipients as a percentage.</summary>
         public float? BounceRate { get; set; }
-        /// <summary>clicked / opened as a percentage.</summary>
+        /// <summary>Recipients clicked / recipients opened as a percentage.</summary>
         public float? ClickRate { get; set; }
-        /// <summary>complained / delivered as a percentage.</summary>
+        /// <summary>Recipients with a complaint feedback report / delivered recipients as a percentage.</summary>
         public float? ComplaintRate { get; set; }
-        /// <summary>deferred / queued as a percentage.</summary>
+        /// <summary>Deferred recipients / queued recipients as a percentage.</summary>
         public float? DeferredRate { get; set; }
-        /// <summary>delivered / queued as a percentage.</summary>
+        /// <summary>Delivered recipients / queued recipients as a percentage.</summary>
         public float? DeliveryRate { get; set; }
-        /// <summary>opened / delivered as a percentage.</summary>
+        /// <summary>Recipients opened / recipients delivered as a percentage.</summary>
         public float? OpenRate { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventRates"/> and sets the default values.

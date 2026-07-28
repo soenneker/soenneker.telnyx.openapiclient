@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest>? Messages { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest> Messages { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest> Messages { get; set; }
 #endif
         /// <summary>Applies sandbox mode to all messages in the batch. Overrides any per-message sandbox_mode in the messages array.</summary>
         public bool? SandboxMode { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sandbox_mode", n => { SandboxMode = n.GetBoolValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest>("messages", Messages);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest>("messages", Messages);
             writer.WriteBoolValue("sandbox_mode", SandboxMode);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -7,28 +7,24 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// Per-send open and click tracking overrides. Omitted properties inherit the sender domain&apos;s tracking settings.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class TrackingSettings : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Rewrite HTML links through a tracking redirect to record click events.</summary>
+        /// <summary>Whether to rewrite links for click tracking in this message.</summary>
         public bool? ClickTracking { get; set; }
-        /// <summary>Inject a tracking pixel into HTML messages to record open events.</summary>
+        /// <summary>Whether to inject an open-tracking pixel for this message.</summary>
         public bool? OpenTracking { get; set; }
-        /// <summary>Add RFC 8058 List-Unsubscribe headers with a signed one-click unsubscribe URL. Enabled by default; Gmail/Yahoo bulk-sender rules require one-click unsubscribe support.</summary>
-        public bool? UnsubscribeTracking { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings"/> and sets the default values.
         /// </summary>
         public TrackingSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            ClickTracking = false;
-            OpenTracking = false;
-            UnsubscribeTracking = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,7 +46,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "click_tracking", n => { ClickTracking = n.GetBoolValue(); } },
                 { "open_tracking", n => { OpenTracking = n.GetBoolValue(); } },
-                { "unsubscribe_tracking", n => { UnsubscribeTracking = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +57,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("click_tracking", ClickTracking);
             writer.WriteBoolValue("open_tracking", OpenTracking);
-            writer.WriteBoolValue("unsubscribe_tracking", UnsubscribeTracking);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

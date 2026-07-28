@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Events;
+using Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Recipients;
 using Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Schedule;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -23,6 +24,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item
         public global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Events.EventsRequestBuilder Events
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The recipients property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Recipients.RecipientsRequestBuilder Recipients
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Recipients.RecipientsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The schedule property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Schedule.ScheduleRequestBuilder Schedule
@@ -46,20 +52,49 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item
         {
         }
         /// <summary>
+        /// Permanently deletes an account-scoped email message, its events, its durablerecipients, and unshared attachment objects. Returns 404 when the message doesnot exist in the authenticated account. The legacy `/v2/emails/{id}` DELETEroute is a backward-compatible alias.
+        /// </summary>
+        /// <returns>A <see cref="Stream"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 500 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// The legacy `/v2/emails/{id}` GET route is a backward-compatible alias for this operation.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -68,7 +103,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Permanently deletes an account-scoped email message, its events, its durablerecipients, and unshared attachment objects. Returns 404 when the message doesnot exist in the authenticated account. The legacy `/v2/emails/{id}` DELETEroute is a backward-compatible alias.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// The legacy `/v2/emails/{id}` GET route is a backward-compatible alias for this operation.

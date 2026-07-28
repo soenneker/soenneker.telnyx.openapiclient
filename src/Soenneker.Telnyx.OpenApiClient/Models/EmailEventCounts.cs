@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Event counts for the queried time range. Only the ten listed event types are counted; other valid event types (scheduled, cancelled, sandbox, sending, rejected) are not included in stats.
+    /// Recipient-level outcome counts for the queried time range. Each to, cc, and bcc recipient counts separately; repeated events of the same type for the same message and recipient count once. Partial MTA injection results count successful recipients as sent and unsuccessful recipients as failed. Only the ten listed event types are counted; other valid event types (scheduled, cancelled, sandbox, sending, rejected) are not included in stats.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmailEventCounts : IAdditionalDataHolder, IParsable

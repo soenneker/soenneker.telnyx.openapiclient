@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item.Labels;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithThreadItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The labels property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item.Labels.LabelsRequestBuilder Labels
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item.Labels.LabelsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item.WithThreadItemRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -34,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item
         {
         }
         /// <summary>
-        /// Returns a bounded page of thread messages in chronological order using stable cursor pagination.
+        /// Returns a bounded page of inbound and outbound thread messages interleaved in chronological order using stable cursor pagination.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetEmailInboxThread200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetEmailInboxThread200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetEmailInboxThread200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a bounded page of thread messages in chronological order using stable cursor pagination.
+        /// Returns a bounded page of inbound and outbound thread messages interleaved in chronological order using stable cursor pagination.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item.WithThreadItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a bounded page of thread messages in chronological order using stable cursor pagination.
+        /// Returns a bounded page of inbound and outbound thread messages interleaved in chronological order using stable cursor pagination.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithThreadItemRequestBuilderGetQueryParameters 

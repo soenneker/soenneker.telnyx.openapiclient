@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The attachments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItemProperty>? Attachments { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem>? Attachments { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItemProperty> Attachments { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem> Attachments { get; set; }
 #endif
         /// <summary>The bcc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,12 +55,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The headers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeadersProperty? Headers { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeaders? Headers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeadersProperty Headers { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeaders Headers { get; set; }
 #endif
-        /// <summary>URL for an offloaded HTML body. Null means the body is not offloaded to a URL; an inline HTML body may still exist but is not returned on list reads. `reply_text` and `has_quoted_text` are computed from the inline plain-text body when present.</summary>
+        /// <summary>URL for an offloaded HTML body. Null means the body is not offloaded to a URL; an inline HTML body may still exist but is not returned on list reads. Reply extraction uses only the plain-text body during ingest.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? HtmlBodyUrl { get; set; }
@@ -75,10 +75,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inline_files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItemProperty>? InlineFiles { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem>? InlineFiles { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItemProperty> InlineFiles { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem> InlineFiles { get; set; }
 #endif
         /// <summary>The in_reply_to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,7 +88,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string InReplyTo { get; set; }
 #endif
-        /// <summary>RFC Message-ID header.</summary>
+        /// <summary>&quot;Mutable message labels used for agent workflow state (for example `spam`, `needs_review`, `processed`). Distinct from the immutable send-time `tags` on outbound messages: labels are never propagated to Email Detail Records or Mission Control reporting. Always empty for outbound messages. Labels on a message are independent of the labels on its thread.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Labels { get; set; }
+#nullable restore
+#else
+        public List<string> Labels { get; set; }
+#endif
+        /// <summary>RFC Message-ID header. Null is possible for legacy outbound messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MessageId { get; set; }
@@ -96,9 +104,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MessageId { get; set; }
 #endif
-        /// <summary>The read_at property</summary>
+        /// <summary>Time the inbound message was marked read. Null means unread.</summary>
         public DateTimeOffset? ReadAt { get; set; }
-        /// <summary>The received_at property</summary>
+        /// <summary>Receipt time for inbound messages; null for outbound messages.</summary>
         public DateTimeOffset? ReceivedAt { get; set; }
         /// <summary>The record_type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageRecordType? RecordType { get; set; }
@@ -110,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> References { get; set; }
 #endif
-        /// <summary>Conservatively extracted new-reply content from the available plain-text body. Null means no plain-text body was available because it was absent or offloaded; HTML bodies are not parsed.</summary>
+        /// <summary>Conservatively extracted new-reply content persisted from the plain-text body during ingest. Null means no plain-text extraction input was available or extraction was skipped or failed; HTML bodies are not parsed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReplyText { get; set; }
@@ -126,8 +134,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress> ReplyTo { get; set; }
 #endif
-        /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageStatus? Status { get; set; }
+        /// <summary>Creation/send-acceptance time for outbound messages; null for inbound messages.</summary>
+        public DateTimeOffset? SentAt { get; set; }
+        /// <summary>Received for inbound messages; the current send status for outbound messages.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
         /// <summary>The subject property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,7 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Subject { get; set; }
 #endif
-        /// <summary>URL for an offloaded plain-text body. Null means the body is not offloaded to a URL; an inline plain-text body may still exist but is not returned on list reads. `reply_text` and `has_quoted_text` are computed from the inline plain-text body when present.</summary>
+        /// <summary>URL for an offloaded plain-text body. Null means the body is not offloaded to a URL; an inline plain-text body may still exist but is not returned on list reads. `reply_text` and `has_quoted_text` are persisted during ingest before any body offload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TextBodyUrl { get; set; }
@@ -181,19 +197,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "bcc", n => { Bcc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageDirection>(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue); } },
                 { "has_quoted_text", n => { HasQuotedText = n.GetBoolValue(); } },
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeadersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeadersProperty.CreateFromDiscriminatorValue); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeaders>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeaders.CreateFromDiscriminatorValue); } },
                 { "html_body_url", n => { HtmlBodyUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "in_reply_to", n => { InReplyTo = n.GetStringValue(); } },
                 { "inbox_id", n => { InboxId = n.GetGuidValue(); } },
-                { "inline_files", n => { InlineFiles = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "inline_files", n => { InlineFiles = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "message_id", n => { MessageId = n.GetStringValue(); } },
                 { "read_at", n => { ReadAt = n.GetDateTimeOffsetValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
@@ -201,7 +218,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "references", n => { References = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "reply_text", n => { ReplyText = n.GetStringValue(); } },
                 { "reply_to", n => { ReplyTo = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageStatus>(); } },
+                { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text_body_url", n => { TextBodyUrl = n.GetStringValue(); } },
                 { "thread_id", n => { ThreadId = n.GetGuidValue(); } },
@@ -216,19 +234,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItemProperty>("attachments", Attachments);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem>("attachments", Attachments);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("bcc", Bcc);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("cc", Cc);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageDirection>("direction", Direction);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("from", From);
             writer.WriteBoolValue("has_quoted_text", HasQuotedText);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeadersProperty>("headers", Headers);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageHeaders>("headers", Headers);
             writer.WriteStringValue("html_body_url", HtmlBodyUrl);
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("inbox_id", InboxId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItemProperty>("inline_files", InlineFiles);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem>("inline_files", InlineFiles);
             writer.WriteStringValue("in_reply_to", InReplyTo);
+            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("message_id", MessageId);
             writer.WriteDateTimeOffsetValue("read_at", ReadAt);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
@@ -236,7 +255,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("references", References);
             writer.WriteStringValue("reply_text", ReplyText);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("reply_to", ReplyTo);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageStatus>("status", Status);
+            writer.WriteDateTimeOffsetValue("sent_at", SentAt);
+            writer.WriteStringValue("status", Status);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text_body_url", TextBodyUrl);
             writer.WriteGuidValue("thread_id", ThreadId);
