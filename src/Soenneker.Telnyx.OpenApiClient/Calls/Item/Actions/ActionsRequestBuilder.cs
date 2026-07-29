@@ -21,6 +21,7 @@ using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_speak;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Leave_queue;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Pay;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_start;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_stop;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_pause;
@@ -148,6 +149,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Leave_queue.Leave_queueRequestBuilder Leave_queue
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Leave_queue.Leave_queueRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pay property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Pay.PayRequestBuilder Pay
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Pay.PayRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The playback_start property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_start.Playback_startRequestBuilder Playback_start

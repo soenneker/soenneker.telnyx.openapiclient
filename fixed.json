@@ -13514,6 +13514,49 @@
         }
       }
     },
+    "/calls/{callControlId}/actions/pay": {
+      "post": {
+        "tags": [
+          "Call Commands"
+        ],
+        "summary": "Collect payment details",
+        "description": "Collect payment details from the caller using DTMF and either charge or tokenize the payment method through a configured Pay connector. Pay pauses active call recordings while sensitive payment details are collected.\n\nWhen \u0060payment_token\u0060 is supplied, the DTMF collection steps are skipped and the existing token is sent to the connector.\n\n**Expected Webhooks:**\n\n- \u0060call.payment.progress\u0060\n- \u0060call.payment.completed\u0060\n\n**Test mode card numbers:** \u00604111111111111111\u0060 (Visa), \u00605555555555554444\u0060 (Mastercard), \u0060378282246310005\u0060 (American Express), \u00606011111111111117\u0060 (Discover), \u00603065930009020004\u0060 (Diners Club), \u00603566002020360505\u0060 (JCB), \u00606200000000000005\u0060 (UnionPay), and \u00606771798021000008\u0060 (Maestro). Test-mode connectors reject other card numbers before contacting the configured processor. The UnionPay and Maestro numbers are accepted for processor testing, but Pay currently does not emit a card type for them.",
+        "operationId": "PayCall",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CallControlId"
+          }
+        ],
+        "requestBody": {
+          "description": "Pay request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response upon making a call control command.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson14"
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/call-control_GenericErrorResponse"
+          }
+        }
+      }
+    },
     "/calls/{callControlId}/actions/playback_start": {
       "post": {
         "tags": [
@@ -13543,7 +13586,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson14"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson15"
                 }
               }
             }
@@ -13586,7 +13629,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson15"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson16"
                 }
               }
             }
@@ -13629,7 +13672,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson16"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson17"
                 }
               }
             }
@@ -13672,7 +13715,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson17"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson18"
                 }
               }
             }
@@ -13715,7 +13758,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson18"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson19"
                 }
               }
             }
@@ -13758,7 +13801,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson19"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson20"
                 }
               }
             }
@@ -13801,7 +13844,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson20"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson21"
                 }
               }
             }
@@ -13844,7 +13887,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson21"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson22"
                 }
               }
             }
@@ -13887,7 +13930,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson22"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson23"
                 }
               }
             }
@@ -13930,7 +13973,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson23"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson24"
                 }
               }
             }
@@ -13973,7 +14016,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson24"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson25"
                 }
               }
             }
@@ -14016,7 +14059,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson25"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson26"
                 }
               }
             }
@@ -14059,7 +14102,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson26"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson27"
                 }
               }
             }
@@ -14102,7 +14145,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson27"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson28"
                 }
               }
             }
@@ -14145,7 +14188,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson28"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson29"
                 }
               }
             }
@@ -14187,7 +14230,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson29"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson30"
                 }
               }
             }
@@ -14229,7 +14272,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson30"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson31"
                 }
               }
             }
@@ -14272,7 +14315,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson31"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson32"
                 }
               }
             }
@@ -14315,7 +14358,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson32"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson33"
                 }
               }
             }
@@ -14358,7 +14401,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson33"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson34"
                 }
               }
             }
@@ -14401,7 +14444,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson34"
+                  "$ref": "#/components/schemas/CallControlCommandResponseResponseJson35"
                 }
               }
             }
@@ -22532,18 +22575,8 @@
           }
         },
         "responses": {
-          "202": {
-            "description": "All messages succeeded.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmailBatchResponse"
-                }
-              }
-            }
-          },
           "207": {
-            "description": "Partial success; one or more messages failed.",
+            "description": "Multi-Status \u2014 all batch responses return 207. When all messages succeed, \u0060errors\u0060 is empty and every item is in \u0060data\u0060. When one or more fail, the response contains a \u0060data\u0060 array for successes and an \u0060errors\u0060 array for failures.",
             "content": {
               "application/json": {
                 "schema": {
@@ -57953,6 +57986,11 @@
               "$ref": "#/components/schemas/AiAssistantAddMessagesRequestMessagesItem"
             },
             "description": "The messages to add to the conversation."
+          },
+          "trigger_response": {
+            "type": "boolean",
+            "description": "When \u0060true\u0060, the injected messages immediately trigger an assistant response/turn instead of waiting for the next natural turn or idle timeout. This may interrupt a user who is still speaking.",
+            "default": false
           }
         },
         "example": {
@@ -57963,7 +58001,8 @@
               "role": "system",
               "content": "Get the user\u0027s favorite color"
             }
-          ]
+          ],
+          "trigger_response": false
         }
       },
       "AiAssistantJoinParticipant": {
@@ -58351,11 +58390,16 @@
           }
         }
       },
-      "EnhanceInstructionsRequestEnhancementPrompt": {
-        "title": "Enhancement Prompt",
-        "type": "string",
-        "description": "Optional guidance describing how the instructions should be enhanced. When provided, the LLM applies these requested changes in addition to fixing any identified issues.",
-        "nullable": true
+      "EmbeddingBucketRequestLoader": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/SupportedEmbeddingLoaders"
+          }
+        }
       },
       "ActionsParticipantsRequest": {
         "type": "object",
@@ -59333,14 +59377,14 @@
         },
         "description": "Anthropic Messages-compatible request with Telnyx extensions."
       },
-      "EmbeddingBucketRequestLoader": {
+      "EmbeddingBucketRequestEmbeddingModel": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/SupportedEmbeddingLoaders"
+            "$ref": "#/components/schemas/SupportedEmbeddingModels"
           }
         }
       },
@@ -60770,14 +60814,12 @@
           ]
         }
       },
-      "EmbeddingBucketRequestEmbeddingModel": {
-        "required": [
-          "value"
-        ],
+      "EmailValidationTypoCheckAllOf2": {
         "type": "object",
         "properties": {
-          "value": {
-            "$ref": "#/components/schemas/SupportedEmbeddingModels"
+          "suggestion": {
+            "type": "string",
+            "description": "Suggested correction for common typos. Omitted when nil."
           }
         }
       },
@@ -60808,15 +60850,6 @@
           }
         },
         "description": "AWS Polly provider-specific parameters."
-      },
-      "EmailValidationTypoCheckAllOf2": {
-        "type": "object",
-        "properties": {
-          "suggestion": {
-            "type": "string",
-            "description": "Suggested correction for common typos. Omitted when nil."
-          }
-        }
       },
       "EmailValidationBatchDetailAllOf1": {
         "required": [
@@ -60874,6 +60907,33 @@
             "unrecognizedKeywords": {
               "nullable": true
             }
+          }
+        }
+      },
+      "EmailDomainListResponseMeta": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/OffsetPaginationMeta"
+          },
+          {
+            "$ref": "#/components/schemas/EmailCursorPaginationMeta"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "OffsetPaginationMeta": "#/components/schemas/OffsetPaginationMeta",
+            "EmailCursorPaginationMeta": "#/components/schemas/EmailCursorPaginationMeta"
           }
         }
       },
@@ -62432,31 +62492,33 @@
           "park_after_unbridge": "self"
         }
       },
-      "EmailDomainListResponseMeta": {
-        "required": [
-          "type"
-        ],
+      "EmailDomainDmarcPolicy": {
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/OffsetPaginationMeta"
-          },
-          {
-            "$ref": "#/components/schemas/EmailCursorPaginationMeta"
-          }
-        ],
         "properties": {
-          "type": {
+          "p": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
+          },
+          "pct": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
+            "default": 100
+          },
+          "rua": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
+          },
+          "sp": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
           }
         },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "OffsetPaginationMeta": "#/components/schemas/OffsetPaginationMeta",
-            "EmailCursorPaginationMeta": "#/components/schemas/EmailCursorPaginationMeta"
-          }
+        "description": "Customer DMARC policy. null means use the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "BucketApiUsageResponse": {
@@ -63587,33 +63649,34 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "EmailDomainDmarcPolicy": {
+      "DocServiceDocumentLinkAllOf2": {
         "type": "object",
         "properties": {
-          "p": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
-          },
-          "pct": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
-            "default": 100
-          },
-          "rua": {
+          "record_type": {
             "type": "string",
-            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "document_link"
           },
-          "sp": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
+          "document_id": {
+            "type": "string",
+            "description": "Identifies the associated document.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "linked_record_type": {
+            "type": "string",
+            "description": "The linked resource\u0027s record type.",
+            "readOnly": true,
+            "example": "porting_order"
+          },
+          "linked_resource_id": {
+            "type": "string",
+            "description": "Identifies the linked resource.",
+            "readOnly": true,
+            "example": "132091b4-442b-4a2a-b87f-61e707e46d54"
           }
-        },
-        "description": "Customer DMARC policy. null means use the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
-        "unrecognizedKeywords": {
-          "nullable": true
         }
       },
       "CallControlRetrievalTool": {
@@ -64662,6 +64725,123 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/CallMachinePremiumGreetingEnded"
+          }
+        }
+      },
+      "CallPaymentCompleted": {
+        "title": "Call Payment Completed",
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "$ref": "#/components/schemas/CallPaymentCompletedRecordType"
+          },
+          "event_type": {
+            "$ref": "#/components/schemas/CallPaymentCompletedEventType"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the event.",
+            "format": "uuid",
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+          },
+          "occurred_at": {
+            "type": "string",
+            "description": "ISO 8601 datetime when the event occurred.",
+            "format": "date-time",
+            "example": "2026-07-27T07:00:00.000000Z"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/CallPaymentCompletedPayload"
+          }
+        },
+        "example": {
+          "record_type": "event",
+          "event_type": "call.payment.completed",
+          "id": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+          "occurred_at": "2026-07-27T07:00:00.000000Z",
+          "payload": {
+            "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+            "connection_id": "7267xxxxxxxxxxxxxx",
+            "call_leg_id": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+            "call_session_id": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1",
+            "from": "\u002B353****5860",
+            "to": "\u002B131****7420",
+            "payment_connector": "Default",
+            "payment_method": "credit-card",
+            "payment_card_type": "visa",
+            "payment_card_number": "xxxxxxxxxxxx1111",
+            "expiration_date": "1230",
+            "security_code": "xxx",
+            "payment_card_postal_code": "10001",
+            "result": "success",
+            "charge_id": "ch_abc123",
+            "payment_confirmation_code": "CONF-98765"
+          }
+        }
+      },
+      "CallPaymentCompletedEvent": {
+        "title": "Call Payment Completed Event",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CallPaymentCompleted"
+          }
+        }
+      },
+      "CallPaymentProgress": {
+        "title": "Call Payment Progress",
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "$ref": "#/components/schemas/CallPaymentProgressRecordType"
+          },
+          "event_type": {
+            "$ref": "#/components/schemas/CallPaymentProgressEventType"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the event.",
+            "format": "uuid",
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+          },
+          "occurred_at": {
+            "type": "string",
+            "description": "ISO 8601 datetime when the event occurred.",
+            "format": "date-time",
+            "example": "2026-07-27T07:00:00.000000Z"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/CallPaymentProgressPayload"
+          }
+        },
+        "example": {
+          "record_type": "event",
+          "event_type": "call.payment.progress",
+          "id": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+          "occurred_at": "2026-07-27T07:00:00.000000Z",
+          "payload": {
+            "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+            "connection_id": "7267xxxxxxxxxxxxxx",
+            "call_leg_id": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+            "call_session_id": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1",
+            "from": "\u002B353****5860",
+            "to": "\u002B131****7420",
+            "payment_connector": "Default",
+            "payment_method": "credit-card",
+            "payment_step": "payment-card-number",
+            "payment_status": "completed",
+            "attempt": 1,
+            "payment_card_type": "visa",
+            "payment_card_number": "xxxxxxxxxxxx1111"
+          }
+        }
+      },
+      "CallPaymentProgressEvent": {
+        "title": "Call Payment Progress Event",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CallPaymentProgress"
           }
         }
       },
@@ -69893,44 +70073,6 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "DocServiceDocumentLinkAllOf2": {
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource.",
-            "readOnly": true,
-            "example": "document_link"
-          },
-          "document_id": {
-            "type": "string",
-            "description": "Identifies the associated document.",
-            "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "linked_record_type": {
-            "type": "string",
-            "description": "The linked resource\u0027s record type.",
-            "readOnly": true,
-            "example": "porting_order"
-          },
-          "linked_resource_id": {
-            "type": "string",
-            "description": "Identifies the linked resource.",
-            "readOnly": true,
-            "example": "132091b4-442b-4a2a-b87f-61e707e46d54"
-          }
-        }
-      },
-      "ConnectionAndroidPushCredentialId": {
-        "title": "Android Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Android",
-        "default": null,
-        "nullable": true,
-        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
-      },
       "DocServiceDocumentAllOf2": {
         "type": "object",
         "properties": {
@@ -69973,6 +70115,14 @@
           }
         }
       },
+      "ConnectionAndroidPushCredentialId": {
+        "title": "Android Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Android",
+        "default": null,
+        "nullable": true,
+        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
+      },
       "DefaultGatewayDefaultGateway": {
         "title": "DefaultGateway",
         "type": "object",
@@ -70000,42 +70150,6 @@
             "$ref": "#/components/schemas/InterfaceStatus"
           }
         }
-      },
-      "ConnectionIosPushCredentialId": {
-        "title": "Ios Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Ios",
-        "default": null,
-        "nullable": true,
-        "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
-      },
-      "ConnectionJitterBuffer": {
-        "type": "object",
-        "properties": {
-          "enable_jitter_buffer": {
-            "type": "boolean",
-            "description": "Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled.",
-            "default": false,
-            "example": true
-          },
-          "jitterbuffer_msec_min": {
-            "maximum": 400,
-            "minimum": 40,
-            "type": "integer",
-            "description": "The minimum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
-            "default": 60,
-            "example": 60
-          },
-          "jitterbuffer_msec_max": {
-            "maximum": 400,
-            "minimum": 40,
-            "type": "integer",
-            "description": "The maximum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
-            "default": 200,
-            "example": 200
-          }
-        },
-        "description": "Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering."
       },
       "CustomStorageConfigurationConfiguration": {
         "required": [
@@ -70076,6 +70190,56 @@
             "AzureConfigurationData": "#/components/schemas/AzureConfigurationData"
           }
         }
+      },
+      "ConnectionIosPushCredentialId": {
+        "title": "Ios Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Ios",
+        "default": null,
+        "nullable": true,
+        "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
+      },
+      "ConnectionJitterBuffer": {
+        "type": "object",
+        "properties": {
+          "enable_jitter_buffer": {
+            "type": "boolean",
+            "description": "Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled.",
+            "default": false,
+            "example": true
+          },
+          "jitterbuffer_msec_min": {
+            "maximum": 400,
+            "minimum": 40,
+            "type": "integer",
+            "description": "The minimum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
+            "default": 60,
+            "example": 60
+          },
+          "jitterbuffer_msec_max": {
+            "maximum": 400,
+            "minimum": 40,
+            "type": "integer",
+            "description": "The maximum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
+            "default": 200,
+            "example": 200
+          }
+        },
+        "description": "Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering."
+      },
+      "CreateScheduledEventRequestConversationMetadataAdditionalProperties": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
       },
       "ConnectionNoiseSuppression": {
         "enum": [
@@ -71226,7 +71390,7 @@
           }
         }
       },
-      "CreateScheduledEventRequestConversationMetadataAdditionalProperties": {
+      "CreateMsgReqMetadataAdditionalProperties": {
         "type": "object",
         "anyOf": [
           {
@@ -71237,6 +71401,12 @@
           },
           {
             "type": "boolean"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateMsgReqMetadataAdditionalPropertiesAnyOf4Item"
+            }
           }
         ]
       },
@@ -75707,25 +75877,33 @@
           }
         }
       },
-      "CreateMsgReqMetadataAdditionalProperties": {
+      "CreateMsgReqToolChoice": {
+        "title": "Tool Choice",
+        "required": [
+          "type"
+        ],
         "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
           },
           {
-            "type": "integer"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateMsgReqMetadataAdditionalPropertiesAnyOf4Item"
-            }
+            "title": "ToolChoiceObject",
+            "type": "object"
           }
-        ]
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateMsgReqToolChoice_1": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
+          }
+        }
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -75756,32 +75934,33 @@
           }
         }
       },
-      "CreateMsgReqToolChoice": {
-        "title": "Tool Choice",
-        "required": [
-          "type"
-        ],
+      "CreateEmailDomainRequestDmarcPolicy": {
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
-          },
-          {
-            "title": "ToolChoiceObject",
-            "type": "object"
-          }
-        ],
         "properties": {
-          "type": {
+          "p": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
+          },
+          "pct": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
+            "default": 100
+          },
+          "rua": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
+          },
+          "sp": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
           }
         },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateMsgReqToolChoice_1": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
-          }
+        "description": "DMARC policy. Omit/null for the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "CredentialConnection": {
@@ -76135,34 +76314,17 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "CreateEmailDomainRequestDmarcPolicy": {
+      "CreateBrandVertical": {
+        "required": [
+          "value"
+        ],
         "type": "object",
         "properties": {
-          "p": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
-          },
-          "pct": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
-            "default": 100
-          },
-          "rua": {
-            "type": "string",
-            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
-          },
-          "sp": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
+          "value": {
+            "$ref": "#/components/schemas/Vertical"
           }
         },
-        "description": "DMARC policy. Omit/null for the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
-        "unrecognizedKeywords": {
-          "nullable": true
-        }
+        "description": "Vertical or industry segment of the brand."
       },
       "CredentialsResponse": {
         "title": "CredentialsResponse",
@@ -76590,17 +76752,18 @@
           }
         }
       },
-      "CreateBrandVertical": {
+      "CreateBrandStockExchange": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/Vertical"
+            "$ref": "#/components/schemas/StockExchange"
           }
         },
-        "description": "Vertical or industry segment of the brand."
+        "description": "(Required for public company) stock exchange.",
+        "example": "NASDAQ"
       },
       "DeepgramNova2Config": {
         "title": "DeepgramNova2Config",
@@ -81575,18 +81738,17 @@
           }
         }
       },
-      "CreateBrandStockExchange": {
+      "CreateBrandEntityType": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/StockExchange"
+            "$ref": "#/components/schemas/EntityType"
           }
         },
-        "description": "(Required for public company) stock exchange.",
-        "example": "NASDAQ"
+        "description": "Entity type behind the brand. This is the form of business establishment."
       },
       "EnhanceInstructionsRequest": {
         "title": "EnhanceInstructionsRequest",
@@ -83511,17 +83673,18 @@
           }
         }
       },
-      "CreateBrandEntityType": {
+      "CreateAssistantTestRequestTelnyxConversationChannel": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/EntityType"
+            "$ref": "#/components/schemas/TelnyxConversationChannel"
           }
         },
-        "description": "Entity type behind the brand. This is the form of business establishment."
+        "description": "The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.",
+        "example": "web_chat"
       },
       "FaxMediaProcessed": {
         "type": "object",
@@ -83812,20 +83975,73 @@
           }
         }
       },
-      "CreateAssistantTestRequestTelnyxConversationChannel": {
+      "ConversationRelayStartRequestVoiceSettings": {
         "required": [
-          "value"
+          "type"
         ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AwsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/MinimaxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AzureVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/RimeVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/ResembleVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/InworldVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/XaiVoiceSettings"
+          }
+        ],
         "properties": {
-          "value": {
-            "$ref": "#/components/schemas/TelnyxConversationChannel"
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
           }
         },
-        "description": "The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.",
-        "example": "web_chat"
+        "description": "The settings associated with the voice selected",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+            "aws": "#/components/schemas/AwsVoiceSettings",
+            "minimax": "#/components/schemas/MinimaxVoiceSettings",
+            "azure": "#/components/schemas/AzureVoiceSettings",
+            "rime": "#/components/schemas/RimeVoiceSettings",
+            "resemble": "#/components/schemas/ResembleVoiceSettings",
+            "inworld": "#/components/schemas/InworldVoiceSettings",
+            "xai": "#/components/schemas/XaiVoiceSettings",
+            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
+            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
+            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
+            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
+            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
+            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
+            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
+            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
+            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
+          }
+        }
       },
-      "ConversationRelayStartRequestVoiceSettings": {
+      "ConversationRelayLanguageVoiceSettings": {
         "required": [
           "type"
         ],
@@ -84480,7 +84696,7 @@
           ]
         }
       },
-      "ConversationRelayLanguageVoiceSettings": {
+      "ConversationRelayEmbeddedConfigVoiceSettings": {
         "required": [
           "type"
         ],
@@ -86238,38 +86454,20 @@
         },
         "description": "Humain provider-specific parameters. Unlike other providers, Humain has no format/sample-rate negotiation (output is always PCM16 24kHz mono) and no language parameter \u2014 language is fixed per voice."
       },
-      "ConversationRelayEmbeddedConfigVoiceSettings": {
+      "ConversationFlowReqNodesItem": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+            "$ref": "#/components/schemas/FlowNodeReq"
           },
           {
-            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+            "$ref": "#/components/schemas/ToolNodeReq"
           },
           {
-            "$ref": "#/components/schemas/AwsVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/MinimaxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AzureVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/RimeVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/ResembleVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/InworldVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/XaiVoiceSettings"
+            "$ref": "#/components/schemas/SpeakNodeReq"
           }
         ],
         "properties": {
@@ -86279,28 +86477,15 @@
             "description": "Union discriminator"
           }
         },
-        "description": "The settings associated with the voice selected",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
-            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-            "aws": "#/components/schemas/AwsVoiceSettings",
-            "minimax": "#/components/schemas/MinimaxVoiceSettings",
-            "azure": "#/components/schemas/AzureVoiceSettings",
-            "rime": "#/components/schemas/RimeVoiceSettings",
-            "resemble": "#/components/schemas/ResembleVoiceSettings",
-            "inworld": "#/components/schemas/InworldVoiceSettings",
-            "xai": "#/components/schemas/XaiVoiceSettings",
-            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
-            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
-            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
-            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
-            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
-            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
-            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
-            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
-            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
+            "prompt": "#/components/schemas/FlowNodeReq",
+            "tool": "#/components/schemas/ToolNodeReq",
+            "speak": "#/components/schemas/SpeakNodeReq",
+            "FlowNodeReq": "#/components/schemas/FlowNodeReq",
+            "ToolNodeReq": "#/components/schemas/ToolNodeReq",
+            "SpeakNodeReq": "#/components/schemas/SpeakNodeReq"
           }
         }
       },
@@ -87335,20 +87520,20 @@
           }
         }
       },
-      "ConversationFlowReqNodesItem": {
+      "ConversationFlowNodesItem": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/FlowNodeReq"
+            "$ref": "#/components/schemas/FlowNode"
           },
           {
-            "$ref": "#/components/schemas/ToolNodeReq"
+            "$ref": "#/components/schemas/ToolNode"
           },
           {
-            "$ref": "#/components/schemas/SpeakNodeReq"
+            "$ref": "#/components/schemas/SpeakNode"
           }
         ],
         "properties": {
@@ -87361,12 +87546,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "prompt": "#/components/schemas/FlowNodeReq",
-            "tool": "#/components/schemas/ToolNodeReq",
-            "speak": "#/components/schemas/SpeakNodeReq",
-            "FlowNodeReq": "#/components/schemas/FlowNodeReq",
-            "ToolNodeReq": "#/components/schemas/ToolNodeReq",
-            "SpeakNodeReq": "#/components/schemas/SpeakNodeReq"
+            "prompt": "#/components/schemas/FlowNode",
+            "speak": "#/components/schemas/SpeakNode",
+            "tool": "#/components/schemas/ToolNode",
+            "FlowNode": "#/components/schemas/FlowNode",
+            "ToolNode": "#/components/schemas/ToolNode",
+            "SpeakNode": "#/components/schemas/SpeakNode"
           }
         }
       },
@@ -88484,20 +88669,38 @@
           }
         }
       },
-      "ConversationFlowNodesItem": {
+      "ConferenceSpeakRequestVoiceSettings": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/FlowNode"
+            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
           },
           {
-            "$ref": "#/components/schemas/ToolNode"
+            "$ref": "#/components/schemas/TelnyxVoiceSettings"
           },
           {
-            "$ref": "#/components/schemas/SpeakNode"
+            "$ref": "#/components/schemas/AwsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/MinimaxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AzureVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/RimeVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/ResembleVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/InworldVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/XaiVoiceSettings"
           }
         ],
         "properties": {
@@ -88507,15 +88710,28 @@
             "description": "Union discriminator"
           }
         },
+        "description": "The settings associated with the voice selected",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "prompt": "#/components/schemas/FlowNode",
-            "speak": "#/components/schemas/SpeakNode",
-            "tool": "#/components/schemas/ToolNode",
-            "FlowNode": "#/components/schemas/FlowNode",
-            "ToolNode": "#/components/schemas/ToolNode",
-            "SpeakNode": "#/components/schemas/SpeakNode"
+            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+            "aws": "#/components/schemas/AwsVoiceSettings",
+            "minimax": "#/components/schemas/MinimaxVoiceSettings",
+            "azure": "#/components/schemas/AzureVoiceSettings",
+            "rime": "#/components/schemas/RimeVoiceSettings",
+            "resemble": "#/components/schemas/ResembleVoiceSettings",
+            "inworld": "#/components/schemas/InworldVoiceSettings",
+            "xai": "#/components/schemas/XaiVoiceSettings",
+            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
+            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
+            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
+            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
+            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
+            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
+            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
+            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
+            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
           }
         }
       },
@@ -90792,71 +91008,20 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "ConferenceSpeakRequestVoiceSettings": {
-        "required": [
-          "type"
-        ],
+      "ChatCompletionSystemMessageParamContent": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+            "title": "Content String",
+            "type": "string"
           },
           {
-            "$ref": "#/components/schemas/TelnyxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AwsVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/MinimaxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AzureVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/RimeVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/ResembleVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/InworldVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/XaiVoiceSettings"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChatCompletionSystemMessageParamContentTextAndImageArrayItem"
+            }
           }
-        ],
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "The settings associated with the voice selected",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
-            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-            "aws": "#/components/schemas/AwsVoiceSettings",
-            "minimax": "#/components/schemas/MinimaxVoiceSettings",
-            "azure": "#/components/schemas/AzureVoiceSettings",
-            "rime": "#/components/schemas/RimeVoiceSettings",
-            "resemble": "#/components/schemas/ResembleVoiceSettings",
-            "inworld": "#/components/schemas/InworldVoiceSettings",
-            "xai": "#/components/schemas/XaiVoiceSettings",
-            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
-            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
-            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
-            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
-            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
-            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
-            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
-            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
-            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
-          }
-        }
+        ]
       },
       "MediaResource": {
         "title": "Media Resource",
@@ -90979,20 +91144,21 @@
           }
         }
       },
-      "ChatCompletionSystemMessageParamContent": {
+      "ChatCompletionRequestStop": {
         "type": "object",
         "oneOf": [
           {
-            "title": "Content String",
             "type": "string"
           },
           {
+            "maxItems": 4,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChatCompletionSystemMessageParamContentTextAndImageArrayItem"
+              "type": "string"
             }
           }
-        ]
+        ],
+        "description": "Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence."
       },
       "MessageDetailRecord": {
         "required": [
@@ -92152,21 +92318,32 @@
           }
         }
       },
-      "ChatCompletionRequestStop": {
+      "ChatCompletionRequestToolsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/ChatCompletionToolParam"
           },
           {
-            "maxItems": 4,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/Retrieval"
           }
         ],
-        "description": "Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence."
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ChatCompletionToolParam": "#/components/schemas/ChatCompletionToolParam",
+            "Retrieval": "#/components/schemas/Retrieval"
+          }
+        }
       },
       "MobileNetworkOperator": {
         "title": "MobileNetworkOperator",
@@ -92786,32 +92963,25 @@
           }
         }
       },
-      "ChatCompletionRequestToolsItem": {
-        "required": [
-          "type"
-        ],
+      "CallRequestTo": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ChatCompletionToolParam"
+            "type": "string",
+            "example": "\u002B18005550100 or sip:username@sip.telnyx.com;secure=srtp"
           },
           {
-            "$ref": "#/components/schemas/Retrieval"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "\u002B18005550100",
+              "sip:username@sip.telnyx.com;secure=srtp"
+            ]
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ChatCompletionToolParam": "#/components/schemas/ChatCompletionToolParam",
-            "Retrieval": "#/components/schemas/Retrieval"
-          }
-        }
+        "description": "The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append \u0060;secure=true\u0060 or \u0060;secure=srtp\u0060 to enable SRTP media encryption for that endpoint, or \u0060;secure=dtls\u0060 to enable DTLS media encryption for that endpoint. If \u0060media_encryption\u0060 is set to \u0060SRTP\u0060 or \u0060DTLS\u0060, it takes precedence over any per-endpoint \u0060secure\u0060 URI parameter. For a single string destination, you may append a comma followed by DTMF digits (e.g. \u0060\u002B18004247767,200\u0060) to play those digits as DTMF once the called party answers \u2014 equivalent to setting \u0060send_digits_on_answer\u0060 separately. If both are present, the explicit \u0060send_digits_on_answer\u0060 parameter takes precedence. This shorthand is not supported when \u0060to\u0060 is an array."
       },
       "MonthDetail": {
         "required": [
@@ -95241,25 +95411,32 @@
           ]
         }
       },
-      "CallRequestTo": {
+      "CallPaymentCompletedPayloadConnectorError": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
-            "type": "string",
-            "example": "\u002B18005550100 or sip:username@sip.telnyx.com;secure=srtp"
+            "$ref": "#/components/schemas/CallPaymentCompletedPayloadConnectorErrorBranch1"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "example": [
-              "\u002B18005550100",
-              "sip:username@sip.telnyx.com;secure=srtp"
-            ]
+            "type": "object"
           }
         ],
-        "description": "The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append \u0060;secure=true\u0060 or \u0060;secure=srtp\u0060 to enable SRTP media encryption for that endpoint, or \u0060;secure=dtls\u0060 to enable DTLS media encryption for that endpoint. If \u0060media_encryption\u0060 is set to \u0060SRTP\u0060 or \u0060DTLS\u0060, it takes precedence over any per-endpoint \u0060secure\u0060 URI parameter. For a single string destination, you may append a comma followed by DTMF digits (e.g. \u0060\u002B18004247767,200\u0060) to play those digits as DTMF once the called party answers \u2014 equivalent to setting \u0060send_digits_on_answer\u0060 separately. If both are present, the explicit \u0060send_digits_on_answer\u0060 parameter takes precedence. This shorthand is not supported when \u0060to\u0060 is an array."
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "Additional connector error information, when supplied by the processor.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CallPaymentCompletedPayloadConnectorError_1": "#/components/schemas/CallPaymentCompletedPayloadConnectorErrorBranch1"
+          }
+        }
       },
       "OutboundCallRecording": {
         "type": "object",
@@ -96851,6 +97028,201 @@
             "format": "uuid",
             "example": "6e00ab49-9487-4364-8ad6-23965965afb2"
           }
+        }
+      },
+      "PayPrompt": {
+        "title": "Pay Prompt",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Text spoken for the payment collection step.",
+            "example": "Please enter your card number."
+          },
+          "attempt": {
+            "type": "string",
+            "description": "Space-separated 1-based attempt numbers for which this prompt applies.",
+            "example": "2 3"
+          },
+          "error_type": {
+            "$ref": "#/components/schemas/PayPromptErrorType"
+          },
+          "card_type": {
+            "$ref": "#/components/schemas/PayPromptCardType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A text-to-speech prompt with optional matching qualifiers."
+      },
+      "PayPromptValue": {
+        "title": "Pay Prompt Value",
+        "type": "object",
+        "oneOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayPrompt"
+            }
+          }
+        ],
+        "description": "A default prompt string or an ordered list of qualified prompts."
+      },
+      "PayPrompts": {
+        "title": "Pay Prompts",
+        "type": "object",
+        "properties": {
+          "payment-card-number": {
+            "$ref": "#/components/schemas/PayPromptValue"
+          },
+          "expiration-date": {
+            "$ref": "#/components/schemas/PayPromptValue"
+          },
+          "postal-code": {
+            "$ref": "#/components/schemas/PayPromptValue"
+          },
+          "security-code": {
+            "$ref": "#/components/schemas/PayPromptValue"
+          },
+          "bank-routing-number": {
+            "$ref": "#/components/schemas/PayPromptValue"
+          },
+          "bank-account-number": {
+            "$ref": "#/components/schemas/PayPromptValue"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Custom text-to-speech prompts keyed by payment collection step.",
+        "example": {
+          "payment-card-number": [
+            {
+              "text": "Please enter your card number."
+            },
+            {
+              "text": "That card number was not accepted. Please try again.",
+              "attempt": "2 3",
+              "error_type": "invalid-card-number"
+            }
+          ]
+        }
+      },
+      "PayRequest": {
+        "title": "Pay Request",
+        "type": "object",
+        "properties": {
+          "connector_name": {
+            "type": "string",
+            "description": "Name of the Pay connector used to process the transaction.",
+            "default": "Default",
+            "example": "Default"
+          },
+          "amount": {
+            "minimum": 0,
+            "type": "number",
+            "description": "Amount to charge. Required when \u0060transaction_type\u0060 is \u0060charge\u0060.",
+            "example": 10.5
+          },
+          "currency": {
+            "$ref": "#/components/schemas/PayRequestCurrency"
+          },
+          "payment_token": {
+            "type": "string",
+            "description": "Existing payment token. When supplied, payment-detail collection is skipped.",
+            "example": "tok_abc123"
+          },
+          "payment_method": {
+            "$ref": "#/components/schemas/PayRequestPaymentMethod"
+          },
+          "transaction_type": {
+            "$ref": "#/components/schemas/PayRequestTransactionType"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional description forwarded with the payment transaction.",
+            "example": "Order 12345"
+          },
+          "client_state": {
+            "type": "string",
+            "description": "Base64-encoded state included in subsequent webhooks.",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/PayRequestMetadataProperty"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/PayRequestParametersProperty"
+          },
+          "prompts": {
+            "$ref": "#/components/schemas/PayPrompts"
+          },
+          "max_attempts": {
+            "maximum": 3,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum number of attempts for each payment collection step.",
+            "format": "int32",
+            "default": 3
+          },
+          "timeout_millis": {
+            "maximum": 600000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Time in milliseconds to wait for DTMF input for each collection step.",
+            "format": "int32",
+            "default": 5000
+          },
+          "inter_digit_timeout_millis": {
+            "maximum": 600000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Time in milliseconds to wait between consecutive DTMF digits.",
+            "format": "int32",
+            "default": 5000
+          },
+          "voice": {
+            "type": "string",
+            "description": "Voice used for payment prompts. Accepts \u0060male\u0060, \u0060female\u0060, or a provider voice in \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060 format, for example \u0060AWS.Polly.Joanna\u0060 or \u0060Telnyx.KokoroTTS.af\u0060.",
+            "default": "female",
+            "example": "female"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language used for payment prompts.",
+            "default": "en-US",
+            "example": "en-US"
+          },
+          "service_level": {
+            "type": "string",
+            "description": "Speech synthesis service level used for payment prompts. Pay defaults to \u0060premium\u0060.",
+            "default": "premium"
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Idempotency key for the command. Telnyx ignores a duplicate command with the same \u0060command_id\u0060 for the same \u0060call_control_id\u0060.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          }
+        },
+        "example": {
+          "connector_name": "Default",
+          "amount": 10.5,
+          "currency": "USD",
+          "payment_method": "credit-card",
+          "transaction_type": "charge",
+          "max_attempts": 3,
+          "timeout_millis": 5000,
+          "inter_digit_timeout_millis": 5000,
+          "voice": "female",
+          "language": "en-US",
+          "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
+          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
       "PayTool": {
@@ -130314,6 +130686,12 @@
           ]
         }
       },
+      "EnhanceInstructionsRequestEnhancementPrompt": {
+        "title": "Enhancement Prompt",
+        "type": "string",
+        "description": "Optional guidance describing how the instructions should be enhanced. When provided, the LLM applies these requested changes in addition to fixing any identified issues.",
+        "nullable": true
+      },
       "EnhanceInstructionsRequestInstructions": {
         "title": "Instructions",
         "type": "string",
@@ -133924,6 +134302,226 @@
           },
           "result": {
             "$ref": "#/components/schemas/CallMachinePremiumGreetingEndedPayloadResult"
+          }
+        }
+      },
+      "CallPaymentCompletedPayload": {
+        "type": "object",
+        "properties": {
+          "call_control_id": {
+            "type": "string",
+            "description": "Call ID used to issue commands via Call Control API.",
+            "example": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg"
+          },
+          "connection_id": {
+            "type": "string",
+            "description": "Call Control App ID used in the call.",
+            "example": "7267xxxxxxxxxxxxxx"
+          },
+          "call_leg_id": {
+            "type": "string",
+            "description": "ID unique to the call leg.",
+            "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
+          },
+          "call_session_id": {
+            "type": "string",
+            "description": "ID shared by related call legs in the same call session.",
+            "example": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1"
+          },
+          "client_state": {
+            "type": "string",
+            "description": "Base64-encoded state received from the command.",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          },
+          "from": {
+            "type": "string",
+            "description": "Number or SIP URI placing the call.",
+            "example": "\u002B353****5860"
+          },
+          "to": {
+            "type": "string",
+            "description": "Destination number or SIP URI of the call.",
+            "example": "\u002B131****7420"
+          },
+          "payment_connector": {
+            "type": "string",
+            "description": "Name of the Pay connector used.",
+            "example": "Default"
+          },
+          "payment_method": {
+            "$ref": "#/components/schemas/CallPaymentCompletedPayloadPaymentMethod"
+          },
+          "payment_card_type": {
+            "$ref": "#/components/schemas/CallPaymentCompletedPayloadPaymentCardType"
+          },
+          "payment_card_number": {
+            "type": "string",
+            "description": "Masked card number with only the last four digits visible.",
+            "example": "xxxxxxxxxxxx1111"
+          },
+          "expiration_date": {
+            "type": "string",
+            "description": "Card expiration date in MMYY format.",
+            "example": "1230"
+          },
+          "security_code": {
+            "type": "string",
+            "description": "Fully masked card security code.",
+            "example": "xxx"
+          },
+          "payment_card_postal_code": {
+            "type": "string",
+            "description": "Billing postal code collected from the caller.",
+            "example": "10001"
+          },
+          "bank_account_number": {
+            "type": "string",
+            "description": "Masked bank account number with only the last two digits visible.",
+            "example": "********34"
+          },
+          "bank_routing_number": {
+            "type": "string",
+            "description": "Bank routing number collected from the caller.",
+            "example": "110000000"
+          },
+          "bank_account_type": {
+            "type": "string",
+            "description": "Bank account type, when available.",
+            "example": "consumer-checking"
+          },
+          "result": {
+            "$ref": "#/components/schemas/CallPaymentCompletedPayloadResult"
+          },
+          "charge_id": {
+            "type": "string",
+            "description": "Charge identifier returned for a successful charge transaction.",
+            "example": "ch_abc123"
+          },
+          "token_id": {
+            "type": "string",
+            "description": "Token identifier returned for a successful tokenize transaction.",
+            "example": "tok_abc123"
+          },
+          "payment_confirmation_code": {
+            "type": "string",
+            "description": "Payment confirmation code returned by the processor, when available.",
+            "example": "CONF-98765"
+          },
+          "payment_error": {
+            "type": "string",
+            "description": "Step-level or processor error associated with the final result.",
+            "example": "pay_action_failed"
+          },
+          "pay_error_code": {
+            "type": "string",
+            "description": "Error code returned by the payment connector or processor.",
+            "example": "card_declined"
+          },
+          "connector_error": {
+            "$ref": "#/components/schemas/CallPaymentCompletedPayloadConnectorError"
+          }
+        }
+      },
+      "CallPaymentProgressPayload": {
+        "type": "object",
+        "properties": {
+          "call_control_id": {
+            "type": "string",
+            "description": "Call ID used to issue commands via Call Control API.",
+            "example": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg"
+          },
+          "connection_id": {
+            "type": "string",
+            "description": "Call Control App ID used in the call.",
+            "example": "7267xxxxxxxxxxxxxx"
+          },
+          "call_leg_id": {
+            "type": "string",
+            "description": "ID unique to the call leg.",
+            "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
+          },
+          "call_session_id": {
+            "type": "string",
+            "description": "ID shared by related call legs in the same call session.",
+            "example": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1"
+          },
+          "client_state": {
+            "type": "string",
+            "description": "Base64-encoded state received from the command.",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          },
+          "from": {
+            "type": "string",
+            "description": "Number or SIP URI placing the call.",
+            "example": "\u002B353****5860"
+          },
+          "to": {
+            "type": "string",
+            "description": "Destination number or SIP URI of the call.",
+            "example": "\u002B131****7420"
+          },
+          "payment_connector": {
+            "type": "string",
+            "description": "Name of the Pay connector used.",
+            "example": "Default"
+          },
+          "payment_method": {
+            "$ref": "#/components/schemas/CallPaymentProgressPayloadPaymentMethod"
+          },
+          "payment_card_type": {
+            "$ref": "#/components/schemas/CallPaymentProgressPayloadPaymentCardType"
+          },
+          "payment_card_number": {
+            "type": "string",
+            "description": "Masked card number with only the last four digits visible.",
+            "example": "xxxxxxxxxxxx1111"
+          },
+          "expiration_date": {
+            "type": "string",
+            "description": "Card expiration date in MMYY format.",
+            "example": "1230"
+          },
+          "security_code": {
+            "type": "string",
+            "description": "Fully masked card security code.",
+            "example": "xxx"
+          },
+          "payment_card_postal_code": {
+            "type": "string",
+            "description": "Billing postal code collected from the caller.",
+            "example": "10001"
+          },
+          "bank_account_number": {
+            "type": "string",
+            "description": "Masked bank account number with only the last two digits visible.",
+            "example": "********34"
+          },
+          "bank_routing_number": {
+            "type": "string",
+            "description": "Bank routing number collected from the caller.",
+            "example": "110000000"
+          },
+          "bank_account_type": {
+            "type": "string",
+            "description": "Bank account type, when available.",
+            "example": "consumer-checking"
+          },
+          "payment_step": {
+            "$ref": "#/components/schemas/CallPaymentProgressPayloadPaymentStep"
+          },
+          "payment_status": {
+            "$ref": "#/components/schemas/CallPaymentProgressPayloadPaymentStatus"
+          },
+          "attempt": {
+            "maximum": 3,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Current 1-based attempt number for the step.",
+            "format": "int32",
+            "example": 1
+          },
+          "error_type": {
+            "$ref": "#/components/schemas/CallPaymentProgressPayloadErrorType"
           }
         }
       },
@@ -138121,6 +138719,20 @@
           }
         },
         "description": "Info about the conference that the participant is in"
+      },
+      "PayRequestMetadata": {
+        "type": "object",
+        "description": "Metadata forwarded to the Pay connector.",
+        "example": {
+          "order_id": "ORD-12345"
+        }
+      },
+      "PayRequestParameters": {
+        "type": "object",
+        "description": "Additional parameters forwarded to the Pay connector.",
+        "example": {
+          "customer_id": "CUST-67890"
+        }
       },
       "PhoneNumberBulkDeleteResponseMeta": {
         "required": [
@@ -148484,6 +149096,17 @@
           }
         }
       },
+      "CallPaymentCompletedPayloadConnectorErrorBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
       "RequiredInboxActionRecipientInputBranch2": {
         "required": [
           "value"
@@ -149477,6 +150100,15 @@
         }
       },
       "CallControlCommandResponseResponseJson34": {
+        "title": "Call Control Command Response",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CallControlCommandResult"
+          }
+        }
+      },
+      "CallControlCommandResponseResponseJson35": {
         "title": "Call Control Command Response",
         "type": "object",
         "properties": {
@@ -153472,6 +154104,14 @@
         },
         "description": "Mapping of token kind to price, as strings to preserve precision. Typical keys are \u0060prompt\u0060, \u0060cached_prompt\u0060, and \u0060completion\u0060. When pricing is available the block also includes \u0060currency\u0060 (ISO 4217 code matching the account\u0027s configured billing currency) and \u0060unit\u0060 (the denomination the prices are quoted in, currently always \u00601M_tokens\u0060 for token-priced models)."
       },
+      "PayRequestMetadataProperty": {
+        "type": "object",
+        "description": "Metadata forwarded to the Pay connector."
+      },
+      "PayRequestParametersProperty": {
+        "type": "object",
+        "description": "Additional parameters forwarded to the Pay connector."
+      },
       "PlanStepDataMetadataProperty": {
         "type": "object"
       },
@@ -156083,6 +156723,65 @@
           ]
         }
       },
+      "EmailDomainDmarcPolicyP": {
+        "enum": [
+          "none",
+          "quarantine",
+          "reject"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Policy applied to messages that fail alignment.",
+        "x-ms-enum": {
+          "name": "EmailDomainDmarcPolicyP",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "quarantine",
+              "name": "Quarantine"
+            },
+            {
+              "value": "reject",
+              "name": "Reject"
+            }
+          ]
+        }
+      },
+      "EmailDomainDmarcPolicySp": {
+        "enum": [
+          "none",
+          "quarantine",
+          "reject"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Policy for subdomains. Omitted from the record when null.",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
+        "x-ms-enum": {
+          "name": "EmailDomainDmarcPolicySp",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "quarantine",
+              "name": "Quarantine"
+            },
+            {
+              "value": "reject",
+              "name": "Reject"
+            }
+          ]
+        }
+      },
       "BucketOpsCategory": {
         "enum": [
           "list_bucket",
@@ -156576,65 +157275,6 @@
             {
               "value": "from_anyone",
               "name": "FromAnyone"
-            }
-          ]
-        }
-      },
-      "EmailDomainDmarcPolicyP": {
-        "enum": [
-          "none",
-          "quarantine",
-          "reject"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Policy applied to messages that fail alignment.",
-        "x-ms-enum": {
-          "name": "EmailDomainDmarcPolicyP",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "none",
-              "name": "None"
-            },
-            {
-              "value": "quarantine",
-              "name": "Quarantine"
-            },
-            {
-              "value": "reject",
-              "name": "Reject"
-            }
-          ]
-        }
-      },
-      "EmailDomainDmarcPolicySp": {
-        "enum": [
-          "none",
-          "quarantine",
-          "reject"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Policy for subdomains. Omitted from the record when null.",
-        "unrecognizedKeywords": {
-          "nullable": true
-        },
-        "x-ms-enum": {
-          "name": "EmailDomainDmarcPolicySp",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "none",
-              "name": "None"
-            },
-            {
-              "value": "quarantine",
-              "name": "Quarantine"
-            },
-            {
-              "value": "reject",
-              "name": "Reject"
             }
           ]
         }
@@ -157364,6 +158004,82 @@
             {
               "value": "call.machine.premium.greeting.ended",
               "name": "CallMachinePremiumGreetingEnded"
+            }
+          ]
+        }
+      },
+      "CallPaymentCompletedRecordType": {
+        "enum": [
+          "event"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Identifies the type of the resource.",
+        "example": "event",
+        "x-ms-enum": {
+          "name": "CallPaymentCompletedRecordType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "event",
+              "name": "EventValue"
+            }
+          ]
+        }
+      },
+      "CallPaymentCompletedEventType": {
+        "enum": [
+          "call.payment.completed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of event being delivered.",
+        "example": "call.payment.completed",
+        "x-ms-enum": {
+          "name": "CallPaymentCompletedEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "call.payment.completed",
+              "name": "CallPaymentCompleted"
+            }
+          ]
+        }
+      },
+      "CallPaymentProgressRecordType": {
+        "enum": [
+          "event"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Identifies the type of the resource.",
+        "example": "event",
+        "x-ms-enum": {
+          "name": "CallPaymentProgressRecordType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "event",
+              "name": "EventValue"
+            }
+          ]
+        }
+      },
+      "CallPaymentProgressEventType": {
+        "enum": [
+          "call.payment.progress"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of event being delivered.",
+        "example": "call.payment.progress",
+        "x-ms-enum": {
+          "name": "CallPaymentProgressEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "call.payment.progress",
+              "name": "CallPaymentProgress"
             }
           ]
         }
@@ -169099,6 +169815,174 @@
           ]
         }
       },
+      "PayPromptErrorType": {
+        "enum": [
+          "timeout",
+          "invalid-card-number",
+          "invalid-date",
+          "invalid-security-code",
+          "invalid-postal-code",
+          "invalid-bank-routing-number",
+          "invalid-bank-account-number",
+          "input-matching-failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Step error for which this prompt applies.",
+        "example": "invalid-card-number",
+        "x-ms-enum": {
+          "name": "PayPromptErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "invalid-card-number",
+              "name": "InvalidCardNumber"
+            },
+            {
+              "value": "invalid-date",
+              "name": "InvalidDate"
+            },
+            {
+              "value": "invalid-security-code",
+              "name": "InvalidSecurityCode"
+            },
+            {
+              "value": "invalid-postal-code",
+              "name": "InvalidPostalCode"
+            },
+            {
+              "value": "invalid-bank-routing-number",
+              "name": "InvalidBankRoutingNumber"
+            },
+            {
+              "value": "invalid-bank-account-number",
+              "name": "InvalidBankAccountNumber"
+            },
+            {
+              "value": "input-matching-failed",
+              "name": "InputMatchingFailed"
+            }
+          ]
+        }
+      },
+      "PayPromptCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "discover",
+          "diners-club",
+          "jcb"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Lowercase, case-sensitive detected card type for which this prompt applies. Only the listed brands are currently detected; accepted UnionPay and Maestro test cards do not produce a card-type qualifier.",
+        "example": "amex",
+        "x-ms-enum": {
+          "name": "PayPromptCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            }
+          ]
+        }
+      },
+      "PayRequestCurrency": {
+        "enum": [
+          "USD",
+          "usd"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Currency used for the transaction. Pay currently supports USD only.",
+        "example": "USD",
+        "x-ms-enum": {
+          "name": "PayRequestCurrency",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "USD",
+              "name": "Usd"
+            },
+            {
+              "value": "usd",
+              "name": "Usd1"
+            }
+          ]
+        }
+      },
+      "PayRequestPaymentMethod": {
+        "enum": [
+          "credit-card",
+          "ach-debit"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Payment method to collect.",
+        "x-ms-enum": {
+          "name": "PayRequestPaymentMethod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "credit-card",
+              "name": "CreditCard"
+            },
+            {
+              "value": "ach-debit",
+              "name": "AchDebit"
+            }
+          ]
+        }
+      },
+      "PayRequestTransactionType": {
+        "enum": [
+          "charge",
+          "tokenize"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Transaction to perform. If omitted, Pay infers \u0060tokenize\u0060 when \u0060amount\u0060 is absent or zero and \u0060charge\u0060 when \u0060amount\u0060 is positive.",
+        "x-ms-enum": {
+          "name": "PayRequestTransactionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "charge",
+              "name": "Charge"
+            },
+            {
+              "value": "tokenize",
+              "name": "Tokenize"
+            }
+          ]
+        }
+      },
       "PayToolType": {
         "enum": [
           "pay"
@@ -179968,6 +180852,313 @@
             {
               "value": "no_beep_detected",
               "name": "NoBeepDetected"
+            }
+          ]
+        }
+      },
+      "CallPaymentCompletedPayloadPaymentMethod": {
+        "enum": [
+          "credit-card",
+          "ach-debit"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Payment method being collected.",
+        "example": "credit-card",
+        "x-ms-enum": {
+          "name": "CallPaymentCompletedPayloadPaymentMethod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "credit-card",
+              "name": "CreditCard"
+            },
+            {
+              "value": "ach-debit",
+              "name": "AchDebit"
+            }
+          ]
+        }
+      },
+      "CallPaymentCompletedPayloadPaymentCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "discover",
+          "diners-club",
+          "jcb"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Detected card type. Present only for the recognized card brands listed below.",
+        "example": "visa",
+        "x-ms-enum": {
+          "name": "CallPaymentCompletedPayloadPaymentCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            }
+          ]
+        }
+      },
+      "CallPaymentCompletedPayloadResult": {
+        "enum": [
+          "success",
+          "payment-connector-error",
+          "internal-error",
+          "too-many-failed-attempts",
+          "cancelled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Final Pay session result.",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "CallPaymentCompletedPayloadResult",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "payment-connector-error",
+              "name": "PaymentConnectorError"
+            },
+            {
+              "value": "internal-error",
+              "name": "InternalError"
+            },
+            {
+              "value": "too-many-failed-attempts",
+              "name": "TooManyFailedAttempts"
+            },
+            {
+              "value": "cancelled",
+              "name": "Cancelled"
+            }
+          ]
+        }
+      },
+      "CallPaymentProgressPayloadPaymentMethod": {
+        "enum": [
+          "credit-card",
+          "ach-debit"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Payment method being collected.",
+        "example": "credit-card",
+        "x-ms-enum": {
+          "name": "CallPaymentProgressPayloadPaymentMethod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "credit-card",
+              "name": "CreditCard"
+            },
+            {
+              "value": "ach-debit",
+              "name": "AchDebit"
+            }
+          ]
+        }
+      },
+      "CallPaymentProgressPayloadPaymentCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "discover",
+          "diners-club",
+          "jcb"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Detected card type. Present only for the recognized card brands listed below.",
+        "example": "visa",
+        "x-ms-enum": {
+          "name": "CallPaymentProgressPayloadPaymentCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            }
+          ]
+        }
+      },
+      "CallPaymentProgressPayloadPaymentStep": {
+        "enum": [
+          "payment-card-number",
+          "expiration-date",
+          "postal-code",
+          "security-code",
+          "bank-routing-number",
+          "bank-account-number",
+          "payment-processing"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Current payment collection or processing step.",
+        "example": "payment-card-number",
+        "x-ms-enum": {
+          "name": "CallPaymentProgressPayloadPaymentStep",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "payment-card-number",
+              "name": "PaymentCardNumber"
+            },
+            {
+              "value": "expiration-date",
+              "name": "ExpirationDate"
+            },
+            {
+              "value": "postal-code",
+              "name": "PostalCode"
+            },
+            {
+              "value": "security-code",
+              "name": "SecurityCode"
+            },
+            {
+              "value": "bank-routing-number",
+              "name": "BankRoutingNumber"
+            },
+            {
+              "value": "bank-account-number",
+              "name": "BankAccountNumber"
+            },
+            {
+              "value": "payment-processing",
+              "name": "PaymentProcessing"
+            }
+          ]
+        }
+      },
+      "CallPaymentProgressPayloadPaymentStatus": {
+        "enum": [
+          "completed",
+          "failed",
+          "processing"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Status of the current payment step.",
+        "example": "completed",
+        "x-ms-enum": {
+          "name": "CallPaymentProgressPayloadPaymentStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "processing",
+              "name": "Processing"
+            }
+          ]
+        }
+      },
+      "CallPaymentProgressPayloadErrorType": {
+        "enum": [
+          "timeout",
+          "invalid-card-number",
+          "invalid-date",
+          "invalid-security-code",
+          "invalid-postal-code",
+          "invalid-bank-routing-number",
+          "invalid-bank-account-number",
+          "input-matching-failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Step-level error when payment collection fails.",
+        "example": "invalid-card-number",
+        "x-ms-enum": {
+          "name": "CallPaymentProgressPayloadErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "invalid-card-number",
+              "name": "InvalidCardNumber"
+            },
+            {
+              "value": "invalid-date",
+              "name": "InvalidDate"
+            },
+            {
+              "value": "invalid-security-code",
+              "name": "InvalidSecurityCode"
+            },
+            {
+              "value": "invalid-postal-code",
+              "name": "InvalidPostalCode"
+            },
+            {
+              "value": "invalid-bank-routing-number",
+              "name": "InvalidBankRoutingNumber"
+            },
+            {
+              "value": "invalid-bank-account-number",
+              "name": "InvalidBankAccountNumber"
+            },
+            {
+              "value": "input-matching-failed",
+              "name": "InputMatchingFailed"
             }
           ]
         }

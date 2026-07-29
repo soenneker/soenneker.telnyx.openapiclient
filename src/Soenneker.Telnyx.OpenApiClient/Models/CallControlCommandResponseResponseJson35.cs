@@ -9,33 +9,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class EmailBatchMeta : IAdditionalDataHolder, IParsable
+    public partial class CallControlCommandResponseResponseJson35 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The failed property</summary>
-        public int? Failed { get; set; }
-        /// <summary>The succeeded property</summary>
-        public int? Succeeded { get; set; }
-        /// <summary>The total property</summary>
-        public int? Total { get; set; }
+        /// <summary>The data property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult? Data { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult Data { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBatchMeta"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson35"/> and sets the default values.
         /// </summary>
-        public EmailBatchMeta()
+        public CallControlCommandResponseResponseJson35()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBatchMeta"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson35"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmailBatchMeta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson35 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmailBatchMeta();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson35();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,9 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "failed", n => { Failed = n.GetIntValue(); } },
-                { "succeeded", n => { Succeeded = n.GetIntValue(); } },
-                { "total", n => { Total = n.GetIntValue(); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,9 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("failed", Failed);
-            writer.WriteIntValue("succeeded", Succeeded);
-            writer.WriteIntValue("total", Total);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

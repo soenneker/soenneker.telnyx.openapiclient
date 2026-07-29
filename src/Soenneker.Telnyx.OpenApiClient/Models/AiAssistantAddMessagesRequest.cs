@@ -38,12 +38,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem> Messages { get; set; }
 #endif
+        /// <summary>When `true`, the injected messages immediately trigger an assistant response/turn instead of waiting for the next natural turn or idle timeout. This may interrupt a user who is still speaking.</summary>
+        public bool? TriggerResponse { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequest"/> and sets the default values.
         /// </summary>
         public AiAssistantAddMessagesRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            TriggerResponse = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,6 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "trigger_response", n => { TriggerResponse = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -78,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem>("messages", Messages);
+            writer.WriteBoolValue("trigger_response", TriggerResponse);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
