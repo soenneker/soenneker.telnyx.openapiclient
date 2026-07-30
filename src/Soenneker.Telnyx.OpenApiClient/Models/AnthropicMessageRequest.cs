@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
-        /// <summary>Service tier for the request.</summary>
+        /// <summary>The service tier to use for this request. Supported values vary by model; use the Telnyx models endpoint and inspect the model&apos;s `service_tiers` field. If omitted, Telnyx-hosted models use `default`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ServiceTier { get; set; }

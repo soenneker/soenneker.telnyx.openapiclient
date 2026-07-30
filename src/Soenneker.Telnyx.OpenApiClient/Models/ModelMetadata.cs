@@ -117,6 +117,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Regions { get; set; }
 #endif
+        /// <summary>Service tiers supported by this Telnyx-hosted model. Use one of these values as `service_tier` in Chat Completions or Responses requests. This field is omitted for externally hosted models.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataServiceTiersItem?>? ServiceTiers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataServiceTiersItem?> ServiceTiers { get; set; }
+#endif
         /// <summary>Primary task the model is intended for, e.g. `text-generation`, `audio-text-to-text`, `feature-extraction` (embeddings).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -175,6 +183,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "pricing", n => { Pricing = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty.CreateFromDiscriminatorValue); } },
                 { "recommended_for_assistants", n => { RecommendedForAssistants = n.GetBoolValue(); } },
                 { "regions", n => { Regions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "service_tiers", n => { ServiceTiers = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataServiceTiersItem>()?.AsList(); } },
                 { "task", n => { Task = n.GetStringValue(); } },
                 { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataTier>(); } },
             };
@@ -204,6 +213,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty>("pricing", Pricing);
             writer.WriteBoolValue("recommended_for_assistants", RecommendedForAssistants);
             writer.WriteCollectionOfPrimitiveValues<string>("regions", Regions);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataServiceTiersItem>("service_tiers", ServiceTiers);
             writer.WriteStringValue("task", Task);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataTier>("tier", Tier);
             writer.WriteAdditionalData(AdditionalData);

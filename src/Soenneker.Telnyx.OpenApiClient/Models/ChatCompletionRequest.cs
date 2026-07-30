@@ -92,6 +92,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>If specified, the system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.</summary>
         public int? Seed { get; set; }
+        /// <summary>The service tier to use for this request. Supported values vary by model; use `GET /v2/ai/openai/models` and inspect the model&apos;s `service_tiers` field. If omitted, Telnyx-hosted models use `default`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceTier { get; set; }
+#nullable restore
+#else
+        public string ServiceTier { get; set; }
+#endif
         /// <summary>Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -173,6 +181,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "presence_penalty", n => { PresencePenalty = n.GetDoubleValue(); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
+                { "service_tier", n => { ServiceTier = n.GetStringValue(); } },
                 { "stop", n => { Stop = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestStop>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestStop.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
@@ -208,6 +217,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("presence_penalty", PresencePenalty);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam>("response_format", ResponseFormat);
             writer.WriteIntValue("seed", Seed);
+            writer.WriteStringValue("service_tier", ServiceTier);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestStop>("stop", Stop);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteDoubleValue("temperature", Temperature);

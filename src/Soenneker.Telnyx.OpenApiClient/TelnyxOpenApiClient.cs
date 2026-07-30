@@ -123,6 +123,7 @@ using Soenneker.Telnyx.OpenApiClient.Porting;
 using Soenneker.Telnyx.OpenApiClient.Porting_orders;
 using Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Portouts;
+using Soenneker.Telnyx.OpenApiClient.Pricing;
 using Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways;
 using Soenneker.Telnyx.OpenApiClient.Pronunciation_dicts;
 using Soenneker.Telnyx.OpenApiClient.Public_internet_gateways;
@@ -779,6 +780,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder Portouts
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pricing property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Pricing.PricingRequestBuilder Pricing
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Pricing.PricingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The private_wireless_gateways property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder Private_wireless_gateways

@@ -40,6 +40,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
+        /// <summary>The service tier to use for this request. Supported values vary by model; use `GET /v2/ai/openai/models` and inspect the model&apos;s `service_tiers` field. If omitted, Telnyx-hosted models use `default`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceTier { get; set; }
+#nullable restore
+#else
+        public string ServiceTier { get; set; }
+#endif
         /// <summary>Set to `true` to stream Server-Sent Events, matching OpenAI&apos;s Responses streaming format.</summary>
         public bool? Stream { get; set; }
         /// <summary>
@@ -71,6 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
+                { "service_tier", n => { ServiceTier = n.GetStringValue(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
             };
         }
@@ -85,6 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("model", Model);
+            writer.WriteStringValue("service_tier", ServiceTier);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteAdditionalData(AdditionalData);
         }
