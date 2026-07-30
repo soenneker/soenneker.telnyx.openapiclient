@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineHumainConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineXaiConfig"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineHumainConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineReson8Config"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineXaiConfig"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TranscriptionStartRequestTranscriptionEngineConfig : IComposedTypeWrapper, IParsable
@@ -76,6 +76,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfig TranscriptionEngineParakeetConfig { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineReson8Config"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineReson8Config? TranscriptionEngineReson8Config { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineReson8Config TranscriptionEngineReson8Config { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfig"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -147,6 +155,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.TranscriptionEngineParakeetConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfig();
             }
+            else if("Reson8".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.TranscriptionEngineReson8Config = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineReson8Config();
+            }
             else if("Soniox".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.TranscriptionEngineSonioxConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfig();
@@ -202,6 +214,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(TranscriptionEngineParakeetConfig != null)
             {
                 return TranscriptionEngineParakeetConfig.GetFieldDeserializers();
+            }
+            else if(TranscriptionEngineReson8Config != null)
+            {
+                return TranscriptionEngineReson8Config.GetFieldDeserializers();
             }
             else if(TranscriptionEngineSonioxConfig != null)
             {
@@ -259,6 +275,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(TranscriptionEngineParakeetConfig != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfig>(null, TranscriptionEngineParakeetConfig);
+            }
+            else if(TranscriptionEngineReson8Config != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineReson8Config>(null, TranscriptionEngineReson8Config);
             }
             else if(TranscriptionEngineSonioxConfig != null)
             {

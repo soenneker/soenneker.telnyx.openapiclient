@@ -120,6 +120,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem> Tools { get; set; }
 #endif
+        /// <summary>The voice_settings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings? VoiceSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings VoiceSettings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest"/> and sets the default values.
         /// </summary>
@@ -158,6 +166,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "observability_settings", n => { ObservabilitySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty.CreateFromDiscriminatorValue); } },
                 { "openai_api_key_ref", n => { OpenaiApiKeyRef = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -180,6 +189,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty>("observability_settings", ObservabilitySettings);
             writer.WriteStringValue("openai_api_key_ref", OpenaiApiKeyRef);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

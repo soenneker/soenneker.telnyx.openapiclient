@@ -36,6 +36,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Humain,
         #pragma warning restore CS1591
+        [EnumMember(Value = "reson8")]
+        #pragma warning disable CS1591
+        Reson8,
+        #pragma warning restore CS1591
         [EnumMember(Value = "azure")]
         #pragma warning disable CS1591
         Azure,

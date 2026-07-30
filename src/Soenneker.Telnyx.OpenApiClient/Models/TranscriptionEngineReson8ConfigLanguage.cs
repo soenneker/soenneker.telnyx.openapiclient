@@ -3,50 +3,53 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>The language of the audio to be transcribed. `auto` (the default, also applied when `language` is omitted) enables automatic language detection.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum TranscriptionEngine
-    #pragma warning restore CS1591
+    public enum TranscriptionEngineReson8ConfigLanguage
     {
-        [EnumMember(Value = "Azure")]
+        [EnumMember(Value = "auto")]
         #pragma warning disable CS1591
-        Azure,
+        Auto,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Deepgram")]
+        [EnumMember(Value = "nl")]
         #pragma warning disable CS1591
-        Deepgram,
+        Nl,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Google")]
+        [EnumMember(Value = "en")]
         #pragma warning disable CS1591
-        Google,
+        En,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Telnyx")]
+        [EnumMember(Value = "fr")]
         #pragma warning disable CS1591
-        Telnyx,
+        Fr,
         #pragma warning restore CS1591
-        [EnumMember(Value = "xAI")]
+        [EnumMember(Value = "fy")]
         #pragma warning disable CS1591
-        XAi,
+        Fy,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Speechmatics")]
+        [EnumMember(Value = "de")]
         #pragma warning disable CS1591
-        Speechmatics,
+        De,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Soniox")]
+        [EnumMember(Value = "it")]
         #pragma warning disable CS1591
-        Soniox,
+        It,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Parakeet")]
+        [EnumMember(Value = "pl")]
         #pragma warning disable CS1591
-        Parakeet,
+        Pl,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Humain")]
+        [EnumMember(Value = "pt")]
         #pragma warning disable CS1591
-        Humain,
+        Pt,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Reson8")]
+        [EnumMember(Value = "es")]
         #pragma warning disable CS1591
-        Reson8,
+        Es,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sv")]
+        #pragma warning disable CS1591
+        Sv,
         #pragma warning restore CS1591
     }
 }

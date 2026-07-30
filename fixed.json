@@ -48034,7 +48034,7 @@
           "Speech To Text over WebSockets"
         ],
         "summary": "Speech to text over WebSocket",
-        "description": "\u0022Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard \u0060Authorization: Bearer \u003CAPI_KEY\u003E\u0060 header.\n\nSupported engines: \u0060Azure\u0060, \u0060Deepgram\u0060, \u0060Google\u0060, \u0060Telnyx\u0060, \u0060xAI\u0060, \u0060Speechmatics\u0060, \u0060Soniox\u0060, \u0060Parakeet\u0060, \u0060Humain\u0060.\n\n**Connection flow:**\n1. Open WebSocket with query parameters specifying engine, input format, and language.\n2. Send binary audio frames (mp3/wav format).\n3. Receive JSON transcript frames with \u0060transcript\u0060, \u0060is_final\u0060, and \u0060confidence\u0060 fields.\n4. Close connection when done.\u0022",
+        "description": "\u0022Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard \u0060Authorization: Bearer \u003CAPI_KEY\u003E\u0060 header.\n\nSupported engines: \u0060Azure\u0060, \u0060Deepgram\u0060, \u0060Google\u0060, \u0060Telnyx\u0060, \u0060xAI\u0060, \u0060Speechmatics\u0060, \u0060Soniox\u0060, \u0060Parakeet\u0060, \u0060Humain\u0060, \u0060Reson8\u0060.\n\n**Connection flow:**\n1. Open WebSocket with query parameters specifying engine, input format, and language.\n2. Send binary audio frames (mp3/wav format).\n3. Receive JSON transcript frames with \u0060transcript\u0060, \u0060is_final\u0060, and \u0060confidence\u0060 fields.\n4. Close connection when done.\u0022",
         "operationId": "TranscriptionOverWs",
         "parameters": [
           {
@@ -58164,13 +58164,6 @@
           "assistant": {
             "$ref": "#/components/schemas/CallAssistantRequest"
           },
-          "voice": {
-            "type": "string",
-            "description": "\u0022The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.BaseModel.John\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under \u0060\\\u0022voice_settings\\\u0022: {\\\u0022api_key_ref\\\u0022: \\\u0022\u003Csecret_id\u003E\\\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060\n- **Inworld:** Use \u0060Inworld.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Inworld.Mini.Loretta\u0060, \u0060Inworld.Max.Oliver\u0060, \u0060Inworld.TTS2.Loretta\u0060). Supported models: \u0060Mini\u0060, \u0060Max\u0060, \u0060TTS2\u0060.\n- **Fish Audio:** Use \u0060FishAudio.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060FishAudio.s2.1-pro.\u003Creference_id\u003E\u0060). Supported models: \u0060s2.1-pro\u0060, \u0060s2-pro\u0060, \u0060s1\u0060. \u0060VoiceId\u0060 is a Fish Voice-Library reference ID.\n- **xAI:** Use \u0060xAI.\u003CVoiceId\u003E\u0060 (e.g., \u0060xAI.eve\u0060). Available voices: \u0060eve\u0060, \u0060ara\u0060, \u0060rex\u0060, \u0060sal\u0060, \u0060leo\u0060.\n- **Humain:** Use \u0060Humain.\u003CVoiceId\u003E\u0060 (e.g., \u0060Humain.sara-ar\u0060). Available voices: \u0060sara-en\u0060, \u0060abdulaziz-en\u0060, \u0060sara-ar\u0060, \u0060abdulaziz-ar\u0060, \u0060nourah-ar\u0060, \u0060abdullah-ar\u0060. Native Arabic (Saudi dialect) and English voices only \u2014 no \u0060ModelId\u0060 segment.\u0022"
-          },
-          "voice_settings": {
-            "$ref": "#/components/schemas/AiAssistantStartRequestVoiceSettings"
-          },
           "greeting": {
             "type": "string",
             "description": "Text that will be played when the assistant starts, if none then nothing will be played when the assistant starts. The greeting can be text for any voice or SSML for \u0060AWS.Polly.\u003Cvoice_id\u003E\u0060 voices. There is a 3,000 character limit.",
@@ -58491,16 +58484,11 @@
           }
         }
       },
-      "EmbeddingBucketRequestLoader": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/SupportedEmbeddingLoaders"
-          }
-        }
+      "EnhanceInstructionsRequestEnhancementPrompt": {
+        "title": "Enhancement Prompt",
+        "type": "string",
+        "description": "Optional guidance describing how the instructions should be enhanced. When provided, the LLM applies these requested changes in addition to fixing any identified issues.",
+        "nullable": true
       },
       "ActionsParticipantsRequest": {
         "type": "object",
@@ -59478,14 +59466,14 @@
         },
         "description": "Anthropic Messages-compatible request with Telnyx extensions."
       },
-      "EmbeddingBucketRequestEmbeddingModel": {
+      "EmbeddingBucketRequestLoader": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/SupportedEmbeddingModels"
+            "$ref": "#/components/schemas/SupportedEmbeddingLoaders"
           }
         }
       },
@@ -60915,12 +60903,14 @@
           ]
         }
       },
-      "EmailValidationTypoCheckAllOf2": {
+      "EmbeddingBucketRequestEmbeddingModel": {
+        "required": [
+          "value"
+        ],
         "type": "object",
         "properties": {
-          "suggestion": {
-            "type": "string",
-            "description": "Suggested correction for common typos. Omitted when nil."
+          "value": {
+            "$ref": "#/components/schemas/SupportedEmbeddingModels"
           }
         }
       },
@@ -60951,6 +60941,15 @@
           }
         },
         "description": "AWS Polly provider-specific parameters."
+      },
+      "EmailValidationTypoCheckAllOf2": {
+        "type": "object",
+        "properties": {
+          "suggestion": {
+            "type": "string",
+            "description": "Suggested correction for common typos. Omitted when nil."
+          }
+        }
       },
       "EmailValidationBatchDetailAllOf1": {
         "required": [
@@ -61008,33 +61007,6 @@
             "unrecognizedKeywords": {
               "nullable": true
             }
-          }
-        }
-      },
-      "EmailDomainListResponseMeta": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/OffsetPaginationMeta"
-          },
-          {
-            "$ref": "#/components/schemas/EmailCursorPaginationMeta"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "OffsetPaginationMeta": "#/components/schemas/OffsetPaginationMeta",
-            "EmailCursorPaginationMeta": "#/components/schemas/EmailCursorPaginationMeta"
           }
         }
       },
@@ -62593,33 +62565,31 @@
           "park_after_unbridge": "self"
         }
       },
-      "EmailDomainDmarcPolicy": {
+      "EmailDomainListResponseMeta": {
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/OffsetPaginationMeta"
+          },
+          {
+            "$ref": "#/components/schemas/EmailCursorPaginationMeta"
+          }
+        ],
         "properties": {
-          "p": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
-          },
-          "pct": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
-            "default": 100
-          },
-          "rua": {
+          "type": {
             "type": "string",
-            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
-          },
-          "sp": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
+            "description": "Union discriminator"
           }
         },
-        "description": "Customer DMARC policy. null means use the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
-        "unrecognizedKeywords": {
-          "nullable": true
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "OffsetPaginationMeta": "#/components/schemas/OffsetPaginationMeta",
+            "EmailCursorPaginationMeta": "#/components/schemas/EmailCursorPaginationMeta"
+          }
         }
       },
       "BucketApiUsageResponse": {
@@ -63395,6 +63365,9 @@
             "type": "string",
             "description": "Initial greeting text spoken when the assistant starts. Can be plain text for any voice or SSML for \u0060AWS.Polly.\u003Cvoice_id\u003E\u0060 voices. There is a 3,000 character limit."
           },
+          "voice_settings": {
+            "$ref": "#/components/schemas/VoiceSettings"
+          },
           "tools": {
             "type": "array",
             "items": {
@@ -63750,34 +63723,33 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "DocServiceDocumentLinkAllOf2": {
+      "EmailDomainDmarcPolicy": {
         "type": "object",
         "properties": {
-          "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource.",
-            "readOnly": true,
-            "example": "document_link"
+          "p": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
           },
-          "document_id": {
-            "type": "string",
-            "description": "Identifies the associated document.",
-            "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          "pct": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
+            "default": 100
           },
-          "linked_record_type": {
+          "rua": {
             "type": "string",
-            "description": "The linked resource\u0027s record type.",
-            "readOnly": true,
-            "example": "porting_order"
+            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
-          "linked_resource_id": {
-            "type": "string",
-            "description": "Identifies the linked resource.",
-            "readOnly": true,
-            "example": "132091b4-442b-4a2a-b87f-61e707e46d54"
+          "sp": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
           }
+        },
+        "description": "Customer DMARC policy. null means use the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "CallControlRetrievalTool": {
@@ -70178,6 +70150,44 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
+      "DocServiceDocumentLinkAllOf2": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "document_link"
+          },
+          "document_id": {
+            "type": "string",
+            "description": "Identifies the associated document.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "linked_record_type": {
+            "type": "string",
+            "description": "The linked resource\u0027s record type.",
+            "readOnly": true,
+            "example": "porting_order"
+          },
+          "linked_resource_id": {
+            "type": "string",
+            "description": "Identifies the linked resource.",
+            "readOnly": true,
+            "example": "132091b4-442b-4a2a-b87f-61e707e46d54"
+          }
+        }
+      },
+      "ConnectionAndroidPushCredentialId": {
+        "title": "Android Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Android",
+        "default": null,
+        "nullable": true,
+        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
+      },
       "DocServiceDocumentAllOf2": {
         "type": "object",
         "properties": {
@@ -70220,14 +70230,6 @@
           }
         }
       },
-      "ConnectionAndroidPushCredentialId": {
-        "title": "Android Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Android",
-        "default": null,
-        "nullable": true,
-        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
-      },
       "DefaultGatewayDefaultGateway": {
         "title": "DefaultGateway",
         "type": "object",
@@ -70255,6 +70257,42 @@
             "$ref": "#/components/schemas/InterfaceStatus"
           }
         }
+      },
+      "ConnectionIosPushCredentialId": {
+        "title": "Ios Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Ios",
+        "default": null,
+        "nullable": true,
+        "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
+      },
+      "ConnectionJitterBuffer": {
+        "type": "object",
+        "properties": {
+          "enable_jitter_buffer": {
+            "type": "boolean",
+            "description": "Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled.",
+            "default": false,
+            "example": true
+          },
+          "jitterbuffer_msec_min": {
+            "maximum": 400,
+            "minimum": 40,
+            "type": "integer",
+            "description": "The minimum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
+            "default": 60,
+            "example": 60
+          },
+          "jitterbuffer_msec_max": {
+            "maximum": 400,
+            "minimum": 40,
+            "type": "integer",
+            "description": "The maximum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
+            "default": 200,
+            "example": 200
+          }
+        },
+        "description": "Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering."
       },
       "CustomStorageConfigurationConfiguration": {
         "required": [
@@ -70295,56 +70333,6 @@
             "AzureConfigurationData": "#/components/schemas/AzureConfigurationData"
           }
         }
-      },
-      "ConnectionIosPushCredentialId": {
-        "title": "Ios Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Ios",
-        "default": null,
-        "nullable": true,
-        "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
-      },
-      "ConnectionJitterBuffer": {
-        "type": "object",
-        "properties": {
-          "enable_jitter_buffer": {
-            "type": "boolean",
-            "description": "Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled.",
-            "default": false,
-            "example": true
-          },
-          "jitterbuffer_msec_min": {
-            "maximum": 400,
-            "minimum": 40,
-            "type": "integer",
-            "description": "The minimum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
-            "default": 60,
-            "example": 60
-          },
-          "jitterbuffer_msec_max": {
-            "maximum": 400,
-            "minimum": 40,
-            "type": "integer",
-            "description": "The maximum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
-            "default": 200,
-            "example": 200
-          }
-        },
-        "description": "Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering."
-      },
-      "CreateScheduledEventRequestConversationMetadataAdditionalProperties": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          },
-          {
-            "type": "boolean"
-          }
-        ]
       },
       "ConnectionNoiseSuppression": {
         "enum": [
@@ -71495,7 +71483,7 @@
           }
         }
       },
-      "CreateMsgReqMetadataAdditionalProperties": {
+      "CreateScheduledEventRequestConversationMetadataAdditionalProperties": {
         "type": "object",
         "anyOf": [
           {
@@ -71506,12 +71494,6 @@
           },
           {
             "type": "boolean"
-          },
-          {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateMsgReqMetadataAdditionalPropertiesAnyOf4Item"
-            }
           }
         ]
       },
@@ -75982,33 +75964,25 @@
           }
         }
       },
-      "CreateMsgReqToolChoice": {
-        "title": "Tool Choice",
-        "required": [
-          "type"
-        ],
+      "CreateMsgReqMetadataAdditionalProperties": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
+            "type": "string"
           },
           {
-            "title": "ToolChoiceObject",
-            "type": "object"
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateMsgReqMetadataAdditionalPropertiesAnyOf4Item"
+            }
           }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateMsgReqToolChoice_1": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
-          }
-        }
+        ]
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -76039,33 +76013,32 @@
           }
         }
       },
-      "CreateEmailDomainRequestDmarcPolicy": {
+      "CreateMsgReqToolChoice": {
+        "title": "Tool Choice",
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
+          },
+          {
+            "title": "ToolChoiceObject",
+            "type": "object"
+          }
+        ],
         "properties": {
-          "p": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
-          },
-          "pct": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
-            "default": 100
-          },
-          "rua": {
+          "type": {
             "type": "string",
-            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
-          },
-          "sp": {
-            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
+            "description": "Union discriminator"
           }
         },
-        "description": "DMARC policy. Omit/null for the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
-        "unrecognizedKeywords": {
-          "nullable": true
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateMsgReqToolChoice_1": "#/components/schemas/CreateMsgReqToolChoiceBranch1"
+          }
         }
       },
       "CredentialConnection": {
@@ -76419,17 +76392,34 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "CreateBrandVertical": {
-        "required": [
-          "value"
-        ],
+      "CreateEmailDomainRequestDmarcPolicy": {
         "type": "object",
         "properties": {
-          "value": {
-            "$ref": "#/components/schemas/Vertical"
+          "p": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicyP"
+          },
+          "pct": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Percentage of messages the policy applies to. Omitted from the record when 100.",
+            "default": 100
+          },
+          "rua": {
+            "type": "string",
+            "description": "URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
+          },
+          "sp": {
+            "$ref": "#/components/schemas/EmailDomainDmarcPolicySp"
           }
         },
-        "description": "Vertical or industry segment of the brand."
+        "description": "DMARC policy. Omit/null for the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CredentialsResponse": {
         "title": "CredentialsResponse",
@@ -76857,18 +76847,17 @@
           }
         }
       },
-      "CreateBrandStockExchange": {
+      "CreateBrandVertical": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/StockExchange"
+            "$ref": "#/components/schemas/Vertical"
           }
         },
-        "description": "(Required for public company) stock exchange.",
-        "example": "NASDAQ"
+        "description": "Vertical or industry segment of the brand."
       },
       "DeepgramNova2Config": {
         "title": "DeepgramNova2Config",
@@ -81843,17 +81832,18 @@
           }
         }
       },
-      "CreateBrandEntityType": {
+      "CreateBrandStockExchange": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/EntityType"
+            "$ref": "#/components/schemas/StockExchange"
           }
         },
-        "description": "Entity type behind the brand. This is the form of business establishment."
+        "description": "(Required for public company) stock exchange.",
+        "example": "NASDAQ"
       },
       "EnhanceInstructionsRequest": {
         "title": "EnhanceInstructionsRequest",
@@ -83778,18 +83768,17 @@
           }
         }
       },
-      "CreateAssistantTestRequestTelnyxConversationChannel": {
+      "CreateBrandEntityType": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/TelnyxConversationChannel"
+            "$ref": "#/components/schemas/EntityType"
           }
         },
-        "description": "The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.",
-        "example": "web_chat"
+        "description": "Entity type behind the brand. This is the form of business establishment."
       },
       "FaxMediaProcessed": {
         "type": "object",
@@ -84080,73 +84069,20 @@
           }
         }
       },
-      "ConversationRelayStartRequestVoiceSettings": {
+      "CreateAssistantTestRequestTelnyxConversationChannel": {
         "required": [
-          "type"
+          "value"
         ],
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/TelnyxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AwsVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/MinimaxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AzureVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/RimeVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/ResembleVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/InworldVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/XaiVoiceSettings"
-          }
-        ],
         "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
+          "value": {
+            "$ref": "#/components/schemas/TelnyxConversationChannel"
           }
         },
-        "description": "The settings associated with the voice selected",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
-            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-            "aws": "#/components/schemas/AwsVoiceSettings",
-            "minimax": "#/components/schemas/MinimaxVoiceSettings",
-            "azure": "#/components/schemas/AzureVoiceSettings",
-            "rime": "#/components/schemas/RimeVoiceSettings",
-            "resemble": "#/components/schemas/ResembleVoiceSettings",
-            "inworld": "#/components/schemas/InworldVoiceSettings",
-            "xai": "#/components/schemas/XaiVoiceSettings",
-            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
-            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
-            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
-            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
-            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
-            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
-            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
-            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
-            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
-          }
-        }
+        "description": "The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.",
+        "example": "web_chat"
       },
-      "ConversationRelayLanguageVoiceSettings": {
+      "ConversationRelayStartRequestVoiceSettings": {
         "required": [
           "type"
         ],
@@ -84801,7 +84737,7 @@
           ]
         }
       },
-      "ConversationRelayEmbeddedConfigVoiceSettings": {
+      "ConversationRelayLanguageVoiceSettings": {
         "required": [
           "type"
         ],
@@ -86559,20 +86495,38 @@
         },
         "description": "Humain provider-specific parameters. Unlike other providers, Humain has no format/sample-rate negotiation (output is always PCM16 24kHz mono) and no language parameter \u2014 language is fixed per voice."
       },
-      "ConversationFlowReqNodesItem": {
+      "ConversationRelayEmbeddedConfigVoiceSettings": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/FlowNodeReq"
+            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
           },
           {
-            "$ref": "#/components/schemas/ToolNodeReq"
+            "$ref": "#/components/schemas/TelnyxVoiceSettings"
           },
           {
-            "$ref": "#/components/schemas/SpeakNodeReq"
+            "$ref": "#/components/schemas/AwsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/MinimaxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AzureVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/RimeVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/ResembleVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/InworldVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/XaiVoiceSettings"
           }
         ],
         "properties": {
@@ -86582,15 +86536,28 @@
             "description": "Union discriminator"
           }
         },
+        "description": "The settings associated with the voice selected",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "prompt": "#/components/schemas/FlowNodeReq",
-            "tool": "#/components/schemas/ToolNodeReq",
-            "speak": "#/components/schemas/SpeakNodeReq",
-            "FlowNodeReq": "#/components/schemas/FlowNodeReq",
-            "ToolNodeReq": "#/components/schemas/ToolNodeReq",
-            "SpeakNodeReq": "#/components/schemas/SpeakNodeReq"
+            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+            "aws": "#/components/schemas/AwsVoiceSettings",
+            "minimax": "#/components/schemas/MinimaxVoiceSettings",
+            "azure": "#/components/schemas/AzureVoiceSettings",
+            "rime": "#/components/schemas/RimeVoiceSettings",
+            "resemble": "#/components/schemas/ResembleVoiceSettings",
+            "inworld": "#/components/schemas/InworldVoiceSettings",
+            "xai": "#/components/schemas/XaiVoiceSettings",
+            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
+            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
+            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
+            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
+            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
+            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
+            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
+            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
+            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
           }
         }
       },
@@ -87625,20 +87592,20 @@
           }
         }
       },
-      "ConversationFlowNodesItem": {
+      "ConversationFlowReqNodesItem": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/FlowNode"
+            "$ref": "#/components/schemas/FlowNodeReq"
           },
           {
-            "$ref": "#/components/schemas/ToolNode"
+            "$ref": "#/components/schemas/ToolNodeReq"
           },
           {
-            "$ref": "#/components/schemas/SpeakNode"
+            "$ref": "#/components/schemas/SpeakNodeReq"
           }
         ],
         "properties": {
@@ -87651,12 +87618,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "prompt": "#/components/schemas/FlowNode",
-            "speak": "#/components/schemas/SpeakNode",
-            "tool": "#/components/schemas/ToolNode",
-            "FlowNode": "#/components/schemas/FlowNode",
-            "ToolNode": "#/components/schemas/ToolNode",
-            "SpeakNode": "#/components/schemas/SpeakNode"
+            "prompt": "#/components/schemas/FlowNodeReq",
+            "tool": "#/components/schemas/ToolNodeReq",
+            "speak": "#/components/schemas/SpeakNodeReq",
+            "FlowNodeReq": "#/components/schemas/FlowNodeReq",
+            "ToolNodeReq": "#/components/schemas/ToolNodeReq",
+            "SpeakNodeReq": "#/components/schemas/SpeakNodeReq"
           }
         }
       },
@@ -88774,38 +88741,20 @@
           }
         }
       },
-      "ConferenceSpeakRequestVoiceSettings": {
+      "ConversationFlowNodesItem": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+            "$ref": "#/components/schemas/FlowNode"
           },
           {
-            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+            "$ref": "#/components/schemas/ToolNode"
           },
           {
-            "$ref": "#/components/schemas/AwsVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/MinimaxVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/AzureVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/RimeVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/ResembleVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/InworldVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/XaiVoiceSettings"
+            "$ref": "#/components/schemas/SpeakNode"
           }
         ],
         "properties": {
@@ -88815,28 +88764,15 @@
             "description": "Union discriminator"
           }
         },
-        "description": "The settings associated with the voice selected",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
-            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-            "aws": "#/components/schemas/AwsVoiceSettings",
-            "minimax": "#/components/schemas/MinimaxVoiceSettings",
-            "azure": "#/components/schemas/AzureVoiceSettings",
-            "rime": "#/components/schemas/RimeVoiceSettings",
-            "resemble": "#/components/schemas/ResembleVoiceSettings",
-            "inworld": "#/components/schemas/InworldVoiceSettings",
-            "xai": "#/components/schemas/XaiVoiceSettings",
-            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
-            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
-            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
-            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
-            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
-            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
-            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
-            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
-            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
+            "prompt": "#/components/schemas/FlowNode",
+            "speak": "#/components/schemas/SpeakNode",
+            "tool": "#/components/schemas/ToolNode",
+            "FlowNode": "#/components/schemas/FlowNode",
+            "ToolNode": "#/components/schemas/ToolNode",
+            "SpeakNode": "#/components/schemas/SpeakNode"
           }
         }
       },
@@ -91113,20 +91049,71 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "ChatCompletionSystemMessageParamContent": {
+      "ConferenceSpeakRequestVoiceSettings": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
-            "title": "Content String",
-            "type": "string"
+            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
           },
           {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChatCompletionSystemMessageParamContentTextAndImageArrayItem"
-            }
+            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AwsVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/MinimaxVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/AzureVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/RimeVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/ResembleVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/InworldVoiceSettings"
+          },
+          {
+            "$ref": "#/components/schemas/XaiVoiceSettings"
           }
-        ]
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "The settings associated with the voice selected",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+            "aws": "#/components/schemas/AwsVoiceSettings",
+            "minimax": "#/components/schemas/MinimaxVoiceSettings",
+            "azure": "#/components/schemas/AzureVoiceSettings",
+            "rime": "#/components/schemas/RimeVoiceSettings",
+            "resemble": "#/components/schemas/ResembleVoiceSettings",
+            "inworld": "#/components/schemas/InworldVoiceSettings",
+            "xai": "#/components/schemas/XaiVoiceSettings",
+            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
+            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
+            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
+            "MinimaxVoiceSettings": "#/components/schemas/MinimaxVoiceSettings",
+            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
+            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
+            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
+            "InworldVoiceSettings": "#/components/schemas/InworldVoiceSettings",
+            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
+          }
+        }
       },
       "MediaResource": {
         "title": "Media Resource",
@@ -91249,21 +91236,20 @@
           }
         }
       },
-      "ChatCompletionRequestStop": {
+      "ChatCompletionSystemMessageParamContent": {
         "type": "object",
         "oneOf": [
           {
+            "title": "Content String",
             "type": "string"
           },
           {
-            "maxItems": 4,
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/ChatCompletionSystemMessageParamContentTextAndImageArrayItem"
             }
           }
-        ],
-        "description": "Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence."
+        ]
       },
       "MessageDetailRecord": {
         "required": [
@@ -92423,32 +92409,21 @@
           }
         }
       },
-      "ChatCompletionRequestToolsItem": {
-        "required": [
-          "type"
-        ],
+      "ChatCompletionRequestStop": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ChatCompletionToolParam"
+            "type": "string"
           },
           {
-            "$ref": "#/components/schemas/Retrieval"
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ChatCompletionToolParam": "#/components/schemas/ChatCompletionToolParam",
-            "Retrieval": "#/components/schemas/Retrieval"
-          }
-        }
+        "description": "Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence."
       },
       "MobileNetworkOperator": {
         "title": "MobileNetworkOperator",
@@ -93076,25 +93051,32 @@
           }
         }
       },
-      "CallRequestTo": {
+      "ChatCompletionRequestToolsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
-            "type": "string",
-            "example": "\u002B18005550100 or sip:username@sip.telnyx.com;secure=srtp"
+            "$ref": "#/components/schemas/ChatCompletionToolParam"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "example": [
-              "\u002B18005550100",
-              "sip:username@sip.telnyx.com;secure=srtp"
-            ]
+            "$ref": "#/components/schemas/Retrieval"
           }
         ],
-        "description": "The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append \u0060;secure=true\u0060 or \u0060;secure=srtp\u0060 to enable SRTP media encryption for that endpoint, or \u0060;secure=dtls\u0060 to enable DTLS media encryption for that endpoint. If \u0060media_encryption\u0060 is set to \u0060SRTP\u0060 or \u0060DTLS\u0060, it takes precedence over any per-endpoint \u0060secure\u0060 URI parameter. For a single string destination, you may append a comma followed by DTMF digits (e.g. \u0060\u002B18004247767,200\u0060) to play those digits as DTMF once the called party answers \u2014 equivalent to setting \u0060send_digits_on_answer\u0060 separately. If both are present, the explicit \u0060send_digits_on_answer\u0060 parameter takes precedence. This shorthand is not supported when \u0060to\u0060 is an array."
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ChatCompletionToolParam": "#/components/schemas/ChatCompletionToolParam",
+            "Retrieval": "#/components/schemas/Retrieval"
+          }
+        }
       },
       "MonthDetail": {
         "required": [
@@ -95524,32 +95506,25 @@
           ]
         }
       },
-      "CallPaymentCompletedPayloadConnectorError": {
-        "required": [
-          "type"
-        ],
+      "CallRequestTo": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/CallPaymentCompletedPayloadConnectorErrorBranch1"
+            "type": "string",
+            "example": "\u002B18005550100 or sip:username@sip.telnyx.com;secure=srtp"
           },
           {
-            "type": "object"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "\u002B18005550100",
+              "sip:username@sip.telnyx.com;secure=srtp"
+            ]
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Additional connector error information, when supplied by the processor.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CallPaymentCompletedPayloadConnectorError_1": "#/components/schemas/CallPaymentCompletedPayloadConnectorErrorBranch1"
-          }
-        }
+        "description": "The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append \u0060;secure=true\u0060 or \u0060;secure=srtp\u0060 to enable SRTP media encryption for that endpoint, or \u0060;secure=dtls\u0060 to enable DTLS media encryption for that endpoint. If \u0060media_encryption\u0060 is set to \u0060SRTP\u0060 or \u0060DTLS\u0060, it takes precedence over any per-endpoint \u0060secure\u0060 URI parameter. For a single string destination, you may append a comma followed by DTMF digits (e.g. \u0060\u002B18004247767,200\u0060) to play those digits as DTMF once the called party answers \u2014 equivalent to setting \u0060send_digits_on_answer\u0060 separately. If both are present, the explicit \u0060send_digits_on_answer\u0060 parameter takes precedence. This shorthand is not supported when \u0060to\u0060 is an array."
       },
       "OutboundCallRecording": {
         "type": "object",
@@ -96389,22 +96364,32 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "CallControlTransferToolParamsTargets": {
+      "CallPaymentCompletedPayloadConnectorError": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CallControlTransferToolParamsTargetsOneOf1Item"
-            }
+            "$ref": "#/components/schemas/CallPaymentCompletedPayloadConnectorErrorBranch1"
           },
           {
-            "type": "string",
-            "description": "A dynamic variable string like \u0060{{ targets }}\u0060 where \u0060targets\u0060 is returned by the dynamic variables webhook and resolves to an array of target objects at runtime.",
-            "example": "{{ targets }}"
+            "type": "object"
           }
         ],
-        "description": "The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to. This can also be a dynamic variable string like \u0060{{ targets }}\u0060 where \u0060targets\u0060 is returned by the dynamic variables webhook and resolves to an array of target objects at runtime."
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "Additional connector error information, when supplied by the processor.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CallPaymentCompletedPayloadConnectorError_1": "#/components/schemas/CallPaymentCompletedPayloadConnectorErrorBranch1"
+          }
+        }
       },
       "Plmn": {
         "title": "Public land mobile network",
@@ -96426,19 +96411,22 @@
           }
         }
       },
-      "CallAssistantRequestDynamicVariablesAdditionalProperties": {
+      "CallControlTransferToolParamsTargets": {
         "type": "object",
         "oneOf": [
           {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CallControlTransferToolParamsTargetsOneOf1Item"
+            }
           },
           {
-            "type": "number"
-          },
-          {
-            "type": "boolean"
+            "type": "string",
+            "description": "A dynamic variable string like \u0060{{ targets }}\u0060 where \u0060targets\u0060 is returned by the dynamic variables webhook and resolves to an array of target objects at runtime.",
+            "example": "{{ targets }}"
           }
-        ]
+        ],
+        "description": "The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to. This can also be a dynamic variable string like \u0060{{ targets }}\u0060 where \u0060targets\u0060 is returned by the dynamic variables webhook and resolves to an array of target objects at runtime."
       },
       "PwgAssignedResourcesSummary": {
         "type": "object",
@@ -99093,55 +99081,19 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "CallAssistantRequestToolsItem": {
-        "required": [
-          "type"
-        ],
+      "CallAssistantRequestDynamicVariablesAdditionalProperties": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/BookAppointmentTool"
+            "type": "string"
           },
           {
-            "$ref": "#/components/schemas/CheckAvailabilityTool"
+            "type": "number"
           },
           {
-            "$ref": "#/components/schemas/WebhookTool"
-          },
-          {
-            "$ref": "#/components/schemas/HangupTool"
-          },
-          {
-            "$ref": "#/components/schemas/TransferTool"
-          },
-          {
-            "$ref": "#/components/schemas/CallControlRetrievalTool"
+            "type": "boolean"
           }
-        ],
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "book_appointment": "#/components/schemas/BookAppointmentTool",
-            "check_availability": "#/components/schemas/CheckAvailabilityTool",
-            "webhook": "#/components/schemas/WebhookTool",
-            "hangup": "#/components/schemas/HangupTool",
-            "transfer": "#/components/schemas/TransferTool",
-            "retrieval": "#/components/schemas/CallControlRetrievalTool",
-            "BookAppointmentTool": "#/components/schemas/BookAppointmentTool",
-            "CheckAvailabilityTool": "#/components/schemas/CheckAvailabilityTool",
-            "WebhookTool": "#/components/schemas/WebhookTool",
-            "HangupTool": "#/components/schemas/HangupTool",
-            "TransferTool": "#/components/schemas/TransferTool",
-            "CallControlRetrievalTool": "#/components/schemas/CallControlRetrievalTool"
-          }
-        }
+        ]
       },
       "PlaybackStopRequest": {
         "title": "Playback Stop Request",
@@ -103332,28 +103284,55 @@
           ]
         }
       },
-      "BrandLoaRenderRequestSignature": {
+      "CallAssistantRequestToolsItem": {
         "required": [
-          "image_base64"
+          "type"
         ],
         "type": "object",
-        "properties": {
-          "image_base64": {
-            "maxLength": 60000,
-            "minLength": 1,
-            "type": "string",
-            "description": "PNG image, base64-encoded."
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BookAppointmentTool"
           },
-          "signer_name": {
-            "maxLength": 200,
+          {
+            "$ref": "#/components/schemas/CheckAvailabilityTool"
+          },
+          {
+            "$ref": "#/components/schemas/WebhookTool"
+          },
+          {
+            "$ref": "#/components/schemas/HangupTool"
+          },
+          {
+            "$ref": "#/components/schemas/TransferTool"
+          },
+          {
+            "$ref": "#/components/schemas/CallControlRetrievalTool"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
             "type": "string",
-            "description": "Optional. When absent the rendered PDF falls back to the enterprise contact\u0027s legal name.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "description": "Union discriminator"
           }
         },
-        "description": "Optional. When provided the rendered PDF embeds the signature image, printed name, and signed-at date. When absent the PDF is returned unsigned so the customer can sign externally and upload it via the Documents API."
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "book_appointment": "#/components/schemas/BookAppointmentTool",
+            "check_availability": "#/components/schemas/CheckAvailabilityTool",
+            "webhook": "#/components/schemas/WebhookTool",
+            "hangup": "#/components/schemas/HangupTool",
+            "transfer": "#/components/schemas/TransferTool",
+            "retrieval": "#/components/schemas/CallControlRetrievalTool",
+            "BookAppointmentTool": "#/components/schemas/BookAppointmentTool",
+            "CheckAvailabilityTool": "#/components/schemas/CheckAvailabilityTool",
+            "WebhookTool": "#/components/schemas/WebhookTool",
+            "HangupTool": "#/components/schemas/HangupTool",
+            "TransferTool": "#/components/schemas/TransferTool",
+            "CallControlRetrievalTool": "#/components/schemas/CallControlRetrievalTool"
+          }
+        }
       },
       "RecordingTrack": {
         "enum": [
@@ -103808,80 +103787,28 @@
           }
         }
       },
-      "BrandLoaRenderRequestAgent": {
+      "BrandLoaRenderRequestSignature": {
         "required": [
-          "legal_name",
-          "street_address",
-          "city",
-          "administrative_area",
-          "postal_code",
-          "country",
-          "contact_name",
-          "contact_title",
-          "contact_email",
-          "contact_phone"
+          "image_base64"
         ],
         "type": "object",
         "properties": {
-          "legal_name": {
-            "maxLength": 200,
-            "type": "string"
+          "image_base64": {
+            "maxLength": 60000,
+            "minLength": 1,
+            "type": "string",
+            "description": "PNG image, base64-encoded."
           },
-          "dba": {
+          "signer_name": {
             "maxLength": 200,
             "type": "string",
+            "description": "Optional. When absent the rendered PDF falls back to the enterprise contact\u0027s legal name.",
             "unrecognizedKeywords": {
               "nullable": true
             }
-          },
-          "street_address": {
-            "maxLength": 255,
-            "type": "string"
-          },
-          "extended_address": {
-            "maxLength": 255,
-            "type": "string",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
-          },
-          "city": {
-            "maxLength": 120,
-            "type": "string"
-          },
-          "administrative_area": {
-            "maxLength": 120,
-            "type": "string"
-          },
-          "postal_code": {
-            "maxLength": 30,
-            "type": "string"
-          },
-          "country": {
-            "maxLength": 2,
-            "minLength": 2,
-            "type": "string",
-            "example": "US"
-          },
-          "contact_name": {
-            "maxLength": 200,
-            "type": "string"
-          },
-          "contact_title": {
-            "maxLength": 200,
-            "type": "string"
-          },
-          "contact_email": {
-            "type": "string",
-            "format": "email"
-          },
-          "contact_phone": {
-            "maxLength": 30,
-            "type": "string",
-            "example": "\u002B13125550000"
           }
         },
-        "description": "Optional. The third-party reseller / partner managing the enterprise\u0027s phone numbers. Omit when working directly with Telnyx; the LOA marks the Authorized Agent block as N/A."
+        "description": "Optional. When provided the rendered PDF embeds the signature image, printed name, and signed-at date. When absent the PDF is returned unsigned so the customer can sign externally and upload it via the Documents API."
       },
       "RegionIn": {
         "type": "object",
@@ -107235,50 +107162,80 @@
         },
         "description": "The send_message tool allows the assistant to send SMS or MMS messages to the end user. The \u0027to\u0027 and \u0027from\u0027 addresses are automatically determined from the conversation context, and the message text is generated by the assistant unless a message_template is provided for runtime variable substitution."
       },
-      "AuditEventChangesFrom": {
+      "BrandLoaRenderRequestAgent": {
         "required": [
-          "type"
+          "legal_name",
+          "street_address",
+          "city",
+          "administrative_area",
+          "postal_code",
+          "country",
+          "contact_name",
+          "contact_title",
+          "contact_email",
+          "contact_phone"
         ],
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/AuditEventChangesFromBranch1"
-          },
-          {
-            "$ref": "#/components/schemas/AuditEventChangesFromBranch2"
-          },
-          {
-            "$ref": "#/components/schemas/AuditEventChangesFromBranch3"
-          },
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/AuditEventChangesFromBranch5"
-          },
-          {
-            "enum": [
-              null
-            ]
-          }
-        ],
         "properties": {
-          "type": {
+          "legal_name": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "dba": {
+            "maxLength": 200,
             "type": "string",
-            "description": "Union discriminator"
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
+          },
+          "street_address": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "extended_address": {
+            "maxLength": 255,
+            "type": "string",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
+          },
+          "city": {
+            "maxLength": 120,
+            "type": "string"
+          },
+          "administrative_area": {
+            "maxLength": 120,
+            "type": "string"
+          },
+          "postal_code": {
+            "maxLength": 30,
+            "type": "string"
+          },
+          "country": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "example": "US"
+          },
+          "contact_name": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "contact_title": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "contact_email": {
+            "type": "string",
+            "format": "email"
+          },
+          "contact_phone": {
+            "maxLength": 30,
+            "type": "string",
+            "example": "\u002B13125550000"
           }
         },
-        "description": "The previous value of the field. Can be any JSON type.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "AuditEventChangesFrom_1": "#/components/schemas/AuditEventChangesFromBranch1",
-            "AuditEventChangesFrom_2": "#/components/schemas/AuditEventChangesFromBranch2",
-            "AuditEventChangesFrom_3": "#/components/schemas/AuditEventChangesFromBranch3",
-            "AuditEventChangesFrom_5": "#/components/schemas/AuditEventChangesFromBranch5"
-          }
-        },
-        "example": 54321
+        "description": "Optional. The third-party reseller / partner managing the enterprise\u0027s phone numbers. Omit when working directly with Telnyx; the LOA marks the Authorized Agent block as N/A."
       },
       "SendSipInfoRequest": {
         "title": "Send SIP Info Request",
@@ -109385,6 +109342,51 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
+      "AuditEventChangesFrom": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AuditEventChangesFromBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/AuditEventChangesFromBranch2"
+          },
+          {
+            "$ref": "#/components/schemas/AuditEventChangesFromBranch3"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/AuditEventChangesFromBranch5"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "The previous value of the field. Can be any JSON type.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AuditEventChangesFrom_1": "#/components/schemas/AuditEventChangesFromBranch1",
+            "AuditEventChangesFrom_2": "#/components/schemas/AuditEventChangesFromBranch2",
+            "AuditEventChangesFrom_3": "#/components/schemas/AuditEventChangesFromBranch3",
+            "AuditEventChangesFrom_5": "#/components/schemas/AuditEventChangesFromBranch5"
+          }
+        },
+        "example": 54321
+      },
       "AuditEventChangesTo": {
         "required": [
           "type"
@@ -109429,73 +109431,6 @@
           }
         },
         "example": 12345
-      },
-      "AssistantToolsItemComposed": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/InferenceEmbeddingWebhookTool"
-          },
-          {
-            "$ref": "#/components/schemas/ClientSideTool"
-          },
-          {
-            "$ref": "#/components/schemas/RetrievalTool"
-          },
-          {
-            "$ref": "#/components/schemas/HandoffTool"
-          },
-          {
-            "$ref": "#/components/schemas/HangupTool"
-          },
-          {
-            "$ref": "#/components/schemas/InferenceEmbeddingTransferTool"
-          },
-          {
-            "$ref": "#/components/schemas/InviteTool"
-          },
-          {
-            "$ref": "#/components/schemas/SipReferTool"
-          },
-          {
-            "$ref": "#/components/schemas/DtmfTool"
-          },
-          {
-            "$ref": "#/components/schemas/SendMessageTool"
-          },
-          {
-            "$ref": "#/components/schemas/SkipTurnTool"
-          },
-          {
-            "$ref": "#/components/schemas/PayTool"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "InferenceEmbeddingWebhookTool": "#/components/schemas/InferenceEmbeddingWebhookTool",
-            "ClientSideTool": "#/components/schemas/ClientSideTool",
-            "RetrievalTool": "#/components/schemas/RetrievalTool",
-            "HandoffTool": "#/components/schemas/HandoffTool",
-            "HangupTool": "#/components/schemas/HangupTool",
-            "InferenceEmbeddingTransferTool": "#/components/schemas/InferenceEmbeddingTransferTool",
-            "InviteTool": "#/components/schemas/InviteTool",
-            "SipReferTool": "#/components/schemas/SipReferTool",
-            "DtmfTool": "#/components/schemas/DtmfTool",
-            "SendMessageTool": "#/components/schemas/SendMessageTool",
-            "SkipTurnTool": "#/components/schemas/SkipTurnTool",
-            "PayTool": "#/components/schemas/PayTool"
-          }
-        }
       },
       "StoredPaymentTransactionRequest": {
         "required": [
@@ -109667,18 +109602,72 @@
           ]
         }
       },
-      "AssistantTestResponseTelnyxConversationChannel": {
+      "AssistantToolsItemComposed": {
         "required": [
-          "value"
+          "type"
         ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/InferenceEmbeddingWebhookTool"
+          },
+          {
+            "$ref": "#/components/schemas/ClientSideTool"
+          },
+          {
+            "$ref": "#/components/schemas/RetrievalTool"
+          },
+          {
+            "$ref": "#/components/schemas/HandoffTool"
+          },
+          {
+            "$ref": "#/components/schemas/HangupTool"
+          },
+          {
+            "$ref": "#/components/schemas/InferenceEmbeddingTransferTool"
+          },
+          {
+            "$ref": "#/components/schemas/InviteTool"
+          },
+          {
+            "$ref": "#/components/schemas/SipReferTool"
+          },
+          {
+            "$ref": "#/components/schemas/DtmfTool"
+          },
+          {
+            "$ref": "#/components/schemas/SendMessageTool"
+          },
+          {
+            "$ref": "#/components/schemas/SkipTurnTool"
+          },
+          {
+            "$ref": "#/components/schemas/PayTool"
+          }
+        ],
         "properties": {
-          "value": {
-            "$ref": "#/components/schemas/TelnyxConversationChannel"
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
           }
         },
-        "description": "Communication channel used for test execution.",
-        "example": "web_chat"
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "InferenceEmbeddingWebhookTool": "#/components/schemas/InferenceEmbeddingWebhookTool",
+            "ClientSideTool": "#/components/schemas/ClientSideTool",
+            "RetrievalTool": "#/components/schemas/RetrievalTool",
+            "HandoffTool": "#/components/schemas/HandoffTool",
+            "HangupTool": "#/components/schemas/HangupTool",
+            "InferenceEmbeddingTransferTool": "#/components/schemas/InferenceEmbeddingTransferTool",
+            "InviteTool": "#/components/schemas/InviteTool",
+            "SipReferTool": "#/components/schemas/SipReferTool",
+            "DtmfTool": "#/components/schemas/DtmfTool",
+            "SendMessageTool": "#/components/schemas/SendMessageTool",
+            "SkipTurnTool": "#/components/schemas/SkipTurnTool",
+            "PayTool": "#/components/schemas/PayTool"
+          }
+        }
       },
       "StreamStatus": {
         "enum": [
@@ -109766,19 +109755,18 @@
           "value": "gold"
         }
       },
-      "AssistantSmsChatReqConversationMetadataAdditionalProperties": {
+      "AssistantTestResponseTelnyxConversationChannel": {
+        "required": [
+          "value"
+        ],
         "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          },
-          {
-            "type": "boolean"
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/TelnyxConversationChannel"
           }
-        ]
+        },
+        "description": "Communication channel used for test execution.",
+        "example": "web_chat"
       },
       "SttDeleteDetailReportResponse": {
         "type": "object",
@@ -110516,55 +110504,19 @@
           "content": "Get the user\u0027s favorite color"
         }
       },
-      "AssistantToolsItem": {
-        "required": [
-          "type"
-        ],
+      "AssistantSmsChatReqConversationMetadataAdditionalProperties": {
         "type": "object",
-        "oneOf": [
+        "anyOf": [
           {
-            "$ref": "#/components/schemas/BookAppointmentTool"
+            "type": "string"
           },
           {
-            "$ref": "#/components/schemas/CheckAvailabilityTool"
+            "type": "integer"
           },
           {
-            "$ref": "#/components/schemas/WebhookTool"
-          },
-          {
-            "$ref": "#/components/schemas/HangupTool"
-          },
-          {
-            "$ref": "#/components/schemas/TransferTool"
-          },
-          {
-            "$ref": "#/components/schemas/CallControlRetrievalTool"
+            "type": "boolean"
           }
-        ],
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "book_appointment": "#/components/schemas/BookAppointmentTool",
-            "check_availability": "#/components/schemas/CheckAvailabilityTool",
-            "webhook": "#/components/schemas/WebhookTool",
-            "hangup": "#/components/schemas/HangupTool",
-            "transfer": "#/components/schemas/TransferTool",
-            "retrieval": "#/components/schemas/CallControlRetrievalTool",
-            "BookAppointmentTool": "#/components/schemas/BookAppointmentTool",
-            "CheckAvailabilityTool": "#/components/schemas/CheckAvailabilityTool",
-            "WebhookTool": "#/components/schemas/WebhookTool",
-            "HangupTool": "#/components/schemas/HangupTool",
-            "TransferTool": "#/components/schemas/TransferTool",
-            "CallControlRetrievalTool": "#/components/schemas/CallControlRetrievalTool"
-          }
-        }
+        ]
       },
       "TfPhoneNumber": {
         "title": "PhoneNumber",
@@ -114172,39 +114124,54 @@
         "nullable": true,
         "example": "12"
       },
-      "AssignmentTaskStatusResponseStatus": {
-        "title": "TaskStatus",
-        "enum": [
-          "pending",
-          "processing",
-          "completed",
-          "failed"
+      "AssistantToolsItem": {
+        "required": [
+          "type"
         ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "An enumeration.",
-        "example": "pending",
-        "x-ms-enum": {
-          "name": "AssignmentTaskStatusResponseStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "pending",
-              "name": "Pending"
-            },
-            {
-              "value": "processing",
-              "name": "Processing"
-            },
-            {
-              "value": "completed",
-              "name": "Completed"
-            },
-            {
-              "value": "failed",
-              "name": "Failed"
-            }
-          ]
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BookAppointmentTool"
+          },
+          {
+            "$ref": "#/components/schemas/CheckAvailabilityTool"
+          },
+          {
+            "$ref": "#/components/schemas/WebhookTool"
+          },
+          {
+            "$ref": "#/components/schemas/HangupTool"
+          },
+          {
+            "$ref": "#/components/schemas/TransferTool"
+          },
+          {
+            "$ref": "#/components/schemas/CallControlRetrievalTool"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "book_appointment": "#/components/schemas/BookAppointmentTool",
+            "check_availability": "#/components/schemas/CheckAvailabilityTool",
+            "webhook": "#/components/schemas/WebhookTool",
+            "hangup": "#/components/schemas/HangupTool",
+            "transfer": "#/components/schemas/TransferTool",
+            "retrieval": "#/components/schemas/CallControlRetrievalTool",
+            "BookAppointmentTool": "#/components/schemas/BookAppointmentTool",
+            "CheckAvailabilityTool": "#/components/schemas/CheckAvailabilityTool",
+            "WebhookTool": "#/components/schemas/WebhookTool",
+            "HangupTool": "#/components/schemas/HangupTool",
+            "TransferTool": "#/components/schemas/TransferTool",
+            "CallControlRetrievalTool": "#/components/schemas/CallControlRetrievalTool"
+          }
         }
       },
       "TexmlRecordingPrice": {
@@ -114307,6 +114274,41 @@
           }
         }
       },
+      "AssignmentTaskStatusResponseStatus": {
+        "title": "TaskStatus",
+        "enum": [
+          "pending",
+          "processing",
+          "completed",
+          "failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "An enumeration.",
+        "example": "pending",
+        "x-ms-enum": {
+          "name": "AssignmentTaskStatusResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "processing",
+              "name": "Processing"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
       "AnthropicMessageRequestSystem": {
         "type": "object",
         "oneOf": [
@@ -114321,18 +114323,6 @@
           }
         ],
         "description": "System prompt. Can be a string or an array of content blocks following the Anthropic API format."
-      },
-      "ActionsParticipantsRequestParticipants": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsBranch2"
-          }
-        ],
-        "description": "Either a list of participant id to perform the action on, or the keyword \u0022all\u0022 to perform the action on all participant."
       },
       "TexmlStatusCallbackMethod": {
         "enum": [
@@ -114358,50 +114348,17 @@
           ]
         }
       },
-      "AiAssistantStartRequestMessageHistoryItem": {
-        "required": [
-          "role"
-        ],
+      "ActionsParticipantsRequestParticipants": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/UserMessage"
+            "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsWrapper"
           },
           {
-            "$ref": "#/components/schemas/AssistantMessage"
-          },
-          {
-            "$ref": "#/components/schemas/ToolMessage"
-          },
-          {
-            "$ref": "#/components/schemas/SystemMessage"
-          },
-          {
-            "$ref": "#/components/schemas/DeveloperMessage"
+            "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsBranch2"
           }
         ],
-        "properties": {
-          "role": {
-            "title": "role",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "role",
-          "mapping": {
-            "user": "#/components/schemas/UserMessage",
-            "assistant": "#/components/schemas/AssistantMessage",
-            "tool": "#/components/schemas/ToolMessage",
-            "system": "#/components/schemas/SystemMessage",
-            "developer": "#/components/schemas/DeveloperMessage",
-            "UserMessage": "#/components/schemas/UserMessage",
-            "AssistantMessage": "#/components/schemas/AssistantMessage",
-            "ToolMessage": "#/components/schemas/ToolMessage",
-            "SystemMessage": "#/components/schemas/SystemMessage",
-            "DeveloperMessage": "#/components/schemas/DeveloperMessage"
-          }
-        }
+        "description": "Either a list of participant id to perform the action on, or the keyword \u0022all\u0022 to perform the action on all participant."
       },
       "TexmlUpdateCallRecordingRequestBody": {
         "title": "Texml Create Call Recording Request Body",
@@ -114788,59 +114745,48 @@
           }
         }
       },
-      "AiAssistantStartRequestVoiceSettings": {
+      "AiAssistantStartRequestMessageHistoryItem": {
         "required": [
-          "type"
+          "role"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+            "$ref": "#/components/schemas/UserMessage"
           },
           {
-            "$ref": "#/components/schemas/TelnyxVoiceSettings"
+            "$ref": "#/components/schemas/AssistantMessage"
           },
           {
-            "$ref": "#/components/schemas/AwsVoiceSettings"
+            "$ref": "#/components/schemas/ToolMessage"
           },
           {
-            "$ref": "#/components/schemas/AzureVoiceSettings"
+            "$ref": "#/components/schemas/SystemMessage"
           },
           {
-            "$ref": "#/components/schemas/RimeVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/ResembleVoiceSettings"
-          },
-          {
-            "$ref": "#/components/schemas/XaiVoiceSettings"
+            "$ref": "#/components/schemas/DeveloperMessage"
           }
         ],
         "properties": {
-          "type": {
-            "title": "type",
+          "role": {
+            "title": "role",
             "type": "string",
             "description": "Union discriminator"
           }
         },
-        "description": "The settings associated with the voice selected",
         "discriminator": {
-          "propertyName": "type",
+          "propertyName": "role",
           "mapping": {
-            "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
-            "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-            "aws": "#/components/schemas/AwsVoiceSettings",
-            "azure": "#/components/schemas/AzureVoiceSettings",
-            "rime": "#/components/schemas/RimeVoiceSettings",
-            "resemble": "#/components/schemas/ResembleVoiceSettings",
-            "xai": "#/components/schemas/XaiVoiceSettings",
-            "ElevenLabsVoiceSettings": "#/components/schemas/ElevenLabsVoiceSettings",
-            "TelnyxVoiceSettings": "#/components/schemas/TelnyxVoiceSettings",
-            "AwsVoiceSettings": "#/components/schemas/AwsVoiceSettings",
-            "AzureVoiceSettings": "#/components/schemas/AzureVoiceSettings",
-            "RimeVoiceSettings": "#/components/schemas/RimeVoiceSettings",
-            "ResembleVoiceSettings": "#/components/schemas/ResembleVoiceSettings",
-            "XaiVoiceSettings": "#/components/schemas/XaiVoiceSettings"
+            "user": "#/components/schemas/UserMessage",
+            "assistant": "#/components/schemas/AssistantMessage",
+            "tool": "#/components/schemas/ToolMessage",
+            "system": "#/components/schemas/SystemMessage",
+            "developer": "#/components/schemas/DeveloperMessage",
+            "UserMessage": "#/components/schemas/UserMessage",
+            "AssistantMessage": "#/components/schemas/AssistantMessage",
+            "ToolMessage": "#/components/schemas/ToolMessage",
+            "SystemMessage": "#/components/schemas/SystemMessage",
+            "DeveloperMessage": "#/components/schemas/DeveloperMessage"
           }
         }
       },
@@ -115512,7 +115458,7 @@
           },
           "language": {
             "type": "string",
-            "description": "\u0022The language of the audio to be transcribed. If not set, or if set to \u0060auto\u0060, supported models will automatically detect the language. Supported and meaningful values depend on the selected transcription \u0060model\u0060. For \u0060deepgram/flux\u0060, supported values are: \u0060auto\u0060 (Telnyx language detection controls the language hint), \u0060multi\u0060 (no language hint), and language-specific hints \u0060en\u0060, \u0060es\u0060, \u0060fr\u0060, \u0060de\u0060, \u0060hi\u0060, \u0060ru\u0060, \u0060pt\u0060, \u0060ja\u0060, \u0060it\u0060, and \u0060nl\u0060. For \u0060soniox/stt-rt-v4\u0060, \u0060auto\u0060 omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. \u0060en\u0060, \u0060es\u0060) bias detection toward that language. For \u0060assemblyai/universal-streaming\u0060, \u0060auto\u0060 (or unset) enables native multilingual code-switching; ISO 639-1 codes (\u0060en\u0060, \u0060es\u0060, \u0060de\u0060, \u0060fr\u0060, \u0060pt\u0060, \u0060it\u0060, \u0060tr\u0060, \u0060nl\u0060, \u0060sv\u0060, \u0060no\u0060, \u0060da\u0060, \u0060fi\u0060, \u0060hi\u0060, \u0060vi\u0060, \u0060ar\u0060, \u0060he\u0060, \u0060ja\u0060, \u0060zh\u0060) bias the session to that language. For \u0060humain/realtime\u0060, supported values are \u0060ar\u0060, \u0060en\u0060, \u0060codeswitch\u0060 (Arabic/English code-switching), and \u0060auto\u0060 (resolves server-side to code-switching). Unlike other models, \u0060humain/realtime\u0060 does not fall back to \u0060auto\u0060 when \u0060language\u0060 is omitted \u2014 omitting it applies \u0060en\u0060 instead.\u0022",
+            "description": "\u0022The language of the audio to be transcribed. If not set, or if set to \u0060auto\u0060, supported models will automatically detect the language. Supported and meaningful values depend on the selected transcription \u0060model\u0060. For \u0060deepgram/flux\u0060, supported values are: \u0060auto\u0060 (Telnyx language detection controls the language hint), \u0060multi\u0060 (no language hint), and language-specific hints \u0060en\u0060, \u0060es\u0060, \u0060fr\u0060, \u0060de\u0060, \u0060hi\u0060, \u0060ru\u0060, \u0060pt\u0060, \u0060ja\u0060, \u0060it\u0060, and \u0060nl\u0060. For \u0060soniox/stt-rt-v4\u0060, \u0060auto\u0060 omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. \u0060en\u0060, \u0060es\u0060) bias detection toward that language. For \u0060assemblyai/universal-streaming\u0060, \u0060auto\u0060 (or unset) enables native multilingual code-switching; ISO 639-1 codes (\u0060en\u0060, \u0060es\u0060, \u0060de\u0060, \u0060fr\u0060, \u0060pt\u0060, \u0060it\u0060, \u0060tr\u0060, \u0060nl\u0060, \u0060sv\u0060, \u0060no\u0060, \u0060da\u0060, \u0060fi\u0060, \u0060hi\u0060, \u0060vi\u0060, \u0060ar\u0060, \u0060he\u0060, \u0060ja\u0060, \u0060zh\u0060) bias the session to that language. For \u0060humain/realtime\u0060, supported values are \u0060ar\u0060, \u0060en\u0060, \u0060codeswitch\u0060 (Arabic/English code-switching), and \u0060auto\u0060 (resolves server-side to code-switching). Unlike other models, \u0060humain/realtime\u0060 does not fall back to \u0060auto\u0060 when \u0060language\u0060 is omitted \u2014 omitting it applies \u0060en\u0060 instead. For \u0060reson8/turns\u0060, supported values are \u0060auto\u0060 (or unset) for automatic language detection, and the language codes \u0060nl\u0060, \u0060en\u0060, \u0060fr\u0060, \u0060fy\u0060, \u0060de\u0060, \u0060it\u0060, \u0060pl\u0060, \u0060pt\u0060, \u0060es\u0060, and \u0060sv\u0060 to fix the transcription language.\u0022",
             "default": "auto",
             "example": "auto"
           }
@@ -115797,6 +115743,21 @@
             "description": "Whether to send also interim results. If set to false, only final results will be sent.",
             "default": false,
             "example": true
+          }
+        }
+      },
+      "TranscriptionEngineReson8Config": {
+        "title": "Transcription engine Reson8 config",
+        "type": "object",
+        "properties": {
+          "transcription_engine": {
+            "$ref": "#/components/schemas/TranscriptionEngineReson8ConfigTranscriptionEngine"
+          },
+          "transcription_model": {
+            "$ref": "#/components/schemas/TranscriptionEngineReson8ConfigTranscriptionModel"
+          },
+          "language": {
+            "$ref": "#/components/schemas/TranscriptionEngineReson8ConfigLanguage"
           }
         }
       },
@@ -117154,7 +117115,7 @@
           },
           "language": {
             "type": "string",
-            "description": "\u0022The language of the audio to be transcribed. If not set, or if set to \u0060auto\u0060, supported models will automatically detect the language. For \u0060deepgram/flux\u0060, supported values are: \u0060auto\u0060 (Telnyx language detection controls the language hint), \u0060multi\u0060 (no language hint), and language-specific hints \u0060en\u0060, \u0060es\u0060, \u0060fr\u0060, \u0060de\u0060, \u0060hi\u0060, \u0060ru\u0060, \u0060pt\u0060, \u0060ja\u0060, \u0060it\u0060, and \u0060nl\u0060. For \u0060soniox/stt-rt-v4\u0060, \u0060auto\u0060 omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. \u0060en\u0060, \u0060es\u0060) bias detection toward that language. For \u0060humain/realtime\u0060, supported values are \u0060ar\u0060, \u0060en\u0060, \u0060codeswitch\u0060 (Arabic/English code-switching), and \u0060auto\u0060 (resolves server-side to code-switching). Unlike other models, \u0060humain/realtime\u0060 does not fall back to \u0060auto\u0060 when \u0060language\u0060 is omitted \u2014 omitting it applies \u0060en\u0060 instead.\u0022"
+            "description": "\u0022The language of the audio to be transcribed. If not set, or if set to \u0060auto\u0060, supported models will automatically detect the language. For \u0060deepgram/flux\u0060, supported values are: \u0060auto\u0060 (Telnyx language detection controls the language hint), \u0060multi\u0060 (no language hint), and language-specific hints \u0060en\u0060, \u0060es\u0060, \u0060fr\u0060, \u0060de\u0060, \u0060hi\u0060, \u0060ru\u0060, \u0060pt\u0060, \u0060ja\u0060, \u0060it\u0060, and \u0060nl\u0060. For \u0060soniox/stt-rt-v4\u0060, \u0060auto\u0060 omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. \u0060en\u0060, \u0060es\u0060) bias detection toward that language. For \u0060humain/realtime\u0060, supported values are \u0060ar\u0060, \u0060en\u0060, \u0060codeswitch\u0060 (Arabic/English code-switching), and \u0060auto\u0060 (resolves server-side to code-switching). Unlike other models, \u0060humain/realtime\u0060 does not fall back to \u0060auto\u0060 when \u0060language\u0060 is omitted \u2014 omitting it applies \u0060en\u0060 instead. For \u0060reson8/turns\u0060, supported values are \u0060auto\u0060 (or unset) for automatic language detection, and the language codes \u0060nl\u0060, \u0060en\u0060, \u0060fr\u0060, \u0060fy\u0060, \u0060de\u0060, \u0060it\u0060, \u0060pl\u0060, \u0060pt\u0060, \u0060es\u0060, and \u0060sv\u0060 to fix the transcription language.\u0022"
           },
           "api_key_ref": {
             "title": "Api Key Ref",
@@ -129719,6 +129680,23 @@
           }
         }
       },
+      "Reson8Models": {
+        "enum": [
+          "reson8/turns"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "Reson8Models",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reson8/turns",
+              "name": "Reson8Turns"
+            }
+          ]
+        }
+      },
       "Settings": {
         "required": [
           "idp_entity_id",
@@ -130992,12 +130970,6 @@
           ]
         }
       },
-      "EnhanceInstructionsRequestEnhancementPrompt": {
-        "title": "Enhancement Prompt",
-        "type": "string",
-        "description": "Optional guidance describing how the instructions should be enhanced. When provided, the LLM applies these requested changes in addition to fixing any identified issues.",
-        "nullable": true
-      },
       "EnhanceInstructionsRequestInstructions": {
         "title": "Instructions",
         "type": "string",
@@ -132230,6 +132202,9 @@
             "$ref": "#/components/schemas/TranscriptionEngineHumainConfig"
           },
           {
+            "$ref": "#/components/schemas/TranscriptionEngineReson8Config"
+          },
+          {
             "$ref": "#/components/schemas/TranscriptionEngineAConfig"
           },
           {
@@ -132256,6 +132231,7 @@
             "Soniox": "#/components/schemas/TranscriptionEngineSonioxConfig",
             "Parakeet": "#/components/schemas/TranscriptionEngineParakeetConfig",
             "Humain": "#/components/schemas/TranscriptionEngineHumainConfig",
+            "Reson8": "#/components/schemas/TranscriptionEngineReson8Config",
             "A": "#/components/schemas/TranscriptionEngineAConfig",
             "B": "#/components/schemas/TranscriptionEngineBConfig",
             "TranscriptionEngineGoogleConfig": "#/components/schemas/TranscriptionEngineGoogleConfig",
@@ -132268,6 +132244,7 @@
             "TranscriptionEngineSonioxConfig": "#/components/schemas/TranscriptionEngineSonioxConfig",
             "TranscriptionEngineParakeetConfig": "#/components/schemas/TranscriptionEngineParakeetConfig",
             "TranscriptionEngineHumainConfig": "#/components/schemas/TranscriptionEngineHumainConfig",
+            "TranscriptionEngineReson8Config": "#/components/schemas/TranscriptionEngineReson8Config",
             "TranscriptionEngineAConfig": "#/components/schemas/TranscriptionEngineAConfig",
             "TranscriptionEngineBConfig": "#/components/schemas/TranscriptionEngineBConfig"
           }
@@ -157064,65 +157041,6 @@
           ]
         }
       },
-      "EmailDomainDmarcPolicyP": {
-        "enum": [
-          "none",
-          "quarantine",
-          "reject"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Policy applied to messages that fail alignment.",
-        "x-ms-enum": {
-          "name": "EmailDomainDmarcPolicyP",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "none",
-              "name": "None"
-            },
-            {
-              "value": "quarantine",
-              "name": "Quarantine"
-            },
-            {
-              "value": "reject",
-              "name": "Reject"
-            }
-          ]
-        }
-      },
-      "EmailDomainDmarcPolicySp": {
-        "enum": [
-          "none",
-          "quarantine",
-          "reject"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Policy for subdomains. Omitted from the record when null.",
-        "unrecognizedKeywords": {
-          "nullable": true
-        },
-        "x-ms-enum": {
-          "name": "EmailDomainDmarcPolicySp",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "none",
-              "name": "None"
-            },
-            {
-              "value": "quarantine",
-              "name": "Quarantine"
-            },
-            {
-              "value": "reject",
-              "name": "Reject"
-            }
-          ]
-        }
-      },
       "BucketOpsCategory": {
         "enum": [
           "list_bucket",
@@ -157616,6 +157534,65 @@
             {
               "value": "from_anyone",
               "name": "FromAnyone"
+            }
+          ]
+        }
+      },
+      "EmailDomainDmarcPolicyP": {
+        "enum": [
+          "none",
+          "quarantine",
+          "reject"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Policy applied to messages that fail alignment.",
+        "x-ms-enum": {
+          "name": "EmailDomainDmarcPolicyP",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "quarantine",
+              "name": "Quarantine"
+            },
+            {
+              "value": "reject",
+              "name": "Reject"
+            }
+          ]
+        }
+      },
+      "EmailDomainDmarcPolicySp": {
+        "enum": [
+          "none",
+          "quarantine",
+          "reject"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Policy for subdomains. Omitted from the record when null.",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
+        "x-ms-enum": {
+          "name": "EmailDomainDmarcPolicySp",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "quarantine",
+              "name": "Quarantine"
+            },
+            {
+              "value": "reject",
+              "name": "Reject"
             }
           ]
         }
@@ -176271,6 +176248,7 @@
           "soniox/stt-rt-v4",
           "nvidia/parakeet-v3",
           "humain/realtime",
+          "reson8/turns",
           "azure/fast",
           "azure/realtime",
           "google/latest_long",
@@ -176279,7 +176257,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The speech to text model to be used by the voice assistant. Supported models include:\n\n- \u0060deepgram/flux\u0060 (or \u0060flux\u0060) for live streaming turn-taking.\n- \u0060deepgram/nova-3\u0060 and \u0060deepgram/nova-2\u0060 for live streaming transcription.\n- \u0060speechmatics/standard\u0060 and \u0060speechmatics/enhanced\u0060 for live streaming transcription.\n- \u0060assemblyai/universal-streaming\u0060 for live streaming transcription.\n- \u0060xai/grok-stt\u0060 for live streaming transcription.\n- \u0060soniox/stt-rt-v4\u0060 for live streaming multilingual transcription with automatic language detection.\n- \u0060nvidia/parakeet-v3\u0060 for multilingual transcription with automatic language detection.\n- \u0060humain/realtime\u0060 for live streaming transcription with native Arabic and Arabic/English code-switching support.\n- \u0060azure/fast\u0060 and \u0060azure/realtime\u0060; Azure models require \u0060region\u0060, and unsupported regions require \u0060api_key_ref\u0060.\n- \u0060google/latest_long\u0060 for non-streaming multilingual transcription.\n- \u0060distil-whisper/distil-large-v2\u0060 for lower-latency English-only non-streaming transcription.\n- \u0060openai/whisper-large-v3-turbo\u0060 for multilingual non-streaming transcription with automatic language detection.",
+        "description": "The speech to text model to be used by the voice assistant. Supported models include:\n\n- \u0060deepgram/flux\u0060 (or \u0060flux\u0060) for live streaming turn-taking.\n- \u0060deepgram/nova-3\u0060 and \u0060deepgram/nova-2\u0060 for live streaming transcription.\n- \u0060speechmatics/standard\u0060 and \u0060speechmatics/enhanced\u0060 for live streaming transcription.\n- \u0060assemblyai/universal-streaming\u0060 for live streaming transcription.\n- \u0060xai/grok-stt\u0060 for live streaming transcription.\n- \u0060soniox/stt-rt-v4\u0060 for live streaming multilingual transcription with automatic language detection.\n- \u0060nvidia/parakeet-v3\u0060 for multilingual transcription with automatic language detection.\n- \u0060humain/realtime\u0060 for live streaming transcription with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 for live streaming turn-based transcription of 10 European languages with automatic language detection.\n- \u0060azure/fast\u0060 and \u0060azure/realtime\u0060; Azure models require \u0060region\u0060, and unsupported regions require \u0060api_key_ref\u0060.\n- \u0060google/latest_long\u0060 for non-streaming multilingual transcription.\n- \u0060distil-whisper/distil-large-v2\u0060 for lower-latency English-only non-streaming transcription.\n- \u0060openai/whisper-large-v3-turbo\u0060 for multilingual non-streaming transcription with automatic language detection.",
         "example": "distil-whisper/distil-large-v2",
         "x-ms-enum": {
           "name": "TranscriptionConfigModel",
@@ -176328,6 +176306,10 @@
             {
               "value": "humain/realtime",
               "name": "HumainRealtime"
+            },
+            {
+              "value": "reson8/turns",
+              "name": "Reson8Turns"
             },
             {
               "value": "azure/fast",
@@ -176635,6 +176617,101 @@
           ]
         }
       },
+      "TranscriptionEngineReson8ConfigTranscriptionEngine": {
+        "enum": [
+          "Reson8"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Engine identifier for Reson8 transcription service"
+      },
+      "TranscriptionEngineReson8ConfigTranscriptionModel": {
+        "enum": [
+          "reson8/turns"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The model to use for transcription.",
+        "x-ms-enum": {
+          "name": "TranscriptionEngineReson8ConfigTranscriptionModel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reson8/turns",
+              "name": "Reson8Turns"
+            }
+          ]
+        }
+      },
+      "TranscriptionEngineReson8ConfigLanguage": {
+        "enum": [
+          "auto",
+          "nl",
+          "en",
+          "fr",
+          "fy",
+          "de",
+          "it",
+          "pl",
+          "pt",
+          "es",
+          "sv"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The language of the audio to be transcribed. \u0060auto\u0060 (the default, also applied when \u0060language\u0060 is omitted) enables automatic language detection.",
+        "example": "auto",
+        "x-ms-enum": {
+          "name": "TranscriptionEngineReson8ConfigLanguage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "nl",
+              "name": "Nl"
+            },
+            {
+              "value": "en",
+              "name": "En"
+            },
+            {
+              "value": "fr",
+              "name": "Fr"
+            },
+            {
+              "value": "fy",
+              "name": "Fy"
+            },
+            {
+              "value": "de",
+              "name": "De"
+            },
+            {
+              "value": "it",
+              "name": "It"
+            },
+            {
+              "value": "pl",
+              "name": "Pl"
+            },
+            {
+              "value": "pt",
+              "name": "Pt"
+            },
+            {
+              "value": "es",
+              "name": "Es"
+            },
+            {
+              "value": "sv",
+              "name": "Sv"
+            }
+          ]
+        }
+      },
       "TranscriptionEngineSonioxConfigTranscriptionEngine": {
         "enum": [
           "Soniox"
@@ -176765,12 +176842,13 @@
           "soniox/stt-rt-v4",
           "nvidia/parakeet-v3",
           "humain/realtime",
+          "reson8/turns",
           "distil-whisper/distil-large-v2",
           "openai/whisper-large-v3-turbo"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.\n\n- \u0060deepgram/flux\u0060 is optimized for turn-taking with multilingual language hints.\n- \u0060deepgram/nova-3\u0060 is multilingual with automatic language detection.\n- \u0060deepgram/nova-2\u0060 is Deepgram\u0027s previous-generation multilingual model.\n- \u0060azure/fast\u0060 is a multilingual Azure transcription model.\n- \u0060assemblyai/universal-streaming\u0060 is a multilingual streaming model with configurable turn detection.\n- \u0060xai/grok-stt\u0060 is a multilingual Grok STT model.\n- \u0060soniox/stt-rt-v4\u0060 is a multilingual streaming model with automatic language detection and configurable endpointing.\n- \u0060nvidia/parakeet-v3\u0060 is a multilingual transcription model with automatic language detection.\n- \u0060humain/realtime\u0060 is a streaming model with native Arabic and Arabic/English code-switching support.",
+        "description": "The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.\n\n- \u0060deepgram/flux\u0060 is optimized for turn-taking with multilingual language hints.\n- \u0060deepgram/nova-3\u0060 is multilingual with automatic language detection.\n- \u0060deepgram/nova-2\u0060 is Deepgram\u0027s previous-generation multilingual model.\n- \u0060azure/fast\u0060 is a multilingual Azure transcription model.\n- \u0060assemblyai/universal-streaming\u0060 is a multilingual streaming model with configurable turn detection.\n- \u0060xai/grok-stt\u0060 is a multilingual Grok STT model.\n- \u0060soniox/stt-rt-v4\u0060 is a multilingual streaming model with automatic language detection and configurable endpointing.\n- \u0060nvidia/parakeet-v3\u0060 is a multilingual transcription model with automatic language detection.\n- \u0060humain/realtime\u0060 is a streaming model with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 is a turn-based streaming model covering 10 European languages with automatic language detection.",
         "x-ms-enum": {
           "name": "TranscriptionSettingsModel",
           "modelAsString": false,
@@ -176812,6 +176890,10 @@
               "name": "HumainRealtime"
             },
             {
+              "value": "reson8/turns",
+              "name": "Reson8Turns"
+            },
+            {
               "value": "distil-whisper/distil-large-v2",
               "name": "DistilWhisperDistilLargeV2"
             },
@@ -176834,6 +176916,7 @@
           "Soniox",
           "Parakeet",
           "Humain",
+          "Reson8",
           "A",
           "B"
         ],
@@ -186567,7 +186650,8 @@
           "Speechmatics",
           "Soniox",
           "Parakeet",
-          "Humain"
+          "Humain",
+          "Reson8"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -190378,6 +190462,7 @@
           "soniox",
           "parakeet",
           "humain",
+          "reson8",
           "azure",
           "openai",
           "google",
@@ -190416,6 +190501,10 @@
             {
               "value": "humain",
               "name": "Humain"
+            },
+            {
+              "value": "reson8",
+              "name": "Reson8"
             },
             {
               "value": "azure",
@@ -196223,6 +196312,9 @@
             },
             {
               "$ref": "#/components/schemas/HumainModels"
+            },
+            {
+              "$ref": "#/components/schemas/Reson8Models"
             }
           ]
         }
