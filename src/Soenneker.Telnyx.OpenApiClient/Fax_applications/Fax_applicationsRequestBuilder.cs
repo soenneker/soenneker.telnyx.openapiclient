@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
         /// <summary>
         /// Creates a new Fax Application based on the parameters sent in the request. The application name and webhook URL are required. Once created, you can assign phone numbers to your application using the `/phone_numbers` endpoint.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplication201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -82,11 +82,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ProgrammableFaxErrors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplication201Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplication201Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ProgrammableFaxErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplication201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplication201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This endpoint returns a list of your Fax Applications inside the &apos;data&apos; attribute of the response. You can adjust which applications are listed by using filters. Fax Applications are used to configure how you send and receive faxes using the Programmable Fax API with Telnyx.

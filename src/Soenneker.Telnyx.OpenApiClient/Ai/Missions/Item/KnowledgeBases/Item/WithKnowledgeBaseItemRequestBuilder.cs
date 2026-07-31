@@ -59,17 +59,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
         /// <summary>
         /// Get a specific knowledge base by ID
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -77,22 +77,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a knowledge base definition
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPutRequestInformation(requestConfiguration);
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete a knowledge base from a mission

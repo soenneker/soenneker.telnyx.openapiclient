@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Submit
         {
         }
         /// <summary>
-        /// Submit a DIR for vetting. Sends the DIR back through the vetting cycle from any non-terminal status. When re-submitting from `suspended` or `expired`, the DIR&apos;s previous Branded Calling registration is torn down transactionally and its phone numbers flip back to `submitted`. When re-submitting from `verified`, the existing registration stays live throughout the new vetting cycle.Returns `400` from `submitted`/`in_review`/`permanently_rejected`. Returns `409` if the DIR has an unresolved infringement claim.
+        /// Submit a DIR for vetting. Sends the DIR back through the vetting cycle from any non-terminal status. When re-submitting from `suspended` or `expired`, the DIR&apos;s previous Branded Calling registration is torn down transactionally and its phone numbers flip back to `submitted`. When re-submitting from `verified`, the existing registration stays live throughout the new vetting cycle.Returns `400` from `submitted`/`in_review`/`permanently_rejected`. Returns `400` if the DIR&apos;s business and financial references have not been submitted. Returns `409` if the DIR has an unresolved infringement claim.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DirWrapped"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Submit
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DirWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DirWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Submit a DIR for vetting. Sends the DIR back through the vetting cycle from any non-terminal status. When re-submitting from `suspended` or `expired`, the DIR&apos;s previous Branded Calling registration is torn down transactionally and its phone numbers flip back to `submitted`. When re-submitting from `verified`, the existing registration stays live throughout the new vetting cycle.Returns `400` from `submitted`/`in_review`/`permanently_rejected`. Returns `409` if the DIR has an unresolved infringement claim.
+        /// Submit a DIR for vetting. Sends the DIR back through the vetting cycle from any non-terminal status. When re-submitting from `suspended` or `expired`, the DIR&apos;s previous Branded Calling registration is torn down transactionally and its phone numbers flip back to `submitted`. When re-submitting from `verified`, the existing registration stays live throughout the new vetting cycle.Returns `400` from `submitted`/`in_review`/`permanently_rejected`. Returns `400` if the DIR&apos;s business and financial references have not been submitted. Returns `409` if the DIR has an unresolved infringement claim.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

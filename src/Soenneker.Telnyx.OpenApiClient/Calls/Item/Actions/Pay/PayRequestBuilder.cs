@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Pay
         /// <summary>
         /// Collect payment details from the caller using DTMF and either charge or tokenize the payment method through a configured Pay connector. Pay pauses active call recordings while sensitive payment details are collected.When `payment_token` is supplied, the DTMF collection steps are skipped and the existing token is sent to the connector.**Expected Webhooks:**- `call.payment.progress`- `call.payment.completed`**Test mode card numbers:** `4111111111111111` (Visa), `5555555555554444` (Mastercard), `378282246310005` (American Express), `6011111111111117` (Discover), `3065930009020004` (Diners Club), `3566002020360505` (JCB), `6200000000000005` (UnionPay), and `6771798021000008` (Maestro). Test-mode connectors reject other card numbers before contacting the configured processor. The UnionPay and Maestro numbers are accepted for processor testing, but Pay currently does not emit a card type for them.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson14"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayCall200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -44,11 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Pay
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson14?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PayRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PayCall200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PayRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson14> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PayRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PayCall200Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PayRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Pay
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson14>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson14.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PayCall200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PayCall200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Collect payment details from the caller using DTMF and either charge or tokenize the payment method through a configured Pay connector. Pay pauses active call recordings while sensitive payment details are collected.When `payment_token` is supplied, the DTMF collection steps are skipped and the existing token is sent to the connector.**Expected Webhooks:**- `call.payment.progress`- `call.payment.completed`**Test mode card numbers:** `4111111111111111` (Visa), `5555555555554444` (Mastercard), `378282246310005` (American Express), `6011111111111117` (Discover), `3065930009020004` (Diners Club), `3566002020360505` (JCB), `6200000000000005` (UnionPay), and `6771798021000008` (Maestro). Test-mode connectors reject other card numbers before contacting the configured processor. The UnionPay and Maestro numbers are accepted for processor testing, but Pay currently does not emit a card type for them.

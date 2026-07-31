@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RelationshipToRegistrant { get; set; }
 #endif
-        /// <summary>Position within the reference type. Business references occupy slots 0 and 1; the financial reference occupies slot 0.</summary>
+        /// <summary>Position within the reference type, counting from 1. Business references occupy slots 1 and 2, in the order they were sent in the `business_references` array; the financial reference occupies slot 1. Use this value together with `ref_type` to address the reference when updating it.</summary>
         public int? Slot { get; set; }
         /// <summary>IANA timezone id for the reference. Calls are only placed within the reference&apos;s local 8am-9pm window.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

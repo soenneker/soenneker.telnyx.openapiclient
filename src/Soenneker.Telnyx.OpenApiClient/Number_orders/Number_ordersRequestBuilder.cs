@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders
         /// <summary>
         /// Creates a phone number order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrder200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrder200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrder200Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrder200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a paginated list of number orders.

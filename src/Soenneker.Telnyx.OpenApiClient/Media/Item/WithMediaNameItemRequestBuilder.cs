@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
         /// <summary>
         /// Returns the information about a stored media file.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetMediaStorage200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors">When receiving a 401 status code</exception>
@@ -77,11 +77,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetMediaStorage200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetMediaStorage200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -91,12 +91,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetMediaStorage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetMediaStorage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates a stored media file.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson2"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaStorage200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,11 +106,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson2?> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaStorage200Response?> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson2> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaStorage200Response> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson2>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MediaResourceResponseResponseJson2.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaStorage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaStorage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a stored media file.

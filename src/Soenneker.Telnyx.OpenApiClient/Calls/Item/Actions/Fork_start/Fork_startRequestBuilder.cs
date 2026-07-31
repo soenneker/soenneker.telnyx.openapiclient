@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_start
         /// <summary>
         /// Call forking allows you to stream the media from a call to a specific target in realtime. This stream can be used to enable realtime audio analysis to support a variety of use cases, including fraud detection, or the creation of AI-generated audio responses. Requests must specify either the `target` attribute or the `rx` and `tx` attributes.**Expected Webhooks:**- `call.fork.started`- `call.fork.stopped`
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson6"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartCallFork200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -44,11 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_start
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson6?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.StartCallFork200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson6> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.StartCallFork200Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_start
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson6>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResponseResponseJson6.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StartCallFork200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StartCallFork200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Call forking allows you to stream the media from a call to a specific target in realtime. This stream can be used to enable realtime audio analysis to support a variety of use cases, including fraud detection, or the creation of AI-generated audio responses. Requests must specify either the `target` attribute or the `rx` and `tx` attributes.**Expected Webhooks:**- `call.fork.started`- `call.fork.stopped`

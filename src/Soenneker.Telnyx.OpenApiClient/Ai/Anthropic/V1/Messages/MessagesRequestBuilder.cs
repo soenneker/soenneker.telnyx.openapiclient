@@ -36,18 +36,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Anthropic.V1.Messages
         /// <summary>
         /// Send a message to a language model using the Anthropic Messages API format. This endpoint is compatible with the [Anthropic Messages API](https://docs.anthropic.com/en/api/messages) and may be used with the Anthropic JS or Python SDK by setting the base URL to `https://api.telnyx.com/v2/ai/anthropic`.The endpoint translates Anthropic-format requests into Telnyx&apos;s inference internals, then translates the response back to the Anthropic message shape. Streaming responses use Anthropic SSE event types (`message_start`, `content_block_start`, `content_block_delta`, `content_block_stop`, `message_delta`, `message_stop`).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseSchema"/></returns>
         /// <param name="body">Anthropic Messages-compatible request with Telnyx extensions.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseResponseJson?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseSchema?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseResponseJson> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseSchema> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Anthropic.V1.Messages
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseResponseJson>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateAnthropicMessage200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Send a message to a language model using the Anthropic Messages API format. This endpoint is compatible with the [Anthropic Messages API](https://docs.anthropic.com/en/api/messages) and may be used with the Anthropic JS or Python SDK by setting the base URL to `https://api.telnyx.com/v2/ai/anthropic`.The endpoint translates Anthropic-format requests into Telnyx&apos;s inference internals, then translates the response back to the Anthropic message shape. Streaming responses use Anthropic SSE event types (`message_start`, `content_block_start`, `content_block_delta`, `content_block_stop`, `message_delta`, `message_stop`).

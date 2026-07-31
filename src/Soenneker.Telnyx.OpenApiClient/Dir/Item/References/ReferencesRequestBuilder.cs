@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.References
         {
         }
         /// <summary>
-        /// List the business and financial references submitted for a DIR.Returns the two business references (slots 0 and 1) followed by the single financial reference. Each entry carries only the customer-supplied details (name, title, organization, relationship, phone, email, timezone). Returns an empty list when no references were submitted.
+        /// List the business and financial references submitted for a DIR.Returns the two business references (slots 1 and 2) followed by the single financial reference. Each entry carries its `ref_type` and `slot`, which together address the reference when updating it, alongside the details supplied when it was submitted (name, title, organization, relationship, phone, email, timezone). No internal identifiers are exposed. Returns an empty list when no references were submitted.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceList"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,12 +70,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.References
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Submit the two business references and one financial reference for a DIR.The DIR&apos;s authorizer email must be verified first (see the email-verification endpoint). Until it is, this returns `409` and no references are stored.The request body carries exactly two business references plus one financial reference. On success the references are stored and the response echoes them in the same shape as the GET. Submitting again converges on the already-stored references rather than erroring.
+        /// &quot;Submit the two business references and one financial reference for a DIR.The DIR&apos;s authorizer email must be verified first (see the email-verification endpoint). Until it is, this returns `409` and no references are stored.The request body carries exactly two business references plus one financial reference. The first submission stores them and returns `201`. Resubmitting returns `200`: identical values are simply confirmed and nothing is written, while changed values replace those references.Replacing a reference is allowed only while the DIR itself is still editable, the same window in which a single reference may be updated; once the DIR has been submitted for vetting this returns `400`. A replaced reference&apos;s pending verification call is cancelled and its dial-in code stops working, and the replacement contact is emailed fresh scheduling details. References whose details did not change keep their existing call, code, and the notice already sent to them.The response always echoes the stored references in the same shape as the GET.Who qualifies: the two business references confirm the company&apos;s reputation and operations. Each should be a senior contact at an organization the business works with, such as a vendor, partner, or client: a C-suite executive (CEO, CFO, CTO, COO), an owner or founder as reflected in the company&apos;s corporate records, or a senior manager, director, or executive. The financial reference confirms the company pays its bills and should be a licensed certified public accountant (CPA) the company uses, a contact at a bank or financial institution that has a relationship with the company, or a reasonable alternative banking or financial reference.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceList"/></returns>
         /// <param name="body">Exactly two business references plus one financial reference. The DIR&apos;s authorizer email must be verified before this is accepted.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,13 +92,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.References
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List the business and financial references submitted for a DIR.Returns the two business references (slots 0 and 1) followed by the single financial reference. Each entry carries only the customer-supplied details (name, title, organization, relationship, phone, email, timezone). Returns an empty list when no references were submitted.
+        /// List the business and financial references submitted for a DIR.Returns the two business references (slots 1 and 2) followed by the single financial reference. Each entry carries its `ref_type` and `slot`, which together address the reference when updating it, alongside the details supplied when it was submitted (name, title, organization, relationship, phone, email, timezone). No internal identifiers are exposed. Returns an empty list when no references were submitted.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.References
             return requestInfo;
         }
         /// <summary>
-        /// Submit the two business references and one financial reference for a DIR.The DIR&apos;s authorizer email must be verified first (see the email-verification endpoint). Until it is, this returns `409` and no references are stored.The request body carries exactly two business references plus one financial reference. On success the references are stored and the response echoes them in the same shape as the GET. Submitting again converges on the already-stored references rather than erroring.
+        /// &quot;Submit the two business references and one financial reference for a DIR.The DIR&apos;s authorizer email must be verified first (see the email-verification endpoint). Until it is, this returns `409` and no references are stored.The request body carries exactly two business references plus one financial reference. The first submission stores them and returns `201`. Resubmitting returns `200`: identical values are simply confirmed and nothing is written, while changed values replace those references.Replacing a reference is allowed only while the DIR itself is still editable, the same window in which a single reference may be updated; once the DIR has been submitted for vetting this returns `400`. A replaced reference&apos;s pending verification call is cancelled and its dial-in code stops working, and the replacement contact is emailed fresh scheduling details. References whose details did not change keep their existing call, code, and the notice already sent to them.The response always echoes the stored references in the same shape as the GET.Who qualifies: the two business references confirm the company&apos;s reputation and operations. Each should be a senior contact at an organization the business works with, such as a vendor, partner, or client: a C-suite executive (CEO, CFO, CTO, COO), an owner or founder as reflected in the company&apos;s corporate records, or a senior manager, director, or executive. The financial reference confirms the company pays its bills and should be a licensed certified public accountant (CPA) the company uses, a contact at a bank or financial institution that has a relationship with the company, or a reasonable alternative banking or financial reference.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Exactly two business references plus one financial reference. The DIR&apos;s authorizer email must be verified before this is accepted.</param>

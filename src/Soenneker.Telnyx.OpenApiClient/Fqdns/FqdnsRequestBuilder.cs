@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns
         /// <summary>
         /// Create a new FQDN object.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FqdnResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdn201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,11 +83,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdnRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdn201Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdnRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdnRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdn201Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdnRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FqdnResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdn201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdn201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all FQDNs belonging to the user that match the given filters.

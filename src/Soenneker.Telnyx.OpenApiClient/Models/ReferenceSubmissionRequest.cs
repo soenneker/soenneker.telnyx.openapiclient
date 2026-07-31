@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Exactly two business references.</summary>
+        /// <summary>&quot;Exactly two business references. Array order determines each one&apos;s slot: the first entry becomes slot 1 and the second becomes slot 2. Those slots are what you pass when updating a single reference later. Each should be a senior contact who can speak to your company&apos;s reputation and operations: a C-suite executive (CEO, CFO, CTO, COO), an owner or founder as reflected in your corporate records, or a senior manager, director, or executive at an organization you work with, such as a vendor, partner, or client.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput>? BusinessReferences { get; set; }
@@ -23,13 +23,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput> BusinessReferences { get; set; }
 #endif
-        /// <summary>One reference supplied at submit. The reference type is implied by the field that carries it (business_references vs financial_reference).</summary>
+        /// <summary>&quot;One financial reference who can confirm the company pays its bills: a licensed certified public accountant (CPA) the company uses, a contact at a bank or financial institution that has a relationship with the company, or a reasonable alternative banking or financial reference.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput? FinancialReference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference? FinancialReference { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput FinancialReference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference FinancialReference { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequest"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "business_references", n => { BusinessReferences = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput>(global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "financial_reference", n => { FinancialReference = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput>(global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput.CreateFromDiscriminatorValue); } },
+                { "financial_reference", n => { FinancialReference = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference>(global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput>("business_references", BusinessReferences);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput>("financial_reference", FinancialReference);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference>("financial_reference", FinancialReference);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
