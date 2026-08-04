@@ -58497,11 +58497,17 @@
           }
         }
       },
-      "EnhanceInstructionsRequestEnhancementPrompt": {
-        "title": "Enhancement Prompt",
-        "type": "string",
-        "description": "Optional guidance describing how the instructions should be enhanced. When provided, the LLM applies these requested changes in addition to fixing any identified issues.",
-        "nullable": true
+      "EnterpriseReputationCreateCheckFrequency": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/ReputationCheckFrequency"
+          }
+        },
+        "description": "Refresh cadence. Defaults to \u0060business_daily\u0060 if omitted."
       },
       "ActionsParticipantsRequest": {
         "type": "object",
@@ -75158,6 +75164,9 @@
           "client_side_tool": {
             "$ref": "#/components/schemas/CreateSharedToolRequestClientSideToolProperty"
           },
+          "update_dynamic_variables": {
+            "$ref": "#/components/schemas/UpdateDynamicVariablesToolParams"
+          },
           "timeout_ms": {
             "title": "Timeout Ms",
             "type": "integer",
@@ -75620,7 +75629,8 @@
             "from_user": "8492",
             "outbound_proxy": "outbound.sip-pbx.acme.example:5061",
             "expiration_sec": 600,
-            "transport": "TLS"
+            "transport": "TLS",
+            "user_agent": "Telnyx-Usage-Voice-Trunk/1.0"
           }
         }
       },
@@ -81882,10 +81892,16 @@
         "type": "object",
         "properties": {
           "enhancement_prompt": {
-            "$ref": "#/components/schemas/EnhanceInstructionsRequestEnhancementPrompt"
+            "title": "Enhancement Prompt",
+            "type": "string",
+            "description": "Optional guidance describing how the instructions should be enhanced. When provided, the LLM applies these requested changes in addition to fixing any identified issues.",
+            "nullable": true
           },
           "instructions": {
-            "$ref": "#/components/schemas/EnhanceInstructionsRequestInstructions"
+            "title": "Instructions",
+            "type": "string",
+            "description": "The instructions to enhance. When omitted, the assistant\u0027s existing instructions are used.",
+            "nullable": true
           }
         }
       },
@@ -97977,7 +97993,11 @@
             "readOnly": true
           },
           "activated_at": {
-            "$ref": "#/components/schemas/PhoneNumberDeletedDetailedActivatedAt"
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the phone number was first activated (transitioned from purchase-pending or port-pending to active). Will be null for numbers that have not yet been activated, or for legacy numbers activated before this field was tracked.",
+            "format": "date-time",
+            "nullable": true,
+            "readOnly": true
           }
         },
         "example": {
@@ -98172,7 +98192,11 @@
             "description": "Indicates whether deletion lock is enabled for this number. When enabled, this prevents the phone number from being deleted via the API or Telnyx portal."
           },
           "activated_at": {
-            "$ref": "#/components/schemas/PhoneNumberDetailedActivatedAt"
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the phone number was first activated (transitioned from purchase-pending or port-pending to active). Will be null for numbers that have not yet been activated, or for legacy numbers activated before this field was tracked.",
+            "format": "date-time",
+            "nullable": true,
+            "readOnly": true
           }
         },
         "example": {
@@ -108322,7 +108346,11 @@
             "$ref": "#/components/schemas/SlimPhoneNumberDetailedInboundCallScreening"
           },
           "activated_at": {
-            "$ref": "#/components/schemas/SlimPhoneNumberDetailedActivatedAt"
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the phone number was first activated (transitioned from purchase-pending or port-pending to active). Will be null for numbers that have not yet been activated, or for legacy numbers activated before this field was tracked.",
+            "format": "date-time",
+            "nullable": true,
+            "readOnly": true
           }
         },
         "example": {
@@ -109675,6 +109703,9 @@
           },
           {
             "$ref": "#/components/schemas/PayTool"
+          },
+          {
+            "$ref": "#/components/schemas/UpdateDynamicVariablesTool"
           }
         ],
         "properties": {
@@ -109697,7 +109728,8 @@
             "DtmfTool": "#/components/schemas/DtmfTool",
             "SendMessageTool": "#/components/schemas/SendMessageTool",
             "SkipTurnTool": "#/components/schemas/SkipTurnTool",
-            "PayTool": "#/components/schemas/PayTool"
+            "PayTool": "#/components/schemas/PayTool",
+            "UpdateDynamicVariablesTool": "#/components/schemas/UpdateDynamicVariablesTool"
           }
         }
       },
@@ -117959,7 +117991,8 @@
             "from_user": "8492",
             "outbound_proxy": "outbound.sip-pbx.acme.example:5061",
             "expiration_sec": 600,
-            "transport": "TLS"
+            "transport": "TLS",
+            "user_agent": "Telnyx-Usage-Voice-Trunk/1.0"
           }
         }
       },
@@ -118011,6 +118044,15 @@
           },
           "transport": {
             "$ref": "#/components/schemas/UacExternalSettingsTransport"
+          },
+          "user_agent": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._(),/ -]\u002B$",
+            "type": "string",
+            "description": "Custom SIP User-Agent header value that Telnyx uses on outbound REGISTER and INVITE messages. Set to null to use Telnyx\u0027s default User-Agent.",
+            "nullable": true,
+            "example": "Telnyx-Usage-Voice-Trunk/1.0"
           }
         },
         "description": "External SIP peer settings used by Telnyx when registering to your PBX and routing outbound calls.",
@@ -118022,7 +118064,8 @@
           "from_user": "8492",
           "outbound_proxy": "outbound.sip-pbx.acme.example:5061",
           "expiration_sec": 600,
-          "transport": "TLS"
+          "transport": "TLS",
+          "user_agent": "Telnyx-Usage-Voice-Trunk/1.0"
         }
       },
       "UacInbound": {
@@ -119497,6 +119540,54 @@
           }
         }
       },
+      "UpdateDynamicVariablesTool": {
+        "title": "UpdateDynamicVariablesTool",
+        "required": [
+          "type",
+          "update_dynamic_variables"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/UpdateDynamicVariablesToolType"
+          },
+          "update_dynamic_variables": {
+            "$ref": "#/components/schemas/UpdateDynamicVariablesToolParams"
+          }
+        },
+        "description": "The update_dynamic_variables tool lets the assistant write values into the conversation\u0027s dynamic-variables context during the call. Updated variables are available to later \u0060{{variable}}\u0060 interpolation (prompts, speak nodes, message templates) and to flow edge conditions. Declare each variable the assistant is allowed to set under \u0060updatable_variables\u0060."
+      },
+      "UpdateDynamicVariablesToolParams": {
+        "title": "UpdateDynamicVariablesToolParams",
+        "required": [
+          "name",
+          "description",
+          "updatable_variables"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": "string",
+            "description": "The function name surfaced to the LLM. Must match the OpenAI function-name pattern \u0060^[a-zA-Z0-9_-]\u002B$\u0060 and be unique across the assistant\u0027s function, webhook, and client_side tools.",
+            "example": "collect_details"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the tool passed to the assistant, guiding when to call it and which variables to update.",
+            "example": "Collect caller details into conversation variables."
+          },
+          "updatable_variables": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateDynamicVariablesToolParamsUpdatableVariablesItem"
+            },
+            "description": "The dynamic variables the assistant is allowed to write. At least one is required."
+          }
+        },
+        "description": "Configuration for an update_dynamic_variables tool."
+      },
       "UpdateEmailDomainRequest": {
         "type": "object",
         "properties": {
@@ -120876,6 +120967,9 @@
           "client_side_tool": {
             "$ref": "#/components/schemas/UpdateSharedToolRequestClientSideToolProperty"
           },
+          "update_dynamic_variables": {
+            "$ref": "#/components/schemas/UpdateDynamicVariablesToolParams"
+          },
           "timeout_ms": {
             "title": "Timeout Ms",
             "type": "integer"
@@ -121216,7 +121310,8 @@
             "from_user": "8492",
             "outbound_proxy": "outbound.sip-pbx.acme.example:5061",
             "expiration_sec": 600,
-            "transport": "TLS"
+            "transport": "TLS",
+            "user_agent": null
           }
         }
       },
@@ -131002,24 +131097,6 @@
           ]
         }
       },
-      "EnhanceInstructionsRequestInstructions": {
-        "title": "Instructions",
-        "type": "string",
-        "description": "The instructions to enhance. When omitted, the assistant\u0027s existing instructions are used.",
-        "nullable": true
-      },
-      "EnterpriseReputationCreateCheckFrequency": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ReputationCheckFrequency"
-          }
-        },
-        "description": "Refresh cadence. Defaults to \u0060business_daily\u0060 if omitted."
-      },
       "ErrorObjectDetail": {
         "required": [
           "type"
@@ -131803,45 +131880,6 @@
           }
         }
       },
-      "PhoneNumberDeletedDetailedActivatedAt": {
-        "type": "string",
-        "description": "ISO 8601 formatted date indicating when the phone number was first activated (transitioned from purchase-pending or port-pending to active). Will be null for numbers that have not yet been activated, or for legacy numbers activated before this field was tracked.",
-        "format": "date-time",
-        "nullable": true,
-        "readOnly": true
-      },
-      "PhoneNumberDetailedSourceType": {
-        "enum": [
-          "number_order",
-          "port_request"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.",
-        "nullable": true,
-        "readOnly": true,
-        "x-ms-enum": {
-          "name": "PhoneNumberDetailedSourceType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "number_order",
-              "name": "NumberOrder"
-            },
-            {
-              "value": "port_request",
-              "name": "PortRequest"
-            }
-          ]
-        }
-      },
-      "PhoneNumberDetailedActivatedAt": {
-        "type": "string",
-        "description": "ISO 8601 formatted date indicating when the phone number was first activated (transitioned from purchase-pending or port-pending to active). Will be null for numbers that have not yet been activated, or for legacy numbers activated before this field was tracked.",
-        "format": "date-time",
-        "nullable": true,
-        "readOnly": true
-      },
       "PortingOrderMiscComposed": {
         "required": [
           "type"
@@ -132097,13 +132135,6 @@
             "type": "boolean"
           }
         ]
-      },
-      "SlimPhoneNumberDetailedActivatedAt": {
-        "type": "string",
-        "description": "ISO 8601 formatted date indicating when the phone number was first activated (transitioned from purchase-pending or port-pending to active). Will be null for numbers that have not yet been activated, or for legacy numbers activated before this field was tracked.",
-        "format": "date-time",
-        "nullable": true,
-        "readOnly": true
       },
       "SpeakRequestVoiceSettings": {
         "required": [
@@ -140985,6 +141016,32 @@
         },
         "description": "Metadata associated with the conversation. Set \u0060ai_disabled\u0060 to \u0060true\u0060 to stop AI from responding to messages (e.g., when a human agent takes over). Set to \u0060false\u0060 to re-enable AI responses."
       },
+      "UpdateDynamicVariablesToolParamsUpdatableVariablesItem": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "pattern": "^(?!telnyx_)[a-zA-Z0-9._-]\u002B$",
+            "type": "string",
+            "description": "The dynamic-variable key to update. Must match \u0060^[a-zA-Z0-9._-]\u002B$\u0060 and may not start with the reserved \u0060telnyx_\u0060 prefix (reserved for system variables). The \u0060pattern\u0060 encodes both rules via a negative lookahead.",
+            "example": "customer_name"
+          },
+          "type": {
+            "type": "string",
+            "description": "Optional hint for the variable\u0027s value type (e.g. \u0060string\u0060).",
+            "example": "string"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional description of the variable, guiding the assistant on what value to capture.",
+            "example": "The caller\u0027s full name."
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateExternalConnectionRequestInbound": {
         "type": "object",
         "properties": {
@@ -149095,6 +149152,17 @@
           ]
         }
       },
+      "ReputationCheckFrequencyWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/ReputationCheckFrequency"
+          }
+        }
+      },
       "SupportedEmbeddingLoadersWrapper": {
         "required": [
           "value"
@@ -149180,17 +149248,6 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/ActionsParticipantsRequestParticipantsWrapperValue"
-          }
-        }
-      },
-      "ReputationCheckFrequencyWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ReputationCheckFrequency"
           }
         }
       },
@@ -170959,6 +171016,31 @@
           ]
         }
       },
+      "PhoneNumberDetailedSourceType": {
+        "enum": [
+          "number_order",
+          "port_request"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.",
+        "nullable": true,
+        "readOnly": true,
+        "x-ms-enum": {
+          "name": "PhoneNumberDetailedSourceType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "number_order",
+              "name": "NumberOrder"
+            },
+            {
+              "value": "port_request",
+              "name": "PortRequest"
+            }
+          ]
+        }
+      },
       "PhoneNumberItemErrorCode": {
         "enum": [
           "not_associated"
@@ -178186,6 +178268,23 @@
             {
               "value": "2",
               "name": "Value2"
+            }
+          ]
+        }
+      },
+      "UpdateDynamicVariablesToolType": {
+        "enum": [
+          "update_dynamic_variables"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "UpdateDynamicVariablesToolType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "update_dynamic_variables",
+              "name": "UpdateDynamicVariables"
             }
           ]
         }

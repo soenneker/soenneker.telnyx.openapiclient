@@ -59,6 +59,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The transport protocol used for SIP signaling when communicating with the external SIP peer. One of UDP, TLS, or TCP.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport? Transport { get; set; }
+        /// <summary>Custom SIP User-Agent header value that Telnyx uses on outbound REGISTER and INVITE messages. Set to null to use Telnyx&apos;s default User-Agent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserAgent { get; set; }
+#nullable restore
+#else
+        public string UserAgent { get; set; }
+#endif
         /// <summary>The SIP username used to authenticate with the external SIP peer for registrations and outbound calls. Must start with a letter or number and contain only letters, numbers, hyphens, and underscores.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,6 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "proxy", n => { Proxy = n.GetStringValue(); } },
                 { "transport", n => { Transport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>(); } },
+                { "user_agent", n => { UserAgent = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -116,6 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("password", Password);
             writer.WriteStringValue("proxy", Proxy);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>("transport", Transport);
+            writer.WriteStringValue("user_agent", UserAgent);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }
