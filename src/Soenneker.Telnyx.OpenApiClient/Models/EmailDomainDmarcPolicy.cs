@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Policy applied to messages that fail alignment.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicyP? P { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP? P { get; set; }
         /// <summary>Percentage of messages the policy applies to. Omitted from the record when 100.</summary>
         public int? Pct { get; set; }
         /// <summary>URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.</summary>
@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Rua { get; set; }
 #endif
         /// <summary>Policy for subdomains. Omitted from the record when null.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicySp? Sp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicySp? Sp { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicy"/> and sets the default values.
         /// </summary>
@@ -55,10 +55,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "p", n => { P = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicyP>(); } },
+                { "p", n => { P = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP>(); } },
                 { "pct", n => { Pct = n.GetIntValue(); } },
                 { "rua", n => { Rua = n.GetStringValue(); } },
-                { "sp", n => { Sp = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicySp>(); } },
+                { "sp", n => { Sp = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicySp>(); } },
             };
         }
         /// <summary>
@@ -68,10 +68,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicyP>("p", P);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP>("p", P);
             writer.WriteIntValue("pct", Pct);
             writer.WriteStringValue("rua", Rua);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicySp>("sp", Sp);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicySp>("sp", Sp);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

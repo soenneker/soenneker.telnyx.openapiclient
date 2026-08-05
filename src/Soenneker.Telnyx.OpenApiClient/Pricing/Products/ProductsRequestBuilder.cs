@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Pricing.Products
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ProductsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pricing/products{?page_number*,page_size*}", pathParameters)
+        public ProductsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pricing/products{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Pricing.Products
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ProductsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pricing/products{?page_number*,page_size*}", rawUrl)
+        public ProductsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pricing/products{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -99,11 +99,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Pricing.Products
         public partial class ProductsRequestBuilderGetQueryParameters 
         {
             /// <summary>Page number (1-based).</summary>
-            [QueryParameter("page_number")]
-            public int? PageNumber { get; set; }
+            [QueryParameter("page%5Bnumber%5D")]
+            public int? Pagenumber { get; set; }
             /// <summary>Number of items per page (max 100).</summary>
-            [QueryParameter("page_size")]
-            public int? PageSize { get; set; }
+            [QueryParameter("page%5Bsize%5D")]
+            public int? Pagesize { get; set; }
         }
     }
 }

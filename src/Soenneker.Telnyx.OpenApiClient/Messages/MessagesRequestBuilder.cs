@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Messages.Alphanumeric;
 using Soenneker.Telnyx.OpenApiClient.Messages.Alphanumeric_sender_id;
 using Soenneker.Telnyx.OpenApiClient.Messages.Group;
 using Soenneker.Telnyx.OpenApiClient.Messages.Group_mms;
@@ -10,6 +11,7 @@ using Soenneker.Telnyx.OpenApiClient.Messages.Item;
 using Soenneker.Telnyx.OpenApiClient.Messages.Long_code;
 using Soenneker.Telnyx.OpenApiClient.Messages.Number_pool;
 using Soenneker.Telnyx.OpenApiClient.Messages.Rcs;
+using Soenneker.Telnyx.OpenApiClient.Messages.Rcs_deeplinks;
 using Soenneker.Telnyx.OpenApiClient.Messages.Schedule;
 using Soenneker.Telnyx.OpenApiClient.Messages.Short_code;
 using Soenneker.Telnyx.OpenApiClient.Messages.Whatsapp;
@@ -27,6 +29,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The alphanumeric property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Alphanumeric.AlphanumericRequestBuilder Alphanumeric
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Alphanumeric.AlphanumericRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The alphanumeric_sender_id property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Alphanumeric_sender_id.Alphanumeric_sender_idRequestBuilder Alphanumeric_sender_id
         {
@@ -56,6 +63,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.RcsRequestBuilder Rcs
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.RcsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The rcs_deeplinks property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs_deeplinks.Rcs_deeplinksRequestBuilder Rcs_deeplinks
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs_deeplinks.Rcs_deeplinksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The schedule property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.ScheduleRequestBuilder Schedule
@@ -107,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessage200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -121,7 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SendMessage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

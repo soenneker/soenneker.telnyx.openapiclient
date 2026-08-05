@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch;
 using Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records;
 using Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports;
 using System.Collections.Generic;
@@ -16,6 +17,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportingRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The batch property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch.BatchRequestBuilder Batch
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch.BatchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The batch_detail_records property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.Batch_detail_recordsRequestBuilder Batch_detail_records
         {

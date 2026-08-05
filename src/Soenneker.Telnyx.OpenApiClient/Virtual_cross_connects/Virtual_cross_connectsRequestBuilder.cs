@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Coverage;
 using Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Virtual_cross_connectsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The coverage property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Coverage.CoverageRequestBuilder Coverage
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Coverage.CoverageRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.virtual_cross_connects.item collection</summary>
         /// <param name="position">Identifies the resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder"/></returns>
@@ -52,8 +58,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnects200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnects200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -66,8 +72,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnects200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnects200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -78,8 +84,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVirtualCrossConnect200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -93,8 +99,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVirtualCrossConnect200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateVirtualCrossConnect200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Oauth.Grants.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,12 +18,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Grants
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GrantsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.oauth.grants.item collection</summary>
+        /// <param name="position">OAuth grant ID</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.Item.GrantsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.Item.GrantsItemRequestBuilder this[Guid position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.Item.GrantsItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.GrantsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GrantsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/grants", pathParameters)
+        public GrantsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/grants{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,8 +43,33 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Grants
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GrantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/grants", rawUrl)
+        public GrantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/grants{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
+        }
+        /// <summary>
+        /// Retrieve a paginated list of OAuth grants for the authenticated user
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthGrants200Response"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError">When receiving a 401 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthGrants200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.GrantsRequestBuilder.GrantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthGrants200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.GrantsRequestBuilder.GrantsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthGrants200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthGrants200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create an OAuth authorization grant
@@ -40,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Grants
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.OAuthOAuthError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateGrantResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateOAuthGrantRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,9 +92,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Grants
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthOAuthError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateGrantResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateGrantResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Retrieve a paginated list of OAuth grants for the authenticated user
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.GrantsRequestBuilder.GrantsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.GrantsRequestBuilder.GrantsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// Create an OAuth authorization grant
@@ -88,6 +145,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Grants
         public global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.GrantsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Oauth.Grants.GrantsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Retrieve a paginated list of OAuth grants for the authenticated user
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class GrantsRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Page number</summary>
+            [QueryParameter("page%5Bnumber%5D")]
+            public int? Pagenumber { get; set; }
+            /// <summary>Number of results per page</summary>
+            [QueryParameter("page%5Bsize%5D")]
+            public int? Pagesize { get; set; }
         }
     }
 }

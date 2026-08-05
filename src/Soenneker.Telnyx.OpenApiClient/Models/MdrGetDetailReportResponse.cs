@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta705Dfa7312? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta705Dfa7312 Meta { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetDetailReportResponse"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta705Dfa7312>(global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta705Dfa7312.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDetailReportResponse>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BatchCsvPaginationMeta705Dfa7312>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

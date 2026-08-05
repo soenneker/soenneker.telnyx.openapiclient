@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeListResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CloudflareIpListSyncErrors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeListResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Access_ip_ranges.Access_ip_rangesRequestBuilder.Access_ip_rangesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CloudflareIpListSyncErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeListResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeListResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CloudflareIpListSyncErrors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeResponseSchema?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangePost body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CloudflareIpListSyncErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -49,25 +49,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Agents
         /// <summary>
         /// List all RCS agents
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsAgentsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingRcsAgentsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RcsAgentsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingRcsAgentsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RcsAgentsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingRcsAgentsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RcsAgentsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RcsAgentsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingRcsAgentsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MessagingRcsAgentsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all RCS agents

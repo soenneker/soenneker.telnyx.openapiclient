@@ -49,25 +49,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice
         /// <summary>
         /// Fetch all previous requests for cdr usage reports. 
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StandardCdrGetUsageReportsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.StandardErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.StandardErrorResponseFfba4Faa88">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.VoiceRequestBuilder.VoiceRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.StandardCdrGetUsageReportsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.VoiceRequestBuilder.VoiceRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.VoiceRequestBuilder.VoiceRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.StandardCdrGetUsageReportsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.VoiceRequestBuilder.VoiceRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.StandardErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.StandardErrorResponseFfba4Faa88.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StandardCdrGetUsageReportsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StandardCdrGetUsageReportsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new legacy usage V2 CDR report request with the specified filters

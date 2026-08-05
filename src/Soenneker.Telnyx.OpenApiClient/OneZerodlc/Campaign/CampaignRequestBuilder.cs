@@ -7,6 +7,7 @@ using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.AcceptSharing;
 using Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Item;
 using Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Usecase;
+using Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Usecase_cost;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -29,6 +30,11 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Usecase.UsecaseRequestBuilder Usecase
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Usecase.UsecaseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The usecase_cost property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Usecase_cost.Usecase_costRequestBuilder Usecase_cost
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Usecase_cost.Usecase_costRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.OneZerodlc.campaign.item collection</summary>
         /// <param name="position">Unique identifier of the campaign.</param>
@@ -65,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCsp?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.CampaignRequestBuilder.CampaignRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -79,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCsp>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRecordSetCsp.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

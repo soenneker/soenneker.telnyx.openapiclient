@@ -39,9 +39,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationChannel200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationChannel200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,9 +54,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationChannel200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationChannel200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -66,10 +66,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationChannel200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationChannel200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,10 +82,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationChannel200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationChannel200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -96,9 +96,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
         /// <param name="body">A Notification Channel</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationChannel200Response?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -112,9 +112,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NotificationsErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationChannel200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationChannel200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

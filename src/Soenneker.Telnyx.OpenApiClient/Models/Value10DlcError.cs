@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Value10DlcError : ApiException, IAdditionalDataHolder, IParsable
+    public partial class Value10DlcError : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,15 +30,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Detail { get; set; }
 #endif
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource? SourceEscaped { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource SourceEscaped { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource Source { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "source", n => { SourceEscaped = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource>(global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource>(global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -89,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource>("source", SourceEscaped);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorSource>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

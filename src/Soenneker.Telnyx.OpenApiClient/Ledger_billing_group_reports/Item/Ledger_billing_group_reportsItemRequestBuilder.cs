@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroupReport200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BillingErrors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BillingErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroupReport200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroupReport200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

@@ -77,6 +77,7 @@ using Soenneker.Telnyx.OpenApiClient.Ip_connections;
 using Soenneker.Telnyx.OpenApiClient.Ips;
 using Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports;
 using Soenneker.Telnyx.OpenApiClient.Legacy;
+using Soenneker.Telnyx.OpenApiClient.Legacy_reporting;
 using Soenneker.Telnyx.OpenApiClient.List;
 using Soenneker.Telnyx.OpenApiClient.Managed_accounts;
 using Soenneker.Telnyx.OpenApiClient.Media;
@@ -84,6 +85,7 @@ using Soenneker.Telnyx.OpenApiClient.Messages;
 using Soenneker.Telnyx.OpenApiClient.Messaging;
 using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers;
+using Soenneker.Telnyx.OpenApiClient.Messaging_numbers;
 using Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates;
 using Soenneker.Telnyx.OpenApiClient.Messaging_optouts;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics;
@@ -163,9 +165,11 @@ using Soenneker.Telnyx.OpenApiClient.Terms_of_service;
 using Soenneker.Telnyx.OpenApiClient.Texml;
 using Soenneker.Telnyx.OpenApiClient.Texml_applications;
 using Soenneker.Telnyx.OpenApiClient.TextToSpeech;
+using Soenneker.Telnyx.OpenApiClient.Traffic;
 using Soenneker.Telnyx.OpenApiClient.Traffic_policy_profiles;
 using Soenneker.Telnyx.OpenApiClient.Uac_connections;
 using Soenneker.Telnyx.OpenApiClient.Usage_reports;
+using Soenneker.Telnyx.OpenApiClient.User;
 using Soenneker.Telnyx.OpenApiClient.User_addresses;
 using Soenneker.Telnyx.OpenApiClient.User_tags;
 using Soenneker.Telnyx.OpenApiClient.V2;
@@ -179,6 +183,7 @@ using Soenneker.Telnyx.OpenApiClient.Voice_designs;
 using Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports;
 using Soenneker.Telnyx.OpenApiClient.Webhook_deliveries;
 using Soenneker.Telnyx.OpenApiClient.WellKnown;
+using Soenneker.Telnyx.OpenApiClient.Whatsapp;
 using Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces;
 using Soenneker.Telnyx.OpenApiClient.Wireguard_peers;
 using Soenneker.Telnyx.OpenApiClient.Wireless;
@@ -551,6 +556,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Legacy.LegacyRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The legacy_reporting property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Legacy_reporting.Legacy_reportingRequestBuilder Legacy_reporting
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Legacy_reporting.Legacy_reportingRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The list property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.List.ListRequestBuilder List
         {
@@ -585,6 +595,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Messaging_hosted_numbersRequestBuilder Messaging_hosted_numbers
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Messaging_hosted_numbersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The messaging_numbers property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers.Messaging_numbersRequestBuilder Messaging_numbers
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers.Messaging_numbersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The messaging_numbers_bulk_updates property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesRequestBuilder Messaging_numbers_bulk_updates
@@ -981,6 +996,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.TextToSpeechRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The traffic property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Traffic.TrafficRequestBuilder Traffic
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Traffic.TrafficRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The traffic_policy_profiles property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Traffic_policy_profiles.Traffic_policy_profilesRequestBuilder Traffic_policy_profiles
         {
@@ -995,6 +1015,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Usage_reports.Usage_reportsRequestBuilder Usage_reports
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Usage_reports.Usage_reportsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The user property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.User.UserRequestBuilder User
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.User.UserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The user_addresses property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesRequestBuilder User_addresses
@@ -1060,6 +1085,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.WellKnown.WellKnownRequestBuilder WellKnown
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.WellKnown.WellKnownRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The whatsapp property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.WhatsappRequestBuilder Whatsapp
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.WhatsappRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The wireguard_interfaces property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Wireguard_interfacesRequestBuilder Wireguard_interfaces

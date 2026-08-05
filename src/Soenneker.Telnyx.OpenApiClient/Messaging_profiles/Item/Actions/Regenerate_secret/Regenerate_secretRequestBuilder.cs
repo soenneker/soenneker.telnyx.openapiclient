@@ -36,27 +36,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Actions.Regener
         /// <summary>
         /// Regenerate the v1 secret for a messaging profile.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret2200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret200Response?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret2200Response?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret200Response> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret2200Response> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RegenerateMessagingProfileSecret2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Regenerate the v1 secret for a messaging profile.

@@ -39,8 +39,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocumentsError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values.Wireless_blocklist_valuesRequestBuilder.Wireless_blocklist_valuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -53,8 +53,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.DocumentsError.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

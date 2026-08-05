@@ -36,29 +36,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Item
         /// <summary>
         /// Cancel a scheduled message that has not yet been sent. Only messages with `status=scheduled` and `send_at` more than a minute from now can be cancelled.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError.CreateFromDiscriminatorValue },
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Note: This API endpoint can only retrieve messages that are no older than 10 days since their creation. If you require messages older than this, please generate an [MDR report.](https://developers.telnyx.com/api-reference/mdr-usage-reports/create-mdr-usage-report)&quot;
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

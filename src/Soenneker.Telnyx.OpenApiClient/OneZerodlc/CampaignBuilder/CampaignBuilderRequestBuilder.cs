@@ -46,10 +46,10 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.CampaignBuilder
         /// <param name="body">CampaignRequest object describes the campaign to be submitted via &apos;/campaignBuilder/brand/{brandId}/usecase/{usecase}&apos; operation. It is also used in operations for retrieving status of campaign request and for updating a pending request.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcError">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcError">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorCa4Eb0Ad6F">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorCa4Eb0Ad6F">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignCsp?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,10 +63,10 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.CampaignBuilder
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcError.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcError.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorCa4Eb0Ad6F.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorCa4Eb0Ad6F.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignCsp>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignCsp.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

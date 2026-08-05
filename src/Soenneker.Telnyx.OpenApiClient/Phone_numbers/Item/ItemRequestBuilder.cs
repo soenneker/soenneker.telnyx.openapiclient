@@ -63,11 +63,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumber200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumber200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -80,11 +80,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumber200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -94,11 +94,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievePhoneNumber200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievePhoneNumber200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -111,11 +111,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrievePhoneNumber200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -126,11 +126,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumber200Response?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -144,11 +144,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumber200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

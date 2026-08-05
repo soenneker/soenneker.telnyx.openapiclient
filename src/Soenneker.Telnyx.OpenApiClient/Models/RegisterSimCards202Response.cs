@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrorC5290D5308>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrorC5290D5308> Errors { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RegisterSimCards202Response"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSimCard>(global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSimCard.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrorC5290D5308>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrorC5290D5308.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSimCard>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessError>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrorC5290D5308>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

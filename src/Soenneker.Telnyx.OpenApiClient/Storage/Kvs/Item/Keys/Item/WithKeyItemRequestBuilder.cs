@@ -39,10 +39,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys.Item
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,10 +56,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.GenericErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -70,10 +70,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys.Item
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,10 +87,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.GenericErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -102,12 +102,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys.Item
         /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 413 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 413 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,12 +122,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys.Item
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "413", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.EdgeComputeErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.GenericErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);

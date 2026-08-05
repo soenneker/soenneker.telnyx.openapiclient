@@ -2,7 +2,10 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Messaging.Hosted;
+using Soenneker.Telnyx.OpenApiClient.Messaging.Profiles;
 using Soenneker.Telnyx.OpenApiClient.Messaging.Rcs;
+using Soenneker.Telnyx.OpenApiClient.Messaging.Tollfree;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,10 +18,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagingRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The hosted property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging.Hosted.HostedRequestBuilder Hosted
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging.Hosted.HostedRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The profiles property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging.Profiles.ProfilesRequestBuilder Profiles
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging.Profiles.ProfilesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The rcs property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.RcsRequestBuilder Rcs
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.RcsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tollfree property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging.Tollfree.TollfreeRequestBuilder Tollfree
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging.Tollfree.TollfreeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging.MessagingRequestBuilder"/> and sets the default values.

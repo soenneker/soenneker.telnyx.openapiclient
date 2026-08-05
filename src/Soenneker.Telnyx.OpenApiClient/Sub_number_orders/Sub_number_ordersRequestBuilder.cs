@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item;
+using Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Report;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,6 +19,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Sub_number_ordersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The report property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Report.ReportRequestBuilder Report
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Report.ReportRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.sub_number_orders.item collection</summary>
         /// <param name="position">The sub number order ID.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder"/></returns>
@@ -52,11 +58,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListSubNumberOrdersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListSubNumberOrdersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Sub_number_ordersRequestBuilder.Sub_number_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -69,11 +75,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListSubNumberOrdersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListSubNumberOrdersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

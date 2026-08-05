@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand;
+using Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand_feedback;
 using Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign;
 using Soenneker.Telnyx.OpenApiClient.OneZerodlc.CampaignBuilder;
 using Soenneker.Telnyx.OpenApiClient.OneZerodlc.EnumNamespace;
@@ -26,6 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.BrandRequestBuilder Brand
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.BrandRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The brand_feedback property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand_feedback.Brand_feedbackRequestBuilder Brand_feedback
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand_feedback.Brand_feedbackRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The campaign property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.CampaignRequestBuilder Campaign

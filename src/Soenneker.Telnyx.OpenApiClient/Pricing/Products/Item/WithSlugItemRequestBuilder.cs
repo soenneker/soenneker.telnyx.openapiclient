@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Pricing.Products.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSlugItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pricing/products/{slug}{?page_number*,page_size*}", pathParameters)
+        public WithSlugItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pricing/products/{slug}{?filter%5Bcountry_iso%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Pricing.Products.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSlugItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pricing/products/{slug}{?page_number*,page_size*}", rawUrl)
+        public WithSlugItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pricing/products/{slug}{?filter%5Bcountry_iso%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,12 +85,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Pricing.Products.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithSlugItemRequestBuilderGetQueryParameters 
         {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bcountry_iso%5D")]
+            public string? FiltercountryIso { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bcountry_iso%5D")]
+            public string FiltercountryIso { get; set; }
+#endif
             /// <summary>Page number (1-based).</summary>
-            [QueryParameter("page_number")]
-            public int? PageNumber { get; set; }
+            [QueryParameter("page%5Bnumber%5D")]
+            public int? Pagenumber { get; set; }
             /// <summary>Number of items per page (max 100).</summary>
-            [QueryParameter("page_size")]
-            public int? PageSize { get; set; }
+            [QueryParameter("page%5Bsize%5D")]
+            public int? Pagesize { get; set; }
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_actions
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListSimCardActions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListSimCardActions200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_actions.Sim_card_actionsRequestBuilder.Sim_card_actionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_actions
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListSimCardActions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListSimCardActions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

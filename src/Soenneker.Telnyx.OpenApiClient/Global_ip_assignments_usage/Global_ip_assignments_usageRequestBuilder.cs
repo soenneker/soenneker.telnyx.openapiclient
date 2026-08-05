@@ -36,27 +36,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments_usage
         /// <summary>
         /// Global IP Assignment Usage Metrics
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage2200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_assignments_usage.Global_ip_assignments_usageRequestBuilder.Global_ip_assignments_usageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage2200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_assignments_usage.Global_ip_assignments_usageRequestBuilder.Global_ip_assignments_usageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_assignments_usage.Global_ip_assignments_usageRequestBuilder.Global_ip_assignments_usageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage2200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_assignments_usage.Global_ip_assignments_usageRequestBuilder.Global_ip_assignments_usageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.NetappsErrors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Global IP Assignment Usage Metrics

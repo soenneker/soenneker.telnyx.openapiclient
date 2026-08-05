@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Wireless.Detail;
 using Soenneker.Telnyx.OpenApiClient.Wireless.Detail_records_reports;
 using Soenneker.Telnyx.OpenApiClient.Wireless.Regions;
 using System.Collections.Generic;
@@ -16,6 +17,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WirelessRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The detail property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Wireless.Detail.DetailRequestBuilder Detail
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Wireless.Detail.DetailRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The detail_records_reports property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Wireless.Detail_records_reports.Detail_records_reportsRequestBuilder Detail_records_reports
         {

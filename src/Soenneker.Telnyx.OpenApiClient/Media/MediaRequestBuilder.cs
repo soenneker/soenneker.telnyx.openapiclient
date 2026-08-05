@@ -52,8 +52,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Media
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListOfMediaResourcesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListOfMediaResourcesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Media.MediaRequestBuilder.MediaRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -66,8 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Media
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOfMediaResourcesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOfMediaResourcesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -78,9 +78,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Media
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMediaStorage201Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UploadMediaRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -94,9 +94,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Media
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageErrors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMediaStorage201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateMediaStorage201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

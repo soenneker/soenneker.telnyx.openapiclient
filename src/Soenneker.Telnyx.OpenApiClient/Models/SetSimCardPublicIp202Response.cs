@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>This object represents a SIM card action. It allows tracking the current status of an operation that impacts the SIM card.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardAction? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardAction? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardAction Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardAction Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SetSimCardPublicIp202Response"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardAction>(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardAction.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardAction>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardAction.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardAction>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardAction>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,6 +9,7 @@ using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging;
+using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Regulatory_requirements;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Voice;
 using System.Collections.Generic;
@@ -43,6 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingRequestBuilder Messaging
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.MessagingRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The regulatory_requirements property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Regulatory_requirements.Regulatory_requirementsRequestBuilder Regulatory_requirements
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Regulatory_requirements.Regulatory_requirementsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The slim property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder Slim
@@ -88,11 +94,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbers200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbers200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Phone_numbersRequestBuilder.Phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -105,11 +111,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.NumbersErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbers200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbers200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

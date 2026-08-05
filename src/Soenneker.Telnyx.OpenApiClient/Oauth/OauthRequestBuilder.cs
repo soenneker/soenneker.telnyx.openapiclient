@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Oauth.Authorize;
+using Soenneker.Telnyx.OpenApiClient.Oauth.Clients;
 using Soenneker.Telnyx.OpenApiClient.Oauth.Consent;
 using Soenneker.Telnyx.OpenApiClient.Oauth.Grants;
 using Soenneker.Telnyx.OpenApiClient.Oauth.Introspect;
@@ -25,6 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth
         public global::Soenneker.Telnyx.OpenApiClient.Oauth.Authorize.AuthorizeRequestBuilder Authorize
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Oauth.Authorize.AuthorizeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The clients property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Oauth.Clients.ClientsRequestBuilder Clients
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Oauth.Clients.ClientsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The consent property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Oauth.Consent.ConsentRequestBuilder Consent

@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedVerificationRequestStatus"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedVerificationRequestStatus?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,34 +65,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedVerificationRequestStatus>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedVerificationRequestStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Submit a new tollfree verification request
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestEgress"/></returns>
         /// <param name="body">The body of a tollfree verification request</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationErrors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestEgress?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestEgress> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestEgress>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestEgress.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a list of previously-submitted tollfree verification requests
@@ -121,11 +121,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

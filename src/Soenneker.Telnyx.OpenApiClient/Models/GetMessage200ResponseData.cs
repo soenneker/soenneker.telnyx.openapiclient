@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetMessage200ResponseData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload? InboundMessagePayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload? MessagingInboundMessagePayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload InboundMessagePayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload MessagingInboundMessagePayload { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload? OutboundMessagePayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload? MessagingOutboundMessagePayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload OutboundMessagePayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload MessagingOutboundMessagePayload { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage200ResponseData();
-            if("InboundMessagePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("MessagingInboundMessagePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InboundMessagePayload = new global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload();
+                result.MessagingInboundMessagePayload = new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload();
             }
-            else if("OutboundMessagePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("MessagingOutboundMessagePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OutboundMessagePayload = new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload();
+                result.MessagingOutboundMessagePayload = new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload();
             }
             return result;
         }
@@ -55,13 +55,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(InboundMessagePayload != null)
+            if(MessagingInboundMessagePayload != null)
             {
-                return InboundMessagePayload.GetFieldDeserializers();
+                return MessagingInboundMessagePayload.GetFieldDeserializers();
             }
-            else if(OutboundMessagePayload != null)
+            else if(MessagingOutboundMessagePayload != null)
             {
-                return OutboundMessagePayload.GetFieldDeserializers();
+                return MessagingOutboundMessagePayload.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -72,13 +72,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(InboundMessagePayload != null)
+            if(MessagingInboundMessagePayload != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload>(null, InboundMessagePayload);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload>(null, MessagingInboundMessagePayload);
             }
-            else if(OutboundMessagePayload != null)
+            else if(MessagingOutboundMessagePayload != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload>(null, OutboundMessagePayload);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload>(null, MessagingOutboundMessagePayload);
             }
         }
     }

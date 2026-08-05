@@ -49,40 +49,40 @@ namespace Soenneker.Telnyx.OpenApiClient.User_addresses
         /// <summary>
         /// Returns a list of your user addresses.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress2200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesRequestBuilder.User_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress2200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesRequestBuilder.User_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesRequestBuilder.User_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress2200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesRequestBuilder.User_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress2200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a user address.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress2200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress2200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressesUserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress200Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress2200Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressesUserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress2200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your user addresses.
@@ -111,11 +111,11 @@ namespace Soenneker.Telnyx.OpenApiClient.User_addresses
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressesUserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressesUserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
