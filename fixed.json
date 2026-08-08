@@ -52155,7 +52155,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/DownloadSubNumberOrdersReport200CsvResponseSchema"
                 },
-                "example": "id,order_request_id,is_block_sub_number_order,status,phone_number_type,requirements_met,phone_numbers_count,country_code,user_id,customer_reference,created_at,updated_at\n1758d6ed-61a0-4d7a-bf57-b5dced413d33,f486fc2c-4fdf-4849-930d-b3045373e839, false,success,local, true,1,US,0d7ef697-df19-413a-b724-56b0539f5397,STRING,2025-05-23 14:33:12.376686,2025-05-23 14:33:15.624916"
+                "example": "id,order_request_id,is_block_sub_number_order,status,phone_number_type,requirements_met,phone_numbers_count,country_code,user_id,customer_reference,created_at,updated_at\n1758d6ed-61a0-4d7a-bf57-b5dced413d33,f486fc2c-4fdf-4849-930d-b3045373e839,False,success,local,True,1,US,0d7ef697-df19-413a-b724-56b0539f5397,STRING,2025-05-23 14:33:12.376686,2025-05-23 14:33:15.624916"
               }
             }
           },
@@ -52527,7 +52527,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/DownloadSubNumberOrdersReport2200CsvResponseSchema"
                 },
-                "example": "id,order_request_id,is_block_sub_number_order,status,phone_number_type,requirements_met,phone_numbers_count,country_code,user_id,customer_reference,created_at,updated_at\n1758d6ed-61a0-4d7a-bf57-b5dced413d33,f486fc2c-4fdf-4849-930d-b3045373e839, false,success,local, true,1,US,0d7ef697-df19-413a-b724-56b0539f5397,STRING,2025-05-23 14:33:12.376686,2025-05-23 14:33:15.624916"
+                "example": "id,order_request_id,is_block_sub_number_order,status,phone_number_type,requirements_met,phone_numbers_count,country_code,user_id,customer_reference,created_at,updated_at\n1758d6ed-61a0-4d7a-bf57-b5dced413d33,f486fc2c-4fdf-4849-930d-b3045373e839,False,success,local,True,1,US,0d7ef697-df19-413a-b724-56b0539f5397,STRING,2025-05-23 14:33:12.376686,2025-05-23 14:33:15.624916"
               }
             }
           },
