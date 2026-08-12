@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The attachments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem>? Attachments { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyAttachmentsItem>? Attachments { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem> Attachments { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyAttachmentsItem> Attachments { get; set; }
 #endif
         /// <summary>The bcc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The direction property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageDirection? Direction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyDirection? Direction { get; set; }
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,10 +75,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inline_files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem>? InlineFiles { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyInlineFilesItem>? InlineFiles { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem> InlineFiles { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyInlineFilesItem> InlineFiles { get; set; }
 #endif
         /// <summary>The in_reply_to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Receipt time for inbound messages; null for outbound messages.</summary>
         public DateTimeOffset? ReceivedAt { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyRecordType? RecordType { get; set; }
         /// <summary>Ordered RFC Message-ID values from the References header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -197,11 +197,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyAttachmentsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyAttachmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "bcc", n => { Bcc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageDirection>(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyDirection>(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue); } },
                 { "has_quoted_text", n => { HasQuotedText = n.GetBoolValue(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageHeadersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageHeadersProperty.CreateFromDiscriminatorValue); } },
@@ -209,12 +209,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "in_reply_to", n => { InReplyTo = n.GetStringValue(); } },
                 { "inbox_id", n => { InboxId = n.GetGuidValue(); } },
-                { "inline_files", n => { InlineFiles = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "inline_files", n => { InlineFiles = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyInlineFilesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyInlineFilesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "message_id", n => { MessageId = n.GetStringValue(); } },
                 { "read_at", n => { ReadAt = n.GetDateTimeOffsetValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyRecordType>(); } },
                 { "references", n => { References = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "reply_text", n => { ReplyText = n.GetStringValue(); } },
                 { "reply_to", n => { ReplyTo = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -234,24 +234,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageAttachmentsItem>("attachments", Attachments);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyAttachmentsItem>("attachments", Attachments);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("bcc", Bcc);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("cc", Cc);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageDirection>("direction", Direction);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyDirection>("direction", Direction);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("from", From);
             writer.WriteBoolValue("has_quoted_text", HasQuotedText);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageHeadersProperty>("headers", Headers);
             writer.WriteStringValue("html_body_url", HtmlBodyUrl);
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("inbox_id", InboxId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageInlineFilesItem>("inline_files", InlineFiles);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyInlineFilesItem>("inline_files", InlineFiles);
             writer.WriteStringValue("in_reply_to", InReplyTo);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("message_id", MessageId);
             writer.WriteDateTimeOffsetValue("read_at", ReadAt);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyRecordType>("record_type", RecordType);
             writer.WriteCollectionOfPrimitiveValues<string>("references", References);
             writer.WriteStringValue("reply_text", ReplyText);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("reply_to", ReplyTo);

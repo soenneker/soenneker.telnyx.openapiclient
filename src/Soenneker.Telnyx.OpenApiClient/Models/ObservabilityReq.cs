@@ -66,6 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ObservabilityReq()
         {
             AdditionalData = new Dictionary<string, object>();
+            PromptSync = global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus.Disabled;
+            Status = global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityStatus.Disabled;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

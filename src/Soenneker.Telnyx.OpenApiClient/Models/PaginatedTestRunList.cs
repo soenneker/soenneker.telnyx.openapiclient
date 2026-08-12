@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResponse> Data { get; set; }
 #endif
-        /// <summary>The meta property</summary>
+        /// <summary>Pagination metadata including total counts and current page info.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.Meta? Meta { get; set; }

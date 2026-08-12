@@ -34,7 +34,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.Expression Right { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression_type? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression"/> and sets the default values.
         /// </summary>
@@ -63,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "left", n => { Left = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue); } },
                 { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpressionOp>(); } },
                 { "right", n => { Right = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression_type>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("left", Left);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpressionOp>("op", Op);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("right", Right);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression_type>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

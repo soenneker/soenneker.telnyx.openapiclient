@@ -5,12 +5,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum ComparisonExpression_type
+    public enum InboundMessageBodyRecordType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "comparison")]
+        [EnumMember(Value = "email_message")]
         #pragma warning disable CS1591
-        Comparison,
+        EmailMessage,
         #pragma warning restore CS1591
     }
 }

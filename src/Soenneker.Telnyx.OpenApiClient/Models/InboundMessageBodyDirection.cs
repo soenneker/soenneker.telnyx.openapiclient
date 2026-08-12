@@ -5,12 +5,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum StringLiteralExpression_type
+    public enum InboundMessageBodyDirection
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "string_literal")]
+        [EnumMember(Value = "inbound")]
         #pragma warning disable CS1591
-        StringLiteral,
+        Inbound,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "outbound")]
+        #pragma warning disable CS1591
+        Outbound,
         #pragma warning restore CS1591
     }
 }

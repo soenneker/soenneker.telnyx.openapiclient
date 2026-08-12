@@ -58,6 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public InsightTemplateResp()
         {
             AdditionalData = new Dictionary<string, object>();
+            InsightType = global::Soenneker.Telnyx.OpenApiClient.Models.TemplateType.Custom;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

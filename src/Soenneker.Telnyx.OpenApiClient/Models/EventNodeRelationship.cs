@@ -8,44 +8,27 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Relationship to the parent node, null for root.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationshipMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EventNodeRelationship : IAdditionalDataHolder, IParsable
+    public partial class EventNodeRelationship : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Identifier of the parent event.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationshipMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationshipMember1? EventNodeRelationshipMember1 { get; set; }
 #nullable restore
 #else
-        public string ParentId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationshipMember1 EventNodeRelationshipMember1 { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo? RelationshipInfo { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo RelationshipInfo { get; set; }
 #endif
-        /// <summary>The via property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FieldMapping? Via { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FieldMapping Via { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship"/> and sets the default values.
-        /// </summary>
-        public EventNodeRelationship()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,7 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship();
+            if("RelationshipInfo".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RelationshipInfo = new global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,12 +51,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(EventNodeRelationshipMember1 != null)
             {
-                { "parent_id", n => { ParentId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
-                { "via", n => { Via = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FieldMapping>(global::Soenneker.Telnyx.OpenApiClient.Models.FieldMapping.CreateFromDiscriminatorValue); } },
-            };
+                return EventNodeRelationshipMember1.GetFieldDeserializers();
+            }
+            else if(RelationshipInfo != null)
+            {
+                return RelationshipInfo.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -76,10 +68,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("parent_id", ParentId);
-            writer.WriteStringValue("type", Type);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FieldMapping>("via", Via);
-            writer.WriteAdditionalData(AdditionalData);
+            if(EventNodeRelationshipMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationshipMember1>(null, EventNodeRelationshipMember1);
+            }
+            else if(RelationshipInfo != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo>(null, RelationshipInfo);
+            }
         }
     }
 }

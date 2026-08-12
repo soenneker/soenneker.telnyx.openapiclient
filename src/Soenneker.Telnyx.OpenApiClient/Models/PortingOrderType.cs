@@ -3,18 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>A port can be either &apos;full&apos; or &apos;partial&apos;. When type is &apos;full&apos; the other attributes should be omitted.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum InboundMessageDirection
-    #pragma warning restore CS1591
+    public enum PortingOrderType
     {
-        [EnumMember(Value = "inbound")]
+        [EnumMember(Value = "full")]
         #pragma warning disable CS1591
-        Inbound,
+        Full,
         #pragma warning restore CS1591
-        [EnumMember(Value = "outbound")]
+        [EnumMember(Value = "partial")]
         #pragma warning disable CS1591
-        Outbound,
+        Partial,
         #pragma warning restore CS1591
     }
 }

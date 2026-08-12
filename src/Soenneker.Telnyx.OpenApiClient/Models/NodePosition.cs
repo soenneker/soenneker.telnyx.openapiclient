@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// 2D coordinates for a node, used by authoring UIs to lay out the graph.Purely a presentation aid. The runtime ignores `position`; it round-tripsthrough the API so frontends can persist the graph layout customersarrange in the editor.
+    /// Optional canvas coordinates for rendering the target assistant as a node in authoring UIs. Pure presentation — the runtime ignores it; round-trips so frontends can persist graph layout across reloads. When multiple edges target the same assistant, each edge&apos;s `position` is independent (frontends typically use the first non-null one).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NodePosition : IAdditionalDataHolder, IParsable

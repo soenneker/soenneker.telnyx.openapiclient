@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings Tracking { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>&quot;Domain type. `custom` domains are account-owned (BYOD). `shared` domains are Telnyx-managed, visible to and usable by ALL accounts for sending, but read-only: only the owning (system) account may modify, verify, or delete them; other accounts receive 403 (code 10008).&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainType? Type { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

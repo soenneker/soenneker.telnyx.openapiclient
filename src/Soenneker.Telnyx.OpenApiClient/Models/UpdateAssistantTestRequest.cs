@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantTestRequestRubricItem> Rubric { get; set; }
 #endif
-        /// <summary>The telnyx_conversation_channel property</summary>
+        /// <summary>Updated communication channel for the test execution.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel? TelnyxConversationChannel { get; set; }
         /// <summary>Updated test suite assignment for better organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

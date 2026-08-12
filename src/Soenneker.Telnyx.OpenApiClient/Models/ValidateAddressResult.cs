@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Indicates whether an address is valid or invalid.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResultResult? Result { get; set; }
-        /// <summary>The suggested property</summary>
+        /// <summary>Provides normalized address when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressField? Suggested { get; set; }

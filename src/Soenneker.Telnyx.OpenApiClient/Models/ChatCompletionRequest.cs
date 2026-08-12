@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? N { get; set; }
         /// <summary>Higher values will penalize the model from repeating the same output tokens.</summary>
         public double? PresencePenalty { get; set; }
-        /// <summary>The response_format property</summary>
+        /// <summary>Use this is you want to guarantee a JSON output without defining a schema. For control over the schema, use `guided_json`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam? ResponseFormat { get; set; }

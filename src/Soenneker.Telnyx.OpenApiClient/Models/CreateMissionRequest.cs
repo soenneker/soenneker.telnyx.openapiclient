@@ -62,6 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateMissionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            ExecutionMode = global::Soenneker.Telnyx.OpenApiClient.Models.ExecutionMode.External;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

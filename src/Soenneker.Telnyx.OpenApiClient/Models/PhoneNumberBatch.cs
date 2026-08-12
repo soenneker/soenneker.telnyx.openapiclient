@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.DirPhoneNumber> PhoneNumbers { get; set; }
 #endif
-        /// <summary>Phone-number lifecycle status.- `submitted` / `in_review` - Telnyx is reviewing the batch this number belongs to.- `verified` - approved; the DIR&apos;s display identity will be shown on outbound calls from this number.- `unsuccessful` - Telnyx rejected this submission; the customer may re-add to retry.- `suspended` - temporarily disabled (e.g. by an active infringement claim on the DIR).- `expired` - verification expired; re-add to renew.- `permanently_rejected` - terminal; cannot be re-added on this or any other DIR you own.</summary>
+        /// <summary>Aggregate batch status. Mirrors the values used on individual phone numbers (`submitted`, `in_review`, `verified`, `unsuccessful`, `permanently_rejected`, etc.).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatus? Status { get; set; }
         /// <summary>When the batch was created (and implicitly submitted for vetting).</summary>
         public DateTimeOffset? SubmittedAt { get; private set; }

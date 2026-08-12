@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequestMetadataProperty Metadata { get; set; }
 #endif
-        /// <summary>The reply_to property</summary>
+        /// <summary>Reply-to address. If provided as an object with a name, only the email is stored; the name is ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput? ReplyTo { get; set; }

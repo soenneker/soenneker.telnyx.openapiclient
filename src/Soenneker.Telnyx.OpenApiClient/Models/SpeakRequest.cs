@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The language you want spoken. This parameter is ignored when a `Polly.*` voice is specified.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequestLanguage? Language { get; set; }
-        /// <summary>The loop property</summary>
+        /// <summary>The number of times to play the audio file. Use `infinity` to loop indefinitely. Defaults to 1.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount? Loop { get; set; }
