@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch3"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateInboundMessageRequestReadAt : IComposedTypeWrapper, IParsable
@@ -21,14 +21,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2 UpdateInboundMessageRequestReadAtBranch2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch3"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch3? UpdateInboundMessageRequestReadAtBranch3 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch3 UpdateInboundMessageRequestReadAtBranch3 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,6 +28,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper UpdateInboundMessageRequestReadAtWrapper { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2? UpdateInboundMessageRequestReadAtWrapper2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2 UpdateInboundMessageRequestReadAtWrapper2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -51,13 +51,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.UpdateInboundMessageRequestReadAtBranch2 = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2();
             }
-            else if("UpdateInboundMessageRequestReadAtBranch3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateInboundMessageRequestReadAtBranch3 = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch3();
-            }
             else if("UpdateInboundMessageRequestReadAtWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UpdateInboundMessageRequestReadAtWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper();
+            }
+            else if("UpdateInboundMessageRequestReadAtWrapper2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.UpdateInboundMessageRequestReadAtWrapper2 = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2();
             }
             return result;
         }
@@ -71,13 +71,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 return UpdateInboundMessageRequestReadAtBranch2.GetFieldDeserializers();
             }
-            else if(UpdateInboundMessageRequestReadAtBranch3 != null)
-            {
-                return UpdateInboundMessageRequestReadAtBranch3.GetFieldDeserializers();
-            }
             else if(UpdateInboundMessageRequestReadAtWrapper != null)
             {
                 return UpdateInboundMessageRequestReadAtWrapper.GetFieldDeserializers();
+            }
+            else if(UpdateInboundMessageRequestReadAtWrapper2 != null)
+            {
+                return UpdateInboundMessageRequestReadAtWrapper2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -92,13 +92,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2>(null, UpdateInboundMessageRequestReadAtBranch2);
             }
-            else if(UpdateInboundMessageRequestReadAtBranch3 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch3>(null, UpdateInboundMessageRequestReadAtBranch3);
-            }
             else if(UpdateInboundMessageRequestReadAtWrapper != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper>(null, UpdateInboundMessageRequestReadAtWrapper);
+            }
+            else if(UpdateInboundMessageRequestReadAtWrapper2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2>(null, UpdateInboundMessageRequestReadAtWrapper2);
             }
         }
     }

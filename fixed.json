@@ -88325,7 +88325,8 @@
       },
       "EncryptedMedia": {
         "enum": [
-          "SRTP"
+          "SRTP",
+          null
         ],
         "type": [
           "null",
@@ -145755,7 +145756,7 @@
             "$ref": "#/components/schemas/UpdateInboundMessageRequestReadAtBranch2"
           },
           {
-            "$ref": "#/components/schemas/UpdateInboundMessageRequestReadAtBranch3"
+            "$ref": "#/components/schemas/UpdateInboundMessageRequestReadAtWrapper2"
           }
         ],
         "description": "Set to \u0060true\u0060 for server time, an ISO 8601 timestamp for an explicit read time, or \u0060null\u0060 to mark unread."
@@ -163992,6 +163993,17 @@
           }
         }
       },
+      "UpdateInboundMessageRequestReadAtWrapper2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/UpdateInboundMessageRequestReadAtWrapper2Value"
+          }
+        }
+      },
       "VolumeWrapper2": {
         "required": [
           "value"
@@ -164524,20 +164536,6 @@
           "value": {
             "type": "string",
             "format": "date-time"
-          }
-        }
-      },
-      "UpdateInboundMessageRequestReadAtBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
           }
         }
       },
@@ -178174,7 +178172,8 @@
       },
       "DkimStatusAlgorithm": {
         "enum": [
-          "rsa-sha256"
+          "rsa-sha256",
+          null
         ],
         "type": [
           "null",
@@ -178194,7 +178193,8 @@
       },
       "DkimStatusKeyLength": {
         "enum": [
-          2048
+          2048,
+          null
         ],
         "type": [
           "null",
@@ -181924,7 +181924,8 @@
       "InboundFqdnDefaultRoutingMethod": {
         "enum": [
           "sequential",
-          "round-robin"
+          "round-robin",
+          null
         ],
         "type": [
           "null",
@@ -183934,7 +183935,8 @@
       },
       "MinimaxCloneModelId": {
         "enum": [
-          "speech-2.8-turbo"
+          "speech-2.8-turbo",
+          null
         ],
         "type": [
           "null",
@@ -184039,6 +184041,7 @@
       },
       "MinimaxVoiceSettingsLanguageBoost": {
         "enum": [
+          null,
           "auto",
           "Chinese",
           "Chinese,Yue",
@@ -187424,7 +187427,8 @@
       "PortingOrderMiscRemainingNumbersAction": {
         "enum": [
           "keep",
-          "disconnect"
+          "disconnect",
+          null
         ],
         "type": [
           "null",
@@ -191138,7 +191142,8 @@
       },
       "TelnyxQwen3TtsCloneModelId": {
         "enum": [
-          "Qwen3TTS"
+          "Qwen3TTS",
+          null
         ],
         "type": [
           "null",
@@ -193570,7 +193575,8 @@
         "enum": [
           "UDP",
           "TLS",
-          "TCP"
+          "TCP",
+          null
         ],
         "type": [
           "null",
@@ -194884,7 +194890,8 @@
         "enum": [
           "male",
           "female",
-          "neutral"
+          "neutral",
+          null
         ],
         "type": [
           "null",
@@ -195044,7 +195051,8 @@
           "telnyx",
           "minimax",
           "Telnyx",
-          "Minimax"
+          "Minimax",
+          null
         ],
         "type": [
           "null",
@@ -195115,7 +195123,8 @@
           "telnyx",
           "minimax",
           "Telnyx",
-          "Minimax"
+          "Minimax",
+          null
         ],
         "type": [
           "null",
@@ -195173,6 +195182,7 @@
       },
       "VoiceSettingsLanguageBoost": {
         "enum": [
+          null,
           "auto",
           "Chinese",
           "Chinese,Yue",
@@ -203678,7 +203688,8 @@
       "UpdateTrafficPolicyProfileRequestLimitBwKbps": {
         "enum": [
           512,
-          1024
+          1024,
+          null
         ],
         "type": [
           "null",
@@ -203754,7 +203765,8 @@
       "UpdateTrafficPolicyProfile2RequestLimitBwKbps": {
         "enum": [
           512,
-          1024
+          1024,
+          null
         ],
         "type": [
           "null",
@@ -203834,6 +203846,16 @@
             }
           ]
         }
+      },
+      "UpdateInboundMessageRequestReadAtWrapper2Value": {
+        "enum": [
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false
       },
       "AdvancedOrderPhoneNumberTypeItem": {
         "enum": [
