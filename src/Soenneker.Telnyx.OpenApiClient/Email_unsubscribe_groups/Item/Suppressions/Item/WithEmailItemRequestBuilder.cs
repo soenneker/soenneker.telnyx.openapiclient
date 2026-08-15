@@ -34,9 +34,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressi
         {
         }
         /// <summary>
-        /// &quot;Soft-deletes all active blocks for (account, group, normalizedemail) — one `removed` audit event per block (`actor: manual`).The `email` path segment is normalized (trim + lower-case) beforematching. Idempotent on already-removed rows (returns `404` sincethey&apos;re no longer `active`).Two distinct `404` cases: a missing/cross-account **group** returns`10001 \&quot;The requested unsubscribe group was not found\&quot;`; a group thatexists but has **no active suppression** for that email returns`10001 \&quot;The requested group suppression was not found\&quot;`.&quot;
+        /// Soft-deletes all active blocks for (account, group, normalizedemail) — one `removed` audit event per block (`actor: manual`).The `email` path segment is normalized (trim + lower-case) beforematching. Idempotent on already-removed rows (returns `404` sincethey&apos;re no longer `active`).Two distinct `404` cases: a missing/cross-account **group** returns`10001 &quot;The requested unsubscribe group was not found&quot;`; a group thatexists but has **no active suppression** for that email returns`10001 &quot;The requested group suppression was not found&quot;`.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList">When receiving a 401 status code</exception>
@@ -45,11 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressi
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -60,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressi
                 { "406", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Soft-deletes all active blocks for (account, group, normalizedemail) — one `removed` audit event per block (`actor: manual`).The `email` path segment is normalized (trim + lower-case) beforematching. Idempotent on already-removed rows (returns `404` sincethey&apos;re no longer `active`).Two distinct `404` cases: a missing/cross-account **group** returns`10001 \&quot;The requested unsubscribe group was not found\&quot;`; a group thatexists but has **no active suppression** for that email returns`10001 \&quot;The requested group suppression was not found\&quot;`.&quot;
+        /// Soft-deletes all active blocks for (account, group, normalizedemail) — one `removed` audit event per block (`actor: manual`).The `email` path segment is normalized (trim + lower-case) beforematching. Idempotent on already-removed rows (returns `404` sincethey&apos;re no longer `active`).Two distinct `404` cases: a missing/cross-account **group** returns`10001 &quot;The requested unsubscribe group was not found&quot;`; a group thatexists but has **no active suppression** for that email returns`10001 &quot;The requested group suppression was not found&quot;`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

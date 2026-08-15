@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item
         {
         }
         /// <summary>
-        /// &quot;Deletes a KV namespace and all of the keys it contains. Deletion is asynchronous: the namespace is returned with status `deleting`. Deleting a namespace whose deletion is already in progress returns a `409`.&quot;
+        /// Deletes a KV namespace and all of the keys it contains. Deletion is asynchronous: the namespace is returned with status `deleting`. Deleting a namespace whose deletion is already in progress returns a `409`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.KvNamespaceResponseWrapper"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.KvNamespaceResponseWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.KvNamespaceResponseWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Deletes a KV namespace and all of the keys it contains. Deletion is asynchronous: the namespace is returned with status `deleting`. Deleting a namespace whose deletion is already in progress returns a `409`.&quot;
+        /// Deletes a KV namespace and all of the keys it contains. Deletion is asynchronous: the namespace is returned with status `deleting`. Deleting a namespace whose deletion is already in progress returns a `409`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

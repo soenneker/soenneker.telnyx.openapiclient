@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessageMetadata Metadata { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case `system`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessageRole? Role { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SystemRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessage"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessageMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessageMetadata.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessageRole>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SystemRole>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessageMetadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessageRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SystemRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

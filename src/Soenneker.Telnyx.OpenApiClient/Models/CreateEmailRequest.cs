@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? IgnoreSuppression { get; set; }
         /// <summary>The inline_css property</summary>
         public bool? InlineCss { get; set; }
-        /// <summary>&quot;Telnyx message UUID of the message this send replies to. When provided,the API sets RFC 5322 `In-Reply-To` and `References` headers on theoutbound MIME so the recipient&apos;s mailbox (Gmail/Outlook) threads itcorrectly. The parent is looked up under the caller&apos;s account scope;a UUID belonging to another account yields a non-enumerating 404.Wire-only (Phase 1): the API sets the headers and does NOT resolve ormutate `thread_id` on the server side. Messages sent without thisparameter are standalone (no threading headers injected).Cannot be combined with `forward_of_message_id` (422).&quot;</summary>
+        /// <summary>Telnyx message UUID of the message this send replies to. When provided,the API sets RFC 5322 `In-Reply-To` and `References` headers on theoutbound MIME so the recipient&apos;s mailbox (Gmail/Outlook) threads itcorrectly. The parent is looked up under the caller&apos;s account scope;a UUID belonging to another account yields a non-enumerating 404.Wire-only (Phase 1): the API sets the headers and does NOT resolve ormutate `thread_id` on the server side. Messages sent without thisparameter are standalone (no threading headers injected).Cannot be combined with `forward_of_message_id` (422).</summary>
         public Guid? InReplyToMessageId { get; set; }
         /// <summary>Custom metadata. Write-only; not returned in responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string InReplyTo { get; set; }
 #endif
-        /// <summary>&quot;Mutable message labels used for agent workflow state (for example `spam`, `needs_review`, `processed`). Distinct from the immutable send-time `tags` on outbound messages: labels are never propagated to Email Detail Records or Mission Control reporting. Always empty for outbound messages. Labels on a message are independent of the labels on its thread.&quot;</summary>
+        /// <summary>Mutable message labels used for agent workflow state (for example `spam`, `needs_review`, `processed`). Distinct from the immutable send-time `tags` on outbound messages: labels are never propagated to Email Detail Records or Mission Control reporting. Always empty for outbound messages. Labels on a message are independent of the labels on its thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Labels { get; set; }
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Receipt time for inbound messages; null for outbound messages.</summary>
         public DateTimeOffset? ReceivedAt { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecordType? RecordType { get; set; }
         /// <summary>Ordered RFC Message-ID values from the References header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -214,7 +214,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "message_id", n => { MessageId = n.GetStringValue(); } },
                 { "read_at", n => { ReadAt = n.GetDateTimeOffsetValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecordType>(); } },
                 { "references", n => { References = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "reply_text", n => { ReplyText = n.GetStringValue(); } },
                 { "reply_to", n => { ReplyTo = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -251,7 +251,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("message_id", MessageId);
             writer.WriteDateTimeOffsetValue("read_at", ReadAt);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageRecordType>("record_type", RecordType);
             writer.WriteCollectionOfPrimitiveValues<string>("references", References);
             writer.WriteStringValue("reply_text", ReplyText);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("reply_to", ReplyTo);

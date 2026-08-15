@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ParticipantsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[muted], filter[on_hold], filter[whispering]&quot;</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[muted], filter[on_hold], filter[whispering]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

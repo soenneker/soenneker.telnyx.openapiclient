@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string AndroidPushCredentialId { get; set; }
 #endif
         /// <summary>The authentication strategy used by this connection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionAuthentication? Authentication { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacAuthenticationAuthentication? Authentication { get; set; }
         /// <summary>Specifies if call cost webhooks should be sent for this connection.</summary>
         public bool? CallCostInWebhooks { get; set; }
         /// <summary>The connection_name property</summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Fqdn { get; set; }
 #endif
         /// <summary>The fixed outbound authentication mode used by UAC FQDN records.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionFqdnOutboundAuthentication? FqdnOutboundAuthentication { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialAuthenticationFqdnOutboundAuthentication? FqdnOutboundAuthentication { get; set; }
         /// <summary>FQDN records managed automatically by the UAC connection lifecycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -259,7 +259,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
-                { "authentication", n => { Authentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionAuthentication>(); } },
+                { "authentication", n => { Authentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacAuthenticationAuthentication>(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
@@ -269,7 +269,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
                 { "external_uac_settings", n => { ExternalUacSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings.CreateFromDiscriminatorValue); } },
                 { "fqdn", n => { Fqdn = n.GetStringValue(); } },
-                { "fqdn_outbound_authentication", n => { FqdnOutboundAuthentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionFqdnOutboundAuthentication>(); } },
+                { "fqdn_outbound_authentication", n => { FqdnOutboundAuthentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialAuthenticationFqdnOutboundAuthentication>(); } },
                 { "fqdns", n => { Fqdns = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Fqdn>(global::Soenneker.Telnyx.OpenApiClient.Models.Fqdn.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UacInbound.CreateFromDiscriminatorValue); } },
@@ -305,7 +305,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionAuthentication>("authentication", Authentication);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacAuthenticationAuthentication>("authentication", Authentication);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteStringValue("created_at", CreatedAt);
@@ -315,7 +315,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettings>("external_uac_settings", ExternalUacSettings);
             writer.WriteStringValue("fqdn", Fqdn);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacConnectionFqdnOutboundAuthentication>("fqdn_outbound_authentication", FqdnOutboundAuthentication);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialAuthenticationFqdnOutboundAuthentication>("fqdn_outbound_authentication", FqdnOutboundAuthentication);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Fqdn>("fqdns", Fqdns);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInbound>("inbound", Inbound);

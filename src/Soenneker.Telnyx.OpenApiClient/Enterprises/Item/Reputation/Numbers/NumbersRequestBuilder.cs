@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberListWithReputation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Add up to 100 phone numbers to reputation monitoring on this enterprise. Each must be in E.164 format (`+1NPANXXXXXX` for US/CA) and belong to your Telnyx phone-number inventory.**Prerequisite**: reputation must already be enabled on this enterprise (see `POST .../reputation`).**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.&quot;
+        /// Add up to 100 phone numbers to reputation monitoring on this enterprise. Each must be in E.164 format (`+1NPANXXXXXX` for US/CA) and belong to your Telnyx phone-number inventory.**Prerequisite**: reputation must already be enabled on this enterprise (see `POST .../reputation`).**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberList"/></returns>
         /// <param name="body">The request body</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Add up to 100 phone numbers to reputation monitoring on this enterprise. Each must be in E.164 format (`+1NPANXXXXXX` for US/CA) and belong to your Telnyx phone-number inventory.**Prerequisite**: reputation must already be enabled on this enterprise (see `POST .../reputation`).**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.&quot;
+        /// Add up to 100 phone numbers to reputation monitoring on this enterprise. Each must be in E.164 format (`+1NPANXXXXXX` for US/CA) and belong to your Telnyx phone-number inventory.**Prerequisite**: reputation must already be enabled on this enterprise (see `POST .../reputation`).**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Speech speed multiplier. Default is 1.0.</summary>
         public float? Speed { get; set; }
         /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxType? Type { get; set; }
         /// <summary>Speech volume multiplier. Default is 1.0.</summary>
         public float? Vol { get; set; }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "language_boost", n => { LanguageBoost = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsLanguageBoost>(); } },
                 { "pitch", n => { Pitch = n.GetIntValue(); } },
                 { "speed", n => { Speed = n.GetFloatValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxType>(); } },
                 { "vol", n => { Vol = n.GetFloatValue(); } },
             };
         }
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsLanguageBoost>("language_boost", LanguageBoost);
             writer.WriteIntValue("pitch", Pitch);
             writer.WriteFloatValue("speed", Speed);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettingsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxType>("type", Type);
             writer.WriteFloatValue("vol", Vol);
             writer.WriteAdditionalData(AdditionalData);
         }

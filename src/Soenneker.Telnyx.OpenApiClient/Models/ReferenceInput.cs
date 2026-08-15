@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Reference contact email address. Required: the reference is emailed scheduling and dial-in notices.&quot;</summary>
+        /// <summary>Reference contact email address. Required: the reference is emailed scheduling and dial-in notices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RelationshipToRegistrant { get; set; }
 #endif
-        /// <summary>&quot;IANA timezone id for the reference (e.g. America/New_York). Required: calls are only placed within the reference&apos;s local 8am-9pm window.&quot;</summary>
+        /// <summary>IANA timezone id for the reference (e.g. America/New_York). Required: calls are only placed within the reference&apos;s local 8am-9pm window.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Timezone { get; set; }

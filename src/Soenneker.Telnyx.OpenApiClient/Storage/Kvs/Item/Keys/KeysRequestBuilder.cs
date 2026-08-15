@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys
     public partial class KeysRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.storage.kvs.item.keys.item collection</summary>
-        /// <param name="position">&quot;Key name. Allowed characters: `a-z A-Z 0-9 - _ / = .`; maximum 256 characters; names starting with `_` are reserved for system use. May contain `/`. When calling the HTTP API directly, URL-encode the key so the whole string is treated as one key (for example `user/1` -&gt; `user%2F1`). SDK users should pass the key raw - SDKs URL-encode path parameters automatically.&quot;</param>
+        /// <param name="position">Key name. Allowed characters: `a-z A-Z 0-9 - _ / = .`; maximum 256 characters; names starting with `_` are reserved for system use. May contain `/`. When calling the HTTP API directly, URL-encode the key so the whole string is treated as one key (for example `user/1` -&gt; `user%2F1`). SDK users should pass the key raw - SDKs URL-encode path parameters automatically.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys.Item.WithKeyItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Storage.Kvs.Item.Keys.Item.WithKeyItemRequestBuilder this[string position]
         {

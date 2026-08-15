@@ -92,7 +92,6 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.SmsOtp
         /// <summary>
         /// Verify the SMS OTP (One-Time Password) for Sole Proprietor brand verification.**Verification Flow:**1. User receives OTP via SMS after triggering2. User submits the OTP pin through this endpoint3. Upon successful verification:   - A `BRAND_OTP_VERIFIED` webhook event is sent to the CSP   - The brand&apos;s `identityStatus` changes to `VERIFIED`   - Campaigns can now be created for this brand**Error Handling:**Provides proper error responses for:* Invalid OTP pins* Expired OTPs* OTP verification failures
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">Request body for verifying a Brand SMS OTP</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,11 +100,11 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.SmsOtp
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyBrandSmsOtpRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyBrandSmsOtpRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyBrandSmsOtpRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyBrandSmsOtpRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -116,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.SmsOtp
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Query the status of an SMS OTP (One-Time Password) for Sole Proprietor brand verification using the Brand ID.This endpoint allows you to check the delivery and verification status of an OTP sent during the Sole Proprietor brand verification process by looking it up with the brand ID.The response includes delivery status, verification dates, and detailed delivery information.**Note:** This is an alternative to the `/10dlc/brand/smsOtp/{referenceId}` endpoint when you have the Brand ID but not the reference ID.

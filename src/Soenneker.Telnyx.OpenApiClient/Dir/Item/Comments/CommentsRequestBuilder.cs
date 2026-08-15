@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Comments
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CommentsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Restrict to comments of this category. Customer-visible categories only: internal-only comments are filtered out regardless of this filter.&quot;</summary>
+            /// <summary>Restrict to comments of this category. Customer-visible categories only: internal-only comments are filtered out regardless of this filter.</summary>
             [QueryParameter("comment_type")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.CommentType? CommentType { get; set; }
             /// <summary>1-based page number. Out-of-range values return an empty page with correct meta.</summary>

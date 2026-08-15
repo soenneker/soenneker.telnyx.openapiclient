@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Action
         {
         }
         /// <summary>
-        /// &quot;Sends from the inbox address through the standard email send pipeline to caller-suppliedTo, Cc, and Bcc recipients. `to` must contain at least one recipient. Optional `text` and`html` are prepended to a forwarded-message block containing the original metadata andavailable body content. The subject is prefixed with `Fwd:` unless it already has that prefix.Threading headers are derived from the original message: `In-Reply-To` is set to itsRFC Message-ID, and `References` contains the original References values plus thatMessage-ID, de-duplicated and limited to the most recent 20 values.&quot;
+        /// Sends from the inbox address through the standard email send pipeline to caller-suppliedTo, Cc, and Bcc recipients. `to` must contain at least one recipient. Optional `text` and`html` are prepended to a forwarded-message block containing the original metadata andavailable body content. The subject is prefixed with `Fwd:` unless it already has that prefix.Threading headers are derived from the original message: `In-Reply-To` is set to itsRFC Message-ID, and `References` contains the original References values plus thatMessage-ID, de-duplicated and limited to the most recent 20 values.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Action
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Sends from the inbox address through the standard email send pipeline to caller-suppliedTo, Cc, and Bcc recipients. `to` must contain at least one recipient. Optional `text` and`html` are prepended to a forwarded-message block containing the original metadata andavailable body content. The subject is prefixed with `Fwd:` unless it already has that prefix.Threading headers are derived from the original message: `In-Reply-To` is set to itsRFC Message-ID, and `References` contains the original References values plus thatMessage-ID, de-duplicated and limited to the most recent 20 values.&quot;
+        /// Sends from the inbox address through the standard email send pipeline to caller-suppliedTo, Cc, and Bcc recipients. `to` must contain at least one recipient. Optional `text` and`html` are prepended to a forwarded-message block containing the original metadata andavailable body content. The subject is prefixed with `Fwd:` unless it already has that prefix.Threading headers are derived from the original message: `In-Reply-To` is set to itsRFC Message-ID, and `References` contains the original References values plus thatMessage-ID, de-duplicated and limited to the most recent 20 values.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

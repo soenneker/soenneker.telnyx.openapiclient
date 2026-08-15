@@ -37,13 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput();
             if("EmailAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EmailAddress = new global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress();
             }
-            else if("EmailAddressInput_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EmailAddressInputBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EmailAddressInputBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInputBranch1();
             }

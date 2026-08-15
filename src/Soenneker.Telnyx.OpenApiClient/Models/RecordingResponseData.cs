@@ -115,11 +115,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordingStartedAt { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingRecordType? RecordType { get; set; }
         /// <summary>The kind of event that led to this recording being created.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataSource? Source { get; set; }
         /// <summary>The status of the recording. Only `completed` recordings are currently supported.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CompletedStatus? Status { get; set; }
         /// <summary>The `to` (callee) number for the call that generated this recording.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -173,11 +173,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "from", n => { From = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "initiated_by", n => { InitiatedBy = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingRecordType>(); } },
                 { "recording_ended_at", n => { RecordingEndedAt = n.GetStringValue(); } },
                 { "recording_started_at", n => { RecordingStartedAt = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataSource>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompletedStatus>(); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
@@ -203,9 +203,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("initiated_by", InitiatedBy);
             writer.WriteStringValue("recording_ended_at", RecordingEndedAt);
             writer.WriteStringValue("recording_started_at", RecordingStartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingRecordType>("record_type", RecordType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataSource>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompletedStatus>("status", Status);
             writer.WriteStringValue("to", To);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

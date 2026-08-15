@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>&quot;Template category: AUTHENTICATION, UTILITY, or MARKETING.&quot;</summary>
+    /// <summary>Template category: AUTHENTICATION, UTILITY, or MARKETING.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WhatsappCreateTemplateRequestCategory
     {

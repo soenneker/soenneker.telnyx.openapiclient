@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty ProjectAccountJsonFile { get; set; }
 #endif
         /// <summary>Type of mobile push credential. Should be &lt;code&gt;android&lt;/code&gt; here</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AndroidType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "project_account_json_file", n => { ProjectAccountJsonFile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AndroidType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alias", Alias);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty>("project_account_json_file", ProjectAccountJsonFile);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AndroidType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             [QueryParameter("mnc")]
             public string Mnc { get; set; }
 #endif
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

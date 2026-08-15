@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Guid? DomainId { get; set; }
         /// <summary>The expires_at property</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>&quot;`null` ⇒ not address-scope. (schema: from_address)&quot;</summary>
+        /// <summary>`null` ⇒ not address-scope. (schema: from_address)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? From { get; set; }
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.Source? Source { get; set; }
         /// <summary>The status property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Status? Status { get; set; }
-        /// <summary>&quot;Normalized recipient. (schema: to_address)&quot;</summary>
+        /// <summary>Normalized recipient. (schema: to_address)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? To { get; set; }

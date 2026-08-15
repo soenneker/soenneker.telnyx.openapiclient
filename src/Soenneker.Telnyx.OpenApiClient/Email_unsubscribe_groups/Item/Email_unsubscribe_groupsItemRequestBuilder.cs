@@ -42,7 +42,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item
         /// <summary>
         /// If the group has 0 active suppressions, hard-deletes the row. With`force=true`, soft-deletes all active suppressions first (status →`removed`, `group_id` cleared, `removed` audit event per block) in asingle transaction, then hard-deletes the group. Without `force`and active suppressions present → `409`. Audit trail is preserved.`force` only accepts the string `&quot;true&quot;` or boolean `true`; all othervalues are false.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList">When receiving a 401 status code</exception>
@@ -52,11 +51,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Email_unsubscribe_groupsItemRequestBuilder.Email_unsubscribe_groupsItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Email_unsubscribe_groupsItemRequestBuilder.Email_unsubscribe_groupsItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Email_unsubscribe_groupsItemRequestBuilder.Email_unsubscribe_groupsItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Email_unsubscribe_groupsItemRequestBuilder.Email_unsubscribe_groupsItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -68,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve an unsubscribe group

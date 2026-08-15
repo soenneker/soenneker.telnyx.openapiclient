@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of interface types supported in this region.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AvailableServiceWrapper>? AvailableServices { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem>? AvailableServices { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AvailableServiceWrapper> AvailableServices { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem> AvailableServices { get; set; }
 #endif
         /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "available_services", n => { AvailableServices = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AvailableServiceWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.AvailableServiceWrapper.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "available_services", n => { AvailableServices = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc>(global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AvailableServiceWrapper>("available_services", AvailableServices);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem>("available_services", AvailableServices);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc>("location", Location);
             writer.WriteAdditionalData(AdditionalData);
         }

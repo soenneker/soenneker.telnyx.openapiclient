@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessageMetadata Metadata { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case `tool`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessageRole? Role { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolRole? Role { get; set; }
         /// <summary>Tool call that this message is responding to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessageMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessageMetadata.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessageRole>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolRole>(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessageMetadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessageRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolRole>("role", Role);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteAdditionalData(AdditionalData);
         }

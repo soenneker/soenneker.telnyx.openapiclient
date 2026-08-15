@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemHeader Header { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CtaUrlType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemBody>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemBody.CreateFromDiscriminatorValue); } },
                 { "card_index", n => { CardIndex = n.GetIntValue(); } },
                 { "header", n => { Header = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemHeader.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CtaUrlType>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemBody>("body", Body);
             writer.WriteIntValue("card_index", CardIndex);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemHeader>("header", Header);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItemType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CtaUrlType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

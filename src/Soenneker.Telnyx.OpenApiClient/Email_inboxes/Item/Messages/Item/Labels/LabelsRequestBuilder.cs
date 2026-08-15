@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Labels
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Adds one or more mutable labels to a message. Labels carry agentworkflow state such as `spam`, `needs_review`, or `processed`.Labels are **not** the same as the send-time `tags` on outboundmessages: `tags` are immutable and propagate to Email Detail Recordsand Mission Control for billing attribution, while labels are mailboxstate that never reaches the reporting contract.The operation is an idempotent set union — adding a label the messagealready carries is a no-op and still returns 200. Labels arecase-sensitive, and message labels are independent of thread labels.&quot;
+        /// Adds one or more mutable labels to a message. Labels carry agentworkflow state such as `spam`, `needs_review`, or `processed`.Labels are **not** the same as the send-time `tags` on outboundmessages: `tags` are immutable and propagate to Email Detail Recordsand Mission Control for billing attribution, while labels are mailboxstate that never reaches the reporting contract.The operation is an idempotent set union — adding a label the messagealready carries is a no-op and still returns 200. Labels arecase-sensitive, and message labels are independent of thread labels.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageResponse"/></returns>
         /// <param name="body">Labels to add or remove. Both operations are idempotent set operations, so a retried request converges instead of failing.</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Labels
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Adds one or more mutable labels to a message. Labels carry agentworkflow state such as `spam`, `needs_review`, or `processed`.Labels are **not** the same as the send-time `tags` on outboundmessages: `tags` are immutable and propagate to Email Detail Recordsand Mission Control for billing attribution, while labels are mailboxstate that never reaches the reporting contract.The operation is an idempotent set union — adding a label the messagealready carries is a no-op and still returns 200. Labels arecase-sensitive, and message labels are independent of thread labels.&quot;
+        /// Adds one or more mutable labels to a message. Labels carry agentworkflow state such as `spam`, `needs_review`, or `processed`.Labels are **not** the same as the send-time `tags` on outboundmessages: `tags` are immutable and propagate to Email Detail Recordsand Mission Control for billing attribution, while labels are mailboxstate that never reaches the reporting contract.The operation is an idempotent set union — adding a label the messagealready carries is a no-op and still returns 200. Labels arecase-sensitive, and message labels are independent of thread labels.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Labels to add or remove. Both operations are idempotent set operations, so a retried request converges instead of failing.</param>

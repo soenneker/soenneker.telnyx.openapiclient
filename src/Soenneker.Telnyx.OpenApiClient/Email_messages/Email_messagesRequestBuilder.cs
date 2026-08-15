@@ -55,7 +55,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
         /// <summary>
         /// Permanently deletes every email in the authenticated account sent from or to thesupplied address, including retained events whose parent message has expired.Events and durable recipients are deleted immediately with each message. Theoperation never searches or reports matches in another account. The legacy`/v2/emails` DELETE route is a backward-compatible alias.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 400 status code</exception>
@@ -64,11 +63,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Email_messages.Email_messagesRequestBuilder.Email_messagesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Email_messages.Email_messagesRequestBuilder.Email_messagesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Email_messages.Email_messagesRequestBuilder.Email_messagesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Email_messages.Email_messagesRequestBuilder.Email_messagesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -79,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists messages sorted newest first by `created_at desc, id desc`. No filters other thancursor pagination are implemented. The legacy `/v2/emails` GET route is a backward-compatiblealias for this operation.
@@ -105,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Queues, schedules, or sandbox-sends an email message. The legacy `/v2/emails` POST routeis a backward-compatible alias for this operation.`subject` is required unless `template_id` is supplied. When using `template_id`, do notalso provide `subject`, `html_body`, or `text_body`; the template is rendered with`template_variables`.Note: template lookup failures (not found, wrong account) return 400, not 404.&quot;
+        /// Queues, schedules, or sandbox-sends an email message. The legacy `/v2/emails` POST routeis a backward-compatible alias for this operation.`subject` is required unless `template_id` is supplied. When using `template_id`, do notalso provide `subject`, `html_body`, or `text_body`; the template is rendered with`template_variables`.Note: template lookup failures (not found, wrong account) return 400, not 404.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse"/></returns>
         /// <param name="body">Recipient email addresses must be unique across `to`, `cc`, and `bcc` after case-insensitive normalization. Duplicate recipients return `400 Bad Request`.</param>
@@ -182,7 +181,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Queues, schedules, or sandbox-sends an email message. The legacy `/v2/emails` POST routeis a backward-compatible alias for this operation.`subject` is required unless `template_id` is supplied. When using `template_id`, do notalso provide `subject`, `html_body`, or `text_body`; the template is rendered with`template_variables`.Note: template lookup failures (not found, wrong account) return 400, not 404.&quot;
+        /// Queues, schedules, or sandbox-sends an email message. The legacy `/v2/emails` POST routeis a backward-compatible alias for this operation.`subject` is required unless `template_id` is supplied. When using `template_id`, do notalso provide `subject`, `html_body`, or `text_body`; the template is rendered with`template_variables`.Note: template lookup failures (not found, wrong account) return 400, not 404.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Recipient email addresses must be unique across `to`, `cc`, and `bcc` after case-insensitive normalization. Duplicate recipients return `400 Bad Request`.</param>

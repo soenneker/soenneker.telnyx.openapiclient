@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 timestamp when the room composition has ended.</summary>
         public DateTimeOffset? EndedAt { get; set; }
         /// <summary>Shows format of the room composition.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionFormat? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Mp4Format? Format { get; set; }
         /// <summary>A unique identifier for the room composition.</summary>
         public Guid? Id { get; set; }
         /// <summary>The record_type property</summary>
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "download_url", n => { DownloadUrl = n.GetStringValue(); } },
                 { "duration_secs", n => { DurationSecs = n.GetIntValue(); } },
                 { "ended_at", n => { EndedAt = n.GetDateTimeOffsetValue(); } },
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionFormat>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Mp4Format>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "resolution", n => { Resolution = n.GetStringValue(); } },
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("download_url", DownloadUrl);
             writer.WriteIntValue("duration_secs", DurationSecs);
             writer.WriteDateTimeOffsetValue("ended_at", EndedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomCompositionFormat>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Mp4Format>("format", Format);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("resolution", Resolution);
             writer.WriteGuidValue("room_id", RoomId);

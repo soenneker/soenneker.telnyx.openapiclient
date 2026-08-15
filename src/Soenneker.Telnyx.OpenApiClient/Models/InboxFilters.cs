@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Blocklist { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailInboxFiltersRecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxFilters"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "allowlist", n => { Allowlist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "blocklist", n => { Blocklist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailInboxFiltersRecordType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowlist", Allowlist);
             writer.WriteCollectionOfPrimitiveValues<string>("blocklist", Blocklist);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailInboxFiltersRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

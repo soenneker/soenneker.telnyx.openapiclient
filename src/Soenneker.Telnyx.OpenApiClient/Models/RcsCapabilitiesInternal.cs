@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>Identifies the type of the resource</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCapabilitiesInternalRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCapabilitiesRecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsCapabilitiesInternal"/> and sets the default values.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "agent_name", n => { AgentName = n.GetStringValue(); } },
                 { "features", n => { Features = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCapabilitiesInternalRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCapabilitiesRecordType>(); } },
             };
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("agent_name", AgentName);
             writer.WriteCollectionOfPrimitiveValues<string>("features", Features);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCapabilitiesInternalRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCapabilitiesRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The content type of the logo.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLoaConfigurationLogoContentType? ContentType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ImagePngContentType? ContentType { get; set; }
         /// <summary>Identifies the document that contains the logo.</summary>
         public Guid? DocumentId { get; set; }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content_type", n => { ContentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLoaConfigurationLogoContentType>(); } },
+                { "content_type", n => { ContentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImagePngContentType>(); } },
                 { "document_id", n => { DocumentId = n.GetGuidValue(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLoaConfigurationLogoContentType>("content_type", ContentType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImagePngContentType>("content_type", ContentType);
             writer.WriteGuidValue("document_id", DocumentId);
             writer.WriteAdditionalData(AdditionalData);
         }

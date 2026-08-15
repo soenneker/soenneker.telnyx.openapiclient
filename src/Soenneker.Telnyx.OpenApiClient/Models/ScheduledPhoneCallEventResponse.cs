@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings CallSettings { get; set; }
 #endif
-        /// <summary>&quot;Values: busy, canceled, no-answer, ringing, completed, failed, in-progress&quot;</summary>
+        /// <summary>Values: busy, canceled, no-answer, ringing, completed, failed, in-progress</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CallStatus { get; set; }
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Errors { get; set; }
 #endif
-        /// <summary>&quot;Configure number of retries on client errors: busy, no-answer, failed, canceled (caller hung up before the callee answered)&quot;</summary>
+        /// <summary>Configure number of retries on client errors: busy, no-answer, failed, canceled (caller hung up before the callee answered)</summary>
         public int? MaxRetriesClientErrors { get; set; }
         /// <summary>The retry_attempts property</summary>
         public int? RetryAttempts { get; set; }

@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobSuccessfulOperation> SuccessfulOperations { get; private set; }
 #endif
         /// <summary>Identifies the type of the background job.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobType? Type { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumberBlockType? Type { get; private set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobStatus>(); } },
                 { "successful_operations", n => { SuccessfulOperations = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobSuccessfulOperation>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobSuccessfulOperation.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumberBlockType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

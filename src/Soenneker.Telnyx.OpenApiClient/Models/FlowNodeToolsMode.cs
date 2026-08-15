@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>&quot;How `shared_tool_ids` combine with the assistant-level tool set. `replace` (default): only the node&apos;s tools are callable. `append`: the node&apos;s tools are added to the assistant&apos;s tools. Ignored when `shared_tool_ids` is null.&quot;</summary>
+    /// <summary>How `shared_tool_ids` combine with the assistant-level tool set. `replace` (default): only the node&apos;s tools are callable. `append`: the node&apos;s tools are added to the assistant&apos;s tools. Ignored when `shared_tool_ids` is null.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum FlowNodeToolsMode
     {

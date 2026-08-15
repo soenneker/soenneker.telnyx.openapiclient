@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string To { get; set; }
 #endif
         /// <summary>Message type - must be set to &quot;RCS&quot;</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsMessageType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsType? Type { get; set; }
         /// <summary>The URL where webhooks related to this message will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "mms_fallback", n => { MmsFallback = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MmsFallback>(global::Soenneker.Telnyx.OpenApiClient.Models.MmsFallback.CreateFromDiscriminatorValue); } },
                 { "sms_fallback", n => { SmsFallback = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SmsFallback>(global::Soenneker.Telnyx.OpenApiClient.Models.SmsFallback.CreateFromDiscriminatorValue); } },
                 { "to", n => { To = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsMessageType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsType>(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MmsFallback>("mms_fallback", MmsFallback);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SmsFallback>("sms_fallback", SmsFallback);
             writer.WriteStringValue("to", To);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsMessageType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsType>("type", Type);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

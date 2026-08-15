@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettingsType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxType? Type { get; set; }
         /// <summary>The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for `Telnyx.Bayan.*` or `Telnyx.Sukhan.*` voices.</summary>
         public float? VoiceSpeed { get; set; }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettingsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxType>(); } },
                 { "voice_speed", n => { VoiceSpeed = n.GetFloatValue(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettingsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxType>("type", Type);
             writer.WriteFloatValue("voice_speed", VoiceSpeed);
             writer.WriteAdditionalData(AdditionalData);
         }

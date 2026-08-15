@@ -52,9 +52,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? TimeoutSecs { get; set; }
         /// <summary>Enable post recording transcription. The default value is false.</summary>
         public bool? Transcription { get; set; }
-        /// <summary>&quot;Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`, `deepgram/nova-3` - `Deepgram Nova-3`. Note: `deepgram/nova-3` supports only `en` and `en-{Region}` languages.&quot;</summary>
+        /// <summary>Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`, `deepgram/nova-3` - `Deepgram Nova-3`. Note: `deepgram/nova-3` supports only `en` and `en-{Region}` languages.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine? TranscriptionEngine { get; set; }
-        /// <summary>&quot;Language code for transcription. Note: Not all languages are supported by all transcription engines (google, telnyx, deepgram). See engine-specific documentation for supported values.&quot;</summary>
+        /// <summary>Language code for transcription. Note: Not all languages are supported by all transcription engines (google, telnyx, deepgram). See engine-specific documentation for supported values.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionLanguage? TranscriptionLanguage { get; set; }
         /// <summary>Defines maximum number of speakers in the conversation. Applies to `google` engine only.</summary>
         public int? TranscriptionMaxSpeakerCount { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enables speaker diarization. Applies to `google` engine only.</summary>
         public bool? TranscriptionSpeakerDiarization { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTrim? Trim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim? Trim { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest"/> and sets the default values.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "transcription_min_speaker_count", n => { TranscriptionMinSpeakerCount = n.GetIntValue(); } },
                 { "transcription_profanity_filter", n => { TranscriptionProfanityFilter = n.GetBoolValue(); } },
                 { "transcription_speaker_diarization", n => { TranscriptionSpeakerDiarization = n.GetBoolValue(); } },
-                { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTrim>(); } },
+                { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim>(); } },
             };
         }
         /// <summary>
@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("transcription_min_speaker_count", TranscriptionMinSpeakerCount);
             writer.WriteBoolValue("transcription_profanity_filter", TranscriptionProfanityFilter);
             writer.WriteBoolValue("transcription_speaker_diarization", TranscriptionSpeakerDiarization);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTrim>("trim", Trim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim>("trim", Trim);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

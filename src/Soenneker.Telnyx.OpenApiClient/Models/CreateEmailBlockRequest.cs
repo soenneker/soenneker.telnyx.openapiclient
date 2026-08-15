@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string From { get; set; }
 #endif
-        /// <summary>&quot;Recipient address (normalized: trim + lower-case).&quot;</summary>
+        /// <summary>Recipient address (normalized: trim + lower-case).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? To { get; set; }

@@ -37,9 +37,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RequiredInboxActionRecipientInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.RequiredInboxActionRecipientInput();
-            if("RequiredInboxActionRecipientInput_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("RequiredInboxActionRecipientInputBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RequiredInboxActionRecipientInputBranch2 = new global::Soenneker.Telnyx.OpenApiClient.Models.RequiredInboxActionRecipientInputBranch2();
             }

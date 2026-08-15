@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Fallback edge condition: fires only when no other edge&apos;s condition is true.Evaluated after every conditioned (`llm` / `expression`) edge regardlessof declaration order, so it routes the flow whenever none of the node&apos;sother outgoing edges match. Valid **only** on edges leaving a `tool` or`speak` node, where the deterministic step auto-advances and must alwayshave somewhere to go. A tool/speak node with any outgoing edge is requiredto carry exactly one `default` edge so it never dead-ends; a tool/speaknode with no outgoing edges is a valid terminal step. Carries no parameters.&quot;
+    /// Fallback edge condition: fires only when no other edge&apos;s condition is true.Evaluated after every conditioned (`llm` / `expression`) edge regardlessof declaration order, so it routes the flow whenever none of the node&apos;sother outgoing edges match. Valid **only** on edges leaving a `tool` or`speak` node, where the deterministic step auto-advances and must alwayshave somewhere to go. A tool/speak node with any outgoing edge is requiredto carry exactly one `default` edge so it never dead-ends; a tool/speaknode with no outgoing edges is a valid terminal step. Carries no parameters.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DefaultCondition : IAdditionalDataHolder, IParsable
@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DefaultCondition_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DefaultValueType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DefaultCondition"/> and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DefaultCondition_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DefaultValueType>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DefaultCondition_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DefaultValueType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

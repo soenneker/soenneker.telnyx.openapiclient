@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Error codes: `10001` (Not Found), `10007` (Unauthorized),`10015` (Validation Failed), `10019` (Internal — import createfallback), `40901` (Conflict), `500` (framework/catch-all).&quot;</summary>
+        /// <summary>Error codes: `10001` (Not Found), `10007` (Unauthorized),`10015` (Validation Failed), `10019` (Internal — import createfallback), `40901` (Conflict), `500` (framework/catch-all).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Code { get; set; }

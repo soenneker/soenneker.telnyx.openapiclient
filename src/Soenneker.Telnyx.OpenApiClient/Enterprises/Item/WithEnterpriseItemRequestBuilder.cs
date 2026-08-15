@@ -54,7 +54,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item
         /// <summary>
         /// Soft-delete an enterprise.Failure modes:- `400` - the enterprise still has dependent resources in a non-deletable state. Remove those first; the response `detail` identifies what is blocking the delete.- `409` - the enterprise has a dependent resource with an unresolved claim. Resolve it before deleting.- `404` - the enterprise does not exist or does not belong to your account.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 400 status code</exception>
@@ -62,11 +61,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -76,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a single enterprise by id. Returns `404` if the id does not exist or does not belong to your account.
@@ -104,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Replace the enterprise&apos;s mutable fields. Only mutable fields may be sent. Server-assigned and immutable fields (`id`, `record_type`, `created_at`, `updated_at`, status fields, `organization_type`, `country_code`, `role_type`) cannot be changed: including any of them in the body is rejected with `400 Bad Request` (`Field &apos;X&apos; is not allowed in this request`).&quot;
+        /// Replace the enterprise&apos;s mutable fields. Only mutable fields may be sent. Server-assigned and immutable fields (`id`, `record_type`, `created_at`, `updated_at`, status fields, `organization_type`, `country_code`, `role_type`) cannot be changed: including any of them in the body is rejected with `400 Bad Request` (`Field &apos;X&apos; is not allowed in this request`).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped"/></returns>
         /// <param name="body">All fields are optional; only the ones supplied are updated. The same field-level rules from `EnterpriseCreateRequest` apply.</param>
@@ -171,7 +170,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Replace the enterprise&apos;s mutable fields. Only mutable fields may be sent. Server-assigned and immutable fields (`id`, `record_type`, `created_at`, `updated_at`, status fields, `organization_type`, `country_code`, `role_type`) cannot be changed: including any of them in the body is rejected with `400 Bad Request` (`Field &apos;X&apos; is not allowed in this request`).&quot;
+        /// Replace the enterprise&apos;s mutable fields. Only mutable fields may be sent. Server-assigned and immutable fields (`id`, `record_type`, `created_at`, `updated_at`, status fields, `organization_type`, `country_code`, `role_type`) cannot be changed: including any of them in the body is rejected with `400 Bad Request` (`Field &apos;X&apos; is not allowed in this request`).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">All fields are optional; only the ones supplied are updated. The same field-level rules from `EnterpriseCreateRequest` apply.</param>

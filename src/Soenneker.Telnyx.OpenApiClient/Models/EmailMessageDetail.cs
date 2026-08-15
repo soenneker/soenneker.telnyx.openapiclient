@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Guid? Id { get; set; }
         /// <summary>Present when true in the immediate create response. Not persisted; absent on subsequent GET requests.</summary>
         public bool? InlineCss { get; set; }
-        /// <summary>&quot;Per-status recipient counts for the message. Present only for outbound messageswith recipient rows. Keys are recipient statuses, values are counts.Example: `{\&quot;delivered\&quot;: 998, \&quot;bounced\&quot;: 2}`.&quot;</summary>
+        /// <summary>Per-status recipient counts for the message. Present only for outbound messageswith recipient rows. Keys are recipient statuses, values are counts.Example: `{&quot;delivered&quot;: 998, &quot;bounced&quot;: 2}`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailRecipientStatuses? RecipientStatuses { get; set; }

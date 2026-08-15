@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Import job. Schema fields hidden: `account_id`, `csv_content`,`block_ttl_days`. Nullable fields use the omit-nullable pattern.&quot;</summary>
+        /// <summary>Import job. Schema fields hidden: `account_id`, `csv_content`,`block_ttl_days`. Nullable fields use the omit-nullable pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockImport? Data { get; set; }

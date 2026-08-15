@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks
         {
         }
         /// <summary>
-        /// &quot;Account-scoped list. Two mutually exclusive pagination modes:  - **Offset**: `page[number]` (default 1) + `page[size]`    (default 25, max 100). `meta` contains `total_pages`.  - **Cursor**: `page[after]` and/or `page[before]` (opaque    `Base.url_encode64` of `{\&quot;created_at\&quot;,\&quot;id\&quot;}`). Cannot combine    with `page[number]`; `after`+`before` together is an error.    `meta` contains `next_cursor` / `previous_cursor` (omitted when    their flag is false).Sort defaults to `-created_at` (desc); only `created_at` is sortable.A `--` prefix is an error. `nil`/empty filter values are silently dropped.&quot;
+        /// Account-scoped list. Two mutually exclusive pagination modes:  - **Offset**: `page[number]` (default 1) + `page[size]`    (default 25, max 100). `meta` contains `total_pages`.  - **Cursor**: `page[after]` and/or `page[before]` (opaque    `Base.url_encode64` of `{&quot;created_at&quot;,&quot;id&quot;}`). Cannot combine    with `page[number]`; `after`+`before` together is an error.    `meta` contains `next_cursor` / `previous_cursor` (omitted when    their flag is false).Sort defaults to `-created_at` (desc); only `created_at` is sortable.A `--` prefix is an error. `nil`/empty filter values are silently dropped.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListEmailBlocks200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListEmailBlocks200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListEmailBlocks200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a suppression with `reason: manual_block` and `source: manual`.Caller-supplied `reason` / `source` are **ignored**; `scope` is**derived** server-side from `domain_id` / `from` and is nevertrusted. Idempotent: if a matching row already exists (NULL-safededupe key: account_id, scope, to, reason, domain_id, from),returns the existing record with `200` (no new audit event).`bounce_category`, `dsn_code`, `meta`, and `group_id` are **notaccepted** on the public surface. Use the unsubscribe-groupsuppression endpoint or the internal create surface for those.&quot;
+        /// Creates a suppression with `reason: manual_block` and `source: manual`.Caller-supplied `reason` / `source` are **ignored**; `scope` is**derived** server-side from `domain_id` / `from` and is nevertrusted. Idempotent: if a matching row already exists (NULL-safededupe key: account_id, scope, to, reason, domain_id, from),returns the existing record with `200` (no new audit event).`bounce_category`, `dsn_code`, `meta`, and `group_id` are **notaccepted** on the public surface. Use the unsubscribe-groupsuppression endpoint or the internal create surface for those.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse"/></returns>
         /// <param name="body">`reason`/`source` are forced to `manual_block`/`manual` (ignored ifsupplied). `scope` is derived. `bounce_category`/`dsn_code`/`meta`/`group_id` are not accepted on the public surface.</param>
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Account-scoped list. Two mutually exclusive pagination modes:  - **Offset**: `page[number]` (default 1) + `page[size]`    (default 25, max 100). `meta` contains `total_pages`.  - **Cursor**: `page[after]` and/or `page[before]` (opaque    `Base.url_encode64` of `{\&quot;created_at\&quot;,\&quot;id\&quot;}`). Cannot combine    with `page[number]`; `after`+`before` together is an error.    `meta` contains `next_cursor` / `previous_cursor` (omitted when    their flag is false).Sort defaults to `-created_at` (desc); only `created_at` is sortable.A `--` prefix is an error. `nil`/empty filter values are silently dropped.&quot;
+        /// Account-scoped list. Two mutually exclusive pagination modes:  - **Offset**: `page[number]` (default 1) + `page[size]`    (default 25, max 100). `meta` contains `total_pages`.  - **Cursor**: `page[after]` and/or `page[before]` (opaque    `Base.url_encode64` of `{&quot;created_at&quot;,&quot;id&quot;}`). Cannot combine    with `page[number]`; `after`+`before` together is an error.    `meta` contains `next_cursor` / `previous_cursor` (omitted when    their flag is false).Sort defaults to `-created_at` (desc); only `created_at` is sortable.A `--` prefix is an error. `nil`/empty filter values are silently dropped.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a suppression with `reason: manual_block` and `source: manual`.Caller-supplied `reason` / `source` are **ignored**; `scope` is**derived** server-side from `domain_id` / `from` and is nevertrusted. Idempotent: if a matching row already exists (NULL-safededupe key: account_id, scope, to, reason, domain_id, from),returns the existing record with `200` (no new audit event).`bounce_category`, `dsn_code`, `meta`, and `group_id` are **notaccepted** on the public surface. Use the unsubscribe-groupsuppression endpoint or the internal create surface for those.&quot;
+        /// Creates a suppression with `reason: manual_block` and `source: manual`.Caller-supplied `reason` / `source` are **ignored**; `scope` is**derived** server-side from `domain_id` / `from` and is nevertrusted. Idempotent: if a matching row already exists (NULL-safededupe key: account_id, scope, to, reason, domain_id, from),returns the existing record with `200` (no new audit event).`bounce_category`, `dsn_code`, `meta`, and `group_id` are **notaccepted** on the public surface. Use the unsubscribe-groupsuppression endpoint or the internal create surface for those.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">`reason`/`source` are forced to `manual_block`/`manual` (ignored ifsupplied). `scope` is derived. `bounce_category`/`dsn_code`/`meta`/`group_id` are not accepted on the public surface.</param>
@@ -165,7 +165,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks
             return new global::Soenneker.Telnyx.OpenApiClient.Email_blocks.Email_blocksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Account-scoped list. Two mutually exclusive pagination modes:  - **Offset**: `page[number]` (default 1) + `page[size]`    (default 25, max 100). `meta` contains `total_pages`.  - **Cursor**: `page[after]` and/or `page[before]` (opaque    `Base.url_encode64` of `{\&quot;created_at\&quot;,\&quot;id\&quot;}`). Cannot combine    with `page[number]`; `after`+`before` together is an error.    `meta` contains `next_cursor` / `previous_cursor` (omitted when    their flag is false).Sort defaults to `-created_at` (desc); only `created_at` is sortable.A `--` prefix is an error. `nil`/empty filter values are silently dropped.&quot;
+        /// Account-scoped list. Two mutually exclusive pagination modes:  - **Offset**: `page[number]` (default 1) + `page[size]`    (default 25, max 100). `meta` contains `total_pages`.  - **Cursor**: `page[after]` and/or `page[before]` (opaque    `Base.url_encode64` of `{&quot;created_at&quot;,&quot;id&quot;}`). Cannot combine    with `page[number]`; `after`+`before` together is an error.    `meta` contains `next_cursor` / `previous_cursor` (omitted when    their flag is false).Sort defaults to `-created_at` (desc); only `created_at` is sortable.A `--` prefix is an error. `nil`/empty filter values are silently dropped.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Email_blocksRequestBuilderGetQueryParameters 

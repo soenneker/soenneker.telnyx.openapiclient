@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata Metadata { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case developer.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageRole? Role { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageRole>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperRole>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageMetadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessageRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

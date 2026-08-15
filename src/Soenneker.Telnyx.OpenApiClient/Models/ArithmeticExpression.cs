@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Numeric expression: applies an arithmetic operator to two sub-expressions.Useful for derived numeric checks, e.g. `cart_total + shipping &gt; 50`.Both operands should resolve to numbers at runtime.&quot;
+    /// Numeric expression: applies an arithmetic operator to two sub-expressions.Useful for derived numeric checks, e.g. `cart_total + shipping &gt; 50`.Both operands should resolve to numbers at runtime.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ArithmeticExpression : IAdditionalDataHolder, IParsable
@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.Expression Right { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "left", n => { Left = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue); } },
                 { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpressionOp>(); } },
                 { "right", n => { Right = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticType>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("left", Left);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpressionOp>("op", Op);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("right", Right);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

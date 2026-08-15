@@ -22,7 +22,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateInboundMessageRequestReadAtWrapper()
         {
             AdditionalData = new Dictionary<string, object>();
-            Value = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

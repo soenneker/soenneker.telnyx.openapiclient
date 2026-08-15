@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingReportRequestParams Params { get; set; }
 #endif
         /// <summary>Identifies the type of report</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingReportRequestReportType? ReportType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportType? ReportType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingReportRequest"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "params", n => { Params = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingReportRequestParams>(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingReportRequestParams.CreateFromDiscriminatorValue); } },
-                { "report_type", n => { ReportType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingReportRequestReportType>(); } },
+                { "report_type", n => { ReportType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingReportRequestParams>("params", Params);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingReportRequestReportType>("report_type", ReportType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportType>("report_type", ReportType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The status property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SimplifiedOtaUpdateStatus? Status { get; set; }
         /// <summary>Represents the type of the operation requested. This will relate directly to the source of the request.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimplifiedOtaUpdateType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardNetworkPreferencesType? Type { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sim_card_id", n => { SimCardId = n.GetGuidValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimplifiedOtaUpdateStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimplifiedOtaUpdateType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardNetworkPreferencesType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("sim_card_id", SimCardId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimplifiedOtaUpdateStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimplifiedOtaUpdateType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardNetworkPreferencesType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

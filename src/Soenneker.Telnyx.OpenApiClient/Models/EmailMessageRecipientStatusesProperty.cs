@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Per-status recipient counts for the message. Present only for outbound messageswith recipient rows. Keys are recipient statuses, values are counts.Example: `{\&quot;delivered\&quot;: 998, \&quot;bounced\&quot;: 2}`.&quot;
+    /// Per-status recipient counts for the message. Present only for outbound messageswith recipient rows. Keys are recipient statuses, values are counts.Example: `{&quot;delivered&quot;: 998, &quot;bounced&quot;: 2}`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmailMessageRecipientStatusesProperty : IAdditionalDataHolder, IParsable

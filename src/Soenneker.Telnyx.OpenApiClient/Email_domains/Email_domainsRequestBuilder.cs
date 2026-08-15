@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains
         {
         }
         /// <summary>
-        /// &quot;Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.&quot;
+        /// Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.&quot;
+        /// Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains
             return new global::Soenneker.Telnyx.OpenApiClient.Email_domains.Email_domainsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.&quot;
+        /// Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Email_domainsRequestBuilderGetQueryParameters 

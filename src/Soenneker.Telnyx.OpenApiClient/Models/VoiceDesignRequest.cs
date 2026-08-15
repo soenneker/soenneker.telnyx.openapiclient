@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Language for synthesis. Supported values: Auto, Chinese, English, Japanese, Korean, German, French, Russian, Portuguese, Spanish, Italian. Defaults to Auto.&quot;</summary>
+        /// <summary>Language for synthesis. Supported values: Auto, Chinese, English, Japanese, Korean, German, French, Russian, Portuguese, Spanish, Italian. Defaults to Auto.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>&quot;Maximum number of tokens to generate. Default: 2048.&quot;</summary>
+        /// <summary>Maximum number of tokens to generate. Default: 2048.</summary>
         public int? MaxNewTokens { get; set; }
         /// <summary>Name for the voice design. Required when creating a new design (`voice_design_id` is not provided); ignored when adding a version. Cannot be a UUID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,9 +43,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Voice synthesis provider. `telnyx` uses the Qwen3TTS model; `minimax` uses the Minimax speech models. Case-insensitive. Defaults to `telnyx`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignRequestProvider? Provider { get; set; }
-        /// <summary>&quot;Repetition penalty to reduce repeated patterns in generated audio. Default: 1.05.&quot;</summary>
+        /// <summary>Repetition penalty to reduce repeated patterns in generated audio. Default: 1.05.</summary>
         public float? RepetitionPenalty { get; set; }
-        /// <summary>&quot;Sampling temperature controlling randomness. Higher values produce more varied output. Default: 0.9.&quot;</summary>
+        /// <summary>Sampling temperature controlling randomness. Higher values produce more varied output. Default: 0.9.</summary>
         public float? Temperature { get; set; }
         /// <summary>Sample text to synthesize for this voice design.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,9 +55,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>&quot;Top-k sampling parameter — limits the token vocabulary considered at each step. Default: 50.&quot;</summary>
+        /// <summary>Top-k sampling parameter — limits the token vocabulary considered at each step. Default: 50.</summary>
         public int? TopK { get; set; }
-        /// <summary>&quot;Top-p (nucleus) sampling parameter — cumulative probability cutoff for token selection. Default: 1.0.&quot;</summary>
+        /// <summary>Top-p (nucleus) sampling parameter — cumulative probability cutoff for token selection. Default: 1.0.</summary>
         public float? TopP { get; set; }
         /// <summary>ID of an existing voice design to add a new version to. When provided, a new version is created instead of a new design.</summary>
         public Guid? VoiceDesignId { get; set; }

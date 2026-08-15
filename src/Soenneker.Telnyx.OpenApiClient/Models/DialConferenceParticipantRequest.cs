@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConferenceRecordingStatusCallback { get; set; }
 #endif
-        /// <summary>&quot;The changes to the conference recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`. `failed` and `absent` are synonymous.&quot;</summary>
+        /// <summary>The changes to the conference recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`. `failed` and `absent` are synonymous.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConferenceRecordingStatusCallbackEvent { get; set; }
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConferenceStatusCallback { get; set; }
 #endif
-        /// <summary>&quot;The changes to the conference&apos;s state that should generate a call to `ConferenceStatusCallback`. Can be: `start`, `end`, `join` and `leave`. Separate multiple values with a space. By default no callbacks are sent.&quot;</summary>
+        /// <summary>The changes to the conference&apos;s state that should generate a call to `ConferenceStatusCallback`. Can be: `start`, `end`, `join` and `leave`. Separate multiple values with a space. By default no callbacks are sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConferenceStatusCallbackEvent { get; set; }
@@ -160,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RecordingStatusCallback { get; set; }
 #endif
-        /// <summary>&quot;The changes to the recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`.&quot;</summary>
+        /// <summary>The changes to the recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RecordingStatusCallbackEvent { get; set; }
@@ -198,7 +198,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string StatusCallback { get; set; }
 #endif
-        /// <summary>&quot;The changes to the call&apos;s state that should generate a call to `StatusCallback`. Can be: `initiated`, `ringing`, `answered`, and `completed`. Separate multiple values with a space. The default value is `completed`.&quot;</summary>
+        /// <summary>The changes to the call&apos;s state that should generate a call to `StatusCallback`. Can be: `initiated`, `ringing`, `answered`, and `completed`. Separate multiple values with a space. The default value is `completed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StatusCallbackEvent { get; set; }

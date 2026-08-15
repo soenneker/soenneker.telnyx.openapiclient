@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Only `to` is read; all other fields are ignored (`reason: unsubscribe`, `source: manual`, `group_id: &lt;group&gt;` are forced).&quot;
+    /// Only `to` is read; all other fields are ignored (`reason: unsubscribe`, `source: manual`, `group_id: &lt;group&gt;` are forced).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AddGroupSuppressionRequest : IAdditionalDataHolder, IParsable

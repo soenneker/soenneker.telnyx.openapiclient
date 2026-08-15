@@ -37,9 +37,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats();
-            if("VoiceSdkCallReportStats_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("VoiceSdkCallReportStatsBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VoiceSdkCallReportStatsBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsBranch1();
             }

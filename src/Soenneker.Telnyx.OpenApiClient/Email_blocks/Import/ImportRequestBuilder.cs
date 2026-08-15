@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks.Import
         {
         }
         /// <summary>
-        /// &quot;Accepts `multipart/form-data` with a `file` field (the CSV) and anoptional `block_ttl_days` (integer &gt;0, default 30). Validates:  - content ≤ 25 MiB, else `413`  - row count ≤ 250 000, else `413`  - header-only / all-blank / undetectable provider → `400`Returns `202` with the import record (status `pending`); an Obanworker (`EmailBlockImportWorker`, max_attempts 3) transitions`pending → processing → completed | failed`. `block_ttl_days`applies only to imported `manual_block` rows; other reasons get`expires_at: nil`. Provider is auto-detected from the CSV header(`sendgrid` / `mailgun` / `ses` / `generic`).&quot;
+        /// Accepts `multipart/form-data` with a `file` field (the CSV) and anoptional `block_ttl_days` (integer &gt;0, default 30). Validates:  - content ≤ 25 MiB, else `413`  - row count ≤ 250 000, else `413`  - header-only / all-blank / undetectable provider → `400`Returns `202` with the import record (status `pending`); an Obanworker (`EmailBlockImportWorker`, max_attempts 3) transitions`pending → processing → completed | failed`. `block_ttl_days`applies only to imported `manual_block` rows; other reasons get`expires_at: nil`. Provider is auto-detected from the CSV header(`sendgrid` / `mailgun` / `ses` / `generic`).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockImportResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks.Import
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockImportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockImportResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Accepts `multipart/form-data` with a `file` field (the CSV) and anoptional `block_ttl_days` (integer &gt;0, default 30). Validates:  - content ≤ 25 MiB, else `413`  - row count ≤ 250 000, else `413`  - header-only / all-blank / undetectable provider → `400`Returns `202` with the import record (status `pending`); an Obanworker (`EmailBlockImportWorker`, max_attempts 3) transitions`pending → processing → completed | failed`. `block_ttl_days`applies only to imported `manual_block` rows; other reasons get`expires_at: nil`. Provider is auto-detected from the CSV header(`sendgrid` / `mailgun` / `ses` / `generic`).&quot;
+        /// Accepts `multipart/form-data` with a `file` field (the CSV) and anoptional `block_ttl_days` (integer &gt;0, default 30). Validates:  - content ≤ 25 MiB, else `413`  - row count ≤ 250 000, else `413`  - header-only / all-blank / undetectable provider → `400`Returns `202` with the import record (status `pending`); an Obanworker (`EmailBlockImportWorker`, max_attempts 3) transitions`pending → processing → completed | failed`. `block_ttl_days`applies only to imported `manual_block` rows; other reasons get`expires_at: nil`. Provider is auto-detected from the CSV header(`sendgrid` / `mailgun` / `ses` / `generic`).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

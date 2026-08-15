@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Identifies the event type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadEventType? EventType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessagingChangedEventType? EventType { get; set; }
         /// <summary>Uniquely identifies the event.</summary>
         public Guid? Id { get; set; }
         /// <summary>The webhook payload for the porting_order.messaging_changed event</summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "available_notification_methods", n => { AvailableNotificationMethods = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadAvailableNotificationMethodsItem>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadEventType>(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessagingChangedEventType>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayload.CreateFromDiscriminatorValue); } },
                 { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadStatus>(); } },
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadAvailableNotificationMethodsItem>("available_notification_methods", AvailableNotificationMethods);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadEventType>("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessagingChangedEventType>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayload>("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadStatus>("payload_status", PayloadStatus);

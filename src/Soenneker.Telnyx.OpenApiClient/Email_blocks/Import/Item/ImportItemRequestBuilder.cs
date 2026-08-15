@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks.Import.Item
         {
         }
         /// <summary>
-        /// &quot;Account-scoped fetch (cross-account → 404; malformed UUID → 404).Nullable fields are omitted until terminal: `provider`/`completed_at`when nil; `processed_rows`/`created_count`/`existing_count`/`skipped_count`/`error_count` only when `status == completed`;`errors` only when non-empty; `failure_reason` only on terminalfailure.&quot;
+        /// Account-scoped fetch (cross-account → 404; malformed UUID → 404).Nullable fields are omitted until terminal: `provider`/`completed_at`when nil; `processed_rows`/`created_count`/`existing_count`/`skipped_count`/`error_count` only when `status == completed`;`errors` only when non-empty; `failure_reason` only on terminalfailure.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockImportResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks.Import.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockImportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockImportResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Account-scoped fetch (cross-account → 404; malformed UUID → 404).Nullable fields are omitted until terminal: `provider`/`completed_at`when nil; `processed_rows`/`created_count`/`existing_count`/`skipped_count`/`error_count` only when `status == completed`;`errors` only when non-empty; `failure_reason` only on terminalfailure.&quot;
+        /// Account-scoped fetch (cross-account → 404; malformed UUID → 404).Nullable fields are omitted until terminal: `provider`/`completed_at`when nil; `processed_rows`/`created_count`/`existing_count`/`skipped_count`/`error_count` only when `status == completed`;`errors` only when non-empty; `failure_reason` only on terminalfailure.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

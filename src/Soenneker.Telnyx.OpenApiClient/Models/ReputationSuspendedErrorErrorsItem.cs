@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationSuspendedErrorErrorsItemCode? Code { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationSuspendedCode? Code { get; set; }
         /// <summary>The detail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationSuspendedErrorErrorsItemCode>(); } },
+                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationSuspendedCode>(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationSuspendedErrorErrorsItemCode>("code", Code);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationSuspendedCode>("code", Code);
             writer.WriteStringValue("detail", Detail);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);

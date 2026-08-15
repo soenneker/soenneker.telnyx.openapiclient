@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Schedule
         {
         }
         /// <summary>
-        /// &quot;Schedule a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to schedule a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.&quot;
+        /// Schedule a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to schedule a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduleMessage200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Schedule
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduleMessage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ScheduleMessage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Schedule a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to schedule a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.&quot;
+        /// Schedule a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to schedule a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

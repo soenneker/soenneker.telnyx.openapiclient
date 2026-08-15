@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>&quot;The action type. It can be one of the following: &lt;br/&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;bulk_disable_voice&lt;/code&gt; - disable voice for every SIM Card in a SIM Card Group.&lt;/li&gt;&lt;li&gt;&lt;code&gt;bulk_enable_voice&lt;/code&gt; - enable voice for every SIM Card in a SIM Card Group.&lt;/li&gt;&lt;li&gt;&lt;code&gt;bulk_set_public_ips&lt;/code&gt; - set a public IP for each specified SIM Card.&lt;/li&gt;&lt;/ul&gt;&quot;</summary>
+    /// <summary>The action type. It can be one of the following: &lt;br/&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;bulk_disable_voice&lt;/code&gt; - disable voice for every SIM Card in a SIM Card Group.&lt;/li&gt;&lt;li&gt;&lt;code&gt;bulk_enable_voice&lt;/code&gt; - enable voice for every SIM Card in a SIM Card Group.&lt;/li&gt;&lt;li&gt;&lt;code&gt;bulk_set_public_ips&lt;/code&gt; - set a public IP for each specified SIM Card.&lt;/li&gt;&lt;/ul&gt;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BulkSimCardActionDetailedActionType
     {

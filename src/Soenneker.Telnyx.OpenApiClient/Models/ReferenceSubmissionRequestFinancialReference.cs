@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;One financial reference who can confirm the company pays its bills: a licensed certified public accountant (CPA) the company uses, a contact at a bank or financial institution that has a relationship with the company, or a reasonable alternative banking or financial reference.&quot;
+    /// One financial reference who can confirm the company pays its bills: a licensed certified public accountant (CPA) the company uses, a contact at a bank or financial institution that has a relationship with the company, or a reasonable alternative banking or financial reference.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReferenceSubmissionRequestFinancialReference : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Reference contact email address. Required: the reference is emailed scheduling and dial-in notices.&quot;</summary>
+        /// <summary>Reference contact email address. Required: the reference is emailed scheduling and dial-in notices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RelationshipToRegistrant { get; set; }
 #endif
-        /// <summary>&quot;IANA timezone id for the reference (e.g. America/New_York). Required: calls are only placed within the reference&apos;s local 8am-9pm window.&quot;</summary>
+        /// <summary>IANA timezone id for the reference (e.g. America/New_York). Required: calls are only placed within the reference&apos;s local 8am-9pm window.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Timezone { get; set; }

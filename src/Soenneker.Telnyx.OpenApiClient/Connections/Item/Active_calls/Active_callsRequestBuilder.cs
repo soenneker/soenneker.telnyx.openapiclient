@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Connections.Item.Active_calls
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Active_callsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

@@ -20,7 +20,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchDetailRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchRecordType? RecordType { get; set; }
         /// <summary>Map keyed by original email address. Present only when the batch is completed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchDetailRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchRecordType>(); } },
                 { "results", n => { Results = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchDetailResults>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchDetailResults.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchStatus>(); } },
                 { "total", n => { Total = n.GetIntValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteGuidValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchDetailRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchRecordType>("record_type", RecordType);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchDetailResults>("results", Results);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationBatchStatus>("status", Status);
             writer.WriteIntValue("total", Total);

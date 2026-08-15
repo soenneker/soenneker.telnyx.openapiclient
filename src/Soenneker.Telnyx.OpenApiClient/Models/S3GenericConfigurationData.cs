@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string AwsSecretAccessKey { get; set; }
 #endif
         /// <summary>Storage backend type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationDataBackend? Backend { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericBackend? Backend { get; set; }
         /// <summary>Name of the bucket to be used to store recording files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "aws_access_key_id", n => { AwsAccessKeyId = n.GetStringValue(); } },
                 { "aws_secret_access_key", n => { AwsSecretAccessKey = n.GetStringValue(); } },
-                { "backend", n => { Backend = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationDataBackend>(); } },
+                { "backend", n => { Backend = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericBackend>(); } },
                 { "bucket", n => { Bucket = n.GetStringValue(); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("aws_access_key_id", AwsAccessKeyId);
             writer.WriteStringValue("aws_secret_access_key", AwsSecretAccessKey);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationDataBackend>("backend", Backend);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericBackend>("backend", Backend);
             writer.WriteStringValue("bucket", Bucket);
             writer.WriteStringValue("endpoint", Endpoint);
             writer.WriteStringValue("region", Region);

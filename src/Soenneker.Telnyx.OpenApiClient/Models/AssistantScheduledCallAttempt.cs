@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? AttemptNumber { get; set; }
         /// <summary>Duration of the call in seconds</summary>
         public int? CallDuration { get; set; }
-        /// <summary>&quot;Values: busy, canceled, no-answer, ringing, completed, failed, in-progress&quot;</summary>
+        /// <summary>Values: busy, canceled, no-answer, ringing, completed, failed, in-progress</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CallStatus { get; set; }

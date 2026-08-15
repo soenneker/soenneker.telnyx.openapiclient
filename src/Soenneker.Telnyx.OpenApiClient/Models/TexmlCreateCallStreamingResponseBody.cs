@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Sid { get; set; }
 #endif
         /// <summary>The status of the streaming.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBodyStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InProgressStatus? Status { get; set; }
         /// <summary>The relative URI for this streaming resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "date_updated", n => { DateUpdated = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBodyStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InProgressStatus>(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("date_updated", DateUpdated);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBodyStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InProgressStatus>("status", Status);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

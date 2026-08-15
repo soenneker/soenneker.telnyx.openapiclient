@@ -160,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
             [QueryParameter("country_code")]
             public string CountryCode { get; set; }
 #endif
-            /// <summary>&quot;Consolidated created_at parameter (deepObject style). Originally: created_at[gte], created_at[lte]&quot;</summary>
+            /// <summary>Consolidated created_at parameter (deepObject style). Originally: created_at[gte], created_at[lte]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("created_at")]
@@ -170,7 +170,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
             [QueryParameter("created_at")]
             public string CreatedAt { get; set; }
 #endif
-            /// <summary>&quot;Consolidated updated_at parameter (deepObject style). Originally: updated_at[gte], updated_at[lte]&quot;</summary>
+            /// <summary>Consolidated updated_at parameter (deepObject style). Originally: updated_at[gte], updated_at[lte]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("updated_at")]

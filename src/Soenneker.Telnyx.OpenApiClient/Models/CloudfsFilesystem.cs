@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MetaToken { get; set; }
 #endif
-        /// <summary>&quot;PostgreSQL connection URL for the filesystem&apos;s metadata database. In create and rotate-meta-token responses it embeds the metadata token as the password: `postgres://&lt;database&gt;:&lt;meta_token&gt;@us-east-1.telnyxcloudfs.com:5432/&lt;database&gt;?sslmode=require` (the example below is shown without the credential; the actual response includes it). Pass it to `juicefs mount`: the storage configuration is baked in at provisioning, so the metadata URL is all a client needs to mount the filesystem.&quot;</summary>
+        /// <summary>PostgreSQL connection URL for the filesystem&apos;s metadata database. In create and rotate-meta-token responses it embeds the metadata token as the password: `postgres://&lt;database&gt;:&lt;meta_token&gt;@us-east-1.telnyxcloudfs.com:5432/&lt;database&gt;?sslmode=require` (the example below is shown without the credential; the actual response includes it). Pass it to `juicefs mount`: the storage configuration is baked in at provisioning, so the metadata URL is all a client needs to mount the filesystem.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MetaUrl { get; set; }
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string S3Endpoint { get; set; }
 #endif
-        /// <summary>&quot;Lifecycle status of the filesystem. `ready` means it is fully provisioned and usable. `needs_format` means the storage bucket and metadata database were provisioned but the filesystem has not yet been formatted — run `juicefs format` with the filesystem&apos;s `meta_url` before mounting. `failed` means the last lifecycle action failed — see the filesystem&apos;s `error` message. `deleted` appears only in the delete response: deleted filesystems are excluded from list results and return a `404` on retrieval.&quot;</summary>
+        /// <summary>Lifecycle status of the filesystem. `ready` means it is fully provisioned and usable. `needs_format` means the storage bucket and metadata database were provisioned but the filesystem has not yet been formatted — run `juicefs format` with the filesystem&apos;s `meta_url` before mounting. `failed` means the last lifecycle action failed — see the filesystem&apos;s `error` message. `deleted` appears only in the delete response: deleted filesystems are excluded from list results and return a `404` on retrieval.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

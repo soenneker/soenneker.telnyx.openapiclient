@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Infringement_claims
         {
         }
         /// <summary>
-        /// &quot;Return the trademark or copyright claims filed against this DIR. Each claim&apos;s `status` is `pending` (newly filed; DIR auto-suspended), `contested` (you have submitted contest evidence; awaiting resolution), or `resolved` (final). Resolution outcomes: `upheld` (claim accepted; DIR stays suspended/permanently_rejected), `rejected` (claim dismissed; DIR restored to `verified`), `modified` (partial outcome).&quot;
+        /// Return the trademark or copyright claims filed against this DIR. Each claim&apos;s `status` is `pending` (newly filed; DIR auto-suspended), `contested` (you have submitted contest evidence; awaiting resolution), or `resolved` (final). Resolution outcomes: `upheld` (claim accepted; DIR stays suspended/permanently_rejected), `rejected` (claim dismissed; DIR restored to `verified`), `modified` (partial outcome).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimList"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Infringement_claims
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Return the trademark or copyright claims filed against this DIR. Each claim&apos;s `status` is `pending` (newly filed; DIR auto-suspended), `contested` (you have submitted contest evidence; awaiting resolution), or `resolved` (final). Resolution outcomes: `upheld` (claim accepted; DIR stays suspended/permanently_rejected), `rejected` (claim dismissed; DIR restored to `verified`), `modified` (partial outcome).&quot;
+        /// Return the trademark or copyright claims filed against this DIR. Each claim&apos;s `status` is `pending` (newly filed; DIR auto-suspended), `contested` (you have submitted contest evidence; awaiting resolution), or `resolved` (final). Resolution outcomes: `upheld` (claim accepted; DIR stays suspended/permanently_rejected), `rejected` (claim dismissed; DIR restored to `verified`), `modified` (partial outcome).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Infringement_claims
             return new global::Soenneker.Telnyx.OpenApiClient.Dir.Item.Infringement_claims.Infringement_claimsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Return the trademark or copyright claims filed against this DIR. Each claim&apos;s `status` is `pending` (newly filed; DIR auto-suspended), `contested` (you have submitted contest evidence; awaiting resolution), or `resolved` (final). Resolution outcomes: `upheld` (claim accepted; DIR stays suspended/permanently_rejected), `rejected` (claim dismissed; DIR restored to `verified`), `modified` (partial outcome).&quot;
+        /// Return the trademark or copyright claims filed against this DIR. Each claim&apos;s `status` is `pending` (newly filed; DIR auto-suspended), `contested` (you have submitted contest evidence; awaiting resolution), or `resolved` (final). Resolution outcomes: `upheld` (claim accepted; DIR stays suspended/permanently_rejected), `rejected` (claim dismissed; DIR restored to `verified`), `modified` (partial outcome).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Infringement_claimsRequestBuilderGetQueryParameters 

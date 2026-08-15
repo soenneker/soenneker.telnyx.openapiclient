@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Remediation
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Submit a batch of phone numbers belonging to this enterprise for reputation remediation. The request is accepted asynchronously: this endpoint returns `202` with the persisted request id, then the request transitions through processing states until completion. Use the GET endpoints to poll status and per-number results.Each phone number must be in E.164 format and belong to this enterprise. A number that already has an in-flight remediation request is rejected.&quot;
+        /// Submit a batch of phone numbers belonging to this enterprise for reputation remediation. The request is accepted asynchronously: this endpoint returns `202` with the persisted request id, then the request transitions through processing states until completion. Use the GET endpoints to poll status and per-number results.Each phone number must be in E.164 format and belong to this enterprise. A number that already has an in-flight remediation request is rejected.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestWrapped"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Remediation
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Submit a batch of phone numbers belonging to this enterprise for reputation remediation. The request is accepted asynchronously: this endpoint returns `202` with the persisted request id, then the request transitions through processing states until completion. Use the GET endpoints to poll status and per-number results.Each phone number must be in E.164 format and belong to this enterprise. A number that already has an in-flight remediation request is rejected.&quot;
+        /// Submit a batch of phone numbers belonging to this enterprise for reputation remediation. The request is accepted asynchronously: this endpoint returns `202` with the persisted request id, then the request transitions through processing states until completion. Use the GET endpoints to poll status and per-number results.Each phone number must be in E.164 format and belong to this enterprise. A number that already has an in-flight remediation request is rejected.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

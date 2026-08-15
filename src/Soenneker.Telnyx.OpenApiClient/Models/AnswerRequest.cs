@@ -65,9 +65,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection DeepfakeDetection { get; set; }
 #endif
         /// <summary>The list of comma-separated codecs in a preferred order for the forked media to be received.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestPreferredCodecs? PreferredCodecs { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs? PreferredCodecs { get; set; }
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecord? Record { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord? Record { get; set; }
         /// <summary>Defines which channel should be recorded (&apos;single&apos; or &apos;dual&apos;) when `record` is specified.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordChannels? RecordChannels { get; set; }
         /// <summary>The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.</summary>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The audio track to be recorded. Can be either `both`, `inbound` or `outbound`. If only single track is specified (`inbound`, `outbound`), `channels` configuration is ignored and it will be recorded as mono (single channel).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrack? RecordTrack { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrim? RecordTrim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim? RecordTrim { get; set; }
         /// <summary>Generate silence RTP packets when no transmission available.</summary>
         public bool? SendSilenceWhenIdle { get; set; }
         /// <summary>SIP headers to be added to the SIP INVITE response. Currently only User-to-User header is supported.</summary>
@@ -198,15 +198,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "conversation_relay_config", n => { ConversationRelayConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig.CreateFromDiscriminatorValue); } },
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "deepfake_detection", n => { DeepfakeDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection.CreateFromDiscriminatorValue); } },
-                { "preferred_codecs", n => { PreferredCodecs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestPreferredCodecs>(); } },
-                { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecord>(); } },
+                { "preferred_codecs", n => { PreferredCodecs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs>(); } },
+                { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord>(); } },
                 { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordChannels>(); } },
                 { "record_custom_file_name", n => { RecordCustomFileName = n.GetStringValue(); } },
                 { "record_format", n => { RecordFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordFormat>(); } },
                 { "record_max_length", n => { RecordMaxLength = n.GetIntValue(); } },
                 { "record_timeout_secs", n => { RecordTimeoutSecs = n.GetIntValue(); } },
                 { "record_track", n => { RecordTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrack>(); } },
-                { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrim>(); } },
+                { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim>(); } },
                 { "send_silence_when_idle", n => { SendSilenceWhenIdle = n.GetBoolValue(); } },
                 { "sip_headers", n => { SipHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sound_modifications", n => { SoundModifications = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications>(global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications.CreateFromDiscriminatorValue); } },
@@ -239,15 +239,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig>("conversation_relay_config", ConversationRelayConfig);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>("custom_headers", CustomHeaders);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection>("deepfake_detection", DeepfakeDetection);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestPreferredCodecs>("preferred_codecs", PreferredCodecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecord>("record", Record);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs>("preferred_codecs", PreferredCodecs);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord>("record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordChannels>("record_channels", RecordChannels);
             writer.WriteStringValue("record_custom_file_name", RecordCustomFileName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordFormat>("record_format", RecordFormat);
             writer.WriteIntValue("record_max_length", RecordMaxLength);
             writer.WriteIntValue("record_timeout_secs", RecordTimeoutSecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrack>("record_track", RecordTrack);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrim>("record_trim", RecordTrim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim>("record_trim", RecordTrim);
             writer.WriteBoolValue("send_silence_when_idle", SendSilenceWhenIdle);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>("sip_headers", SipHeaders);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications>("sound_modifications", SoundModifications);

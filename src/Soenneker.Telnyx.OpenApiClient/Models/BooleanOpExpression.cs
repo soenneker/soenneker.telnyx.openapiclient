@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.Expression> Operands { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BooleanOpExpression_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BoolOpType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BooleanOpExpression"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BooleanOpExpressionOp>(); } },
                 { "operands", n => { Operands = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BooleanOpExpression_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BoolOpType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BooleanOpExpressionOp>("op", Op);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("operands", Operands);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BooleanOpExpression_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BoolOpType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

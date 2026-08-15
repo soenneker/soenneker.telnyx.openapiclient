@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.End
         {
         }
         /// <summary>
-        /// &quot;Note: this will also kick all participants currently present in the room&quot;
+        /// Note: this will also kick all participants currently present in the room
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EndSession200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.End
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EndSession200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EndSession200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Note: this will also kick all participants currently present in the room&quot;
+        /// Note: this will also kick all participants currently present in the room
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

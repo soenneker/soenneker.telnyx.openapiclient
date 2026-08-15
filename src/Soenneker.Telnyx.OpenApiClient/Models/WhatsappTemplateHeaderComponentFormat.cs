@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>&quot;Header format type: TEXT (supports one variable), IMAGE, VIDEO, DOCUMENT, or LOCATION.&quot;</summary>
+    /// <summary>Header format type: TEXT (supports one variable), IMAGE, VIDEO, DOCUMENT, or LOCATION.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WhatsappTemplateHeaderComponentFormat
     {

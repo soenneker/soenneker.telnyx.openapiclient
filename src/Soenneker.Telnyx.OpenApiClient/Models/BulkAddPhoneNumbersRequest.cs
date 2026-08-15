@@ -12,7 +12,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class BulkAddPhoneNumbersRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>&quot;Supporting documents covering this batch. At least one entry with `document_type: letter_of_authorization` is required - the LOA authorises Telnyx to register these numbers under the DIR. Each `document_id` must come from the Telnyx Documents API. Additional document types (e.g. business registration) may be included alongside the LOA.&quot;</summary>
+        /// <summary>Supporting documents covering this batch. At least one entry with `document_type: letter_of_authorization` is required - the LOA authorises Telnyx to register these numbers under the DIR. Each `document_id` must come from the Telnyx Documents API. Additional document types (e.g. business registration) may be included alongside the LOA.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? Documents { get; set; }

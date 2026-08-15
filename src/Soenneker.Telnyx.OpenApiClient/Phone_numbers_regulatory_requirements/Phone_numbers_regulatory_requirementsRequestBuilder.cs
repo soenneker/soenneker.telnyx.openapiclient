@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[phone_number]&quot;</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[phone_number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

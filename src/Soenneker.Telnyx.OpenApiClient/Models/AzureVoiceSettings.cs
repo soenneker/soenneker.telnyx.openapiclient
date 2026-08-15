@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Region { get; set; }
 #endif
         /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/> and sets the default values.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "effect", n => { Effect = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsEffect>(); } },
                 { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsGender>(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureType>(); } },
             };
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsEffect>("effect", Effect);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsGender>("gender", Gender);
             writer.WriteStringValue("region", Region);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettingsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

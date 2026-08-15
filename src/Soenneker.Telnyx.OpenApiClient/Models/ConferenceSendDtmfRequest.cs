@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ClientState { get; set; }
 #endif
-        /// <summary>&quot;DTMF digits to send. Valid characters: 0-9, A-D, *, #, w (0.5s pause), W (1s pause).&quot;</summary>
+        /// <summary>DTMF digits to send. Valid characters: 0-9, A-D, *, #, w (0.5s pause), W (1s pause).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Digits { get; set; }

@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCostBreakdown CostBreakdown { get; set; }
 #endif
         /// <summary>The direction of the message. Inbound messages are sent to you whereas outbound messages are sent from you.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadDirection? Direction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundDirection? Direction { get; set; }
         /// <summary>Encoding scheme used for the message body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 formatted date indicating when the message request was received.</summary>
         public DateTimeOffset? ReceivedAt { get; set; }
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageRecordType? RecordType { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the message was sent.</summary>
         public DateTimeOffset? SentAt { get; set; }
         /// <summary>Indicates whether smart encoding was applied to this message. When `true`, one or more Unicode characters were automatically replaced with GSM-7 equivalents to reduce segment count and cost. The original message text is preserved in webhooks.</summary>
@@ -199,7 +199,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCost>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCost.CreateFromDiscriminatorValue); } },
                 { "cost_breakdown", n => { CostBreakdown = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCostBreakdown>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCostBreakdown.CreateFromDiscriminatorValue); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadDirection>(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundDirection>(); } },
                 { "encoding", n => { Encoding = n.GetStringValue(); } },
                 { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadFrom>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadFrom.CreateFromDiscriminatorValue); } },
@@ -210,7 +210,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "parts", n => { Parts = n.GetIntValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageRecordType>(); } },
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
                 { "smart_encoding_applied", n => { SmartEncodingApplied = n.GetBoolValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
@@ -238,7 +238,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCost>("cost", Cost);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCostBreakdown>("cost_breakdown", CostBreakdown);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadDirection>("direction", Direction);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundDirection>("direction", Direction);
             writer.WriteStringValue("encoding", Encoding);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError>("errors", Errors);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadFrom>("from", From);
@@ -249,7 +249,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("organization_id", OrganizationId);
             writer.WriteIntValue("parts", Parts);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageRecordType>("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
             writer.WriteBoolValue("smart_encoding_applied", SmartEncodingApplied);
             writer.WriteStringValue("subject", Subject);

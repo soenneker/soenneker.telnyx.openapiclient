@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>&quot;How `instructions` combine with the assistant-level instructions. `replace` (default): the node&apos;s instructions are used alone. `append`: the node&apos;s instructions are concatenated after the assistant&apos;s instructions.&quot;</summary>
+    /// <summary>How `instructions` combine with the assistant-level instructions. `replace` (default): the node&apos;s instructions are used alone. `append`: the node&apos;s instructions are concatenated after the assistant&apos;s instructions.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum FlowNodeInstructionsMode
     {

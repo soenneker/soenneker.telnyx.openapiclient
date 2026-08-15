@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;A targeting rule: ``match`` clauses (AND) gate ``serve``.An empty ``match`` is a catch-all (always fires).&quot;
+    /// A targeting rule: ``match`` clauses (AND) gate ``serve``.An empty ``match`` is a catch-all (always fires).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RuleInput : IAdditionalDataHolder, IParsable

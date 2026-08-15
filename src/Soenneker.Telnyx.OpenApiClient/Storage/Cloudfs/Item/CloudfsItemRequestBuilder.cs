@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs.Item
         {
         }
         /// <summary>
-        /// &quot;Permanently deletes a CloudFS filesystem, removing its S3 bucket and its metadata database. Deletion is synchronous: the response returns the filesystem&apos;s final state with status `deleted`. There is no restore. A filesystem that is still `provisioning` returns a `409`. If the filesystem still contains data, the request may be rejected with a `409` — drain the bucket and retry.&quot;
+        /// Permanently deletes a CloudFS filesystem, removing its S3 bucket and its metadata database. Deletion is synchronous: the response returns the filesystem&apos;s final state with status `deleted`. There is no restore. A filesystem that is still `provisioning` returns a `409`. If the filesystem still contains data, the request may be rejected with a `409` — drain the bucket and retry.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemDetailResponseWrapper"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemDetailResponseWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemDetailResponseWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Permanently deletes a CloudFS filesystem, removing its S3 bucket and its metadata database. Deletion is synchronous: the response returns the filesystem&apos;s final state with status `deleted`. There is no restore. A filesystem that is still `provisioning` returns a `409`. If the filesystem still contains data, the request may be rejected with a `409` — drain the bucket and retry.&quot;
+        /// Permanently deletes a CloudFS filesystem, removing its S3 bucket and its metadata database. Deletion is synchronous: the response returns the filesystem&apos;s final state with status `deleted`. There is no restore. A filesystem that is still `provisioning` returns a `409`. If the filesystem still contains data, the request may be rejected with a `409` — drain the bucket and retry.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

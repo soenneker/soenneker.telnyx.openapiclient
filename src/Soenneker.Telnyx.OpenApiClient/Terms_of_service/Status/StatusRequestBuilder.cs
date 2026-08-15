@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Terms_of_service.Status
         {
         }
         /// <summary>
-        /// &quot;Returns whether the authenticated user has agreed to the current Terms of Service for the product given by `product_type`. Used during onboarding to decide whether to prompt the user with the ToS dialog before continuing.`agreement_required: true` means the user has not yet agreed (or has agreed to an outdated version) and must agree before using that product&apos;s endpoints.&quot;
+        /// Returns whether the authenticated user has agreed to the current Terms of Service for the product given by `product_type`. Used during onboarding to decide whether to prompt the user with the ToS dialog before continuing.`agreement_required: true` means the user has not yet agreed (or has agreed to an outdated version) and must agree before using that product&apos;s endpoints.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TosStatusWrapped"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Terms_of_service.Status
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TosStatusWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TosStatusWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns whether the authenticated user has agreed to the current Terms of Service for the product given by `product_type`. Used during onboarding to decide whether to prompt the user with the ToS dialog before continuing.`agreement_required: true` means the user has not yet agreed (or has agreed to an outdated version) and must agree before using that product&apos;s endpoints.&quot;
+        /// Returns whether the authenticated user has agreed to the current Terms of Service for the product given by `product_type`. Used during onboarding to decide whether to prompt the user with the ToS dialog before continuing.`agreement_required: true` means the user has not yet agreed (or has agreed to an outdated version) and must agree before using that product&apos;s endpoints.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Terms_of_service.Status
             return new global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Status.StatusRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns whether the authenticated user has agreed to the current Terms of Service for the product given by `product_type`. Used during onboarding to decide whether to prompt the user with the ToS dialog before continuing.`agreement_required: true` means the user has not yet agreed (or has agreed to an outdated version) and must agree before using that product&apos;s endpoints.&quot;
+        /// Returns whether the authenticated user has agreed to the current Terms of Service for the product given by `product_type`. Used during onboarding to decide whether to prompt the user with the ToS dialog before continuing.`agreement_required: true` means the user has not yet agreed (or has agreed to an outdated version) and must agree before using that product&apos;s endpoints.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class StatusRequestBuilderGetQueryParameters 

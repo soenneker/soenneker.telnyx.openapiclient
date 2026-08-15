@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Determines what happens to the conversation when this participant hangs up.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipantOnHangup? OnHangup { get; set; }
         /// <summary>The role of the participant in the conversation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipantRole? Role { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UserRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant"/> and sets the default values.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "on_hangup", n => { OnHangup = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipantOnHangup>(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipantRole>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserRole>(); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipantOnHangup>("on_hangup", OnHangup);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipantRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

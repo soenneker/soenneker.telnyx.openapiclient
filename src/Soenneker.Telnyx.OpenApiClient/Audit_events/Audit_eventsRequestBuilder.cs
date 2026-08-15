@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Audit_events
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Audit_eventsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[created_before], filter[created_after]&quot;</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[created_before], filter[created_after]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Audit_events
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

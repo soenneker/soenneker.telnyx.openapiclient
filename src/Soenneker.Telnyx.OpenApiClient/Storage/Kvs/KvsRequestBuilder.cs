@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.KvNamespaceListResponseWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.KvNamespaceListResponseWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new KV namespace. Provisioning is asynchronous: the namespace is returned with status `pending` and becomes usable once it reaches `provision_ok`.&quot;
+        /// Creates a new KV namespace. Provisioning is asynchronous: the namespace is returned with status `pending` and becomes usable once it reaches `provision_ok`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.KvNamespaceResponseWrapper"/></returns>
         /// <param name="body">The request body</param>
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Kvs
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a new KV namespace. Provisioning is asynchronous: the namespace is returned with status `pending` and becomes usable once it reaches `provision_ok`.&quot;
+        /// Creates a new KV namespace. Provisioning is asynchronous: the namespace is returned with status `pending` and becomes usable once it reaches `provision_ok`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -37,11 +37,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>Resource the comment is attached to. Always `dir` on this endpoint.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DirCommentEntityType? EntityType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DirEntityType? EntityType { get; private set; }
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
         /// <summary>Always `customer` on this endpoint - internal-only comments are filtered out.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DirCommentVisibility? Visibility { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerVisibility? Visibility { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DirComment"/> and sets the default values.
         /// </summary>
@@ -72,9 +72,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "comment_type", n => { CommentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentType>(); } },
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "entity_type", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirCommentEntityType>(); } },
+                { "entity_type", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirEntityType>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirCommentVisibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerVisibility>(); } },
             };
         }
         /// <summary>

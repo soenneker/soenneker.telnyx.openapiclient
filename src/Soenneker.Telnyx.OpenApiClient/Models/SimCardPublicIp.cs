@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The sim_card_id property</summary>
         public Guid? SimCardId { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardPublicIpType? Type { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Ipv4Type? Type { get; private set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "region_code", n => { RegionCode = n.GetStringValue(); } },
                 { "sim_card_id", n => { SimCardId = n.GetGuidValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardPublicIpType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Ipv4Type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

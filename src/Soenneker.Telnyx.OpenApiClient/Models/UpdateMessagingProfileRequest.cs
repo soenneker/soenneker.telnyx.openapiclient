@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings NumberPoolSettings { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequestRecordType? RecordType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileRecordType? RecordType { get; private set; }
         /// <summary>Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.</summary>
         public bool? SmartEncoding { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
@@ -157,7 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "mobile_only", n => { MobileOnly = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number_pool_settings", n => { NumberPoolSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMessagingProfileRequestRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileRecordType>(); } },
                 { "smart_encoding", n => { SmartEncoding = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url_shortener_settings", n => { UrlShortenerSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings.CreateFromDiscriminatorValue); } },

@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfToolSendDtmfProperty SendDtmf { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfToolType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SendDtmfType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DtmfTool"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "send_dtmf", n => { SendDtmf = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfToolSendDtmfProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.DtmfToolSendDtmfProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfToolType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendDtmfType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfToolSendDtmfProperty>("send_dtmf", SendDtmf);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfToolType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendDtmfType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

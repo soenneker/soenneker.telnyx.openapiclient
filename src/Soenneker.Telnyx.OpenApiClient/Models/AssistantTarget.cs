@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Edge target referencing a different assistant.When the edge fires, the conversation hands off to `assistant_id`: theactive assistant on the conversation row is rewritten and the newassistant&apos;s flow starts at its own `start_node_id`. The current turn&apos;sLLM response is delivered to the user as-is; subsequent turns routeto the new assistant.&quot;
+    /// Edge target referencing a different assistant.When the edge fires, the conversation hands off to `assistant_id`: theactive assistant on the conversation row is rewritten and the newassistant&apos;s flow starts at its own `start_node_id`. The current turn&apos;sLLM response is delivered to the user as-is; subsequent turns routeto the new assistant.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssistantTarget : IAdditionalDataHolder, IParsable
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition Position { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTarget_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantType? Type { get; set; }
         /// <summary>Voice behavior when handing off to the target assistant, mirroring the handoff tool&apos;s `voice_mode`. `unified` (default) keeps the current voice across the handoff; `distinct` lets the target assistant speak with its own configured voice. Only applies to assistant targets — node targets override voice via the node&apos;s own `voice_settings`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTargetVoiceMode? VoiceMode { get; set; }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
                 { "position", n => { Position = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>(global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTarget_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantType>(); } },
                 { "voice_mode", n => { VoiceMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTargetVoiceMode>(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>("position", Position);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTarget_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantType>("type", Type);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTargetVoiceMode>("voice_mode", VoiceMode);
             writer.WriteAdditionalData(AdditionalData);
         }

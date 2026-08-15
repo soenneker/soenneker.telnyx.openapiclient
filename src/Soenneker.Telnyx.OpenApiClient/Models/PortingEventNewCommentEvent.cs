@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Identifies the event type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventEventType? EventType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderNewCommentEventType? EventType { get; set; }
         /// <summary>Uniquely identifies the event.</summary>
         public Guid? Id { get; set; }
         /// <summary>The webhook payload for the porting_order.new_comment event</summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "available_notification_methods", n => { AvailableNotificationMethods = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventAvailableNotificationMethodsItem>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventEventType>(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderNewCommentEventType>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayload.CreateFromDiscriminatorValue); } },
                 { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadStatus>(); } },
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventAvailableNotificationMethodsItem>("available_notification_methods", AvailableNotificationMethods);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventEventType>("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderNewCommentEventType>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayload>("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadStatus>("payload_status", PayloadStatus);

@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs
         {
         }
         /// <summary>
-        /// &quot;Lists the CloudFS filesystems for the authenticated user&apos;s organization. Results use cursor-based pagination: fetch the next page by passing `meta.cursors.after` as `page[after]`, or follow the `meta.next` URL.&quot;
+        /// Lists the CloudFS filesystems for the authenticated user&apos;s organization. Results use cursor-based pagination: fetch the next page by passing `meta.cursors.after` as `page[after]`, or follow the `meta.next` URL.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemListResponseWrapper"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemListResponseWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemListResponseWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a CloudFS filesystem. Provisioning is synchronous — typically a few seconds, up to a few minutes — and the filesystem is returned with status `ready`, together with its S3 bucket and metadata connection details. This response is the only time the filesystem&apos;s `meta_token` — and the credential-bearing `meta_url` — are returned; store them securely. If the token is lost, issue a new one with the rotate-meta-token action. Names are unique within your organization: creating with an existing name returns a `422`. Requests are idempotent: retrying with the same `Idempotency-Key` within 24 hours replays the original response instead of creating another filesystem.&quot;
+        /// Creates a CloudFS filesystem. Provisioning is synchronous — typically a few seconds, up to a few minutes — and the filesystem is returned with status `ready`, together with its S3 bucket and metadata connection details. This response is the only time the filesystem&apos;s `meta_token` — and the credential-bearing `meta_url` — are returned; store them securely. If the token is lost, issue a new one with the rotate-meta-token action. Names are unique within your organization: creating with an existing name returns a `422`. Requests are idempotent: retrying with the same `Idempotency-Key` within 24 hours replays the original response instead of creating another filesystem.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemResponseWrapper"/></returns>
         /// <param name="body">The request body</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemResponseWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CloudfsFilesystemResponseWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Lists the CloudFS filesystems for the authenticated user&apos;s organization. Results use cursor-based pagination: fetch the next page by passing `meta.cursors.after` as `page[after]`, or follow the `meta.next` URL.&quot;
+        /// Lists the CloudFS filesystems for the authenticated user&apos;s organization. Results use cursor-based pagination: fetch the next page by passing `meta.cursors.after` as `page[after]`, or follow the `meta.next` URL.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a CloudFS filesystem. Provisioning is synchronous — typically a few seconds, up to a few minutes — and the filesystem is returned with status `ready`, together with its S3 bucket and metadata connection details. This response is the only time the filesystem&apos;s `meta_token` — and the credential-bearing `meta_url` — are returned; store them securely. If the token is lost, issue a new one with the rotate-meta-token action. Names are unique within your organization: creating with an existing name returns a `422`. Requests are idempotent: retrying with the same `Idempotency-Key` within 24 hours replays the original response instead of creating another filesystem.&quot;
+        /// Creates a CloudFS filesystem. Provisioning is synchronous — typically a few seconds, up to a few minutes — and the filesystem is returned with status `ready`, together with its S3 bucket and metadata connection details. This response is the only time the filesystem&apos;s `meta_token` — and the credential-bearing `meta_url` — are returned; store them securely. If the token is lost, issue a new one with the rotate-meta-token action. Names are unique within your organization: creating with an existing name returns a `422`. Requests are idempotent: retrying with the same `Idempotency-Key` within 24 hours replays the original response instead of creating another filesystem.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -157,7 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs
             return new global::Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs.CloudfsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Lists the CloudFS filesystems for the authenticated user&apos;s organization. Results use cursor-based pagination: fetch the next page by passing `meta.cursors.after` as `page[after]`, or follow the `meta.next` URL.&quot;
+        /// Lists the CloudFS filesystems for the authenticated user&apos;s organization. Results use cursor-based pagination: fetch the next page by passing `meta.cursors.after` as `page[after]`, or follow the `meta.next` URL.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CloudfsRequestBuilderGetQueryParameters 
@@ -208,7 +208,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Cloudfs
             /// <summary>The number of filesystems to return per page. Values above 250 are treated as 250.</summary>
             [QueryParameter("page%5Blimit%5D")]
             public int? Pagelimit { get; set; }
-            /// <summary>&quot;Sort order for the results: a field name for ascending, or the field name prefixed with `-` for descending.&quot;</summary>
+            /// <summary>Sort order for the results: a field name for ascending, or the field name prefixed with `-` for descending.</summary>
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.ListCloudfsFilesystemsSortParameter? Sort { get; set; }
         }

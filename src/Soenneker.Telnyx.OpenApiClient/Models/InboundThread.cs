@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Preview { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundThreadRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailThreadRecordType? RecordType { get; set; }
         /// <summary>The subject property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "last_message_id", n => { LastMessageId = n.GetGuidValue(); } },
                 { "message_count", n => { MessageCount = n.GetIntValue(); } },
                 { "preview", n => { Preview = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundThreadRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailThreadRecordType>(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "unread_count", n => { UnreadCount = n.GetIntValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("last_message_id", LastMessageId);
             writer.WriteIntValue("message_count", MessageCount);
             writer.WriteStringValue("preview", Preview);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundThreadRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailThreadRecordType>("record_type", RecordType);
             writer.WriteStringValue("subject", Subject);
             writer.WriteIntValue("unread_count", UnreadCount);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Identifies the type of report</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportReportType? ReportType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportType? ReportType { get; set; }
         /// <summary>The current status of the report generation.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportStatus? Status { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "params", n => { Params = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportParams>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportParams.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "report_type", n => { ReportType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportReportType>(); } },
+                { "report_type", n => { ReportType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportType>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("document_id", DocumentId);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportParams>("params", Params);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportReportType>("report_type", ReportType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportType>("report_type", ReportType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReportStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressi
     public partial class SuppressionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.email_unsubscribe_groups.item.suppressions.item collection</summary>
-        /// <param name="position">&quot;Recipient address (normalized: trim + lower-case before matching).&quot;</param>
+        /// <param name="position">Recipient address (normalized: trim + lower-case before matching).</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressions.Item.WithEmailItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressions.Item.WithEmailItemRequestBuilder this[string position]
         {
@@ -74,10 +74,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressi
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GroupSuppressionListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GroupSuppressionListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a suppression with `reason: unsubscribe`, `source: manual`,`group_id: &lt;this group&gt;`. All other body fields are ignored; only`to` is read. Idempotent (same dedupe key → `200`, no new event).&quot;
+        /// Creates a suppression with `reason: unsubscribe`, `source: manual`,`group_id: &lt;this group&gt;`. All other body fields are ignored; only`to` is read. Idempotent (same dedupe key → `200`, no new event).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse"/></returns>
-        /// <param name="body">&quot;Only `to` is read; all other fields are ignored (`reason: unsubscribe`, `source: manual`, `group_id: &lt;group&gt;` are forced).&quot;</param>
+        /// <param name="body">Only `to` is read; all other fields are ignored (`reason: unsubscribe`, `source: manual`, `group_id: &lt;group&gt;` are forced).</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList">When receiving a 401 status code</exception>
@@ -124,10 +124,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressi
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a suppression with `reason: unsubscribe`, `source: manual`,`group_id: &lt;this group&gt;`. All other body fields are ignored; only`to` is read. Idempotent (same dedupe key → `200`, no new event).&quot;
+        /// Creates a suppression with `reason: unsubscribe`, `source: manual`,`group_id: &lt;this group&gt;`. All other body fields are ignored; only`to` is read. Idempotent (same dedupe key → `200`, no new event).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">&quot;Only `to` is read; all other fields are ignored (`reason: unsubscribe`, `source: manual`, `group_id: &lt;group&gt;` are forced).&quot;</param>
+        /// <param name="body">Only `to` is read; all other fields are ignored (`reason: unsubscribe`, `source: manual`, `group_id: &lt;group&gt;` are forced).</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

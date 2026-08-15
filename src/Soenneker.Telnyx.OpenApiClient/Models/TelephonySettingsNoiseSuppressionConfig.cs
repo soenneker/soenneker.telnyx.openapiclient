@@ -15,10 +15,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Attenuation limit for noise suppression. Range: 0-100.&quot;</summary>
+        /// <summary>Attenuation limit for noise suppression. Range: 0-100.</summary>
         public int? AttenuationLimit { get; set; }
         /// <summary>Mode for noise suppression configuration.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigMode? Mode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode? Mode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig"/> and sets the default values.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attenuation_limit", n => { AttenuationLimit = n.GetIntValue(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigMode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode>(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("attenuation_limit", AttenuationLimit);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigMode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode>("mode", Mode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

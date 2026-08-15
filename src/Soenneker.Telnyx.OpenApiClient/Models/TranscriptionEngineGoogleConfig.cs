@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem> SpeechContext { get; set; }
 #endif
         /// <summary>Engine identifier for Google transcription service</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigTranscriptionEngine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionEngine? TranscriptionEngine { get; set; }
         /// <summary>Enables enhanced transcription, this works for models `phone_call` and `video`.</summary>
         public bool? UseEnhanced { get; set; }
         /// <summary>
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigModel>(); } },
                 { "profanity_filter", n => { ProfanityFilter = n.GetBoolValue(); } },
                 { "speech_context", n => { SpeechContext = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigTranscriptionEngine>(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionEngine>(); } },
                 { "use_enhanced", n => { UseEnhanced = n.GetBoolValue(); } },
             };
         }
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigModel>("model", Model);
             writer.WriteBoolValue("profanity_filter", ProfanityFilter);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>("speech_context", SpeechContext);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigTranscriptionEngine>("transcription_engine", TranscriptionEngine);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionEngine>("transcription_engine", TranscriptionEngine);
             writer.WriteBoolValue("use_enhanced", UseEnhanced);
             writer.WriteAdditionalData(AdditionalData);
         }

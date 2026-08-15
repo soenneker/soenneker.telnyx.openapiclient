@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;An Anthropic-format message response with `type: \&quot;message\&quot;`, `role`, `content`, `stop_reason`, `stop_sequence`, and `usage`. When `stream` is true, the response is a text/event-stream of Anthropic SSE events.&quot;
+    /// An Anthropic-format message response with `type: &quot;message&quot;`, `role`, `content`, `stop_reason`, `stop_sequence`, and `usage`. When `stream` is true, the response is a text/event-stream of Anthropic SSE events.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateAnthropicMessage200ResponseSchema : IAdditionalDataHolder, IParsable

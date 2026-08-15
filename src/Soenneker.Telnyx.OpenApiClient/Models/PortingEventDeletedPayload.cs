@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadAvailableNotificationMethodsItem?> AvailableNotificationMethods { get; set; }
 #endif
         /// <summary>Identifies the event type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadEventType? EventType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDeletedEventType? EventType { get; set; }
         /// <summary>Uniquely identifies the event.</summary>
         public Guid? Id { get; set; }
         /// <summary>The payload property</summary>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "available_notification_methods", n => { AvailableNotificationMethods = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadAvailableNotificationMethodsItem>()?.AsList(); } },
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadEventType>(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDeletedEventType>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayload.CreateFromDiscriminatorValue); } },
                 { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayloadStatus>(); } },
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadAvailableNotificationMethodsItem>("available_notification_methods", AvailableNotificationMethods);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadEventType>("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDeletedEventType>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayload>("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayloadStatus>("payload_status", PayloadStatus);

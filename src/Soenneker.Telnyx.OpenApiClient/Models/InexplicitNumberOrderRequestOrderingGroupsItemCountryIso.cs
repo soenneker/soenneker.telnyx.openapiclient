@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>&quot;Country where you would like to purchase phone numbers. Allowable values: US, CA&quot;</summary>
+    /// <summary>Country where you would like to purchase phone numbers. Allowable values: US, CA</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InexplicitNumberOrderRequestOrderingGroupsItemCountryIso
     {

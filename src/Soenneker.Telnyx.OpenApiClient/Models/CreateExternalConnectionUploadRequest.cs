@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> NumberIds { get; set; }
 #endif
-        /// <summary>&quot;The use case of the upload request. NOTE: `calling_user_assignment` is not supported for toll free numbers.&quot;</summary>
+        /// <summary>The use case of the upload request. NOTE: `calling_user_assignment` is not supported for toll free numbers.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage? Usage { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest"/> and sets the default values.

@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Audio sample rate in Hz.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleSampleRate? SampleRate { get; set; }
         /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettingsType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettingsFormat>(); } },
                 { "precision", n => { Precision = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettingsPrecision>(); } },
                 { "sample_rate", n => { SampleRate = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleSampleRate>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettingsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleType>(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettingsFormat>("format", Format);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettingsPrecision>("precision", Precision);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleSampleRate>("sample_rate", SampleRate);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettingsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

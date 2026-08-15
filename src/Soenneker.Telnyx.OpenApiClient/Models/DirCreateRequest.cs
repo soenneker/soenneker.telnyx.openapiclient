@@ -76,9 +76,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DirCreateRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            CertifyBrandIsAccurate = true;
-            CertifyIpOwnership = true;
-            CertifyNoShaftContent = true;
             Reselling = false;
         }
         /// <summary>

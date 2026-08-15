@@ -36,20 +36,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Authorize
         /// <summary>
         /// OAuth 2.0 authorization endpoint for the authorization code flow
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth.Authorize.AuthorizeRequestBuilder.AuthorizeRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth.Authorize.AuthorizeRequestBuilder.AuthorizeRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth.Authorize.AuthorizeRequestBuilder.AuthorizeRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Oauth.Authorize.AuthorizeRequestBuilder.AuthorizeRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// OAuth 2.0 authorization endpoint for the authorization code flow
@@ -119,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Authorize
 #endif
             /// <summary>OAuth response type</summary>
             [QueryParameter("response_type")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.AuthorizeOAuthResponseTypeParameter? ResponseType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.CodeResponseType? ResponseType { get; set; }
             /// <summary>Space-separated list of requested scopes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

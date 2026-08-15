@@ -29,9 +29,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? SamplingRate { get; set; }
         /// <summary>Sampling temperature. Applies to `Natural` and `NaturalHD` models only.</summary>
         public float? Temperature { get; set; }
-        /// <summary>&quot;Voice speed multiplier. Applies to all models except `Bayan` and `Sukhan`, which don&apos;t support it. Range: 0.5 to 2.0.&quot;</summary>
+        /// <summary>Voice speed multiplier. Applies to all models except `Bayan` and `Sukhan`, which don&apos;t support it. Range: 0.5 to 2.0.</summary>
         public float? VoiceSpeed { get; set; }
-        /// <summary>&quot;Volume level for the Ultra model. Range: 0.0 to 2.0.&quot;</summary>
+        /// <summary>Volume level for the Ultra model. Range: 0.0 to 2.0.</summary>
         public float? Volume { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams"/> and sets the default values.

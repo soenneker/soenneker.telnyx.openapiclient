@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Virtual_cross_connects_coverageRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[cloud_provider], filter[cloud_provider_region], filter[location.region], filter[location.site], filter[location.pop], filter[location.code]&quot;</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[cloud_provider], filter[cloud_provider_region], filter[location.region], filter[location.site], filter[location.pop], filter[location.code]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>&quot;Consolidated filters parameter (deepObject style). Originally: filters[available_bandwidth][contains]&quot;</summary>
+            /// <summary>Consolidated filters parameter (deepObject style). Originally: filters[available_bandwidth][contains]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filters")]
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
             [QueryParameter("filters")]
             public string Filters { get; set; }
 #endif
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

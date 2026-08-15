@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Stable per-number error code. Currently only `not_associated` is emitted, when the number is not attached to this DIR.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberItemErrorCode? Code { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NotAssociatedCode? Code { get; set; }
         /// <summary>The detail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberItemErrorCode>(); } },
+                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotAssociatedCode>(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberItemErrorCode>("code", Code);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotAssociatedCode>("code", Code);
             writer.WriteStringValue("detail", Detail);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteStringValue("title", Title);

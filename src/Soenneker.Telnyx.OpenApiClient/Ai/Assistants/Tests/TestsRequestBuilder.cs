@@ -166,7 +166,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
             [QueryParameter("destination")]
             public string Destination { get; set; }
 #endif
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

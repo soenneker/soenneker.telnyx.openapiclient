@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Filters
         {
         }
         /// <summary>
-        /// &quot;Removes entries from either the allowlist or blocklist. The operation isidempotent: removing an entry that is not present still returns the currentfilter lists.&quot;
+        /// Removes entries from either the allowlist or blocklist. The operation isidempotent: removing an entry that is not present still returns the currentfilter lists.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Filters
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Adds entries to either the allowlist or blocklist. The operation is anidempotent set union: entries already present remain unchanged.&quot;
+        /// Adds entries to either the allowlist or blocklist. The operation is anidempotent set union: entries already present remain unchanged.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -154,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Filters
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InboxFiltersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Removes entries from either the allowlist or blocklist. The operation isidempotent: removing an entry that is not present still returns the currentfilter lists.&quot;
+        /// Removes entries from either the allowlist or blocklist. The operation isidempotent: removing an entry that is not present still returns the currentfilter lists.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -195,7 +195,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Filters
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Adds entries to either the allowlist or blocklist. The operation is anidempotent set union: entries already present remain unchanged.&quot;
+        /// Adds entries to either the allowlist or blocklist. The operation is anidempotent set union: entries already present remain unchanged.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

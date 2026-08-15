@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class JobsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[type], filter[status]&quot;</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[type], filter[status]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -139,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs
 #endif
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumberBlocksJobsSortParameter? Sort { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.CreatedAtSort? Sort { get; set; }
         }
     }
 }

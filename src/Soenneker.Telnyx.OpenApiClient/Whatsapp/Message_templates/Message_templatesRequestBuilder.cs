@@ -183,7 +183,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates
             [QueryParameter("filter%5Bwaba_id%5D")]
             public string FilterwabaId { get; set; }
 #endif
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundAniNumberFormat? AniNumberFormat { get; set; }
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
         public int? ChannelLimit { get; set; }
-        /// <summary>&quot;Defines the list of codecs that Telnyx will send for inbound calls to a specific number on your portal account, in priority order. This only works when the Connection the number is assigned to uses Media Handling mode: default. OPUS and H.264 codecs are available only when using TCP or TLS transport for SIP.&quot;</summary>
+        /// <summary>Defines the list of codecs that Telnyx will send for inbound calls to a specific number on your portal account, in priority order. This only works when the Connection the number is assigned to uses Media Handling mode: default. OPUS and H.264 codecs are available only when using TCP or TLS transport for SIP.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Codecs { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundSipSubdomainReceiveSettings? SipSubdomainReceiveSettings { get; set; }
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
         public int? Timeout1xxSecs { get; set; }
-        /// <summary>&quot;Time(sec) before aborting if call is unanswered (min: 1, max: 600).&quot;</summary>
+        /// <summary>Time(sec) before aborting if call is unanswered (min: 1, max: 600).</summary>
         public int? Timeout2xxSecs { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UacInbound"/> and sets the default values.

@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestDynamicVariablesProperty DynamicVariables { get; set; }
 #endif
-        /// <summary>&quot;Configure number of retries on client errors: busy, no-answer, failed, canceled (caller hung up before the callee answered)&quot;</summary>
+        /// <summary>Configure number of retries on client errors: busy, no-answer, failed, canceled (caller hung up before the callee answered)</summary>
         public int? MaxRetriesClientErrors { get; set; }
         /// <summary>The retry_interval_secs property</summary>
         public int? RetryIntervalSecs { get; set; }

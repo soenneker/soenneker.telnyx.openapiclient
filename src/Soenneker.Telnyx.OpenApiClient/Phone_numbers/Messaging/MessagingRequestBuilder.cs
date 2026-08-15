@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
             /// <summary>Filter by phone number type.</summary>
             [QueryParameter("filter%5Btype%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersWithMessagingSettingsFilterTypeParameter? Filtertype { get; set; }
-            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Controls the expressiveness and consistency of the Inworld `TTS2` model&apos;s speech synthesis. `STABLE` favors consistent, predictable output, `CREATIVE` allows more expressive variation, and `BALANCED` sits in between. Optional and only supported by `TTS2`; when omitted, the provider default applies.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsDeliveryMode? DeliveryMode { get; set; }
         /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InworldType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings"/> and sets the default values.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "delivery_mode", n => { DeliveryMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsDeliveryMode>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldType>(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsDeliveryMode>("delivery_mode", DeliveryMode);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

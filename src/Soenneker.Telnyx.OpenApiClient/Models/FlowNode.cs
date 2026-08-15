@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Instructions { get; set; }
 #endif
-        /// <summary>&quot;How `instructions` combine with the assistant-level instructions. `replace` (default): the node&apos;s instructions are used alone. `append`: the node&apos;s instructions are concatenated after the assistant&apos;s instructions.&quot;</summary>
+        /// <summary>How `instructions` combine with the assistant-level instructions. `replace` (default): the node&apos;s instructions are used alone. `append`: the node&apos;s instructions are concatenated after the assistant&apos;s instructions.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeInstructionsMode? InstructionsMode { get; set; }
         /// <summary>Override for `Assistant.llm_api_key_ref` while this node is active. Part of the LLM bundle — see `model` for cascade semantics.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LlmApiKeyRef { get; set; }
 #endif
-        /// <summary>&quot;Override for `Assistant.model` while this node is active. Part of the LLM bundle (`model` + `llm_api_key_ref` + `external_llm`): when any of the three is set on the node, all three are taken from the node and the assistant-level LLM identity is not consulted. When none of the three is set, the assistant&apos;s bundle cascades unchanged.&quot;</summary>
+        /// <summary>Override for `Assistant.model` while this node is active. Part of the LLM bundle (`model` + `llm_api_key_ref` + `external_llm`): when any of the three is set on the node, all three are taken from the node and the assistant-level LLM identity is not consulted. When none of the three is set, the assistant&apos;s bundle cascades unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public UntypedNode Tools { get; set; }
 #endif
-        /// <summary>&quot;How `shared_tool_ids` combine with the assistant-level tool set. `replace` (default): only the node&apos;s tools are callable. `append`: the node&apos;s tools are added to the assistant&apos;s tools. Ignored when `shared_tool_ids` is null.&quot;</summary>
+        /// <summary>How `shared_tool_ids` combine with the assistant-level tool set. `replace` (default): only the node&apos;s tools are callable. `append`: the node&apos;s tools are added to the assistant&apos;s tools. Ignored when `shared_tool_ids` is null.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeToolsMode? ToolsMode { get; set; }
         /// <summary>Per-node transcription override (response form).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings Transcription { get; set; }
 #endif
         /// <summary>Node kind discriminator. `prompt` is an LLM-driven step.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PromptType? Type { get; set; }
         /// <summary>Per-node voice override (response form).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -146,7 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "tools", n => { Tools = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "tools_mode", n => { ToolsMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeToolsMode>(); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptType>(); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -169,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<UntypedNode>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeToolsMode>("tools_mode", ToolsMode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>("transcription", Transcription);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }

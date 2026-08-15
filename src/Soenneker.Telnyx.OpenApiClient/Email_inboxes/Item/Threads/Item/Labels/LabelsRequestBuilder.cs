@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item.Labels
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InboundThreadLabelResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InboundThreadLabelResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Adds one or more mutable labels to a thread, letting an agent mark awhole conversation (for example `needs_review`) without labelling eachmessage individually.Thread labels are independent of message labels: labelling a threaddoes not label its messages, and labelling a message does not label itsthread. Idempotent and case-sensitive.&quot;
+        /// Adds one or more mutable labels to a thread, letting an agent mark awhole conversation (for example `needs_review`) without labelling eachmessage individually.Thread labels are independent of message labels: labelling a threaddoes not label its messages, and labelling a message does not label itsthread. Idempotent and case-sensitive.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundThreadLabelResponseResponse"/></returns>
         /// <param name="body">Labels to add or remove. Both operations are idempotent set operations, so a retried request converges instead of failing.</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Threads.Item.Labels
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Adds one or more mutable labels to a thread, letting an agent mark awhole conversation (for example `needs_review`) without labelling eachmessage individually.Thread labels are independent of message labels: labelling a threaddoes not label its messages, and labelling a message does not label itsthread. Idempotent and case-sensitive.&quot;
+        /// Adds one or more mutable labels to a thread, letting an agent mark awhole conversation (for example `needs_review`) without labelling eachmessage individually.Thread labels are independent of message labels: labelling a threaddoes not label its messages, and labelling a message does not label itsthread. Idempotent and case-sensitive.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Labels to add or remove. Both operations are idempotent set operations, so a retried request converges instead of failing.</param>

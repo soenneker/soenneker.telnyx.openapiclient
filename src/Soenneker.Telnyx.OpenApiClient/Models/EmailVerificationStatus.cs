@@ -20,7 +20,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>When the outstanding code stops being accepted. Null when no verification is in progress.</summary>
         public DateTimeOffset? ExpiresAt { get; private set; }
         /// <summary>Always `email_verification`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailVerificationStatusRecordType? RecordType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailVerificationRecordType? RecordType { get; private set; }
         /// <summary>How many more codes may be requested for this DIR today. Null when the daily cap does not apply.</summary>
         public int? SendsRemainingToday { get; private set; }
         /// <summary>`sent` after a code is emailed; `verified` after a successful confirm; `unverified` when no verification is in progress.</summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "email_verified", n => { EmailVerified = n.GetBoolValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailVerificationStatusRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailVerificationRecordType>(); } },
                 { "sends_remaining_today", n => { SendsRemainingToday = n.GetIntValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailVerificationStatusStatus>(); } },
             };

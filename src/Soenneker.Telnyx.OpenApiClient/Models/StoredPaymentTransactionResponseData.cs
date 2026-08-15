@@ -45,9 +45,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ProcessorStatus { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseDataRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransactionRecordType? RecordType { get; set; }
         /// <summary>The transaction_processing_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseDataTransactionProcessingType? TransactionProcessingType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionProcessingType? TransactionProcessingType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseData"/> and sets the default values.
         /// </summary>
@@ -79,8 +79,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "processor_status", n => { ProcessorStatus = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseDataRecordType>(); } },
-                { "transaction_processing_type", n => { TransactionProcessingType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseDataTransactionProcessingType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransactionRecordType>(); } },
+                { "transaction_processing_type", n => { TransactionProcessingType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionProcessingType>(); } },
             };
         }
         /// <summary>
@@ -96,8 +96,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("processor_status", ProcessorStatus);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseDataRecordType>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseDataTransactionProcessingType>("transaction_processing_type", TransactionProcessingType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransactionRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionProcessingType>("transaction_processing_type", TransactionProcessingType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

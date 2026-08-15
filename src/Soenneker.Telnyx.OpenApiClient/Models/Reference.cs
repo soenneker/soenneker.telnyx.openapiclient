@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneE164 { get; set; }
 #endif
         /// <summary>Always `dir_reference`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceRecordType? RecordType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DirReferenceRecordType? RecordType { get; private set; }
         /// <summary>Whether this is a business reference or the financial reference.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceRefType? RefType { get; set; }
         /// <summary>How the reference contact is related to the registering business.</summary>
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
                 { "phone_e164", n => { PhoneE164 = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirReferenceRecordType>(); } },
                 { "ref_type", n => { RefType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceRefType>(); } },
                 { "relationship_to_registrant", n => { RelationshipToRegistrant = n.GetStringValue(); } },
                 { "slot", n => { Slot = n.GetIntValue(); } },

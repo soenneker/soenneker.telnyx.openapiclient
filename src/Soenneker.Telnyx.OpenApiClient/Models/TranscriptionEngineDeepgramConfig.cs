@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Keyterms { get; set; }
 #endif
-        /// <summary>&quot;Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\&quot;snuffleupagus\&quot;: 5, \&quot;systrom\&quot;: 2, \&quot;krieger\&quot;: 1}`.&quot;</summary>
+        /// <summary>Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{&quot;snuffleupagus&quot;: 5, &quot;systrom&quot;: 2, &quot;krieger&quot;: 1}`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty? KeywordsBoosting { get; set; }
@@ -42,18 +42,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Language to use for speech recognition with nova-2 model</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage? Language { get; set; }
-        /// <summary>&quot;Enable Deepgram&apos;s smart formatting (capitalization, punctuation, and digit normalization). Note: Telnyx defaults this to `true`, overriding Deepgram&apos;s underlying default of `false` — omit the field to get a smart-formatted transcript, or set it to `false` to receive the raw lowercase transcript without punctuation.&quot;</summary>
+        /// <summary>Enable Deepgram&apos;s smart formatting (capitalization, punctuation, and digit normalization). Note: Telnyx defaults this to `true`, overriding Deepgram&apos;s underlying default of `false` — omit the field to get a smart-formatted transcript, or set it to `false` to receive the raw lowercase transcript without punctuation.</summary>
         public bool? SmartFormat { get; set; }
         /// <summary>The transcription_engine property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigTranscriptionEngine? TranscriptionEngine { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TranscriptionModel { get; set; }
-#nullable restore
-#else
-        public string TranscriptionModel { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine? TranscriptionEngine { get; set; }
+        /// <summary>The transcription_model property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionModel? TranscriptionModel { get; set; }
         /// <summary>Number of milliseconds of silence to consider an utterance ended. Ranges from 0 to 5000 ms.</summary>
         public int? UtteranceEndMs { get; set; }
         /// <summary>
@@ -90,8 +84,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "keywords_boosting", n => { KeywordsBoosting = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>(); } },
                 { "smart_format", n => { SmartFormat = n.GetBoolValue(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigTranscriptionEngine>(); } },
-                { "transcription_model", n => { TranscriptionModel = n.GetStringValue(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine>(); } },
+                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionModel>(); } },
                 { "utterance_end_ms", n => { UtteranceEndMs = n.GetIntValue(); } },
             };
         }
@@ -108,8 +102,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty>("keywords_boosting", KeywordsBoosting);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>("language", Language);
             writer.WriteBoolValue("smart_format", SmartFormat);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigTranscriptionEngine>("transcription_engine", TranscriptionEngine);
-            writer.WriteStringValue("transcription_model", TranscriptionModel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine>("transcription_engine", TranscriptionEngine);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionModel>("transcription_model", TranscriptionModel);
             writer.WriteIntValue("utterance_end_ms", UtteranceEndMs);
             writer.WriteAdditionalData(AdditionalData);
         }

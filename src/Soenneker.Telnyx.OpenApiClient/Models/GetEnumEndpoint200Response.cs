@@ -61,9 +61,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200Response();
-            if("EnumObjectListResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("EnumObjectListResponseWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EnumObjectListResponseWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponseWrapper();
             }
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.EnumPaginatedResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse();
             }
-            else if("EnumStringListResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EnumStringListResponseWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EnumStringListResponseWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumStringListResponseWrapper();
             }

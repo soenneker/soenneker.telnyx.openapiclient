@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>&quot;The use case of the upload request. NOTE: `calling_user_assignment` is not supported for toll free numbers.&quot;</summary>
+    /// <summary>The use case of the upload request. NOTE: `calling_user_assignment` is not supported for toll free numbers.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateExternalConnectionUploadRequestUsage
     {

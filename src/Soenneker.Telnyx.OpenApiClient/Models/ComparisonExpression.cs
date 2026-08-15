@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.Expression Right { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonExpression_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonExpression"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "left", n => { Left = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue); } },
                 { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonExpressionOp>(); } },
                 { "right", n => { Right = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonExpression_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonType>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("left", Left);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonExpressionOp>("op", Op);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("right", Right);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonExpression_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

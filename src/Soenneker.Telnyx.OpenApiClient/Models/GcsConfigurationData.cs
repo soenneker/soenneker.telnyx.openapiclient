@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Storage backend type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GcsConfigurationDataBackend? Backend { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GcsBackend? Backend { get; set; }
         /// <summary>Name of the bucket to be used to store recording files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "backend", n => { Backend = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GcsConfigurationDataBackend>(); } },
+                { "backend", n => { Backend = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GcsBackend>(); } },
                 { "bucket", n => { Bucket = n.GetStringValue(); } },
                 { "credentials", n => { Credentials = n.GetStringValue(); } },
             };
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GcsConfigurationDataBackend>("backend", Backend);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GcsBackend>("backend", Backend);
             writer.WriteStringValue("bucket", Bucket);
             writer.WriteStringValue("credentials", Credentials);
             writer.WriteAdditionalData(AdditionalData);

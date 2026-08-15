@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.&quot;
+        /// Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -162,7 +162,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.&quot;
+        /// Shared (`type: shared`) Telnyx-managed domains are included/readable for every account, in addition to the account&apos;s own custom domains.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

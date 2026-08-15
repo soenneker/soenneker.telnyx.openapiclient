@@ -14,8 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The new status of the resource. Specifying `stopped` will end the siprec session.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionRequestBodyStatus? Status { get; set; }
+        /// <summary>The status of the streaming.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StoppedStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionRequestBody"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "Status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionRequestBodyStatus>(); } },
+                { "Status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoppedStatus>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionRequestBodyStatus>("Status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoppedStatus>("Status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

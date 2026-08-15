@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Import job. Schema fields hidden: `account_id`, `csv_content`,`block_ttl_days`. Nullable fields use the omit-nullable pattern.&quot;
+    /// Import job. Schema fields hidden: `account_id`, `csv_content`,`block_ttl_days`. Nullable fields use the omit-nullable pattern.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmailBlockImport : IAdditionalDataHolder, IParsable
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? CreatedCount { get; set; }
         /// <summary>Only when `status == completed`.</summary>
         public int? ErrorCount { get; set; }
-        /// <summary>&quot;`{row_number: reason}`; only rendered when non-empty.&quot;</summary>
+        /// <summary>`{row_number: reason}`; only rendered when non-empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockImportErrorsProperty? Errors { get; set; }

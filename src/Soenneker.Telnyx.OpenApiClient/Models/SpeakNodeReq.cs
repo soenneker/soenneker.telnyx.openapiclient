@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition Position { get; set; }
 #endif
         /// <summary>Node kind discriminator. Always `speak` for a speak node.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNodeReq_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNodeReq"/> and sets the default values.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "position", n => { Position = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>(global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNodeReq_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakType>(); } },
             };
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>("position", Position);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNodeReq_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

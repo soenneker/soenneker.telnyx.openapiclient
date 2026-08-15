@@ -47,14 +47,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,9 +70,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput();
-            if("InboxActionEmailAddressInput_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("InboxActionEmailAddressInputBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InboxActionEmailAddressInputBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputBranch1();
             }
@@ -95,10 +87,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(parseNode.GetStringValue() is string nameValue)
             {
                 result.Name = nameValue;
-            }
-            else if(parseNode.GetStringValue() is string typeValue)
-            {
-                result.Type = typeValue;
             }
             else if(parseNode.GetStringValue() is string valueValue)
             {
@@ -144,10 +132,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(Name != null)
             {
                 writer.WriteStringValue(null, Name);
-            }
-            else if(Type != null)
-            {
-                writer.WriteStringValue(null, Type);
             }
             else if(Value != null)
             {
