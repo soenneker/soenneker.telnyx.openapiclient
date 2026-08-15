@@ -29,10 +29,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>`null` when the schema field is nil (the context usually sets it to `{}`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMeta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMeta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty Meta { get; set; }
 #endif
         /// <summary>The occurred_at property</summary>
         public DateTimeOffset? OccurredAt { get; set; }
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "actor", n => { Actor = n.GetStringValue(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventEventType>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMeta.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty.CreateFromDiscriminatorValue); } },
                 { "occurred_at", n => { OccurredAt = n.GetDateTimeOffsetValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventRecordType>(); } },
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("actor", Actor);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventEventType>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMeta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty>("meta", Meta);
             writer.WriteDateTimeOffsetValue("occurred_at", OccurredAt);
             writer.WriteStringValue("reason", Reason);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventRecordType>("record_type", RecordType);

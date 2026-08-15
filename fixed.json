@@ -65743,9 +65743,21 @@
             "$ref": "#/components/schemas/Expression"
           },
           "type": {
-            "const": "arithmetic",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "arithmetic"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "arithmetic",
+                  "name": "Arithmetic"
+                }
+              ]
+            }
           }
         },
         "description": "\u0022Numeric expression: applies an arithmetic operator to two sub-expressions.\n\nUseful for derived numeric checks, e.g. \u0060cart_total \u002B shipping \u003E 50\u0060.\nBoth operands should resolve to numbers at runtime.\u0022",
@@ -66123,9 +66135,21 @@
             "$ref": "#/components/schemas/NodePosition"
           },
           "type": {
-            "const": "assistant",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "assistant"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "assistant",
+                  "name": "Assistant"
+                }
+              ]
+            }
           },
           "voice_mode": {
             "$ref": "#/components/schemas/AssistantTargetVoiceMode"
@@ -66314,9 +66338,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "audio_chunk",
             "type": "string",
-            "description": "Frame type identifier."
+            "description": "Frame type identifier.",
+            "enum": [
+              "audio_chunk"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "audio_chunk",
+                  "name": "AudioChunk"
+                }
+              ]
+            }
           },
           "audio": {
             "type": [
@@ -68271,9 +68307,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "bool_literal",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "bool_literal"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "bool_literal",
+                  "name": "BoolLiteral"
+                }
+              ]
+            }
           },
           "value": {
             "title": "Value",
@@ -68308,9 +68356,21 @@
             "description": "Operand sub-expressions. Length must be exactly 1 for \u0060not\u0060 and \u003E= 2 for \u0060and\u0060/\u0060or\u0060."
           },
           "type": {
-            "const": "bool_op",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "bool_op"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "bool_op",
+                  "name": "BoolOp"
+                }
+              ]
+            }
           }
         },
         "description": "Combine sub-expressions with a logical operator (\u0060and\u0060 / \u0060or\u0060 / \u0060not\u0060).\n\n\u0060and\u0060 and \u0060or\u0060 accept two or more operands; \u0060not\u0060 accepts exactly one.",
@@ -74683,9 +74743,21 @@
             "$ref": "#/components/schemas/Expression"
           },
           "type": {
-            "const": "comparison",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "comparison"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "comparison",
+                  "name": "Comparison"
+                }
+              ]
+            }
           }
         },
         "description": "Compare two sub-expressions with a relational or membership operator.\n\nEvaluates to a boolean. Used in edge conditions to gate transitions on\nruntime values, e.g. \u0060user_age \u003E= 18\u0060 or \u0060tier == \u0022gold\u0022\u0060.",
@@ -83903,9 +83975,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "default",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "default"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "default",
+                  "name": "DefaultValue"
+                }
+              ]
+            }
           }
         },
         "description": "\u0022Fallback edge condition: fires only when no other edge\u0027s condition is true.\n\nEvaluated after every conditioned (\u0060llm\u0060 / \u0060expression\u0060) edge regardless\nof declaration order, so it routes the flow whenever none of the node\u0027s\nother outgoing edges match. Valid **only** on edges leaving a \u0060tool\u0060 or\n\u0060speak\u0060 node, where the deterministic step auto-advances and must always\nhave somewhere to go. A tool/speak node with any outgoing edge is required\nto carry exactly one \u0060default\u0060 edge so it never dead-ends; a tool/speak\nnode with no outgoing edges is a valid terminal step. Carries no parameters.\u0022",
@@ -85549,9 +85633,21 @@
             "example": "user_age"
           },
           "type": {
-            "const": "variable",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "variable"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "variable",
+                  "name": "Variable"
+                }
+              ]
+            }
           }
         },
         "description": "Reference a dynamic variable by name.\n\nResolved at runtime from the assistant\u0027s dynamic-variables context (see\n\u0060Assistant.dynamic_variables\u0060 and the dynamic-variables webhook).",
@@ -85914,7 +86010,7 @@
             "description": "Free-text (\u0060user_id\u0060/\u0060org_id\u0060/\u0060api_key\u0060/\u0060dev_bypass\u0060/\u0060system\u0060/\u0060manual\u0060)."
           },
           "meta": {
-            "$ref": "#/components/schemas/EmailBlockEventMeta"
+            "$ref": "#/components/schemas/EmailBlockEventMetaProperty"
           },
           "occurred_at": {
             "type": "string",
@@ -89067,9 +89163,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "error",
             "type": "string",
-            "description": "Frame type identifier."
+            "description": "Frame type identifier.",
+            "enum": [
+              "error"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "error",
+                  "name": "Error"
+                }
+              ]
+            }
           },
           "error": {
             "type": "string",
@@ -89119,10 +89227,10 @@
             "$ref": "#/components/schemas/ErrorObjectDetail"
           },
           "source": {
-            "$ref": "#/components/schemas/ErrorObjectSource"
+            "$ref": "#/components/schemas/ErrorObjectSourceProperty"
           },
           "meta": {
-            "$ref": "#/components/schemas/ErrorObjectMeta"
+            "$ref": "#/components/schemas/ErrorObjectMetaProperty"
           }
         }
       },
@@ -89570,9 +89678,21 @@
             "$ref": "#/components/schemas/Expression"
           },
           "type": {
-            "const": "expression",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "expression"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "expression",
+                  "name": "Expression"
+                }
+              ]
+            }
           }
         },
         "description": "Edge condition evaluated as a deterministic expression AST.\n\nThe expression is computed against runtime dynamic variables and must\nevaluate to a boolean. Prefer this over \u0060LLMCondition\u0060 when the rule is\na clean function of known variables \u2014 it\u0027s cheaper and predictable.",
@@ -90481,9 +90601,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "final",
             "type": "string",
-            "description": "Frame type identifier."
+            "description": "Frame type identifier.",
+            "enum": [
+              "final"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "final",
+                  "name": "Final"
+                }
+              ]
+            }
           },
           "audio": {
             "type": "null",
@@ -90494,9 +90626,21 @@
             "description": "Empty string."
           },
           "isFinal": {
-            "const": "True",
             "type": "boolean",
-            "description": "Always \u0060true\u0060."
+            "description": "Always \u0060true\u0060.",
+            "enum": [
+              "True"
+            ],
+            "x-ms-enum": {
+              "name": "IsFinal",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "True",
+                  "name": "TrueValue"
+                }
+              ]
+            }
           },
           "timeToFirstAudioFrameMs": {
             "type": "integer",
@@ -90738,10 +90882,22 @@
             "$ref": "#/components/schemas/TranscriptionSettings"
           },
           "type": {
-            "const": "prompt",
             "title": "Type",
             "type": "string",
-            "description": "Node kind discriminator. \u0060prompt\u0060 is an LLM-driven step."
+            "description": "Node kind discriminator. \u0060prompt\u0060 is an LLM-driven step.",
+            "enum": [
+              "prompt"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "prompt",
+                  "name": "Prompt"
+                }
+              ]
+            }
           },
           "voice_settings": {
             "description": "Per-node voice override (response form).",
@@ -90818,10 +90974,22 @@
             "$ref": "#/components/schemas/TranscriptionSettings"
           },
           "type": {
-            "const": "prompt",
             "title": "Type",
             "type": "string",
-            "description": "Node kind discriminator. \u0060prompt\u0060 (default) is an LLM-driven step; \u0060tool\u0060 is a standalone tool execution (see \u0060ToolNodeReq\u0060)."
+            "description": "Node kind discriminator. \u0060prompt\u0060 (default) is an LLM-driven step; \u0060tool\u0060 is a standalone tool execution (see \u0060ToolNodeReq\u0060).",
+            "enum": [
+              "prompt"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "prompt",
+                  "name": "Prompt"
+                }
+              ]
+            }
           },
           "voice_settings": {
             "description": "Per-node voice override. Only fields set here override the assistant-level voice settings; unset fields cascade.",
@@ -96224,9 +96392,21 @@
             "example": "The user has confirmed their booking details."
           },
           "type": {
-            "const": "llm",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "llm"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "llm",
+                  "name": "Llm"
+                }
+              ]
+            }
           }
         },
         "description": "Edge condition evaluated by the LLM from a natural-language prompt.\n\nThe model is asked to judge the prompt against conversation context and\nreturns true/false. Use this for fuzzy intents that aren\u0027t expressible as\na deterministic expression (e.g. \u0027user wants to escalate to a human\u0027).",
@@ -99953,9 +100133,21 @@
             "example": "n_billing"
           },
           "type": {
-            "const": "node",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "node"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "node",
+                  "name": "Node"
+                }
+              ]
+            }
           }
         },
         "description": "Edge target referencing another node within the same flow.\n\nThe runtime transitions the active node to \u0060node_id\u0060 and continues\nprocessing within the current assistant\u0027s flow."
@@ -100565,9 +100757,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "number_literal",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "number_literal"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "number_literal",
+                  "name": "NumberLiteral"
+                }
+              ]
+            }
           },
           "value": {
             "title": "Value",
@@ -112757,7 +112961,7 @@
             "$ref": "#/components/schemas/SimCardActionStatus"
           },
           "settings": {
-            "$ref": "#/components/schemas/SimCardActionSettings"
+            "$ref": "#/components/schemas/SimCardActionSettingsProperty"
           },
           "created_at": {
             "type": "string",
@@ -115088,10 +115292,22 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "speak",
             "title": "Type",
             "type": "string",
-            "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node."
+            "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node.",
+            "enum": [
+              "speak"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "speak",
+                  "name": "Speak"
+                }
+              ]
+            }
           },
           "id": {
             "title": "Id",
@@ -115124,10 +115340,22 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "speak",
             "title": "Type",
             "type": "string",
-            "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node."
+            "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node.",
+            "enum": [
+              "speak"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "speak",
+                  "name": "Speak"
+                }
+              ]
+            }
           },
           "id": {
             "title": "Id",
@@ -116434,9 +116662,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "string_literal",
             "title": "Type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "string_literal"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "string_literal",
+                  "name": "StringLiteral"
+                }
+              ]
+            }
           },
           "value": {
             "title": "Value",
@@ -116561,9 +116801,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "error",
             "type": "string",
-            "description": "Frame type identifier."
+            "description": "Frame type identifier.",
+            "enum": [
+              "error"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "error",
+                  "name": "Error"
+                }
+              ]
+            }
           },
           "error": {
             "type": "string",
@@ -123506,10 +123758,22 @@
             "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
           },
           "type": {
-            "const": "tool",
             "title": "Type",
             "type": "string",
-            "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node."
+            "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node.",
+            "enum": [
+              "tool"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "tool",
+                  "name": "Tool"
+                }
+              ]
+            }
           }
         },
         "description": "A standalone tool step in a conversation flow, as returned by the API."
@@ -123549,10 +123813,22 @@
             "example": "tool-charge-card"
           },
           "type": {
-            "const": "tool",
             "title": "Type",
             "type": "string",
-            "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node."
+            "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node.",
+            "enum": [
+              "tool"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "tool",
+                  "name": "Tool"
+                }
+              ]
+            }
           }
         },
         "description": "A standalone tool step in a conversation flow, as supplied by clients.\n\nUnlike a prompt node, a tool node has no instructions or model \u2014 it\nisn\u0027t an LLM turn. Reaching it deterministically runs one shared tool\n(arguments filled from matching dynamic variables by name), then routes\non the result via outgoing \u0060tool_result\u0060 edges.",
@@ -123870,9 +124146,21 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": "transcript",
             "type": "string",
-            "description": "Frame type identifier."
+            "description": "Frame type identifier.",
+            "enum": [
+              "transcript"
+            ],
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "transcript",
+                  "name": "Transcript"
+                }
+              ]
+            }
           },
           "transcript": {
             "type": "string",
@@ -144696,7 +144984,7 @@
             "$ref": "#/components/schemas/WirelessSimCardActionStatus"
           },
           "settings": {
-            "$ref": "#/components/schemas/WirelessSimCardActionSettings"
+            "$ref": "#/components/schemas/WirelessSimCardActionSettingsProperty"
           },
           "created_at": {
             "type": "string",
@@ -169752,6 +170040,10 @@
         "type": "object",
         "description": "ElevenLabs voice settings (stability, similarity_boost, etc.)."
       },
+      "EmailBlockEventMetaProperty": {
+        "type": "object",
+        "description": "\u0060null\u0060 when the schema field is nil (the context usually sets it to \u0060{}\u0060)."
+      },
       "EmailBlockImportErrorsProperty": {
         "type": "object",
         "additionalProperties": {
@@ -169826,6 +170118,13 @@
       },
       "ErrorMetaProperty2": {
         "type": "object"
+      },
+      "ErrorObjectSourceProperty": {
+        "type": "object"
+      },
+      "ErrorObjectMetaProperty": {
+        "type": "object",
+        "description": "Additional metadata. Present on 401 errors with a documentation URL."
       },
       "EventDataPayloadProperty": {
         "type": "object"
@@ -169958,6 +170257,10 @@
       },
       "SimCardResourcesWithInProgressActionsItemProperty": {
         "type": "object"
+      },
+      "SimCardActionSettingsProperty": {
+        "type": "object",
+        "description": "A JSON object representation of the action params."
       },
       "ScheduledPhoneCallEventResponseConversationMetadataProperty": {
         "type": "object",
@@ -170240,6 +170543,10 @@
       },
       "WirelessErrorC5290D5308MetaProperty": {
         "type": "object"
+      },
+      "WirelessSimCardActionSettingsProperty": {
+        "type": "object",
+        "description": "A JSON object representation of the action params."
       },
       "InitiateCallRequestWithUrlTexml": {
         "type": "object",

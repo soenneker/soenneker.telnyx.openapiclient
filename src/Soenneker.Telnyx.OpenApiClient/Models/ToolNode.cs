@@ -56,13 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed> Tool { get; set; }
 #endif
         /// <summary>Node kind discriminator. Always `tool` for a tool node.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode"/> and sets the default values.
         /// </summary>
@@ -93,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "position", n => { Position = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>(global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition.CreateFromDiscriminatorValue); } },
                 { "shared_tool_id", n => { SharedToolId = n.GetStringValue(); } },
                 { "tool", n => { Tool = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode_type>(); } },
             };
         }
         /// <summary>
@@ -108,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>("position", Position);
             writer.WriteStringValue("shared_tool_id", SharedToolId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed>("tool", Tool);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

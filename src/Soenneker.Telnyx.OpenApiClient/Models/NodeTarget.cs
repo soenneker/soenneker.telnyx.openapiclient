@@ -24,13 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string NodeId { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NodeTarget_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NodeTarget"/> and sets the default values.
         /// </summary>
@@ -57,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodeTarget_type>(); } },
             };
         }
         /// <summary>
@@ -68,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodeTarget_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

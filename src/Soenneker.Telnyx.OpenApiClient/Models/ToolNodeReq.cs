@@ -48,13 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string SharedToolId { get; set; }
 #endif
         /// <summary>Node kind discriminator. Always `tool` for a tool node.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolNodeReq_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ToolNodeReq"/> and sets the default values.
         /// </summary>
@@ -84,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "position", n => { Position = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>(global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition.CreateFromDiscriminatorValue); } },
                 { "shared_tool_id", n => { SharedToolId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolNodeReq_type>(); } },
             };
         }
         /// <summary>
@@ -98,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>("position", Position);
             writer.WriteStringValue("shared_tool_id", SharedToolId);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolNodeReq_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

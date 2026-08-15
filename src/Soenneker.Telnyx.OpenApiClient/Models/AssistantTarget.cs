@@ -32,13 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition Position { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTarget_type? Type { get; set; }
         /// <summary>Voice behavior when handing off to the target assistant, mirroring the handoff tool&apos;s `voice_mode`. `unified` (default) keeps the current voice across the handoff; `distinct` lets the target assistant speak with its own configured voice. Only applies to assistant targets — node targets override voice via the node&apos;s own `voice_settings`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTargetVoiceMode? VoiceMode { get; set; }
         /// <summary>
@@ -68,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
                 { "position", n => { Position = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>(global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTarget_type>(); } },
                 { "voice_mode", n => { VoiceMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTargetVoiceMode>(); } },
             };
         }
@@ -81,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>("position", Position);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTarget_type>("type", Type);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTargetVoiceMode>("voice_mode", VoiceMode);
             writer.WriteAdditionalData(AdditionalData);
         }

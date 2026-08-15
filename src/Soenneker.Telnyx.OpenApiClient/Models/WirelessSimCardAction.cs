@@ -38,10 +38,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A JSON object representation of the action params.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettings? Settings { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettingsProperty? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettings Settings { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettingsProperty Settings { get; set; }
 #endif
         /// <summary>The related SIM card identifier.</summary>
         public Guid? SimCardId { get; private set; }
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettingsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettingsProperty.CreateFromDiscriminatorValue); } },
                 { "sim_card_id", n => { SimCardId = n.GetGuidValue(); } },
                 { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionStatus.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -105,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettingsProperty>("settings", Settings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionStatus>("status", Status);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

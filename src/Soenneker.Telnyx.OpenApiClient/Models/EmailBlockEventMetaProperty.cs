@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// A JSON object representation of the action params.
+    /// `null` when the schema field is nil (the context usually sets it to `{}`).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WirelessSimCardActionSettings : IAdditionalDataHolder, IParsable
+    public partial class EmailBlockEventMetaProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty"/> and sets the default values.
         /// </summary>
-        public WirelessSimCardActionSettings()
+        public EmailBlockEventMetaProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionSettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockEventMetaProperty();
         }
         /// <summary>
         /// The deserialization information for the current model
