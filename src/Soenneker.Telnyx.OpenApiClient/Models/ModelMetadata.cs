@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string OwnedBy { get; set; }
 #endif
         /// <summary>Total parameter count of the model.</summary>
-        public int? Parameters { get; set; }
+        public long? Parameters { get; set; }
         /// <summary>Human-readable parameter count, e.g. `1.0T`, `753.9B`, `8B`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -178,7 +178,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "object", n => { Object = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
                 { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetIntValue(); } },
+                { "parameters", n => { Parameters = n.GetLongValue(); } },
                 { "parameters_str", n => { ParametersStr = n.GetStringValue(); } },
                 { "pricing", n => { Pricing = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty.CreateFromDiscriminatorValue); } },
                 { "recommended_for_assistants", n => { RecommendedForAssistants = n.GetBoolValue(); } },
@@ -208,7 +208,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("object", Object);
             writer.WriteStringValue("organization", Organization);
             writer.WriteStringValue("owned_by", OwnedBy);
-            writer.WriteIntValue("parameters", Parameters);
+            writer.WriteLongValue("parameters", Parameters);
             writer.WriteStringValue("parameters_str", ParametersStr);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadataPricingProperty>("pricing", Pricing);
             writer.WriteBoolValue("recommended_for_assistants", RecommendedForAssistants);

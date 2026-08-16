@@ -102687,6 +102687,7 @@
             "title": "Parameters",
             "type": "integer",
             "description": "Total parameter count of the model.",
+            "format": "int64",
             "example": 1000000000000
           },
           "parameters_str": {
