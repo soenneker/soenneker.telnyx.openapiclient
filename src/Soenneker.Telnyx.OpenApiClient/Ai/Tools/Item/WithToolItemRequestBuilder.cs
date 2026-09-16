@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools.Item
         {
         }
         /// <summary>
-        /// Delete Tool
+        /// Permanently deletes the specified custom AI tool from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteToolToolId200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteToolToolId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteToolToolId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get Tool
+        /// Retrieve the details of a specific AI tool.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update Tool
+        /// Update the configuration of an existing AI tool.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse"/></returns>
         /// <param name="body">Request model for updating a shared tool.</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete Tool
+        /// Permanently deletes the specified custom AI tool from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get Tool
+        /// Retrieve the details of a specific AI tool.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update Tool
+        /// Update the configuration of an existing AI tool.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for updating a shared tool.</param>

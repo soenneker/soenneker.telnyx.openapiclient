@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Setting
         {
         }
         /// <summary>
-        /// Get WABA settings
+        /// Retrieve the settings of a WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WabaSettingsResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Setting
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WabaSettingsResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WabaSettingsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update WABA settings
+        /// Update the settings of a WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WabaSettingsResponseResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Setting
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WabaSettingsResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WabaSettingsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get WABA settings
+        /// Retrieve the settings of a WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Setting
             return requestInfo;
         }
         /// <summary>
-        /// Update WABA settings
+        /// Update the settings of a WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Ins
         {
         }
         /// <summary>
-        /// Remove an insight from a group
+        /// Removes the specified insight template from the specified group. The insight template itself is not deleted.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item.Ins
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Remove an insight from a group
+        /// Removes the specified insight template from the specified group. The insight template itself is not deleted.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get user setup integrations
+        /// Returns the details of a single integration connection by its ID.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationConnectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Integrations.Connections.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get user setup integrations
+        /// Returns the details of a single integration connection by its ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

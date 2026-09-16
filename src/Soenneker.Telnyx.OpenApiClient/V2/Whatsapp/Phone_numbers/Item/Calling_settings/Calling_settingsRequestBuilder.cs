@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Calling_
         {
         }
         /// <summary>
-        /// Get calling settings for a phone number
+        /// Returns the WhatsApp calling configuration for the specified phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,18 +52,18 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Calling_
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Enable or disable Whatsapp calling for a phone number
+        /// Enables or disables WhatsApp calling for the specified phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPatchCallingSettingsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -77,12 +77,12 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Calling_
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get calling settings for a phone number
+        /// Returns the WhatsApp calling configuration for the specified phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.Calling_
             return requestInfo;
         }
         /// <summary>
-        /// Enable or disable Whatsapp calling for a phone number
+        /// Enables or disables WhatsApp calling for the specified phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

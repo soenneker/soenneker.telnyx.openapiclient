@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers
         {
         }
         /// <summary>
-        /// List all MCP servers for a mission
+        /// Returns the MCP servers configured on the specified mission. MCP servers expose external tools and data sources agents can use during runs.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServers200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServers200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServers200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new MCP server for a mission
+        /// Adds an MCP server to the specified mission, making the server&apos;s tools available to agents during runs of this mission.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdMcpServers201ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdMcpServers201ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdMcpServers201ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all MCP servers for a mission
+        /// Returns the MCP servers configured on the specified mission. MCP servers expose external tools and data sources agents can use during runs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers
             return requestInfo;
         }
         /// <summary>
-        /// Create a new MCP server for a mission
+        /// Adds an MCP server to the specified mission, making the server&apos;s tools available to agents during runs of this mission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_resume
         {
         }
         /// <summary>
-        /// Resume conference recording.
+        /// Resumes a previously paused recording of the specified conference, continuing capture from the point it was paused.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResumeConferenceRecording200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_resume
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ResumeConferenceRecording200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ResumeConferenceRecording200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Resume conference recording.
+        /// Resumes a previously paused recording of the specified conference, continuing capture from the point it was paused.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

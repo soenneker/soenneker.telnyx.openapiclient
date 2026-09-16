@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveManagedAccount200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveManagedAccount200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a single managed account.
+        /// Updates the specified managed account&apos;s attributes and returns the updated account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateManagedAccount200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a single managed account.
+        /// Updates the specified managed account&apos;s attributes and returns the updated account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

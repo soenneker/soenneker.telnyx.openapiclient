@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.Stop
         {
         }
         /// <summary>
-        /// Stop a Migration
+        /// Stops the specified in-progress storage migration and returns the updated migration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StopMigration200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,6 +51,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.Stop
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StopMigration200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StopMigration200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Stops the specified in-progress storage migration and returns the updated migration.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

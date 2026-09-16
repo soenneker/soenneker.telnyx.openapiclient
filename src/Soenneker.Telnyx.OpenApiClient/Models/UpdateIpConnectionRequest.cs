@@ -36,6 +36,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConnectionName { get; set; }
 #endif
+        /// <summary>Whether conversation persistence is enabled for this connection. When enabled, calls handled by the connection are transcribed, stored, and indexed. Defaults to false.</summary>
+        public bool? ConversationPersistence { get; set; }
         /// <summary>When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout.</summary>
         public bool? DefaultOnHoldComfortNoiseEnabled { get; set; }
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
@@ -160,6 +162,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
+                { "conversation_persistence", n => { ConversationPersistence = n.GetBoolValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
                 { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
                 { "encode_contact_header_enabled", n => { EncodeContactHeaderEnabled = n.GetBoolValue(); } },
@@ -192,6 +195,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
+            writer.WriteBoolValue("conversation_persistence", ConversationPersistence);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("encode_contact_header_enabled", EncodeContactHeaderEnabled);

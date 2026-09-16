@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
         {
         }
         /// <summary>
-        /// Deactivates a user bundle by its ID.
+        /// Deactivates the specified user bundle on your account and returns the deactivated bundle.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a user bundle by its ID.
+        /// Returns the details of a single user bundle on your account by its ID.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deactivates a user bundle by its ID.
+        /// Deactivates the specified user bundle on your account and returns the deactivated bundle.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves a user bundle by its ID.
+        /// Returns the details of a single user bundle on your account by its ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Actions.Confirm
         {
         }
         /// <summary>
-        /// Confirm and submit your porting order.
+        /// Confirms the porting order and submits it for processing. Make sure all required information and documents are attached before confirming.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConfirmPortingOrder200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Actions.Confirm
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ConfirmPortingOrder200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ConfirmPortingOrder200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Confirm and submit your porting order.
+        /// Confirms the porting order and submits it for processing. Make sure all required information and documents are attached before confirming.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

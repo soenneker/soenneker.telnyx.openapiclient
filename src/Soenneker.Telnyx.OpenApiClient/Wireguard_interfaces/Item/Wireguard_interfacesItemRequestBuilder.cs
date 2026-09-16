@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item
         {
         }
         /// <summary>
-        /// Delete a WireGuard Interface.
+        /// Deletes the specified WireGuard interface from its network.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWireguardInterface200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWireguardInterface200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWireguardInterface200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a WireGuard Interfaces.
+        /// Returns the details of a single WireGuard interface by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetWireguardInterface200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetWireguardInterface200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetWireguardInterface200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a WireGuard Interface.
+        /// Deletes the specified WireGuard interface from its network.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a WireGuard Interfaces.
+        /// Returns the details of a single WireGuard interface by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -47,7 +47,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The transcription_engine property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine? TranscriptionEngine { get; set; }
         /// <summary>The transcription_model property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionModel? TranscriptionModel { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TranscriptionModel { get; set; }
+#nullable restore
+#else
+        public string TranscriptionModel { get; set; }
+#endif
         /// <summary>Number of milliseconds of silence to consider an utterance ended. Ranges from 0 to 5000 ms.</summary>
         public int? UtteranceEndMs { get; set; }
         /// <summary>
@@ -85,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>(); } },
                 { "smart_format", n => { SmartFormat = n.GetBoolValue(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine>(); } },
-                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionModel>(); } },
+                { "transcription_model", n => { TranscriptionModel = n.GetStringValue(); } },
                 { "utterance_end_ms", n => { UtteranceEndMs = n.GetIntValue(); } },
             };
         }
@@ -103,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>("language", Language);
             writer.WriteBoolValue("smart_format", SmartFormat);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine>("transcription_engine", TranscriptionEngine);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionModel>("transcription_model", TranscriptionModel);
+            writer.WriteStringValue("transcription_model", TranscriptionModel);
             writer.WriteIntValue("utterance_end_ms", UtteranceEndMs);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels
         {
         }
         /// <summary>
-        /// List notification channels.
+        /// Returns a paginated list of your notification channels, the destinations that receive notifications.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationChannels200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationChannels200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationChannels200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a notification channel.
+        /// Creates a new notification channel defining where notifications are delivered, and returns the created channel.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateNotificationChannels200Response"/></returns>
         /// <param name="body">A Notification Channel</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNotificationChannels200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateNotificationChannels200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List notification channels.
+        /// Returns a paginated list of your notification channels, the destinations that receive notifications.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels
             return requestInfo;
         }
         /// <summary>
-        /// Create a notification channel.
+        /// Creates a new notification channel defining where notifications are delivered, and returns the created channel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">A Notification Channel</param>
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels
             return new global::Soenneker.Telnyx.OpenApiClient.Notification_channels.Notification_channelsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List notification channels.
+        /// Returns a paginated list of your notification channels, the destinations that receive notifications.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Notification_channelsRequestBuilderGetQueryParameters 

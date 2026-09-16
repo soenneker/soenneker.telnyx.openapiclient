@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
         {
         }
         /// <summary>
-        /// Delete an MCP server from a mission
+        /// Removes the specified MCP server from the mission, revoking agent access to its tools in subsequent runs.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a specific MCP server by ID
+        /// Returns the configuration of a single MCP server attached to the specified mission.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an MCP server definition
+        /// Replaces the configuration of the specified MCP server on this mission.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an MCP server from a mission
+        /// Removes the specified MCP server from the mission, revoking agent access to its tools in subsequent runs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a specific MCP server by ID
+        /// Returns the configuration of a single MCP server attached to the specified mission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an MCP server definition
+        /// Replaces the configuration of the specified MCP server on this mission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

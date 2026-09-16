@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups.Item
         {
         }
         /// <summary>
-        /// Delete a billing group
+        /// Delete a billing group from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteBillingGroup200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteBillingGroup200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteBillingGroup200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a billing group
+        /// Retrieve the details of a specific billing group.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroup200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroup200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroup200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a billing group
+        /// Update the properties of an existing billing group.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateBillingGroup200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -122,6 +122,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups.Item
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateBillingGroup200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateBillingGroup200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Delete a billing group from your account.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,6 +141,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups.Item
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
+        /// <summary>
+        /// Retrieve the details of a specific billing group.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -154,6 +160,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups.Item
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
+        /// <summary>
+        /// Update the properties of an existing billing group.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

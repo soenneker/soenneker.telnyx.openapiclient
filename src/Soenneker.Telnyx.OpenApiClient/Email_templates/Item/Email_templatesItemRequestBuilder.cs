@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates.Item
         {
         }
         /// <summary>
-        /// Delete an email template
+        /// Deletes the account-owned template. The operation returns `204` with no body and prevents future sends or renders from using the deleted template ID.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get an email template
+        /// Returns the account-owned template identified by ID, including its Liquid subject and bodies, declared variables, and timestamps.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates one or more template fields.
+        /// Updates one or more fields of the specified email template and returns the updated template.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an email template
+        /// Deletes the account-owned template. The operation returns `204` with no body and prevents future sends or renders from using the deleted template ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -168,7 +168,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get an email template
+        /// Returns the account-owned template identified by ID, including its Liquid subject and bodies, declared variables, and timestamps.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -187,7 +187,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates one or more template fields.
+        /// Updates one or more fields of the specified email template and returns the updated template.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

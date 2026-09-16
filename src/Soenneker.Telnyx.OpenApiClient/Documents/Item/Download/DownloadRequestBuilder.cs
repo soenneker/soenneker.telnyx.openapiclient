@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents.Item.Download
         {
         }
         /// <summary>
-        /// Download a document.
+        /// Downloads the raw file content of the specified document as originally uploaded.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents.Item.Download
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Download a document.
+        /// Downloads the raw file content of the specified document as originally uploaded.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

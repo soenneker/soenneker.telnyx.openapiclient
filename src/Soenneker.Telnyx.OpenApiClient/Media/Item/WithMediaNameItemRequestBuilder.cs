@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
         {
         }
         /// <summary>
-        /// Deletes a stored media file.
+        /// Permanently deletes the specified media file from storage.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetMediaStorage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetMediaStorage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a stored media file.
+        /// Updates the specified stored media file and returns the updated resource.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaStorage200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaStorage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaStorage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a stored media file.
+        /// Permanently deletes the specified media file from storage.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -162,7 +162,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a stored media file.
+        /// Updates the specified stored media file and returns the updated resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

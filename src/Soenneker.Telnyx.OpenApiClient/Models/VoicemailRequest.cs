@@ -16,6 +16,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether voicemail is enabled.</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Controls the greeting a caller hears before leaving a voicemail. Set `mode` to `default` to play the standard system greeting, or to `custom_greeting` to play your own audio. When `mode` is `custom_greeting`, `media_name` is required and must reference an audio file already uploaded to your account through the Media Storage API.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequestGreeting? Greeting { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequestGreeting Greeting { get; set; }
+#endif
         /// <summary>The pin used for voicemail</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,6 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "greeting", n => { Greeting = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequestGreeting>(global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequestGreeting.CreateFromDiscriminatorValue); } },
                 { "pin", n => { Pin = n.GetStringValue(); } },
             };
         }
@@ -61,6 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequestGreeting>("greeting", Greeting);
             writer.WriteStringValue("pin", Pin);
             writer.WriteAdditionalData(AdditionalData);
         }

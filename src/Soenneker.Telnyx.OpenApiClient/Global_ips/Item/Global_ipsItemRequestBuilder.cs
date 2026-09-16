@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips.Item
         {
         }
         /// <summary>
-        /// Delete a Global IP.
+        /// Deletes the specified Global IP and releases its address back to Telnyx.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIp200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIp200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIp200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a Global IP.
+        /// Returns the details of a single Global IP, including its address and current configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIp200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIp200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIp200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Global IP.
+        /// Deletes the specified Global IP and releases its address back to Telnyx.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a Global IP.
+        /// Returns the details of a single Global IP, including its address and current configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

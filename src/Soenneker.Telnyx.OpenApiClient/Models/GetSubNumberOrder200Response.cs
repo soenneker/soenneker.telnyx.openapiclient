@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSubNumberOrder? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSubNumberOrder Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetSubNumberOrder200Response"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSubNumberOrder>(global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSubNumberOrder.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSubNumberOrder>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

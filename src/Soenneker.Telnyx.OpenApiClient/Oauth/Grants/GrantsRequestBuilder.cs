@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Grants
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthGrants200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthGrants200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create an OAuth authorization grant
+        /// Creates an OAuth authorization grant and returns the grant response for completing the authorization flow.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateGrantResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Grants
             return requestInfo;
         }
         /// <summary>
-        /// Create an OAuth authorization grant
+        /// Creates an OAuth authorization grant and returns the grant response for completing the authorization flow.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

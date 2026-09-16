@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
         {
         }
         /// <summary>
-        /// Delete a notification channel.
+        /// Deletes the specified notification channel so notifications are no longer delivered to it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationChannel200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationChannel200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationChannel200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a notification channel.
+        /// Returns the details of a single notification channel by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationChannel200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationChannel200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationChannel200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a notification channel.
+        /// Updates the specified notification channel and returns the updated channel.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationChannel200Response"/></returns>
         /// <param name="body">A Notification Channel</param>
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationChannel200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationChannel200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a notification channel.
+        /// Deletes the specified notification channel so notifications are no longer delivered to it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -138,7 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a notification channel.
+        /// Returns the details of a single notification channel by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -157,7 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a notification channel.
+        /// Updates the specified notification channel and returns the updated channel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">A Notification Channel</param>

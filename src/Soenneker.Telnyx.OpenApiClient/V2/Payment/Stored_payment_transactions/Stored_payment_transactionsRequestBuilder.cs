@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Payment.Stored_payment_transactions
         {
         }
         /// <summary>
-        /// Create a stored payment transaction
+        /// Create a transaction that charges a stored payment method on the account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Payment.Stored_payment_transactions
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a stored payment transaction
+        /// Create a transaction that charges a stored payment method on the account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

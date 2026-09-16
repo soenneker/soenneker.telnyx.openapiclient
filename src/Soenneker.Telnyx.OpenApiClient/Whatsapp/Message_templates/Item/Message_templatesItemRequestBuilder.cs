@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates.Item
         {
         }
         /// <summary>
-        /// Delete a Whatsapp message template
+        /// Permanently deletes the specified WhatsApp message template from your account.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a Whatsapp message template by ID
+        /// Retrieve a specific WhatsApp message template by its ID.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a Whatsapp message template
+        /// Update an existing WhatsApp message template.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateSingleResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Whatsapp message template
+        /// Permanently deletes the specified WhatsApp message template from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a Whatsapp message template by ID
+        /// Retrieve a specific WhatsApp message template by its ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a Whatsapp message template
+        /// Update an existing WhatsApp message template.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

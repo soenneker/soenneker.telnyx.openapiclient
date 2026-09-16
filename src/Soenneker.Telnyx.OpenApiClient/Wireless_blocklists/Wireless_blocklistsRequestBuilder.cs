@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Wireless_blocklistsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wireless_blocklists{?filter%5Bname%5D*,filter%5Btype%5D*,filter%5Bvalues%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Wireless_blocklistsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wireless_blocklists{?filter%5Bname%5D*,filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Wireless_blocklistsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wireless_blocklists{?filter%5Bname%5D*,filter%5Btype%5D*,filter%5Bvalues%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Wireless_blocklistsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wireless_blocklists{?filter%5Bname%5D*,filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists
         /// <summary>
         /// Create a Wireless Blocklist to prevent SIMs from connecting to certain networks.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist202Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,11 +80,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist202Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklistRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist201Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklistRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist202Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklistRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist201Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklistRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all Wireless Blocklists belonging to the user.
@@ -171,16 +171,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists
 #else
             [QueryParameter("filter%5Btype%5D")]
             public string Filtertype { get; set; }
-#endif
-            /// <summary>Values to filter on (inclusive).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bvalues%5D")]
-            public string? Filtervalues { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bvalues%5D")]
-            public string Filtervalues { get; set; }
 #endif
             /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]

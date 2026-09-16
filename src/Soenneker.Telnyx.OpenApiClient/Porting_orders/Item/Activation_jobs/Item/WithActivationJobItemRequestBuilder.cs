@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Activation_jobs.Ite
         {
         }
         /// <summary>
-        /// Returns a porting activation job.
+        /// Returns the details of a single activation job for the porting order, including its current status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPortingOrdersActivationJob200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Activation_jobs.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrdersActivationJob200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrdersActivationJob200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a porting activation job.
+        /// Returns the details of a single activation job for the porting order, including its current status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

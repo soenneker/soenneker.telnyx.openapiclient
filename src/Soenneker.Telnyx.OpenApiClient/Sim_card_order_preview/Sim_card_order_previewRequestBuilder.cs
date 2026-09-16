@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview
         {
         }
         /// <summary>
-        /// Preview SIM card order purchases.
+        /// Previews a SIM card order purchase, returning estimated costs and details before you place the order. The preview is processed asynchronously.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders202Response"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Preview SIM card order purchases.
+        /// Previews a SIM card order purchase, returning estimated costs and details before you place the order. The preview is processed asynchronously.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

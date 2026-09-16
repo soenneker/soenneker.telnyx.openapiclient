@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.fqdn_connections.item collection</summary>
         /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.Fqdn_connectionsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.Fqdn_connectionsItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.FqdnConnectionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.FqdnConnectionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.Fqdn_connectionsItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("fqdnConnection%2Did", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.FqdnConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListFqdnConnectionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListFqdnConnectionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a FQDN connection.
+        /// Creates a new FQDN-based SIP connection. FQDN connections authenticate by your registered domain names rather than static IP addresses.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdnConnection201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections
             return requestInfo;
         }
         /// <summary>
-        /// Creates a FQDN connection.
+        /// Creates a new FQDN-based SIP connection. FQDN connections authenticate by your registered domain names rather than static IP addresses.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

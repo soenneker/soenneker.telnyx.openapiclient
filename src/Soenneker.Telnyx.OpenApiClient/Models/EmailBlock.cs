@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Derived server-side from `domain_id`/`from`; never trusted from the caller.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Scope? Scope { get; set; }
         /// <summary>The source property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Source? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailSource? Source { get; set; }
         /// <summary>The status property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Status? Status { get; set; }
         /// <summary>Normalized recipient. (schema: to_address)</summary>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Reason>(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockRecordType>(); } },
                 { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Scope>(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailSource>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Status>(); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Reason>("reason", Reason);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockRecordType>("record_type", RecordType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Scope>("scope", Scope);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailSource>("source", Source);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Status>("status", Status);
             writer.WriteStringValue("to", To);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

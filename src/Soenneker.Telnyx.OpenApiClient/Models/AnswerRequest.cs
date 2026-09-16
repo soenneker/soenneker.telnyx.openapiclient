@@ -152,7 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>HTTP request type used for `webhook_url`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlMethod? WebhookUrlMethod { get; set; }
-        /// <summary>A map of event types to webhook URLs. When an event of the specified type occurs, the webhook URL associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.</summary>
+        /// <summary>A map of event types to arrays of webhook URLs. When an event of the specified type occurs, the webhook URLs associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsProperty? WebhookUrls { get; set; }

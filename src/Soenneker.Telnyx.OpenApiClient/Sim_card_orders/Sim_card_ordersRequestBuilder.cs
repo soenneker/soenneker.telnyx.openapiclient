@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardOrders200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardOrders200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new order for SIM cards.
+        /// Creates a new order for physical SIM cards, including quantity and shipping details, and returns the created order.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateSimCardOrder200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new order for SIM cards.
+        /// Creates a new order for physical SIM cards, including quantity and shipping details, and returns the created order.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

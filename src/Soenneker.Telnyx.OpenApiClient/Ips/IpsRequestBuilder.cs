@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ips
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListIpsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListIpsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new IP object.
+        /// Creates a new IP record for use with IP-based connections, associating an IP address with the specified connection.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateIp201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ips
             return requestInfo;
         }
         /// <summary>
-        /// Create a new IP object.
+        /// Creates a new IP record for use with IP-based connections, associating an IP address with the specified connection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -16,12 +16,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, conversation history and insights will be stored. If false, they will not be stored. This in‑tool toggle governs solely the retention of conversation history and insights via the AI assistant. It has no effect on any separate recording, transcription, or storage configuration that you have set at the account, number, or application level. All such external settings remain in force regardless of your selection here.</summary>
         public bool? DataRetention { get; set; }
+        /// <summary>Requires every model call made for a web chat turn to be received and served inside your organization&apos;s data-locality region, rather than only stored there. Applies to web chat only — voice and messaging assistants are unaffected. Enabling it requires a data-locality region with in-region inference (USA, DEU, AUS, UAE) and Telnyx-hosted models for the assistant, its fallback, and any conversation-flow node that overrides the model; the request is rejected otherwise. Once enabled, send chat requests to your region&apos;s API hostname: a request entering the platform in another region is rejected rather than forwarded, because forwarding it would already have moved the content across the border. Defaults to false.</summary>
+        public bool? InTransitDataLocality { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings"/> and sets the default values.
         /// </summary>
         public PrivacySettings()
         {
             AdditionalData = new Dictionary<string, object>();
+            InTransitDataLocality = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -42,6 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data_retention", n => { DataRetention = n.GetBoolValue(); } },
+                { "in_transit_data_locality", n => { InTransitDataLocality = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -52,6 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("data_retention", DataRetention);
+            writer.WriteBoolValue("in_transit_data_locality", InTransitDataLocality);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

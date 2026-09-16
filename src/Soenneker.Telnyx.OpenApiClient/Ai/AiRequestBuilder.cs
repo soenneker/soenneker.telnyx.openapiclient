@@ -7,11 +7,13 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Assistants;
 using Soenneker.Telnyx.OpenApiClient.Ai.Audio;
 using Soenneker.Telnyx.OpenApiClient.Ai.Chat;
 using Soenneker.Telnyx.OpenApiClient.Ai.Clusters;
+using Soenneker.Telnyx.OpenApiClient.Ai.Collections;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversation_histories;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings;
 using Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning;
 using Soenneker.Telnyx.OpenApiClient.Ai.Integrations;
+using Soenneker.Telnyx.OpenApiClient.Ai.Knowledge;
 using Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers;
 using Soenneker.Telnyx.OpenApiClient.Ai.Missions;
 using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
@@ -56,6 +58,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Clusters.ClustersRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The collections property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Collections.CollectionsRequestBuilder Collections
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Collections.CollectionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The conversation_histories property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversation_histories.Conversation_historiesRequestBuilder Conversation_histories
         {
@@ -80,6 +87,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.IntegrationsRequestBuilder Integrations
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.IntegrationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The knowledge property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Knowledge.KnowledgeRequestBuilder Knowledge
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Knowledge.KnowledgeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The mcp_servers property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Mcp_serversRequestBuilder Mcp_servers

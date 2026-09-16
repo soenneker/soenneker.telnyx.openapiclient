@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
         {
         }
         /// <summary>
-        /// List mobile push credentials
+        /// Returns a paginated list of the mobile push credentials on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPushCredentialsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPushCredentialsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPushCredentialsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new mobile push credential
+        /// Creates a new mobile push credential for delivering push notifications to iOS or Android apps, and returns the created credential.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PushCredentialResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PushCredentialResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PushCredentialResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List mobile push credentials
+        /// Returns a paginated list of the mobile push credentials on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new mobile push credential
+        /// Creates a new mobile push credential for delivering push notifications to iOS or Android apps, and returns the created credential.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -147,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
             return new global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List mobile push credentials
+        /// Returns a paginated list of the mobile push credentials on your account, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mobile_push_credentialsRequestBuilderGetQueryParameters 

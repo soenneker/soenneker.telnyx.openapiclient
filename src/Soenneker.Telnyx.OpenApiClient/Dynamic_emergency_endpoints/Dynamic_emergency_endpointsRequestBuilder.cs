@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyEndpoints200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyEndpoints200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a dynamic emergency endpoints.
+        /// Creates a dynamic emergency endpoint, associating a callback number and location with a device for emergency calling.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateDynamicEmergencyEndpoint201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints
             return requestInfo;
         }
         /// <summary>
-        /// Creates a dynamic emergency endpoints.
+        /// Creates a dynamic emergency endpoint, associating a callback number and location with a device for emergency calling.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

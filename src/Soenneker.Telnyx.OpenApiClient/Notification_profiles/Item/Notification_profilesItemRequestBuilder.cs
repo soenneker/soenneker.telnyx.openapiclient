@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
         {
         }
         /// <summary>
-        /// Delete a notification profile.
+        /// Deletes the specified notification profile from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationProfile200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a notification profile.
+        /// Returns the details of a single notification profile by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationProfile200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a notification profile.
+        /// Updates the specified notification profile and returns the updated profile.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationProfile200Response"/></returns>
         /// <param name="body">A Collection of Notification Channels</param>
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNotificationProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a notification profile.
+        /// Deletes the specified notification profile from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -138,7 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a notification profile.
+        /// Returns the details of a single notification profile by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -157,7 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a notification profile.
+        /// Updates the specified notification profile and returns the updated profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">A Collection of Notification Channels</param>

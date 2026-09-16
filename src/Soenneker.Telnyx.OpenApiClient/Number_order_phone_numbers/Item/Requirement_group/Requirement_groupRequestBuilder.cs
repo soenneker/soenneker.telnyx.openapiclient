@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Require
         {
         }
         /// <summary>
-        /// Update requirement group for a phone number order
+        /// Associates an existing requirement group with a phone number in a number order. The response contains the updated number-order phone-number details.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNumberOrderPhoneNumberRequirementGroup200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Require
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNumberOrderPhoneNumberRequirementGroup200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNumberOrderPhoneNumberRequirementGroup200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update requirement group for a phone number order
+        /// Associates an existing requirement group with a phone number in a number order. The response contains the updated number-order phone-number details.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets
         {
         }
         /// <summary>
-        /// Get all embedding buckets for a user.
+        /// Returns the list of storage buckets that have been embedded for your account, for use with similarity search.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserEmbeddedBucketsData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserEmbeddedBucketsData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserEmbeddedBucketsData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all embedding buckets for a user.
+        /// Returns the list of storage buckets that have been embedded for your account, for use with similarity search.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item
         {
         }
         /// <summary>
-        /// Delete an existing call queue.
+        /// Permanently deletes the specified call queue from your account.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve an existing call queue
+        /// Returns the details of an existing call queue, including its current configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveCallQueue200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateQueue200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateQueue200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an existing call queue.
+        /// Permanently deletes the specified call queue from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -135,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve an existing call queue
+        /// Returns the details of an existing call queue, including its current configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

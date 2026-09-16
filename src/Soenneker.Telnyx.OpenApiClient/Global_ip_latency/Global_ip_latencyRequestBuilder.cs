@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_latency
         {
         }
         /// <summary>
-        /// Global IP Latency Metrics
+        /// Retrieve latency metrics measured for your Global IPs.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpLatency200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_latency
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpLatency200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpLatency200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Global IP Latency Metrics
+        /// Retrieve latency metrics measured for your Global IPs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_latency
             return new global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Global IP Latency Metrics
+        /// Retrieve latency metrics measured for your Global IPs.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ip_latencyRequestBuilderGetQueryParameters 

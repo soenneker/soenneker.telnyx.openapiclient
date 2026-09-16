@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> IpRanges { get; set; }
 #endif
         /// <summary>Bandwidth limit in kbps. Must be 512 or 1024, or null to remove.</summary>
-        public int? LimitBwKbps { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfileRequestLimitBwKbps? LimitBwKbps { get; set; }
         /// <summary>Array of PCEF service IDs to include in the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "ip_ranges", n => { IpRanges = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "limit_bw_kbps", n => { LimitBwKbps = n.GetIntValue(); } },
+                { "limit_bw_kbps", n => { LimitBwKbps = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfileRequestLimitBwKbps>(); } },
                 { "services", n => { Services = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfileRequestType>(); } },
             };
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
             writer.WriteCollectionOfPrimitiveValues<string>("ip_ranges", IpRanges);
-            writer.WriteIntValue("limit_bw_kbps", LimitBwKbps);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfileRequestLimitBwKbps>("limit_bw_kbps", LimitBwKbps);
             writer.WriteCollectionOfPrimitiveValues<string>("services", Services);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfileRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

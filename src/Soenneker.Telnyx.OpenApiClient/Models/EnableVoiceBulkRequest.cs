@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The identifier of the Mobile Voice Connection to associate with the SIM cards. The connection must be owned by the same user and of type &lt;code&gt;mobile_voice&lt;/code&gt;. If omitted, voice is enabled without a connection association.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConnectionId { get; set; }
+#nullable restore
+#else
+        public string ConnectionId { get; set; }
+#endif
         /// <summary>The sim_card_group_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetStringValue(); } },
             };
         }
@@ -57,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("sim_card_group_id", SimCardGroupId);
             writer.WriteAdditionalData(AdditionalData);
         }

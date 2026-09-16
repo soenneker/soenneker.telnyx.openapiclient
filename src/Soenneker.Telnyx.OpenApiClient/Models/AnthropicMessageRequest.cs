@@ -61,7 +61,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMetadataProperty Metadata { get; set; }
 #endif
-        /// <summary>The model to use for generating the response, for example `zai-org/GLM-5.2` or another model available from the Telnyx models endpoint.</summary>
+        /// <summary>How strictly `region` is applied. `preferred` (the default when `region` is set) tries that region first and falls back to another when the model cannot be served there, so a request that would have succeeded still succeeds. `strict` pins the request: it is served from that region or it fails with a 422, never redirected to another region. Requires `region`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMode? Mode { get; set; }
+        /// <summary>The model to use for generating the response, for example `zai-org/GLM-5.3-Flash` or another model available from the Telnyx models endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -69,6 +71,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
+        /// <summary>Optional data-residency region the request should be served from, using the same vocabulary as your account&apos;s Data Locality setting. Behavior depends on `mode`. Supported for Telnyx-hosted models only: a request routed to an external provider never passes through Telnyx model routing, so a region cannot be enforced for it. Omit for today&apos;s latency-based routing.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestRegion? Region { get; set; }
         /// <summary>The service tier to use for this request. Supported values vary by model; use the Telnyx models endpoint and inspect the model&apos;s `service_tiers` field. If omitted, Telnyx-hosted models use `default`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -162,7 +166,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "mcp_servers", n => { McpServers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMcpServersItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMcpServersItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMessagesItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMessagesItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMode>(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestRegion>(); } },
                 { "service_tier", n => { ServiceTier = n.GetStringValue(); } },
                 { "stop_sequences", n => { StopSequences = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
@@ -191,7 +197,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMcpServersItemProperty>("mcp_servers", McpServers);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMessagesItemProperty>("messages", Messages);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMetadataProperty>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestMode>("mode", Mode);
             writer.WriteStringValue("model", Model);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnthropicMessageRequestRegion>("region", Region);
             writer.WriteStringValue("service_tier", ServiceTier);
             writer.WriteCollectionOfPrimitiveValues<string>("stop_sequences", StopSequences);
             writer.WriteBoolValue("stream", Stream);

@@ -34,13 +34,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Whatsapp
         {
         }
         /// <summary>
-        /// Send a Whatsapp message
+        /// Sends a WhatsApp message using a Telnyx WhatsApp-enabled number. The message body, interactive elements, media, location, and reaction content are specified in the `whatsapp_message` field. Delivery progress and final disposition are reported asynchronously through messaging webhooks.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessage body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,12 +54,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Whatsapp
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Send a Whatsapp message
+        /// Sends a WhatsApp message using a Telnyx WhatsApp-enabled number. The message body, interactive elements, media, location, and reaction content are specified in the `whatsapp_message` field. Delivery progress and final disposition are reported asynchronously through messaging webhooks.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

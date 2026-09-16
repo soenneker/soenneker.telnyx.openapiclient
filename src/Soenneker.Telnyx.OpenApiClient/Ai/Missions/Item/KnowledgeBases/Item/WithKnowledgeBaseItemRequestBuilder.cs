@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
         {
         }
         /// <summary>
-        /// Delete a knowledge base from a mission
+        /// Detaches the specified knowledge base from the mission so its content is no longer available to agents in subsequent runs.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a specific knowledge base by ID
+        /// Returns the details of a single knowledge base attached to the specified mission.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a knowledge base definition
+        /// Replaces the definition of the specified knowledge base on this mission.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdKnowledgeBasesKnowledgeBaseId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a knowledge base from a mission
+        /// Detaches the specified knowledge base from the mission so its content is no longer available to agents in subsequent runs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a specific knowledge base by ID
+        /// Returns the details of a single knowledge base attached to the specified mission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.KnowledgeBases.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a knowledge base definition
+        /// Replaces the definition of the specified knowledge base on this mission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

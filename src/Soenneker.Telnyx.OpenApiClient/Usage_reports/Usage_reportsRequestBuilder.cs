@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Usage_reports
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Usage_reportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/usage_reports?dimensions={dimensions}&metrics={metrics}&product={product}{&date_range*,end_date*,filter*,format*,managed_accounts*,page*,sort*,start_date*}", pathParameters)
+        public Usage_reportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/usage_reports?product={product}{&date_range*,end_date*,filter*,format*,managed_accounts*,page*,sort*,start_date*,dimensions*,metrics*}", pathParameters)
         {
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Usage_reports
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Usage_reportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/usage_reports?dimensions={dimensions}&metrics={metrics}&product={product}{&date_range*,end_date*,filter*,format*,managed_accounts*,page*,sort*,start_date*}", rawUrl)
+        public Usage_reportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/usage_reports?product={product}{&date_range*,end_date*,filter*,format*,managed_accounts*,page*,sort*,start_date*,dimensions*,metrics*}", rawUrl)
         {
         }
         /// <summary>

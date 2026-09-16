@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports
         {
         }
         /// <summary>
-        /// Create a ledger billing group report
+        /// Create a ledger billing group report, which aggregates ledger activity by billing group.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateBillingGroupReport200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -73,6 +73,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateBillingGroupReport200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateBillingGroupReport200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Create a ledger billing group report, which aggregates ledger activity by billing group.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

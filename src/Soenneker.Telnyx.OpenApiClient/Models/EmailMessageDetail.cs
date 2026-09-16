@@ -100,6 +100,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Subject { get; set; }
 #endif
+        /// <summary>Recipients excluded from delivery by suppression checks, with reasons. On batch items, present when that item had suppressed recipients; all other recipients of the item still receive the message. For single sends this information appears at the top level of the response instead (see EmailMessageResponse.suppressed).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient>? Suppressed { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient> Suppressed { get; set; }
+#endif
         /// <summary>The template_id property</summary>
         public Guid? TemplateId { get; set; }
         /// <summary>The template_variables property</summary>
@@ -167,6 +175,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "scheduled_at", n => { ScheduledAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageStatus>(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
+                { "suppressed", n => { Suppressed = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient>(global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "template_id", n => { TemplateId = n.GetGuidValue(); } },
                 { "template_variables", n => { TemplateVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailTemplateVariables>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailTemplateVariables.CreateFromDiscriminatorValue); } },
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
@@ -196,6 +205,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("scheduled_at", ScheduledAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageStatus>("status", Status);
             writer.WriteStringValue("subject", Subject);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient>("suppressed", Suppressed);
             writer.WriteGuidValue("template_id", TemplateId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageDetailTemplateVariables>("template_variables", TemplateVariables);
             writer.WriteStringValue("text_body", TextBody);

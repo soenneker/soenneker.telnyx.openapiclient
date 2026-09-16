@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Events.Item
         {
         }
         /// <summary>
-        /// Show a specific porting event.
+        /// Returns the details of a single porting event, including its type and payload.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ShowPortingEvent200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Events.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ShowPortingEvent200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ShowPortingEvent200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Show a specific porting event.
+        /// Returns the details of a single porting event, including its type and payload.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

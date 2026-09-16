@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
         {
         }
         /// <summary>
-        /// Delete a phone number
+        /// Deletes the specified phone number from the account. The response contains the phone number&apos;s final deleted representation.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumber200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeletePhoneNumber200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a phone number
+        /// Returns the detailed configuration and current state of the phone number identified by `id`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievePhoneNumber200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrievePhoneNumber200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a phone number
+        /// Updates the configurable settings of the specified phone number. The response contains the complete updated phone-number representation.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumber200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumber200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a phone number
+        /// Deletes the specified phone number from the account. The response contains the phone number&apos;s final deleted representation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -172,7 +172,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a phone number
+        /// Returns the detailed configuration and current state of the phone number identified by `id`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -191,7 +191,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a phone number
+        /// Updates the configurable settings of the specified phone number. The response contains the complete updated phone-number representation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

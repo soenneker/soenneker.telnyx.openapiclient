@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions
         {
         }
         /// <summary>
-        /// View a list of room sessions.
+        /// Returns a paginated list of room sessions across the account. Filter sessions by room, creation, update, or end date and active status, and use `include_participants` to include participant records.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,6 +69,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns a paginated list of room sessions across the account. Filter sessions by room, creation, update, or end date and active status, and use `include_participants` to include participant records.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions
             return new global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Room_sessionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// View a list of room sessions.
+        /// Returns a paginated list of room sessions across the account. Filter sessions by room, creation, update, or end date and active status, and use `include_participants` to include participant records.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Room_sessionsRequestBuilderGetQueryParameters 

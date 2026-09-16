@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Runs
         {
         }
         /// <summary>
-        /// List recent runs across all missions
+        /// Returns a paginated list of recent runs across every mission in your organization, optionally filtered by run status. Useful for monitoring overall mission activity without querying each mission individually.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunsListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Runs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunsListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunsListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List recent runs across all missions
+        /// Returns a paginated list of recent runs across every mission in your organization, optionally filtered by run status. Useful for monitoring overall mission activity without querying each mission individually.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Runs
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.Runs.RunsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List recent runs across all missions
+        /// Returns a paginated list of recent runs across every mission in your organization, optionally filtered by run status. Useful for monitoring overall mission activity without querying each mission individually.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunsRequestBuilderGetQueryParameters 

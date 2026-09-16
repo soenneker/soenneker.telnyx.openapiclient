@@ -2,12 +2,14 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge;
+using Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions;
+using Soenneker.Telnyx.OpenApiClient.V2.Bot_signup;
 using Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections;
 using Soenneker.Telnyx.OpenApiClient.V2.Payment;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates;
-using Soenneker.Telnyx.OpenApiClient.V2.X402;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -20,6 +22,21 @@ namespace Soenneker.Telnyx.OpenApiClient.V2
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class V2RequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The bot_challenge property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge.Bot_challengeRequestBuilder Bot_challenge
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge.Bot_challengeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bot_sessions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder Bot_sessions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bot_signup property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Bot_signupRequestBuilder Bot_signup
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Bot_signupRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The mobile_phone_numbers property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Mobile_phone_numbersRequestBuilder Mobile_phone_numbers
         {
@@ -44,11 +61,6 @@ namespace Soenneker.Telnyx.OpenApiClient.V2
         public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates.Whatsapp_message_templatesRequestBuilder Whatsapp_message_templates
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates.Whatsapp_message_templatesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The x402 property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.X402.X402RequestBuilder X402
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.V2.X402.X402RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.V2RequestBuilder"/> and sets the default values.

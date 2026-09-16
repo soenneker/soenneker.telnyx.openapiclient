@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// A map of event types to webhook URLs. When an event of the specified type occurs, the webhook URL associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.
+    /// A map of event types to arrays of webhook URLs. When an event of the specified type occurs, the webhook URLs associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferCallRequestWebhookUrlsProperty : IAdditionalDataHolder, IParsable

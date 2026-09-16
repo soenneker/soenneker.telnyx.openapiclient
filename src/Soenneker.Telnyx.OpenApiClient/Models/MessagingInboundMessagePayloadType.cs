@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The type of message. This value can be either &apos;sms&apos; or &apos;mms&apos;.</summary>
+    /// <summary>The messaging channel used for the message.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MessagingInboundMessagePayloadType
     {
@@ -14,6 +14,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "MMS")]
         #pragma warning disable CS1591
         Mms,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "WHATSAPP")]
+        #pragma warning disable CS1591
+        Whatsapp,
         #pragma warning restore CS1591
     }
 }

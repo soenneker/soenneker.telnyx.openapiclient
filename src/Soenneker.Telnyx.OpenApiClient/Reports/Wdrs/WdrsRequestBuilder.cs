@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
         {
         }
         /// <summary>
-        /// Fetch all Wdr records 
+        /// Returns wireless detail records (WDRs) matching the provided criteria, such as date range, SIM card, IMSI, or phone number, with pagination and sorting.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPublicExternalWdrGetDetailResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPublicExternalWdrGetDetailResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPublicExternalWdrGetDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch all Wdr records 
+        /// Returns wireless detail records (WDRs) matching the provided criteria, such as date range, SIM card, IMSI, or phone number, with pagination and sorting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             return new global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Fetch all Wdr records 
+        /// Returns wireless detail records (WDRs) matching the provided criteria, such as date range, SIM card, IMSI, or phone number, with pagination and sorting.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WdrsRequestBuilderGetQueryParameters 

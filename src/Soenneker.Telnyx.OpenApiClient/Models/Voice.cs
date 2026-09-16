@@ -23,6 +23,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Gender { get; set; }
 #endif
+        /// <summary>Whether this voice runs on Telnyx-hosted infrastructure (`true`) or is provided by a third-party vendor (`false`).</summary>
+        public bool? Hosted { get; set; }
         /// <summary>Language code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,6 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "gender", n => { Gender = n.GetStringValue(); } },
+                { "hosted", n => { Hosted = n.GetBoolValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetStringValue(); } },
@@ -95,6 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("gender", Gender);
+            writer.WriteBoolValue("hosted", Hosted);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("provider", Provider);

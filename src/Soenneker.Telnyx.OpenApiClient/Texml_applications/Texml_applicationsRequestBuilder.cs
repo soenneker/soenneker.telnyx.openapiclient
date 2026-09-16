@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetAllTexmlApplicationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetAllTexmlApplicationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a TeXML Application.
+        /// Creates a TeXML application, which defines the voice URLs and settings used to serve TeXML instructions for calls, and returns the created application.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplication201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications
             return requestInfo;
         }
         /// <summary>
-        /// Creates a TeXML Application.
+        /// Creates a TeXML application, which defines the voice URLs and settings used to serve TeXML instructions for calls, and returns the created application.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

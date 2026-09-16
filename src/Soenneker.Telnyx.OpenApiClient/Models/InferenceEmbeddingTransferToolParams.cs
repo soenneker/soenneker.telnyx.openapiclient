@@ -30,6 +30,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The number the inbound call was received on, forwarded so an unverified non-Telnyx `from` can be used as the caller id -- typically to transfer out as the original caller by pairing `from: &quot;{{telnyx_end_user_target}}&quot;` with `diversion: &quot;{{telnyx_agent_target}}&quot;`. The caller id is only accepted while that number is still on an active inbound call to this `diversion` number, and the `diversion` number must be one you own or have verified.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Diversion { get; set; }
+#nullable restore
+#else
+        public string Diversion { get; set; }
+#endif
         /// <summary>Number or SIP URI placing the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Optional delay in milliseconds before playing the warm message audio when the transferred call is answered. When set, the audio_url is not included in the dial command; instead, playback starts after the specified delay. When not set, existing behavior (audio_url in dial) is preserved.</summary>
         public int? WarmMessageDelayMs { get; set; }
+        /// <summary>Requires the transfer destination to accept the call before the caller is bridged. When enabled, the assistant speaks privately with the destination after they answer — delivering the warm transfer message and asking whether they take the call — while the caller keeps hearing ringback. The assistant then finalizes the transfer with the built-in `complete_transfer` tool: an accept bridges the calls, a decline hangs up the destination and returns the assistant to the caller with the reason the destination gave. Requires either `warm_transfer_instructions` or a `message` on every target, otherwise the assistant fails to save. Only available for calls started with `ai_assistant_start`; single-caller conversations only (a conference or additional invited participants fall back to a regular warm transfer).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance? WarmTransferAcceptance { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance WarmTransferAcceptance { get; set; }
+#endif
         /// <summary>Natural language instructions for your agent for how to provide context for the transfer recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,10 +107,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "diversion", n => { Diversion = n.GetStringValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "targets", n => { Targets = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets.CreateFromDiscriminatorValue); } },
                 { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection.CreateFromDiscriminatorValue); } },
                 { "warm_message_delay_ms", n => { WarmMessageDelayMs = n.GetIntValue(); } },
+                { "warm_transfer_acceptance", n => { WarmTransferAcceptance = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance.CreateFromDiscriminatorValue); } },
                 { "warm_transfer_instructions", n => { WarmTransferInstructions = n.GetStringValue(); } },
             };
         }
@@ -107,10 +125,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem>("custom_headers", CustomHeaders);
             writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("diversion", Diversion);
             writer.WriteStringValue("from", From);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets>("targets", Targets);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection>("voicemail_detection", VoicemailDetection);
             writer.WriteIntValue("warm_message_delay_ms", WarmMessageDelayMs);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance>("warm_transfer_acceptance", WarmTransferAcceptance);
             writer.WriteStringValue("warm_transfer_instructions", WarmTransferInstructions);
             writer.WriteAdditionalData(AdditionalData);
         }

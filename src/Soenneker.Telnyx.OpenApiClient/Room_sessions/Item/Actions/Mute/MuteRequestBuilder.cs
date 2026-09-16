@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute
         {
         }
         /// <summary>
-        /// Mute participants in room session.
+        /// Mutes the selected participants in the specified room session. Apply the action to a list of participant IDs or to `all`, with optional participant IDs excluded from the action.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MuteParticipantInSession200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -58,6 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MuteParticipantInSession200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MuteParticipantInSession200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Mutes the selected participants in the specified room session. Apply the action to a list of participant IDs or to `all`, with optional participant IDs excluded from the action.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

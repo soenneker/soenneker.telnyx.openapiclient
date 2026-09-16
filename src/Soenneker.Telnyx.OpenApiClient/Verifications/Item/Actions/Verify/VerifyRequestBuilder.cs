@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.Item.Actions.Verify
         {
         }
         /// <summary>
-        /// Verify verification code by ID
+        /// Checks the supplied code, or the supplied status for a custom-code verification, against the verification identified by ID. The response indicates whether the verification was accepted or rejected.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.Item.Actions.Verify
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Verify verification code by ID
+        /// Checks the supplied code, or the supplied status for a custom-code verification, against the verification identified by ID. The response indicates whether the verification was accepted or rejected.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

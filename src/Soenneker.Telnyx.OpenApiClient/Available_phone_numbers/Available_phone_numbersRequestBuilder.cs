@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_numbers
         {
         }
         /// <summary>
-        /// List available phone numbers
+        /// Searches the Telnyx inventory for available phone numbers. Filters support number patterns, location, number type, features, reservability, and other inventory constraints; the response includes matching numbers and search metadata.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListAvailablePhoneNumbersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListAvailablePhoneNumbersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListAvailablePhoneNumbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List available phone numbers
+        /// Searches the Telnyx inventory for available phone numbers. Filters support number patterns, location, number type, features, reservability, and other inventory constraints; the response includes matching numbers and search metadata.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_numbers
             return new global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List available phone numbers
+        /// Searches the Telnyx inventory for available phone numbers. Filters support number patterns, location, number type, features, reservability, and other inventory constraints; the response includes matching numbers and search metadata.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Available_phone_numbersRequestBuilderGetQueryParameters 

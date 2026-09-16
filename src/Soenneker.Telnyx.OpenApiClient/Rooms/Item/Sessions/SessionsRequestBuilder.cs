@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Sessions
         {
         }
         /// <summary>
-        /// View a list of room sessions.
+        /// Returns a paginated list of sessions for the specified room. Filter sessions by creation, update, or end date and active status, and use `include_participants` to include participant records.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveListRoomSessions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -56,6 +56,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Sessions
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveListRoomSessions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveListRoomSessions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns a paginated list of sessions for the specified room. Filter sessions by creation, update, or end date and active status, and use `include_participants` to include participant records.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Sessions
             return new global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Sessions.SessionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// View a list of room sessions.
+        /// Returns a paginated list of sessions for the specified room. Filter sessions by creation, update, or end date and active status, and use `include_participants` to include participant records.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SessionsRequestBuilderGetQueryParameters 

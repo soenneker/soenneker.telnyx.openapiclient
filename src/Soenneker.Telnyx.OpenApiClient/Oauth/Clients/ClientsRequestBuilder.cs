@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Clients
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOAuthClients200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new OAuth client
+        /// Creates a new OAuth client on your account for authenticating third-party integrations, and returns the created client.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateOAuthClient201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Clients
             return requestInfo;
         }
         /// <summary>
-        /// Create a new OAuth client
+        /// Creates a new OAuth client on your account for authenticating third-party integrations, and returns the created client.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -8,34 +8,34 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.Country&gt;, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.Mcc&gt;, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.Plmn&gt;
+    /// Composed type wrapper for classes List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry&gt;, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc&gt;, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WirelessBlocklistsGetAll200ResponseData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.Country&gt;</summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Country>? Country { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry>? WirelessCountry { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Country> Country { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry> WirelessCountry { get; set; }
 #endif
-        /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.Mcc&gt;</summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Mcc>? Mcc { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc>? WirelessMcc { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Mcc> Mcc { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc> WirelessMcc { get; set; }
 #endif
-        /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.Plmn&gt;</summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Plmn>? Plmn { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn>? WirelessPlmn { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Plmn> Plmn { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn> WirelessPlmn { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,17 +47,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200ResponseData();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Country>(global::Soenneker.Telnyx.OpenApiClient.Models.Country.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.Country> countryValue)
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry> wirelessCountryValue)
             {
-                result.Country = countryValue;
+                result.WirelessCountry = wirelessCountryValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Mcc>(global::Soenneker.Telnyx.OpenApiClient.Models.Mcc.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.Mcc> mccValue)
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc> wirelessMccValue)
             {
-                result.Mcc = mccValue;
+                result.WirelessMcc = wirelessMccValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Plmn>(global::Soenneker.Telnyx.OpenApiClient.Models.Plmn.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.Plmn> plmnValue)
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn> wirelessPlmnValue)
             {
-                result.Plmn = plmnValue;
+                result.WirelessPlmn = wirelessPlmnValue;
             }
             return result;
         }
@@ -76,17 +76,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Country != null)
+            if(WirelessCountry != null)
             {
-                writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Country>(null, Country);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry>(null, WirelessCountry);
             }
-            else if(Mcc != null)
+            else if(WirelessMcc != null)
             {
-                writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Mcc>(null, Mcc);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc>(null, WirelessMcc);
             }
-            else if(Plmn != null)
+            else if(WirelessPlmn != null)
             {
-                writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Plmn>(null, Plmn);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn>(null, WirelessPlmn);
             }
         }
     }

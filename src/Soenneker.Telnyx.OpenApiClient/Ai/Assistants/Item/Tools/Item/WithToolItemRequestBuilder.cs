@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item
         {
         }
         /// <summary>
-        /// Remove Assistant Tool
+        /// Detaches the specified tool from the AI assistant so the assistant can no longer invoke it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RemoveAssistantTool200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RemoveAssistantTool200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RemoveAssistantTool200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Add Assistant Tool
+        /// Attach an existing tool to an AI assistant.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AddAssistantTool200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AddAssistantTool200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AddAssistantTool200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Remove Assistant Tool
+        /// Detaches the specified tool from the AI assistant so the assistant can no longer invoke it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.Item
             return requestInfo;
         }
         /// <summary>
-        /// Add Assistant Tool
+        /// Attach an existing tool to an AI assistant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -3,10 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The noise suppression engine to use. Use &apos;disabled&apos; to turn off noise suppression.</summary>
+    /// <summary>The noise suppression engine to use. &apos;aicoustics&apos; is STT-optimized and recommended for AI assistants (configure through noise_suppression_config). Use &apos;disabled&apos; to turn off noise suppression.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TelephonySettingsNoiseSuppression
     {
+        [EnumMember(Value = "aicoustics")]
+        #pragma warning disable CS1591
+        Aicoustics,
+        #pragma warning restore CS1591
         [EnumMember(Value = "krisp")]
         #pragma warning disable CS1591
         Krisp,

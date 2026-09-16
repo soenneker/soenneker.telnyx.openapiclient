@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_statu
         {
         }
         /// <summary>
-        /// Change the bundle status for a phone number (set to being in a bundle or remove from a bundle)
+        /// Adds the specified phone number to a bundle or removes it from a bundle according to the requested status change. The response contains the phone number with its updated bundle state.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBundleStatusChange"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_statu
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBundleStatusChange>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBundleStatusChange.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Change the bundle status for a phone number (set to being in a bundle or remove from a bundle)
+        /// Adds the specified phone number to a bundle or removes it from a bundle according to the requested status change. The response contains the phone number with its updated bundle state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

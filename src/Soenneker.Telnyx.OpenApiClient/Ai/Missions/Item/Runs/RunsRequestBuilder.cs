@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs
         {
         }
         /// <summary>
-        /// List all runs for a specific mission
+        /// Returns a paginated list of runs for the specified mission, optionally filtered by run status, so you can track the mission&apos;s execution history over time.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunsListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunsListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunsListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start a new run for a mission
+        /// Starts a new run of the specified mission and returns the created run object. Track its progress through the run detail, plan, and events endpoints.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all runs for a specific mission
+        /// Returns a paginated list of runs for the specified mission, optionally filtered by run status, so you can track the mission&apos;s execution history over time.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs
             return requestInfo;
         }
         /// <summary>
-        /// Start a new run for a mission
+        /// Starts a new run of the specified mission and returns the created run object. Track its progress through the run detail, plan, and events endpoints.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.RunsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all runs for a specific mission
+        /// Returns a paginated list of runs for the specified mission, optionally filtered by run status, so you can track the mission&apos;s execution history over time.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunsRequestBuilderGetQueryParameters 

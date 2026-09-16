@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Traffic.Policy.Profiles.Item
         {
         }
         /// <summary>
-        /// Deletes the traffic policy profile.
+        /// Permanently deletes the specified traffic policy profile from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteTrafficPolicyProfile200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Traffic.Policy.Profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetTrafficPolicyProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetTrafficPolicyProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a traffic policy profile.
+        /// Updates the specified traffic policy profile and returns the updated profile.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Traffic.Policy.Profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the traffic policy profile.
+        /// Permanently deletes the specified traffic policy profile from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Traffic.Policy.Profiles.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a traffic policy profile.
+        /// Updates the specified traffic policy profile and returns the updated profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

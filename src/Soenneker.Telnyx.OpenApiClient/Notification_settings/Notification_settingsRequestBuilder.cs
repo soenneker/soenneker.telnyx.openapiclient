@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
         {
         }
         /// <summary>
-        /// List notification settings.
+        /// Returns a paginated list of your notification settings, which map notification event types to profiles and channels.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationSettings200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationSettings200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationSettings200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Add a notification setting.
+        /// Adds a notification setting that enables delivery of a notification event type to a notification profile.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateNotificationSetting200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNotificationSetting200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateNotificationSetting200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List notification settings.
+        /// Returns a paginated list of your notification settings, which map notification event types to profiles and channels.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
             return requestInfo;
         }
         /// <summary>
-        /// Add a notification setting.
+        /// Adds a notification setting that enables delivery of a notification event type to a notification profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
             return new global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List notification settings.
+        /// Returns a paginated list of your notification settings, which map notification event types to profiles and channels.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Notification_settingsRequestBuilderGetQueryParameters 

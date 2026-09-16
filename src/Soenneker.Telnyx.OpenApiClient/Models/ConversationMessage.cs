@@ -16,6 +16,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The datetime the message was created on the conversation. This does not necesarily correspond to the time the message was sent. The best field to use to determine the time the end user experienced the message is `sent_at`.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The metadata property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageMetadataProperty? Metadata { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageMetadataProperty Metadata { get; set; }
+#endif
         /// <summary>The role of the message sender.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageRole? Role { get; set; }
         /// <summary>The datetime the message was sent to the end user.</summary>
@@ -62,6 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageRole>(); } },
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
@@ -76,6 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageMetadataProperty>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationMessageRole>("role", Role);
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
             writer.WriteStringValue("text", Text);

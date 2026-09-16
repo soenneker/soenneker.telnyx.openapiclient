@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCard200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCard200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates SIM card data
+        /// Updates the specified SIM card&apos;s attributes and returns the updated SIM card.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSimCard200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -173,7 +173,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates SIM card data
+        /// Updates the specified SIM card&apos;s attributes and returns the updated SIM card.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

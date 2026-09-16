@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless.Detail.Records.Reports.Item
         {
         }
         /// <summary>
-        /// Deletes one specific WDR report.
+        /// Permanently deletes the specified Wireless Detail Record (WDR) report.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWdrReport200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless.Detail.Records.Reports.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWdrReport200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWdrReport200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns one specific WDR report
+        /// Returns a single Wireless Detail Record (WDR) report by its identifier, including its parameters and current status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetWdrReport200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless.Detail.Records.Reports.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetWdrReport200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetWdrReport200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes one specific WDR report.
+        /// Permanently deletes the specified Wireless Detail Record (WDR) report.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless.Detail.Records.Reports.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns one specific WDR report
+        /// Returns a single Wireless Detail Record (WDR) report by its identifier, including its parameters and current status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

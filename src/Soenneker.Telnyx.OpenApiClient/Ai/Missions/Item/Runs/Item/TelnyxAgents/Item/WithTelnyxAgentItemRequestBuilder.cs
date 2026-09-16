@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.TelnyxAgents
         {
         }
         /// <summary>
-        /// Unlink a Telnyx agent from a run
+        /// Unlinks the specified Telnyx agent from the run so it no longer participates in execution. The run itself and its history are unaffected.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.TelnyxAgents
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Unlink a Telnyx agent from a run
+        /// Unlinks the specified Telnyx agent from the run so it no longer participates in execution. The run itself and its history are unaffected.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

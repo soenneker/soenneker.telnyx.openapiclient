@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         {
         }
         /// <summary>
-        /// List CSV downloads
+        /// Returns CSV export jobs created for account phone numbers, including each export&apos;s current status and pagination metadata.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListCsvDownloadsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListCsvDownloadsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListCsvDownloadsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a CSV download
+        /// Starts generation of a CSV export for phone numbers matching the supplied filters. The `csv_format` parameter selects the output format, and the response contains the resulting download record.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateCsvDownload200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCsvDownload200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateCsvDownload200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List CSV downloads
+        /// Returns CSV export jobs created for account phone numbers, including each export&apos;s current status and pagination metadata.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -128,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
             return requestInfo;
         }
         /// <summary>
-        /// Create a CSV download
+        /// Starts generation of a CSV export for phone numbers matching the supplied filters. The `csv_format` parameter selects the output format, and the response contains the resulting download record.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -156,7 +156,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
             return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List CSV downloads
+        /// Returns CSV export jobs created for account phone numbers, including each export&apos;s current status and pagination metadata.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Csv_downloadsRequestBuilderGetQueryParameters 
@@ -173,7 +173,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
 #endif
         }
         /// <summary>
-        /// Create a CSV download
+        /// Starts generation of a CSV export for phone numbers matching the supplied filters. The `csv_format` parameter selects the output format, and the response contains the resulting download record.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Csv_downloadsRequestBuilderPostQueryParameters 

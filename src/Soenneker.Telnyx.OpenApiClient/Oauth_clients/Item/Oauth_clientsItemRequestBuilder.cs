@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients.Item
         {
         }
         /// <summary>
-        /// Delete an OAuth client
+        /// Permanently deletes the specified OAuth client from your account.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a single OAuth client by ID
+        /// Returns the details of a single OAuth client on your account by its ID.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetOAuthClient2200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetOAuthClient2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetOAuthClient2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an existing OAuth client
+        /// Updates the specified OAuth client&apos;s configuration and returns the updated client.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOAuthClient2200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -106,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOAuthClient2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOAuthClient2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an OAuth client
+        /// Permanently deletes the specified OAuth client from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a single OAuth client by ID
+        /// Returns the details of a single OAuth client on your account by its ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,7 +144,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_clients.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an existing OAuth client
+        /// Updates the specified OAuth client&apos;s configuration and returns the updated client.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

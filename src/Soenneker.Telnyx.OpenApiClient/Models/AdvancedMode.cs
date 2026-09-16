@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Mode for noise suppression configuration.</summary>
+    /// <summary>Mode for noise suppression configuration. Only applicable when noise_suppression is &apos;deepfilternet&apos;.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AdvancedMode
     {

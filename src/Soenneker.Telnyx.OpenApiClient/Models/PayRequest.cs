@@ -108,6 +108,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? TimeoutMillis { get; set; }
         /// <summary>Transaction to perform. If omitted, Pay infers `tokenize` when `amount` is absent or zero and `charge` when `amount` is positive.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestTransactionType? TransactionType { get; set; }
+        /// <summary>Restricts accepted card numbers to the listed card types. When the caller enters a card number that does not match one of the listed types, Pay treats the input as invalid and re-prompts for the card number. Cannot be used together with `payment_token`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestValidCardTypesItem?>? ValidCardTypes { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestValidCardTypesItem?> ValidCardTypes { get; set; }
+#endif
         /// <summary>Voice used for payment prompts. Accepts `male`, `female`, or a provider voice in `&lt;Provider&gt;.&lt;Model&gt;.&lt;VoiceId&gt;` format, for example `AWS.Polly.Joanna` or `Telnyx.KokoroTTS.af`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -165,6 +173,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "service_level", n => { ServiceLevel = n.GetStringValue(); } },
                 { "timeout_millis", n => { TimeoutMillis = n.GetIntValue(); } },
                 { "transaction_type", n => { TransactionType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestTransactionType>(); } },
+                { "valid_card_types", n => { ValidCardTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestValidCardTypesItem>()?.AsList(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
             };
         }
@@ -192,6 +201,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("service_level", ServiceLevel);
             writer.WriteIntValue("timeout_millis", TimeoutMillis);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestTransactionType>("transaction_type", TransactionType);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestValidCardTypesItem>("valid_card_types", ValidCardTypes);
             writer.WriteStringValue("voice", Voice);
             writer.WriteAdditionalData(AdditionalData);
         }

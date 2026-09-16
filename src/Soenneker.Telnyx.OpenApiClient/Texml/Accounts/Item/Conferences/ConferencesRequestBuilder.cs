@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
         {
         }
         /// <summary>
-        /// Lists conference resources.
+        /// Returns a paginated list of conference resources for the account, with support for filtering by friendly name, status, and creation or update dates.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists conference resources.
+        /// Returns a paginated list of conference resources for the account, with support for filtering by friendly name, status, and creation or update dates.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
             return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.ConferencesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists conference resources.
+        /// Returns a paginated list of conference resources for the account, with support for filtering by friendly name, status, and creation or update dates.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConferencesRequestBuilderGetQueryParameters 

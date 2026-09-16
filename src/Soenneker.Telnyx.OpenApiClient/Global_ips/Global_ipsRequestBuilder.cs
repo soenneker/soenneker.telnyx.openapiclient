@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips
         {
         }
         /// <summary>
-        /// List all Global IPs.
+        /// Returns a paginated list of the Global IPs on your account, including each IP&apos;s address and configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIps200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIps200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIps200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a Global IP.
+        /// Requests creation of a new Global IP, a static IP address announced from the Telnyx network. Provisioning is asynchronous, so the request is accepted and the Global IP becomes available once provisioning completes.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIp202Response"/></returns>
         /// <param name="body">The request body</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIp202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIp202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Global IPs.
+        /// Returns a paginated list of the Global IPs on your account, including each IP&apos;s address and configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips
             return requestInfo;
         }
         /// <summary>
-        /// Create a Global IP.
+        /// Requests creation of a new Global IP, a static IP address announced from the Telnyx network. Provisioning is asynchronous, so the request is accepted and the Global IP becomes available once provisioning completes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ips
             return new global::Soenneker.Telnyx.OpenApiClient.Global_ips.Global_ipsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all Global IPs.
+        /// Returns a paginated list of the Global IPs on your account, including each IP&apos;s address and configuration.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ipsRequestBuilderGetQueryParameters 

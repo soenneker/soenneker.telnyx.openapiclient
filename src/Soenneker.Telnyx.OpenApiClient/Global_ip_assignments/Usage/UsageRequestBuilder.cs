@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Usage
         {
         }
         /// <summary>
-        /// Global IP Assignment Usage Metrics
+        /// Retrieve usage metrics for your Global IP assignments.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Usage
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentUsage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Global IP Assignment Usage Metrics
+        /// Retrieve usage metrics for your Global IP assignments.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Usage
             return new global::Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Usage.UsageRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Global IP Assignment Usage Metrics
+        /// Retrieve usage metrics for your Global IP assignments.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsageRequestBuilderGetQueryParameters 

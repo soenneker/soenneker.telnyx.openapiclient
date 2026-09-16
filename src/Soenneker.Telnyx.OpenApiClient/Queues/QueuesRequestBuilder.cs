@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListQueuesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListQueuesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new call queue.
+        /// Creates a new call queue with the provided configuration and returns the created queue.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateQueue200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues
             return requestInfo;
         }
         /// <summary>
-        /// Create a new call queue.
+        /// Creates a new call queue with the provided configuration and returns the created queue.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

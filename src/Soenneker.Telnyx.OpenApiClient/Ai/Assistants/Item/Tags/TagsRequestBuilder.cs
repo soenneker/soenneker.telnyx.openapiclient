@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tags
         {
         }
         /// <summary>
-        /// Add Assistant Tag
+        /// Add a tag to an AI assistant. Tags help you organize and filter your assistants.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TagsResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tags
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TagsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TagsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Add Assistant Tag
+        /// Add a tag to an AI assistant. Tags help you organize and filter your assistants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

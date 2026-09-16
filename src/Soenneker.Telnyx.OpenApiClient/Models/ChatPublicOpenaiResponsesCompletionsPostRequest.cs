@@ -32,6 +32,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Instructions { get; set; }
 #endif
+        /// <summary>How strictly `region` is applied. `preferred` (the default when `region` is set) tries that region first and falls back to another when the model cannot be served there, so a request that would have succeeded still succeeds. `strict` pins the request: it is served from that region or it fails with a 422, never redirected to another region. Requires `region`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestMode? Mode { get; set; }
         /// <summary>Model identifier to use for the response, for example `zai-org/GLM-5.1-FP8` or another model available from the Telnyx OpenAI-compatible models endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,6 +42,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
+        /// <summary>The reasoning property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestReasoning? Reasoning { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestReasoning Reasoning { get; set; }
+#endif
+        /// <summary>Optional data-residency region the request should be served from, using the same vocabulary as your account&apos;s Data Locality setting. Behavior depends on `mode`. Supported for Telnyx-hosted models only: a request routed to an external provider never passes through Telnyx model routing, so a region cannot be enforced for it. Omit for today&apos;s latency-based routing.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestRegion? Region { get; set; }
         /// <summary>The service tier to use for this request. Supported values vary by model; use `GET /v2/ai/openai/models` and inspect the model&apos;s `service_tiers` field. If omitted, Telnyx-hosted models use `default`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +90,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "conversation", n => { Conversation = n.GetGuidValue(); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestMode>(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
+                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestReasoning>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestReasoning.CreateFromDiscriminatorValue); } },
+                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestRegion>(); } },
                 { "service_tier", n => { ServiceTier = n.GetStringValue(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
             };
@@ -93,7 +108,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("conversation", Conversation);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestMode>("mode", Mode);
             writer.WriteStringValue("model", Model);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestReasoning>("reasoning", Reasoning);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestRegion>("region", Region);
             writer.WriteStringValue("service_tier", ServiceTier);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteAdditionalData(AdditionalData);

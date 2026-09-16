@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Jobs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJobsListData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJobsListData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new fine tuning job.
+        /// Creates a new fine-tuning job that trains a model on the provided dataset, and returns the created job.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob"/></returns>
         /// <param name="body">The request body</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Jobs
             return requestInfo;
         }
         /// <summary>
-        /// Create a new fine tuning job.
+        /// Creates a new fine-tuning job that trains a model on the provided dataset, and returns the created job.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

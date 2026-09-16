@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections
         {
         }
         /// <summary>
-        /// List Mobile Voice Connections
+        /// Retrieve a paginated list of mobile voice connections on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListMobileVoiceConnections200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMobileVoiceConnections200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMobileVoiceConnections200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a Mobile Voice Connection
+        /// Creates a new mobile voice connection with the provided configuration and returns the created connection.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMobileVoiceConnection201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMobileVoiceConnection201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateMobileVoiceConnection201Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List Mobile Voice Connections
+        /// Retrieve a paginated list of mobile voice connections on your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections
             return requestInfo;
         }
         /// <summary>
-        /// Create a Mobile Voice Connection
+        /// Creates a new mobile voice connection with the provided configuration and returns the created connection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -135,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections
             return new global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Mobile_voice_connectionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List Mobile Voice Connections
+        /// Retrieve a paginated list of mobile voice connections on your account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mobile_voice_connectionsRequestBuilderGetQueryParameters 

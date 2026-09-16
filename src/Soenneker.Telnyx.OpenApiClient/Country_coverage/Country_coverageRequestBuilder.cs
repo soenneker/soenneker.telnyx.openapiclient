@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage
         {
         }
         /// <summary>
-        /// Get country coverage
+        /// Returns Telnyx service coverage information for every country, including which number types and features are available in each.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetreiveCountryCoverage200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetreiveCountryCoverage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetreiveCountryCoverage200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get country coverage
+        /// Returns Telnyx service coverage information for every country, including which number types and features are available in each.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

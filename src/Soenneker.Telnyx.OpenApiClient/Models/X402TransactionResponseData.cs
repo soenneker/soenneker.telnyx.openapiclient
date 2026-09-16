@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The record_type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionRecordType? RecordType { get; set; }
-        /// <summary>The settlement status of the transaction.</summary>
+        /// <summary>The settlement status of the transaction. x402 transactions are created after successful on-chain settlement, so the status is `settled`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SettledStatus? Status { get; set; }
         /// <summary>The on-chain transaction hash, if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? MinimumDigits { get; set; }
         /// <summary>Whether to stop the audio playback when a DTMF digit is received.</summary>
         public bool? StopPlaybackOnDtmf { get; set; }
-        /// <summary>Digit that terminates gathering.</summary>
+        /// <summary>Digit that terminates gathering. Set to an empty string to disable the terminating digit entirely, so that a digit such as `#` can be collected as input per `valid_digits`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TerminatingDigit { get; set; }

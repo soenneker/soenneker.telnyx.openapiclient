@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks
         {
         }
         /// <summary>
-        /// List webhooks for an email domain
+        /// Returns a paginated list of webhook subscriptions scoped to the email domain. Results can be sorted by creation time.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List webhooks for an email domain
+        /// Returns a paginated list of webhook subscriptions scoped to the email domain. Results can be sorted by creation time.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks
             return new global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks.WebhooksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List webhooks for an email domain
+        /// Returns a paginated list of webhook subscriptions scoped to the email domain. Results can be sorted by creation time.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WebhooksRequestBuilderGetQueryParameters 

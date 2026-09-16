@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ota_updates
         {
         }
         /// <summary>
-        /// List OTA updates
+        /// Retrieve a paginated list of over-the-air (OTA) update operations for your SIM cards.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListOtaUpdates200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ota_updates
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOtaUpdates200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOtaUpdates200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List OTA updates
+        /// Retrieve a paginated list of over-the-air (OTA) update operations for your SIM cards.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ota_updates
             return new global::Soenneker.Telnyx.OpenApiClient.Ota_updates.Ota_updatesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List OTA updates
+        /// Retrieve a paginated list of over-the-air (OTA) update operations for your SIM cards.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Ota_updatesRequestBuilderGetQueryParameters 

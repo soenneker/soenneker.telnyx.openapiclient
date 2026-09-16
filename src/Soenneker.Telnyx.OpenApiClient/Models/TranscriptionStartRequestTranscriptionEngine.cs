@@ -51,6 +51,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Reson8,
         #pragma warning restore CS1591
+        [EnumMember(Value = "Cohere")]
+        #pragma warning disable CS1591
+        Cohere,
+        #pragma warning restore CS1591
         [EnumMember(Value = "A")]
         #pragma warning disable CS1591
         A,

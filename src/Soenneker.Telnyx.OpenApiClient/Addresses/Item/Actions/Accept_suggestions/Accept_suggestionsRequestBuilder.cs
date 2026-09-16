@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses.Item.Actions.Accept_suggestio
         {
         }
         /// <summary>
-        /// Accepts this address suggestion as a new emergency address for Operator Connect and finishes the uploads of the numbers associated with it to Microsoft.
+        /// Accept the validated address suggestion for this address, replacing the original values, and finish uploading the numbers associated with it to Microsoft for Operator Connect.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses.Item.Actions.Accept_suggestio
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AddressSuggestionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Accepts this address suggestion as a new emergency address for Operator Connect and finishes the uploads of the numbers associated with it to Microsoft.
+        /// Accept the validated address suggestion for this address, replacing the original values, and finish uploading the numbers associated with it to Microsoft for Operator Connect.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "9E5490C0D94BC06928570BF4AF989F6F848FAC16A712219224163B6BFEAB42E43987B691C1FC8F77CAED02D1251C6666D7EC56D99F49BD7712F5D0C81344D7D3",
+  "descriptionHash": "F554EC362380E90905FB27F18DEF9DD57704637F9448B0703FA5033E4E906421C32E7D4F14A034DBAAC7768554028BCC0C4D43FDAE907E16F49E262594E133AD",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.34.1",
+  "kiotaVersion": "1.35.0",
   "clientClassName": "TelnyxOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Telnyx.OpenApiClient",

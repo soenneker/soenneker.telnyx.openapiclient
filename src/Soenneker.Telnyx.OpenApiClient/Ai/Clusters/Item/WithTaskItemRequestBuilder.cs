@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Clusters.Item
         {
         }
         /// <summary>
-        /// Delete a cluster
+        /// Delete a clustering task and its computed results.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Clusters.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch a cluster
+        /// Fetch the results of a clustering task, including the discovered clusters.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringStatusResponseData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Clusters.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringStatusResponseData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringStatusResponseData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a cluster
+        /// Delete a clustering task and its computed results.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Clusters.Item
             return requestInfo;
         }
         /// <summary>
-        /// Fetch a cluster
+        /// Fetch the results of a clustering task, including the discovered clusters.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -132,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Clusters.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Clusters.Item.WithTaskItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Fetch a cluster
+        /// Fetch the results of a clustering task, including the discovered clusters.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithTaskItemRequestBuilderGetQueryParameters 

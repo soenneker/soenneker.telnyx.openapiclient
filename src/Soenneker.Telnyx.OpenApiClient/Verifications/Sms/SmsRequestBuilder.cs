@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.Sms
         {
         }
         /// <summary>
-        /// Trigger SMS verification
+        /// Starts a verification for the specified phone number and sends its code by SMS using the selected Verify profile. Returns the pending verification record.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerificationResponse"/></returns>
         /// <param name="body">The request body when creating a verification.</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.Sms
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerificationResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerificationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Trigger SMS verification
+        /// Starts a verification for the specified phone number and sends its code by SMS using the selected Verify profile. Returns the pending verification record.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body when creating a verification.</param>

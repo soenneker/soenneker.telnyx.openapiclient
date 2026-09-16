@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Requirement_grou
         {
         }
         /// <summary>
-        /// Update requirement group for a sub number order
+        /// Associates an existing requirement group with the specified sub number order. The response contains the updated sub number order requirement-group relationship.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRequirementGroupResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Requirement_grou
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRequirementGroupResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRequirementGroupResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update requirement group for a sub number order
+        /// Associates an existing requirement group with the specified sub number order. The response contains the updated sub number order requirement-group relationship.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

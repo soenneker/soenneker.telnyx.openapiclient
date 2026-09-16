@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Item.Comments
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindPortoutComments200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindPortoutComments200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a comment on a portout request.
+        /// Creates a comment on the specified port-out request and returns the created comment.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PostPortRequestComment201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Item.Comments
             return requestInfo;
         }
         /// <summary>
-        /// Creates a comment on a portout request.
+        /// Creates a comment on the specified port-out request and returns the created comment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

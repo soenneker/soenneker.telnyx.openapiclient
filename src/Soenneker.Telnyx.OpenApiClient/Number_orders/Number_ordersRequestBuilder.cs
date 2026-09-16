@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders
         {
         }
         /// <summary>
-        /// Get a paginated list of number orders.
+        /// Returns a paginated list of your phone number orders, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberOrdersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberOrdersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberOrdersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a phone number order.
+        /// Creates an order to purchase the specified phone numbers and returns the created order. Track fulfillment through the order&apos;s status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrder200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrder200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a paginated list of number orders.
+        /// Returns a paginated list of your phone number orders, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders
             return requestInfo;
         }
         /// <summary>
-        /// Creates a phone number order.
+        /// Creates an order to purchase the specified phone numbers and returns the created order. Track fulfillment through the order&apos;s status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders
             return new global::Soenneker.Telnyx.OpenApiClient.Number_orders.Number_ordersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get a paginated list of number orders.
+        /// Returns a paginated list of your phone number orders, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Number_ordersRequestBuilderGetQueryParameters 

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_allowed_ports
         {
         }
         /// <summary>
-        /// List all Global IP Allowed Ports
+        /// Returns the ports allowed for Global IP traffic, for use when configuring Global IP resources.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpAllowedPorts200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_allowed_ports
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpAllowedPorts200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpAllowedPorts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Global IP Allowed Ports
+        /// Returns the ports allowed for Global IP traffic, for use when configuring Global IP resources.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

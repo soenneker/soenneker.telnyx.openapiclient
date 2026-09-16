@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
         {
         }
         /// <summary>
-        /// List all Virtual Cross Connects.
+        /// Returns a paginated list of the virtual cross connects on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVirtualCrossConnects200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVirtualCrossConnect200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateVirtualCrossConnect200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Virtual Cross Connects.
+        /// Returns a paginated list of the virtual cross connects on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,7 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
             return new global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all Virtual Cross Connects.
+        /// Returns a paginated list of the virtual cross connects on your account, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Virtual_cross_connectsRequestBuilderGetQueryParameters 

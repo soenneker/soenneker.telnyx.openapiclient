@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Profile
         {
         }
         /// <summary>
-        /// Get phone number business profile
+        /// Retrieve the WhatsApp business profile associated with a phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappProfileSingleResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Profile
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappProfileSingleResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappProfileSingleResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update phone number business profile
+        /// Update the WhatsApp business profile associated with a phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappProfileSingleResponseResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Profile
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappProfileSingleResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappProfileSingleResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get phone number business profile
+        /// Retrieve the WhatsApp business profile associated with a phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Profile
             return requestInfo;
         }
         /// <summary>
-        /// Update phone number business profile
+        /// Update the WhatsApp business profile associated with a phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

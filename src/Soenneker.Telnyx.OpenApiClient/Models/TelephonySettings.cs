@@ -22,9 +22,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DefaultTexmlAppId { get; set; }
 #endif
-        /// <summary>The noise suppression engine to use. Use &apos;disabled&apos; to turn off noise suppression.</summary>
+        /// <summary>Disable inbound DTMF for the entire call. Must be set to true if a &apos;pay&apos; tool is configured anywhere on the assistant — on the main tool array or on any workflow node — enforced at write time.</summary>
+        public bool? DisableDtmf { get; set; }
+        /// <summary>Destination number or SIP URI to transfer the caller to when the AI conversation ends abnormally, for example because of an assistant-side error, so the caller is not left in dead air. This only fires for abnormal ends: it does not fire when the conversation ends on purpose (the caller hung up, the assistant completed normally, the caller hung up after a relay handoff, or voicemail was detected), and it does not fire when the assistant already transferred or bridged the call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FallbackDestination { get; set; }
+#nullable restore
+#else
+        public string FallbackDestination { get; set; }
+#endif
+        /// <summary>The noise suppression engine to use. &apos;aicoustics&apos; is STT-optimized and recommended for AI assistants (configure through noise_suppression_config). Use &apos;disabled&apos; to turn off noise suppression.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppression? NoiseSuppression { get; set; }
-        /// <summary>Configuration for noise suppression. Only applicable when noise_suppression is &apos;deepfilternet&apos;.</summary>
+        /// <summary>Configuration for noise suppression. Applicable fields depend on the engine: &apos;attenuation_limit&apos; and &apos;mode&apos; only when noise_suppression is &apos;deepfilternet&apos;; &apos;family&apos;, &apos;size&apos; and &apos;enhancement_level&apos; only when noise_suppression is &apos;aicoustics&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig? NoiseSuppressionConfig { get; set; }
@@ -40,6 +50,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings RecordingSettings { get; set; }
 #endif
+        /// <summary>Whether the assistant sends a `call.ai_gather.message_history_updated` webhook with the full message history every time the conversation history changes. Leave unset to inherit the `send_message_history_updates` value from the `ai_assistant_start` or `gather_using_ai` command that started the conversation. Setting it here is authoritative: `true` turns the webhooks on even when the start command did not request them, and `false` turns them off even when it did. Messages exchanged during a private warm transfer acceptance phase are never included.</summary>
+        public bool? SendMessageHistoryUpdates { get; set; }
         /// <summary>When enabled, allows users to interact with your AI assistant directly from your website without requiring authentication. This is required for FE widgets that work with assistants that have telephony enabled.</summary>
         public bool? SupportsUnauthenticatedWebCalls { get; set; }
         /// <summary>Maximum duration in seconds for the AI assistant to participate on the call. When this limit is reached the assistant will be stopped. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).</summary>
@@ -62,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TelephonySettings()
         {
             AdditionalData = new Dictionary<string, object>();
+            DisableDtmf = false;
             TimeLimitSecs = 1800;
             UserIdleReplySecs = 10;
         }
@@ -84,9 +97,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "default_texml_app_id", n => { DefaultTexmlAppId = n.GetStringValue(); } },
+                { "disable_dtmf", n => { DisableDtmf = n.GetBoolValue(); } },
+                { "fallback_destination", n => { FallbackDestination = n.GetStringValue(); } },
                 { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppression>(); } },
                 { "noise_suppression_config", n => { NoiseSuppressionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig.CreateFromDiscriminatorValue); } },
                 { "recording_settings", n => { RecordingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings.CreateFromDiscriminatorValue); } },
+                { "send_message_history_updates", n => { SendMessageHistoryUpdates = n.GetBoolValue(); } },
                 { "supports_unauthenticated_web_calls", n => { SupportsUnauthenticatedWebCalls = n.GetBoolValue(); } },
                 { "time_limit_secs", n => { TimeLimitSecs = n.GetIntValue(); } },
                 { "user_idle_reply_secs", n => { UserIdleReplySecs = n.GetIntValue(); } },
@@ -102,9 +118,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("default_texml_app_id", DefaultTexmlAppId);
+            writer.WriteBoolValue("disable_dtmf", DisableDtmf);
+            writer.WriteStringValue("fallback_destination", FallbackDestination);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppression>("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig>("noise_suppression_config", NoiseSuppressionConfig);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings>("recording_settings", RecordingSettings);
+            writer.WriteBoolValue("send_message_history_updates", SendMessageHistoryUpdates);
             writer.WriteBoolValue("supports_unauthenticated_web_calls", SupportsUnauthenticatedWebCalls);
             writer.WriteIntValue("time_limit_secs", TimeLimitSecs);
             writer.WriteIntValue("user_idle_reply_secs", UserIdleReplySecs);

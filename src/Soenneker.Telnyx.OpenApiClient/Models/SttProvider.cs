@@ -15,6 +15,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether this model runs on Telnyx-hosted infrastructure (`true`) or is provided by a third-party vendor (`false`).</summary>
+        public bool? Hosted { get; set; }
         /// <summary>Provider-scoped model name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "hosted", n => { Hosted = n.GetBoolValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetStringValue(); } },
                 { "service_types", n => { ServiceTypes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SttProviderServiceType>(global::Soenneker.Telnyx.OpenApiClient.Models.SttProviderServiceType.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -76,6 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("hosted", Hosted);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("provider", Provider);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SttProviderServiceType>("service_types", ServiceTypes);

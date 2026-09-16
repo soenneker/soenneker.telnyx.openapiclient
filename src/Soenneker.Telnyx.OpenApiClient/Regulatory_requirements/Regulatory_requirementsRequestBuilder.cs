@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Regulatory_requirements
         {
         }
         /// <summary>
-        /// Retrieve regulatory requirements
+        /// Returns regulatory requirements for number ordering, porting, or other supported actions. Results can be filtered by phone number, requirement group, country, number type, and action.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRegulatoryRequirements200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Regulatory_requirements
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRegulatoryRequirements200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRegulatoryRequirements200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve regulatory requirements
+        /// Returns regulatory requirements for number ordering, porting, or other supported actions. Results can be filtered by phone number, requirement group, country, number type, and action.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Regulatory_requirements
             return new global::Soenneker.Telnyx.OpenApiClient.Regulatory_requirements.Regulatory_requirementsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve regulatory requirements
+        /// Returns regulatory requirements for number ordering, porting, or other supported actions. Results can be filtered by phone number, requirement group, country, number type, and action.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Regulatory_requirementsRequestBuilderGetQueryParameters 

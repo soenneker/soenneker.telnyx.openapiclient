@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item
         {
         }
         /// <summary>
-        /// Permanently deletes a SIM card group
+        /// Permanently deletes the specified SIM card group from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteSimCardGroup200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardGroup200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardGroup200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a SIM card group
+        /// Updates the specified SIM card group&apos;s attributes and returns the updated group.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSimCardGroup200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSimCardGroup200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSimCardGroup200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Permanently deletes a SIM card group
+        /// Permanently deletes the specified SIM card group from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a SIM card group
+        /// Updates the specified SIM card group&apos;s attributes and returns the updated group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

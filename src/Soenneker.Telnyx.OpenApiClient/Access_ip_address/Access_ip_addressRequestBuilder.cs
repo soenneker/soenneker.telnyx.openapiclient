@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
         {
         }
         /// <summary>
-        /// List all Access IP Addresses
+        /// Retrieve a paginated list of access IP addresses configured on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressListResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressListResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressListResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create new Access IP Address
+        /// Create a new access IP address entry on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Access IP Addresses
+        /// Retrieve a paginated list of access IP addresses configured on your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
             return requestInfo;
         }
         /// <summary>
-        /// Create new Access IP Address
+        /// Create a new access IP address entry on your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
             return new global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all Access IP Addresses
+        /// Retrieve a paginated list of access IP addresses configured on your account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Access_ip_addressRequestBuilderGetQueryParameters 

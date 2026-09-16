@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingPhoneNumberBlocks200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingPhoneNumberBlocks200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new phone number block.
+        /// Creates a phone number block on the porting order, representing a contiguous range of phone numbers to be ported together.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlock201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new phone number block.
+        /// Creates a phone number block on the porting order, representing a contiguous range of phone numbers to be ported together.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

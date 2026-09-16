@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements.Item
         {
         }
         /// <summary>
-        /// Retrieve a document requirement record
+        /// Returns a single document requirement record by its identifier, describing the documentation needed for number-related actions. A specific requirement version can be requested.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveDocumentRequirements200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveDocumentRequirements200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveDocumentRequirements200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a document requirement record
+        /// Returns a single document requirement record by its identifier, describing the documentation needed for number-related actions. A specific requirement version can be requested.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve a document requirement record
+        /// Returns a single document requirement record by its identifier, describing the documentation needed for number-related actions. A specific requirement version can be requested.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RequirementsItemRequestBuilderGetQueryParameters 

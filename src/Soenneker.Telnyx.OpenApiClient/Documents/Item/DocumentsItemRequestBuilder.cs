@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDocument200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDocument200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a document.
+        /// Returns the details of a single document on your account, including its metadata.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveDocument200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveDocument200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveDocument200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a document.
+        /// Updates the specified document&apos;s attributes and returns the updated document.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDocument200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -142,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a document.
+        /// Returns the details of a single document on your account, including its metadata.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a document.
+        /// Updates the specified document&apos;s attributes and returns the updated document.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

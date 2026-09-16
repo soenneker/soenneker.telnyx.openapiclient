@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks.Item
         {
         }
         /// <summary>
-        /// Delete a webhook
+        /// Deletes the webhook subscription identified by ID within the specified email domain and returns the deleted subscription.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a webhook
+        /// Returns the webhook subscription identified by ID within the specified email domain.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a webhook
+        /// Deletes the webhook subscription identified by ID within the specified email domain and returns the deleted subscription.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -132,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a webhook
+        /// Returns the webhook subscription identified by ID within the specified email domain.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

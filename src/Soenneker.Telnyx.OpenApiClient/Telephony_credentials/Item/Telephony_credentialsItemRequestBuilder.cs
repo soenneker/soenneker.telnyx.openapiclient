@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item
         {
         }
         /// <summary>
-        /// Delete an existing credential.
+        /// Permanently deletes the specified telephony credential, revoking any access it provided.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteTelephonyCredential200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetTelephonyCredential200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetTelephonyCredential200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an existing credential.
+        /// Updates the specified telephony credential and returns the updated credential.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTelephonyCredential200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTelephonyCredential200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTelephonyCredential200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an existing credential.
+        /// Permanently deletes the specified telephony credential, revoking any access it provided.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an existing credential.
+        /// Updates the specified telephony credential and returns the updated credential.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

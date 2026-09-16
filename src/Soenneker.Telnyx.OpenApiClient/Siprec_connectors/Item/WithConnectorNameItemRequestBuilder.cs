@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Item
         {
         }
         /// <summary>
-        /// Deletes a stored SIPREC connector.
+        /// Deletes the stored SIPREC connector with the specified connector name.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a stored SIPREC connector.
+        /// Deletes the stored SIPREC connector with the specified connector name.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

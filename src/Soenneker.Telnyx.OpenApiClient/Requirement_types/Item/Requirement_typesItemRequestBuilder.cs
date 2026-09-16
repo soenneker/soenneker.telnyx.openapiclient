@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_types.Item
         {
         }
         /// <summary>
-        /// Retrieve a requirement type by id
+        /// Returns the details of a single requirement type by its identifier, describing a kind of documentation needed for regulatory purposes.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveRequirementType200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_types.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveRequirementType200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveRequirementType200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a requirement type by id
+        /// Returns the details of a single requirement type by its identifier, describing a kind of documentation needed for regulatory purposes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions
         {
         }
         /// <summary>
-        /// List all missions for the organization
+        /// Returns a paginated list of all mission definitions in your organization. Missions describe a goal and the tools, knowledge bases, and MCP servers agents may use to accomplish it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MissionsListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MissionsListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MissionsListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new mission definition
+        /// Creates a new mission definition from the provided configuration and returns the created mission. Execute the mission by starting runs against it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MissionResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MissionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MissionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all missions for the organization
+        /// Returns a paginated list of all mission definitions in your organization. Missions describe a goal and the tools, knowledge bases, and MCP servers agents may use to accomplish it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions
             return requestInfo;
         }
         /// <summary>
-        /// Create a new mission definition
+        /// Creates a new mission definition from the provided configuration and returns the created mission. Execute the mission by starting runs against it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -157,7 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.MissionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all missions for the organization
+        /// Returns a paginated list of all mission definitions in your organization. Missions describe a goal and the tools, knowledge bases, and MCP servers agents may use to accomplish it.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MissionsRequestBuilderGetQueryParameters 

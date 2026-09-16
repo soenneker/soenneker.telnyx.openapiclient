@@ -34,29 +34,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists.Item
         {
         }
         /// <summary>
-        /// Deletes the Wireless Blocklist.
+        /// Permanently deletes the specified wireless blocklist from your account. The request returns `422` when the wireless blocklist is assigned to a SIM Card Group.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWirelessBlocklist200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocumentsError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrorC5290D5308">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWirelessBlocklist200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWirelessBlocklist200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.DocumentsError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessErrorC5290D5308.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWirelessBlocklist200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWirelessBlocklist200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve information about a Wireless Blocklist.
@@ -84,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetWirelessBlocklist200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetWirelessBlocklist200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a Wireless Blocklist.
+        /// Updates the specified wireless blocklist. The update is processed asynchronously, so the request is accepted and completes in the background.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist202Response"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the Wireless Blocklist.
+        /// Permanently deletes the specified wireless blocklist from your account. The request returns `422` when the wireless blocklist is assigned to a SIM Card Group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +150,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireless_blocklists.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a Wireless Blocklist.
+        /// Updates the specified wireless blocklist. The update is processed asynchronously, so the request is accepted and completes in the background.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

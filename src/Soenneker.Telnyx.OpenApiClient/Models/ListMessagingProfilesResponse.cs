@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingMessagingProfile>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingMessagingProfile> Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingMessagingProfile>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingMessagingProfile.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingPaginationMeta0B38E7044B>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingPaginationMeta0B38E7044B.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingMessagingProfile>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingPaginationMeta0B38E7044B>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }

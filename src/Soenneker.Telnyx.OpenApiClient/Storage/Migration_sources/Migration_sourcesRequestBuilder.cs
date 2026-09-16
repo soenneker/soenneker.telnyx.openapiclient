@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources
         {
         }
         /// <summary>
-        /// List all Migration Sources
+        /// List the migration sources configured on your account. A migration source is an external storage bucket from which data can be migrated into Telnyx Cloud Storage.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListMigrationSources200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,6 +84,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMigrationSource200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateMigrationSource200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// List the migration sources configured on your account. A migration source is an external storage bucket from which data can be migrated into Telnyx Cloud Storage.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

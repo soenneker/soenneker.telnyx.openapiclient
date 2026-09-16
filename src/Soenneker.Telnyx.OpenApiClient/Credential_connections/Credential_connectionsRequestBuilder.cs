@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Credential_connections
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListCredentialConnectionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListCredentialConnectionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a credential connection.
+        /// Creates a new credential-based SIP connection. Credential connections authenticate with a username and password rather than by IP address.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnection201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Credential_connections
             return requestInfo;
         }
         /// <summary>
-        /// Creates a credential connection.
+        /// Creates a new credential-based SIP connection. Credential connections authenticate with a username and password rather than by IP address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

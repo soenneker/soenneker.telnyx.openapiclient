@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item
         {
         }
         /// <summary>
-        /// Delete a Network.
+        /// Permanently deletes the specified network from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNetwork200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNetwork200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNetwork200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a Network.
+        /// Returns the details of a single network by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetNetwork200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetNetwork200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetNetwork200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a Network.
+        /// Updates the specified network&apos;s attributes and returns the updated network.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNetwork200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNetwork200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNetwork200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Network.
+        /// Permanently deletes the specified network from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a Network.
+        /// Returns the details of a single network by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a Network.
+        /// Updates the specified network&apos;s attributes and returns the updated network.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

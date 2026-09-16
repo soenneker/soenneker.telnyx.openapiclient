@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emerg
         {
         }
         /// <summary>
-        /// Enable emergency for a phone number
+        /// Associates emergency-service settings with the specified phone number. The operation returns the updated phone-number configuration when completed immediately or an accepted state when processing continues asynchronously.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnablePhoneNumberEmergency200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emerg
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnablePhoneNumberEmergency200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnablePhoneNumberEmergency200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Enable emergency for a phone number
+        /// Associates emergency-service settings with the specified phone number. The operation returns the updated phone-number configuration when completed immediately or an accepted state when processing continues asynchronously.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

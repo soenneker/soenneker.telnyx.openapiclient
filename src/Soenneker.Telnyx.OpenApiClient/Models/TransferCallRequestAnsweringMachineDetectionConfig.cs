@@ -17,6 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Silence duration threshold after a greeting message or voice for it be considered human.</summary>
         public int? AfterGreetingSilenceMillis { get; set; }
+        /// <summary>Selects which detectors must validate a beep. `both` requires the amplitude and frequency detectors to agree. `freq_only` uses the frequency detector alone, for beeps whose volume is too unsteady for the default profile.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile? BeepDetectionProfile { get; set; }
         /// <summary>Maximum threshold for silence between words.</summary>
         public int? BetweenWordsSilenceMillis { get; set; }
         /// <summary>Maximum threshold of a human greeting. If greeting longer than this value, considered machine.</summary>
@@ -71,6 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "after_greeting_silence_millis", n => { AfterGreetingSilenceMillis = n.GetIntValue(); } },
+                { "beep_detection_profile", n => { BeepDetectionProfile = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile>(); } },
                 { "between_words_silence_millis", n => { BetweenWordsSilenceMillis = n.GetIntValue(); } },
                 { "greeting_duration_millis", n => { GreetingDurationMillis = n.GetIntValue(); } },
                 { "greeting_silence_duration_millis", n => { GreetingSilenceDurationMillis = n.GetIntValue(); } },
@@ -90,6 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("after_greeting_silence_millis", AfterGreetingSilenceMillis);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile>("beep_detection_profile", BeepDetectionProfile);
             writer.WriteIntValue("between_words_silence_millis", BetweenWordsSilenceMillis);
             writer.WriteIntValue("greeting_duration_millis", GreetingDurationMillis);
             writer.WriteIntValue("greeting_silence_duration_millis", GreetingSilenceDurationMillis);

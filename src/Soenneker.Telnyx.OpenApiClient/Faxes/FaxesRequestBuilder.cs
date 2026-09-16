@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes
         {
         }
         /// <summary>
-        /// View a list of faxes
+        /// Retrieve a paginated list of faxes sent or received on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListFaxesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -98,6 +98,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Retrieve a paginated list of faxes sent or received on your account.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes
             return new global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// View a list of faxes
+        /// Retrieve a paginated list of faxes sent or received on your account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FaxesRequestBuilderGetQueryParameters 

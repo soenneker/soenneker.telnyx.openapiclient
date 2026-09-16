@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tags
         {
         }
         /// <summary>
-        /// Get All Tags
+        /// Retrieve all tags that have been applied to your AI assistants.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TagsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tags
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TagsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TagsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get All Tags
+        /// Retrieve all tags that have been applied to your AI assistants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

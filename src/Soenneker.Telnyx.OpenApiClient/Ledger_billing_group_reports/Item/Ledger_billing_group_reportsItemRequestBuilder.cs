@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Item
         {
         }
         /// <summary>
-        /// Get a ledger billing group report
+        /// Retrieve the details and status of a previously created ledger billing group report.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroupReport200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -58,6 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Item
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroupReport200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetBillingGroupReport200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Retrieve the details and status of a previously created ledger billing group report.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

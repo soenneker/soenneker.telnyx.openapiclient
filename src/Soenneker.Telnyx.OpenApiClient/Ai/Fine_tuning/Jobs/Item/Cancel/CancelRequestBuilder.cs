@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Jobs.Item.Cancel
         {
         }
         /// <summary>
-        /// Cancel a fine tuning job.
+        /// Cancels the specified in-progress fine-tuning job and returns the updated job.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Jobs.Item.Cancel
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Cancel a fine tuning job.
+        /// Cancels the specified in-progress fine-tuning job and returns the updated job.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

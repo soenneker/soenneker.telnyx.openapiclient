@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media
         {
         }
         /// <summary>
-        /// Returns a list of stored media files.
+        /// Returns a list of the media files stored on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListOfMediaResourcesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMediaStorage201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateMediaStorage201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of stored media files.
+        /// Returns a list of the media files stored on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media
             return new global::Soenneker.Telnyx.OpenApiClient.Media.MediaRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of stored media files.
+        /// Returns a list of the media files stored on your account, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MediaRequestBuilderGetQueryParameters 

@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListFqdNsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListFqdNsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new FQDN object.
+        /// Creates a new FQDN record and attaches it to the specified connection.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateFqdn201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns
             return requestInfo;
         }
         /// <summary>
-        /// Create a new FQDN object.
+        /// Creates a new FQDN record and attaches it to the specified connection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

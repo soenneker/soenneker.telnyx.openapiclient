@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers.Bulk_updates
         {
         }
         /// <summary>
-        /// Bulk update phone number profiles
+        /// Update the messaging settings of multiple phone numbers in a single request.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers.Bulk_updates
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Bulk update phone number profiles
+        /// Update the messaging settings of multiple phone numbers in a single request.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

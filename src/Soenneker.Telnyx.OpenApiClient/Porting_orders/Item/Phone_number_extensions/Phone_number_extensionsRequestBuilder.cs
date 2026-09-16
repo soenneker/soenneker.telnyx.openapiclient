@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extens
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingPhoneNumberExtensions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingPhoneNumberExtensions200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new phone number extension.
+        /// Creates a phone number extension on the porting order, mapping extension ranges to one of the order&apos;s phone numbers.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberExtension201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extens
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new phone number extension.
+        /// Creates a phone number extension on the porting order, mapping extension ranges to one of the order&apos;s phone numbers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

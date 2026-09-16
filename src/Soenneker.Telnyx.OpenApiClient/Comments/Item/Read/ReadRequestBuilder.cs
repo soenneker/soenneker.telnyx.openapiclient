@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Comments.Item.Read
         {
         }
         /// <summary>
-        /// Mark a comment as read
+        /// Marks the specified comment as read. The response contains the updated read state for the comment.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Comments.Item.Read
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Mark a comment as read
+        /// Marks the specified comment as read. The response contains the updated read state for the comment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

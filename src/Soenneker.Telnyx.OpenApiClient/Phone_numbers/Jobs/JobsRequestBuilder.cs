@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs
         {
         }
         /// <summary>
-        /// Lists the phone numbers jobs
+        /// Returns background jobs that operate on phone numbers. Filter by job type, target phone numbers, or job status, and sort by creation time. Multiple phone-number or status values use OR semantics within that filter; different filter categories use AND semantics. Results include pagination metadata.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersBackgroundJobsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersBackgroundJobsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersBackgroundJobsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the phone numbers jobs
+        /// Returns background jobs that operate on phone numbers. Filter by job type, target phone numbers, or job status, and sort by creation time. Multiple phone-number or status values use OR semantics within that filter; different filter categories use AND semantics. Results include pagination metadata.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,12 +122,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs
             return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.JobsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists the phone numbers jobs
+        /// Returns background jobs that operate on phone numbers. Filter by job type, target phone numbers, or job status, and sort by creation time. Multiple phone-number or status values use OR semantics within that filter; different filter categories use AND semantics. Results include pagination metadata.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class JobsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[type]</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[type], filter[phone_number], filter[phone_number][], filter[status][]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

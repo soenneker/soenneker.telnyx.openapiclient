@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Batch
         {
         }
         /// <summary>
-        /// Creates up to 50 email messages in a single request.
+        /// Creates up to 1,000 email messages in a single request. Each message is validated and sent independently; per-message failures do not affect other messages in the batch. All responses use 207 Multi-Status.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Batch
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates up to 50 email messages in a single request.
+        /// Creates up to 1,000 email messages in a single request. Each message is validated and sent independently; per-message failures do not affect other messages in the batch. All responses use 207 Multi-Status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

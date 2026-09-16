@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Default_gateway
         {
         }
         /// <summary>
-        /// Delete Default Gateway.
+        /// Removes the default gateway from the specified network.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDefaultGateway200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Default_gateway
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDefaultGateway200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteDefaultGateway200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get Default Gateway status.
+        /// Returns the status of the default gateway configured on the specified network.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetDefaultGateway200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Default_gateway
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetDefaultGateway200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetDefaultGateway200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create Default Gateway.
+        /// Creates a default gateway on the specified network, directing the network&apos;s outbound traffic through the chosen gateway.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateDefaultGateway200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Default_gateway
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateDefaultGateway200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateDefaultGateway200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete Default Gateway.
+        /// Removes the default gateway from the specified network.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Default_gateway
             return requestInfo;
         }
         /// <summary>
-        /// Get Default Gateway status.
+        /// Returns the status of the default gateway configured on the specified network.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Default_gateway
             return requestInfo;
         }
         /// <summary>
-        /// Create Default Gateway.
+        /// Creates a default gateway on the specified network, directing the network&apos;s outbound traffic through the chosen gateway.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

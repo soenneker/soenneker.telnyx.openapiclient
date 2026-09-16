@@ -30,30 +30,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? EnableThinking { get; set; }
         /// <summary>Higher values will penalize the model from repeating the same output tokens.</summary>
         public double? FrequencyPenalty { get; set; }
-        /// <summary>If specified, the output will be exactly one of the choices.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? GuidedChoice { get; set; }
-#nullable restore
-#else
-        public List<string> GuidedChoice { get; set; }
-#endif
-        /// <summary>Must be a valid JSON schema. If specified, the output will follow the JSON schema.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty? GuidedJson { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty GuidedJson { get; set; }
-#endif
-        /// <summary>If specified, the output will follow the regex pattern.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? GuidedRegex { get; set; }
-#nullable restore
-#else
-        public string GuidedRegex { get; set; }
-#endif
         /// <summary>This is used with `use_beam_search` to prefer shorter or longer completions.</summary>
         public double? LengthPenalty { get; set; }
         /// <summary>Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`.</summary>
@@ -70,6 +46,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>This is an alternative to `top_p` that [many prefer](https://github.com/huggingface/transformers/issues/27670). Must be in [0, 1].</summary>
         public double? MinP { get; set; }
+        /// <summary>How strictly `region` is applied. `preferred` (the default when `region` is set) tries that region first and falls back to another when the model cannot be served there, so a request that would have succeeded still succeeds. `strict` pins the request: it is served from that region or it fails with a 422, never redirected to another region. Requires `region`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestMode? Mode { get; set; }
         /// <summary>The language model to chat with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,7 +60,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? N { get; set; }
         /// <summary>Higher values will penalize the model from repeating the same output tokens.</summary>
         public double? PresencePenalty { get; set; }
-        /// <summary>Use this is you want to guarantee a JSON output without defining a schema. For control over the schema, use `guided_json`.</summary>
+        /// <summary>Controls the reasoning effort for models that support it. When set, the model spends more or less compute on internal reasoning before generating its response. Supported values: none, minimal, low, medium, high, xhigh, max. Not all models support all values; unsupported values are rejected with a 400 error. When omitted, reasoning models use their default effort level.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestReasoningEffort? ReasoningEffort { get; set; }
+        /// <summary>Optional data-residency region the request should be served from, using the same vocabulary as your account&apos;s Data Locality setting. Behavior depends on `mode`. Supported for Telnyx-hosted models only: a request routed to an external provider never passes through Telnyx model routing, so a region cannot be enforced for it. Omit for today&apos;s latency-based routing.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestRegion? Region { get; set; }
+        /// <summary>Controls the format of the model output. `json_object` guarantees valid JSON output without defining a schema; `json_schema` constrains the output to the JSON schema you supply via the `json_schema` property and is the supported way to get guaranteed structured output on Telnyx-hosted models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam? ResponseFormat { get; set; }
@@ -168,17 +150,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "early_stopping", n => { EarlyStopping = n.GetBoolValue(); } },
                 { "enable_thinking", n => { EnableThinking = n.GetBoolValue(); } },
                 { "frequency_penalty", n => { FrequencyPenalty = n.GetDoubleValue(); } },
-                { "guided_choice", n => { GuidedChoice = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "guided_json", n => { GuidedJson = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty.CreateFromDiscriminatorValue); } },
-                { "guided_regex", n => { GuidedRegex = n.GetStringValue(); } },
                 { "length_penalty", n => { LengthPenalty = n.GetDoubleValue(); } },
                 { "logprobs", n => { Logprobs = n.GetBoolValue(); } },
                 { "max_tokens", n => { MaxTokens = n.GetIntValue(); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "min_p", n => { MinP = n.GetDoubleValue(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestMode>(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "n", n => { N = n.GetDoubleValue(); } },
                 { "presence_penalty", n => { PresencePenalty = n.GetDoubleValue(); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestReasoningEffort>(); } },
+                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestRegion>(); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "service_tier", n => { ServiceTier = n.GetStringValue(); } },
@@ -204,17 +186,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("early_stopping", EarlyStopping);
             writer.WriteBoolValue("enable_thinking", EnableThinking);
             writer.WriteDoubleValue("frequency_penalty", FrequencyPenalty);
-            writer.WriteCollectionOfPrimitiveValues<string>("guided_choice", GuidedChoice);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestGuidedJsonProperty>("guided_json", GuidedJson);
-            writer.WriteStringValue("guided_regex", GuidedRegex);
             writer.WriteDoubleValue("length_penalty", LengthPenalty);
             writer.WriteBoolValue("logprobs", Logprobs);
             writer.WriteIntValue("max_tokens", MaxTokens);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam>("messages", Messages);
             writer.WriteDoubleValue("min_p", MinP);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestMode>("mode", Mode);
             writer.WriteStringValue("model", Model);
             writer.WriteDoubleValue("n", N);
             writer.WriteDoubleValue("presence_penalty", PresencePenalty);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestReasoningEffort>("reasoning_effort", ReasoningEffort);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestRegion>("region", Region);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam>("response_format", ResponseFormat);
             writer.WriteIntValue("seed", Seed);
             writer.WriteStringValue("service_tier", ServiceTier);

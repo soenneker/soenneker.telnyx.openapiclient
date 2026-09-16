@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Clone
         {
         }
         /// <summary>
-        /// Clone an existing mission
+        /// Creates a copy of the specified mission as a new mission definition, so you can iterate on its configuration without modifying the original.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdClone201ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Clone
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdClone201ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdClone201ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Clone an existing mission
+        /// Creates a copy of the specified mission as a new mission definition, so you can iterate on its configuration without modifying the original.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

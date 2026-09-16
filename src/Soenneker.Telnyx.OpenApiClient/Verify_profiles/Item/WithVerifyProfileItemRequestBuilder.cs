@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item
         {
         }
         /// <summary>
-        /// Delete Verify profile
+        /// Deletes the specified Verify profile and returns the deleted profile record.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets a single Verify profile.
+        /// Returns the details of a single Verify profile by its ID, including its verification channel configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update Verify profile
+        /// Updates the specified Verify profile&apos;s name, webhook destinations, language, daily spend limits, or channel-specific settings. Returns the updated profile.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponseDataWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete Verify profile
+        /// Deletes the specified Verify profile and returns the deleted profile record.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item
             return requestInfo;
         }
         /// <summary>
-        /// Gets a single Verify profile.
+        /// Returns the details of a single Verify profile by its ID, including its verification channel configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update Verify profile
+        /// Updates the specified Verify profile&apos;s name, webhook destinations, language, daily spend limits, or channel-specific settings. Returns the updated profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.Republish
         {
         }
         /// <summary>
-        /// Republish a specific port-out event.
+        /// Republishes the specified port-out event, triggering re-delivery of the corresponding webhook to your account.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.Republish
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Republish a specific port-out event.
+        /// Republishes the specified port-out event, triggering re-delivery of the corresponding webhook to your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

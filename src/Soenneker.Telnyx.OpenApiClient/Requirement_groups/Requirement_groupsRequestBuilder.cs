@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups
         {
         }
         /// <summary>
-        /// List requirement groups
+        /// Returns regulatory requirement groups for the account. Results can be filtered by country, number type, action, approval status, and customer reference.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Create a new requirement group
+        /// Creates a regulatory requirement group for a country, number type, and ordering or porting action. Optional customer-reference and requirement values are retained on the created group.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup"/></returns>
         /// <param name="body">The request body</param>
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List requirement groups
+        /// Returns regulatory requirement groups for the account. Results can be filtered by country, number type, action, approval status, and customer reference.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups
             return requestInfo;
         }
         /// <summary>
-        /// Create a new requirement group
+        /// Creates a regulatory requirement group for a country, number type, and ordering or porting action. Optional customer-reference and requirement values are retained on the created group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -158,7 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups
             return new global::Soenneker.Telnyx.OpenApiClient.Requirement_groups.Requirement_groupsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List requirement groups
+        /// Returns regulatory requirement groups for the account. Results can be filtered by country, number type, action, approval status, and customer reference.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Requirement_groupsRequestBuilderGetQueryParameters 

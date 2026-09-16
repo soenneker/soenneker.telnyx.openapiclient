@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts
         {
         }
         /// <summary>
-        /// List Whatsapp Business Accounts
+        /// Retrieve a list of the WhatsApp Business Accounts (WABAs) connected to your Telnyx account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WabasListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WabasListResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WabasListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List Whatsapp Business Accounts
+        /// Retrieve a list of the WhatsApp Business Accounts (WABAs) connected to your Telnyx account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts
             return new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Business_accountsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List Whatsapp Business Accounts
+        /// Retrieve a list of the WhatsApp Business Accounts (WABAs) connected to your Telnyx account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Business_accountsRequestBuilderGetQueryParameters 

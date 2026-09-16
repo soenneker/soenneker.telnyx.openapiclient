@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
         {
         }
         /// <summary>
-        /// Returns a list of your porting order.
+        /// Returns a paginated list of your porting orders. Supports filtering and sorting, and can optionally include the phone numbers attached to each order.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingOrders200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingOrders200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingOrders200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new porting order object.
+        /// Creates a new porting order to bring phone numbers from another carrier to Telnyx. Complete the order&apos;s requirements and then confirm it to submit the port.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrder201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrder201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrder201Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of your porting order.
+        /// Returns a paginated list of your porting orders. Supports filtering and sorting, and can optionally include the phone numbers attached to each order.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new porting order object.
+        /// Creates a new porting order to bring phone numbers from another carrier to Telnyx. Complete the order&apos;s requirements and then confirm it to submit the port.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -147,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
             return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of your porting order.
+        /// Returns a paginated list of your porting orders. Supports filtering and sorting, and can optionally include the phone numbers attached to each order.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Porting_ordersRequestBuilderGetQueryParameters 

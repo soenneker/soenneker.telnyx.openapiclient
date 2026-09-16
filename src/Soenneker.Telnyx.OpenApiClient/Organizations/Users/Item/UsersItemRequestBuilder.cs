@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Organizations.Users.Item
         {
         }
         /// <summary>
-        /// Returns a user in your organization.
+        /// Returns the details of a user in your organization, optionally including the groups the user belongs to.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetOrganizationUser200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Organizations.Users.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetOrganizationUser200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetOrganizationUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a user in your organization.
+        /// Returns the details of a user in your organization, optionally including the groups the user belongs to.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Organizations.Users.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Organizations.Users.Item.UsersItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a user in your organization.
+        /// Returns the details of a user in your organization, optionally including the groups the user belongs to.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsersItemRequestBuilderGetQueryParameters 

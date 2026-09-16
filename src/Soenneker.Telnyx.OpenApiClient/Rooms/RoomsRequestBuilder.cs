@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
         {
         }
         /// <summary>
-        /// View a list of rooms.
+        /// Returns a paginated list of rooms. Filter the results by creation or update date and unique name, and use `include_sessions` to include each room’s sessions.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRooms200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRooms200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRooms200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Synchronously create a Room.
+        /// Synchronously creates a new video room with the provided configuration and returns the created room.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoom201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -94,6 +94,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoom201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoom201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns a paginated list of rooms. Filter the results by creation or update date and unique name, and use `include_sessions` to include each room’s sessions.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
             return requestInfo;
         }
         /// <summary>
-        /// Synchronously create a Room.
+        /// Synchronously creates a new video room with the provided configuration and returns the created room.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -142,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
             return new global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// View a list of rooms.
+        /// Returns a paginated list of rooms. Filter the results by creation or update date and unique name, and use `include_sessions` to include each room’s sessions.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RoomsRequestBuilderGetQueryParameters 

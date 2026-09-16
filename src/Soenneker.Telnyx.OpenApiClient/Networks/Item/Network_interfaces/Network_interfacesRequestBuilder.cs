@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Network_interfaces
         {
         }
         /// <summary>
-        /// List all Interfaces for a Network.
+        /// Returns a paginated list of the interfaces attached to the specified network, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListNetworkInterfaces200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Network_interfaces
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListNetworkInterfaces200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListNetworkInterfaces200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Interfaces for a Network.
+        /// Returns a paginated list of the interfaces attached to the specified network, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Network_interfaces
             return new global::Soenneker.Telnyx.OpenApiClient.Networks.Item.Network_interfaces.Network_interfacesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all Interfaces for a Network.
+        /// Returns a paginated list of the interfaces attached to the specified network, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Network_interfacesRequestBuilderGetQueryParameters 

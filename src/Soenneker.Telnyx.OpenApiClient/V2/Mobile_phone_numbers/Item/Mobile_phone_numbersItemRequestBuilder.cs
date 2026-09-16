@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Item
         {
         }
         /// <summary>
-        /// Retrieve a Mobile Phone Number
+        /// Retrieve the details of a specific mobile phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobilePhoneNumber200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobilePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobilePhoneNumber200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a Mobile Phone Number
+        /// Update the settings of a specific mobile phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobilePhoneNumber200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobilePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobilePhoneNumber200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a Mobile Phone Number
+        /// Retrieve the details of a specific mobile phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a Mobile Phone Number
+        /// Update the settings of a specific mobile phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

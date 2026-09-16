@@ -15,13 +15,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Validation error details keyed by field name.</summary>
+        /// <summary>The detail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseDetailItem>? Detail { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseDetailItem> Detail { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty.CreateFromDiscriminatorValue); } },
+                { "detail", n => { Detail = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseDetailItem>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseDetailItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseErrorsProperty>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponseDetailItem>("detail", Detail);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

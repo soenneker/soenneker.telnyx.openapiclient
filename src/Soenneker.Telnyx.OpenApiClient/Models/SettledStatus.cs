@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The settlement status of the transaction.</summary>
+    /// <summary>The settlement status of the transaction. x402 transactions are created after successful on-chain settlement, so the status is `settled`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SettledStatus
     {

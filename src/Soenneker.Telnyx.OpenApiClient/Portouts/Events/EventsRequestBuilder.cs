@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Events
         {
         }
         /// <summary>
-        /// Returns a list of all port-out events.
+        /// Returns a paginated list of port-out events on your account, such as status changes on port-out requests, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutEvents200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Events
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutEvents200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutEvents200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of all port-out events.
+        /// Returns a paginated list of port-out events on your account, such as status changes on port-out requests, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Events
             return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.EventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of all port-out events.
+        /// Returns a paginated list of port-out events on your account, such as status changes on port-out requests, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EventsRequestBuilderGetQueryParameters 

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns.Item
         {
         }
         /// <summary>
-        /// Delete an FQDN.
+        /// Permanently deletes the specified FQDN record from its connection.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteFqdn200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveFqdn200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveFqdn200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the details of a specific FQDN.
+        /// Updates the details of the specified FQDN record and returns the updated FQDN.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdn200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -101,6 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,12 +119,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdn200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdn200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an FQDN.
+        /// Permanently deletes the specified FQDN record from its connection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -161,7 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdns.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update the details of a specific FQDN.
+        /// Updates the details of the specified FQDN record and returns the updated FQDN.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

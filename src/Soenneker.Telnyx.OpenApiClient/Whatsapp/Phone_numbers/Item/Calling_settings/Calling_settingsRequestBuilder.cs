@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_set
         {
         }
         /// <summary>
-        /// Get calling settings for a phone number
+        /// Retrieve the WhatsApp calling settings for a phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_set
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Enable or disable Whatsapp calling for a phone number
+        /// Enable or disable WhatsApp calling for a phone number and manage its calling configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_set
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCallingSettingsResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get calling settings for a phone number
+        /// Retrieve the WhatsApp calling settings for a phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_set
             return requestInfo;
         }
         /// <summary>
-        /// Enable or disable Whatsapp calling for a phone number
+        /// Enable or disable WhatsApp calling for a phone number and manage its calling configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

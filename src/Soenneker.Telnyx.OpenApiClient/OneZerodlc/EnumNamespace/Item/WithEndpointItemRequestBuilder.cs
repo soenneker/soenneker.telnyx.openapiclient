@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.EnumNamespace.Item
         {
         }
         /// <summary>
-        /// Get Enum
+        /// Returns the accepted values for the selected 10DLC enumeration endpoint. Use these values when constructing brand and campaign requests.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.EnumNamespace.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get Enum
+        /// Returns the accepted values for the selected 10DLC enumeration endpoint. Use these values when constructing brand and campaign requests.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

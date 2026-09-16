@@ -128,6 +128,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Whether to detect if a human or an answering machine picked up the call. Use `Enable` if you would like to ne notified as soon as the called party is identified. Use `DetectMessageEnd`, if you would like to leave a message on an answering machine.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection? MachineDetection { get; set; }
+        /// <summary>Selects which detectors must validate a beep. `both` requires the amplitude and frequency detectors to agree. `freq_only` uses the frequency detector alone, for beeps whose volume is too unsteady for the default profile. Only used when MachineDetection is enabled.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetectionBeepProfile? MachineDetectionBeepProfile { get; set; }
         /// <summary>If initial silence duration is greater than this value, consider it a machine. Ignored when `premium` detection is used.</summary>
         public int? MachineDetectionSilenceTimeout { get; set; }
         /// <summary>Silence duration threshold after a greeting message or voice for it be considered human. Ignored when `premium` detection is used.</summary>
@@ -286,6 +288,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "From", n => { From = n.GetStringValue(); } },
                 { "Label", n => { Label = n.GetStringValue(); } },
                 { "MachineDetection", n => { MachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection>(); } },
+                { "MachineDetectionBeepProfile", n => { MachineDetectionBeepProfile = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetectionBeepProfile>(); } },
                 { "MachineDetectionSilenceTimeout", n => { MachineDetectionSilenceTimeout = n.GetIntValue(); } },
                 { "MachineDetectionSpeechEndThreshold", n => { MachineDetectionSpeechEndThreshold = n.GetIntValue(); } },
                 { "MachineDetectionSpeechThreshold", n => { MachineDetectionSpeechThreshold = n.GetIntValue(); } },
@@ -343,6 +346,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("From", From);
             writer.WriteStringValue("Label", Label);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection>("MachineDetection", MachineDetection);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetectionBeepProfile>("MachineDetectionBeepProfile", MachineDetectionBeepProfile);
             writer.WriteIntValue("MachineDetectionSilenceTimeout", MachineDetectionSilenceTimeout);
             writer.WriteIntValue("MachineDetectionSpeechEndThreshold", MachineDetectionSpeechEndThreshold);
             writer.WriteIntValue("MachineDetectionSpeechThreshold", MachineDetectionSpeechThreshold);

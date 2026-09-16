@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_url_domains
         {
         }
         /// <summary>
-        /// List messaging URL domains
+        /// Returns the URL domains available to the authenticated account for message URL shortening.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingProfileUrlDomainsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingProfileUrlDomainsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_url_domains.Messaging_url_domainsRequestBuilder.Messaging_url_domainsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,12 +52,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_url_domains
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingProfileUrlDomainsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingProfileUrlDomainsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List messaging URL domains
+        /// Returns the URL domains available to the authenticated account for message URL shortening.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_url_domains
             return new global::Soenneker.Telnyx.OpenApiClient.Messaging_url_domains.Messaging_url_domainsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List messaging URL domains
+        /// Returns the URL domains available to the authenticated account for message URL shortening.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Messaging_url_domainsRequestBuilderGetQueryParameters 

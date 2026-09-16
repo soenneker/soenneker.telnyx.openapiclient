@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.Acti
         {
         }
         /// <summary>
-        /// Verify verification code by phone number
+        /// Submits a verification code for the specified phone number and Verify profile. The response indicates whether the code was accepted or rejected.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.Acti
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Verify verification code by phone number
+        /// Submits a verification code for the specified phone number and Verify profile. The response indicates whether the code was accepted or rejected.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

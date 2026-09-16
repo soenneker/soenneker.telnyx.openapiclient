@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups
         {
         }
         /// <summary>
-        /// List all billing groups
+        /// Retrieve a paginated list of billing groups on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListBillingGroups200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListBillingGroups200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListBillingGroups200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a billing group
+        /// Create a new billing group, which can be used to organize resources for billing purposes.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateBillingGroup200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -100,6 +100,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateBillingGroup200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateBillingGroup200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Retrieve a paginated list of billing groups on your account.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,6 +119,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
+        /// <summary>
+        /// Create a new billing group, which can be used to organize resources for billing purposes.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -145,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Billing_groups
             return new global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all billing groups
+        /// Retrieve a paginated list of billing groups on your account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Billing_groupsRequestBuilderGetQueryParameters 

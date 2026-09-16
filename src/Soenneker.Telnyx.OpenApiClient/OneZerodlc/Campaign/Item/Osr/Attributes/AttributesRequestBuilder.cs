@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Item.Osr.Attributes
         {
         }
         /// <summary>
-        /// Get OSR campaign attributes
+        /// Returns the optional shared-responsibility attributes recorded for the campaign. Use these values to inspect the campaign configuration submitted to the registry.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetCampaignOsrAttributes200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,13 +53,13 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Item.Osr.Attributes
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetCampaignOsrAttributes200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetCampaignOsrAttributes200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get OSR campaign attributes
+        /// Returns the optional shared-responsibility attributes recorded for the campaign. Use these values to inspect the campaign configuration submitted to the registry.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Phone_n
         {
         }
         /// <summary>
-        /// List phone numbers for a WABA
+        /// List the phone numbers associated with a WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Phone_n
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Initialize Whatsapp phone number verification
+        /// Start the verification process to register a phone number with a WhatsApp Business Account.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Phone_n
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List phone numbers for a WABA
+        /// List the phone numbers associated with a WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Phone_n
             return requestInfo;
         }
         /// <summary>
-        /// Initialize Whatsapp phone number verification
+        /// Start the verification process to register a phone number with a WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Phone_n
             return new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item.Phone_numbers.Phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List phone numbers for a WABA
+        /// List the phone numbers associated with a WhatsApp Business Account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_numbersRequestBuilderGetQueryParameters 

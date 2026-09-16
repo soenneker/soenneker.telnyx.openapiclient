@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item
         {
         }
         /// <summary>
-        /// Delete an email domain
+        /// Deletes an email domain configuration. Verified domains require `force=true`, and shared domains are read-only for non-owner accounts.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an email domain
+        /// Updates mutable settings for an existing email domain, including inbound delivery and tracking configuration. Shared domains are read-only for non-owner accounts.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an email domain
+        /// Deletes an email domain configuration. Verified domains require `force=true`, and shared domains are read-only for non-owner accounts.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +181,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an email domain
+        /// Updates mutable settings for an existing email domain, including inbound delivery and tracking configuration. Shared domains are read-only for non-owner accounts.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -212,7 +212,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.DomainItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Delete an email domain
+        /// Deletes an email domain configuration. Verified domains require `force=true`, and shared domains are read-only for non-owner accounts.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DomainItemRequestBuilderDeleteQueryParameters 

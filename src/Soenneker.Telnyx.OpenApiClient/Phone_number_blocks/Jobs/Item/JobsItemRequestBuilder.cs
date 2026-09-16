@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Item
         {
         }
         /// <summary>
-        /// Retrieves a phone number blocks job
+        /// Returns the status and details of the phone-number-block background job identified by `id`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a phone number blocks job
+        /// Returns the status and details of the phone-number-block background job identified by `id`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

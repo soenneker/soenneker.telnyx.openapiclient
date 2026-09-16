@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Tools
         {
         }
         /// <summary>
-        /// List all tools for a mission
+        /// Returns the tools configured on the specified mission. Tools define the actions agents may invoke while executing the mission&apos;s runs.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdTools200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Tools
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdTools200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdTools200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new tool for a mission
+        /// Adds a new tool to the specified mission, defining an action agents can invoke during runs of this mission.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdTools201ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Tools
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdTools201ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PostPublicMissionsMissionsMissionIdTools201ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all tools for a mission
+        /// Returns the tools configured on the specified mission. Tools define the actions agents may invoke while executing the mission&apos;s runs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Tools
             return requestInfo;
         }
         /// <summary>
-        /// Create a new tool for a mission
+        /// Adds a new tool to the specified mission, defining an action agents can invoke during runs of this mission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

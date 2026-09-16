@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Item
         {
         }
         /// <summary>
-        /// Delete a specific MCP server.
+        /// Permanently deletes the specified MCP server configuration from your account.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.McpServer>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.McpServer.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an existing MCP server.
+        /// Updates the specified MCP server&apos;s configuration and returns the updated server.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.McpServer"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.McpServer>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.McpServer.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a specific MCP server.
+        /// Permanently deletes the specified MCP server configuration from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an existing MCP server.
+        /// Updates the specified MCP server&apos;s configuration and returns the updated server.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

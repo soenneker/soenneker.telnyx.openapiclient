@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Dns_records
         {
         }
         /// <summary>
-        /// List DNS records for an email domain
+        /// Returns the DNS records Telnyx generated for domain ownership and DKIM verification, plus MX records when inbound delivery is enabled.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecordListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Dns_records
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecordListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecordListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List DNS records for an email domain
+        /// Returns the DNS records Telnyx generated for domain ownership and DKIM verification, plus MX records when inbound delivery is enabled.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

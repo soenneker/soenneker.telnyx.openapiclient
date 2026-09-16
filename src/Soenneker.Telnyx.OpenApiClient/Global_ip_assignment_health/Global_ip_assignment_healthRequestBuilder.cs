@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignment_health
         {
         }
         /// <summary>
-        /// Global IP Assignment Health Check Metrics
+        /// Retrieve health check metrics for your Global IP assignments.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentHealth200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignment_health
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentHealth200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignmentHealth200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Global IP Assignment Health Check Metrics
+        /// Retrieve health check metrics for your Global IP assignments.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignment_health
             return new global::Soenneker.Telnyx.OpenApiClient.Global_ip_assignment_health.Global_ip_assignment_healthRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Global IP Assignment Health Check Metrics
+        /// Retrieve health check metrics for your Global IP assignments.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ip_assignment_healthRequestBuilderGetQueryParameters 

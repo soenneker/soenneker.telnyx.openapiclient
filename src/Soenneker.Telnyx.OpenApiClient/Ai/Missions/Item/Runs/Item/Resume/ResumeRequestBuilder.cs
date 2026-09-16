@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Resume
         {
         }
         /// <summary>
-        /// Resume a paused run
+        /// Resumes a previously paused run and returns the updated run object, letting execution continue from where it was paused.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Resume
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Resume a paused run
+        /// Resumes a previously paused run and returns the updated run object, letting execution continue from where it was paused.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

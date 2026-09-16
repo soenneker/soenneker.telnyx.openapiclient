@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? MaximumDigits { get; set; }
         /// <summary>The minimum number of digits to fetch. This parameter has a minimum value of 1.</summary>
         public int? MinimumDigits { get; set; }
-        /// <summary>The digit used to terminate input if fewer than `maximum_digits` digits have been gathered.</summary>
+        /// <summary>The digit used to terminate input if fewer than `maximum_digits` digits have been gathered. Set to an empty string to disable the terminating digit entirely, so that a digit such as `#` can be collected as input per `valid_digits`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TerminatingDigit { get; set; }

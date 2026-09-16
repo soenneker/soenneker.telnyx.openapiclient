@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations
         {
         }
         /// <summary>
-        /// List the LOA configurations.
+        /// Returns a paginated list of your LOA (Letter of Authorization) configurations. LOA configurations customize the company details and branding used on generated LOA documents.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListLoaConfigurations200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListLoaConfigurations200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListLoaConfigurations200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a LOA configuration.
+        /// Creates a new LOA configuration with your company details and branding for use when generating LOA documents for porting orders.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateLoaConfiguration201Response"/></returns>
         /// <param name="body">The parameters for creating a new LOA configuration.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateLoaConfiguration201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateLoaConfiguration201Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List the LOA configurations.
+        /// Returns a paginated list of your LOA (Letter of Authorization) configurations. LOA configurations customize the company details and branding used on generated LOA documents.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations
             return requestInfo;
         }
         /// <summary>
-        /// Create a LOA configuration.
+        /// Creates a new LOA configuration with your company details and branding for use when generating LOA documents for porting orders.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The parameters for creating a new LOA configuration.</param>
@@ -141,7 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations
             return new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Loa_configurationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List the LOA configurations.
+        /// Returns a paginated list of your LOA (Letter of Authorization) configurations. LOA configurations customize the company details and branding used on generated LOA documents.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Loa_configurationsRequestBuilderGetQueryParameters 

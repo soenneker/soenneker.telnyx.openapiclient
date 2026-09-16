@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindNotificationsProfiles200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindNotificationsProfiles200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a notification profile.
+        /// Creates a new notification profile, a named grouping used to organize notification settings, and returns it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateNotificationProfile200Response"/></returns>
         /// <param name="body">A Collection of Notification Channels</param>
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles
             return requestInfo;
         }
         /// <summary>
-        /// Create a notification profile.
+        /// Creates a new notification profile, a named grouping used to organize notification settings, and returns it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">A Collection of Notification Channels</param>

@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The algorithm property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm? Algorithm { get; set; }
         /// <summary>The key_length property</summary>
-        public int? KeyLength { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength? KeyLength { get; set; }
         /// <summary>The rotated_at property</summary>
         public DateTimeOffset? RotatedAt { get; set; }
         /// <summary>The selector property</summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "algorithm", n => { Algorithm = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm>(); } },
-                { "key_length", n => { KeyLength = n.GetIntValue(); } },
+                { "key_length", n => { KeyLength = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength>(); } },
                 { "rotated_at", n => { RotatedAt = n.GetDateTimeOffsetValue(); } },
                 { "selector", n => { Selector = n.GetStringValue(); } },
             };
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm>("algorithm", Algorithm);
-            writer.WriteIntValue("key_length", KeyLength);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength>("key_length", KeyLength);
             writer.WriteDateTimeOffsetValue("rotated_at", RotatedAt);
             writer.WriteStringValue("selector", Selector);
             writer.WriteAdditionalData(AdditionalData);

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers.Bulk_updates.Item
         {
         }
         /// <summary>
-        /// Retrieve bulk update status
+        /// Retrieve the status of a previously submitted bulk update of messaging settings.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetBulkUpdateMessagingSettingsOnPhoneNumbersStatus200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers.Bulk_updates.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetBulkUpdateMessagingSettingsOnPhoneNumbersStatus200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetBulkUpdateMessagingSettingsOnPhoneNumbersStatus200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve bulk update status
+        /// Retrieve the status of a previously submitted bulk update of messaging settings.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

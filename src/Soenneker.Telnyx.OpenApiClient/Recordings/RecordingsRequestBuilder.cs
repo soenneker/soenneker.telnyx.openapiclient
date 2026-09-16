@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
         {
         }
         /// <summary>
-        /// Returns a list of your call recordings.
+        /// Returns a paginated list of your call recordings, with support for filtering to locate specific recordings.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetRecordings200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetRecordings200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetRecordings200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of your call recordings.
+        /// Returns a paginated list of your call recordings, with support for filtering to locate specific recordings.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
             return new global::Soenneker.Telnyx.OpenApiClient.Recordings.RecordingsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of your call recordings.
+        /// Returns a paginated list of your call recordings, with support for filtering to locate specific recordings.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RecordingsRequestBuilderGetQueryParameters 

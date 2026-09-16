@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetAllSimCardGroups200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetAllSimCardGroups200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new SIM card group object
+        /// Creates a new SIM card group and returns it. Groups let you apply shared settings to a set of SIM cards.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateSimCardGroup200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new SIM card group object
+        /// Creates a new SIM card group and returns it. Groups let you apply shared settings to a set of SIM cards.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

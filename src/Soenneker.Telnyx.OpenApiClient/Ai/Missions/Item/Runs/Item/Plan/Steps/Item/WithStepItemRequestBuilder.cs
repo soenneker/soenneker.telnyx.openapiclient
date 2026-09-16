@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Plan.Steps.I
         {
         }
         /// <summary>
-        /// Get details of a specific plan step
+        /// Returns the details of a single plan step within a run&apos;s plan, including its status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Plan.Steps.I
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the status of a plan step
+        /// Updates the status of a single plan step and returns the updated step. Typically called by the executing agent as it works through the plan.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Plan.Steps.I
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get details of a specific plan step
+        /// Returns the details of a single plan step within a run&apos;s plan, including its status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Plan.Steps.I
             return requestInfo;
         }
         /// <summary>
-        /// Update the status of a plan step
+        /// Updates the status of a single plan step and returns the updated step. Typically called by the executing agent as it works through the plan.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

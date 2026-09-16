@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Item
         {
         }
         /// <summary>
-        /// Delete a Global IP assignment.
+        /// Deletes the specified Global IP assignment, detaching the Global IP from its WireGuard peer.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIpAssignment200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIpAssignment200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIpAssignment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a Global IP assignment.
+        /// Returns the details of a single Global IP assignment, including the Global IP and WireGuard peer it links.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignment200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignment200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpAssignment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a Global IP assignment.
+        /// Updates the specified Global IP assignment with the provided fields and returns the updated assignment.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateGlobalIpAssignment200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateGlobalIpAssignment200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateGlobalIpAssignment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Global IP assignment.
+        /// Deletes the specified Global IP assignment, detaching the Global IP from its WireGuard peer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a Global IP assignment.
+        /// Returns the details of a single Global IP assignment, including the Global IP and WireGuard peer it links.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a Global IP assignment.
+        /// Updates the specified Global IP assignment with the provided fields and returns the updated assignment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

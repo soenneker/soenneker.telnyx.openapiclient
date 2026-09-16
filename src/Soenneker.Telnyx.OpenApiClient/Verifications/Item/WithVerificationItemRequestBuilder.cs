@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.Item
         {
         }
         /// <summary>
-        /// Retrieve verification
+        /// Returns the verification identified by ID, including its channel, phone number, Verify profile, timeout, and current status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveVerificationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveVerificationResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveVerificationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve verification
+        /// Returns the verification identified by ID, including its channel, phone number, Verify profile, timeout, and current status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

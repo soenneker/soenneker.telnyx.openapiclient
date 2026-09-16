@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.TelnyxAgents
         {
         }
         /// <summary>
-        /// List all Telnyx agents linked to a run
+        /// Returns the Telnyx agents currently linked to the specified run. Linked agents participate in executing the run&apos;s plan.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAgentsListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.TelnyxAgents
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAgentResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAgentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Telnyx agents linked to a run
+        /// Returns the Telnyx agents currently linked to the specified run. Linked agents participate in executing the run&apos;s plan.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

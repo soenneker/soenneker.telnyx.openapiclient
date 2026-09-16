@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group
         {
         }
         /// <summary>
-        /// Update Advanced Order
+        /// Updates the requirement-group configuration for the specified advanced number order. The response contains the updated advanced order.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update Advanced Order
+        /// Updates the requirement-group configuration for the specified advanced number order. The response contains the updated advanced order.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

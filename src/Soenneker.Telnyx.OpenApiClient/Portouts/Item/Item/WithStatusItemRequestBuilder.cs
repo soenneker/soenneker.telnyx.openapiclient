@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Item.Item
         {
         }
         /// <summary>
-        /// Authorize or reject portout request
+        /// Updates the status of the specified port-out request, using the status path segment to authorize or reject the port-out.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortoutStatus200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Item.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortoutStatus200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortoutStatus200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Authorize or reject portout request
+        /// Updates the status of the specified port-out request, using the status path segment to authorize or reject the port-out.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

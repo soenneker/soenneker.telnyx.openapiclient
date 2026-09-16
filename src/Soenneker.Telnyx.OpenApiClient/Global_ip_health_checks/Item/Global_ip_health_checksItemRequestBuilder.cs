@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
         {
         }
         /// <summary>
-        /// Delete a Global IP health check.
+        /// Deletes the specified Global IP health check so it no longer monitors the Global IP&apos;s assignments.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIpHealthCheck200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIpHealthCheck200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteGlobalIpHealthCheck200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a Global IP health check.
+        /// Returns the details of a single Global IP health check, including its type and configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpHealthCheck200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpHealthCheck200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGlobalIpHealthCheck200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Global IP health check.
+        /// Deletes the specified Global IP health check so it no longer monitors the Global IP&apos;s assignments.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a Global IP health check.
+        /// Returns the details of a single Global IP health check, including its type and configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

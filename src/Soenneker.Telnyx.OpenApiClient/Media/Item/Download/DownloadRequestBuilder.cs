@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item.Download
         {
         }
         /// <summary>
-        /// Downloads a stored media file.
+        /// Downloads the raw content of the specified stored media file.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media.Item.Download
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Downloads a stored media file.
+        /// Downloads the raw content of the specified stored media file.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

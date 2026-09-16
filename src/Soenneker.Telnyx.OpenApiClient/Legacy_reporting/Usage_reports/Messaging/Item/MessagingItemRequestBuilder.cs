@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy_reporting.Usage_reports.Messagin
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch single MDR usage report by id.
+        /// Returns a single MDR (Message Detail Record) usage report by its identifier, including its parameters and current status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportByIdResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy_reporting.Usage_reports.Messagin
             return requestInfo;
         }
         /// <summary>
-        /// Fetch single MDR usage report by id.
+        /// Returns a single MDR (Message Detail Record) usage report by its identifier, including its parameters and current status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

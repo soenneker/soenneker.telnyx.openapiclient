@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns
         {
         }
         /// <summary>
-        /// List phone number campaigns
+        /// Returns phone-number-to-campaign assignments for the authenticated account. Apply the documented filters and pagination parameters to narrow the result set.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create New Phone Number Campaign
+        /// Assigns a phone number to a 10DLC campaign. The assignment controls which registered campaign is used for traffic from that number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List phone number campaigns
+        /// Returns phone-number-to-campaign assignments for the authenticated account. Apply the documented filters and pagination parameters to narrow the result set.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns
             return requestInfo;
         }
         /// <summary>
-        /// Create New Phone Number Campaign
+        /// Assigns a phone number to a 10DLC campaign. The assignment controls which registered campaign is used for traffic from that number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns
             return new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns.Phone_number_campaignsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List phone number campaigns
+        /// Returns phone-number-to-campaign assignments for the authenticated account. Apply the documented filters and pagination parameters to narrow the result set.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_number_campaignsRequestBuilderGetQueryParameters 

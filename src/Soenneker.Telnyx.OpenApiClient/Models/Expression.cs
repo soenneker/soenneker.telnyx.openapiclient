@@ -79,34 +79,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.Expression();
-            if("arithmetic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ArithmeticExpression = new global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression();
-            }
-            else if("BooleanLiteralExpression".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.BooleanLiteralExpression = new global::Soenneker.Telnyx.OpenApiClient.Models.BooleanLiteralExpression();
-            }
-            else if("BooleanOpExpression".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.BooleanOpExpression = new global::Soenneker.Telnyx.OpenApiClient.Models.BooleanOpExpression();
-            }
-            else if("comparison".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ComparisonExpression = new global::Soenneker.Telnyx.OpenApiClient.Models.ComparisonExpression();
-            }
-            else if("DynamicVariableExpression".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DynamicVariableExpression = new global::Soenneker.Telnyx.OpenApiClient.Models.DynamicVariableExpression();
-            }
-            else if("NumberLiteralExpression".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.NumberLiteralExpression = new global::Soenneker.Telnyx.OpenApiClient.Models.NumberLiteralExpression();
-            }
-            else if("StringLiteralExpression".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.StringLiteralExpression = new global::Soenneker.Telnyx.OpenApiClient.Models.StringLiteralExpression();
-            }
             return result;
         }
         /// <summary>

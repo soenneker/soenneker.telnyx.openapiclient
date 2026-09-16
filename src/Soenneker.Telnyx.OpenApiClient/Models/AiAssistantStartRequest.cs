@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant> Participants { get; set; }
 #endif
-        /// <summary>When `true`, a webhook is sent each time the conversation message history is updated.</summary>
+        /// <summary>When `true`, a `call.ai_gather.message_history_updated` webhook carrying the full message history is sent each time the conversation message history is updated. The assistant&apos;s own `telephony_settings.send_message_history_updates` overrides this value when it is set.</summary>
         public bool? SendMessageHistoryUpdates { get; set; }
         /// <summary>The settings associated with speech to text for the voice assistant. This is only relevant if the assistant uses a text-to-text language model. Any assistant using a model with native audio support (e.g. `fixie-ai/ultravox-v0_4`) will ignore this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

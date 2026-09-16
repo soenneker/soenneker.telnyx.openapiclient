@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>WhatsApp message body. For message edits and revocations, inspect `type` and the corresponding `edit` or `revoke` object.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody? Body { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody Body { get; set; }
+#endif
         /// <summary>The cc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -144,15 +152,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>The to property</summary>
+        /// <summary>Receiving address. SMS and MMS webhooks use an array of recipients. WhatsApp webhooks use one E.164 phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadToItem>? To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadTo? To { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadToItem> To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadTo To { get; set; }
 #endif
-        /// <summary>The type of message. This value can be either &apos;sms&apos; or &apos;mms&apos;.</summary>
+        /// <summary>The messaging channel used for the message.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadType? Type { get; set; }
         /// <summary>Not used for inbound messages.</summary>
         public DateTimeOffset? ValidUntil { get; set; }
@@ -197,6 +205,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody.CreateFromDiscriminatorValue); } },
                 { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCcItem>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCcItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCost>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCost.CreateFromDiscriminatorValue); } },
@@ -220,7 +229,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "tcr_campaign_id", n => { TcrCampaignId = n.GetStringValue(); } },
                 { "tcr_campaign_registered", n => { TcrCampaignRegistered = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadToItem>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadToItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadTo>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadTo.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadType>(); } },
                 { "valid_until", n => { ValidUntil = n.GetDateTimeOffsetValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
@@ -234,6 +243,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody>("body", Body);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCcItem>("cc", Cc);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCost>("cost", Cost);
@@ -257,7 +267,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("tcr_campaign_id", TcrCampaignId);
             writer.WriteStringValue("tcr_campaign_registered", TcrCampaignRegistered);
             writer.WriteStringValue("text", Text);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadToItem>("to", To);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadTo>("to", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadType>("type", Type);
             writer.WriteDateTimeOffsetValue("valid_until", ValidUntil);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);

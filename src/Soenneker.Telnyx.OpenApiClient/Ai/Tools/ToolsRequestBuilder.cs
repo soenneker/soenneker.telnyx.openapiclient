@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools
         {
         }
         /// <summary>
-        /// List Tools
+        /// Retrieve a list of the custom AI tools configured on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,13 +70,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create Tool
+        /// Create a new custom AI tool that can be attached to AI assistants.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse"/></returns>
         /// <param name="body">Request model for creating a shared (org-level) tool.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 413 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -90,12 +93,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SharedToolResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List Tools
+        /// Retrieve a list of the custom AI tools configured on your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools
             return requestInfo;
         }
         /// <summary>
-        /// Create Tool
+        /// Create a new custom AI tool that can be attached to AI assistants.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for creating a shared (org-level) tool.</param>
@@ -145,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tools
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Tools.ToolsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List Tools
+        /// Retrieve a list of the custom AI tools configured on your account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ToolsRequestBuilderGetQueryParameters 

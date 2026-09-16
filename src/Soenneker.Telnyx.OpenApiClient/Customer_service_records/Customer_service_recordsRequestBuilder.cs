@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         {
         }
         /// <summary>
-        /// List customer service records.
+        /// Returns a paginated list of your customer service record (CSR) requests, with support for filtering and sorting.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListCustomerServiceRecords200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List customer service records.
+        /// Returns a paginated list of your customer service record (CSR) requests, with support for filtering and sorting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -163,7 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
             return new global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List customer service records.
+        /// Returns a paginated list of your customer service record (CSR) requests, with support for filtering and sorting.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Customer_service_recordsRequestBuilderGetQueryParameters 

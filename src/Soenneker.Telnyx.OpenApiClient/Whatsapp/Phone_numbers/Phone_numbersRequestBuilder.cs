@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers
         {
         }
         /// <summary>
-        /// List Whatsapp phone numbers
+        /// Retrieve a list of the phone numbers registered for WhatsApp on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhonesListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List Whatsapp phone numbers
+        /// Retrieve a list of the phone numbers registered for WhatsApp on your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers
             return new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List Whatsapp phone numbers
+        /// Retrieve a list of the phone numbers registered for WhatsApp on your account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_numbersRequestBuilderGetQueryParameters 

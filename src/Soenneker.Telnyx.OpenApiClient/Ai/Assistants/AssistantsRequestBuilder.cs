@@ -88,13 +88,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new AI Assistant.
+        /// Creates a new AI assistant from the provided configuration, including its model, instructions, and attached tools, and returns the created assistant.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 413 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -108,7 +111,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -132,7 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
             return requestInfo;
         }
         /// <summary>
-        /// Create a new AI Assistant.
+        /// Creates a new AI assistant from the provided configuration, including its model, instructions, and attached tools, and returns the created assistant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

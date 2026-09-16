@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a suppression
+        /// Returns the account-owned suppression identified by ID. Cross-account lookups and malformed IDs return `404` without exposing another account’s data.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a suppression
+        /// Returns the account-owned suppression identified by ID. Cross-account lookups and malformed IDs return `404` without exposing another account’s data.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_tags
         {
         }
         /// <summary>
-        /// List all user tags.
+        /// Returns the user tags defined on your account, with support for filtering. Tags help organize resources such as phone numbers.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetUserTags200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_tags
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetUserTags200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetUserTags200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all user tags.
+        /// Returns the user tags defined on your account, with support for filtering. Tags help organize resources such as phone numbers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_tags
             return new global::Soenneker.Telnyx.OpenApiClient.User_tags.User_tagsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all user tags.
+        /// Returns the user tags defined on your account, with support for filtering. Tags help organize resources such as phone numbers.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class User_tagsRequestBuilderGetQueryParameters 

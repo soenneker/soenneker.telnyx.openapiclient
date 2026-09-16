@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignRecordSet"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignRecordSet>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaignRecordSet.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

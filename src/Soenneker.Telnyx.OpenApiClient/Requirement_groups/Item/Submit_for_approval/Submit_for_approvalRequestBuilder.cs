@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups.Item.Submit_for_appr
         {
         }
         /// <summary>
-        /// Submit a Requirement Group for Approval
+        /// Submits the specified regulatory requirement group for approval. The response contains the requirement group with its resulting approval status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups.Item.Submit_for_appr
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Submit a Requirement Group for Approval
+        /// Submits the specified regulatory requirement group for approval. The response contains the requirement group with its resulting approval status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

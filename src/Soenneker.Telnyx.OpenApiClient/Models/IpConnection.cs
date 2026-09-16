@@ -36,6 +36,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConnectionName { get; set; }
 #endif
+        /// <summary>Whether conversation persistence is enabled for this connection. When enabled, calls handled by the connection are transcribed, stored, and indexed. Defaults to false.</summary>
+        public bool? ConversationPersistence { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,6 +194,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
+                { "conversation_persistence", n => { ConversationPersistence = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
                 { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
@@ -228,6 +231,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
+            writer.WriteBoolValue("conversation_persistence", ConversationPersistence);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);

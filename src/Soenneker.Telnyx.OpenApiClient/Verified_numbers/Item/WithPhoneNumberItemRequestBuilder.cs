@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item
         {
         }
         /// <summary>
-        /// Delete a verified number
+        /// Remove a verified number from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberResponseDataWrapper"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberResponseDataWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberResponseDataWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a verified number
+        /// Retrieve the details of a verified number on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberResponseDataWrapper"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberResponseDataWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberResponseDataWrapper.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a verified number
+        /// Remove a verified number from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a verified number
+        /// Retrieve the details of a verified number on your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings.Item
         {
         }
         /// <summary>
-        /// Delete a notification setting.
+        /// Deletes the specified notification setting, disabling that notification delivery.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationSetting200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationSetting200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteNotificationSetting200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a notification setting.
+        /// Returns the details of a single notification setting by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationSetting200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationSetting200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetNotificationSetting200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a notification setting.
+        /// Deletes the specified notification setting, disabling that notification delivery.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a notification setting.
+        /// Returns the details of a single notification setting by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

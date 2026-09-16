@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyAddresses200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListDynamicEmergencyAddresses200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a dynamic emergency address.
+        /// Creates a dynamic emergency address, the validated physical location used when provisioning dynamic emergency endpoints.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateDynamicEmergencyAddress201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses
             return requestInfo;
         }
         /// <summary>
-        /// Creates a dynamic emergency address.
+        /// Creates a dynamic emergency address, the validated physical location used when provisioning dynamic emergency endpoints.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

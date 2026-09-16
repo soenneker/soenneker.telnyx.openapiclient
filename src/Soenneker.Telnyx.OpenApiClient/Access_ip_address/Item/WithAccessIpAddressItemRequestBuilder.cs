@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address.Item
         {
         }
         /// <summary>
-        /// Delete access IP address
+        /// Delete an access IP address entry from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve an access IP address
+        /// Retrieve the details of a specific access IP address.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpAddressResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete access IP address
+        /// Delete an access IP address entry from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve an access IP address
+        /// Retrieve the details of a specific access IP address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

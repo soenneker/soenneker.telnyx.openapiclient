@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks
         {
         }
         /// <summary>
-        /// List available phone number blocks
+        /// Searches the Telnyx inventory for available contiguous phone-number blocks. Results can be filtered by locality, country, national destination code, and number type.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListAvailablePhoneNumbersBlocksResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListAvailablePhoneNumbersBlocksResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListAvailablePhoneNumbersBlocksResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List available phone number blocks
+        /// Searches the Telnyx inventory for available contiguous phone-number blocks. Results can be filtered by locality, country, national destination code, and number type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks
             return new global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List available phone number blocks
+        /// Searches the Telnyx inventory for available contiguous phone-number blocks. Results can be filtered by locality, country, national destination code, and number type.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Available_phone_number_blocksRequestBuilderGetQueryParameters 

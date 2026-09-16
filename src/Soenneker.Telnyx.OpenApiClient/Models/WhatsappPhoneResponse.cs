@@ -16,6 +16,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The calling_enabled property</summary>
         public bool? CallingEnabled { get; set; }
+        /// <summary>Current lifecycle state for a coexistence number. This is null for a standard Cloud API number.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState? CoexistenceState { get; set; }
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The display_name property</summary>
@@ -28,6 +30,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The enabled property</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Indicates whether the number is connected to both the WhatsApp Business app and Cloud API through WhatsApp Coexistence.</summary>
+        public bool? IsOnBizApp { get; set; }
         /// <summary>Phone number in E164 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,6 +71,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Status { get; set; }
+#endif
+        /// <summary>Deadline for initiating the current coexistence synchronization cycle. This is null when no deadline applies.</summary>
+        public DateTimeOffset? SyncDeadline { get; set; }
+        /// <summary>Synchronization progress. This object is returned only while a coexistence number is synchronizing.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress? SyncProgress { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress SyncProgress { get; set; }
 #endif
         /// <summary>User ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,14 +124,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "calling_enabled", n => { CallingEnabled = n.GetBoolValue(); } },
+                { "coexistence_state", n => { CoexistenceState = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "is_on_biz_app", n => { IsOnBizApp = n.GetBoolValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "phone_number_id", n => { PhoneNumberId = n.GetStringValue(); } },
                 { "quality_rating", n => { QualityRating = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
+                { "sync_deadline", n => { SyncDeadline = n.GetDateTimeOffsetValue(); } },
+                { "sync_progress", n => { SyncProgress = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress.CreateFromDiscriminatorValue); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "waba_id", n => { WabaId = n.GetStringValue(); } },
             };
@@ -130,14 +148,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("calling_enabled", CallingEnabled);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState>("coexistence_state", CoexistenceState);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteBoolValue("is_on_biz_app", IsOnBizApp);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteStringValue("phone_number_id", PhoneNumberId);
             writer.WriteStringValue("quality_rating", QualityRating);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("status", Status);
+            writer.WriteDateTimeOffsetValue("sync_deadline", SyncDeadline);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress>("sync_progress", SyncProgress);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("waba_id", WabaId);
             writer.WriteAdditionalData(AdditionalData);

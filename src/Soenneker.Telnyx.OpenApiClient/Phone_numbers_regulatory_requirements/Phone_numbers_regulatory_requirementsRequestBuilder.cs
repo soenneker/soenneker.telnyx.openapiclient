@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements
         {
         }
         /// <summary>
-        /// Retrieve regulatory requirements for a list of phone numbers
+        /// Returns the regulatory requirements that apply to the supplied comma-separated phone numbers. The response includes the matching requirement records and pagination metadata.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRegulatoryRequirementsPhoneNumbers2200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRegulatoryRequirementsPhoneNumbers2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRegulatoryRequirementsPhoneNumbers2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve regulatory requirements for a list of phone numbers
+        /// Returns the regulatory requirements that apply to the supplied comma-separated phone numbers. The response includes the matching requirement records and pagination metadata.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements
             return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve regulatory requirements for a list of phone numbers
+        /// Returns the regulatory requirements that apply to the supplied comma-separated phone numbers. The response includes the matching requirement records and pagination metadata.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters 

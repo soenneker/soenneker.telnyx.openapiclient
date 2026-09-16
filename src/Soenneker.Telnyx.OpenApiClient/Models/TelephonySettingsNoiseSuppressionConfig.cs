@@ -8,17 +8,23 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for noise suppression. Only applicable when noise_suppression is &apos;deepfilternet&apos;.
+    /// Configuration for noise suppression. Applicable fields depend on the engine: &apos;attenuation_limit&apos; and &apos;mode&apos; only when noise_suppression is &apos;deepfilternet&apos;; &apos;family&apos;, &apos;size&apos; and &apos;enhancement_level&apos; only when noise_suppression is &apos;aicoustics&apos;.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TelephonySettingsNoiseSuppressionConfig : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Attenuation limit for noise suppression. Range: 0-100.</summary>
+        /// <summary>Attenuation limit for noise suppression. Range: 0-100. Only applicable when noise_suppression is &apos;deepfilternet&apos;.</summary>
         public int? AttenuationLimit { get; set; }
-        /// <summary>Mode for noise suppression configuration.</summary>
+        /// <summary>AiCoustics enhancement intensity. Range: 0-1. Only applicable when noise_suppression is &apos;aicoustics&apos;.</summary>
+        public double? EnhancementLevel { get; set; }
+        /// <summary>AiCoustics model family optimized for Voice AI and STT. Only applicable when noise_suppression is &apos;aicoustics&apos;.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.QuailFamily? Family { get; set; }
+        /// <summary>Mode for noise suppression configuration. Only applicable when noise_suppression is &apos;deepfilternet&apos;.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode? Mode { get; set; }
+        /// <summary>AiCoustics model size. &apos;vf&apos; tracks the latest model release; &apos;vf_2_0_l&apos; is pinned to version 2.0 for consistent, predictable behavior. Only applicable when noise_suppression is &apos;aicoustics&apos;.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigSize? Size { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig"/> and sets the default values.
         /// </summary>
@@ -26,6 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             AttenuationLimit = 100;
+            EnhancementLevel = 0.8;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,7 +53,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attenuation_limit", n => { AttenuationLimit = n.GetIntValue(); } },
+                { "enhancement_level", n => { EnhancementLevel = n.GetDoubleValue(); } },
+                { "family", n => { Family = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QuailFamily>(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode>(); } },
+                { "size", n => { Size = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigSize>(); } },
             };
         }
         /// <summary>
@@ -57,7 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("attenuation_limit", AttenuationLimit);
+            writer.WriteDoubleValue("enhancement_level", EnhancementLevel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QuailFamily>("family", Family);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigSize>("size", Size);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

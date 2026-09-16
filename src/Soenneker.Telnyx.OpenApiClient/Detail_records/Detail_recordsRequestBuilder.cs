@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Detail_recordsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter records on a given record attribute and value. &lt;br/&gt;Example: filter[status]=delivered. &lt;br/&gt;Required: filter[record_type] must be specified.</summary>
+            /// <summary>Filter records on a given record attribute and value. &lt;br/&gt;Example: filter[status]=delivered. &lt;br/&gt;Required: filter[record_type] must be specified. &lt;br/&gt;The valid filter fields depend on the record_type: filtering by a field that does not exist for the selected record_type is rejected with a 400 error. Call-control and sip-trunking records use started_at, finished_at and answered_at (they have no created_at); messaging records use created_at. To list the fields available for a record_type, use the /v2/detail_records/options endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. &lt;br/&gt;Example: sort=-created_at</summary>
+            /// <summary>Specifies the sort order for results. &lt;br/&gt;Example: sort=-created_at &lt;br/&gt;The valid sort fields depend on the record_type: sort by a field that does not exist for the selected record_type is rejected with a 400 error. Call-control and sip-trunking records use started_at, finished_at and answered_at (they have no created_at); messaging records use created_at. To list the fields available for a record_type, use the /v2/detail_records/options endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

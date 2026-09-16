@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders
         {
         }
         /// <summary>
-        /// List Advanced Orders
+        /// Returns the advanced number orders associated with the account. Each result includes the order configuration and its current state.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListAdvancedOrderResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListAdvancedOrderResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListAdvancedOrderResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create Advanced Order
+        /// Creates an advanced number order from the requested order configuration. The response contains the resulting advanced order and its initial state.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List Advanced Orders
+        /// Returns the advanced number orders associated with the account. Each result includes the order configuration and its current state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders
             return requestInfo;
         }
         /// <summary>
-        /// Create Advanced Order
+        /// Creates an advanced number order from the requested order configuration. The response contains the resulting advanced order and its initial state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

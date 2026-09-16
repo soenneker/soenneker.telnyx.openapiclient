@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create an email domain
+        /// Registers a domain for email sending and optional inbound delivery. The response includes the domain configuration and current verification state.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains
             return requestInfo;
         }
         /// <summary>
-        /// Create an email domain
+        /// Registers a domain for email sending and optional inbound delivery. The response includes the domain configuration and current verification state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -167,12 +167,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains
             /// <summary>Filter by profile UUID</summary>
             [QueryParameter("filter%5Bprofile_id%5D")]
             public Guid? FilterprofileId { get; set; }
+            /// <summary>Filter domains by verification status: pending, verifying, verified, failed, degraded, or suspended.</summary>
             [QueryParameter("filter%5Bstatus%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainStatus? Filterstatus { get; set; }
+            /// <summary>Filter domains by type: custom, shared, or shared_inbound.</summary>
             [QueryParameter("filter%5Btype%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainType? Filtertype { get; set; }
+            /// <summary>Filter domains by whether they can currently receive inbound email.</summary>
             [QueryParameter("filter%5Busable_for_inbound%5D")]
             public bool? FilterusableForInbound { get; set; }
+            /// <summary>Filter domains by whether they can currently be used to send email.</summary>
             [QueryParameter("filter%5Busable_for_sending%5D")]
             public bool? FilterusableForSending { get; set; }
             /// <summary>Cursor for records after the provided value (cursor pagination)</summary>

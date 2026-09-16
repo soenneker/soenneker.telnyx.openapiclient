@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>BETA - Enable the capture and storage of RTCP messages to create QoS reports on the Telnyx Mission Control Portal.</summary>
+        /// <summary>Enable the capture and storage of RTCP messages to create QoS reports on the Telnyx Mission Control Portal.</summary>
         public bool? CaptureEnabled { get; set; }
         /// <summary>RTCP port by default is rtp+1, it can also be set to rtcp-mux</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort? Port { get; set; }

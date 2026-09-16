@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extens
         {
         }
         /// <summary>
-        /// Deletes a phone number extension.
+        /// Deletes the specified phone number extension from the porting order.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeletePortingPhoneNumberExtension200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extens
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeletePortingPhoneNumberExtension200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeletePortingPhoneNumberExtension200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a phone number extension.
+        /// Deletes the specified phone number extension from the porting order.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

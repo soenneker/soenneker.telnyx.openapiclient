@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
         {
         }
         /// <summary>
-        /// Lists conference participants
+        /// Returns the list of participants currently in the specified conference.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceIndex"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceIndex.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Dials a new conference participant
+        /// Dials a new participant into the specified conference and returns the created participant resource.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResource"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists conference participants
+        /// Returns the list of participants currently in the specified conference.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             return requestInfo;
         }
         /// <summary>
-        /// Dials a new conference participant
+        /// Dials a new participant into the specified conference and returns the created participant resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

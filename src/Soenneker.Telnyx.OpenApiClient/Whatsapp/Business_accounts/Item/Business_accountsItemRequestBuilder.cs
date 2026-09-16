@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item
         {
         }
         /// <summary>
-        /// Delete a Whatsapp Business Account
+        /// Delete a WhatsApp Business Account connection from your Telnyx account.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a single Whatsapp Business Account
+        /// Retrieve the details of a specific WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WabaSingleResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WabaSingleResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WabaSingleResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Whatsapp Business Account
+        /// Delete a WhatsApp Business Account connection from your Telnyx account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a single Whatsapp Business Account
+        /// Retrieve the details of a specific WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers
         {
         }
         /// <summary>
-        /// List all WireGuard peers.
+        /// Returns a paginated list of your WireGuard peers, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListWireguardPeers200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWireguardPeer202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateWireguardPeer202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all WireGuard peers.
+        /// Returns a paginated list of your WireGuard peers, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers
             return new global::Soenneker.Telnyx.OpenApiClient.Wireguard_peers.Wireguard_peersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all WireGuard peers.
+        /// Returns a paginated list of your WireGuard peers, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Wireguard_peersRequestBuilderGetQueryParameters 

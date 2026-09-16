@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources.Item
         {
         }
         /// <summary>
-        /// Delete a Migration Source
+        /// Delete a migration source configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMigrationSource200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMigrationSource200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMigrationSource200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a Migration Source
+        /// Retrieve the details of a specific migration source.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetMigrationSource200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,6 +69,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetMigrationSource200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetMigrationSource200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Delete a migration source configuration.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,6 +88,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources.Item
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
+        /// <summary>
+        /// Retrieve the details of a specific migration source.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

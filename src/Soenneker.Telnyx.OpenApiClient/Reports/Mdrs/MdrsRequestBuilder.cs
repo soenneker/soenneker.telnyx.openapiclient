@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
         {
         }
         /// <summary>
-        /// Fetch all Mdr records 
+        /// Returns message detail records (MDRs) matching the provided criteria, such as date range, direction, status, and message type.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReportingMdrGetDetailResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ReportingMdrGetDetailResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ReportingMdrGetDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch all Mdr records 
+        /// Returns message detail records (MDRs) matching the provided criteria, such as date range, direction, status, and message type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdrs
             return new global::Soenneker.Telnyx.OpenApiClient.Reports.Mdrs.MdrsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Fetch all Mdr records 
+        /// Returns message detail records (MDRs) matching the provided criteria, such as date range, direction, status, and message type.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MdrsRequestBuilderGetQueryParameters 

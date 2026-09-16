@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item
         {
         }
         /// <summary>
-        /// Deletes a stored Dialogflow Connection.
+        /// Deletes the stored Dialogflow connection for the specified connection.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a stored Dialogflow Connection.
+        /// Updates the stored Dialogflow connection for the specified connection and returns the updated configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -139,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a stored Dialogflow Connection.
+        /// Deletes the stored Dialogflow connection for the specified connection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -199,7 +199,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a stored Dialogflow Connection.
+        /// Updates the stored Dialogflow connection for the specified connection and returns the updated configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

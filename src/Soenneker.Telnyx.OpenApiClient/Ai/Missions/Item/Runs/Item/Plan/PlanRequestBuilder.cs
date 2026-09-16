@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Plan
         {
         }
         /// <summary>
-        /// Get the plan (all steps) for a run
+        /// Returns the plan for the specified run, including all plan steps and their statuses, so you can see how the mission was decomposed and how far execution has progressed.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PlanResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Plan
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PlanResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PlanResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create the initial plan for a run
+        /// Creates the initial plan for the specified run from the provided steps and returns the created plan steps. Progress is subsequently reported by updating individual steps.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepsCreatedResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Plan
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepsCreatedResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PlanStepsCreatedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the plan (all steps) for a run
+        /// Returns the plan for the specified run, including all plan steps and their statuses, so you can see how the mission was decomposed and how far execution has progressed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Plan
             return requestInfo;
         }
         /// <summary>
-        /// Create the initial plan for a run
+        /// Creates the initial plan for the specified run from the provided steps and returns the created plan steps. Progress is subsequently reported by updating individual steps.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

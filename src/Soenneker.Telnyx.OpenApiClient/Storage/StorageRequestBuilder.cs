@@ -8,6 +8,7 @@ using Soenneker.Telnyx.OpenApiClient.Storage.Kvs;
 using Soenneker.Telnyx.OpenApiClient.Storage.Migration_source_coverage;
 using Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources;
 using Soenneker.Telnyx.OpenApiClient.Storage.Migrations;
+using Soenneker.Telnyx.OpenApiClient.Storage.Sqldbs;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -49,6 +50,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage
         public global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.MigrationsRequestBuilder Migrations
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.MigrationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sqldbs property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Sqldbs.SqldbsRequestBuilder Sqldbs
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Sqldbs.SqldbsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.StorageRequestBuilder"/> and sets the default values.

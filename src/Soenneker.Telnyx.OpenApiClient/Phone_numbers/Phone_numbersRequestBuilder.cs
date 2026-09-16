@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         {
         }
         /// <summary>
-        /// List phone numbers
+        /// Returns phone numbers associated with the account. Results support pagination, sorting, and filters for number attributes, status, source, connections, billing groups, emergency addresses, tags, and customer references.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbers200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbers200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbers200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List phone numbers
+        /// Returns phone numbers associated with the account. Results support pagination, sorting, and filters for number attributes, status, source, connections, billing groups, emergency addresses, tags, and customer references.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -148,7 +148,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
             return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List phone numbers
+        /// Returns phone numbers associated with the account. Results support pagination, sorting, and filters for number attributes, status, source, connections, billing groups, emergency addresses, tags, and customer references.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_numbersRequestBuilderGetQueryParameters 

@@ -8,22 +8,35 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Use this is you want to guarantee a JSON output without defining a schema. For control over the schema, use `guided_json`.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonObject"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonSchemaParam"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatText"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ChatCompletionResponseFormatParam : IAdditionalDataHolder, IParsable
+    public partial class ChatCompletionResponseFormatParam : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParamType? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam"/> and sets the default values.
-        /// </summary>
-        public ChatCompletionResponseFormatParam()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonObject"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonObject? ResponseFormatJsonObject { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonObject ResponseFormatJsonObject { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonSchemaParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonSchemaParam? ResponseFormatJsonSchemaParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonSchemaParam ResponseFormatJsonSchemaParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatText"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatText? ResponseFormatText { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatText ResponseFormatText { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +45,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam();
+            if("ResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ResponseFormatJsonObject = new global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonObject();
+            }
+            else if("ResponseFormatJsonSchemaParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ResponseFormatJsonSchemaParam = new global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonSchemaParam();
+            }
+            else if("ResponseFormatText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ResponseFormatText = new global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatText();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,10 +67,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ResponseFormatJsonObject != null)
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParamType>(); } },
-            };
+                return ResponseFormatJsonObject.GetFieldDeserializers();
+            }
+            else if(ResponseFormatJsonSchemaParam != null)
+            {
+                return ResponseFormatJsonSchemaParam.GetFieldDeserializers();
+            }
+            else if(ResponseFormatText != null)
+            {
+                return ResponseFormatText.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -52,8 +88,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParamType>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(ResponseFormatJsonObject != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonObject>(null, ResponseFormatJsonObject);
+            }
+            else if(ResponseFormatJsonSchemaParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonSchemaParam>(null, ResponseFormatJsonSchemaParam);
+            }
+            else if(ResponseFormatText != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatText>(null, ResponseFormatText);
+            }
         }
     }
 }

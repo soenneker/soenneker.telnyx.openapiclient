@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Events
         {
         }
         /// <summary>
-        /// List events for a run (paginated)
+        /// Returns a paginated list of events logged for the specified run, filterable by event type, plan step, and agent, so you can reconstruct exactly what happened during execution.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EventsListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Events
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EventsListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EventsListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Log an event for a run
+        /// Logs a new event against the specified run and returns the created event. Events form the run&apos;s audit trail and can reference a plan step or agent.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EventResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Events
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EventResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EventResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List events for a run (paginated)
+        /// Returns a paginated list of events logged for the specified run, filterable by event type, plan step, and agent, so you can reconstruct exactly what happened during execution.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Events
             return requestInfo;
         }
         /// <summary>
-        /// Log an event for a run
+        /// Logs a new event against the specified run and returns the created event. Events form the run&apos;s audit trail and can reference a plan step or agent.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Events
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item.Events.EventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List events for a run (paginated)
+        /// Returns a paginated list of events logged for the specified run, filterable by event type, plan step, and agent, so you can reconstruct exactly what happened during execution.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EventsRequestBuilderGetQueryParameters 

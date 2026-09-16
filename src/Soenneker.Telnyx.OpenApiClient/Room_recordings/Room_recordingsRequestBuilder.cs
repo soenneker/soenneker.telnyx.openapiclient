@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_recordings
         {
         }
         /// <summary>
-        /// Delete several room recordings in a bulk.
+        /// Deletes the room recordings that match the supplied filters and returns the number of recordings affected. Filters support room, session, participant, recording type, status, duration, and start or end dates.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BulkRoomRecordingsDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_recordings
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BulkRoomRecordingsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BulkRoomRecordingsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// View a list of room recordings.
+        /// Returns a paginated list of room recordings. Filter recordings by room, session, participant, recording type, status, duration, or start and end dates.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomRecordings200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -92,6 +92,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_recordings
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomRecordings200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomRecordings200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Deletes the room recordings that match the supplied filters and returns the number of recordings affected. Filters support room, session, participant, recording type, status, duration, and start or end dates.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,6 +111,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_recordings
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
+        /// <summary>
+        /// Returns a paginated list of room recordings. Filter recordings by room, session, participant, recording type, status, duration, or start and end dates.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_recordings
             return new global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Delete several room recordings in a bulk.
+        /// Deletes the room recordings that match the supplied filters and returns the number of recordings affected. Filters support room, session, participant, recording type, status, duration, and start or end dates.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Room_recordingsRequestBuilderDeleteQueryParameters 
@@ -161,7 +167,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_recordings
 #endif
         }
         /// <summary>
-        /// View a list of room recordings.
+        /// Returns a paginated list of room recordings. Filter recordings by room, session, participant, recording type, status, duration, or start and end dates.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Room_recordingsRequestBuilderGetQueryParameters 

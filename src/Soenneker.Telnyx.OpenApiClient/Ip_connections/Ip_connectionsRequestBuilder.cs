@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ip_connections
         {
         }
         /// <summary>
-        /// Returns a list of your IP connections.
+        /// Returns a paginated list of your IP-based SIP connections, with support for filtering and sorting.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListIpConnectionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ip_connections
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListIpConnectionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListIpConnectionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates an IP connection.
+        /// Creates a new IP-based SIP connection, which authenticates traffic by source IP address.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateIpConnection201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ip_connections
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIpConnection201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateIpConnection201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of your IP connections.
+        /// Returns a paginated list of your IP-based SIP connections, with support for filtering and sorting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ip_connections
             return requestInfo;
         }
         /// <summary>
-        /// Creates an IP connection.
+        /// Creates a new IP-based SIP connection, which authenticates traffic by source IP address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ip_connections
             return new global::Soenneker.Telnyx.OpenApiClient.Ip_connections.Ip_connectionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of your IP connections.
+        /// Returns a paginated list of your IP-based SIP connections, with support for filtering and sorting.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Ip_connectionsRequestBuilderGetQueryParameters 

@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User.Addresses
         {
         }
         /// <summary>
-        /// Returns a list of your user addresses.
+        /// Returns a paginated list of your user addresses, with support for filtering and sorting.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User.Addresses
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindUserAddress200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a user address.
+        /// Creates a new user address from the provided details and returns the created address.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User.Addresses
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateUserAddress200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of your user addresses.
+        /// Returns a paginated list of your user addresses, with support for filtering and sorting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User.Addresses
             return requestInfo;
         }
         /// <summary>
-        /// Creates a user address.
+        /// Creates a new user address from the provided details and returns the created address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -135,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User.Addresses
             return new global::Soenneker.Telnyx.OpenApiClient.User.Addresses.AddressesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of your user addresses.
+        /// Returns a paginated list of your user addresses, with support for filtering and sorting.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AddressesRequestBuilderGetQueryParameters 

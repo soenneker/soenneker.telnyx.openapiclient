@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Comments
         {
         }
         /// <summary>
-        /// Retrieve all comments
+        /// Returns comments associated with number-order records. Results can be filtered by record type and record ID and include pagination metadata.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListComments200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Comments
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListComments200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListComments200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a comment
+        /// Creates a comment associated with a supported number-order record. The response contains the created comment.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateComment200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Comments
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateComment200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateComment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve all comments
+        /// Returns comments associated with number-order records. Results can be filtered by record type and record ID and include pagination metadata.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Comments
             return requestInfo;
         }
         /// <summary>
-        /// Create a comment
+        /// Creates a comment associated with a supported number-order record. The response contains the created comment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Comments
             return new global::Soenneker.Telnyx.OpenApiClient.Comments.CommentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve all comments
+        /// Returns comments associated with number-order records. Results can be filtered by record type and record ID and include pagination metadata.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CommentsRequestBuilderGetQueryParameters 

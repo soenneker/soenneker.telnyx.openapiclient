@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses.Item
         {
         }
         /// <summary>
-        /// Deletes an existing address.
+        /// Permanently deletes the specified address from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAddress200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetAddress200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetAddress200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes an existing address.
+        /// Permanently deletes the specified address from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

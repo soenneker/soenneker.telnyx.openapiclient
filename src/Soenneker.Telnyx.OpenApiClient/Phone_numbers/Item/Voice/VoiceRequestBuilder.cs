@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voice
         {
         }
         /// <summary>
-        /// Retrieve a phone number with voice settings
+        /// Returns the specified phone number together with its current voice configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPhoneNumberVoiceSettings200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voice
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPhoneNumberVoiceSettings200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPhoneNumberVoiceSettings200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a phone number with voice settings
+        /// Updates the voice configuration for the specified phone number. The response contains the phone number with its updated voice settings.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettings200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voice
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettings200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettings200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a phone number with voice settings
+        /// Returns the specified phone number together with its current voice configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voice
             return requestInfo;
         }
         /// <summary>
-        /// Update a phone number with voice settings
+        /// Updates the voice configuration for the specified phone number. The response contains the phone number with its updated voice settings.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

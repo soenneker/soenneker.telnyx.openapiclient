@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers.Item
         {
         }
         /// <summary>
-        /// Delete the WireGuard peer.
+        /// Deletes the specified WireGuard peer from its interface.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWireguardPeer200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWireguardPeer200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteWireguardPeer200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve the WireGuard peer.
+        /// Returns the details of a single WireGuard peer by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetWireguardPeer200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetWireguardPeer200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetWireguardPeer200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the WireGuard peer.
+        /// Updates the specified WireGuard peer and returns the updated peer.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWireguardPeer200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWireguardPeer200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWireguardPeer200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete the WireGuard peer.
+        /// Deletes the specified WireGuard peer from its interface.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the WireGuard peer.
+        /// Returns the details of a single WireGuard peer by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,7 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update the WireGuard peer.
+        /// Updates the specified WireGuard peer and returns the updated peer.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         {
         }
         /// <summary>
-        /// Lists conference participants
+        /// Returns a paginated list of participants in the specified conference, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListParticipantsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListParticipantsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListParticipantsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists conference participants
+        /// Returns a paginated list of participants in the specified conference, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
             return new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists conference participants
+        /// Returns a paginated list of participants in the specified conference, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ParticipantsRequestBuilderGetQueryParameters 

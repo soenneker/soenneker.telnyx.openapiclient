@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Ite
         {
         }
         /// <summary>
-        /// Update a location&apos;s static emergency address
+        /// Update the static emergency address assigned to a specific location of an external connection.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.LocationResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.LocationResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.LocationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a location&apos;s static emergency address
+        /// Update the static emergency address assigned to a specific location of an external connection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -47,13 +47,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates
         {
         }
         /// <summary>
-        /// Bulk update phone number profiles
+        /// Starts a bulk update of messaging-profile assignments for the supplied phone numbers. The response identifies the order used to monitor processing.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers2200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers2200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -67,12 +67,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Bulk update phone number profiles
+        /// Starts a bulk update of messaging-profile assignments for the supplied phone numbers. The response identifies the order used to monitor processing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

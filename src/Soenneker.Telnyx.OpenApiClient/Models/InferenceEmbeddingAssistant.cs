@@ -12,6 +12,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class InferenceEmbeddingAssistant : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>A2A agents this assistant can delegate to. Tools are not stored here: at the start of every conversation each agent&apos;s card is fetched and one tool is derived per skill the card advertises, named `a2a_&lt;name&gt;_&lt;skill_id&gt;`. The following limits are not enforced when the assistant is saved, and anything past them is dropped when the conversation starts: 64 agents per assistant, 64 skills per card, 128 derived tools per assistant, and a 6 second budget for all card fetches combined. An agent whose card cannot be fetched costs the assistant that capability for the conversation; it does not fail the call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>? A2aAgents { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent> A2aAgents { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Conversation flow as returned by the API.</summary>
@@ -295,6 +303,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "a2a_agents", n => { A2aAgents = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "conversation_flow", n => { ConversationFlow = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlow>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlow.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -338,6 +347,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>("a2a_agents", A2aAgents);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlow>("conversation_flow", ConversationFlow);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);

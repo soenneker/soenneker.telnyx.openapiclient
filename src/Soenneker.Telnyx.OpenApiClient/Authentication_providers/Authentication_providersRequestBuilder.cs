@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindAuthenticationProviders200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindAuthenticationProviders200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates an authentication provider.
+        /// Creates a new authentication provider for single sign-on, configured from the provided identity provider details, and returns the created resource.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAuthenticationProvider200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers
             return requestInfo;
         }
         /// <summary>
-        /// Creates an authentication provider.
+        /// Creates a new authentication provider for single sign-on, configured from the provided identity provider details, and returns the created resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

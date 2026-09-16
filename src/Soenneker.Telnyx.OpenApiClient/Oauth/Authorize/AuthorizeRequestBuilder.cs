@@ -66,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Authorize
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "text/html");
             return requestInfo;
         }
         /// <summary>

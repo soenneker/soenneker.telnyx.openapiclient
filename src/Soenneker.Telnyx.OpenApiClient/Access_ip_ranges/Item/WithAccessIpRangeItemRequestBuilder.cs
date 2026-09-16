@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges.Item
         {
         }
         /// <summary>
-        /// Delete access IP ranges
+        /// Delete an access IP range from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIpRangeResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete access IP ranges
+        /// Delete an access IP range from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

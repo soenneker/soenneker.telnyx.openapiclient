@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.It
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CdrDeleteUsageReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CdrDeleteUsageReportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch single cdr usage report by id.
+        /// Returns a single CDR (Call Detail Record) usage report by its identifier, including its parameters and current status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportByIdResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.It
             return requestInfo;
         }
         /// <summary>
-        /// Fetch single cdr usage report by id.
+        /// Returns a single CDR (Call Detail Record) usage report by its identifier, including its parameters and current status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

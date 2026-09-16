@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item
         {
         }
         /// <summary>
-        /// Get an existing sub number order.
+        /// Returns the details of an existing sub number order, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetSubNumberOrder200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetSubNumberOrder200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetSubNumberOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a sub number order.
+        /// Updates the requirements of an existing sub number order and returns the updated order.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrder200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrder200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get an existing sub number order.
+        /// Returns the details of an existing sub number order, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -129,7 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a sub number order.
+        /// Updates the requirements of an existing sub number order and returns the updated order.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -160,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get an existing sub number order.
+        /// Returns the details of an existing sub number order, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ItemRequestBuilderGetQueryParameters 

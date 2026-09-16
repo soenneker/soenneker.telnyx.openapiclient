@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).</summary>
         public Guid? BillingGroupId { get; set; }
-        /// <summary>(BETA) Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.</summary>
+        /// <summary>Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequestCallingWindow? CallingWindow { get; set; }

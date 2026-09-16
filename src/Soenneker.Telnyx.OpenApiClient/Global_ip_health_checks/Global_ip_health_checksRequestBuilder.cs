@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
         {
         }
         /// <summary>
-        /// List all Global IP health checks.
+        /// Returns a paginated list of the Global IP health checks configured on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpHealthChecks200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpHealthChecks200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpHealthChecks200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a Global IP health check.
+        /// Creates a health check for a Global IP to monitor the health of its assignments. Creation is asynchronous, so the request is accepted and the health check becomes active once provisioning completes.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpHealthCheck202Response"/></returns>
         /// <param name="body">The request body</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpHealthCheck202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpHealthCheck202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Global IP health checks.
+        /// Returns a paginated list of the Global IP health checks configured on your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
             return requestInfo;
         }
         /// <summary>
-        /// Create a Global IP health check.
+        /// Creates a health check for a Global IP to monitor the health of its assignments. Creation is asynchronous, so the request is accepted and the health check becomes active once provisioning completes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks
             return new global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Global_ip_health_checksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all Global IP health checks.
+        /// Returns a paginated list of the Global IP health checks configured on your account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ip_health_checksRequestBuilderGetQueryParameters 

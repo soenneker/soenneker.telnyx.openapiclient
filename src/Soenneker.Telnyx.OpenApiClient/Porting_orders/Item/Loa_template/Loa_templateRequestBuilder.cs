@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template
         {
         }
         /// <summary>
-        /// Download a porting order loa template
+        /// Downloads the Letter of Authorization (LOA) template document for this porting order, optionally rendered with a specific LOA configuration.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Download a porting order loa template
+        /// Downloads the Letter of Authorization (LOA) template document for this porting order, optionally rendered with a specific LOA configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template
             return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template.Loa_templateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Download a porting order loa template
+        /// Downloads the Letter of Authorization (LOA) template document for this porting order, optionally rendered with a specific LOA configuration.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Loa_templateRequestBuilderGetQueryParameters 

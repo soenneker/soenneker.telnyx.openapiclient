@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
         {
         }
         /// <summary>
-        /// Deletes a conference participant
+        /// Removes the specified participant from the conference, ending their leg of the call.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets conference participant resource
+        /// Returns a single conference participant resource by call SID or participant label.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a conference participant
+        /// Updates the specified conference participant, for example muting or holding them, and returns the updated participant.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a conference participant
+        /// Removes the specified participant from the conference, ending their leg of the call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             return requestInfo;
         }
         /// <summary>
-        /// Gets conference participant resource
+        /// Returns a single conference participant resource by call SID or participant label.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             return requestInfo;
         }
         /// <summary>
-        /// Updates a conference participant
+        /// Updates the specified conference participant, for example muting or holding them, and returns the updated participant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

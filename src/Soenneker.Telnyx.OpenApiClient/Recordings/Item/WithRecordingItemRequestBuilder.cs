@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings.Item
         {
         }
         /// <summary>
-        /// Permanently deletes a call recording.
+        /// Permanently deletes the specified call recording and returns the deleted recording resource. The media is removed and can no longer be downloaded.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Permanently deletes a call recording.
+        /// Permanently deletes the specified call recording and returns the deleted recording resource. The media is removed and can no longer be downloaded.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

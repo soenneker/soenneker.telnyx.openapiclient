@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups
         {
         }
         /// <summary>
-        /// Get all insight groups
+        /// Returns a paginated list of your insight template groups. Groups organize related insight templates that are applied together when analyzing conversations.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetInsightTemplateGroupsRespData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,13 +70,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetInsightTemplateGroupsRespData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetInsightTemplateGroupsRespData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new insight group
+        /// Creates a new insight template group for organizing related insight templates, and returns the created group.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 413 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupCreateReq body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -90,12 +93,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all insight groups
+        /// Returns a paginated list of your insight template groups. Groups organize related insight templates that are applied together when analyzing conversations.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups
             return requestInfo;
         }
         /// <summary>
-        /// Create a new insight group
+        /// Creates a new insight template group for organizing related insight templates, and returns the created group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -145,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.InsightGroupsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get all insight groups
+        /// Returns a paginated list of your insight template groups. Groups organize related insight templates that are applied together when analyzing conversations.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InsightGroupsRequestBuilderGetQueryParameters 

@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
         {
         }
         /// <summary>
-        /// Get a paginated list of user bundles.
+        /// Returns a paginated list of the bundles active on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedUserBundlesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a paginated list of user bundles.
+        /// Returns a paginated list of the bundles active on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
             return new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.User_bundlesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get a paginated list of user bundles.
+        /// Returns a paginated list of the bundles active on your account, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class User_bundlesRequestBuilderGetQueryParameters 

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item
         {
         }
         /// <summary>
-        /// Delete messaging usage report by id
+        /// Permanently deletes the specified messaging usage report by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete messaging usage report by id
+        /// Permanently deletes the specified messaging usage report by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

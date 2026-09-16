@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListOutboundVoiceProfilesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListOutboundVoiceProfilesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create an outbound voice profile.
+        /// Creates a new outbound voice profile defining calling permissions, destinations, and limits for outbound calls, and returns the created profile.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateVoiceProfile200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles
             return requestInfo;
         }
         /// <summary>
-        /// Create an outbound voice profile.
+        /// Creates a new outbound voice profile defining calling permissions, destinations, and limits for outbound calls, and returns the created profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

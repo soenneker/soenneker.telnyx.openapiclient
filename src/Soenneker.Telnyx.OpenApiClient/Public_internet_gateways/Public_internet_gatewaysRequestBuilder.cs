@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways
         {
         }
         /// <summary>
-        /// List all Public Internet Gateways.
+        /// Returns a paginated list of the public internet gateways on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPublicInternetGateways200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPublicInternetGateways200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPublicInternetGateways200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new Public Internet Gateway.
+        /// Requests creation of a public internet gateway on the specified network, giving the network internet egress. Creation is asynchronous, so the request is accepted and completes in the background.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreatePublicInternetGateway202Response"/></returns>
         /// <param name="body">The request body</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePublicInternetGateway202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreatePublicInternetGateway202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Public Internet Gateways.
+        /// Returns a paginated list of the public internet gateways on your account, with support for filtering.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways
             return requestInfo;
         }
         /// <summary>
-        /// Create a new Public Internet Gateway.
+        /// Requests creation of a public internet gateway on the specified network, giving the network internet egress. Creation is asynchronous, so the request is accepted and completes in the background.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways
             return new global::Soenneker.Telnyx.OpenApiClient.Public_internet_gateways.Public_internet_gatewaysRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all Public Internet Gateways.
+        /// Returns a paginated list of the public internet gateways on your account, with support for filtering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Public_internet_gatewaysRequestBuilderGetQueryParameters 

@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Ite
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a scheduled event by event ID
+        /// Returns the details of a single scheduled event configured for the specified assistant.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledEventResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a scheduled event by event ID
+        /// Returns the details of a single scheduled event configured for the specified assistant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

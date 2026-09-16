@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Business_accounts.Item.Phon
         {
         }
         /// <summary>
-        /// List phone numbers for a WABA
+        /// Returns phone numbers registered under the specified WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappPhonesListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappPhonesListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Business_accounts.Item.Phone_numbers.Phone_numbersRequestBuilder.Phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,17 +52,17 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Business_accounts.Item.Phon
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappPhonesListResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappPhonesListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Initialize Whatsapp phone number verification
+        /// Starts verification of a phone number for the specified WhatsApp Business Account using the requested verification method.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneNumberVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -76,12 +76,12 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Business_accounts.Item.Phon
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List phone numbers for a WABA
+        /// Returns phone numbers registered under the specified WhatsApp Business Account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Business_accounts.Item.Phon
             return requestInfo;
         }
         /// <summary>
-        /// Initialize Whatsapp phone number verification
+        /// Starts verification of a phone number for the specified WhatsApp Business Account using the requested verification method.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Business_accounts.Item.Phon
             return new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Business_accounts.Item.Phone_numbers.Phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List phone numbers for a WABA
+        /// Returns phone numbers registered under the specified WhatsApp Business Account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_numbersRequestBuilderGetQueryParameters 

@@ -85,6 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Pricing.Products.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithSlugItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>Two-letter ISO 3166-1 alpha-2 country code (uppercase, e.g. US) to filter pricing to a single country.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter%5Bcountry_iso%5D")]

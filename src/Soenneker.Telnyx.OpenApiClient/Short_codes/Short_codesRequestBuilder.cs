@@ -47,12 +47,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Short_codes
         {
         }
         /// <summary>
-        /// List short codes
+        /// Returns short codes owned by the authenticated account. Apply the documented filters and pagination parameters to narrow the result set.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListShortCodesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListShortCodesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,12 +65,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Short_codes
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListShortCodesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListShortCodesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List short codes
+        /// Returns short codes owned by the authenticated account. Apply the documented filters and pagination parameters to narrow the result set.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Short_codes
             return new global::Soenneker.Telnyx.OpenApiClient.Short_codes.Short_codesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List short codes
+        /// Returns short codes owned by the authenticated account. Apply the documented filters and pagination parameters to narrow the result set.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Short_codesRequestBuilderGetQueryParameters 

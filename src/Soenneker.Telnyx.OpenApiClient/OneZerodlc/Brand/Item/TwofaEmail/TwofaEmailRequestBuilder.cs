@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.TwofaEmail
         {
         }
         /// <summary>
-        /// Resend brand 2FA email
+        /// Requests a new two-factor authentication email for the specified 10DLC brand. Complete verification through the link delivered to the brand contact before continuing registration.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.TwofaEmail
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Resend brand 2FA email
+        /// Requests a new two-factor authentication email for the specified 10DLC brand. Complete verification through the link delivered to the brand contact before continuing registration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

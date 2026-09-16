@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Voice
         {
         }
         /// <summary>
-        /// List phone numbers with voice settings
+        /// Returns account phone numbers together with their voice settings. Results support pagination, sorting, and filters for number, connection name, customer reference, and voice usage payment method.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersWithVoiceSettingsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Voice
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersWithVoiceSettingsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumbersWithVoiceSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List phone numbers with voice settings
+        /// Returns account phone numbers together with their voice settings. Results support pagination, sorting, and filters for number, connection name, customer reference, and voice usage payment method.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Voice
             return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Voice.VoiceRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List phone numbers with voice settings
+        /// Returns account phone numbers together with their voice settings. Results support pagination, sorting, and filters for number, connection name, customer reference, and voice usage payment method.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class VoiceRequestBuilderGetQueryParameters 

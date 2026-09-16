@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Connections.Count;
 using Soenneker.Telnyx.OpenApiClient.Connections.Item;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Connections
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The count property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Connections.Count.CountRequestBuilder Count
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Connections.Count.CountRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.connections.item collection</summary>
         /// <param name="position">IP Connection ID</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Connections.Item.ConnectionItemRequestBuilder"/></returns>

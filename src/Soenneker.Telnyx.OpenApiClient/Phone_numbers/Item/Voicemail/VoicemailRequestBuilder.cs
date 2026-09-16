@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetVoicemail200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetVoicemail200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update voicemail settings for a phone number
+        /// Update voicemail settings for a phone number. You can also configure a custom greeting by setting the `greeting` object: use `mode` `custom_greeting` together with a `media_name` that points to an audio file uploaded through the Media Storage API, or `mode` `default` to use the standard system greeting.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateVoicemail200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateVoicemail200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateVoicemail200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create voicemail settings for a phone number
+        /// Create voicemail settings for a phone number. You can also configure a custom greeting by setting the `greeting` object: use `mode` `custom_greeting` together with a `media_name` that points to an audio file uploaded through the Media Storage API, or `mode` `default` to use the standard system greeting.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateVoicemail200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
             return requestInfo;
         }
         /// <summary>
-        /// Update voicemail settings for a phone number
+        /// Update voicemail settings for a phone number. You can also configure a custom greeting by setting the `greeting` object: use `mode` `custom_greeting` together with a `media_name` that points to an audio file uploaded through the Media Storage API, or `mode` `default` to use the standard system greeting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
             return requestInfo;
         }
         /// <summary>
-        /// Create voicemail settings for a phone number
+        /// Create voicemail settings for a phone number. You can also configure a custom greeting by setting the `greeting` object: use `mode` `custom_greeting` together with a `media_name` that points to an audio file uploaded through the Media Storage API, or `mode` `default` to use the standard system greeting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

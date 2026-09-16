@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Call_control_applications
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListCallControlApplicationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListCallControlApplicationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a call control application.
+        /// Creates a call control application, which defines the webhook endpoints and settings used to control calls on associated connections.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateCallControlApplication201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Call_control_applications
             return requestInfo;
         }
         /// <summary>
-        /// Create a call control application.
+        /// Creates a call control application, which defines the webhook endpoints and settings used to control calls on associated connections.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

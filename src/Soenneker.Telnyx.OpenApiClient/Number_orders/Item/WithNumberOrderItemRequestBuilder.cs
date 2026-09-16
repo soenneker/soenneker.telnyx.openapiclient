@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders.Item
         {
         }
         /// <summary>
-        /// Get an existing phone number order.
+        /// Returns the details of an existing phone number order, including its status and the numbers included.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveNumberOrder200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveNumberOrder200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveNumberOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a phone number order.
+        /// Updates an existing phone number order, for example to satisfy regulatory requirements attached to the order, and returns the updated order.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNumberOrder200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNumberOrder200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateNumberOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get an existing phone number order.
+        /// Returns the details of an existing phone number order, including its status and the numbers included.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_orders.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a phone number order.
+        /// Updates an existing phone number order, for example to satisfy regulatory requirements attached to the order, and returns the updated order.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

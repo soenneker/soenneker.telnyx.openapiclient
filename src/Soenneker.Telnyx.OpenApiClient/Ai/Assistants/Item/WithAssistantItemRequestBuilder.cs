@@ -134,12 +134,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an AI Assistant&apos;s attributes.
+        /// Updates the specified AI assistant&apos;s attributes and returns the updated assistant. The request can also control how the change is promoted across assistant versions.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -154,6 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -197,7 +199,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an AI Assistant&apos;s attributes.
+        /// Updates the specified AI assistant&apos;s attributes and returns the updated assistant. The request can also control how the change is promoted across assistant versions.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

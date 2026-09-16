@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_l
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StandardTelcoDataGetUsageReportsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StandardTelcoDataGetUsageReportsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Submit a new telco data usage report
+        /// Submits a new telco data (number lookup) usage report request. The report is generated asynchronously; retrieve it by its identifier once ready.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataPostUsageReportResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_l
             return requestInfo;
         }
         /// <summary>
-        /// Submit a new telco data usage report
+        /// Submits a new telco data (number lookup) usage report request. The report is generated asynchronously; retrieve it by its identifier once ready.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

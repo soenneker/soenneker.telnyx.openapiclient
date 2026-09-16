@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TranscriptionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/speech-to-text/transcription?input_format={input_format}&transcription_engine={transcription_engine}{&endpointing*,interim_results*,keyterm*,keywords*,language*,model*,redact*}", pathParameters)
+        public TranscriptionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/speech-to-text/transcription?input_format={input_format}&transcription_engine={transcription_engine}{&endpointing*,interim_results*,keyterm*,keywords*,language*,model*,redact*,sample_rate*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TranscriptionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/speech-to-text/transcription?input_format={input_format}&transcription_engine={transcription_engine}{&endpointing*,interim_results*,keyterm*,keywords*,language*,model*,redact*}", rawUrl)
+        public TranscriptionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/speech-to-text/transcription?input_format={input_format}&transcription_engine={transcription_engine}{&endpointing*,interim_results*,keyterm*,keywords*,language*,model*,redact*,sample_rate*}", rawUrl)
         {
         }
         /// <summary>
-        /// Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`, `Humain`, `Reson8`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.
+        /// Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`, `Humain`, `Reson8`, `Cohere`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3, wav, linear16, or linear32 format, per `input_format`).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">Binary request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`, `Humain`, `Reson8`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.
+        /// Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`, `Humain`, `Reson8`, `Cohere`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3, wav, linear16, or linear32 format, per `input_format`).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Binary request body</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             return new global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`, `Humain`, `Reson8`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.
+        /// Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`, `xAI`, `Speechmatics`, `Soniox`, `Parakeet`, `Humain`, `Reson8`, `Cohere`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3, wav, linear16, or linear32 format, per `input_format`).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptionRequestBuilderGetQueryParameters 
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             [QueryParameter("keywords")]
             public string Keywords { get; set; }
 #endif
-            /// <summary>The language spoken in the audio stream.</summary>
+            /// <summary>The language spoken in the audio stream. For `cohere/ar-stt`, this must be `ar` or `en` — unlike other engines, Cohere does not auto-detect the language, and rejects unsupported values including `auto`; omitting it defaults to `ar`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("language")]
@@ -154,6 +154,9 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             [QueryParameter("redact")]
             public string Redact { get; set; }
 #endif
+            /// <summary>Audio sample rate in Hz. Required when `input_format` is a raw encoding (`linear16`, `linear32`) — those formats carry no header metadata. Ignored for container formats (`mp3`, `wav`), which self-describe their rate.</summary>
+            [QueryParameter("sample_rate")]
+            public int? SampleRate { get; set; }
             /// <summary>The transcription engine to use for processing the audio stream.</summary>
             [QueryParameter("transcription_engine")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngine? TranscriptionEngine { get; set; }

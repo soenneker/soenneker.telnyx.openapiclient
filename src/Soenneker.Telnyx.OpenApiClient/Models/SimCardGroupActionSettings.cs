@@ -17,6 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The identification of the related Private Wireless Gateway resource.</summary>
         public Guid? PrivateWirelessGatewayId { get; set; }
+        /// <summary>The identification of the related Wireless Blocklist resource.</summary>
+        public Guid? WirelessBlocklistId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SimCardGroupActionSettings"/> and sets the default values.
         /// </summary>
@@ -43,6 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "private_wireless_gateway_id", n => { PrivateWirelessGatewayId = n.GetGuidValue(); } },
+                { "wireless_blocklist_id", n => { WirelessBlocklistId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -53,6 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("private_wireless_gateway_id", PrivateWirelessGatewayId);
+            writer.WriteGuidValue("wireless_blocklist_id", WirelessBlocklistId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

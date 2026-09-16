@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string OutboundProxy { get; set; }
 #endif
-        /// <summary>The SIP password used for digest authentication with the external SIP peer.</summary>
+        /// <summary>The SIP password used for digest authentication with the external SIP peer. For primary accounts created on or after September 8, 2026, this password is returned as `********`. The password is returned in full on create, and on update only when that update changed the password. Accounts created before September 8, 2026 are unaffected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Password { get; set; }

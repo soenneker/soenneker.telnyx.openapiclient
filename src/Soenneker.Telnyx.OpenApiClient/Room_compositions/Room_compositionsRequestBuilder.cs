@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
         {
         }
         /// <summary>
-        /// View a list of room compositions.
+        /// Returns a paginated list of room compositions. Filter compositions by creation date, room session, or processing status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomCompositions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -94,6 +94,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomComposition202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomComposition202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns a paginated list of room compositions. Filter compositions by creation date, room session, or processing status.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -142,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
             return new global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// View a list of room compositions.
+        /// Returns a paginated list of room compositions. Filter compositions by creation date, room session, or processing status.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Room_compositionsRequestBuilderGetQueryParameters 

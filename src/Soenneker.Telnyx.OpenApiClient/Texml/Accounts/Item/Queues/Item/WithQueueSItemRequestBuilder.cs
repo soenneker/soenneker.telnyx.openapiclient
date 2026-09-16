@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.Item
         {
         }
         /// <summary>
-        /// Delete a queue resource.
+        /// Permanently deletes the specified queue resource from the account.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a queue resource.
+        /// Returns a single queue resource for the account by its QueueSid.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a queue resource.
+        /// Updates the specified queue resource&apos;s settings and returns the updated queue.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a queue resource.
+        /// Permanently deletes the specified queue resource from the account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns a queue resource.
+        /// Returns a single queue resource for the account by its QueueSid.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a queue resource.
+        /// Updates the specified queue resource&apos;s settings and returns the updated queue.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_protocols
         {
         }
         /// <summary>
-        /// List all Global IP Protocols
+        /// Returns the network protocols supported for Global IP traffic, for use when configuring Global IP resources.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpProtocols200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_protocols
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpProtocols200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpProtocols200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Global IP Protocols
+        /// Returns the network protocols supported for Global IP traffic, for use when configuring Global IP resources.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

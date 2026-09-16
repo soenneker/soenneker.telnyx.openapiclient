@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item
         {
         }
         /// <summary>
-        /// Delete insight group by ID
+        /// Permanently deletes the specified insight template group by its ID.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get insight group by ID
+        /// Returns the details of a single insight template group, including the insight templates assigned to it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an insight template group
+        /// Updates the specified insight template group and returns the updated group.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateGroupDetailRespData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete insight group by ID
+        /// Permanently deletes the specified insight template group by its ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get insight group by ID
+        /// Returns the details of a single insight template group, including the insight templates assigned to it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an insight template group
+        /// Updates the specified insight template group and returns the updated group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs
         {
         }
         /// <summary>
-        /// Lists the phone number blocks jobs
+        /// Returns background jobs that operate on phone-number blocks. Results can be filtered by job type and status, sorted by creation time, and include pagination metadata.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumberBlocksBackgroundJobsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumberBlocksBackgroundJobsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPhoneNumberBlocksBackgroundJobsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the phone number blocks jobs
+        /// Returns background jobs that operate on phone-number blocks. Results can be filtered by job type and status, sorted by creation time, and include pagination metadata.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs
             return new global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists the phone number blocks jobs
+        /// Returns background jobs that operate on phone-number blocks. Results can be filtered by job type and status, sorted by creation time, and include pagination metadata.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class JobsRequestBuilderGetQueryParameters 

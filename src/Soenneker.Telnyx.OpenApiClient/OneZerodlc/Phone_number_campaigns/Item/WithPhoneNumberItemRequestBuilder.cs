@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update Phone Number Campaign
+        /// Replaces the 10DLC campaign assignment for the specified phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign"/></returns>
         /// <param name="body">The request body</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update Phone Number Campaign
+        /// Replaces the 10DLC campaign assignment for the specified phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

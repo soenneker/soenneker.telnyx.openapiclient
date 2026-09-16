@@ -28,10 +28,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Minimax,
         #pragma warning restore CS1591
-        [EnumMember(Value = "rime")]
-        #pragma warning disable CS1591
-        Rime,
-        #pragma warning restore CS1591
         [EnumMember(Value = "resemble")]
         #pragma warning disable CS1591
         Resemble,

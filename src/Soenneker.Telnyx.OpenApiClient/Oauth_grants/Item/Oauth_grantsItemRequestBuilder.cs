@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_grants.Item
         {
         }
         /// <summary>
-        /// Revoke an OAuth grant
+        /// Revokes the specified OAuth grant, withdrawing the access previously granted to the client.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RevokeOAuthGrant2200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_grants.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RevokeOAuthGrant2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RevokeOAuthGrant2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a single OAuth grant by ID
+        /// Returns the details of a single OAuth grant on your account by its ID.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetOAuthGrant2200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_grants.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetOAuthGrant2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetOAuthGrant2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Revoke an OAuth grant
+        /// Revokes the specified OAuth grant, withdrawing the access previously granted to the client.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth_grants.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a single OAuth grant by ID
+        /// Returns the details of a single OAuth grant on your account by its ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

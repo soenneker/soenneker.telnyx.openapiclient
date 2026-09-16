@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_block_orders
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberBlockOrdersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListNumberBlockOrdersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a phone number block order.
+        /// Creates an order for a block of consecutive phone numbers and returns the created order. Track fulfillment through the order&apos;s status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberBlockOrder200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_block_orders
             return requestInfo;
         }
         /// <summary>
-        /// Creates a phone number block order.
+        /// Creates an order for a block of consecutive phone numbers and returns the created order. Track fulfillment through the order&apos;s status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

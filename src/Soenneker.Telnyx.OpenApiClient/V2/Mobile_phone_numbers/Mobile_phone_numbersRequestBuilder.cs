@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers
         {
         }
         /// <summary>
-        /// List Mobile Phone Numbers
+        /// Retrieve a paginated list of mobile phone numbers on your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListMobilePhoneNumbers200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMobilePhoneNumbers200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMobilePhoneNumbers200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List Mobile Phone Numbers
+        /// Retrieve a paginated list of mobile phone numbers on your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers
             return new global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Mobile_phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List Mobile Phone Numbers
+        /// Retrieve a paginated list of mobile phone numbers on your account.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mobile_phone_numbersRequestBuilderGetQueryParameters 

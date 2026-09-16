@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups.Item
         {
         }
         /// <summary>
-        /// Delete a requirement group by ID
+        /// Deletes the regulatory requirement group identified by `id`. The response contains the deleted requirement-group representation.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a single requirement group by ID
+        /// Returns the regulatory requirement group identified by `id`, including its requirement values and current approval status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update requirement values in requirement group
+        /// Updates the customer reference or regulatory requirement values on the specified requirement group. The response contains the updated group.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup"/></returns>
         /// <param name="body">The request body</param>
@@ -135,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RequirementGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a requirement group by ID
+        /// Deletes the regulatory requirement group identified by `id`. The response contains the deleted requirement-group representation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -154,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a single requirement group by ID
+        /// Returns the regulatory requirement group identified by `id`, including its requirement values and current approval status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -173,7 +173,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update requirement values in requirement group
+        /// Updates the customer reference or regulatory requirement values on the specified requirement group. The response contains the updated group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item
         {
         }
         /// <summary>
-        /// List verifications by phone number
+        /// Returns a paginated list of verifications associated with the specified phone number.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVerificationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerificationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListVerificationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List verifications by phone number
+        /// Returns a paginated list of verifications associated with the specified phone number.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -40,6 +40,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConnectionName { get; set; }
 #endif
+        /// <summary>Whether conversation persistence is enabled for this connection. When enabled, calls handled by the connection are transcribed, stored, and indexed. Defaults to false.</summary>
+        public bool? ConversationPersistence { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn Outbound { get; set; }
 #endif
-        /// <summary>The password for the FQDN connection.</summary>
+        /// <summary>The password for the FQDN connection. For primary accounts created on or after September 8, 2026, this password is returned as `********`. The password is returned in full on create, and on update only when that update changed the password. Accounts created before September 8, 2026 are unaffected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Password { get; set; }
@@ -245,6 +247,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_cost_enabled", n => { CallCostEnabled = n.GetBoolValue(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
+                { "conversation_persistence", n => { ConversationPersistence = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
                 { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
@@ -294,6 +297,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("call_cost_enabled", CallCostEnabled);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
+            writer.WriteBoolValue("conversation_persistence", ConversationPersistence);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);

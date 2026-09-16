@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Reports.Item
         {
         }
         /// <summary>
-        /// Retrieve a specific report generated.
+        /// Returns the details of a previously requested porting report, including its status and parameters.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPortingReport200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Reports.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPortingReport200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPortingReport200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a specific report generated.
+        /// Returns the details of a previously requested porting report, including its status and parameters.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

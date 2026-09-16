@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
         {
         }
         /// <summary>
-        /// Retrieve a list of opt-out blocks.
+        /// Returns a paginated list of opt-out blocks created when message recipients opt out. Supports filtering and optional redaction of recipient numbers.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a list of opt-out blocks.
+        /// Returns a paginated list of opt-out blocks created when message recipients opt out. Supports filtering and optional redaction of recipient numbers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
             return new global::Soenneker.Telnyx.OpenApiClient.Messaging_optouts.Messaging_optoutsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve a list of opt-out blocks.
+        /// Returns a paginated list of opt-out blocks created when message recipients opt out. Supports filtering and optional redaction of recipient numbers.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Messaging_optoutsRequestBuilderGetQueryParameters 

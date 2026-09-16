@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Verify
         {
         }
         /// <summary>
-        /// Verify DNS records for an email domain
+        /// Checks the published DNS records against the records required for the email domain and returns the latest verification results.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Verify
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Verify DNS records for an email domain
+        /// Checks the published DNS records against the records required for the email domain and returns the latest verification results.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Item
         {
         }
         /// <summary>
-        /// Get a single SIM card order by its ID.
+        /// Returns the details of a single SIM card order by its ID, including its status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardOrder200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardOrder200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetSimCardOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a single SIM card order by its ID.
+        /// Returns the details of a single SIM card order by its ID, including its status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

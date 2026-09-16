@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Integrations
         {
         }
         /// <summary>
-        /// List all available integrations.
+        /// Returns the list of third-party integrations available to connect to your AI assistants and workflows.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationsListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Integrations
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationsListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationsListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all available integrations.
+        /// Returns the list of third-party integrations available to connect to your AI assistants and workflows.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

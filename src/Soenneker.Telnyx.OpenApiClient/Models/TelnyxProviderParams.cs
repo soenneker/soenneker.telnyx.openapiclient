@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Telnyx provider-specific parameters. Use `voice_speed` and `temperature` for `Natural` and `NaturalHD` models. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`, and don&apos;t support `voice_speed`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).
+    /// Telnyx provider-specific parameters. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`, and don&apos;t support `voice_speed`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TelnyxProviderParams : IAdditionalDataHolder, IParsable
@@ -27,8 +27,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Audio sampling rate in Hz.</summary>
         public int? SamplingRate { get; set; }
-        /// <summary>Sampling temperature. Applies to `Natural` and `NaturalHD` models only.</summary>
-        public float? Temperature { get; set; }
         /// <summary>Voice speed multiplier. Applies to all models except `Bayan` and `Sukhan`, which don&apos;t support it. Range: 0.5 to 2.0.</summary>
         public float? VoiceSpeed { get; set; }
         /// <summary>Volume level for the Ultra model. Range: 0.0 to 2.0.</summary>
@@ -41,7 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             ResponseFormat = "mp3";
             SamplingRate = 24000;
-            Temperature = 0.5f;
             VoiceSpeed = 1.0f;
             Volume = 1.0f;
         }
@@ -66,7 +63,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "emotion", n => { Emotion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion>(); } },
                 { "response_format", n => { ResponseFormat = n.GetStringValue(); } },
                 { "sampling_rate", n => { SamplingRate = n.GetIntValue(); } },
-                { "temperature", n => { Temperature = n.GetFloatValue(); } },
                 { "voice_speed", n => { VoiceSpeed = n.GetFloatValue(); } },
                 { "volume", n => { Volume = n.GetFloatValue(); } },
             };
@@ -81,7 +77,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion>("emotion", Emotion);
             writer.WriteStringValue("response_format", ResponseFormat);
             writer.WriteIntValue("sampling_rate", SamplingRate);
-            writer.WriteFloatValue("temperature", Temperature);
             writer.WriteFloatValue("voice_speed", VoiceSpeed);
             writer.WriteFloatValue("volume", Volume);
             writer.WriteAdditionalData(AdditionalData);

@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item
         {
         }
         /// <summary>
-        /// Get Advanced Order
+        /// Returns the advanced number order identified by `order_id`, including its configuration and current state.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrder.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get Advanced Order
+        /// Returns the advanced number order identified by `order_id`, including its configuration and current state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve an unsubscribe group
+        /// Returns the account-owned unsubscribe group identified by ID.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnsubscribeGroupResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -147,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve an unsubscribe group
+        /// Returns the account-owned unsubscribe group identified by ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

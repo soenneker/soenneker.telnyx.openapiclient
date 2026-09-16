@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item
         {
         }
         /// <summary>
-        /// Returns a conference resource.
+        /// Returns a single conference resource for the account by its ConferenceSid.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a conference resource.
+        /// Updates the specified conference resource, for example to modify its status, and returns the updated conference.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource"/></returns>
         /// <param name="body">The request body</param>
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a conference resource.
+        /// Returns a single conference resource for the account by its ConferenceSid.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a conference resource.
+        /// Updates the specified conference resource, for example to modify its status, and returns the updated conference.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

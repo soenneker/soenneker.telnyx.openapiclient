@@ -29,6 +29,7 @@ using Soenneker.Telnyx.OpenApiClient.Channel_zones;
 using Soenneker.Telnyx.OpenApiClient.Charges_breakdown;
 using Soenneker.Telnyx.OpenApiClient.Charges_summary;
 using Soenneker.Telnyx.OpenApiClient.Comments;
+using Soenneker.Telnyx.OpenApiClient.Compute;
 using Soenneker.Telnyx.OpenApiClient.Conferences;
 using Soenneker.Telnyx.OpenApiClient.Connections;
 using Soenneker.Telnyx.OpenApiClient.Country_coverage;
@@ -53,6 +54,7 @@ using Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups;
 using Soenneker.Telnyx.OpenApiClient.Email_validations;
 using Soenneker.Telnyx.OpenApiClient.Enterprises;
 using Soenneker.Telnyx.OpenApiClient.External_connections;
+using Soenneker.Telnyx.OpenApiClient.External_requirements;
 using Soenneker.Telnyx.OpenApiClient.Fax_applications;
 using Soenneker.Telnyx.OpenApiClient.Faxes;
 using Soenneker.Telnyx.OpenApiClient.Fqdn_connections;
@@ -81,6 +83,7 @@ using Soenneker.Telnyx.OpenApiClient.Legacy_reporting;
 using Soenneker.Telnyx.OpenApiClient.List;
 using Soenneker.Telnyx.OpenApiClient.Managed_accounts;
 using Soenneker.Telnyx.OpenApiClient.Media;
+using Soenneker.Telnyx.OpenApiClient.Meeting_sessions;
 using Soenneker.Telnyx.OpenApiClient.Messages;
 using Soenneker.Telnyx.OpenApiClient.Messaging;
 using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders;
@@ -97,6 +100,7 @@ using Soenneker.Telnyx.OpenApiClient.Mobile_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials;
 using Soenneker.Telnyx.OpenApiClient.Network_coverage;
 using Soenneker.Telnyx.OpenApiClient.Networks;
+using Soenneker.Telnyx.OpenApiClient.Noise_suppression_engines;
 using Soenneker.Telnyx.OpenApiClient.Notification_channels;
 using Soenneker.Telnyx.OpenApiClient.Notification_event_conditions;
 using Soenneker.Telnyx.OpenApiClient.Notification_events;
@@ -130,6 +134,7 @@ using Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways;
 using Soenneker.Telnyx.OpenApiClient.Pronunciation_dicts;
 using Soenneker.Telnyx.OpenApiClient.Public_internet_gateways;
 using Soenneker.Telnyx.OpenApiClient.Queues;
+using Soenneker.Telnyx.OpenApiClient.Rcs;
 using Soenneker.Telnyx.OpenApiClient.Recording_transcriptions;
 using Soenneker.Telnyx.OpenApiClient.Recordings;
 using Soenneker.Telnyx.OpenApiClient.Regions;
@@ -154,7 +159,6 @@ using Soenneker.Telnyx.OpenApiClient.Sim_card_groups;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_orders;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards;
-using Soenneker.Telnyx.OpenApiClient.Sip_registration_status;
 using Soenneker.Telnyx.OpenApiClient.Siprec_connectors;
 using Soenneker.Telnyx.OpenApiClient.SpeechToText;
 using Soenneker.Telnyx.OpenApiClient.Storage;
@@ -181,6 +185,7 @@ using Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage;
 using Soenneker.Telnyx.OpenApiClient.Voice_clones;
 using Soenneker.Telnyx.OpenApiClient.Voice_designs;
 using Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports;
+using Soenneker.Telnyx.OpenApiClient.Web_search;
 using Soenneker.Telnyx.OpenApiClient.Webhook_deliveries;
 using Soenneker.Telnyx.OpenApiClient.WellKnown;
 using Soenneker.Telnyx.OpenApiClient.Whatsapp;
@@ -189,6 +194,7 @@ using Soenneker.Telnyx.OpenApiClient.Wireguard_peers;
 using Soenneker.Telnyx.OpenApiClient.Wireless;
 using Soenneker.Telnyx.OpenApiClient.Wireless_blocklist_values;
 using Soenneker.Telnyx.OpenApiClient.Wireless_blocklists;
+using Soenneker.Telnyx.OpenApiClient.X402;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -316,6 +322,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Comments.CommentsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The compute property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Compute.ComputeRequestBuilder Compute
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Compute.ComputeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The conferences property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesRequestBuilder Conferences
         {
@@ -435,6 +446,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.External_connections.External_connectionsRequestBuilder External_connections
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.External_connections.External_connectionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The external_requirements property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.External_requirements.External_requirementsRequestBuilder External_requirements
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.External_requirements.External_requirementsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fax_applications property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Fax_applications.Fax_applicationsRequestBuilder Fax_applications
@@ -576,6 +592,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Media.MediaRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The meeting_sessions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Meeting_sessionsRequestBuilder Meeting_sessions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Meeting_sessionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The messages property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesRequestBuilder Messages
         {
@@ -655,6 +676,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Networks.NetworksRequestBuilder Networks
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Networks.NetworksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The noise_suppression_engines property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Noise_suppression_engines.Noise_suppression_enginesRequestBuilder Noise_suppression_engines
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Noise_suppression_engines.Noise_suppression_enginesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The notification_channels property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Notification_channels.Notification_channelsRequestBuilder Notification_channels
@@ -821,6 +847,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Queues.QueuesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The rcs property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Rcs.RcsRequestBuilder Rcs
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Rcs.RcsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The recording_transcriptions property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsRequestBuilder Recording_transcriptions
         {
@@ -940,11 +971,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder Sim_cards
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The sip_registration_status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Sip_registration_status.Sip_registration_statusRequestBuilder Sip_registration_status
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Sip_registration_status.Sip_registration_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The siprec_connectors property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Siprec_connectorsRequestBuilder Siprec_connectors
@@ -1076,6 +1102,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Voice_sdk_call_reportsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The web_search property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Web_search.Web_searchRequestBuilder Web_search
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Web_search.Web_searchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The webhook_deliveries property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Webhook_deliveriesRequestBuilder Webhook_deliveries
         {
@@ -1115,6 +1146,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Wireless_blocklists.Wireless_blocklistsRequestBuilder Wireless_blocklists
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Wireless_blocklists.Wireless_blocklistsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The x402 property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.X402.X402RequestBuilder X402
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.X402.X402RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.TelnyxOpenApiClient"/> and sets the default values.

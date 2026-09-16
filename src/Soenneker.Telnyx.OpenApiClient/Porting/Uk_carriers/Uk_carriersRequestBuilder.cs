@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Uk_carriers
         {
         }
         /// <summary>
-        /// List available carriers in the UK.
+        /// Returns the list of UK carriers available for porting, for use when preparing porting orders for UK numbers.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingUkCarriers200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Uk_carriers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingUkCarriers200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPortingUkCarriers200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List available carriers in the UK.
+        /// Returns the list of UK carriers available for porting, for use when preparing porting orders for UK numbers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

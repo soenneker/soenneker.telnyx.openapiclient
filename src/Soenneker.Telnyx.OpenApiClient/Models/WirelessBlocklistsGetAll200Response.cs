@@ -22,14 +22,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200ResponseData Data { get; set; }
 #endif
-        /// <summary>The meta property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta? Meta { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta Meta { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200Response"/> and sets the default values.
         /// </summary>
@@ -56,7 +48,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200ResponseData>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200ResponseData.CreateFromDiscriminatorValue); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +58,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200ResponseData>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

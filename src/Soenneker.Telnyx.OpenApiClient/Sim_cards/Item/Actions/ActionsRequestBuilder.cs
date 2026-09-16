@@ -3,7 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Disable;
+using Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Disable_voice;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable;
+using Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable_voice;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Remove_public_ip;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_standby;
@@ -24,10 +26,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Disable.DisableRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The disable_voice property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Disable_voice.Disable_voiceRequestBuilder Disable_voice
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Disable_voice.Disable_voiceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The enable property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable.EnableRequestBuilder Enable
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable.EnableRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enable_voice property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable_voice.Enable_voiceRequestBuilder Enable_voice
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable_voice.Enable_voiceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The remove_public_ip property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Remove_public_ip.Remove_public_ipRequestBuilder Remove_public_ip

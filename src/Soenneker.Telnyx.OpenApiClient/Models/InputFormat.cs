@@ -16,5 +16,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Wav,
         #pragma warning restore CS1591
+        [EnumMember(Value = "linear16")]
+        #pragma warning disable CS1591
+        Linear16,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "linear32")]
+        #pragma warning disable CS1591
+        Linear32,
+        #pragma warning restore CS1591
     }
 }

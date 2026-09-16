@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item
         {
         }
         /// <summary>
-        /// Delete a Virtual Cross Connect.
+        /// Deletes the specified virtual cross connect from your account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteVirtualCrossConnect200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteVirtualCrossConnect200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteVirtualCrossConnect200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a Virtual Cross Connect.
+        /// Returns the details of a single virtual cross connect by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetVirtualCrossConnect200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateVirtualCrossConnect200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateVirtualCrossConnect200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Virtual Cross Connect.
+        /// Deletes the specified virtual cross connect from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a Virtual Cross Connect.
+        /// Returns the details of a single virtual cross connect by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

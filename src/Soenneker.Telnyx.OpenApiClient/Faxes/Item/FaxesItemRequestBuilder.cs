@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item
         {
         }
         /// <summary>
-        /// Delete a fax
+        /// Delete a fax resource from your account.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// View a fax
+        /// Returns the details of a single fax, including its current status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetFaxResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetFaxResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetFaxResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a fax
+        /// Delete a fax resource from your account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item
             return requestInfo;
         }
         /// <summary>
-        /// View a fax
+        /// Returns the details of a single fax, including its current status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

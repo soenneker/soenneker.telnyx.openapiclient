@@ -110,6 +110,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig DialogflowConfig { get; set; }
 #endif
+        /// <summary>The number the inbound call being transferred was originally received on, in +E164 format. Supplying it lets an unverified non-Telnyx `from` be used as the caller id, provided that number is still on an active inbound call to this `diversion` number for your account. The `diversion` number itself must be one you own or have verified.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Diversion { get; set; }
+#nullable restore
+#else
+        public string Diversion { get; set; }
+#endif
         /// <summary>Enables Dialogflow for the current call. The default value is false.</summary>
         public bool? EnableDialogflow { get; set; }
         /// <summary>The `from` number to be used as the caller id presented to the destination (`to` number). The number should be in +E164 format.</summary>
@@ -318,7 +326,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>HTTP request type used for `webhook_url`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestWebhookUrlMethod? WebhookUrlMethod { get; set; }
-        /// <summary>A map of event types to webhook URLs. When an event of the specified type occurs, the webhook URL associated with that event type will be called instead of the default webhook URL. Events not mapped here will use the default webhook URL.</summary>
+        /// <summary>A map of event types to arrays of webhook URLs. When an event of the specified type occurs, the webhook URLs associated with that event type will be called instead of the default webhook URL. Events not mapped here will use the default webhook URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestWebhookUrlsProperty? WebhookUrls { get; set; }
@@ -382,6 +390,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "deepfake_detection", n => { DeepfakeDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestDeepfakeDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestDeepfakeDetection.CreateFromDiscriminatorValue); } },
                 { "dialogflow_config", n => { DialogflowConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig.CreateFromDiscriminatorValue); } },
+                { "diversion", n => { Diversion = n.GetStringValue(); } },
                 { "enable_dialogflow", n => { EnableDialogflow = n.GetBoolValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "from_display_name", n => { FromDisplayName = n.GetStringValue(); } },
@@ -455,6 +464,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>("custom_headers", CustomHeaders);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestDeepfakeDetection>("deepfake_detection", DeepfakeDetection);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>("dialogflow_config", DialogflowConfig);
+            writer.WriteStringValue("diversion", Diversion);
             writer.WriteBoolValue("enable_dialogflow", EnableDialogflow);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("from_display_name", FromDisplayName);

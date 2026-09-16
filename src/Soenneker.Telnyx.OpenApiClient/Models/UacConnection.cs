@@ -141,7 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.UacOutbound Outbound { get; set; }
 #endif
-        /// <summary>The password to be used as part of the credentials. Must be 8 to 128 characters long.</summary>
+        /// <summary>The password to be used as part of the credentials. Must be 8 to 128 characters long. For primary accounts created on or after September 8, 2026, this password is returned as `********`. The password is returned in full on create, and on update only when that update changed the password. Accounts created before September 8, 2026 are unaffected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Password { get; set; }

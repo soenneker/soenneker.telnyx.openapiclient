@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item
         {
         }
         /// <summary>
-        /// Get details of a specific run
+        /// Returns the full details of a single run, including its current status. Use this to poll an in-flight run or inspect the outcome of a completed one.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update run status and/or result
+        /// Updates a run&apos;s status and/or result and returns the updated run object. Typically used by executing agents to report progress or record the final outcome.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MissionRunResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get details of a specific run
+        /// Returns the full details of a single run, including its current status. Use this to poll an in-flight run or inspect the outcome of a completed one.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.Runs.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update run status and/or result
+        /// Updates a run&apos;s status and/or result and returns the updated run object. Typically used by executing agents to report progress or record the final outcome.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

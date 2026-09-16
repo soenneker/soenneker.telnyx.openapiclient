@@ -8,16 +8,16 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// (BETA) Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.
+    /// Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OutboundVoiceProfileCallingWindow : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>(BETA) The maximum number of calls that can be initiated to a single called party (CLD) within the calling window. A null value means no limit.</summary>
+        /// <summary>The maximum number of calls that can be initiated to a single called party (CLD) within the calling window. A null value means no limit.</summary>
         public int? CallsPerCld { get; set; }
-        /// <summary>(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are no longer allowed to start.</summary>
+        /// <summary>The UTC time of day (in HH:MM format, 24-hour clock) when calls are no longer allowed to start.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EndTime { get; set; }
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string EndTime { get; set; }
 #endif
-        /// <summary>(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are allowed to start.</summary>
+        /// <summary>The UTC time of day (in HH:MM format, 24-hour clock) when calls are allowed to start.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StartTime { get; set; }

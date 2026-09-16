@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues
         {
         }
         /// <summary>
-        /// Lists queue resources.
+        /// Returns a paginated list of queue resources for the account, with support for filtering by creation or update dates.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.QueueResourceIndex"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.QueueResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.QueueResourceIndex.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new queue resource.
+        /// Creates a new queue resource for the account with the provided settings and returns it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.QueueResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists queue resources.
+        /// Returns a paginated list of queue resources for the account, with support for filtering by creation or update dates.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new queue resource.
+        /// Creates a new queue resource for the account with the provided settings and returns it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues
             return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.QueuesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists queue resources.
+        /// Returns a paginated list of queue resources for the account, with support for filtering by creation or update dates.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class QueuesRequestBuilderGetQueryParameters 

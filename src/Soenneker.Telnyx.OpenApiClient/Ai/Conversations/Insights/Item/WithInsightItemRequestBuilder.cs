@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights.Item
         {
         }
         /// <summary>
-        /// Delete insight by ID
+        /// Permanently deletes the specified insight template by its ID.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights.Item
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get insight by ID
+        /// Returns the details of a single insight template by its ID, including its configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateDetailRespData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateDetailRespData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateDetailRespData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an insight template
+        /// Updates the specified insight template and returns the updated template.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateDetailRespData"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateDetailRespData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateDetailRespData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete insight by ID
+        /// Permanently deletes the specified insight template by its ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get insight by ID
+        /// Returns the details of a single insight template by its ID, including its configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an insight template
+        /// Updates the specified insight template and returns the updated template.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

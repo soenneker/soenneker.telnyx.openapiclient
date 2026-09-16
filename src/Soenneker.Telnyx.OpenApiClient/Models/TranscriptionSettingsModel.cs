@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-streaming` is a multilingual streaming model with configurable turn detection.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` is a multilingual streaming model with automatic language detection and configurable endpointing.- `nvidia/parakeet-v3` is a multilingual transcription model with automatic language detection.- `humain/realtime` is a streaming model with native Arabic and Arabic/English code-switching support.- `reson8/turns` is a turn-based streaming model covering 10 European languages with automatic language detection.</summary>
+    /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-streaming` is a multilingual streaming model with configurable turn detection.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` and `soniox/stt-rt-v5` are multilingual streaming models with automatic language detection, configurable endpointing, term biasing (`context`), and `language_hints`.- `nvidia/parakeet-v3` is a multilingual transcription model with automatic language detection.- `humain/realtime` is a streaming model with native Arabic and Arabic/English code-switching support.- `reson8/turns` is a turn-based streaming model covering 10 European languages with automatic language detection.- `cohere/ar-stt` is a non-streaming Arabic and English transcription model.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionSettingsModel
     {
@@ -35,6 +35,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         SonioxSttRtV4,
         #pragma warning restore CS1591
+        [EnumMember(Value = "soniox/stt-rt-v5")]
+        #pragma warning disable CS1591
+        SonioxSttRtV5,
+        #pragma warning restore CS1591
         [EnumMember(Value = "nvidia/parakeet-v3")]
         #pragma warning disable CS1591
         NvidiaParakeetV3,
@@ -46,6 +50,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "reson8/turns")]
         #pragma warning disable CS1591
         Reson8Turns,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cohere/ar-stt")]
+        #pragma warning disable CS1591
+        CohereArStt,
         #pragma warning restore CS1591
         [EnumMember(Value = "distil-whisper/distil-large-v2")]
         #pragma warning disable CS1591

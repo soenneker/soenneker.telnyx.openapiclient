@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways.Item
         {
         }
         /// <summary>
-        /// Delete a Public Internet Gateway.
+        /// Deletes the specified public internet gateway, removing internet egress through it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeletePublicInternetGateway200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeletePublicInternetGateway200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeletePublicInternetGateway200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a Public Internet Gateway.
+        /// Returns the details of a single public internet gateway by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicInternetGateway200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicInternetGateway200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicInternetGateway200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Public Internet Gateway.
+        /// Deletes the specified public internet gateway, removing internet egress through it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Public_internet_gateways.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a Public Internet Gateway.
+        /// Returns the details of a single public internet gateway by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

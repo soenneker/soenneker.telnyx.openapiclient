@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
         {
         }
         /// <summary>
-        /// Delete a specific LOA configuration.
+        /// Permanently deletes the specified LOA configuration so it can no longer be used when generating LOA documents.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a specific LOA configuration.
+        /// Returns the details of a single LOA (Letter of Authorization) configuration by its identifier.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetLoaConfiguration200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetLoaConfiguration200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetLoaConfiguration200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a specific LOA configuration.
+        /// Updates the specified LOA configuration with the provided fields and returns the updated configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateLoaConfiguration200Response"/></returns>
         /// <param name="body">The parameters for creating a new LOA configuration.</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateLoaConfiguration200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateLoaConfiguration200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a specific LOA configuration.
+        /// Permanently deletes the specified LOA configuration so it can no longer be used when generating LOA documents.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a specific LOA configuration.
+        /// Returns the details of a single LOA (Letter of Authorization) configuration by its identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -132,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a specific LOA configuration.
+        /// Updates the specified LOA configuration with the provided fields and returns the updated configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The parameters for creating a new LOA configuration.</param>

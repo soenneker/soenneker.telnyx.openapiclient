@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments
         {
         }
         /// <summary>
-        /// List all Global IP assignments.
+        /// Returns a paginated list of your Global IP assignments, the links between Global IPs and the WireGuard peers that receive their traffic.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpAssignments200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpAssignments200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListGlobalIpAssignments200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a Global IP assignment.
+        /// Assigns a Global IP to a WireGuard peer so traffic destined for the IP is delivered over that peer&apos;s tunnel. Assignment is asynchronous, so the request is accepted and completes in the background.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpAssignment202Response"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpAssignment202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateGlobalIpAssignment202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all Global IP assignments.
+        /// Returns a paginated list of your Global IP assignments, the links between Global IPs and the WireGuard peers that receive their traffic.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments
             return requestInfo;
         }
         /// <summary>
-        /// Create a Global IP assignment.
+        /// Assigns a Global IP to a WireGuard peer so traffic destined for the IP is delivered over that peer&apos;s tunnel. Assignment is asynchronous, so the request is accepted and completes in the background.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -155,7 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments
             return new global::Soenneker.Telnyx.OpenApiClient.Global_ip_assignments.Global_ip_assignmentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all Global IP assignments.
+        /// Returns a paginated list of your Global IP assignments, the links between Global IPs and the WireGuard peers that receive their traffic.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ip_assignmentsRequestBuilderGetQueryParameters 
