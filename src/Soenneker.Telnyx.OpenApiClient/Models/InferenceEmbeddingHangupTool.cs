@@ -9,39 +9,39 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SkipTurnTool : IAdditionalDataHolder, IParsable
+    public partial class InferenceEmbeddingHangupTool : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether this tool comes from the shared Tools Library. Responses merge shared tools into `tools` with `shared: true`; inline tools carry `shared: false`. Read-only: set by the server, not accepted in requests. When updating an assistant, omit `shared: true` tools from the request `tools` array and manage them through `tool_ids` instead — re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).</summary>
-        public bool? Shared { get; private set; }
-        /// <summary>The skip_turn property</summary>
+        /// <summary>The hangup property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams? SkipTurn { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HangupToolParams? Hangup { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams SkipTurn { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HangupToolParams Hangup { get; set; }
 #endif
+        /// <summary>Whether this tool comes from the shared Tools Library. Responses merge shared tools into `tools` with `shared: true`; inline tools carry `shared: false`. Read-only: set by the server, not accepted in requests. When updating an assistant, omit `shared: true` tools from the request `tools` array and manage them through `tool_ids` instead — re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).</summary>
+        public bool? Shared { get; private set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HangupType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingHangupTool"/> and sets the default values.
         /// </summary>
-        public SkipTurnTool()
+        public InferenceEmbeddingHangupTool()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingHangupTool"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingHangupTool CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingHangupTool();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,9 +51,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "hangup", n => { Hangup = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HangupToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.HangupToolParams.CreateFromDiscriminatorValue); } },
                 { "shared", n => { Shared = n.GetBoolValue(); } },
-                { "skip_turn", n => { SkipTurn = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HangupType>(); } },
             };
         }
         /// <summary>
@@ -63,8 +63,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams>("skip_turn", SkipTurn);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HangupToolParams>("hangup", Hangup);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HangupType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Word-level timing detail. Only present when using `deepgram/nova-3` with `model_config` options that enable word timestamps.
+    /// Word-level timing detail. Only present when using a `deepgram/*` model with `model_config` options that enable word timestamps.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AudioTranscriptionResponseWord : IAdditionalDataHolder, IParsable
@@ -19,8 +19,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? Confidence { get; set; }
         /// <summary>End time of the word in seconds.</summary>
         public double? End { get; set; }
+        /// <summary>The transcribed word with punctuation and capitalisation applied. Only present when `punctuate` or `smart_format` is enabled via `model_config`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PunctuatedWord { get; set; }
+#nullable restore
+#else
+        public string PunctuatedWord { get; set; }
+#endif
         /// <summary>Speaker index. Only present when diarization is enabled via `model_config`.</summary>
         public int? Speaker { get; set; }
+        /// <summary>Confidence score for the speaker assignment (0.0 to 1.0). Only present when diarization is enabled via `model_config`.</summary>
+        public double? SpeakerConfidence { get; set; }
         /// <summary>Start time of the word in seconds.</summary>
         public double? Start { get; set; }
         /// <summary>The transcribed word.</summary>
@@ -58,7 +68,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "confidence", n => { Confidence = n.GetDoubleValue(); } },
                 { "end", n => { End = n.GetDoubleValue(); } },
+                { "punctuated_word", n => { PunctuatedWord = n.GetStringValue(); } },
                 { "speaker", n => { Speaker = n.GetIntValue(); } },
+                { "speaker_confidence", n => { SpeakerConfidence = n.GetDoubleValue(); } },
                 { "start", n => { Start = n.GetDoubleValue(); } },
                 { "word", n => { Word = n.GetStringValue(); } },
             };
@@ -72,7 +84,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("confidence", Confidence);
             writer.WriteDoubleValue("end", End);
+            writer.WriteStringValue("punctuated_word", PunctuatedWord);
             writer.WriteIntValue("speaker", Speaker);
+            writer.WriteDoubleValue("speaker_confidence", SpeakerConfidence);
             writer.WriteDoubleValue("start", Start);
             writer.WriteStringValue("word", Word);
             writer.WriteAdditionalData(AdditionalData);

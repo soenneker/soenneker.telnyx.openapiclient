@@ -11514,7 +11514,7 @@
             "schema": {
               "title": "Page[Size]",
               "maximum": 1000,
-              "exclusiveMinimum": false,
+              "exclusiveMinimum": 0,
               "type": "integer",
               "description": "Number of items per page",
               "default": 20
@@ -11661,7 +11661,7 @@
             "schema": {
               "title": "Page[Size]",
               "maximum": 1000,
-              "exclusiveMinimum": false,
+              "exclusiveMinimum": 0,
               "type": "integer",
               "description": "Number of items per page",
               "default": 50
@@ -11749,7 +11749,7 @@
             "schema": {
               "title": "Page[Size]",
               "maximum": 1000,
-              "exclusiveMinimum": false,
+              "exclusiveMinimum": 0,
               "type": "integer",
               "description": "Number of items per page",
               "default": 20
@@ -12561,7 +12561,7 @@
             "schema": {
               "title": "Page[Size]",
               "maximum": 1000,
-              "exclusiveMinimum": false,
+              "exclusiveMinimum": 0,
               "type": "integer",
               "description": "Number of items per page",
               "default": 20
@@ -12966,7 +12966,7 @@
             "schema": {
               "title": "Page[Size]",
               "maximum": 1000,
-              "exclusiveMinimum": false,
+              "exclusiveMinimum": 0,
               "type": "integer",
               "description": "Number of items per page",
               "default": 50
@@ -16191,12 +16191,16 @@
         "operationId": "GetBillingBundleById",
         "parameters": [
           {
-            "description": "Unique identifier of the bundle.",
-            "$ref": "#/components/parameters/BundleId"
-          },
-          {
             "description": "Format: Bearer \u003CTOKEN\u003E",
             "$ref": "#/components/parameters/AuthorizationBearer"
+          },
+          {
+            "name": "bundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -16385,12 +16389,16 @@
         "operationId": "DeactivateUserBundle",
         "parameters": [
           {
-            "description": "Unique identifier of the user bundle.",
-            "$ref": "#/components/parameters/UserBundleId"
-          },
-          {
             "description": "Format: Bearer \u003CTOKEN\u003E",
             "$ref": "#/components/parameters/AuthorizationBearer"
+          },
+          {
+            "name": "userBundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -16431,12 +16439,16 @@
         "operationId": "GetUserBundleById",
         "parameters": [
           {
-            "description": "Unique identifier of the user bundle.",
-            "$ref": "#/components/parameters/UserBundleId"
-          },
-          {
             "description": "Format: Bearer \u003CTOKEN\u003E",
             "$ref": "#/components/parameters/AuthorizationBearer"
+          },
+          {
+            "name": "userBundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -16475,12 +16487,16 @@
         "operationId": "GetUserBundleResources",
         "parameters": [
           {
-            "description": "Unique identifier of the user bundle.",
-            "$ref": "#/components/parameters/UserBundleId"
-          },
-          {
             "description": "Format: Bearer \u003CTOKEN\u003E",
             "$ref": "#/components/parameters/AuthorizationBearer"
+          },
+          {
+            "name": "userBundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -16963,8 +16979,12 @@
         "operationId": "RetrieveCallStatus",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -16999,8 +17019,12 @@
         "operationId": "CallAddMessagesToAiAssistant",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17046,8 +17070,12 @@
         "operationId": "CallJoinAiAssistant",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17093,8 +17121,12 @@
         "operationId": "CallStartAiAssistant",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17140,8 +17172,12 @@
         "operationId": "CallStopAiAssistant",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17187,8 +17223,12 @@
         "operationId": "AnswerCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17234,8 +17274,12 @@
         "operationId": "BridgeCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17281,8 +17325,12 @@
         "operationId": "UpdateClientState",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17328,8 +17376,12 @@
         "operationId": "CallStartConversationRelay",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17375,8 +17427,12 @@
         "operationId": "CallStopConversationRelay",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17422,8 +17478,12 @@
         "operationId": "EnqueueCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17469,8 +17529,12 @@
         "operationId": "StartCallFork",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17516,8 +17580,12 @@
         "operationId": "StopCallFork",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17563,8 +17631,12 @@
         "operationId": "GatherCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17610,8 +17682,12 @@
         "operationId": "StopCallGather",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17657,8 +17733,12 @@
         "operationId": "CallGatherUsingAi",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17704,8 +17784,12 @@
         "operationId": "GatherUsingAudio",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17751,8 +17835,12 @@
         "operationId": "GatherUsingSpeak",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17798,8 +17886,12 @@
         "operationId": "HangupCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17845,8 +17937,12 @@
         "operationId": "LeaveQueue",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17892,8 +17988,12 @@
         "operationId": "PayCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17939,8 +18039,12 @@
         "operationId": "StartCallPlayback",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -17986,8 +18090,12 @@
         "operationId": "StopCallPlayback",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18033,8 +18141,12 @@
         "operationId": "PauseCallRecording",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18080,8 +18192,12 @@
         "operationId": "ResumeCallRecording",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18127,8 +18243,12 @@
         "operationId": "StartCallRecord",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18174,8 +18294,12 @@
         "operationId": "StopCallRecording",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18221,8 +18345,12 @@
         "operationId": "ReferCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18268,8 +18396,12 @@
         "operationId": "RejectCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18315,8 +18447,12 @@
         "operationId": "SendDtmf",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18362,8 +18498,12 @@
         "operationId": "SendSipInfo",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18409,8 +18549,12 @@
         "operationId": "StartSiprecSession",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18456,8 +18600,12 @@
         "operationId": "StopSiprecSession",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18503,8 +18651,12 @@
         "operationId": "SpeakCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18550,8 +18702,12 @@
         "operationId": "StartCallStreaming",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18597,8 +18753,12 @@
         "operationId": "StopCallStreaming",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18644,8 +18804,12 @@
         "operationId": "NoiseSuppressionStart",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18691,8 +18855,12 @@
         "operationId": "NoiseSuppressionStop",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18738,8 +18906,12 @@
         "operationId": "SwitchSupervisorRole",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18785,8 +18957,12 @@
         "operationId": "StartCallTranscription",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18832,8 +19008,12 @@
         "operationId": "StopCallTranscription",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18879,8 +19059,12 @@
         "operationId": "TransferCall",
         "parameters": [
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -18993,13 +19177,19 @@
             "description": "Unexpected error",
             "$ref": "#/components/responses/voice-channels_GenericErrorResponse"
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "channelZoneId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/GcbChannelZoneId"
-        }
-      ]
+      "parameters": []
     },
     "/charges_breakdown": {
       "get": {
@@ -21164,12 +21354,16 @@
         "operationId": "ListConnectionActiveCalls",
         "parameters": [
           {
-            "description": "Telnyx connection id",
-            "$ref": "#/components/parameters/ConnectionId"
-          },
-          {
             "description": "Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]",
             "$ref": "#/components/parameters/call-control_PageConsolidated"
+          },
+          {
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21791,8 +21985,12 @@
         "operationId": "DeleteCustomStorageCredentials",
         "parameters": [
           {
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
-            "$ref": "#/components/parameters/call-recordings_ConnectionId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21822,8 +22020,12 @@
         "operationId": "GetCustomStorageCredentials",
         "parameters": [
           {
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
-            "$ref": "#/components/parameters/call-recordings_ConnectionId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21860,8 +22062,12 @@
         "operationId": "CreateCustomStorageCredentials",
         "parameters": [
           {
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
-            "$ref": "#/components/parameters/call-recordings_ConnectionId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -21902,8 +22108,12 @@
         "operationId": "UpdateCustomStorageCredentials",
         "parameters": [
           {
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
-            "$ref": "#/components/parameters/call-recordings_ConnectionId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -22089,8 +22299,12 @@
         "operationId": "GetCustomerServiceRecord",
         "parameters": [
           {
-            "description": "The ID of the customer service record",
-            "$ref": "#/components/parameters/PathCustomerServiceRecordId"
+            "name": "customerServiceRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22350,8 +22564,12 @@
         "operationId": "DeleteDialogflowConnection",
         "parameters": [
           {
-            "description": "Uniquely identifies a Telnyx application (Call Control).",
-            "$ref": "#/components/parameters/media-streaming_ConnectionId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22377,8 +22595,12 @@
         "operationId": "GetDialogflowConnection",
         "parameters": [
           {
-            "description": "Uniquely identifies a Telnyx application (Call Control).",
-            "$ref": "#/components/parameters/media-streaming_ConnectionId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22411,8 +22633,12 @@
         "operationId": "CreateDialogflowConnection",
         "parameters": [
           {
-            "description": "Uniquely identifies a Telnyx application (Call Control).",
-            "$ref": "#/components/parameters/media-streaming_ConnectionId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -22449,8 +22675,12 @@
         "operationId": "UpdateDialogflowConnection",
         "parameters": [
           {
-            "description": "Uniquely identifies a Telnyx application (Call Control).",
-            "$ref": "#/components/parameters/media-streaming_ConnectionId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -22640,8 +22870,12 @@
         "operationId": "DeleteDirSimple",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22667,8 +22901,12 @@
         "operationId": "GetDirByIdSimple",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22701,8 +22939,12 @@
         "operationId": "UpdateDirSimple",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -22756,10 +22998,6 @@
         "operationId": "ListCommentsSimple",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
-          },
-          {
             "description": "1-based page number. Out-of-range values return an empty page with correct meta.",
             "$ref": "#/components/parameters/BcPageNumber"
           },
@@ -22773,6 +23011,14 @@
             "description": "Restrict to comments of this category. Customer-visible categories only: internal-only comments are filtered out regardless of this filter.",
             "schema": {
               "$ref": "#/components/schemas/CommentType"
+            }
+          },
+          {
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -22806,8 +23052,12 @@
         "operationId": "CreateCommentSimple",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -22855,16 +23105,20 @@
         "operationId": "ListInfringementClaimsForDir",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
-          },
-          {
             "description": "1-based page number. Out-of-range values return an empty page with correct meta.",
             "$ref": "#/components/parameters/BcPageNumber"
           },
           {
             "description": "Items per page. Maximum 250; values above are clamped to 250.",
             "$ref": "#/components/parameters/BcPageSize"
+          },
+          {
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22899,8 +23153,12 @@
         "operationId": "UpdateDirInfringement",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -23016,10 +23274,6 @@
         "operationId": "ListDirPhoneNumberBatchesSimplified",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
-          },
-          {
             "description": "1-based page number. Out-of-range values return an empty page with correct meta.",
             "$ref": "#/components/parameters/BcPageNumber"
           },
@@ -23033,6 +23287,14 @@
             "description": "Restrict to batches whose aggregate status equals this value.",
             "schema": {
               "$ref": "#/components/schemas/PhoneNumberStatus"
+            }
+          },
+          {
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -23068,10 +23330,6 @@
         "operationId": "GetDirPhoneNumberBatchSimplified",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
-          },
-          {
             "name": "batchId",
             "in": "path",
             "description": "The batch id (lowercase UUID).",
@@ -23080,6 +23338,14 @@
               "type": "string",
               "format": "uuid",
               "example": "0a4b1f5e-2f12-4c0c-9a98-9b3a7d8b8e62"
+            }
+          },
+          {
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -23115,8 +23381,12 @@
         "operationId": "DeleteDirPhoneNumbersSimplified",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -23164,10 +23434,6 @@
         "operationId": "ListDirPhoneNumbersSimplified",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
-          },
-          {
             "description": "1-based page number. Out-of-range values return an empty page with correct meta.",
             "$ref": "#/components/parameters/BcPageNumber"
           },
@@ -23181,6 +23447,14 @@
             "description": "Filter by phone-number status.",
             "schema": {
               "$ref": "#/components/schemas/PhoneNumberStatus"
+            }
+          },
+          {
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -23214,8 +23488,12 @@
         "operationId": "AddDirPhoneNumbersSimplified",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -23273,8 +23551,12 @@
         "operationId": "ListDirReferences",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -23303,8 +23585,12 @@
         "operationId": "SubmitDirReferences",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -23363,10 +23649,6 @@
         "operationId": "UpdateDirReference",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
-          },
-          {
             "name": "refType",
             "in": "path",
             "description": "Reference type to address.",
@@ -23385,6 +23667,14 @@
               "minimum": 1,
               "type": "integer",
               "example": 1
+            }
+          },
+          {
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -23430,8 +23720,12 @@
         "operationId": "SubmitDirSimple",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -23466,8 +23760,12 @@
         "operationId": "GetDirEmailVerificationStatus",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -23496,8 +23794,12 @@
         "operationId": "RequestDirEmailVerification",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -23540,8 +23842,12 @@
         "operationId": "ConfirmDirEmailVerification",
         "parameters": [
           {
-            "description": "The DIR id. Lowercase UUID.",
-            "$ref": "#/components/parameters/DirId"
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -25205,8 +25511,12 @@
         "operationId": "ListEmailDomainDnsRecords",
         "parameters": [
           {
-            "description": "Email domain UUID",
-            "$ref": "#/components/parameters/EmailDomainDomainId"
+            "name": "domainId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25241,8 +25551,12 @@
         "operationId": "VerifyEmailDomainDnsRecords",
         "parameters": [
           {
-            "description": "Email domain UUID",
-            "$ref": "#/components/parameters/EmailDomainDomainId"
+            "name": "domainId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25291,10 +25605,6 @@
         "operationId": "ListEmailDomainWebhooks",
         "parameters": [
           {
-            "description": "Email domain UUID",
-            "$ref": "#/components/parameters/EmailDomainDomainId"
-          },
-          {
             "description": "Page number to return (offset pagination)",
             "$ref": "#/components/parameters/email_PageNumber"
           },
@@ -25308,6 +25618,14 @@
             "description": "Field to sort by. Prefix with \u0060-\u0060 for descending order.",
             "schema": {
               "$ref": "#/components/schemas/ListEmailDomainWebhooksSortParameter"
+            }
+          },
+          {
+            "name": "domainId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -25341,8 +25659,12 @@
         "operationId": "CreateEmailDomainWebhook",
         "parameters": [
           {
-            "description": "Email domain UUID",
-            "$ref": "#/components/parameters/EmailDomainDomainId"
+            "name": "domainId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -25399,12 +25721,16 @@
         "operationId": "DeleteEmailDomainWebhook",
         "parameters": [
           {
-            "description": "Email domain UUID",
-            "$ref": "#/components/parameters/EmailDomainDomainId"
-          },
-          {
             "description": "Email webhook UUID",
             "$ref": "#/components/parameters/WebhookId"
+          },
+          {
+            "name": "domainId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25437,12 +25763,16 @@
         "operationId": "GetEmailDomainWebhook",
         "parameters": [
           {
-            "description": "Email domain UUID",
-            "$ref": "#/components/parameters/EmailDomainDomainId"
-          },
-          {
             "description": "Email webhook UUID",
             "$ref": "#/components/parameters/WebhookId"
+          },
+          {
+            "name": "domainId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -25475,12 +25805,16 @@
         "operationId": "UpdateEmailDomainWebhook",
         "parameters": [
           {
-            "description": "Email domain UUID",
-            "$ref": "#/components/parameters/EmailDomainDomainId"
-          },
-          {
             "description": "Email webhook UUID",
             "$ref": "#/components/parameters/WebhookId"
+          },
+          {
+            "name": "domainId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -26484,12 +26818,20 @@
         "operationId": "DeleteEmailDraft",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/DraftInboxId"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Email draft UUID.",
-            "$ref": "#/components/parameters/DraftId"
+            "name": "draftId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -26538,12 +26880,20 @@
         "operationId": "GetEmailDraft",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/DraftInboxId"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Email draft UUID.",
-            "$ref": "#/components/parameters/DraftId"
+            "name": "draftId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -26625,12 +26975,20 @@
         "operationId": "PatchEmailDraft",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/DraftInboxId"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Email draft UUID.",
-            "$ref": "#/components/parameters/DraftId"
+            "name": "draftId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -26730,12 +27088,20 @@
         "operationId": "UpdateEmailDraft",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/DraftInboxId"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Email draft UUID.",
-            "$ref": "#/components/parameters/DraftId"
+            "name": "draftId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -26837,12 +27203,20 @@
         "operationId": "SendEmailDraft",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/DraftInboxId"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Email draft UUID.",
-            "$ref": "#/components/parameters/DraftId"
+            "name": "draftId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -26977,7 +27351,17 @@
             "description": "Service unavailable (10016), including an unavailable upstream dependency or unavailable Edge idempotency protection for a keyed request.",
             "$ref": "#/components/responses/email_ServiceUnavailableResponse"
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "get": {
         "tags": [
@@ -27003,7 +27387,17 @@
             "description": "Service unavailable (10016), including an unavailable upstream dependency or unavailable Edge idempotency protection for a keyed request.",
             "$ref": "#/components/responses/email_ServiceUnavailableResponse"
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -27049,7 +27443,17 @@
             "description": "Service unavailable (10016), including an unavailable upstream dependency or unavailable Edge idempotency protection for a keyed request.",
             "$ref": "#/components/responses/email_ServiceUnavailableResponse"
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -27098,13 +27502,19 @@
             "description": "Service unavailable (10016), including an unavailable upstream dependency or unavailable Edge idempotency protection for a keyed request.",
             "$ref": "#/components/responses/email_ServiceUnavailableResponse"
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/InboxIdPathParam"
-        }
-      ]
+      "parameters": []
     },
     "/email_inboxes/{inboxId}/messages": {
       "get": {
@@ -27518,7 +27928,7 @@
                   "type": "string",
                   "additionalProperties": false,
                   "x-ms-enum": {
-                    "name": "GeneratedEnum",
+                    "name": "XTelnyxReputationWarning",
                     "modelAsString": false,
                     "values": [
                       {
@@ -27767,7 +28177,7 @@
                   "type": "string",
                   "additionalProperties": false,
                   "x-ms-enum": {
-                    "name": "GeneratedEnum",
+                    "name": "XTelnyxReputationWarning",
                     "modelAsString": false,
                     "values": [
                       {
@@ -27985,7 +28395,7 @@
                   "type": "string",
                   "additionalProperties": false,
                   "x-ms-enum": {
-                    "name": "GeneratedEnum",
+                    "name": "XTelnyxReputationWarning",
                     "modelAsString": false,
                     "values": [
                       {
@@ -28159,10 +28569,6 @@
         "operationId": "CreateEmailReplyDraft",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/DraftInboxId"
-          },
-          {
             "name": "messageId",
             "in": "path",
             "description": "Inbound message UUID to reply to.",
@@ -28170,6 +28576,14 @@
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -28270,12 +28684,20 @@
         "operationId": "RemoveEmailInboxMessageLabels",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/InboxIdPathParam"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Inbound message UUID.",
-            "$ref": "#/components/parameters/MessageIdPathParam"
+            "name": "messageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -28325,12 +28747,20 @@
         "operationId": "AddEmailInboxMessageLabels",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/InboxIdPathParam"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Inbound message UUID.",
-            "$ref": "#/components/parameters/MessageIdPathParam"
+            "name": "messageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -28657,12 +29087,20 @@
         "operationId": "RemoveEmailInboxThreadLabels",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/InboxIdPathParam"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Thread UUID.",
-            "$ref": "#/components/parameters/ThreadIdPathParam"
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -28712,12 +29150,20 @@
         "operationId": "AddEmailInboxThreadLabels",
         "parameters": [
           {
-            "description": "Email inbox UUID.",
-            "$ref": "#/components/parameters/InboxIdPathParam"
+            "name": "inboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Thread UUID.",
-            "$ref": "#/components/parameters/ThreadIdPathParam"
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -28914,7 +29360,7 @@
                   "type": "string",
                   "additionalProperties": false,
                   "x-ms-enum": {
-                    "name": "GeneratedEnum",
+                    "name": "XTelnyxReputationWarning",
                     "modelAsString": false,
                     "values": [
                       {
@@ -31096,8 +31542,12 @@
         "operationId": "DeleteEnterprise",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -31127,8 +31577,12 @@
         "operationId": "GetEnterprise",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -31161,8 +31615,12 @@
         "operationId": "UpdateEnterprise",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -31249,8 +31707,12 @@
         "operationId": "ActivateBrandedCalling",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -31284,10 +31746,6 @@
         "description": "Return the DIRs (Display Identity Records) belonging to a single enterprise. Pagination is JSON:API style (\u0060page[number]\u0060, \u0060page[size]\u0060, max 250). Supports \u0060filter[]\u0060 query params: \u0060filter[status]\u0060, \u0060filter[display_name][contains]\u0060, \u0060filter[call_reason][contains]\u0060, plus the renewal-window filters \u0060filter[expiring_at][gte]\u0060 / \u0060filter[expiring_at][lte]\u0060 and the convenience \u0060filter[expiring_within_days]\u0060 (mutually exclusive with the explicit gte/lte form). Sortable by \u0060created_at\u0060, \u0060updated_at\u0060, \u0060display_name\u0060, \u0060status\u0060, \u0060submitted_at\u0060, \u0060verified_at\u0060, \u0060expiring_at\u0060 (prefix \u0060-\u0060 for descending; default \u0060-created_at\u0060).",
         "operationId": "ListDirsForEnterprise",
         "parameters": [
-          {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
-          },
           {
             "description": "1-based page number. Out-of-range values return an empty page with correct meta.",
             "$ref": "#/components/parameters/BcPageNumber"
@@ -31355,6 +31813,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -31387,8 +31853,12 @@
         "operationId": "CreateDir",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -31477,8 +31947,12 @@
         "operationId": "DisableReputationSettings",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -31508,8 +31982,12 @@
         "operationId": "GetReputationSettings",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -31542,8 +32020,12 @@
         "operationId": "EnableReputationSettings",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -31596,8 +32078,12 @@
         "operationId": "UpdateReputationFrequency",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -31649,8 +32135,12 @@
         "operationId": "ReplaceReputationLoa",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -31700,8 +32190,12 @@
         "operationId": "GenerateReputationLoa",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -31753,10 +32247,6 @@
         "operationId": "ListReputationNumbers",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
-          },
-          {
             "description": "1-based page number. Out-of-range values return an empty page with correct meta.",
             "$ref": "#/components/parameters/BcPageNumber"
           },
@@ -31788,6 +32278,14 @@
             "schema": {
               "type": "string",
               "example": "\u002B16035551234"
+            }
+          },
+          {
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -31821,8 +32319,12 @@
         "operationId": "AssociateReputationNumbers",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -31877,8 +32379,12 @@
         "operationId": "RefreshReputationNumbers",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -31928,12 +32434,20 @@
         "operationId": "DisassociateReputationNumber",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Phone number in E.164 format (\u0060\u002B1NPANXXXXXX\u0060 for US/CA). The leading \u0060\u002B\u0060 MUST be URL-encoded as \u0060%2B\u0060 (e.g. \u0060%2B19493253498\u0060).",
-            "$ref": "#/components/parameters/PhoneNumberPath"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -31959,20 +32473,28 @@
         "operationId": "GetPhoneNumberReputation",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
-          },
-          {
-            "description": "Phone number in E.164 format (\u0060\u002B1NPANXXXXXX\u0060 for US/CA). The leading \u0060\u002B\u0060 MUST be URL-encoded as \u0060%2B\u0060 (e.g. \u0060%2B19493253498\u0060).",
-            "$ref": "#/components/parameters/PhoneNumberPath"
-          },
-          {
             "name": "fresh",
             "in": "query",
             "description": "When true, fetches fresh reputation data (incurs API cost). When false (default), returns cached data.",
             "schema": {
               "type": "boolean",
               "default": false
+            }
+          },
+          {
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -32012,10 +32534,6 @@
         "operationId": "ListReputationRemediations",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
-          },
-          {
             "description": "1-based page number. Out-of-range values return an empty page with correct meta.",
             "$ref": "#/components/parameters/BcPageNumber"
           },
@@ -32050,6 +32568,14 @@
               "format": "date-time",
               "example": "2026-12-31T23:59:59Z"
             }
+          },
+          {
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -32082,8 +32608,12 @@
         "operationId": "SubmitReputationRemediation",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -32149,10 +32679,6 @@
         "operationId": "GetReputationRemediation",
         "parameters": [
           {
-            "description": "The enterprise id. Lowercase UUID.",
-            "$ref": "#/components/parameters/EnterpriseId"
-          },
-          {
             "name": "remediationId",
             "in": "path",
             "description": "The remediation request id. Lowercase UUID.",
@@ -32161,6 +32687,14 @@
               "type": "string",
               "format": "uuid",
               "example": "b7c1f1c0-7a9d-4f0a-9d3e-2f6a1c4b8e21"
+            }
+          },
+          {
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -32561,8 +33095,12 @@
             "$ref": "#/components/parameters/external-voice-integrations_id"
           },
           {
-            "description": "Identifies a civic address or a location.",
-            "$ref": "#/components/parameters/address_id"
+            "name": "addressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -32762,8 +33300,12 @@
             "$ref": "#/components/parameters/external-voice-integrations_id"
           },
           {
-            "description": "A phone number\u0027s ID via the Telnyx API",
-            "$ref": "#/components/parameters/phone_number_id"
+            "name": "phoneNumberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -32798,8 +33340,12 @@
             "$ref": "#/components/parameters/external-voice-integrations_id"
           },
           {
-            "description": "A phone number\u0027s ID via the Telnyx API",
-            "$ref": "#/components/parameters/phone_number_id"
+            "name": "phoneNumberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -32898,8 +33444,12 @@
             "$ref": "#/components/parameters/external-voice-integrations_id"
           },
           {
-            "description": "Identifies a Release request",
-            "$ref": "#/components/parameters/release_id"
+            "name": "releaseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -33117,8 +33667,12 @@
             "$ref": "#/components/parameters/external-voice-integrations_id"
           },
           {
-            "description": "Identifies an Upload request",
-            "$ref": "#/components/parameters/ticket_id"
+            "name": "ticketId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -33155,8 +33709,12 @@
             "$ref": "#/components/parameters/external-voice-integrations_id"
           },
           {
-            "description": "Identifies an Upload request",
-            "$ref": "#/components/parameters/ticket_id"
+            "name": "ticketId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -34044,8 +34602,12 @@
         "operationId": "RetrieveFqdnAuthentication",
         "parameters": [
           {
-            "description": "The ID of the FQDN connection.",
-            "$ref": "#/components/parameters/FqdnConnectionId"
+            "name": "fqdnConnectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -34082,8 +34644,12 @@
         "operationId": "UpdateFqdnAuthentication",
         "parameters": [
           {
-            "description": "The ID of the FQDN connection.",
-            "$ref": "#/components/parameters/FqdnConnectionId"
+            "name": "fqdnConnectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -37779,7 +38345,7 @@
         "requestBody": {
           "description": "MDR detail request data",
           "content": {
-            "application/json": {
+            "*/*": {
               "schema": {
                 "$ref": "#/components/schemas/MdrUsageRequestLegacy"
               }
@@ -37966,7 +38532,7 @@
         "requestBody": {
           "description": "Telco data usage request data",
           "content": {
-            "application/json": {
+            "*/*": {
               "schema": {
                 "$ref": "#/components/schemas/TelcoDataUsageRequest"
               }
@@ -38222,7 +38788,7 @@
         "requestBody": {
           "description": "Cdr detail request data",
           "content": {
-            "application/json": {
+            "*/*": {
               "schema": {
                 "$ref": "#/components/schemas/UsageRequestLegacy"
               }
@@ -38780,7 +39346,7 @@
         "requestBody": {
           "description": "MDR detail request data",
           "content": {
-            "application/json": {
+            "*/*": {
               "schema": {
                 "$ref": "#/components/schemas/MdrUsageRequestLegacy"
               }
@@ -38967,7 +39533,7 @@
         "requestBody": {
           "description": "Telco data usage request data",
           "content": {
-            "application/json": {
+            "*/*": {
               "schema": {
                 "$ref": "#/components/schemas/TelcoDataUsageRequest"
               }
@@ -39223,7 +39789,7 @@
         "requestBody": {
           "description": "Cdr detail request data",
           "content": {
-            "application/json": {
+            "*/*": {
               "schema": {
                 "$ref": "#/components/schemas/UsageRequestLegacy"
               }
@@ -39388,8 +39954,12 @@
         "operationId": "GetNumbersChannelZones",
         "parameters": [
           {
-            "description": "Channel zone identifier",
-            "$ref": "#/components/parameters/GcbChannelNumberZoneId"
+            "name": "channelZoneId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -39884,8 +40454,12 @@
         "operationId": "DeleteMediaStorage",
         "parameters": [
           {
-            "description": "Uniquely identifies a media resource.",
-            "$ref": "#/components/parameters/MediaName"
+            "name": "mediaName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -39915,8 +40489,12 @@
         "operationId": "GetMediaStorage",
         "parameters": [
           {
-            "description": "Uniquely identifies a media resource.",
-            "$ref": "#/components/parameters/MediaName"
+            "name": "mediaName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -39953,8 +40531,12 @@
         "operationId": "UpdateMediaStorage",
         "parameters": [
           {
-            "description": "Uniquely identifies a media resource.",
-            "$ref": "#/components/parameters/MediaName"
+            "name": "mediaName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -40013,8 +40595,12 @@
         "operationId": "DownloadMedia",
         "parameters": [
           {
-            "description": "Uniquely identifies a media resource.",
-            "$ref": "#/components/parameters/MediaName"
+            "name": "mediaName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -40878,8 +41464,12 @@
             "$ref": "#/components/parameters/MeetingSessionId"
           },
           {
-            "description": "Unique identifier for a meeting session artifact.",
-            "$ref": "#/components/parameters/ArtifactId"
+            "name": "artifactId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -46168,12 +46758,16 @@
         "operationId": "LookupNumber",
         "parameters": [
           {
-            "description": "The phone number to be looked up",
-            "$ref": "#/components/parameters/PhoneNumber"
-          },
-          {
             "description": "Specifies the type of number lookup to be performed",
             "$ref": "#/components/parameters/NumberLookupType"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -56039,8 +56633,12 @@
             }
           },
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -56071,8 +56669,12 @@
             }
           },
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -56110,8 +56712,12 @@
             }
           },
           {
-            "description": "Unique identifier and token for controlling the call",
-            "$ref": "#/components/parameters/CallControlId"
+            "name": "callControlId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -56577,8 +57183,12 @@
             "$ref": "#/components/parameters/AgentId"
           },
           {
-            "description": "The Telnyx-assigned test device identifier.",
-            "$ref": "#/components/parameters/TestDeviceId"
+            "name": "testDeviceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -56888,8 +57498,12 @@
         "operationId": "DeleteRecordingTranscription",
         "parameters": [
           {
-            "description": "Uniquely identifies the recording transcription by id.",
-            "$ref": "#/components/parameters/RecordingTranscriptionId"
+            "name": "recordingTranscriptionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -56926,8 +57540,12 @@
         "operationId": "GetRecordingTranscription",
         "parameters": [
           {
-            "description": "Uniquely identifies the recording transcription by id.",
-            "$ref": "#/components/parameters/RecordingTranscriptionId"
+            "name": "recordingTranscriptionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -57159,8 +57777,12 @@
         "operationId": "DeleteRecording",
         "parameters": [
           {
-            "description": "Uniquely identifies the recording by id.",
-            "$ref": "#/components/parameters/RecordingId"
+            "name": "recordingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -57197,8 +57819,12 @@
         "operationId": "GetRecording",
         "parameters": [
           {
-            "description": "Uniquely identifies the recording by id.",
-            "$ref": "#/components/parameters/RecordingId"
+            "name": "recordingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -57518,7 +58144,7 @@
         "requestBody": {
           "description": "Mdr usage report data",
           "content": {
-            "application/json": {
+            "*/*": {
               "schema": {
                 "$ref": "#/components/schemas/MdrPostUsageReportRequest"
               }
@@ -58075,8 +58701,12 @@
         "operationId": "DisassociateReputationNumberSimplified",
         "parameters": [
           {
-            "description": "Phone number in E.164 format (\u0060\u002B1NPANXXXXXX\u0060 for US/CA). The leading \u0060\u002B\u0060 MUST be URL-encoded as \u0060%2B\u0060 (e.g. \u0060%2B19493253498\u0060).",
-            "$ref": "#/components/parameters/PhoneNumberPath"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -58102,16 +58732,20 @@
         "operationId": "GetPhoneNumberReputationSimplified",
         "parameters": [
           {
-            "description": "Phone number in E.164 format (\u0060\u002B1NPANXXXXXX\u0060 for US/CA). The leading \u0060\u002B\u0060 MUST be URL-encoded as \u0060%2B\u0060 (e.g. \u0060%2B19493253498\u0060).",
-            "$ref": "#/components/parameters/PhoneNumberPath"
-          },
-          {
             "name": "fresh",
             "in": "query",
             "description": "When true, fetches fresh reputation data (incurs API cost). When false (default), returns cached data.",
             "schema": {
               "type": "boolean",
               "default": false
+            }
+          },
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -62909,8 +63543,12 @@
         "operationId": "DeleteSiprecConnector",
         "parameters": [
           {
-            "description": "Uniquely identifies a SIPREC connector.",
-            "$ref": "#/components/parameters/SiprecConnectorName"
+            "name": "connectorName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -62936,8 +63574,12 @@
         "operationId": "GetSiprecConnector",
         "parameters": [
           {
-            "description": "Uniquely identifies a SIPREC connector.",
-            "$ref": "#/components/parameters/SiprecConnectorName"
+            "name": "connectorName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -62970,8 +63612,12 @@
         "operationId": "UpdateSiprecConnector",
         "parameters": [
           {
-            "description": "Uniquely identifies a SIPREC connector.",
-            "$ref": "#/components/parameters/SiprecConnectorName"
+            "name": "connectorName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -66756,10 +67402,6 @@
         "operationId": "GetTexmlCalls",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
-          },
-          {
             "description": "The number of the page to be displayed, zero-indexed, should be used in conjuction with PageToken.",
             "$ref": "#/components/parameters/Page"
           },
@@ -66806,6 +67448,14 @@
           {
             "description": "Filters calls by their end date (before). Expected format is YYYY-MM-DD",
             "$ref": "#/components/parameters/EndTime_lt"
+          },
+          {
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -66834,8 +67484,12 @@
         "operationId": "InitiateTexmlCall",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -66877,12 +67531,20 @@
         "operationId": "GetTexmlCall",
         "parameters": [
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -66911,12 +67573,20 @@
         "operationId": "UpdateTexmlCall",
         "parameters": [
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -66962,12 +67632,20 @@
         "operationId": "FetchTeXmlCallRecordings",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -66996,12 +67674,20 @@
         "operationId": "StartTeXmlCallRecording",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67036,16 +67722,28 @@
         "operationId": "UpdateTeXmlCallRecording",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Uniquely identifies the recording by id.",
-            "$ref": "#/components/parameters/RecordingSid"
+            "name": "recordingSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67080,12 +67778,20 @@
         "operationId": "StartTeXmlSiprecSession",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67120,16 +67826,28 @@
         "operationId": "UpdateTeXmlSiprecSession",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The SiprecSid that uniquely identifies the Sip Recording.",
-            "$ref": "#/components/parameters/SiprecSid"
+            "name": "siprecSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67164,12 +67882,20 @@
         "operationId": "StartTeXmlCallStreaming",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67204,16 +67930,28 @@
         "operationId": "UpdateTeXmlCallStreaming",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The CallSid that identifies the call to update.",
-            "$ref": "#/components/parameters/CallSid"
+            "name": "callSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Uniquely identifies the streaming by id.",
-            "$ref": "#/components/parameters/StreamingSid"
+            "name": "streamingSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67248,10 +67986,6 @@
         "operationId": "GetTexmlConferences",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
-          },
-          {
             "description": "The number of the page to be displayed, zero-indexed, should be used in conjuction with PageToken.",
             "$ref": "#/components/parameters/Page"
           },
@@ -67278,6 +68012,14 @@
           {
             "description": "Filters conferences by the time they were last updated. Expected format is YYYY-MM-DD. Also accepts inequality operators, e.g. DateUpdated\u003E=2023-05-22.",
             "$ref": "#/components/parameters/DateUpdated"
+          },
+          {
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67308,12 +68050,20 @@
         "operationId": "GetTexmlConference",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67342,12 +68092,20 @@
         "operationId": "UpdateTexmlConference",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67389,12 +68147,20 @@
         "operationId": "GetTexmlConferenceParticipants",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67423,12 +68189,20 @@
         "operationId": "DialTexmlConferenceParticipant",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67470,16 +68244,28 @@
         "operationId": "DeleteTexmlConferenceParticipant",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "CallSid or Label of the Participant to update.",
-            "$ref": "#/components/parameters/CallSidOrParticipantLabel"
+            "name": "callSidOrParticipantLabel",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67501,16 +68287,28 @@
         "operationId": "GetTexmlConferenceParticipant",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "CallSid or Label of the Participant to update.",
-            "$ref": "#/components/parameters/CallSidOrParticipantLabel"
+            "name": "callSidOrParticipantLabel",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67539,16 +68337,28 @@
         "operationId": "UpdateTexmlConferenceParticipant",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "CallSid or Label of the Participant to update.",
-            "$ref": "#/components/parameters/CallSidOrParticipantLabel"
+            "name": "callSidOrParticipantLabel",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67590,12 +68400,20 @@
         "operationId": "GetTexmlConferenceRecordings",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67626,12 +68444,20 @@
         "operationId": "FetchTeXmlConferenceRecordings",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The ConferenceSid that uniquely identifies a conference.",
-            "$ref": "#/components/parameters/ConferenceSid"
+            "name": "conferenceSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67662,10 +68488,6 @@
         "operationId": "GetTexmlQueues",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
-          },
-          {
             "description": "The number of the page to be displayed, zero-indexed, should be used in conjuction with PageToken.",
             "$ref": "#/components/parameters/Page"
           },
@@ -67684,6 +68506,14 @@
           {
             "description": "Filters conferences by the time they were last updated. Expected format is YYYY-MM-DD. Also accepts inequality operators, e.g. DateUpdated\u003E=2023-05-22.",
             "$ref": "#/components/parameters/DateUpdated"
+          },
+          {
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67712,8 +68542,12 @@
         "operationId": "CreateTexmlQueue",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67755,12 +68589,20 @@
         "operationId": "DeleteTexmlQueue",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The QueueSid that identifies the call queue.",
-            "$ref": "#/components/parameters/QueueSid"
+            "name": "queueSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67782,12 +68624,20 @@
         "operationId": "GetTexmlQueue",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The QueueSid that identifies the call queue.",
-            "$ref": "#/components/parameters/QueueSid"
+            "name": "queueSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67816,12 +68666,20 @@
         "operationId": "UpdateTexmlQueue",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "The QueueSid that identifies the call queue.",
-            "$ref": "#/components/parameters/QueueSid"
+            "name": "queueSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -67863,10 +68721,6 @@
         "operationId": "GetTeXmlCallRecordings",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
-          },
-          {
             "description": "The number of the page to be displayed, zero-indexed, should be used in conjuction with PageToken.",
             "$ref": "#/components/parameters/Page"
           },
@@ -67877,6 +68731,14 @@
           {
             "description": "Filters recording by the creation date. Expected format is ISO8601 date or date-time, ie. {YYYY}-{MM}-{DD} or {YYYY}-{MM}-{DD}T{hh}:{mm}:{ss}Z. Also accepts inequality operators, e.g. DateCreated\u003E=2023-05-22.",
             "$ref": "#/components/parameters/TexmlDateCreated"
+          },
+          {
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67907,12 +68769,20 @@
         "operationId": "DeleteTeXmlCallRecording",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Uniquely identifies the recording by id.",
-            "$ref": "#/components/parameters/RecordingSid"
+            "name": "recordingSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67934,12 +68804,20 @@
         "operationId": "GetTeXmlCallRecording",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Uniquely identifies the recording by id.",
-            "$ref": "#/components/parameters/RecordingSid"
+            "name": "recordingSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -67970,16 +68848,20 @@
         "operationId": "GetTeXmlRecordingTranscriptions",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
-          },
-          {
             "description": "Used to request the next page of results.",
             "$ref": "#/components/parameters/PageToken"
           },
           {
             "description": "The number of records to be displayed on a page",
             "$ref": "#/components/parameters/PageSize"
+          },
+          {
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -68010,12 +68892,20 @@
         "operationId": "DeleteTeXmlRecordingTranscription",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Uniquely identifies the recording transcription by id.",
-            "$ref": "#/components/parameters/RecordingTranscriptionSid"
+            "name": "recordingTranscriptionSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -68037,12 +68927,20 @@
         "operationId": "GetTeXmlRecordingTranscription",
         "parameters": [
           {
-            "description": "The id of the account the resource belongs to.",
-            "$ref": "#/components/parameters/AccountSid"
+            "name": "accountSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "description": "Uniquely identifies the recording transcription by id.",
-            "$ref": "#/components/parameters/RecordingTranscriptionSid"
+            "name": "recordingTranscriptionSid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -71528,8 +72426,12 @@
         "operationId": "DeleteWhatsappPhoneNumber",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -71551,8 +72453,12 @@
         "operationId": "GetWhatsappPhoneNumber",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -71577,8 +72483,12 @@
         "operationId": "GetWhatsappCallingSettings",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -71601,8 +72511,12 @@
         "operationId": "PatchWhatsappCallingSettings",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -71640,10 +72554,6 @@
         "operationId": "GetWhatsappConversationWindow",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
-          },
-          {
             "name": "destination_number",
             "in": "query",
             "description": "Destination phone number in E.164 format",
@@ -71651,6 +72561,14 @@
             "schema": {
               "type": "string",
               "example": "\u002B353894650851"
+            }
+          },
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -71676,8 +72594,12 @@
         "operationId": "GetWhatsappConversationalComponents",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -71700,8 +72622,12 @@
         "operationId": "PatchWhatsappConversationalComponents",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -71747,8 +72673,12 @@
         "operationId": "GetWhatsappProfile",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -71771,8 +72701,12 @@
         "operationId": "PatchWhatsappProfile",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -71817,8 +72751,12 @@
         "operationId": "DeleteWhatsappProfilePhoto",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -71840,8 +72778,12 @@
         "operationId": "GetWhatsappProfilePhoto",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -71870,8 +72812,12 @@
         "operationId": "PostWhatsappProfilePhoto",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -71909,8 +72855,12 @@
         "operationId": "ResendWhatsappVerification",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -71947,8 +72897,12 @@
         "operationId": "VerifyWhatsappPhoneNumber",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -73634,7 +74588,7 @@
           "Voice Clones"
         ],
         "summary": "Create a voice clone from an audio file upload",
-        "description": "Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5\u201310 seconds of clear speech. Maximum file size: 5MB for Telnyx, 20MB for Minimax.",
+        "description": "Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5\u201360 seconds of clear speech (Ultra accepts up to 60 seconds; Qwen3TTS auto-trims to 10 seconds; Minimax accepts up to 5 minutes). Maximum file size: 5MB for Telnyx, 20MB for Minimax.",
         "operationId": "CreateVoiceCloneFromUpload",
         "requestBody": {
           "content": {
@@ -74485,8 +75439,12 @@
         "operationId": "GetVoiceSdkCallReport",
         "parameters": [
           {
-            "description": "Call identifier used to retrieve reports owned by the authenticated user.",
-            "$ref": "#/components/parameters/CallId"
+            "name": "callId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -75514,8 +76472,12 @@
         "operationId": "DeleteWhatsappPhoneNumber2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -75537,8 +76499,12 @@
         "operationId": "GetWhatsappPhoneNumber2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -75563,8 +76529,12 @@
         "operationId": "GetWhatsappCallingSettings2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -75587,8 +76557,12 @@
         "operationId": "PatchWhatsappCallingSettings2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -75626,10 +76600,6 @@
         "operationId": "GetWhatsappConversationWindow2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
-          },
-          {
             "name": "destination_number",
             "in": "query",
             "description": "Destination phone number in E.164 format",
@@ -75637,6 +76607,14 @@
             "schema": {
               "type": "string",
               "example": "\u002B353894650851"
+            }
+          },
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -75662,8 +76640,12 @@
         "operationId": "GetWhatsappConversationalComponents2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -75686,8 +76668,12 @@
         "operationId": "PatchWhatsappConversationalComponents2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -75733,8 +76719,12 @@
         "operationId": "GetWhatsappProfile2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -75757,8 +76747,12 @@
         "operationId": "PatchWhatsappProfile2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -75803,8 +76797,12 @@
         "operationId": "DeleteWhatsappProfilePhoto2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -75826,8 +76824,12 @@
         "operationId": "GetWhatsappProfilePhoto2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -75856,8 +76858,12 @@
         "operationId": "PostWhatsappProfilePhoto2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -75895,8 +76901,12 @@
         "operationId": "ResendWhatsappVerification2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -75933,8 +76943,12 @@
         "operationId": "VerifyWhatsappPhoneNumber2",
         "parameters": [
           {
-            "description": "Phone number (E.164 format)",
-            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -80882,7 +81896,7 @@
         "items": {
           "$ref": "#/components/schemas/AssistantToolsItemComposed"
         },
-        "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+        "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
       },
       "AssistantsListData": {
         "title": "AssistantsListData",
@@ -81027,12 +82041,12 @@
         "properties": {
           "file": {
             "type": "string",
-            "description": "The audio file object to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. File uploads are limited to 100 MB. Cannot be used together with \u0060file_url\u0060. Note: \u0060deepgram/nova-3\u0060 only supports mp3 and wav formats.",
+            "description": "The audio file object to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. File uploads are limited to 100 MB. Cannot be used together with \u0060file_url\u0060. Note: the \u0060deepgram/*\u0060 models only support mp3 and wav formats.",
             "format": "binary"
           },
           "file_url": {
             "type": "string",
-            "description": "Link to audio file in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. Support for hosted files is limited to 100MB. Cannot be used together with \u0060file\u0060. Note: \u0060deepgram/nova-3\u0060 only supports mp3 and wav formats.",
+            "description": "Link to audio file in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. Support for hosted files is limited to 100MB. Cannot be used together with \u0060file\u0060. Note: the \u0060deepgram/*\u0060 models only support mp3 and wav formats.",
             "example": "https://example.com/file.mp3"
           },
           "model": {
@@ -81046,7 +82060,7 @@
           },
           "language": {
             "type": "string",
-            "description": "The language of the audio to be transcribed. For \u0060deepgram/nova-3\u0060, only English variants are supported: \u0060en\u0060, \u0060en-US\u0060, \u0060en-GB\u0060, \u0060en-AU\u0060, \u0060en-NZ\u0060, \u0060en-IN\u0060. For \u0060openai/whisper-large-v3-turbo\u0060, supports multiple languages. \u0060distil-whisper/distil-large-v2\u0060 does not support language parameter.",
+            "description": "The language of the audio to be transcribed. \u0060deepgram/nova-3\u0060 supports ~49 languages plus \u0060multi\u0060, and \u0060deepgram/nova-2\u0060 supports ~33 plus \u0060multi\u0060; the \u0060-medical\u0060 variants are English only (\u0060en\u0060 and its regional variants, e.g. \u0060en-US\u0060, \u0060en-GB\u0060). Deepgram models validate on the base language and forward the full tag, so regional variants such as \u0060de-CH\u0060 and \u0060pt-BR\u0060 are accepted where the base language is supported; an unsupported language returns a 400. For \u0060openai/whisper-large-v3-turbo\u0060, supports multiple languages. \u0060distil-whisper/distil-large-v2\u0060 does not support language parameter.",
             "example": "en-US"
           },
           "model_config": {
@@ -81066,24 +82080,24 @@
           },
           "duration": {
             "type": "number",
-            "description": "The duration of the audio file in seconds. Returned by \u0060distil-whisper/distil-large-v2\u0060 and \u0060deepgram/nova-3\u0060 when \u0060response_format\u0060 is \u0060verbose_json\u0060. Not returned by \u0060openai/whisper-large-v3-turbo\u0060."
+            "description": "The duration of the audio file in seconds. Returned by \u0060distil-whisper/distil-large-v2\u0060 and the \u0060deepgram/*\u0060 models when \u0060response_format\u0060 is \u0060verbose_json\u0060. Not returned by \u0060openai/whisper-large-v3-turbo\u0060."
           },
           "segments": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AudioTranscriptionResponseSegments"
             },
-            "description": "Segments of the transcribed text and their corresponding details. Returned by \u0060distil-whisper/distil-large-v2\u0060 when \u0060response_format\u0060 is \u0060verbose_json\u0060. Not returned by \u0060openai/whisper-large-v3-turbo\u0060."
+            "description": "Segments of the transcribed text and their corresponding details. Returned by \u0060distil-whisper/distil-large-v2\u0060 and the \u0060deepgram/*\u0060 models when \u0060response_format\u0060 is \u0060verbose_json\u0060; Deepgram segments also carry nested \u0060words\u0060 and \u0060speakers\u0060. Not returned by \u0060openai/whisper-large-v3-turbo\u0060."
           },
           "words": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AudioTranscriptionResponseWord"
             },
-            "description": "Word-level timestamps and optional speaker labels. Only returned by \u0060deepgram/nova-3\u0060 when word-level output is enabled via \u0060model_config\u0060."
+            "description": "Word-level timestamps and optional speaker labels. Only returned by the \u0060deepgram/*\u0060 models when word-level output is enabled via \u0060model_config\u0060."
           }
         },
-        "description": "Response fields vary by model. \u0060distil-whisper/distil-large-v2\u0060 returns \u0060text\u0060, \u0060duration\u0060, and \u0060segments\u0060 in \u0060verbose_json\u0060 mode. \u0060openai/whisper-large-v3-turbo\u0060 returns \u0060text\u0060 only. \u0060deepgram/nova-3\u0060 returns \u0060text\u0060 and, depending on \u0060model_config\u0060, may include \u0060words\u0060 with per-word timestamps and speaker labels."
+        "description": "Response fields vary by model. \u0060distil-whisper/distil-large-v2\u0060 returns \u0060text\u0060, \u0060duration\u0060, and \u0060segments\u0060 in \u0060verbose_json\u0060 mode. \u0060openai/whisper-large-v3-turbo\u0060 returns \u0060text\u0060 only. The \u0060deepgram/*\u0060 models return \u0060text\u0060 and, depending on \u0060model_config\u0060, may include \u0060words\u0060 with per-word timestamps and speaker labels."
       },
       "AudioTranscriptionResponseSegments": {
         "required": [
@@ -81109,6 +82123,20 @@
           "text": {
             "type": "string",
             "description": "Text content of the segment."
+          },
+          "words": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AudioTranscriptionResponseWord"
+            },
+            "description": "Word-level timing detail for this segment. Returned by the \u0060deepgram/*\u0060 models when word-level output is enabled via \u0060model_config\u0060."
+          },
+          "speakers": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Speaker indices heard in this segment. Returned by the \u0060deepgram/*\u0060 models when \u0060diarize\u0060 is enabled via \u0060model_config\u0060."
           }
         }
       },
@@ -81139,9 +82167,17 @@
           "speaker": {
             "type": "integer",
             "description": "Speaker index. Only present when diarization is enabled via \u0060model_config\u0060."
+          },
+          "speaker_confidence": {
+            "type": "number",
+            "description": "Confidence score for the speaker assignment (0.0 to 1.0). Only present when diarization is enabled via \u0060model_config\u0060."
+          },
+          "punctuated_word": {
+            "type": "string",
+            "description": "The transcribed word with punctuation and capitalisation applied. Only present when \u0060punctuate\u0060 or \u0060smart_format\u0060 is enabled via \u0060model_config\u0060."
           }
         },
-        "description": "Word-level timing detail. Only present when using \u0060deepgram/nova-3\u0060 with \u0060model_config\u0060 options that enable word timestamps."
+        "description": "Word-level timing detail. Only present when using a \u0060deepgram/*\u0060 model with \u0060model_config\u0060 options that enable word timestamps."
       },
       "AudioVisualizerConfig": {
         "title": "AudioVisualizerConfig",
@@ -89545,6 +90581,11 @@
           "type": {
             "$ref": "#/components/schemas/ClientSideToolType"
           },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
           "client_side_tool": {
             "$ref": "#/components/schemas/ClientSideToolParams"
           }
@@ -93874,7 +94915,7 @@
             "items": {
               "$ref": "#/components/schemas/AssistantToolsItemComposed"
             },
-            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
           },
           "mcp_servers": {
             "type": "array",
@@ -93982,7 +95023,7 @@
             "default": []
           },
           "post_conversation_settings": {
-            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute tool calls such as logging to a CRM or sending a summary. The assistant can execute multiple parallel or sequential tools during this phase. Telephony-control tools (e.g. hangup, transfer) are unavailable post-conversation. Beta feature.",
+            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
             "$ref": "#/components/schemas/PostConversationSettingsReq"
           },
           "conversation_flow": {
@@ -99324,6 +100365,11 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/SendDtmfType"
+          },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
           },
           "send_dtmf": {
             "$ref": "#/components/schemas/DtmfToolSendDtmfProperty"
@@ -107450,7 +108496,7 @@
               "items": {
                 "$ref": "#/components/schemas/AssistantToolsItemComposed"
               },
-              "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+              "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
             },
             "description": "Full tool definitions for this node, resolved from \u0060shared_tool_ids\u0060 server-side. Populated on responses so clients can render the flow without a follow-up fetch per shared tool. Ignored on input \u2014 set \u0060shared_tool_ids\u0060 to configure a node\u0027s tools."
           },
@@ -108236,6 +109282,27 @@
             "items": {
               "$ref": "#/components/schemas/FunctionMetricAggregate"
             }
+          }
+        }
+      },
+      "FunctionTool": {
+        "title": "FunctionTool",
+        "required": [
+          "type",
+          "function"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/FunctionType"
+          },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
+          "function": {
+            "$ref": "#/components/schemas/FunctionDefinition"
           }
         }
       },
@@ -109733,6 +110800,11 @@
           "type": {
             "$ref": "#/components/schemas/HandoffType"
           },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
           "handoff": {
             "$ref": "#/components/schemas/HandoffToolParams"
           }
@@ -110129,7 +111201,7 @@
               "items": {
                 "$ref": "#/components/schemas/AssistantToolsItemComposed"
               },
-              "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+              "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
             },
             "description": "Full tool definitions for this node, resolved from \u0060shared_tool_ids\u0060 server-side. Populated on responses so clients can render the flow without a follow-up fetch per shared tool. Ignored on input \u2014 set \u0060shared_tool_ids\u0060 to configure a node\u0027s tools."
           },
@@ -110154,7 +111226,7 @@
             "items": {
               "$ref": "#/components/schemas/AssistantToolsItemComposed"
             },
-            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
           },
           "message": {
             "title": "Message",
@@ -112883,6 +113955,11 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/InviteType"
+          },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
           },
           "invite": {
             "title": "InviteToolConfig",
@@ -122245,6 +123322,11 @@
           "type": {
             "$ref": "#/components/schemas/PayType"
           },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
           "pay": {
             "$ref": "#/components/schemas/PayToolParams"
           }
@@ -126339,7 +127421,7 @@
             "default": false
           }
         },
-        "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute tool calls such as logging to a CRM or sending a summary. The assistant can execute multiple parallel or sequential tools during this phase. Telephony-control tools (e.g. hangup, transfer) are unavailable post-conversation. Beta feature."
+        "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature."
       },
       "PostConversationSettingsReq": {
         "type": "object",
@@ -126350,7 +127432,7 @@
             "default": false
           }
         },
-        "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute tool calls such as logging to a CRM or sending a summary. The assistant can execute multiple parallel or sequential tools during this phase. Telephony-control tools (e.g. hangup, transfer) are unavailable post-conversation. Beta feature."
+        "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature."
       },
       "PresignedObjectUrl": {
         "type": "object",
@@ -130650,6 +131732,11 @@
           "type": {
             "$ref": "#/components/schemas/RetrievalType"
           },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
           "retrieval": {
             "$ref": "#/components/schemas/BucketIds"
           }
@@ -131992,6 +133079,11 @@
           "type": {
             "$ref": "#/components/schemas/ReferType"
           },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
           "refer": {
             "$ref": "#/components/schemas/SipReferToolParams"
           }
@@ -132777,6 +133869,11 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/SendMessageType"
+          },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
           },
           "send_message": {
             "$ref": "#/components/schemas/SendMessageToolSendMessage"
@@ -133775,6 +134872,11 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/SkipTurnType"
+          },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
           },
           "skip_turn": {
             "$ref": "#/components/schemas/SkipTurnToolParams"
@@ -135471,6 +136573,9 @@
         "type": "object",
         "oneOf": [
           {
+            "$ref": "#/components/schemas/FunctionTool"
+          },
+          {
             "$ref": "#/components/schemas/InferenceEmbeddingWebhookTool"
           },
           {
@@ -135483,7 +136588,7 @@
             "$ref": "#/components/schemas/HandoffTool"
           },
           {
-            "$ref": "#/components/schemas/HangupTool"
+            "$ref": "#/components/schemas/InferenceEmbeddingHangupTool"
           },
           {
             "$ref": "#/components/schemas/InferenceEmbeddingTransferTool"
@@ -135511,6 +136616,14 @@
           }
         ],
         "properties": {
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
+          "function": {
+            "$ref": "#/components/schemas/FunctionDefinition"
+          },
           "webhook": {
             "$ref": "#/components/schemas/WebhookToolParams"
           },
@@ -139168,7 +140281,7 @@
         "properties": {
           "audio_file": {
             "type": "string",
-            "description": "Audio file to clone the voice from. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best quality, provide 5\u201310 seconds of clear, uninterrupted speech. Maximum size: 5MB.",
+            "description": "Audio file to clone the voice from. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best quality, provide up to 60 seconds of clear, uninterrupted speech. Maximum size: 5MB.",
             "format": "binary"
           },
           "name": {
@@ -142766,7 +143879,7 @@
             "items": {
               "$ref": "#/components/schemas/AssistantToolsItemComposed"
             },
-            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
           },
           "type": {
             "$ref": "#/components/schemas/ToolType"
@@ -145879,7 +146992,7 @@
         "type": "object",
         "properties": {
           "username": {
-            "maxLength": 32,
+            "maxLength": 256,
             "minLength": 4,
             "type": "string",
             "description": "The SIP username used to authenticate with the external SIP peer for registrations and outbound calls. Must start with a letter or number and contain only letters, numbers, hyphens, and underscores.",
@@ -145896,6 +147009,7 @@
             "example": "sip-pbx.acme.example"
           },
           "auth_username": {
+            "maxLength": 256,
             "type": [
               "null",
               "string"
@@ -146427,7 +147541,7 @@
             "items": {
               "$ref": "#/components/schemas/AssistantToolsItemComposed"
             },
-            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
           },
           "mcp_servers": {
             "type": "array",
@@ -146450,7 +147564,7 @@
             "items": {
               "type": "string"
             },
-            "description": "IDs of shared tools to attach to the assistant. New integrations should prefer \u0060tool_ids\u0060 over inline \u0060tools\u0060."
+            "description": "IDs of shared tools to attach to the assistant. New integrations should prefer \u0060tool_ids\u0060 over inline \u0060tools\u0060. On update, a sent \u0060tool_ids\u0060 array fully replaces the assistant\u0027s attached shared tools; omit the field to leave them unchanged. Single-instance tool types are counted across inline \u0060tools\u0060 and \u0060tool_ids\u0060 combined, so attaching a shared tool of such a type when an instance already exists returns HTTP 400 with error code 10015."
           },
           "description": {
             "type": "string"
@@ -146541,7 +147655,7 @@
             "default": "New assistant"
           },
           "post_conversation_settings": {
-            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute tool calls such as logging to a CRM or sending a summary. The assistant can execute multiple parallel or sequential tools during this phase. Telephony-control tools (e.g. hangup, transfer) are unavailable post-conversation. Beta feature.",
+            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
             "$ref": "#/components/schemas/PostConversationSettingsReq"
           },
           "conversation_flow": {
@@ -146569,7 +147683,7 @@
             "items": {
               "$ref": "#/components/schemas/AssistantToolsItemComposed"
             },
-            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
           },
           "mcp_servers": {
             "type": "array",
@@ -146592,7 +147706,7 @@
             "items": {
               "type": "string"
             },
-            "description": "IDs of shared tools to attach to the assistant. New integrations should prefer \u0060tool_ids\u0060 over inline \u0060tools\u0060."
+            "description": "IDs of shared tools to attach to the assistant. New integrations should prefer \u0060tool_ids\u0060 over inline \u0060tools\u0060. On update, a sent \u0060tool_ids\u0060 array fully replaces the assistant\u0027s attached shared tools; omit the field to leave them unchanged. Single-instance tool types are counted across inline \u0060tools\u0060 and \u0060tool_ids\u0060 combined, so attaching a shared tool of such a type when an instance already exists returns HTTP 400 with error code 10015."
           },
           "description": {
             "type": "string"
@@ -146683,7 +147797,7 @@
             "default": "New assistant"
           },
           "post_conversation_settings": {
-            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute tool calls such as logging to a CRM or sending a summary. The assistant can execute multiple parallel or sequential tools during this phase. Telephony-control tools (e.g. hangup, transfer) are unavailable post-conversation. Beta feature.",
+            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
             "$ref": "#/components/schemas/PostConversationSettingsReq"
           },
           "conversation_flow": {
@@ -147499,6 +148613,11 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/UpdateDynamicVariablesType"
+          },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
           },
           "update_dynamic_variables": {
             "description": "Configuration for an update_dynamic_variables tool.",
@@ -158968,7 +160087,7 @@
             "items": {
               "$ref": "#/components/schemas/AssistantToolsItemComposed"
             },
-            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints."
+            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
           },
           "mcp_servers": {
             "type": "array",
@@ -159084,7 +160203,7 @@
             "default": []
           },
           "post_conversation_settings": {
-            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute tool calls such as logging to a CRM or sending a summary. The assistant can execute multiple parallel or sequential tools during this phase. Telephony-control tools (e.g. hangup, transfer) are unavailable post-conversation. Beta feature.",
+            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
             "$ref": "#/components/schemas/PostConversationSettings"
           },
           "conversation_flow": {
@@ -159128,6 +160247,27 @@
           }
         }
       },
+      "InferenceEmbeddingHangupTool": {
+        "title": "HangupTool",
+        "required": [
+          "type",
+          "hangup"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/HangupType"
+          },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
+          "hangup": {
+            "$ref": "#/components/schemas/HangupToolParams"
+          }
+        }
+      },
       "InferenceEmbeddingInterruptionSettings": {
         "title": "InterruptionSettings",
         "type": "object",
@@ -159159,6 +160299,11 @@
           "type": {
             "$ref": "#/components/schemas/TransferType"
           },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
+          },
           "transfer": {
             "$ref": "#/components/schemas/InferenceEmbeddingTransferToolParams"
           }
@@ -159174,6 +160319,11 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/WebhookType"
+          },
+          "shared": {
+            "type": "boolean",
+            "description": "Whether this tool comes from the shared Tools Library. Responses merge shared tools into \u0060tools\u0060 with \u0060shared: true\u0060; inline tools carry \u0060shared: false\u0060. Read-only: set by the server, not accepted in requests. When updating an assistant, omit \u0060shared: true\u0060 tools from the request \u0060tools\u0060 array and manage them through \u0060tool_ids\u0060 instead \u2014 re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).",
+            "readOnly": true
           },
           "webhook": {
             "$ref": "#/components/schemas/WebhookToolParams"
@@ -169118,7 +170268,7 @@
       },
       "AudioTranscriptionRequestModelConfig": {
         "type": "object",
-        "description": "Additional model-specific configuration parameters. Only allowed with \u0060deepgram/nova-3\u0060 model. Can include Deepgram-specific options such as \u0060smart_format\u0060, \u0060punctuate\u0060, \u0060diarize\u0060, \u0060utterance\u0060, \u0060numerals\u0060, and \u0060language\u0060. If \u0060language\u0060 is provided both as a top-level parameter and in \u0060model_config\u0060, the top-level parameter takes precedence.",
+        "description": "Additional model-specific configuration parameters. Only allowed with the \u0060deepgram/*\u0060 models. Can include Deepgram-specific options such as \u0060smart_format\u0060, \u0060punctuate\u0060, \u0060diarize\u0060, \u0060utterance\u0060, \u0060numerals\u0060, and \u0060language\u0060. If \u0060language\u0060 is provided both as a top-level parameter and in \u0060model_config\u0060, the top-level parameter takes precedence.",
         "example": {
           "smart_format": true,
           "punctuate": true
@@ -193057,7 +194207,7 @@
       },
       "AudioTranscriptionRequestModelConfigProperty": {
         "type": "object",
-        "description": "Additional model-specific configuration parameters. Only allowed with \u0060deepgram/nova-3\u0060 model. Can include Deepgram-specific options such as \u0060smart_format\u0060, \u0060punctuate\u0060, \u0060diarize\u0060, \u0060utterance\u0060, \u0060numerals\u0060, and \u0060language\u0060. If \u0060language\u0060 is provided both as a top-level parameter and in \u0060model_config\u0060, the top-level parameter takes precedence."
+        "description": "Additional model-specific configuration parameters. Only allowed with the \u0060deepgram/*\u0060 models. Can include Deepgram-specific options such as \u0060smart_format\u0060, \u0060punctuate\u0060, \u0060diarize\u0060, \u0060utterance\u0060, \u0060numerals\u0060, and \u0060language\u0060. If \u0060language\u0060 is provided both as a top-level parameter and in \u0060model_config\u0060, the top-level parameter takes precedence."
       },
       "BrandCreateRequestAddressesProperty": {
         "type": "object",
@@ -195991,11 +197141,14 @@
         "enum": [
           "distil-whisper/distil-large-v2",
           "openai/whisper-large-v3-turbo",
-          "deepgram/nova-3"
+          "deepgram/nova-2",
+          "deepgram/nova-2-medical",
+          "deepgram/nova-3",
+          "deepgram/nova-3-medical"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "ID of the model to use. \u0060distil-whisper/distil-large-v2\u0060 is lower latency but English-only. \u0060openai/whisper-large-v3-turbo\u0060 is multi-lingual but slightly higher latency. \u0060deepgram/nova-3\u0060 supports English variants (en, en-US, en-GB, en-AU, en-NZ, en-IN) and only accepts mp3/wav files.",
+        "description": "ID of the model to use. \u0060distil-whisper/distil-large-v2\u0060 is lower latency but English-only. \u0060openai/whisper-large-v3-turbo\u0060 is multi-lingual but slightly higher latency. The \u0060deepgram/*\u0060 models only accept mp3/wav files: \u0060deepgram/nova-3\u0060 covers ~49 languages plus \u0060multi\u0060 and \u0060deepgram/nova-2\u0060 covers ~33, while the \u0060-medical\u0060 variants are tuned for clinical vocabulary and accept English only (\u0060en\u0060 and its regional variants, e.g. \u0060en-US\u0060, \u0060en-GB\u0060).",
         "example": "distil-whisper/distil-large-v2",
         "x-ms-enum": {
           "name": "AudioTranscriptionRequestModel",
@@ -196010,8 +197163,20 @@
               "name": "OpenaiWhisperLargeV3Turbo"
             },
             {
+              "value": "deepgram/nova-2",
+              "name": "DeepgramNova2"
+            },
+            {
+              "value": "deepgram/nova-2-medical",
+              "name": "DeepgramNova2Medical"
+            },
+            {
               "value": "deepgram/nova-3",
               "name": "DeepgramNova3"
+            },
+            {
+              "value": "deepgram/nova-3-medical",
+              "name": "DeepgramNova3Medical"
             }
           ]
         }

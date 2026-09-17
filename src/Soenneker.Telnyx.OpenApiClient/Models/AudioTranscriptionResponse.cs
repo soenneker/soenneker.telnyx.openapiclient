@@ -8,16 +8,16 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Response fields vary by model. `distil-whisper/distil-large-v2` returns `text`, `duration`, and `segments` in `verbose_json` mode. `openai/whisper-large-v3-turbo` returns `text` only. `deepgram/nova-3` returns `text` and, depending on `model_config`, may include `words` with per-word timestamps and speaker labels.
+    /// Response fields vary by model. `distil-whisper/distil-large-v2` returns `text`, `duration`, and `segments` in `verbose_json` mode. `openai/whisper-large-v3-turbo` returns `text` only. The `deepgram/*` models return `text` and, depending on `model_config`, may include `words` with per-word timestamps and speaker labels.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AudioTranscriptionResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The duration of the audio file in seconds. Returned by `distil-whisper/distil-large-v2` and `deepgram/nova-3` when `response_format` is `verbose_json`. Not returned by `openai/whisper-large-v3-turbo`.</summary>
+        /// <summary>The duration of the audio file in seconds. Returned by `distil-whisper/distil-large-v2` and the `deepgram/*` models when `response_format` is `verbose_json`. Not returned by `openai/whisper-large-v3-turbo`.</summary>
         public double? Duration { get; set; }
-        /// <summary>Segments of the transcribed text and their corresponding details. Returned by `distil-whisper/distil-large-v2` when `response_format` is `verbose_json`. Not returned by `openai/whisper-large-v3-turbo`.</summary>
+        /// <summary>Segments of the transcribed text and their corresponding details. Returned by `distil-whisper/distil-large-v2` and the `deepgram/*` models when `response_format` is `verbose_json`; Deepgram segments also carry nested `words` and `speakers`. Not returned by `openai/whisper-large-v3-turbo`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseSegments>? Segments { get; set; }
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>Word-level timestamps and optional speaker labels. Only returned by `deepgram/nova-3` when word-level output is enabled via `model_config`.</summary>
+        /// <summary>Word-level timestamps and optional speaker labels. Only returned by the `deepgram/*` models when word-level output is enabled via `model_config`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseWord>? Words { get; set; }

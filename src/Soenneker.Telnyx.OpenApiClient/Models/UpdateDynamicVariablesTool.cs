@@ -15,6 +15,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether this tool comes from the shared Tools Library. Responses merge shared tools into `tools` with `shared: true`; inline tools carry `shared: false`. Read-only: set by the server, not accepted in requests. When updating an assistant, omit `shared: true` tools from the request `tools` array and manage them through `tool_ids` instead — re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).</summary>
+        public bool? Shared { get; private set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesType? Type { get; set; }
         /// <summary>Configuration for an update_dynamic_variables tool.</summary>
@@ -50,6 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "shared", n => { Shared = n.GetBoolValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesType>(); } },
                 { "update_dynamic_variables", n => { UpdateDynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams.CreateFromDiscriminatorValue); } },
             };

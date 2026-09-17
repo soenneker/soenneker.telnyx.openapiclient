@@ -23,6 +23,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams Handoff { get; set; }
 #endif
+        /// <summary>Whether this tool comes from the shared Tools Library. Responses merge shared tools into `tools` with `shared: true`; inline tools carry `shared: false`. Read-only: set by the server, not accepted in requests. When updating an assistant, omit `shared: true` tools from the request `tools` array and manage them through `tool_ids` instead — re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).</summary>
+        public bool? Shared { get; private set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffType? Type { get; set; }
         /// <summary>
@@ -51,6 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "handoff", n => { Handoff = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams.CreateFromDiscriminatorValue); } },
+                { "shared", n => { Shared = n.GetBoolValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffType>(); } },
             };
         }

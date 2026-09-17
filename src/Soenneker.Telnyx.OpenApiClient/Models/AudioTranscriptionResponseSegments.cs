@@ -18,6 +18,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? End { get; set; }
         /// <summary>Unique identifier of the segment.</summary>
         public double? Id { get; set; }
+        /// <summary>Speaker indices heard in this segment. Returned by the `deepgram/*` models when `diarize` is enabled via `model_config`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<int?>? Speakers { get; set; }
+#nullable restore
+#else
+        public List<int?> Speakers { get; set; }
+#endif
         /// <summary>Start time of the segment in seconds.</summary>
         public double? Start { get; set; }
         /// <summary>Text content of the segment.</summary>
@@ -27,6 +35,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Text { get; set; }
+#endif
+        /// <summary>Word-level timing detail for this segment. Returned by the `deepgram/*` models when word-level output is enabled via `model_config`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseWord>? Words { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseWord> Words { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseSegments"/> and sets the default values.
@@ -55,8 +71,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "end", n => { End = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetDoubleValue(); } },
+                { "speakers", n => { Speakers = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "start", n => { Start = n.GetDoubleValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
+                { "words", n => { Words = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseWord>(global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseWord.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -68,8 +86,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("end", End);
             writer.WriteDoubleValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<int?>("speakers", Speakers);
             writer.WriteDoubleValue("start", Start);
             writer.WriteStringValue("text", Text);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseWord>("words", Words);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
