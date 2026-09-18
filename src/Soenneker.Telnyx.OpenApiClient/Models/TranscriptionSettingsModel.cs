@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-streaming` is a multilingual streaming model with configurable turn detection.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` and `soniox/stt-rt-v5` are multilingual streaming models with automatic language detection, configurable endpointing, term biasing (`context`), and `language_hints`.- `nvidia/parakeet-v3` is a multilingual transcription model with automatic language detection.- `humain/realtime` is a streaming model with native Arabic and Arabic/English code-switching support.- `reson8/turns` is a turn-based streaming model covering 10 European languages with automatic language detection.- `cohere/ar-stt` is a non-streaming Arabic and English transcription model.</summary>
+    /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-3-5-pro` is a multilingual streaming model with configurable turn detection. The legacy alias `assemblyai/universal-streaming` is still accepted and resolves to the same model.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` and `soniox/stt-rt-v5` are multilingual streaming models with automatic language detection, configurable endpointing, term biasing (`context`), and `language_hints`.- `nvidia/parakeet-v3` is a multilingual transcription model with automatic language detection.- `humain/realtime` is a streaming model with native Arabic and Arabic/English code-switching support.- `reson8/turns` is a turn-based streaming model covering 10 European languages with automatic language detection.- `cohere/ar-stt` is a non-streaming Arabic and English transcription model.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionSettingsModel
     {
@@ -22,6 +22,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "azure/fast")]
         #pragma warning disable CS1591
         AzureFast,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "assemblyai/universal-3-5-pro")]
+        #pragma warning disable CS1591
+        AssemblyaiUniversal35Pro,
         #pragma warning restore CS1591
         [EnumMember(Value = "assemblyai/universal-streaming")]
         #pragma warning disable CS1591

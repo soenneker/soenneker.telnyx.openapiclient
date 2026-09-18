@@ -144398,7 +144398,7 @@
           },
           "language": {
             "type": "string",
-            "description": "The language of the audio to be transcribed. If not set, or if set to \u0060auto\u0060, supported models will automatically detect the language. Supported and meaningful values depend on the selected transcription \u0060model\u0060. For \u0060deepgram/flux\u0060, supported values are: \u0060auto\u0060 (Telnyx language detection controls the language hint), \u0060multi\u0060 (no language hint), and language-specific hints \u0060en\u0060, \u0060es\u0060, \u0060fr\u0060, \u0060de\u0060, \u0060hi\u0060, \u0060ru\u0060, \u0060pt\u0060, \u0060ja\u0060, \u0060it\u0060, and \u0060nl\u0060. For \u0060soniox/stt-rt-v4\u0060, \u0060auto\u0060 omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. \u0060en\u0060, \u0060es\u0060) bias detection toward that language. For \u0060assemblyai/universal-streaming\u0060, \u0060auto\u0060 (or unset) enables native multilingual code-switching; ISO 639-1 codes (\u0060en\u0060, \u0060es\u0060, \u0060de\u0060, \u0060fr\u0060, \u0060pt\u0060, \u0060it\u0060, \u0060tr\u0060, \u0060nl\u0060, \u0060sv\u0060, \u0060no\u0060, \u0060da\u0060, \u0060fi\u0060, \u0060hi\u0060, \u0060vi\u0060, \u0060ar\u0060, \u0060he\u0060, \u0060ja\u0060, \u0060zh\u0060) bias the session to that language. For \u0060humain/realtime\u0060, supported values are \u0060ar\u0060, \u0060en\u0060, \u0060codeswitch\u0060 (Arabic/English code-switching), and \u0060auto\u0060 (resolves server-side to code-switching). Unlike other models, \u0060humain/realtime\u0060 does not fall back to \u0060auto\u0060 when \u0060language\u0060 is omitted \u2014 omitting it applies \u0060en\u0060 instead. For \u0060reson8/turns\u0060, supported values are \u0060auto\u0060 (or unset) for automatic language detection, and the language codes \u0060nl\u0060, \u0060en\u0060, \u0060fr\u0060, \u0060fy\u0060, \u0060de\u0060, \u0060it\u0060, \u0060pl\u0060, \u0060pt\u0060, \u0060es\u0060, and \u0060sv\u0060 to fix the transcription language. For \u0060cohere/ar-stt\u0060, supported values are \u0060ar\u0060 and \u0060en\u0060; unlike other models, this model does not auto-detect and defaults to \u0060ar\u0060 when \u0060language\u0060 is omitted."
+            "description": "The language of the audio to be transcribed. If not set, or if set to \u0060auto\u0060, supported models will automatically detect the language. Supported and meaningful values depend on the selected transcription \u0060model\u0060. For \u0060deepgram/flux\u0060, supported values are: \u0060auto\u0060 (Telnyx language detection controls the language hint), \u0060multi\u0060 (no language hint), and language-specific hints \u0060en\u0060, \u0060es\u0060, \u0060fr\u0060, \u0060de\u0060, \u0060hi\u0060, \u0060ru\u0060, \u0060pt\u0060, \u0060ja\u0060, \u0060it\u0060, and \u0060nl\u0060. For \u0060soniox/stt-rt-v4\u0060, \u0060auto\u0060 omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. \u0060en\u0060, \u0060es\u0060) bias detection toward that language. For \u0060assemblyai/universal-3-5-pro\u0060 (and its legacy alias \u0060assemblyai/universal-streaming\u0060), \u0060auto\u0060 (or unset) enables native multilingual code-switching; ISO 639-1 codes (\u0060en\u0060, \u0060es\u0060, \u0060de\u0060, \u0060fr\u0060, \u0060pt\u0060, \u0060it\u0060, \u0060tr\u0060, \u0060nl\u0060, \u0060sv\u0060, \u0060no\u0060, \u0060da\u0060, \u0060fi\u0060, \u0060hi\u0060, \u0060vi\u0060, \u0060ar\u0060, \u0060he\u0060, \u0060ja\u0060, \u0060zh\u0060) bias the session to that language. For \u0060humain/realtime\u0060, supported values are \u0060ar\u0060, \u0060en\u0060, \u0060codeswitch\u0060 (Arabic/English code-switching), and \u0060auto\u0060 (resolves server-side to code-switching). Unlike other models, \u0060humain/realtime\u0060 does not fall back to \u0060auto\u0060 when \u0060language\u0060 is omitted \u2014 omitting it applies \u0060en\u0060 instead. For \u0060reson8/turns\u0060, supported values are \u0060auto\u0060 (or unset) for automatic language detection, and the language codes \u0060nl\u0060, \u0060en\u0060, \u0060fr\u0060, \u0060fy\u0060, \u0060de\u0060, \u0060it\u0060, \u0060pl\u0060, \u0060pt\u0060, \u0060es\u0060, and \u0060sv\u0060 to fix the transcription language. For \u0060cohere/ar-stt\u0060, supported values are \u0060ar\u0060 and \u0060en\u0060; unlike other models, this model does not auto-detect and defaults to \u0060ar\u0060 when \u0060language\u0060 is omitted."
           }
         },
         "description": "The settings associated with speech to text for the voice assistant. This is only relevant if the assistant uses a text-to-text language model. Any assistant using a model with native audio support (e.g. \u0060fixie-ai/ultravox-v0_4\u0060) will ignore this field."
@@ -144505,7 +144505,7 @@
             "$ref": "#/components/schemas/AssemblyAiTranscriptionEngine"
           },
           "transcription_model": {
-            "$ref": "#/components/schemas/AssemblyaiUniversalStreamingTranscriptionModel"
+            "$ref": "#/components/schemas/TranscriptionEngineAssemblyaiConfigTranscriptionModel"
           },
           "interim_results": {
             "type": "boolean",
@@ -146178,7 +146178,7 @@
             "maximum": 1,
             "minimum": 0,
             "type": "number",
-            "description": "Available only for assemblyai/universal-streaming. Confidence level required to trigger an end of turn. Higher values require more certainty before ending a turn.",
+            "description": "Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Confidence level required to trigger an end of turn. Higher values require more certainty before ending a turn.",
             "default": 0.4
           },
           "min_turn_silence": {
@@ -146186,7 +146186,7 @@
             "maximum": 5000,
             "minimum": 100,
             "type": "integer",
-            "description": "Available only for assemblyai/universal-streaming. Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.",
+            "description": "Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.",
             "default": 400
           },
           "max_turn_silence": {
@@ -146194,7 +146194,7 @@
             "maximum": 5000,
             "minimum": 100,
             "type": "integer",
-            "description": "Available only for assemblyai/universal-streaming. Maximum duration of silence in milliseconds before forcing an end of turn.",
+            "description": "Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Maximum duration of silence in milliseconds before forcing an end of turn.",
             "default": 1280
           },
           "interim_results": {
@@ -217972,6 +217972,7 @@
           "deepgram/nova-2",
           "speechmatics/standard",
           "speechmatics/enhanced",
+          "assemblyai/universal-3-5-pro",
           "assemblyai/universal-streaming",
           "xai/grok-stt",
           "soniox/stt-rt-v4",
@@ -217987,7 +217988,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The speech to text model to be used by the voice assistant. Supported models include:\n\n- \u0060deepgram/flux\u0060 (or \u0060flux\u0060) for live streaming turn-taking.\n- \u0060deepgram/nova-3\u0060 and \u0060deepgram/nova-2\u0060 for live streaming transcription.\n- \u0060speechmatics/standard\u0060 and \u0060speechmatics/enhanced\u0060 for live streaming transcription.\n- \u0060assemblyai/universal-streaming\u0060 for live streaming transcription.\n- \u0060xai/grok-stt\u0060 for live streaming transcription.\n- \u0060soniox/stt-rt-v4\u0060 for live streaming multilingual transcription with automatic language detection.\n- \u0060nvidia/parakeet-v3\u0060 for multilingual transcription with automatic language detection.\n- \u0060humain/realtime\u0060 for live streaming transcription with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 for live streaming turn-based transcription of 10 European languages with automatic language detection.\n- \u0060cohere/ar-stt\u0060 for non-streaming Arabic and English transcription.\n- \u0060azure/fast\u0060 and \u0060azure/realtime\u0060; Azure models require \u0060region\u0060, and unsupported regions require \u0060api_key_ref\u0060.\n- \u0060google/latest_long\u0060 for non-streaming multilingual transcription.\n- \u0060distil-whisper/distil-large-v2\u0060 for lower-latency English-only non-streaming transcription.\n- \u0060openai/whisper-large-v3-turbo\u0060 for multilingual non-streaming transcription with automatic language detection.",
+        "description": "The speech to text model to be used by the voice assistant. Supported models include:\n\n- \u0060deepgram/flux\u0060 (or \u0060flux\u0060) for live streaming turn-taking.\n- \u0060deepgram/nova-3\u0060 and \u0060deepgram/nova-2\u0060 for live streaming transcription.\n- \u0060speechmatics/standard\u0060 and \u0060speechmatics/enhanced\u0060 for live streaming transcription.\n- \u0060assemblyai/universal-3-5-pro\u0060 for live streaming transcription. The legacy alias \u0060assemblyai/universal-streaming\u0060 is still accepted and resolves to the same model.\n- \u0060xai/grok-stt\u0060 for live streaming transcription.\n- \u0060soniox/stt-rt-v4\u0060 for live streaming multilingual transcription with automatic language detection.\n- \u0060nvidia/parakeet-v3\u0060 for multilingual transcription with automatic language detection.\n- \u0060humain/realtime\u0060 for live streaming transcription with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 for live streaming turn-based transcription of 10 European languages with automatic language detection.\n- \u0060cohere/ar-stt\u0060 for non-streaming Arabic and English transcription.\n- \u0060azure/fast\u0060 and \u0060azure/realtime\u0060; Azure models require \u0060region\u0060, and unsupported regions require \u0060api_key_ref\u0060.\n- \u0060google/latest_long\u0060 for non-streaming multilingual transcription.\n- \u0060distil-whisper/distil-large-v2\u0060 for lower-latency English-only non-streaming transcription.\n- \u0060openai/whisper-large-v3-turbo\u0060 for multilingual non-streaming transcription with automatic language detection.",
         "example": "distil-whisper/distil-large-v2",
         "x-ms-enum": {
           "name": "TranscriptionConfigModel",
@@ -218016,6 +218017,10 @@
             {
               "value": "speechmatics/enhanced",
               "name": "SpeechmaticsEnhanced"
+            },
+            {
+              "value": "assemblyai/universal-3-5-pro",
+              "name": "AssemblyaiUniversal35Pro"
             },
             {
               "value": "assemblyai/universal-streaming",
@@ -218147,17 +218152,22 @@
           ]
         }
       },
-      "AssemblyaiUniversalStreamingTranscriptionModel": {
+      "TranscriptionEngineAssemblyaiConfigTranscriptionModel": {
         "enum": [
+          "assemblyai/universal-3-5-pro",
           "assemblyai/universal-streaming"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The model to use for transcription.",
+        "description": "The model to use for transcription. \u0060assemblyai/universal-streaming\u0060 is a legacy alias of \u0060assemblyai/universal-3-5-pro\u0060 and resolves to the same model.",
         "x-ms-enum": {
-          "name": "AssemblyaiUniversalStreamingTranscriptionModel",
+          "name": "TranscriptionEngineAssemblyaiConfigTranscriptionModel",
           "modelAsString": false,
           "values": [
+            {
+              "value": "assemblyai/universal-3-5-pro",
+              "name": "AssemblyaiUniversal35Pro"
+            },
             {
               "value": "assemblyai/universal-streaming",
               "name": "AssemblyaiUniversalStreaming"
@@ -218621,6 +218631,7 @@
           "deepgram/nova-3",
           "deepgram/nova-2",
           "azure/fast",
+          "assemblyai/universal-3-5-pro",
           "assemblyai/universal-streaming",
           "xai/grok-stt",
           "soniox/stt-rt-v4",
@@ -218634,7 +218645,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.\n\n- \u0060deepgram/flux\u0060 is optimized for turn-taking with multilingual language hints.\n- \u0060deepgram/nova-3\u0060 is multilingual with automatic language detection.\n- \u0060deepgram/nova-2\u0060 is Deepgram\u0027s previous-generation multilingual model.\n- \u0060azure/fast\u0060 is a multilingual Azure transcription model.\n- \u0060assemblyai/universal-streaming\u0060 is a multilingual streaming model with configurable turn detection.\n- \u0060xai/grok-stt\u0060 is a multilingual Grok STT model.\n- \u0060soniox/stt-rt-v4\u0060 and \u0060soniox/stt-rt-v5\u0060 are multilingual streaming models with automatic language detection, configurable endpointing, term biasing (\u0060context\u0060), and \u0060language_hints\u0060.\n- \u0060nvidia/parakeet-v3\u0060 is a multilingual transcription model with automatic language detection.\n- \u0060humain/realtime\u0060 is a streaming model with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 is a turn-based streaming model covering 10 European languages with automatic language detection.\n- \u0060cohere/ar-stt\u0060 is a non-streaming Arabic and English transcription model.",
+        "description": "The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.\n\n- \u0060deepgram/flux\u0060 is optimized for turn-taking with multilingual language hints.\n- \u0060deepgram/nova-3\u0060 is multilingual with automatic language detection.\n- \u0060deepgram/nova-2\u0060 is Deepgram\u0027s previous-generation multilingual model.\n- \u0060azure/fast\u0060 is a multilingual Azure transcription model.\n- \u0060assemblyai/universal-3-5-pro\u0060 is a multilingual streaming model with configurable turn detection. The legacy alias \u0060assemblyai/universal-streaming\u0060 is still accepted and resolves to the same model.\n- \u0060xai/grok-stt\u0060 is a multilingual Grok STT model.\n- \u0060soniox/stt-rt-v4\u0060 and \u0060soniox/stt-rt-v5\u0060 are multilingual streaming models with automatic language detection, configurable endpointing, term biasing (\u0060context\u0060), and \u0060language_hints\u0060.\n- \u0060nvidia/parakeet-v3\u0060 is a multilingual transcription model with automatic language detection.\n- \u0060humain/realtime\u0060 is a streaming model with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 is a turn-based streaming model covering 10 European languages with automatic language detection.\n- \u0060cohere/ar-stt\u0060 is a non-streaming Arabic and English transcription model.",
         "x-ms-enum": {
           "name": "TranscriptionSettingsModel",
           "modelAsString": false,
@@ -218654,6 +218665,10 @@
             {
               "value": "azure/fast",
               "name": "AzureFast"
+            },
+            {
+              "value": "assemblyai/universal-3-5-pro",
+              "name": "AssemblyaiUniversal35Pro"
             },
             {
               "value": "assemblyai/universal-streaming",

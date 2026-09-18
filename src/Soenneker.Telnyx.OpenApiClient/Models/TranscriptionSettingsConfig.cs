@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? EagerEotThreshold { get; set; }
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. When true, Soniox emits end-of-utterance events at the cadence configured by `max_endpoint_delay_ms`.</summary>
         public bool? EnableEndpointDetection { get; set; }
-        /// <summary>Available only for assemblyai/universal-streaming. Confidence level required to trigger an end of turn. Higher values require more certainty before ending a turn.</summary>
+        /// <summary>Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Confidence level required to trigger an end of turn. Higher values require more certainty before ending a turn.</summary>
         public double? EndOfTurnConfidenceThreshold { get; set; }
         /// <summary>Available only for deepgram/flux. Confidence required to trigger an end of turn. Higher values = more reliable turn detection but slightly increased latency.</summary>
         public double? EotThreshold { get; set; }
@@ -52,9 +52,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. Maximum silence (in milliseconds) before Soniox emits an end-of-utterance event. Only honored when `enable_endpoint_detection` is true.</summary>
         public int? MaxEndpointDelayMs { get; set; }
-        /// <summary>Available only for assemblyai/universal-streaming. Maximum duration of silence in milliseconds before forcing an end of turn.</summary>
+        /// <summary>Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Maximum duration of silence in milliseconds before forcing an end of turn.</summary>
         public int? MaxTurnSilence { get; set; }
-        /// <summary>Available only for assemblyai/universal-streaming. Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.</summary>
+        /// <summary>Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.</summary>
         public int? MinTurnSilence { get; set; }
         /// <summary>The numerals property</summary>
         public bool? Numerals { get; set; }
