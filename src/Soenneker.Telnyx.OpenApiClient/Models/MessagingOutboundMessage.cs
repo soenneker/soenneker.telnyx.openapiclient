@@ -9,13 +9,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MessagingInboundMessage0B38E7044B : IAdditionalDataHolder, IParsable
+    public partial class MessagingOutboundMessage : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of event being delivered.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageReceivedEventType? EventType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEventType? EventType { get; set; }
         /// <summary>Identifies the type of resource.</summary>
         public Guid? Id { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
@@ -23,29 +23,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload Payload { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EventValueRecordType? RecordType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessage0B38E7044B"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage"/> and sets the default values.
         /// </summary>
-        public MessagingInboundMessage0B38E7044B()
+        public MessagingOutboundMessage()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessage0B38E7044B"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessage0B38E7044B CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessage0B38E7044B();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,10 +55,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageReceivedEventType>(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEventType>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "occurred_at", n => { OccurredAt = n.GetDateTimeOffsetValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventValueRecordType>(); } },
             };
         }
@@ -69,10 +69,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageReceivedEventType>("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEventType>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("occurred_at", OccurredAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload>("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventValueRecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }

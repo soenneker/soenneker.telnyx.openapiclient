@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Compute.Funcs.Item.Logs.Export;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Compute.Funcs.Item.Logs
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LogsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The export property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Compute.Funcs.Item.Logs.Export.ExportRequestBuilder Export
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Compute.Funcs.Item.Logs.Export.ExportRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Compute.Funcs.Item.Logs.LogsRequestBuilder"/> and sets the default values.
         /// </summary>

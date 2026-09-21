@@ -39,5 +39,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         DeliveryFailed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "read")]
+        #pragma warning disable CS1591
+        Read,
+        #pragma warning restore CS1591
     }
 }

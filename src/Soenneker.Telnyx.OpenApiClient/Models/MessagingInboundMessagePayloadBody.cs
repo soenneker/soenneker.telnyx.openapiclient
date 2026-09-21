@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// WhatsApp message body. For message edits and revocations, inspect `type` and the corresponding `edit` or `revoke` object.
+    /// Message body for RCS and WhatsApp. RCS messages contain text, user_file, location, or suggestion_response. For WhatsApp edits and revocations, inspect type and the corresponding edit or revoke object.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagingInboundMessagePayloadBody : IAdditionalDataHolder, IParsable
@@ -47,6 +47,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Location shared in an RCS message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation? Location { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation Location { get; set; }
+#endif
         /// <summary>Details for a revoked WhatsApp message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,6 +62,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke Revoke { get; set; }
+#endif
+        /// <summary>Selected RCS suggestion.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse? SuggestionResponse { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse SuggestionResponse { get; set; }
+#endif
+        /// <summary>RCS text string or WhatsApp text object.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText? Text { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText Text { get; set; }
 #endif
         /// <summary>Unix timestamp supplied by Meta.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,6 +94,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Type { get; set; }
+#endif
+        /// <summary>RCS file attachment and optional thumbnail.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile? UserFile { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile UserFile { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody"/> and sets the default values.
@@ -100,9 +132,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "foreign_id", n => { ForeignId = n.GetStringValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "location", n => { Location = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation.CreateFromDiscriminatorValue); } },
                 { "revoke", n => { Revoke = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke.CreateFromDiscriminatorValue); } },
+                { "suggestion_response", n => { SuggestionResponse = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText.CreateFromDiscriminatorValue); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
+                { "user_file", n => { UserFile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -116,9 +152,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("foreign_id", ForeignId);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation>("location", Location);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke>("revoke", Revoke);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse>("suggestion_response", SuggestionResponse);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText>("text", Text);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile>("user_file", UserFile);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

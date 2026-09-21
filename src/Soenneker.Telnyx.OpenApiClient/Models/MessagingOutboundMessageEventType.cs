@@ -3,22 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>The type of event being delivered.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum MessagingInboundMessagePayloadFromStatus
-    #pragma warning restore CS1591
+    public enum MessagingOutboundMessageEventType
     {
-        [EnumMember(Value = "received")]
+        [EnumMember(Value = "message.sent")]
         #pragma warning disable CS1591
-        Received,
+        MessageSent,
         #pragma warning restore CS1591
-        [EnumMember(Value = "delivered")]
+        [EnumMember(Value = "message.finalized")]
         #pragma warning disable CS1591
-        Delivered,
+        MessageFinalized,
         #pragma warning restore CS1591
-        [EnumMember(Value = "webhook_delivered")]
+        [EnumMember(Value = "message.read")]
         #pragma warning disable CS1591
-        WebhookDelivered,
+        MessageRead,
         #pragma warning restore CS1591
     }
 }

@@ -3,21 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The type of message.</summary>
+    /// <summary>HTTP method used to retrieve TeXML instructions from Url.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum MessagingOutboundMessagePayloadType
+    public enum CreateTexmlCallJsonRequestMethod
     {
-        [EnumMember(Value = "SMS")]
+        [EnumMember(Value = "GET")]
         #pragma warning disable CS1591
-        Sms,
+        Get,
         #pragma warning restore CS1591
-        [EnumMember(Value = "MMS")]
+        [EnumMember(Value = "POST")]
         #pragma warning disable CS1591
-        Mms,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "RCS")]
-        #pragma warning disable CS1591
-        Rcs,
+        Post,
         #pragma warning restore CS1591
     }
 }

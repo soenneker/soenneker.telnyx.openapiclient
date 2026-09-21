@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Engine identifier for Parakeet transcription service</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ParakeetTranscriptionEngine? TranscriptionEngine { get; set; }
         /// <summary>The model to use for transcription.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NvidiaParakeetV3TranscriptionModel? TranscriptionModel { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfigTranscriptionModel? TranscriptionModel { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfig"/> and sets the default values.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "interim_results", n => { InterimResults = n.GetBoolValue(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParakeetTranscriptionEngine>(); } },
-                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NvidiaParakeetV3TranscriptionModel>(); } },
+                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfigTranscriptionModel>(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("interim_results", InterimResults);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParakeetTranscriptionEngine>("transcription_engine", TranscriptionEngine);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NvidiaParakeetV3TranscriptionModel>("transcription_model", TranscriptionModel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineParakeetConfigTranscriptionModel>("transcription_model", TranscriptionModel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

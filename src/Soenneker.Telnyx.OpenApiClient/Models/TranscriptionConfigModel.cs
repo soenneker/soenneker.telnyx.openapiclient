@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The speech to text model to be used by the voice assistant. Supported models include:- `deepgram/flux` (or `flux`) for live streaming turn-taking.- `deepgram/nova-3` and `deepgram/nova-2` for live streaming transcription.- `speechmatics/standard` and `speechmatics/enhanced` for live streaming transcription.- `assemblyai/universal-3-5-pro` for live streaming transcription. The legacy alias `assemblyai/universal-streaming` is still accepted and resolves to the same model.- `xai/grok-stt` for live streaming transcription.- `soniox/stt-rt-v4` for live streaming multilingual transcription with automatic language detection.- `nvidia/parakeet-v3` for multilingual transcription with automatic language detection.- `humain/realtime` for live streaming transcription with native Arabic and Arabic/English code-switching support.- `reson8/turns` for live streaming turn-based transcription of 10 European languages with automatic language detection.- `cohere/ar-stt` for non-streaming Arabic and English transcription.- `azure/fast` and `azure/realtime`; Azure models require `region`, and unsupported regions require `api_key_ref`.- `google/latest_long` for non-streaming multilingual transcription.- `distil-whisper/distil-large-v2` for lower-latency English-only non-streaming transcription.- `openai/whisper-large-v3-turbo` for multilingual non-streaming transcription with automatic language detection.</summary>
+    /// <summary>The speech to text model to be used by the voice assistant. Supported models include:- `deepgram/flux` (or `flux`) for live streaming turn-taking.- `deepgram/nova-3` and `deepgram/nova-2` for live streaming transcription.- `speechmatics/standard` and `speechmatics/enhanced` for live streaming transcription.- `assemblyai/universal-3-5-pro` for live streaming transcription. The legacy alias `assemblyai/universal-streaming` is still accepted and resolves to the same model.- `xai/grok-stt` for live streaming transcription.- `soniox/stt-rt-v4` for live streaming multilingual transcription with automatic language detection.- `nvidia/parakeet-v3` for multilingual transcription with automatic language detection.- `omi-health/omi-med-stt-v1` for English-only medical transcription (Parakeet-based).- `humain/realtime` for live streaming transcription with native Arabic and Arabic/English code-switching support.- `reson8/turns` for live streaming turn-based transcription of 10 European languages with automatic language detection.- `cohere/ar-stt` for non-streaming Arabic and English transcription.- `azure/fast` and `azure/realtime`; Azure models require `region`, and unsupported regions require `api_key_ref`.- `google/latest_long` for non-streaming multilingual transcription.- `distil-whisper/distil-large-v2` for lower-latency English-only non-streaming transcription.- `openai/whisper-large-v3-turbo` for multilingual non-streaming transcription with automatic language detection.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionConfigModel
     {
@@ -50,6 +50,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "nvidia/parakeet-v3")]
         #pragma warning disable CS1591
         NvidiaParakeetV3,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "omi-health/omi-med-stt-v1")]
+        #pragma warning disable CS1591
+        OmiHealthOmiMedSttV1,
         #pragma warning restore CS1591
         [EnumMember(Value = "humain/realtime")]
         #pragma warning disable CS1591

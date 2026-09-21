@@ -19,6 +19,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? DisableGreetingInterruption { get; set; }
         /// <summary>Whether users can interrupt the assistant while it is speaking.</summary>
         public bool? Enable { get; set; }
+        /// <summary>Interrupt-prediction sensitivity, from 0.0 to 1.0. Set to null or 0.0 to disable interrupt prediction.</summary>
+        public double? InterruptPredictionThreshold { get; set; }
         /// <summary>Controls when the assistant starts speaking after the user stops. These thresholds primarily apply to non turn-taking transcription models. For turn-taking models like `deepgram/flux`, end-of-turn detection is driven by the transcription end-of-turn settings under `transcription.settings` instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,6 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Enable = true;
+            InterruptPredictionThreshold = 0.0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,6 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "disable_greeting_interruption", n => { DisableGreetingInterruption = n.GetBoolValue(); } },
                 { "enable", n => { Enable = n.GetBoolValue(); } },
+                { "interrupt_prediction_threshold", n => { InterruptPredictionThreshold = n.GetDoubleValue(); } },
                 { "start_speaking_plan", n => { StartSpeakingPlan = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan>(global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,6 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("disable_greeting_interruption", DisableGreetingInterruption);
             writer.WriteBoolValue("enable", Enable);
+            writer.WriteDoubleValue("interrupt_prediction_threshold", InterruptPredictionThreshold);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan>("start_speaking_plan", StartSpeakingPlan);
             writer.WriteAdditionalData(AdditionalData);
         }

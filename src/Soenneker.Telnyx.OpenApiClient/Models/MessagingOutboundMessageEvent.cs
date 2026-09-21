@@ -9,37 +9,43 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class OutboundMessageEventMeta : IAdditionalDataHolder, IParsable
+    public partial class MessagingOutboundMessageEvent : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Number of attempts to deliver the webhook event.</summary>
-        public int? Attempt { get; set; }
-        /// <summary>The webhook URL the event was delivered to.</summary>
+        /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeliveredTo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage? Data { get; set; }
 #nullable restore
 #else
-        public string DeliveredTo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage Data { get; set; }
+#endif
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEventMeta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEventMeta Meta { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEvent"/> and sets the default values.
         /// </summary>
-        public OutboundMessageEventMeta()
+        public MessagingOutboundMessageEvent()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attempt", n => { Attempt = n.GetIntValue(); } },
-                { "delivered_to", n => { DeliveredTo = n.GetStringValue(); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEventMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEventMeta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,8 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("attempt", Attempt);
-            writer.WriteStringValue("delivered_to", DeliveredTo);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessage>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessageEventMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

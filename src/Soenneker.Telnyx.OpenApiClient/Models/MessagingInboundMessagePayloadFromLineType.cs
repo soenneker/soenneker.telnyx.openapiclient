@@ -27,5 +27,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         PrePaidWireless,
         #pragma warning restore CS1591
+        [EnumMember(Value = "long_code")]
+        #pragma warning disable CS1591
+        LongCode,
+        #pragma warning restore CS1591
     }
 }

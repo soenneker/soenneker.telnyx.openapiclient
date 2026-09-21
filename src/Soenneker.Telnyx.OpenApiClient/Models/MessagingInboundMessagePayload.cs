@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>WhatsApp message body. For message edits and revocations, inspect `type` and the corresponding `edit` or `revoke` object.</summary>
+        /// <summary>Message body for RCS and WhatsApp. RCS messages contain text, user_file, location, or suggestion_response. For WhatsApp edits and revocations, inspect type and the corresponding edit or revoke object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody? Body { get; set; }
@@ -152,7 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>Receiving address. SMS and MMS webhooks use an array of recipients. WhatsApp webhooks use one E.164 phone number.</summary>
+        /// <summary>Receiving address. SMS, MMS and RCS webhooks use an array of recipients. RCS recipients are identified by agent_id and agent_name. WhatsApp webhooks use one E.164 phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadTo? To { get; set; }

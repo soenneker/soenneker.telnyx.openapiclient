@@ -7,45 +7,38 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// RCS webhook message body. Text messages use the text property.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class OutboundMessageEvent : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class MessagingOutboundMessagePayloadBody : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The data property</summary>
+        /// <summary>RCS text message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessage? Data { get; set; }
+        public string? Text { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessage Data { get; set; }
-#endif
-        /// <summary>The meta property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta? Meta { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta Meta { get; set; }
+        public string Text { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEvent"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadBody"/> and sets the default values.
         /// </summary>
-        public OutboundMessageEvent()
+        public MessagingOutboundMessagePayloadBody()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEvent"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEvent();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessage.CreateFromDiscriminatorValue); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,8 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessage>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessageEventMeta>("meta", Meta);
+            writer.WriteStringValue("text", Text);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

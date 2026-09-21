@@ -9,61 +9,61 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MessagingOutboundMessagePayloadFrom : IAdditionalDataHolder, IParsable
+    public partial class CreateTexmlCallJsonRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>RCS agent identifier.</summary>
+        /// <summary>The E.164-formatted phone number or SIP URI to present as the caller.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentId { get; set; }
+        public string? From { get; set; }
 #nullable restore
 #else
-        public string AgentId { get; set; }
+        public string From { get; set; }
 #endif
-        /// <summary>RCS agent name.</summary>
+        /// <summary>HTTP method used to retrieve TeXML instructions from Url.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlCallJsonRequestMethod? Method { get; set; }
+        /// <summary>Inline TeXML instructions to execute when the call is answered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentName { get; set; }
+        public string? Texml { get; set; }
 #nullable restore
 #else
-        public string AgentName { get; set; }
+        public string Texml { get; set; }
 #endif
-        /// <summary>The carrier of the receiver.</summary>
+        /// <summary>The E.164-formatted phone number or SIP URI to call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Carrier { get; set; }
+        public string? To { get; set; }
 #nullable restore
 #else
-        public string Carrier { get; set; }
+        public string To { get; set; }
 #endif
-        /// <summary>The line-type of the receiver.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadFromLineType? LineType { get; set; }
-        /// <summary>Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).</summary>
+        /// <summary>The URL from which to retrieve TeXML instructions. Overrides the TeXML application XML request URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get; set; }
+        public string? Url { get; set; }
 #nullable restore
 #else
-        public string PhoneNumber { get; set; }
+        public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadFrom"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlCallJsonRequest"/> and sets the default values.
         /// </summary>
-        public MessagingOutboundMessagePayloadFrom()
+        public CreateTexmlCallJsonRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadFrom"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlCallJsonRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadFrom CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlCallJsonRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadFrom();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlCallJsonRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,11 +73,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_id", n => { AgentId = n.GetStringValue(); } },
-                { "agent_name", n => { AgentName = n.GetStringValue(); } },
-                { "carrier", n => { Carrier = n.GetStringValue(); } },
-                { "line_type", n => { LineType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadFromLineType>(); } },
-                { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
+                { "From", n => { From = n.GetStringValue(); } },
+                { "Method", n => { Method = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlCallJsonRequestMethod>(); } },
+                { "Texml", n => { Texml = n.GetStringValue(); } },
+                { "To", n => { To = n.GetStringValue(); } },
+                { "Url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("agent_id", AgentId);
-            writer.WriteStringValue("agent_name", AgentName);
-            writer.WriteStringValue("carrier", Carrier);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadFromLineType>("line_type", LineType);
-            writer.WriteStringValue("phone_number", PhoneNumber);
+            writer.WriteStringValue("From", From);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlCallJsonRequestMethod>("Method", Method);
+            writer.WriteStringValue("Texml", Texml);
+            writer.WriteStringValue("To", To);
+            writer.WriteStringValue("Url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

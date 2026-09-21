@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The type of event being delivered.</summary>
+    /// <summary>The model to use for transcription.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum OutboundMessageEventType
+    public enum TranscriptionEngineParakeetConfigTranscriptionModel
     {
-        [EnumMember(Value = "message.sent")]
+        [EnumMember(Value = "nvidia/parakeet-v3")]
         #pragma warning disable CS1591
-        MessageSent,
+        NvidiaParakeetV3,
         #pragma warning restore CS1591
-        [EnumMember(Value = "message.finalized")]
+        [EnumMember(Value = "omi-health/omi-med-stt-v1")]
         #pragma warning disable CS1591
-        MessageFinalized,
+        OmiHealthOmiMedSttV1,
         #pragma warning restore CS1591
     }
 }

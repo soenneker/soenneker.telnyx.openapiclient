@@ -3,13 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The model to use for transcription.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum NvidiaParakeetV3TranscriptionModel
+    #pragma warning disable CS1591
+    public enum ComputeFuncLogExportConfigRecordType
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "nvidia/parakeet-v3")]
+        [EnumMember(Value = "compute_func_log_export_config")]
         #pragma warning disable CS1591
-        NvidiaParakeetV3,
+        ComputeFuncLogExportConfig,
         #pragma warning restore CS1591
     }
 }
