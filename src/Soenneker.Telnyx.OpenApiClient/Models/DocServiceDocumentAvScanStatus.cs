@@ -5,7 +5,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>The antivirus scan status of the document.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum DocServiceDocumentAllOf2AvScanStatus
+    public enum DocServiceDocumentAvScanStatus
     {
         [EnumMember(Value = "scanned")]
         #pragma warning disable CS1591

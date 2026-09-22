@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The basics_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3? BasicsStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper? BasicsStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3 BasicsStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper BasicsStatus { get; set; }
 #endif
         /// <summary>The billing_category property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,10 +101,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The testing_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper? TestingStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3? TestingStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper TestingStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3 TestingStatus { get; set; }
 #endif
         /// <summary>The use_case property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AgentUseCase? UseCase { get; set; }
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "agent_id", n => { AgentId = n.GetGuidValue(); } },
-                { "basics_status", n => { BasicsStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3.CreateFromDiscriminatorValue); } },
+                { "basics_status", n => { BasicsStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper.CreateFromDiscriminatorValue); } },
                 { "billing_category", n => { BillingCategory = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingCategoryWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.BillingCategoryWrapper.CreateFromDiscriminatorValue); } },
                 { "brand_id", n => { BrandId = n.GetGuidValue(); } },
                 { "campaign_status", n => { CampaignStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper2>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper2.CreateFromDiscriminatorValue); } },
@@ -139,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "profile_id", n => { ProfileId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentState>(); } },
                 { "test_devices", n => { TestDevices = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestDeviceResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.TestDeviceResponse.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "testing_status", n => { TestingStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper.CreateFromDiscriminatorValue); } },
+                { "testing_status", n => { TestingStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3.CreateFromDiscriminatorValue); } },
                 { "use_case", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentUseCase>(); } },
             };
         }
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("agent_id", AgentId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3>("basics_status", BasicsStatus);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper>("basics_status", BasicsStatus);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingCategoryWrapper>("billing_category", BillingCategory);
             writer.WriteGuidValue("brand_id", BrandId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper2>("campaign_status", CampaignStatus);
@@ -163,7 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("profile_id", ProfileId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentState>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestDeviceResponse>("test_devices", TestDevices);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper>("testing_status", TestingStatus);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmissionStatusWrapper3>("testing_status", TestingStatus);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentUseCase>("use_case", UseCase);
         }
     }

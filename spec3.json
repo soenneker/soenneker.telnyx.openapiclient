@@ -179,6 +179,10 @@
       "description": "Call Control debugging"
     },
     {
+      "name": "Decision Models",
+      "description": "Beta API for evaluating shared context with typed questions and structured answers. Telnyx manages model selection."
+    },
+    {
       "name": "Detail Records",
       "description": "Detail Records operations"
     },
@@ -16154,6 +16158,254 @@
         "description": "Update the configuration of an existing AI tool."
       }
     },
+    "/ai/typesafe/v1/systemone": {
+      "post": {
+        "tags": [
+          "Decision Models"
+        ],
+        "summary": "Evaluate decision models (TypeSafe-compatible)",
+        "description": "**Beta API.** Telnyx controls model selection.\n\nEvaluate shared context using named choice, noul (yes/no), and score questions. Returns TypeSafe System One-compatible answer shapes, an opaque compatibility identifier, and token usage. See the [decision model guide](https://developers.telnyx.com/docs/inference/decision-models) for examples and compatibility limits.\n\nThe supported request subset requires instructions for every question, string descriptions for criteria (or null for choice descriptions), 1\u201364 questions, and 2\u201364 options for choice and score questions. The SDK-supplied model value is ignored and cannot select a model. Other unknown fields are rejected. The endpoint is synchronous and does not stream.\n\nUse the TypeSafe Python SDK with base_url set to https://api.telnyx.com/v2/ai/typesafe and a Telnyx API key. The SDK appends /v1/systemone. Compatibility covers this operation and the documented request subset; it does not include TypeSafe model listing. Scores describe relative preference, not calibrated correctness.",
+        "operationId": "create_typesafe_systemone",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionModelRequest"
+              },
+              "example": {
+                "state": "Our production calls are failing. Every customer is affected.",
+                "questions": {
+                  "team": {
+                    "type": "choice",
+                    "instructions": "Choose the team that should handle this incident.",
+                    "criteria": {
+                      "billing": "Payments and refunds",
+                      "technical_support": "Service faults and technical problems",
+                      "sales": "New purchases"
+                    }
+                  },
+                  "production_incident": {
+                    "type": "noul",
+                    "instructions": "Does the message describe an active production incident?"
+                  },
+                  "urgency": {
+                    "type": "score",
+                    "instructions": "Rate operational urgency.",
+                    "criteria": [
+                      "Low",
+                      "Normal",
+                      "High",
+                      "Critical"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All questions evaluated successfully. The response is a complete JSON object, not a stream.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelResponse"
+                },
+                "example": {
+                  "model": "telnyx-managed",
+                  "answers": {
+                    "team": {
+                      "type": "choice",
+                      "choice": "technical_support",
+                      "probabilities": {
+                        "billing": 0.0024719786572585446,
+                        "technical_support": 0.9972674768333701,
+                        "sales": 0.00026054450937119613
+                      },
+                      "confidence": 0.9820522416354122
+                    },
+                    "production_incident": {
+                      "type": "noul",
+                      "noul": 0.9991959141264766
+                    },
+                    "urgency": {
+                      "type": "score",
+                      "score": 2.9974242859177265,
+                      "legend": {
+                        "0": "Low",
+                        "1": "Normal",
+                        "2": "High",
+                        "3": "Critical"
+                      },
+                      "probabilities": {
+                        "0": 0.0003348349100603869,
+                        "1": 3.529133987660637e-05,
+                        "2": 0.0015006266723396524,
+                        "3": 0.9981292470777234
+                      },
+                      "confidence": 0.9894200002646713
+                    }
+                  },
+                  "usage": {
+                    "input_tokens": 267,
+                    "output_tokens": 4
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Supply a valid Telnyx API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelError"
+                },
+                "example": {
+                  "error": {
+                    "message": "Authentication required."
+                  }
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request body is too large or incomplete. Reduce or fix the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelError"
+                },
+                "example": {
+                  "error": {
+                    "message": "Request body too large."
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid schema or input token limit exceeded. Correct or split the request before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelError"
+                },
+                "example": {
+                  "error": {
+                    "message": "Question \"team\" requires instructions."
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests. Reduce concurrency and retry with backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelError"
+                },
+                "example": {
+                  "error": {
+                    "message": "Too many requests."
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Retry-After": {
+                "description": "When present, wait this many seconds before retrying.",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "The scoring service failed. Retry with bounded backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelError"
+                },
+                "example": {
+                  "error": {
+                    "message": "Scoring service failed."
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The decision model service is unavailable. Retry with bounded backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelError"
+                },
+                "example": {
+                  "error": {
+                    "message": "Decision model service unavailable."
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Retry-After": {
+                "description": "When present, wait this many seconds before retrying.",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Evaluation deadline exceeded. Reduce request size or concurrency before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelError"
+                },
+                "example": {
+                  "error": {
+                    "message": "Evaluation deadline exceeded."
+                  }
+                }
+              }
+            }
+          },
+          "529": {
+            "description": "The decision model service is at capacity. Retry with bounded backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionModelError"
+                },
+                "example": {
+                  "error": {
+                    "message": "Decision model service at capacity."
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Retry-After": {
+                "description": "When present, wait this many seconds before retrying.",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        },
+        "x-beta": true
+      }
+    },
     "/alphanumeric_sender_ids": {
       "get": {
         "summary": "List alphanumeric sender IDs",
@@ -29097,14 +29349,7 @@
             }
           },
           "429": {
-            "description": "The account's daily send limit was exceeded.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/email_ErrorResponse"
-                }
-              }
-            }
+            "$ref": "#/components/responses/EmailSendTooManyRequestsResponse"
           },
           "503": {
             "$ref": "#/components/responses/DraftUnavailableResponse"
@@ -29812,23 +30057,7 @@
             }
           },
           "429": {
-            "description": "Sending is suspended because the inbox domain reputation is too low.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/email_ErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "code": "reputation_suspended",
-                      "title": "Sending Suspended",
-                      "detail": "Sender domain reputation is too low. Sending has been suspended. Please contact support to resolve deliverability issues."
-                    }
-                  ]
-                }
-              }
-            }
+            "$ref": "#/components/responses/EmailSendTooManyRequestsResponse"
           },
           "503": {
             "description": "Inbox message actions or the email domain service are temporarily unavailable (10016).",
@@ -30016,23 +30245,7 @@
             }
           },
           "429": {
-            "description": "Sending is suspended because the inbox domain reputation is too low.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/email_ErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "code": "reputation_suspended",
-                      "title": "Sending Suspended",
-                      "detail": "Sender domain reputation is too low. Sending has been suspended. Please contact support to resolve deliverability issues."
-                    }
-                  ]
-                }
-              }
-            }
+            "$ref": "#/components/responses/EmailSendTooManyRequestsResponse"
           },
           "503": {
             "description": "Inbox message actions or the email domain service are temporarily unavailable (10016).",
@@ -30231,23 +30444,7 @@
             }
           },
           "429": {
-            "description": "Sending is suspended because the inbox domain reputation is too low.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/email_ErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "code": "reputation_suspended",
-                      "title": "Sending Suspended",
-                      "detail": "Sender domain reputation is too low. Sending has been suspended. Please contact support to resolve deliverability issues."
-                    }
-                  ]
-                }
-              }
-            }
+            "$ref": "#/components/responses/EmailSendTooManyRequestsResponse"
           },
           "503": {
             "description": "Inbox message actions or the email domain service are temporarily unavailable (10016).",
@@ -31072,14 +31269,7 @@
             "$ref": "#/components/responses/email_ServiceUnavailableResponse"
           },
           "429": {
-            "description": "Sending suspended \u2014 domain reputation band is 'poor'.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReputationSuspendedError"
-                }
-              }
-            }
+            "$ref": "#/components/responses/EmailSendTooManyRequestsResponse"
           },
           "409": {
             "$ref": "#/components/responses/IdempotencyConflictResponse"
@@ -31102,7 +31292,7 @@
         ],
         "operationId": "CreateEmailMessageBatch",
         "summary": "Create a batch of email messages",
-        "description": "Creates up to 1,000 email messages in a single request. Each message is validated and sent independently; per-message failures do not affect other messages in the batch. All responses use 207 Multi-Status.",
+        "description": "Creates up to 1,000 email messages in a single request. Request-wide admission checks run first and can reject the whole batch before message creation. After those checks pass, each message is validated and sent independently; item-level failures do not affect other messages, and the processed batch returns 207 Multi-Status.",
         "requestBody": {
           "required": true,
           "content": {
@@ -31136,7 +31326,7 @@
         },
         "responses": {
           "207": {
-            "description": "Multi-Status \u2014 all batch responses return 207. When all messages succeed, `errors` is empty and every item is in `data`. When one or more fail, the response contains a `data` array for successes and an `errors` array for failures.",
+            "description": "Multi-Status \u2014 returned after request-wide admission checks pass and item processing runs. When all messages succeed, `errors` is empty and every item is in `data`. When one or more items fail, the response contains a `data` array for successes and an `errors` array for failures. Request-wide gates can instead return 4xx or 5xx.",
             "content": {
               "application/json": {
                 "schema": {
@@ -31168,14 +31358,7 @@
             "$ref": "#/components/responses/email_UnauthorizedResponse"
           },
           "429": {
-            "description": "Sending suspended \u2014 domain reputation band is 'poor'.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReputationSuspendedError"
-                }
-              }
-            }
+            "$ref": "#/components/responses/EmailSendTooManyRequestsResponse"
           },
           "409": {
             "$ref": "#/components/responses/IdempotencyConflictResponse"
@@ -90350,6 +90533,78 @@
           }
         }
       },
+      "EmailSendTooManyRequestsResponse": {
+        "description": "Send rejected before message creation because the account daily recipient quota was exhausted (10011), the sender-domain graduation ceiling was exceeded (domain_graduation_limit_exceeded), or domain reputation is poor (reputation_suspended).",
+        "headers": {
+          "Retry-After": {
+            "description": "Seconds until the next UTC-midnight reset. Present only for domain_graduation_limit_exceeded; omitted for 10011 and reputation_suspended.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "example": 3600
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/DailySendLimitError"
+                },
+                {
+                  "$ref": "#/components/schemas/DomainGraduationLimitExceededError"
+                },
+                {
+                  "$ref": "#/components/schemas/ReputationSuspendedError"
+                }
+              ]
+            },
+            "examples": {
+              "accountDailyLimit": {
+                "summary": "Account daily recipient quota exhausted",
+                "value": {
+                  "errors": [
+                    {
+                      "code": "10011",
+                      "title": "Too Many Requests",
+                      "detail": "Daily send limit of 1000 recipients exceeded. The limit resets at midnight UTC."
+                    }
+                  ]
+                }
+              },
+              "senderDomainGraduation": {
+                "summary": "Sender-domain graduation ceiling exceeded",
+                "value": {
+                  "errors": [
+                    {
+                      "code": "domain_graduation_limit_exceeded",
+                      "title": "Too Many Requests",
+                      "detail": "Daily send limit of 250 recipients for this sender domain exceeded. The limit resets at midnight UTC.",
+                      "meta": {
+                        "retry_after_seconds": 3600,
+                        "remaining_today": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              "reputationSuspended": {
+                "summary": "Domain reputation is poor",
+                "value": {
+                  "errors": [
+                    {
+                      "code": "reputation_suspended",
+                      "title": "Sending Suspended",
+                      "detail": "Sender domain reputation is too low. Sending has been suspended. Please contact support to resolve deliverability issues."
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
       "Forbidden": {
         "description": "The authenticated credential is not permitted to perform this operation.",
         "content": {
@@ -98404,7 +98659,7 @@
             "example": "https://example.com/file.mp3"
           },
           "model": {
-            "description": "ID of the model to use. `distil-whisper/distil-large-v2` is lower latency but English-only. `openai/whisper-large-v3-turbo` is multi-lingual but slightly higher latency. The `deepgram/*` models only accept mp3/wav files: `deepgram/nova-3` covers ~49 languages plus `multi` and `deepgram/nova-2` covers ~33, while the `-medical` variants are tuned for clinical vocabulary and accept English only (`en` and its regional variants, e.g. `en-US`, `en-GB`).",
+            "description": "ID of the model to use. `distil-whisper/distil-large-v2` is lower latency but English-only. `openai/whisper-large-v3-turbo` is multi-lingual but slightly higher latency. The `deepgram/*` models only accept mp3/wav files: `deepgram/nova-3` covers ~49 languages plus `multi` and `deepgram/nova-2` covers ~33, while the `-medical` variants are tuned for clinical vocabulary and accept English only (`en` and its regional variants, e.g. `en-US`, `en-GB`). `nvidia/parakeet-v3` is multilingual with automatic language detection; `omi-health/omi-med-stt-v1` is a medical model, English only.",
             "example": "distil-whisper/distil-large-v2",
             "default": "distil-whisper/distil-large-v2",
             "type": "string",
@@ -98414,7 +98669,9 @@
               "deepgram/nova-2",
               "deepgram/nova-2-medical",
               "deepgram/nova-3",
-              "deepgram/nova-3-medical"
+              "deepgram/nova-3-medical",
+              "nvidia/parakeet-v3",
+              "omi-health/omi-med-stt-v1"
             ]
           },
           "response_format": {
@@ -98437,7 +98694,7 @@
           },
           "language": {
             "type": "string",
-            "description": "The language of the audio to be transcribed. `deepgram/nova-3` supports ~49 languages plus `multi`, and `deepgram/nova-2` supports ~33 plus `multi`; the `-medical` variants are English only (`en` and its regional variants, e.g. `en-US`, `en-GB`). Deepgram models validate on the base language and forward the full tag, so regional variants such as `de-CH` and `pt-BR` are accepted where the base language is supported; an unsupported language returns a 400. For `openai/whisper-large-v3-turbo`, supports multiple languages. `distil-whisper/distil-large-v2` does not support language parameter.",
+            "description": "The language of the audio to be transcribed. `deepgram/nova-3` supports ~49 languages plus `multi`, and `deepgram/nova-2` supports ~33 plus `multi`; the `-medical` variants are English only (`en` and its regional variants, e.g. `en-US`, `en-GB`). Deepgram models validate on the base language and forward the full tag, so regional variants such as `de-CH` and `pt-BR` are accepted where the base language is supported; an unsupported language returns a 400. For `openai/whisper-large-v3-turbo`, supports multiple languages. `distil-whisper/distil-large-v2` does not support language parameter. `nvidia/parakeet-v3` detects the language automatically; `omi-health/omi-med-stt-v1` is English only.",
             "example": "en-US"
           },
           "model_config": {
@@ -98456,7 +98713,7 @@
       },
       "AudioTranscriptionResponse": {
         "type": "object",
-        "description": "Response fields vary by model. `distil-whisper/distil-large-v2` returns `text`, `duration`, and `segments` in `verbose_json` mode. `openai/whisper-large-v3-turbo` returns `text` only. The `deepgram/*` models return `text` and, depending on `model_config`, may include `words` with per-word timestamps and speaker labels.",
+        "description": "Response fields vary by model. `distil-whisper/distil-large-v2` returns `text`, `duration`, and `segments` in `verbose_json` mode. `openai/whisper-large-v3-turbo` returns `text` only. The `deepgram/*` models return `text` and, depending on `model_config`, may include `words` with per-word timestamps and speaker labels. The Parakeet models (`nvidia/parakeet-v3`, `omi-health/omi-med-stt-v1`) return `text` only.",
         "properties": {
           "text": {
             "type": "string",
@@ -122142,10 +122399,562 @@
         ],
         "title": "DTMFTool"
       },
+      "DailySendLimitError": {
+        "type": "object",
+        "description": "Error envelope returned when the account's daily recipient quota is exhausted before message creation.",
+        "required": [
+          "errors"
+        ],
+        "properties": {
+          "errors": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "code",
+                "title",
+                "detail"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "enum": [
+                    "10011"
+                  ]
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Too Many Requests"
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Daily send limit of 1000 recipients exceeded. The limit resets at midnight UTC."
+                }
+              }
+            }
+          }
+        }
+      },
       "DateTimeRFC2822": {
         "type": "string",
         "format": "date-time",
         "example": "2023-08-11T19:12:11Z"
+      },
+      "DecisionModelAnswer": {
+        "description": "An answer whose type matches its question.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionModelChoiceAnswer"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionModelNoulAnswer"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionModelScoreAnswer"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "choice": "#/components/schemas/DecisionModelChoiceAnswer",
+            "noul": "#/components/schemas/DecisionModelNoulAnswer",
+            "score": "#/components/schemas/DecisionModelScoreAnswer"
+          }
+        }
+      },
+      "DecisionModelChoiceAnswer": {
+        "type": "object",
+        "description": "A selected option and the distribution across all supplied option keys.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Answer type.",
+            "enum": [
+              "choice"
+            ]
+          },
+          "choice": {
+            "type": "string",
+            "description": "The option key with the highest relative score. Ties favor the first option in request order."
+          },
+          "probabilities": {
+            "$ref": "#/components/schemas/DecisionModelProbabilities"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/DecisionModelConfidence"
+          }
+        },
+        "required": [
+          "type",
+          "choice",
+          "probabilities",
+          "confidence"
+        ],
+        "additionalProperties": false,
+        "example": {
+          "type": "choice",
+          "choice": "technical_support",
+          "probabilities": {
+            "billing": 0.0024719786572585446,
+            "technical_support": 0.9972674768333701,
+            "sales": 0.00026054450937119613
+          },
+          "confidence": 0.9820522416354122
+        }
+      },
+      "DecisionModelChoiceQuestion": {
+        "type": "object",
+        "description": "Select one of the supplied options.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Question type.",
+            "enum": [
+              "choice"
+            ]
+          },
+          "instructions": {
+            "$ref": "#/components/schemas/DecisionModelContent",
+            "description": "Required instructions describing what to decide about the shared state."
+          },
+          "criteria": {
+            "type": "object",
+            "description": "Between 2 and 64 option keys mapped to description strings or null. A null description uses the option key as its text.",
+            "minProperties": 2,
+            "maxProperties": 64,
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "required": [
+          "type",
+          "instructions",
+          "criteria"
+        ],
+        "additionalProperties": false,
+        "example": {
+          "type": "choice",
+          "instructions": "Choose the team that should handle this incident.",
+          "criteria": {
+            "billing": "Payments and refunds",
+            "technical_support": "Service faults and technical problems",
+            "sales": "New purchases"
+          }
+        }
+      },
+      "DecisionModelConfidence": {
+        "type": "number",
+        "description": "Normalized entropy confidence: 1 - H(p) / ln(N), where H(p) = -sum(p * ln(p)) and N is the number of options. Zero indicates a uniform distribution; one indicates concentration on one option. This is neither the winning probability nor calibrated correctness.",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "DecisionModelContent": {
+        "description": "Text, a JSON object, or an array containing text-based context. Text-only conversation histories are supported; image and audio inputs are not supported.",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "additionalProperties": true
+          },
+          {
+            "type": "array",
+            "items": {}
+          }
+        ]
+      },
+      "DecisionModelError": {
+        "type": "object",
+        "description": "A decision model service error.",
+        "properties": {
+          "error": {
+            "type": "object",
+            "description": "Error details.",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "Human-readable explanation of the failure."
+              }
+            },
+            "required": [
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "additionalProperties": false
+      },
+      "DecisionModelNoulAnswer": {
+        "type": "object",
+        "description": "A yes/no score with no separate confidence or probabilities fields.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Answer type.",
+            "enum": [
+              "noul"
+            ]
+          },
+          "noul": {
+            "type": "number",
+            "description": "Score of the positive outcome. Values near 1 favor yes; values near 0 favor no. This is a number, not a Boolean, and is not calibrated correctness.",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "type",
+          "noul"
+        ],
+        "additionalProperties": false,
+        "example": {
+          "type": "noul",
+          "noul": 0.9991959141264766
+        }
+      },
+      "DecisionModelNoulCriteria": {
+        "type": "object",
+        "description": "Optional descriptions for the positive and negative outcomes. Descriptions must be strings.",
+        "properties": {
+          "true": {
+            "type": "string",
+            "description": "Description of the positive outcome.",
+            "default": "Yes"
+          },
+          "false": {
+            "type": "string",
+            "description": "Description of the negative outcome.",
+            "default": "No"
+          }
+        },
+        "required": [],
+        "additionalProperties": false,
+        "default": {
+          "true": "Yes",
+          "false": "No"
+        }
+      },
+      "DecisionModelNoulQuestion": {
+        "type": "object",
+        "description": "Evaluate a yes/no question. Omit criteria to use Yes and No descriptions.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Question type.",
+            "enum": [
+              "noul"
+            ]
+          },
+          "instructions": {
+            "$ref": "#/components/schemas/DecisionModelContent",
+            "description": "Required instructions describing what to decide about the shared state."
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/DecisionModelNoulCriteria"
+          }
+        },
+        "required": [
+          "type",
+          "instructions"
+        ],
+        "additionalProperties": false,
+        "example": {
+          "type": "noul",
+          "instructions": "Does the message describe an active production incident?"
+        }
+      },
+      "DecisionModelProbabilities": {
+        "type": "object",
+        "description": "Relative scores normalized across the supplied options, summing approximately to 1. These are not calibrated probabilities of correctness.",
+        "minProperties": 2,
+        "maxProperties": 64,
+        "additionalProperties": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "DecisionModelQuestion": {
+        "description": "A choice, yes/no, or ordered-score question.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionModelChoiceQuestion"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionModelNoulQuestion"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionModelScoreQuestion"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "choice": "#/components/schemas/DecisionModelChoiceQuestion",
+            "noul": "#/components/schemas/DecisionModelNoulQuestion",
+            "score": "#/components/schemas/DecisionModelScoreQuestion"
+          }
+        }
+      },
+      "DecisionModelRequest": {
+        "type": "object",
+        "description": "Decision Models beta request. Telnyx manages model selection. SDK-supplied model values are ignored for compatibility; they do not select a model.",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/DecisionModelContent",
+            "description": "Shared context evaluated by every question.",
+            "example": "Our production calls are failing. Every customer is affected."
+          },
+          "questions": {
+            "type": "object",
+            "description": "Between 1 and 64 named questions. Each key identifies the corresponding answer.",
+            "minProperties": 1,
+            "maxProperties": 64,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DecisionModelQuestion"
+            }
+          }
+        },
+        "required": [
+          "state",
+          "questions"
+        ],
+        "additionalProperties": false,
+        "example": {
+          "state": "Our production calls are failing. Every customer is affected.",
+          "questions": {
+            "team": {
+              "type": "choice",
+              "instructions": "Choose the team that should handle this incident.",
+              "criteria": {
+                "billing": "Payments and refunds",
+                "technical_support": "Service faults and technical problems",
+                "sales": "New purchases"
+              }
+            },
+            "production_incident": {
+              "type": "noul",
+              "instructions": "Does the message describe an active production incident?"
+            },
+            "urgency": {
+              "type": "score",
+              "instructions": "Rate operational urgency.",
+              "criteria": [
+                "Low",
+                "Normal",
+                "High",
+                "Critical"
+              ]
+            }
+          }
+        },
+        "patternProperties": {
+          "^model$": {
+            "description": "Ignored SDK compatibility value. Telnyx controls model selection."
+          }
+        }
+      },
+      "DecisionModelResponse": {
+        "type": "object",
+        "description": "A complete synchronous evaluation. Answers are returned directly without a data wrapper.",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Opaque Telnyx-controlled identifier retained for TypeSafe SDK response compatibility. It is not a selectable model name or a guarantee of a particular underlying model.",
+            "readOnly": true
+          },
+          "answers": {
+            "type": "object",
+            "description": "Answers keyed by exactly the question IDs in the request. Each answer type matches its question.",
+            "minProperties": 1,
+            "maxProperties": 64,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DecisionModelAnswer"
+            }
+          },
+          "usage": {
+            "$ref": "#/components/schemas/DecisionModelUsage"
+          }
+        },
+        "required": [
+          "model",
+          "answers",
+          "usage"
+        ],
+        "additionalProperties": false,
+        "example": {
+          "model": "telnyx-managed",
+          "answers": {
+            "team": {
+              "type": "choice",
+              "choice": "technical_support",
+              "probabilities": {
+                "billing": 0.0024719786572585446,
+                "technical_support": 0.9972674768333701,
+                "sales": 0.00026054450937119613
+              },
+              "confidence": 0.9820522416354122
+            },
+            "production_incident": {
+              "type": "noul",
+              "noul": 0.9991959141264766
+            },
+            "urgency": {
+              "type": "score",
+              "score": 2.9974242859177265,
+              "legend": {
+                "0": "Low",
+                "1": "Normal",
+                "2": "High",
+                "3": "Critical"
+              },
+              "probabilities": {
+                "0": 0.0003348349100603869,
+                "1": 3.529133987660637e-05,
+                "2": 0.0015006266723396524,
+                "3": 0.9981292470777234
+              },
+              "confidence": 0.9894200002646713
+            }
+          },
+          "usage": {
+            "input_tokens": 267,
+            "output_tokens": 4
+          }
+        }
+      },
+      "DecisionModelScoreAnswer": {
+        "type": "object",
+        "description": "An expected rating over the ordered criteria.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Answer type.",
+            "enum": [
+              "score"
+            ]
+          },
+          "score": {
+            "type": "number",
+            "description": "Expected zero-based criterion index: sum(index * probability). Ranges from 0 to N-1 for N criteria; fractional values are valid.",
+            "minimum": 0,
+            "maximum": 63
+          },
+          "legend": {
+            "type": "object",
+            "description": "Criterion descriptions keyed by stringified zero-based indices, such as \"0\", \"1\", and \"2\".",
+            "minProperties": 2,
+            "maxProperties": 64,
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "probabilities": {
+            "$ref": "#/components/schemas/DecisionModelProbabilities",
+            "description": "Relative scores keyed by the same stringified indices as legend."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/DecisionModelConfidence"
+          }
+        },
+        "required": [
+          "type",
+          "score",
+          "legend",
+          "probabilities",
+          "confidence"
+        ],
+        "additionalProperties": false,
+        "example": {
+          "type": "score",
+          "score": 2.9974242859177265,
+          "legend": {
+            "0": "Low",
+            "1": "Normal",
+            "2": "High",
+            "3": "Critical"
+          },
+          "probabilities": {
+            "0": 0.0003348349100603869,
+            "1": 3.529133987660637e-05,
+            "2": 0.0015006266723396524,
+            "3": 0.9981292470777234
+          },
+          "confidence": 0.9894200002646713
+        }
+      },
+      "DecisionModelScoreQuestion": {
+        "type": "object",
+        "description": "Rate the state against an ordered rubric.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Question type.",
+            "enum": [
+              "score"
+            ]
+          },
+          "instructions": {
+            "$ref": "#/components/schemas/DecisionModelContent",
+            "description": "Required instructions describing what to decide about the shared state."
+          },
+          "criteria": {
+            "type": "array",
+            "description": "Between 2 and 64 description strings in ascending score order. Indices start at zero.",
+            "minItems": 2,
+            "maxItems": 64,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "instructions",
+          "criteria"
+        ],
+        "additionalProperties": false,
+        "example": {
+          "type": "score",
+          "instructions": "Rate operational urgency.",
+          "criteria": [
+            "Low",
+            "Normal",
+            "High",
+            "Critical"
+          ]
+        }
+      },
+      "DecisionModelUsage": {
+        "type": "object",
+        "description": "Token usage for the completed evaluation.",
+        "properties": {
+          "input_tokens": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Input tokens processed, including shared-context preparation and question evaluation. This can exceed the token count of the unique input text."
+          },
+          "output_tokens": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Output tokens used for the evaluation, including shared-context preparation."
+          }
+        },
+        "required": [
+          "input_tokens",
+          "output_tokens"
+        ],
+        "additionalProperties": false
       },
       "DeepgramNova2Config": {
         "type": "object",
@@ -123993,6 +124802,61 @@
           },
           "meta": {
             "$ref": "#/components/schemas/branded-calling_PaginationMeta"
+          }
+        }
+      },
+      "DomainGraduationLimitExceededError": {
+        "type": "object",
+        "description": "Error envelope returned when a newly sending custom domain on shared egress would exceed its current daily graduation ceiling. The send is rejected before message creation.",
+        "required": [
+          "errors"
+        ],
+        "properties": {
+          "errors": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "code",
+                "title",
+                "detail"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "enum": [
+                    "domain_graduation_limit_exceeded"
+                  ]
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Too Many Requests"
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Daily send limit of 250 recipients for this sender domain exceeded. The limit resets at midnight UTC."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "Bounded retry guidance. Each field is omitted when unknown.",
+                  "additionalProperties": false,
+                  "properties": {
+                    "retry_after_seconds": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "description": "Seconds until the next UTC-midnight reset."
+                    },
+                    "remaining_today": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "Recipient headroom remaining for the sender-domain identity before this rejected request."
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -127759,14 +128623,16 @@
         "properties": {
           "code": {
             "type": "string",
-            "description": "Telnyx error code. Edge idempotency errors use 10027 or 10036. Fallback 404/500 responses from the framework may use string status codes ('404', '500') instead.",
+            "description": "Telnyx error code. Send admission errors include account daily quota 10011 and sender-domain ramp code domain_graduation_limit_exceeded. Edge idempotency errors use 10027 or 10036. Fallback 404/500 responses from the framework may use string status codes ('404', '500') instead.",
             "enum": [
               "10001",
               "10006",
               "10007",
+              "10011",
               "10015",
               "10016",
               "10019",
+              "domain_graduation_limit_exceeded",
               "recipient_suppressed",
               "reputation_suspended",
               "404",
@@ -139936,6 +140802,11 @@
       },
       "MessagingInboundMessagePayload": {
         "properties": {
+          "autoresponse_type": {
+            "type": "string",
+            "description": "Automatic response type triggered by an inbound opt-in, opt-out, or help keyword. Examples include START, STOP, and HELP.",
+            "example": "STOP"
+          },
           "record_type": {
             "type": "string",
             "example": "message",
@@ -144388,6 +145259,9 @@
             "properties": {
               "event_type": {
                 "type": "string",
+                "enum": [
+                  "number_order.complete"
+                ],
                 "example": "number_order.complete",
                 "description": "The type of event being sent"
               },
@@ -156910,11 +157784,21 @@
       "ReputationSuspendedError": {
         "type": "object",
         "description": "Non-standard error envelope returned when the sending domain's reputation band is 'poor'. Uses string code `reputation_suspended` instead of a numeric code.",
+        "required": [
+          "errors"
+        ],
         "properties": {
           "errors": {
             "type": "array",
+            "minItems": 1,
+            "maxItems": 1,
             "items": {
               "type": "object",
+              "required": [
+                "code",
+                "title",
+                "detail"
+              ],
               "properties": {
                 "code": {
                   "type": "string",
@@ -191001,6 +191885,9 @@
             "properties": {
               "event_type": {
                 "type": "string",
+                "enum": [
+                  "number_order.complete"
+                ],
                 "example": "number_order.complete",
                 "description": "The type of event being sent"
               },

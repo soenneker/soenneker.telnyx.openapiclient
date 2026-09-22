@@ -5,7 +5,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>Indicates the current document reviewing status</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum DocServiceDocumentAllOf2Status
+    public enum DocServiceDocumentStatus
     {
         [EnumMember(Value = "pending")]
         #pragma warning disable CS1591

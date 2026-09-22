@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>The type of event being sent</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum ReputationSuspendedCode
-    #pragma warning restore CS1591
+    public enum NumberOrderCompleteEventType
     {
-        [EnumMember(Value = "reputation_suspended")]
+        [EnumMember(Value = "number_order.complete")]
         #pragma warning disable CS1591
-        ReputationSuspended,
+        NumberOrderComplete,
         #pragma warning restore CS1591
     }
 }

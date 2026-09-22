@@ -45,7 +45,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Action
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +64,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Action
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

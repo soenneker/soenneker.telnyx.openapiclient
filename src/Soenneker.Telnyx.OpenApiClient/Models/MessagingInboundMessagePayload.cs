@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Automatic response type triggered by an inbound opt-in, opt-out, or help keyword. Examples include START, STOP, and HELP.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AutoresponseType { get; set; }
+#nullable restore
+#else
+        public string AutoresponseType { get; set; }
+#endif
         /// <summary>Message body for RCS and WhatsApp. RCS messages contain text, user_file, location, or suggestion_response. For WhatsApp edits and revocations, inspect type and the corresponding edit or revoke object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -205,6 +213,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "autoresponse_type", n => { AutoresponseType = n.GetStringValue(); } },
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody.CreateFromDiscriminatorValue); } },
                 { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCcItem>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCcItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
@@ -243,6 +252,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("autoresponse_type", AutoresponseType);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody>("body", Body);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCcItem>("cc", Cc);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);

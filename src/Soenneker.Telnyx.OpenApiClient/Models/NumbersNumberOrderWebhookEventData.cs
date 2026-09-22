@@ -15,13 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of event being sent</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EventType { get; set; }
-#nullable restore
-#else
-        public string EventType { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderCompleteEventType? EventType { get; set; }
         /// <summary>Unique identifier for the event</summary>
         public Guid? Id { get; set; }
         /// <summary>ISO 8601 timestamp of when the event occurred</summary>
@@ -67,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "event_type", n => { EventType = n.GetStringValue(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderCompleteEventType>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "occurred_at", n => { OccurredAt = n.GetDateTimeOffsetValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderWebhookPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderWebhookPayload.CreateFromDiscriminatorValue); } },
@@ -81,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderCompleteEventType>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("occurred_at", OccurredAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderWebhookPayload>("payload", Payload);

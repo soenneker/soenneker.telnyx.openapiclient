@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>ID of the model to use. `distil-whisper/distil-large-v2` is lower latency but English-only. `openai/whisper-large-v3-turbo` is multi-lingual but slightly higher latency. The `deepgram/*` models only accept mp3/wav files: `deepgram/nova-3` covers ~49 languages plus `multi` and `deepgram/nova-2` covers ~33, while the `-medical` variants are tuned for clinical vocabulary and accept English only (`en` and its regional variants, e.g. `en-US`, `en-GB`).</summary>
+    /// <summary>ID of the model to use. `distil-whisper/distil-large-v2` is lower latency but English-only. `openai/whisper-large-v3-turbo` is multi-lingual but slightly higher latency. The `deepgram/*` models only accept mp3/wav files: `deepgram/nova-3` covers ~49 languages plus `multi` and `deepgram/nova-2` covers ~33, while the `-medical` variants are tuned for clinical vocabulary and accept English only (`en` and its regional variants, e.g. `en-US`, `en-GB`). `nvidia/parakeet-v3` is multilingual with automatic language detection; `omi-health/omi-med-stt-v1` is a medical model, English only.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AudioTranscriptionRequestModel
     {
@@ -30,6 +30,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "deepgram/nova-3-medical")]
         #pragma warning disable CS1591
         DeepgramNova3Medical,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "nvidia/parakeet-v3")]
+        #pragma warning disable CS1591
+        NvidiaParakeetV3,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "omi-health/omi-med-stt-v1")]
+        #pragma warning disable CS1591
+        OmiHealthOmiMedSttV1,
         #pragma warning restore CS1591
     }
 }

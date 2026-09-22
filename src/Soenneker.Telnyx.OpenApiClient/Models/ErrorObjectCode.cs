@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Telnyx error code. Edge idempotency errors use 10027 or 10036. Fallback 404/500 responses from the framework may use string status codes (&apos;404&apos;, &apos;500&apos;) instead.</summary>
+    /// <summary>Telnyx error code. Send admission errors include account daily quota 10011 and sender-domain ramp code domain_graduation_limit_exceeded. Edge idempotency errors use 10027 or 10036. Fallback 404/500 responses from the framework may use string status codes (&apos;404&apos;, &apos;500&apos;) instead.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ErrorObjectCode
     {
@@ -19,6 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Value10007,
         #pragma warning restore CS1591
+        [EnumMember(Value = "10011")]
+        #pragma warning disable CS1591
+        Value10011,
+        #pragma warning restore CS1591
         [EnumMember(Value = "10015")]
         #pragma warning disable CS1591
         Value10015,
@@ -30,6 +34,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "10019")]
         #pragma warning disable CS1591
         Value10019,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "domain_graduation_limit_exceeded")]
+        #pragma warning disable CS1591
+        DomainGraduationLimitExceeded,
         #pragma warning restore CS1591
         [EnumMember(Value = "recipient_suppressed")]
         #pragma warning disable CS1591

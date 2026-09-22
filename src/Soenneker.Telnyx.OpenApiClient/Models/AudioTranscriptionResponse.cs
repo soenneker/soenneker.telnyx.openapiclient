@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Response fields vary by model. `distil-whisper/distil-large-v2` returns `text`, `duration`, and `segments` in `verbose_json` mode. `openai/whisper-large-v3-turbo` returns `text` only. The `deepgram/*` models return `text` and, depending on `model_config`, may include `words` with per-word timestamps and speaker labels.
+    /// Response fields vary by model. `distil-whisper/distil-large-v2` returns `text`, `duration`, and `segments` in `verbose_json` mode. `openai/whisper-large-v3-turbo` returns `text` only. The `deepgram/*` models return `text` and, depending on `model_config`, may include `words` with per-word timestamps and speaker labels. The Parakeet models (`nvidia/parakeet-v3`, `omi-health/omi-med-stt-v1`) return `text` only.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AudioTranscriptionResponse : IAdditionalDataHolder, IParsable

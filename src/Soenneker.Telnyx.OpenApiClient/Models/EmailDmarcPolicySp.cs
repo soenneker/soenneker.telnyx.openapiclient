@@ -3,9 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Policy applied to messages that fail alignment.</summary>
+    /// <summary>Policy for subdomains. Omitted from the record when null.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum EmailDomainDmarcPolicyP
+    public enum EmailDmarcPolicySp
     {
         [EnumMember(Value = "none")]
         #pragma warning disable CS1591
