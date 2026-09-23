@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates.Item.Render
         {
         }
         /// <summary>
-        /// Renders a template using the provided Liquid variables. Missing `template_variables` defaults to `{}`.
+        /// Renders a template using the provided Liquid variables. Missing `template_variables` defaults to `{}`.When the template has `strict_variables` enabled and a required variable (per `variable_schema`) is missing, returns 422 naming the variable. When the template has `autoescape` enabled, the rendered `html_body` expression output is HTML-escaped at the output boundary; `subject` and `text_body` are not autoescaped.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates.Item.Render
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Renders a template using the provided Liquid variables. Missing `template_variables` defaults to `{}`.
+        /// Renders a template using the provided Liquid variables. Missing `template_variables` defaults to `{}`.When the template has `strict_variables` enabled and a required variable (per `variable_schema`) is missing, returns 422 naming the variable. When the template has `autoescape` enabled, the rendered `html_body` expression output is HTML-escaped at the output boundary; `subject` and `text_body` are not autoescaped.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

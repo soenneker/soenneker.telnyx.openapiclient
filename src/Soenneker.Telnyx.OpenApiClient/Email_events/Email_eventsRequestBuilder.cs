@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_events
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Email_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_events{?email_id*,event_type*,from*,page_cursor*,page_size*,to*}", pathParameters)
+        public Email_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_events{?email_id*,event_type*,from*,page%5Bcursor%5D*,page_size*,to*}", pathParameters)
         {
         }
         /// <summary>
@@ -36,11 +36,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_events
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Email_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_events{?email_id*,event_type*,from*,page_cursor*,page_size*,to*}", rawUrl)
+        public Email_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_events{?email_id*,event_type*,from*,page%5Bcursor%5D*,page_size*,to*}", rawUrl)
         {
         }
         /// <summary>
-        /// Lists account-level email events sorted oldest first by `occurred_at asc, id asc`.
+        /// Lists account-level email events sorted oldest first by `occurred_at asc, id asc`. Each row contains a legacy email.-prefixed event_type and an additive canonical_event_type. Gateway rejection renders email.failed with canonical email.gw_reject; ambiguous injection timeout renders email.injection_timeout in both; MTA expiration renders email.bounced with canonical email.expired. Message-scoped queued, sending, sandbox, cancelled, and daily_limit_exceeded rows fan out per durable recipient with stable derived IDs matching webhook delivery. Scheduled is the cardinality exception: account polling retains one message-scoped scheduled row with its stored event ID, while scheduled webhook publication fans out per recipient with derived IDs; reconcile scheduled events by message ID, event type, and occurrence time rather than event UUID. Recipient-scoped stored rows retain their stored UUIDs across polling and webhook delivery. Legacy names are derived from stored rows; an AdminBounce row stored as failed renders email.failed in polling while its webhook retains email.bounced, both with canonical email.failed.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_events
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists account-level email events sorted oldest first by `occurred_at asc, id asc`.
+        /// Lists account-level email events sorted oldest first by `occurred_at asc, id asc`. Each row contains a legacy email.-prefixed event_type and an additive canonical_event_type. Gateway rejection renders email.failed with canonical email.gw_reject; ambiguous injection timeout renders email.injection_timeout in both; MTA expiration renders email.bounced with canonical email.expired. Message-scoped queued, sending, sandbox, cancelled, and daily_limit_exceeded rows fan out per durable recipient with stable derived IDs matching webhook delivery. Scheduled is the cardinality exception: account polling retains one message-scoped scheduled row with its stored event ID, while scheduled webhook publication fans out per recipient with derived IDs; reconcile scheduled events by message ID, event type, and occurrence time rather than event UUID. Recipient-scoped stored rows retain their stored UUIDs across polling and webhook delivery. Legacy names are derived from stored rows; an AdminBounce row stored as failed renders email.failed in polling while its webhook retains email.bounced, both with canonical email.failed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_events
             return new global::Soenneker.Telnyx.OpenApiClient.Email_events.Email_eventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists account-level email events sorted oldest first by `occurred_at asc, id asc`.
+        /// Lists account-level email events sorted oldest first by `occurred_at asc, id asc`. Each row contains a legacy email.-prefixed event_type and an additive canonical_event_type. Gateway rejection renders email.failed with canonical email.gw_reject; ambiguous injection timeout renders email.injection_timeout in both; MTA expiration renders email.bounced with canonical email.expired. Message-scoped queued, sending, sandbox, cancelled, and daily_limit_exceeded rows fan out per durable recipient with stable derived IDs matching webhook delivery. Scheduled is the cardinality exception: account polling retains one message-scoped scheduled row with its stored event ID, while scheduled webhook publication fans out per recipient with derived IDs; reconcile scheduled events by message ID, event type, and occurrence time rather than event UUID. Recipient-scoped stored rows retain their stored UUIDs across polling and webhook delivery. Legacy names are derived from stored rows; an AdminBounce row stored as failed renders email.failed in polling while its webhook retains email.bounced, both with canonical email.failed.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Email_eventsRequestBuilderGetQueryParameters 
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_events
             /// <summary>Filter events for a specific email message UUID. Invalid UUID values are silently ignored (no filter applied).</summary>
             [QueryParameter("email_id")]
             public Guid? EmailId { get; set; }
-            /// <summary>Comma-separated list of event types to include. Also accepts repeated query parameters (e.g. event_type=delivered&amp;event_type=bounced). Unknown values return no matches.</summary>
+            /// <summary>Comma-separated list of event types to include. Also accepts repeatedquery parameters (e.g. event_type=delivered&amp;event_type=bounced).Unknown values return no matches.Dual-name compatibility: values are acceptedbare or `email.`-prefixed. A legacy value keeps matching therows it matched pre-rename — no widening: `failed` alsomatches the rows that now store the canonical names of theoutcomes it covered (`gw_reject`, `injection_timeout`,`expired`); `bounced` matches stored `bounced` rows only(recipient-scoped Expirations stored `failed` pre-rename andnever matched `bounced`, so `expired` is deliberately not a`bounced` expansion). A canonical value matches its own rowsplus legacy rows whose recorded payload evidence proves thatoutcome (`expired` also surfaces legacy `bounced` rows with`bounce_category: transient`). The additive`canonical_event_type` field in each response row names thecanonical outcome.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("event_type")]
@@ -112,15 +112,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_events
             /// <summary>Inclusive ISO 8601 start timestamp. Defaults to 30 days ago when omitted.</summary>
             [QueryParameter("from")]
             public DateTimeOffset? From { get; set; }
-            /// <summary>Opaque URL-safe Base64 cursor returned by a previous list response.</summary>
+            /// <summary>Opaque URL-safe Base64 cursor returned by a previous event list response. The legacy `page[after]` and flat `page_cursor` forms are also accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("page_cursor")]
-            public string? PageCursor { get; set; }
+            [QueryParameter("page%5Bcursor%5D")]
+            public string? Pagecursor { get; set; }
 #nullable restore
 #else
-            [QueryParameter("page_cursor")]
-            public string PageCursor { get; set; }
+            [QueryParameter("page%5Bcursor%5D")]
+            public string Pagecursor { get; set; }
 #endif
             /// <summary>Number of results to return. Defaults to 25; maximum is 100. Invalid values are clamped to the valid range.</summary>
             [QueryParameter("page_size")]

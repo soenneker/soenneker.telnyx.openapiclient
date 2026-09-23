@@ -9,11 +9,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class PrivateWirelessGateway : IAdditionalDataHolder, IParsable
+    public partial class WirelessPrivateWirelessGateway : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The address mode of the private wireless gateway. With static, each SIM card gets a fixed IP address from the gateway&apos;s IP range that is preserved across sessions. With dynamic, IP addresses are assigned by the network at attach time and may change between sessions.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGatewayAddressMode? AddressMode { get; set; }
         /// <summary>A list of the resources that have been assigned to the Private Wireless Gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,21 +85,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGateway"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGateway"/> and sets the default values.
         /// </summary>
-        public PrivateWirelessGateway()
+        public WirelessPrivateWirelessGateway()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGateway"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGateway"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGateway CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGateway CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGateway();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGateway();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,6 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "address_mode", n => { AddressMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGatewayAddressMode>(); } },
                 { "assigned_resources", n => { AssignedResources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
@@ -126,6 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGatewayAddressMode>("address_mode", AddressMode);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>("assigned_resources", AssignedResources);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("network_id", NetworkId);

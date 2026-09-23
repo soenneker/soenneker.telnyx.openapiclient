@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>`null` ⇒ account scope. Stored on the row; exposed here.</summary>
         public Guid? DomainId { get; set; }
-        /// <summary>The expires_at property</summary>
+        /// <summary>Optional expiration time. An active row stops matchingsend-time suppression checks as soon as `expires_at &lt;= now()`.A maintenance worker later transitions the row to `status: expired`and appends an `expired` audit event (normally within 15 minutes).</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>`null` ⇒ not address-scope. (schema: from_address)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

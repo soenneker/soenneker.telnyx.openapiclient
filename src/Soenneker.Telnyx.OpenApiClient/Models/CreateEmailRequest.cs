@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? InlineCss { get; set; }
         /// <summary>Telnyx message UUID of the message this send replies to. When provided,the API sets RFC 5322 `In-Reply-To` and `References` headers on theoutbound MIME so the recipient&apos;s mailbox (Gmail/Outlook) threads itcorrectly. The parent is looked up under the caller&apos;s account scope;a UUID belonging to another account yields a non-enumerating 404.Wire-only (Phase 1): the API sets the headers and does NOT resolve ormutate `thread_id` on the server side. Messages sent without thisparameter are standalone (no threading headers injected).Cannot be combined with `forward_of_message_id` (422).</summary>
         public Guid? InReplyToMessageId { get; set; }
-        /// <summary>Custom metadata. Write-only; not returned in responses.</summary>
+        /// <summary>Custom metadata key/value pairs. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in `filter[metadata]` when listing messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty? Metadata { get; set; }
@@ -99,9 +99,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Indicates a reply-all intent. In Phase 1 (wire-only) this does notchange the threading headers — recipient selection is customer-controlled (`to`/`cc`), and a thread is not defined by its audience.When the referenced message has no thread context, reply-alldegrades to a plain reply (parent ID only in `References`). Theresolution engine (separate work) will expand the ancestor chainat a later phase with no API change.Only meaningful alongside `in_reply_to_message_id`.</summary>
         public bool? ReplyToAll { get; set; }
-        /// <summary>The sandbox_mode property</summary>
+        /// <summary>Validates and accepts the message without injecting it into the MTA or outbound Kafka path. Nothing is delivered: sandbox records are non-billable, consume no daily-send-limit quota, and feed no delivery-reputation signals.The reserved sandbox test-recipient domain is `test.telnyx.com`. In sandbox mode, these addresses produce deterministic recipient-scoped lifecycle events:- `delivered@test.telnyx.com`: queued -&gt; sending -&gt; sent -&gt; delivered- `hard-bounce@test.telnyx.com`: queued -&gt; sending -&gt; sent -&gt; bounced (permanent)- `soft-bounce@test.telnyx.com`: queued -&gt; sending -&gt; sent -&gt; bounced (transient)- `complaint@test.telnyx.com`: queued -&gt; sending -&gt; sent -&gt; complained- `suppressed@test.telnyx.com`: queued -&gt; suppressed- `invalid@test.telnyx.com`: queued -&gt; sending -&gt; failed (invalid recipient)- `dkim-fail@test.telnyx.com`: queued -&gt; sending -&gt; failed (DKIM unavailable)- `rate-limit@test.telnyx.com`: queued -&gt; sending -&gt; failed (rate limit exceeded)Matching is case-insensitive for both the local part and the domain and requires the exact domain `test.telnyx.com` — subdomains and other domains do not match. Mixed sandbox sends simulate only reserved test recipients; other recipients retain ordinary sandbox behavior (accepted, no delivery attempted). Hard-bounce and complaint outcomes also use the normal automatic-suppression pipeline. Non-sandbox sends to these addresses use the normal delivery path.</summary>
         public bool? SandboxMode { get; set; }
-        /// <summary>Future ISO 8601 time to schedule sending. Invalid or past timestampsare silently ignored and the email is sent immediately. The legacyalias `send_at` is still accepted for backward compatibility; whenboth are provided, `scheduled_at` wins.</summary>
+        /// <summary>Future ISO 8601 delivery time. Invalid or non-future timestamps are rejected. Single sends return HTTP 422; in batch sends the invalid item is reported in the 207 per-item errors while other items continue. `send_at` remains a deprecated request alias. A non-null `scheduled_at` takes precedence over `send_at`; when `scheduled_at` is omitted or null, `send_at` is used.</summary>
         public DateTimeOffset? ScheduledAt { get; set; }
         /// <summary>Deprecated alias for `scheduled_at`.</summary>
         [Obsolete("")]
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Subject { get; set; }
 #endif
-        /// <summary>Tags for categorization and reporting. Stored on the message and propagated to Email Detail Records. Not returned in API responses.</summary>
+        /// <summary>Tags for categorization and filtering. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in `filter[tags]` when listing messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tags { get; set; }
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The template_id property</summary>
         public Guid? TemplateId { get; set; }
-        /// <summary>Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering.</summary>
+        /// <summary>Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering. When the template enables `strict_variables`, a missing required variable fails the request with 422 (single send) or a per-item `unprocessable_entity` error (batch) naming the variable; no message is persisted for the failed item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty? TemplateVariables { get; set; }

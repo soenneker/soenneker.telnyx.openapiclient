@@ -7,39 +7,44 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// An account-polling event. The envelope is webhook-shaped, but polling preserves stored-event cardinality: queued, sending, sandbox, cancelled, and daily_limit_exceeded message events fan out per recipient; scheduled remains one message-scoped row. Payload fields vary among recipient-scoped, message-scoped, and minimal fallback rows.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class AccountEmailEvent : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Summary of the associated email message. Present when the email_message preload is available.</summary>
+        /// <summary>Additive canonical outcome name, prefixed with `email.`. Gateway rejection is `email.gw_reject`, ambiguous injection timeout is `email.injection_timeout`, and MTA expiration is `email.expired`. Unchanged outcomes retain their names. Existing stored rows are translated only when recorded payload evidence proves the outcome; a legacy failed row is not guessed or sharpened.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventEmailSummary? Email { get; set; }
+        public string? CanonicalEventType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventEmailSummary Email { get; set; }
+        public string CanonicalEventType { get; set; }
 #endif
-        /// <summary>The email_id property</summary>
-        public Guid? EmailId { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>Legacy customer-visible event name, prefixed with `email.`. Gateway rejections render `email.failed`; MTA expirations render `email.bounced`. Webhook subscription allowlists match the legacy name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EventType { get; set; }
+#nullable restore
+#else
+        public string EventType { get; set; }
+#endif
+        /// <summary>Event UUID.</summary>
         public Guid? Id { get; set; }
         /// <summary>The occurred_at property</summary>
         public DateTimeOffset? OccurredAt { get; set; }
-        /// <summary>The payload property</summary>
+        /// <summary>Payload returned by GET /email_events. Every row includes id, status, and occurred_at. Recipient-scoped rows also include recipient_id, from, subject, and exactly one object-valued to, cc, or bcc field. Legacy or message-scoped rows can omit recipient_id and use object-valued or string-valued to/cc fields, including an empty string when no address exists; bcc is redacted. If the related message or recipient cannot be loaded, the minimal fallback can omit from, subject, and recipient fields. Additional persisted public evidence can be present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadProperty? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadProperty Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayload Payload { get; set; }
 #endif
-        /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventRecordType? RecordType { get; set; }
-        /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventType? Type { get; set; }
+        /// <summary>Durable email recipient UUID. Present for recipient-scoped events, including each queued, sending, sandbox, cancelled, and daily_limit_exceeded fan-out event.</summary>
+        public Guid? RecipientId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEvent"/> and sets the default values.
         /// </summary>
@@ -65,13 +70,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventEmailSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.EventEmailSummary.CreateFromDiscriminatorValue); } },
-                { "email_id", n => { EmailId = n.GetGuidValue(); } },
+                { "canonical_event_type", n => { CanonicalEventType = n.GetStringValue(); } },
+                { "event_type", n => { EventType = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "occurred_at", n => { OccurredAt = n.GetDateTimeOffsetValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadProperty.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventRecordType>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventType>(); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayload.CreateFromDiscriminatorValue); } },
+                { "recipient_id", n => { RecipientId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -81,13 +85,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventEmailSummary>("email", Email);
-            writer.WriteGuidValue("email_id", EmailId);
+            writer.WriteStringValue("canonical_event_type", CanonicalEventType);
+            writer.WriteStringValue("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("occurred_at", OccurredAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadProperty>("payload", Payload);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventRecordType>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayload>("payload", Payload);
+            writer.WriteGuidValue("recipient_id", RecipientId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

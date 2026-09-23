@@ -15,6 +15,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether HTML autoescaping is enabled for this template. When `true`, only rendered `html_body` expression output is HTML-escaped at the output boundary; `subject` and `text_body` are never autoescaped.</summary>
+        public bool? Autoescape { get; set; }
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The html_body property</summary>
@@ -37,6 +39,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The record_type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateRecordType? RecordType { get; set; }
+        /// <summary>Whether strict variable validation is enabled for this template. When `true`, sends and renders that are missing a variable marked `required: true` in `variable_schema` fail with 422 naming the variable.</summary>
+        public bool? StrictVariables { get; set; }
         /// <summary>The subject property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,13 +59,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The variables property</summary>
+        /// <summary>Legacy unstructured variable names. This path remains supported unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Variables { get; set; }
 #nullable restore
 #else
         public List<string> Variables { get; set; }
+#endif
+        /// <summary>Structured variable requirements, or `null` when the template uses only the legacy `variables` array.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema? VariableSchema { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema VariableSchema { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplate"/> and sets the default values.
@@ -88,14 +100,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "autoescape", n => { Autoescape = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_body", n => { HtmlBody = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateRecordType>(); } },
+                { "strict_variables", n => { StrictVariables = n.GetBoolValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "variable_schema", n => { VariableSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema>(global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema.CreateFromDiscriminatorValue); } },
                 { "variables", n => { Variables = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -106,15 +121,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("autoescape", Autoescape);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("html_body", HtmlBody);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateRecordType>("record_type", RecordType);
+            writer.WriteBoolValue("strict_variables", StrictVariables);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text_body", TextBody);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("variables", Variables);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema>("variable_schema", VariableSchema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

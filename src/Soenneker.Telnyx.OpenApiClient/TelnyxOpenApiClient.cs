@@ -81,6 +81,7 @@ using Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports;
 using Soenneker.Telnyx.OpenApiClient.Legacy;
 using Soenneker.Telnyx.OpenApiClient.Legacy_reporting;
 using Soenneker.Telnyx.OpenApiClient.List;
+using Soenneker.Telnyx.OpenApiClient.MachinePayments;
 using Soenneker.Telnyx.OpenApiClient.Managed_accounts;
 using Soenneker.Telnyx.OpenApiClient.Media;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions;
@@ -581,6 +582,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The machinePayments property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.MachinePayments.MachinePaymentsRequestBuilder MachinePayments
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.MachinePayments.MachinePaymentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The managed_accounts property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Managed_accountsRequestBuilder Managed_accounts

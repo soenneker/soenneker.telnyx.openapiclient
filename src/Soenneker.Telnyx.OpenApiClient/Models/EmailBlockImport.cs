@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Only when `status == completed`.</summary>
         public int? CreatedCount { get; set; }
-        /// <summary>Only when `status == completed`.</summary>
+        /// <summary>Rows that passed CSV parsing but failed suppression creation.This is the creation-failure subset of `skipped_count`;parser-rejected rows equal `skipped_count - error_count`.Only when `status == completed`.</summary>
         public int? ErrorCount { get; set; }
         /// <summary>`{row_number: reason}`; only rendered when non-empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

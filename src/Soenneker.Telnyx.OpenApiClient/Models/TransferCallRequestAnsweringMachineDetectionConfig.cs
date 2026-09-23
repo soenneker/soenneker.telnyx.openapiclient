@@ -19,6 +19,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? AfterGreetingSilenceMillis { get; set; }
         /// <summary>Selects which detectors must validate a beep. `both` requires the amplitude and frequency detectors to agree. `freq_only` uses the frequency detector alone, for beeps whose volume is too unsteady for the default profile.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile? BeepDetectionProfile { get; set; }
+        /// <summary>Highest frequency, in Hz, that a tone can reach and still be treated as a beep. Only used when beep detection is active.</summary>
+        public int? BeepMaxFrequencyHz { get; set; }
+        /// <summary>Lowest frequency, in Hz, that a tone must reach to be treated as a beep. Raising it above 480 excludes North American ringback (440 + 480 Hz), which can otherwise be reported as a beep when the `freq_only` profile is in use. Only used when beep detection is active.</summary>
+        public int? BeepMinFrequencyHz { get; set; }
+        /// <summary>Shortest tone, in milliseconds, that can be treated as a beep. Raising it rejects brief tones such as call-progress blips. Only used when beep detection is active.</summary>
+        public int? BeepMinToneDurationMillis { get; set; }
+        /// <summary>When enabled, a candidate beep must pass an additional spectral check before it is reported. Only used when beep detection is active.</summary>
+        public bool? BeepSpectralConfirmation { get; set; }
+        /// <summary>Minimum spectral purity, from 0 to 1, for a tone to be treated as a beep. Raising it rejects mixed tones such as ringback, which combines two frequencies. Only used when beep detection is active.</summary>
+        public double? BeepSpectralMinPurity { get; set; }
+        /// <summary>When enabled, the fax CNG tone is rejected rather than reported as a beep. Only used when beep detection is active.</summary>
+        public bool? BeepSpectralRejectFaxCng { get; set; }
+        /// <summary>Length of the spectral confirmation window, in milliseconds. Only used when beep detection is active.</summary>
+        public int? BeepSpectralWindowMillis { get; set; }
         /// <summary>Maximum threshold for silence between words.</summary>
         public int? BetweenWordsSilenceMillis { get; set; }
         /// <summary>Maximum threshold of a human greeting. If greeting longer than this value, considered machine.</summary>
@@ -74,6 +88,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "after_greeting_silence_millis", n => { AfterGreetingSilenceMillis = n.GetIntValue(); } },
                 { "beep_detection_profile", n => { BeepDetectionProfile = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile>(); } },
+                { "beep_max_frequency_hz", n => { BeepMaxFrequencyHz = n.GetIntValue(); } },
+                { "beep_min_frequency_hz", n => { BeepMinFrequencyHz = n.GetIntValue(); } },
+                { "beep_min_tone_duration_millis", n => { BeepMinToneDurationMillis = n.GetIntValue(); } },
+                { "beep_spectral_confirmation", n => { BeepSpectralConfirmation = n.GetBoolValue(); } },
+                { "beep_spectral_min_purity", n => { BeepSpectralMinPurity = n.GetDoubleValue(); } },
+                { "beep_spectral_reject_fax_cng", n => { BeepSpectralRejectFaxCng = n.GetBoolValue(); } },
+                { "beep_spectral_window_millis", n => { BeepSpectralWindowMillis = n.GetIntValue(); } },
                 { "between_words_silence_millis", n => { BetweenWordsSilenceMillis = n.GetIntValue(); } },
                 { "greeting_duration_millis", n => { GreetingDurationMillis = n.GetIntValue(); } },
                 { "greeting_silence_duration_millis", n => { GreetingSilenceDurationMillis = n.GetIntValue(); } },
@@ -94,6 +115,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("after_greeting_silence_millis", AfterGreetingSilenceMillis);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile>("beep_detection_profile", BeepDetectionProfile);
+            writer.WriteIntValue("beep_max_frequency_hz", BeepMaxFrequencyHz);
+            writer.WriteIntValue("beep_min_frequency_hz", BeepMinFrequencyHz);
+            writer.WriteIntValue("beep_min_tone_duration_millis", BeepMinToneDurationMillis);
+            writer.WriteBoolValue("beep_spectral_confirmation", BeepSpectralConfirmation);
+            writer.WriteDoubleValue("beep_spectral_min_purity", BeepSpectralMinPurity);
+            writer.WriteBoolValue("beep_spectral_reject_fax_cng", BeepSpectralRejectFaxCng);
+            writer.WriteIntValue("beep_spectral_window_millis", BeepSpectralWindowMillis);
             writer.WriteIntValue("between_words_silence_millis", BetweenWordsSilenceMillis);
             writer.WriteIntValue("greeting_duration_millis", GreetingDurationMillis);
             writer.WriteIntValue("greeting_silence_duration_millis", GreetingSilenceDurationMillis);

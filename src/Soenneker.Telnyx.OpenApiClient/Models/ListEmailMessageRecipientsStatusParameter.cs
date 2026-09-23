@@ -44,5 +44,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Cancelled,
         #pragma warning restore CS1591
+        [EnumMember(Value = "injection_timeout")]
+        #pragma warning disable CS1591
+        InjectionTimeout,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "expired")]
+        #pragma warning disable CS1591
+        Expired,
+        #pragma warning restore CS1591
     }
 }

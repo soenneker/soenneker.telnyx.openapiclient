@@ -7,13 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// An event on the per-message events endpoint. The legacy event_type and additive canonical_event_type are email.-prefixed. The deprecated type preserves the bare stored event name for compatibility.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class MessageEvent : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Additive canonical outcome name, prefixed with `email.`. Gateway rejection is `email.gw_reject`, ambiguous injection timeout is `email.injection_timeout`, and MTA expiration is `email.expired`. Unchanged outcomes retain their names. Existing stored rows are translated only when recorded payload evidence proves the outcome; a legacy failed row is not guessed or sharpened.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CanonicalEventType { get; set; }
+#nullable restore
+#else
+        public string CanonicalEventType { get; set; }
+#endif
+        /// <summary>Legacy customer-visible event name, prefixed with `email.`. Gateway rejections render `email.failed`; MTA expirations render `email.bounced`. Webhook subscription allowlists match the legacy name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EventType { get; set; }
+#nullable restore
+#else
+        public string EventType { get; set; }
+#endif
         /// <summary>The occurred_at property</summary>
         public DateTimeOffset? OccurredAt { get; set; }
         /// <summary>The payload property</summary>
@@ -24,8 +41,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventPayloadProperty Payload { get; set; }
 #endif
-        /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventType? Type { get; set; }
+        /// <summary>Deprecated name field retained for compatibility. Its value is the bare stored event name, never email.-prefixed. Use event_type for the legacy rendering or canonical_event_type for the canonical name.</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType? Type { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessageEvent"/> and sets the default values.
         /// </summary>
@@ -51,9 +75,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "canonical_event_type", n => { CanonicalEventType = n.GetStringValue(); } },
+                { "event_type", n => { EventType = n.GetStringValue(); } },
                 { "occurred_at", n => { OccurredAt = n.GetDateTimeOffsetValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventPayloadProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventPayloadProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventType>(); } },
+                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType>(global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -63,9 +89,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("canonical_event_type", CanonicalEventType);
+            writer.WriteStringValue("event_type", EventType);
             writer.WriteDateTimeOffsetValue("occurred_at", OccurredAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventPayloadProperty>("payload", Payload);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

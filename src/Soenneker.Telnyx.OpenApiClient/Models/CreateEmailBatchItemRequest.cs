@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? IgnoreSuppression { get; set; }
         /// <summary>The inline_css property</summary>
         public bool? InlineCss { get; set; }
-        /// <summary>Custom metadata. Write-only; not returned in responses.</summary>
+        /// <summary>Custom metadata key/value pairs. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in `filter[metadata]` when listing messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequestMetadataProperty? Metadata { get; set; }
@@ -93,9 +93,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput ReplyTo { get; set; }
 #endif
-        /// <summary>The sandbox_mode property</summary>
+        /// <summary>Per-message sandbox flag. The batch-level `sandbox_mode` envelope value is authoritative: it overwrites every message&apos;s `sandbox_mode` before processing, including the `false` default when the envelope omits the field. A per-item `sandbox_mode: true` inside a non-sandbox batch is therefore a real send. Set the envelope field to run any batch item in sandbox mode.</summary>
         public bool? SandboxMode { get; set; }
-        /// <summary>Future ISO 8601 time to schedule sending. Invalid or past timestampsare silently ignored and the email is sent immediately. The legacyalias `send_at` is still accepted for backward compatibility; whenboth are provided, `scheduled_at` wins.</summary>
+        /// <summary>Future ISO 8601 delivery time. Invalid or non-future timestamps are rejected. Single sends return HTTP 422; in batch sends the invalid item is reported in the 207 per-item errors while other items continue. `send_at` remains a deprecated request alias. A non-null `scheduled_at` takes precedence over `send_at`; when `scheduled_at` is omitted or null, `send_at` is used.</summary>
         public DateTimeOffset? ScheduledAt { get; set; }
         /// <summary>Deprecated alias for `scheduled_at`.</summary>
         [Obsolete("")]
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Subject { get; set; }
 #endif
-        /// <summary>Tags for categorization and reporting. Stored on the message and propagated to Email Detail Records. Not returned in API responses.</summary>
+        /// <summary>Tags for categorization and filtering. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in `filter[tags]` when listing messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tags { get; set; }
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The template_id property</summary>
         public Guid? TemplateId { get; set; }
-        /// <summary>Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering.</summary>
+        /// <summary>Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering. When the template enables `strict_variables`, a missing required variable fails the request with 422 (single send) or a per-item `unprocessable_entity` error (batch) naming the variable; no message is persisted for the failed item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequestTemplateVariablesProperty? TemplateVariables { get; set; }

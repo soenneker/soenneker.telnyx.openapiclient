@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Event types a webhook may subscribe to. The union of email.* events (published by email-api) and email_domain.* lifecycle events (published by this service). An event not listed here can never be subscribed to and is silently dropped.</summary>
+    /// <summary>Event types accepted by domain webhook subscriptions. Allowlists match the legacy event_type, not canonical_event_type. Of the 22 accepted types, email.sending is stored but intentionally not published. Cancellation, daily-limit failures, and system failures publish after commit when a matching domain webhook is configured.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EmailWebhookEvent
     {
@@ -63,6 +63,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         EmailReceived,
         #pragma warning restore CS1591
+        [EnumMember(Value = "email.cancelled")]
+        #pragma warning disable CS1591
+        EmailCancelled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email.daily_limit_exceeded")]
+        #pragma warning disable CS1591
+        EmailDailyLimitExceeded,
+        #pragma warning restore CS1591
         [EnumMember(Value = "email_domain.created")]
         #pragma warning disable CS1591
         EmailDomainCreated,
@@ -82,6 +90,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "email_domain.deleted")]
         #pragma warning disable CS1591
         EmailDomainDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_domain.dkim_rotated")]
+        #pragma warning disable CS1591
+        EmailDomainDkimRotated,
         #pragma warning restore CS1591
     }
 }

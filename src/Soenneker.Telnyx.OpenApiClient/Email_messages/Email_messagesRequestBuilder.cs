@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Email_messagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_messages{?page_cursor*,page_size*}", pathParameters)
+        public Email_messagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_messages{?filter%5Bmetadata%5D*,filter%5Btags%5D*,page_cursor*,page_size*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Email_messagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_messages{?page_cursor*,page_size*}", rawUrl)
+        public Email_messagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_messages{?filter%5Bmetadata%5D*,filter%5Btags%5D*,page_cursor*,page_size*}", rawUrl)
         {
         }
         /// <summary>
@@ -81,11 +81,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists messages sorted newest first by `created_at desc, id desc`. No filters other thancursor pagination are implemented. The legacy `/v2/emails` GET route is a backward-compatiblealias for this operation.
+        /// Lists messages sorted newest first by `created_at desc, id desc`. Tags and metadata filters compose with cursor pagination. The legacy `/v2/emails` GET route is a backward-compatible alias for this operation.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,6 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailMessageListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -160,7 +162,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
             return requestInfo;
         }
         /// <summary>
-        /// Lists messages sorted newest first by `created_at desc, id desc`. No filters other thancursor pagination are implemented. The legacy `/v2/emails` GET route is a backward-compatiblealias for this operation.
+        /// Lists messages sorted newest first by `created_at desc, id desc`. Tags and metadata filters compose with cursor pagination. The legacy `/v2/emails` GET route is a backward-compatible alias for this operation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,11 +229,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
 #endif
         }
         /// <summary>
-        /// Lists messages sorted newest first by `created_at desc, id desc`. No filters other thancursor pagination are implemented. The legacy `/v2/emails` GET route is a backward-compatiblealias for this operation.
+        /// Lists messages sorted newest first by `created_at desc, id desc`. Tags and metadata filters compose with cursor pagination. The legacy `/v2/emails` GET route is a backward-compatible alias for this operation.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Email_messagesRequestBuilderGetQueryParameters 
         {
+            /// <summary>Metadata containment filter, supplied as a JSON object or comma-separated `key=value` pairs. All supplied key/value pairs must be contained in the message metadata. An empty value or empty JSON object omits the filter. Malformed values, valid non-object JSON, pairs without `=`, empty keys, and non-string/nested query shapes return HTTP 400.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bmetadata%5D")]
+            public string? Filtermetadata { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bmetadata%5D")]
+            public string Filtermetadata { get; set; }
+#endif
+            /// <summary>Comma-separated tags. Each segment is trimmed, and messages having at least one supplied tag are returned; matching is exact and case-sensitive after trimming. Because commas delimit values and surrounding whitespace is removed, this filter cannot represent stored tags containing literal commas or leading/trailing whitespace. An empty value omits the filter. Empty segments and non-string/nested query shapes return HTTP 400.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Btags%5D")]
+            public string? Filtertags { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Btags%5D")]
+            public string Filtertags { get; set; }
+#endif
             /// <summary>Opaque URL-safe Base64 cursor returned by a previous list response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

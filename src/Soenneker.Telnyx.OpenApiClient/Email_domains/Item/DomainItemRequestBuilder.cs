@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Dns_records;
 using Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Health;
+using Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Rotate_dkim;
 using Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Verify;
 using Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks;
 using Soenneker.Telnyx.OpenApiClient.Models;
@@ -30,6 +31,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item
         public global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Health.HealthRequestBuilder Health
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Health.HealthRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The rotate_dkim property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Rotate_dkim.Rotate_dkimRequestBuilder Rotate_dkim
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Rotate_dkim.Rotate_dkimRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verify property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Verify.VerifyRequestBuilder Verify

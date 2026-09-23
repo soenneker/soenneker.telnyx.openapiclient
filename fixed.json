@@ -25753,7 +25753,7 @@
           "Email Suppressions"
         ],
         "summary": "Export suppressions as CSV",
-        "description": "Streams the account\u0027s suppressions as a chunked CSV (server-side\ncursor; never materialized). Content-type \u0060text/csv\u0060, header\n\u0060Content-Disposition: attachment; filename=\u0022email_blocks_export.csv\u0022\u0060.\n\nFilters (\u0060filter[reason]\u0060, \u0060filter[domain_id]\u0060,\n\u0060filter[created_after]\u0060, \u0060filter[created_before]\u0060) are the only\nparams that affect output. \u0060sort\u0060 and \u0060page[*]\u0060 are **parsed**\n(bad values still produce \u0060400\u0060) but **ignored** \u2014 rows stream\n\u0060ORDER BY created_at ASC, id ASC\u0060 with no pagination.\n\nCSV columns: \u0060id,to,from,reason,source,scope,status,domain_id,\ncreated_at,updated_at,expires_at,group_id\u0060. The CSV carries the\n\u0060group_id\u0060 column so group-scoped suppressions\u0027 group link survives\nthe export (empty for account-scope rows).\n",
+        "description": "Streams the account\u0027s suppressions as a chunked CSV (server-side\ncursor; never materialized). Content-type \u0060text/csv\u0060, header\n\u0060Content-Disposition: attachment; filename=\u0022email_blocks_export.csv\u0022\u0060.\n\nFilters (\u0060filter[reason]\u0060, \u0060filter[domain_id]\u0060,\n\u0060filter[created_after]\u0060, \u0060filter[created_before]\u0060) are the only\nparams that affect output. \u0060sort\u0060 and \u0060page[*]\u0060 are **parsed**\n(bad values still produce \u0060400\u0060) but **ignored** \u2014 rows stream\n\u0060ORDER BY created_at ASC, id ASC\u0060 with no pagination.\n\nCSV columns: \u0060id,to,from,reason,source,scope,status,domain_id,\ncreated_at,updated_at,expires_at,group_id,bounce_category,dsn_code,\nmeta\u0060 (15 columns). The first 12 columns are the stable native\nsignature; \u0060bounce_category\u0060, \u0060dsn_code\u0060, and \u0060meta\u0060 are optional\nbackup fields (empty when unset). The CSV carries the \u0060group_id\u0060\ncolumn so group-scoped suppressions\u0027 group link survives the\nexport (empty for account-scope rows).\n",
         "operationId": "ExportEmailBlocks",
         "parameters": [
           {
@@ -25818,7 +25818,7 @@
           "Email Suppression Imports"
         ],
         "summary": "Create an async CSV import job",
-        "description": "Accepts \u0060multipart/form-data\u0060 with a \u0060file\u0060 field (the CSV) and an\noptional \u0060block_ttl_days\u0060 (integer \u003E0, default 30). Validates:\n  - content \u2264 25 MiB, else \u0060413\u0060\n  - row count \u2264 250 000, else \u0060413\u0060\n  - header-only / all-blank / undetectable provider \u2192 \u0060400\u0060\nReturns \u0060202\u0060 with the import record (status \u0060pending\u0060); an Oban\nworker (\u0060EmailBlockImportWorker\u0060, max_attempts 3) transitions\n\u0060pending \u2192 processing \u2192 completed | failed\u0060. \u0060block_ttl_days\u0060\napplies only to imported \u0060manual_block\u0060 rows; other reasons get\n\u0060expires_at: nil\u0060. Provider is auto-detected from the CSV header\n(\u0060sendgrid\u0060 / \u0060mailgun\u0060 / \u0060ses\u0060 / \u0060generic\u0060).\n",
+        "description": "Accepts \u0060multipart/form-data\u0060 with a \u0060file\u0060 field (the CSV) and an\noptional \u0060block_ttl_days\u0060 (integer \u003E0, default 30). Validates:\n  - content \u2264 25 MiB, else \u0060413\u0060\n  - row count \u2264 250 000, else \u0060413\u0060\n  - header-only / all-blank / undetectable provider \u2192 \u0060400\u0060\nReturns \u0060202\u0060 with the import record (status \u0060pending\u0060); an Oban\nworker (\u0060EmailBlockImportWorker\u0060, max_attempts 3) transitions\n\u0060pending \u2192 processing \u2192 completed | failed\u0060.\n\nNative Telnyx exports are detected by the stable first-12-column\nheader signature (\u0060id\u0060 \u2026 \u0060group_id\u0060) and are restored with their\noriginal \u0060from\u0060, \u0060domain_id\u0060, \u0060group_id\u0060, \u0060source\u0060, \u0060status\u0060,\n\u0060expires_at\u0060, plus \u0060bounce_category\u0060, \u0060dsn_code\u0060, and \u0060meta\u0060 when\npresent (\u0060scope\u0060 is re-derived from \u0060domain_id\u0060/\u0060from\u0060; the\nexported \u0060scope\u0060 cell must be a valid enum value). Lifecycle\nchanges reconcile through the same create path as the API: a row\nalready in the requested state restores its mutable backup fields\nwithout a new audit event, and a real transition (e.g. tombstone\n\u2192 active) appends the matching lifecycle event. \u0060block_ttl_days\u0060\nis not applied to native rows \u2014 their exported \u0060expires_at\u0060 is\npreserved verbatim.\n\nCompetitor and generic imports (SendGrid / Mailgun / SES /\ngeneric) remain account-scoped (\u0060from\u0060, \u0060domain_id\u0060, \u0060group_id\u0060,\n\u0060scope\u0060 are not read) and \u0060block_ttl_days\u0060 applies only to\nimported \u0060manual_block\u0060 rows; other reasons get \u0060expires_at: nil\u0060.\nProvider is auto-detected from the CSV header\n(\u0060sendgrid\u0060 / \u0060mailgun\u0060 / \u0060ses\u0060 / \u0060generic\u0060).\n",
         "operationId": "CreateEmailBlockImport",
         "requestBody": {
           "content": {
@@ -26350,6 +26350,124 @@
           "404": {
             "description": "Resource not found",
             "$ref": "#/components/responses/email_NotFound"
+          },
+          "500": {
+            "description": "Internal server error",
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/email_domains/{domainId}/rotate_dkim": {
+      "post": {
+        "tags": [
+          "Email Domains"
+        ],
+        "summary": "Rotate the DKIM key for an email domain",
+        "description": "Generates a new DKIM key for the domain, activates it, and retires the previous key. The response includes the updated DKIM DNS records the customer must publish. Selectors are fixed, so rotation replaces the TXT value at the existing \u0060\u003Cselector\u003E._domainkey.\u003Cdomain\u003E\u0060 host rather than adding a second record \u2014 \u0060old_selector_retained\u0060 is false and the new TXT value must be published promptly, since signing switches to the new key immediately and the old TXT value will no longer match. The previous key is retired to a \u0060retiring\u0060 state (retained, not revoked) so it can be revoked after the DNS propagation grace period.\n",
+        "operationId": "RotateEmailDomainDkimKey",
+        "parameters": [
+          {
+            "name": "domainId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "DKIM key rotated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailDomainDkimRotationResponse"
+                },
+                "example": {
+                  "data": {
+                    "record_type": "email_domain_dkim_rotation",
+                    "domain_id": "123e4567-e89b-12d3-a456-426614174002",
+                    "domain": "example.com",
+                    "dkim": {
+                      "id": "123e4567-e89b-12d3-a456-42661417400a",
+                      "selector": "telnyx1",
+                      "algorithm": "rsa-sha256",
+                      "key_length": 2048,
+                      "version": 2,
+                      "status": "active",
+                      "activated_at": "2026-09-11T12:00:00Z"
+                    },
+                    "previous_dkim_key": {
+                      "id": "123e4567-e89b-12d3-a456-426614174009",
+                      "selector": "telnyx1",
+                      "version": 1,
+                      "status": "retiring"
+                    },
+                    "old_selector_retained": false,
+                    "dns_records": [
+                      {
+                        "id": "123e4567-e89b-12d3-a456-42661417400b",
+                        "purpose": "dkim",
+                        "record_type": "TXT",
+                        "host": "telnyx1._domainkey.example.com",
+                        "value": "v=DKIM1; k=rsa; p=MIIBIjANBgkqh...",
+                        "actual_value": null,
+                        "priority": null,
+                        "required": true,
+                        "status": "pending"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden \u2014 shared email domains are managed by Telnyx and cannot have their DKIM keys rotated by this account.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainsErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10008",
+                      "title": "Forbidden",
+                      "detail": "Shared email domains are managed by Telnyx and cannot have their DKIM keys rotated by this account"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "$ref": "#/components/responses/email_NotFound"
+          },
+          "409": {
+            "description": "DKIM rotation conflicted with a concurrent operation on this domain. Safe to retry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainsErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "DKIM rotation conflicted with a concurrent operation on this domain. Safe to retry."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed",
+            "$ref": "#/components/responses/ValidationFailed"
           },
           "500": {
             "description": "Internal server error",
@@ -26893,7 +27011,7 @@
           "Email Events"
         ],
         "summary": "List account email events",
-        "description": "Lists account-level email events sorted oldest first by \u0060occurred_at asc, id asc\u0060.",
+        "description": "Lists account-level email events sorted oldest first by \u0060occurred_at asc, id asc\u0060. Each row contains a legacy email.-prefixed event_type and an additive canonical_event_type. Gateway rejection renders email.failed with canonical email.gw_reject; ambiguous injection timeout renders email.injection_timeout in both; MTA expiration renders email.bounced with canonical email.expired. Message-scoped queued, sending, sandbox, cancelled, and daily_limit_exceeded rows fan out per durable recipient with stable derived IDs matching webhook delivery. Scheduled is the cardinality exception: account polling retains one message-scoped scheduled row with its stored event ID, while scheduled webhook publication fans out per recipient with derived IDs; reconcile scheduled events by message ID, event type, and occurrence time rather than event UUID. Recipient-scoped stored rows retain their stored UUIDs across polling and webhook delivery. Legacy names are derived from stored rows; an AdminBounce row stored as failed renders email.failed in polling while its webhook retains email.bounced, both with canonical email.failed.",
         "operationId": "ListEmailEvents",
         "parameters": [
           {
@@ -26901,13 +27019,18 @@
             "$ref": "#/components/parameters/email_PageSize"
           },
           {
-            "description": "Opaque URL-safe Base64 cursor returned by a previous list response.",
-            "$ref": "#/components/parameters/PageCursor"
+            "name": "page[cursor]",
+            "in": "query",
+            "description": "Opaque URL-safe Base64 cursor returned by a previous event list response. The legacy \u0060page[after]\u0060 and flat \u0060page_cursor\u0060 forms are also accepted.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJpbn...EifQ"
           },
           {
             "name": "event_type",
             "in": "query",
-            "description": "Comma-separated list of event types to include. Also accepts repeated query parameters (e.g. event_type=delivered\u0026event_type=bounced). Unknown values return no matches.",
+            "description": "Comma-separated list of event types to include. Also accepts repeated\nquery parameters (e.g. event_type=delivered\u0026event_type=bounced).\nUnknown values return no matches.\n\nDual-name compatibility: values are accepted\nbare or \u0060email.\u0060-prefixed. A legacy value keeps matching the\nrows it matched pre-rename \u2014 no widening: \u0060failed\u0060 also\nmatches the rows that now store the canonical names of the\noutcomes it covered (\u0060gw_reject\u0060, \u0060injection_timeout\u0060,\n\u0060expired\u0060); \u0060bounced\u0060 matches stored \u0060bounced\u0060 rows only\n(recipient-scoped Expirations stored \u0060failed\u0060 pre-rename and\nnever matched \u0060bounced\u0060, so \u0060expired\u0060 is deliberately not a\n\u0060bounced\u0060 expansion). A canonical value matches its own rows\nplus legacy rows whose recorded payload evidence proves that\noutcome (\u0060expired\u0060 also surfaces legacy \u0060bounced\u0060 rows with\n\u0060bounce_category: transient\u0060). The additive\n\u0060canonical_event_type\u0060 field in each response row names the\ncanonical outcome.\n",
             "schema": {
               "oneOf": [
                 {
@@ -26952,39 +27075,35 @@
                 "example": {
                   "data": [
                     {
-                      "record_type": "email_event",
-                      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                      "type": "queued",
-                      "occurred_at": "2024-01-23T18:10:02.574Z",
-                      "email_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                      "email": {
+                      "id": "f3a2c1d0-1234-4abc-9def-67890abcdef0",
+                      "event_type": "email.delivered",
+                      "canonical_event_type": "email.delivered",
+                      "occurred_at": "2026-07-06T18:24:00.000Z",
+                      "recipient_id": "7c1e9a44-2f60-4d1b-9a0e-3c7b5e8d1f22",
+                      "payload": {
+                        "id": "b0c7e8cb-6227-4c74-9f32-c7f80c30934b",
+                        "recipient_id": "7c1e9a44-2f60-4d1b-9a0e-3c7b5e8d1f22",
+                        "status": "delivered",
+                        "occurred_at": "2026-07-06T18:24:00.000Z",
                         "from": {
-                          "email": "string",
-                          "name": "string"
+                          "email": "sender@example.com",
+                          "name": "Telnyx"
                         },
-                        "to": [
-                          {
-                            "email": "string",
-                            "name": "string"
-                          }
-                        ],
-                        "cc": [
-                          {
-                            "email": "string",
-                            "name": "string"
-                          }
-                        ],
-                        "subject": "string"
+                        "to": {
+                          "email": "recipient@example.com",
+                          "name": null,
+                          "kind": "to"
+                        },
+                        "subject": "Welcome"
                       }
                     }
                   ],
                   "meta": {
-                    "page_size": 1,
+                    "page_size": 50,
                     "time_range": {
-                      "from": "2024-01-23T18:10:02.574Z",
-                      "to": "2024-01-23T18:10:02.574Z"
-                    },
-                    "page_cursor": "string"
+                      "from": "2026-07-01T00:00:00Z",
+                      "to": "2026-07-31T00:00:00Z"
+                    }
                   }
                 }
               }
@@ -28781,6 +28900,8 @@
                     ],
                     "reply_to": null,
                     "subject": "Fwd: Project update",
+                    "tags": [],
+                    "metadata": {},
                     "template_id": null,
                     "template_variables": {},
                     "attachments": [],
@@ -29007,6 +29128,8 @@
                     "bcc": [],
                     "reply_to": null,
                     "subject": "Re: Project update",
+                    "tags": [],
+                    "metadata": {},
                     "template_id": null,
                     "template_variables": {},
                     "attachments": [],
@@ -29213,6 +29336,8 @@
                     "bcc": [],
                     "reply_to": null,
                     "subject": "Re: Project update",
+                    "tags": [],
+                    "metadata": {},
                     "template_id": null,
                     "template_variables": {},
                     "attachments": [],
@@ -30018,7 +30143,7 @@
           "Email Messages"
         ],
         "summary": "List email messages",
-        "description": "Lists messages sorted newest first by \u0060created_at desc, id desc\u0060. No filters other than\ncursor pagination are implemented. The legacy \u0060/v2/emails\u0060 GET route is a backward-compatible\nalias for this operation.\n",
+        "description": "Lists messages sorted newest first by \u0060created_at desc, id desc\u0060. Tags and metadata filters compose with cursor pagination. The legacy \u0060/v2/emails\u0060 GET route is a backward-compatible alias for this operation.\n",
         "operationId": "ListEmailMessages",
         "parameters": [
           {
@@ -30028,6 +30153,31 @@
           {
             "description": "Opaque URL-safe Base64 cursor returned by a previous list response.",
             "$ref": "#/components/parameters/PageCursor"
+          },
+          {
+            "name": "filter[tags]",
+            "in": "query",
+            "description": "Comma-separated tags. Each segment is trimmed, and messages having at least one supplied tag are returned; matching is exact and case-sensitive after trimming. Because commas delimit values and surrounding whitespace is removed, this filter cannot represent stored tags containing literal commas or leading/trailing whitespace. An empty value omits the filter. Empty segments and non-string/nested query shapes return HTTP 400.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "billing,transactional"
+          },
+          {
+            "name": "filter[metadata]",
+            "in": "query",
+            "description": "Metadata containment filter, supplied as a JSON object or comma-separated \u0060key=value\u0060 pairs. All supplied key/value pairs must be contained in the message metadata. An empty value or empty JSON object omits the filter. Malformed values, valid non-object JSON, pairs without \u0060=\u0060, empty keys, and non-string/nested query shapes return HTTP 400.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "jsonObject": {
+                "value": "{\u0022campaign\u0022:\u0022spring\u0022,\u0022region\u0022:\u0022us\u0022}"
+              },
+              "keyValuePairs": {
+                "value": "campaign=spring,region=us"
+              }
+            }
           }
         ],
         "responses": {
@@ -30037,6 +30187,40 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EmailMessageListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The tags or metadata filter is malformed or uses an unsupported query shape.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailErrorResponse"
+                },
+                "examples": {
+                  "invalidTagsFilter": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Bad Request",
+                          "detail": "filter[tags] must be a comma-separated list of non-empty tags"
+                        }
+                      ]
+                    }
+                  },
+                  "invalidMetadataFilter": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Bad Request",
+                          "detail": "filter[metadata] must be a JSON object or comma-separated key=value pairs"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -30178,7 +30362,7 @@
             "$ref": "#/components/responses/email_NotFoundResponse"
           },
           "422": {
-            "description": "Validation failed, send-time template rendering failed, or all recipients suppressed (code \u0060recipient_suppressed\u0060, includes top-level \u0060suppressed\u0060 array). Reusing an Idempotency-Key with a different request also returns 422 (10027).",
+            "description": "Validation failed (including an invalid or non-future \u0060scheduled_at\u0060/\u0060send_at\u0060), send-time template rendering failed (including a strict-variable failure naming the missing required variable), or all recipients suppressed (code \u0060recipient_suppressed\u0060, includes top-level \u0060suppressed\u0060 array). Reusing an Idempotency-Key with a different request also returns 422 (10027).",
             "content": {
               "application/json": {
                 "schema": {
@@ -30221,7 +30405,7 @@
           "Email Messages"
         ],
         "summary": "Create a batch of email messages",
-        "description": "Creates up to 1,000 email messages in a single request. Request-wide admission checks run first and can reject the whole batch before message creation. After those checks pass, each message is validated and sent independently; item-level failures do not affect other messages, and the processed batch returns 207 Multi-Status.",
+        "description": "Creates up to 1,000 email messages in a single request. Request-wide admission checks run first and can reject the whole batch before message creation. After those checks pass, each message is validated and sent independently; item-level failures do not affect other messages, and the processed batch returns 207 Multi-Status. Per-message failures include validation errors; when a template has \u0060strict_variables\u0060 enabled, a missing required variable produces a per-item \u0060unprocessable_entity\u0060 error naming that variable while the other messages continue.",
         "operationId": "CreateEmailMessageBatch",
         "parameters": [
           {
@@ -30262,7 +30446,7 @@
         },
         "responses": {
           "207": {
-            "description": "Multi-Status \u2014 returned after request-wide admission checks pass and item processing runs. When all messages succeed, \u0060errors\u0060 is empty and every item is in \u0060data\u0060. When one or more items fail, the response contains a \u0060data\u0060 array for successes and an \u0060errors\u0060 array for failures. Request-wide gates can instead return 4xx or 5xx.",
+            "description": "Multi-Status \u2014 returned after request-wide admission checks pass and item processing runs. Each message is validated and sent independently; per-message failures do not affect other messages in the batch. An invalid or non-future \u0060scheduled_at\u0060/\u0060send_at\u0060 is reported as a per-item \u0060unprocessable_entity\u0060 error while the remaining items continue. When all messages succeed, \u0060errors\u0060 is empty and every item is in \u0060data\u0060; otherwise \u0060data\u0060 contains successes and \u0060errors\u0060 contains failures. Request-wide gates can instead return 4xx or 5xx.",
             "content": {
               "application/json": {
                 "schema": {
@@ -30338,7 +30522,7 @@
           "Email Messages"
         ],
         "summary": "List events for an email message",
-        "description": "Lists events for a single message sorted oldest first by \u0060occurred_at asc, id asc\u0060.\nThe legacy \u0060/v2/emails/{id}/events\u0060 GET route is a backward-compatible alias.\n",
+        "description": "Lists events for a single message sorted oldest first by \u0060occurred_at asc, id asc\u0060.\nThe legacy \u0060/v2/emails/{id}/events\u0060 GET route is a backward-compatible alias.\n\nFor compatibility, each event carries the legacy\ncustomer-visible \u0060event_type\u0060 (\u0060email.\u0060-prefixed), the additive\n\u0060canonical_event_type\u0060 (\u0060email.\u0060-prefixed), and the deprecated\n\u0060type\u0060 duplicate \u2014 whose value keeps the exact legacy format:\nthe bare stored event name, never \u0060email.\u0060-prefixed. Gateway\nrejections render \u0060email.failed\u0060 \u002B canonical \u0060email.gw_reject\u0060; MTA\nexpirations render \u0060email.bounced\u0060 \u002B canonical \u0060email.expired\u0060;\nevery unchanged outcome carries identical \u0060event_type\u0060 and\n\u0060canonical_event_type\u0060 values (and \u0060type\u0060 keeps the stored name).\n",
         "operationId": "ListEmailMessageEvents",
         "parameters": [
           {
@@ -30372,12 +30556,19 @@
                   "data": [
                     {
                       "type": "queued",
-                      "occurred_at": "2024-01-23T18:10:02.574Z"
+                      "event_type": "email.queued",
+                      "canonical_event_type": "email.queued",
+                      "occurred_at": "2026-07-06T18:24:00.000Z"
+                    },
+                    {
+                      "type": "gw_reject",
+                      "event_type": "email.failed",
+                      "canonical_event_type": "email.gw_reject",
+                      "occurred_at": "2026-07-06T18:24:00.000Z"
                     }
                   ],
                   "meta": {
-                    "page_size": 1,
-                    "page_cursor": "string"
+                    "page_size": 50
                   }
                 }
               }
@@ -30594,6 +30785,92 @@
             "$ref": "#/components/responses/email_NotFoundResponse"
           }
         }
+      },
+      "patch": {
+        "tags": [
+          "Email Messages"
+        ],
+        "summary": "Reschedule a scheduled email message",
+        "description": "Moves an existing scheduled email to a new future send time. Only the delivery time (\u0060scheduled_at\u0060) changes; the message ID, content, recipients, tags, and metadata remain unchanged. Returns \u0060409 Conflict\u0060 if the message is no longer scheduled or its scheduled-send worker has already started processing it. This route emits no dedicated \u0060rescheduled\u0060 event.",
+        "operationId": "RescheduleEmailMessage",
+        "parameters": [
+          {
+            "name": "emailId",
+            "in": "path",
+            "description": "Email message UUID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Provide a future delivery time. The timestamp in this example is illustrative; replace it with a value that is in the future when making a request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RescheduleEmailMessageRequest"
+              },
+              "example": {
+                "scheduled_at": "2099-08-07T14:30:00Z"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Scheduled email rescheduled. The response matches the single-message GET representation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailMessageDetailResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized (10006).",
+            "$ref": "#/components/responses/email_UnauthorizedResponse"
+          },
+          "404": {
+            "description": "Resource not found (10001).",
+            "$ref": "#/components/responses/email_NotFoundResponse"
+          },
+          "409": {
+            "description": "The email is not scheduled or its scheduled-send worker is already processing it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "\u0060scheduled_at\u0060 is missing, invalid ISO 8601, or not in the future.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Validation Failed",
+                      "detail": "scheduled_at must be in the future",
+                      "source": {
+                        "pointer": "/data/attributes/scheduled_at"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/email_messages/{id}": {
@@ -30705,6 +30982,9 @@
                       "variables": [
                         "string"
                       ],
+                      "strict_variables": false,
+                      "autoescape": false,
+                      "variable_schema": null,
                       "created_at": "2024-01-23T18:10:02.574Z",
                       "updated_at": "2024-01-23T18:10:02.574Z"
                     }
@@ -30892,6 +31172,9 @@
                     "variables": [
                       "string"
                     ],
+                    "strict_variables": false,
+                    "autoescape": false,
+                    "variable_schema": null,
                     "created_at": "2024-01-23T18:10:02.574Z",
                     "updated_at": "2024-01-23T18:10:02.574Z"
                   }
@@ -30954,6 +31237,9 @@
                     "variables": [
                       "string"
                     ],
+                    "strict_variables": false,
+                    "autoescape": false,
+                    "variable_schema": null,
                     "created_at": "2024-01-23T18:10:02.574Z",
                     "updated_at": "2024-01-23T18:10:02.574Z"
                   }
@@ -31020,6 +31306,9 @@
                     "variables": [
                       "string"
                     ],
+                    "strict_variables": false,
+                    "autoescape": false,
+                    "variable_schema": null,
                     "created_at": "2024-01-23T18:10:02.574Z",
                     "updated_at": "2024-01-23T18:10:02.574Z"
                   }
@@ -31048,7 +31337,7 @@
           "Email Templates"
         ],
         "summary": "Render an email template",
-        "description": "Renders a template using the provided Liquid variables. Missing \u0060template_variables\u0060 defaults to \u0060{}\u0060.",
+        "description": "Renders a template using the provided Liquid variables. Missing \u0060template_variables\u0060 defaults to \u0060{}\u0060.\n\nWhen the template has \u0060strict_variables\u0060 enabled and a required variable (per \u0060variable_schema\u0060) is missing, returns 422 naming the variable. When the template has \u0060autoescape\u0060 enabled, the rendered \u0060html_body\u0060 expression output is HTML-escaped at the output boundary; \u0060subject\u0060 and \u0060text_body\u0060 are not autoescaped.",
         "operationId": "RenderEmailTemplate",
         "parameters": [
           {
@@ -31089,6 +31378,9 @@
                     "variables": [
                       "string"
                     ],
+                    "strict_variables": false,
+                    "autoescape": false,
+                    "variable_schema": null,
                     "created_at": "2024-01-23T18:10:02.574Z",
                     "updated_at": "2024-01-23T18:10:02.574Z"
                   }
@@ -40810,6 +41102,254 @@
             "description": "Resource not found"
           }
         }
+      }
+    },
+    "/machine-payments/account-credit": {
+      "post": {
+        "tags": [
+          "Machine Payments"
+        ],
+        "summary": "Create a machine payment account credit",
+        "description": "Creates an account credit using the Machine Payment Protocol (MPP), an HTTP-402 payment flow for machines and agents.\n\nThe flow has two steps. First, send an authenticated request with the \u0060amount_usd\u0060 to credit; the response is \u0060402 Payment Required\u0060 with one or more payment challenges (for example separate Tempo and Stripe challenges) in the \u0060WWW-Authenticate\u0060 header. Second, retry the request with an \u0060Authorization: Payment ...\u0060 credential constructed from the challenge; on success the response includes the credited transaction and a \u0060Payment-Receipt\u0060 header.\n\nThe credited account is never chosen by the request body: the initial request credits the account of the authenticated user, and a paid retry credits the account bound to the verified payment credential. The amount must be within the configured bounds (by default between 5.00 and 500.00 USD).\n\nSuccessful paid retries are idempotent \u2014 when Rails reaches its duplicate-transaction lookup for an already-recorded payment, it returns the existing transaction with \u0060created: false\u0060 instead of crediting the account again. This deduplication applies to successful fulfillment: re-sending the same Stripe credential may instead be rejected by the upstream provider as an idempotent replay and return \u0060402 Payment Required\u0060 rather than the existing transaction.\n\n\u003E **Warning: the payment credential is bound to a specific Telnyx account ID.** A payment is captured before the bound account is validated. If the credential names an account that is missing, suspended, blocked, cancelled, dormant, or ineligible for the tier, the payment is captured but **no account is credited**. If the credential names a different but eligible account, that account is credited \u2014 the service does not compare it against the payer\u0027s account. There is **no automatic refund**: if the captured payment does not credit the intended account, contact Telnyx support for remediation.",
+        "operationId": "CreateMachinePaymentAccountCredit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MachinePaymentAccountCreditRequest"
+              },
+              "example": {
+                "amount_usd": "10.00"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Account credit created from a verified machine payment",
+            "headers": {
+              "Payment-Receipt": {
+                "$ref": "#/components/headers/PaymentReceipt"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MachinePaymentAccountCreditResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "de06811a-2e43-4561-af5a-7d0a26e20bbb",
+                    "record_type": "machine_payment_account_credit",
+                    "account_id": "123456789",
+                    "amount": "10.00",
+                    "currency": "USD",
+                    "payment_source": "machine_payment",
+                    "provider": "stripe",
+                    "payment_method": "stripe_spt",
+                    "payment_intent_id": "pi_3OrJx2eZvKYlo2C1234abcd",
+                    "receipt_reference": "pi_3OrJx2eZvKYlo2C1234abcd",
+                    "mpp_resource": "telnyx:account-credit:123456789:usd:10.00",
+                    "status": "settled",
+                    "created": true,
+                    "created_at": "2026-08-12T15:00:00Z"
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful duplicate paid retry \u2014 the existing account-credit transaction is returned and the account is not credited again. This applies when Rails reaches its duplicate-transaction lookup; re-sending the same Stripe credential may instead be rejected by the upstream provider as an idempotent replay and return \u0060402 Payment Required\u0060.",
+            "headers": {
+              "Payment-Receipt": {
+                "$ref": "#/components/headers/PaymentReceipt"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MachinePaymentAccountCreditResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "de06811a-2e43-4561-af5a-7d0a26e20bbb",
+                    "record_type": "machine_payment_account_credit",
+                    "account_id": "123456789",
+                    "amount": "10.00",
+                    "currency": "USD",
+                    "payment_source": "machine_payment",
+                    "provider": "stripe",
+                    "payment_method": "stripe_spt",
+                    "payment_intent_id": "pi_3OrJx2eZvKYlo2C1234abcd",
+                    "receipt_reference": "pi_3OrJx2eZvKYlo2C1234abcd",
+                    "mpp_resource": "telnyx:account-credit:123456789:usd:10.00",
+                    "status": "settled",
+                    "created": false,
+                    "created_at": "2026-08-12T15:00:00Z"
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required. One or more Machine Payment Protocol challenges (for example separate Tempo and Stripe challenges) are returned in the \u0060WWW-Authenticate\u0060 header. Construct a payment credential from a challenge and retry the request with an \u0060Authorization: Payment ...\u0060 header.",
+            "headers": {
+              "WWW-Authenticate": {
+                "$ref": "#/components/headers/WWWAuthenticateChallenge"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized \u2014 the request carried neither valid Telnyx API credentials nor an \u0060Authorization: Payment ...\u0060 credential",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MachinePaymentsErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10009",
+                      "title": "Authentication failed",
+                      "detail": "The required authentication headers were either invalid or not included in the request."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden \u2014 machine payments are not enabled for the account, the account tier is ineligible, the account is suspended, or the request origin is not permitted. Note: when the account is suspended the failure is returned via \u0060render_failure\u0060 as \u0060{\u0022success\u0022: false, \u0022message\u0022: \u0022You must verify your identity before you may perform this action.\u0022, \u0022reasons\u0022: []}\u0060 rather than the standard \u0060errors\u0060 envelope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateMachinePaymentAccountCredit403Response"
+                },
+                "examples": {
+                  "machine-payments-disabled": {
+                    "summary": "Machine payments not enabled, tier ineligible, or origin not permitted",
+                    "value": {
+                      "errors": [
+                        {
+                          "detail": "Machine payments are not currently enabled"
+                        }
+                      ]
+                    }
+                  },
+                  "suspended-account": {
+                    "summary": "Suspended account",
+                    "value": {
+                      "success": false,
+                      "message": "You must verify your identity before you may perform this action.",
+                      "reasons": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict \u2014 the payment maps to an already-recorded account credit with different fulfillment metadata, so the account is not credited again",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MachinePaymentsErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "machine payment account credit conflicts with existing transaction"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity \u2014 missing or invalid \u0060amount_usd\u0060, or the request fails account-credit policy checks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MachinePaymentsErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10027",
+                      "title": "Invalid request",
+                      "detail": "amount_usd must be at least 5.00"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request \u2014 proxied verbatim from the upstream machine payment service when it rejects the request: a malformed or undeserializable \u0060Authorization: Payment ...\u0060 credential, a payment credential whose amount violates the upstream amount policy, or a request that fails upstream schema validation. The body is the upstream singular \u0060error\u0060 envelope, not the standard Telnyx \u0060errors\u0060 array.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MachinePaymentUpstreamError"
+                },
+                "examples": {
+                  "invalid-payment-credential": {
+                    "summary": "Malformed or undeserializable Payment credential",
+                    "value": {
+                      "error": "Invalid Payment authorization credential"
+                    }
+                  },
+                  "amount-policy": {
+                    "summary": "Credential amount outside the upstream amount policy",
+                    "value": {
+                      "error": "amount_usd must be at least 5.00"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found \u2014 proxied verbatim from the upstream machine payment service when the machine payment provider is disabled. The body is the upstream singular \u0060error\u0060 envelope, not the standard Telnyx \u0060errors\u0060 array.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MachinePaymentUpstreamError"
+                },
+                "example": {
+                  "error": "Not found"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad gateway \u2014 the upstream machine payment service failed to process the request. Other upstream failure statuses (for example 404 when the machine payment provider is disabled, or 400 for schema validation failures) may be proxied verbatim to the client.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MachinePaymentsErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Machine payment service failed"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "Payment": []
+          }
+        ],
+        "x-endpoint-cost": "light",
+        "x-latency-category": "responsive"
       }
     },
     "/managed_accounts": {
@@ -80338,40 +80878,46 @@
       },
       "AccountEmailEvent": {
         "required": [
-          "record_type",
           "id",
-          "type",
+          "event_type",
+          "canonical_event_type",
           "occurred_at",
-          "email_id"
+          "payload"
         ],
         "type": "object",
         "properties": {
-          "record_type": {
-            "$ref": "#/components/schemas/EmailEventRecordType"
-          },
           "id": {
             "type": "string",
+            "description": "Event UUID.",
             "format": "uuid"
           },
-          "type": {
-            "$ref": "#/components/schemas/EmailEventType"
+          "event_type": {
+            "pattern": "^email\\.",
+            "type": "string",
+            "description": "Legacy customer-visible event name, prefixed with \u0060email.\u0060. Gateway rejections render \u0060email.failed\u0060; MTA expirations render \u0060email.bounced\u0060. Webhook subscription allowlists match the legacy name.",
+            "example": "email.delivered"
+          },
+          "canonical_event_type": {
+            "pattern": "^email\\.",
+            "type": "string",
+            "description": "Additive canonical outcome name, prefixed with \u0060email.\u0060. Gateway rejection is \u0060email.gw_reject\u0060, ambiguous injection timeout is \u0060email.injection_timeout\u0060, and MTA expiration is \u0060email.expired\u0060. Unchanged outcomes retain their names. Existing stored rows are translated only when recorded payload evidence proves the outcome; a legacy failed row is not guessed or sharpened.",
+            "example": "email.delivered"
           },
           "occurred_at": {
             "type": "string",
             "format": "date-time"
           },
-          "email_id": {
+          "recipient_id": {
             "type": "string",
+            "description": "Durable email recipient UUID. Present for recipient-scoped events, including each queued, sending, sandbox, cancelled, and daily_limit_exceeded fan-out event.",
             "format": "uuid"
           },
-          "email": {
-            "description": "Summary of the associated email message. Present when the email_message preload is available.",
-            "$ref": "#/components/schemas/EventEmailSummary"
-          },
           "payload": {
-            "$ref": "#/components/schemas/AccountEmailEventPayloadProperty"
+            "description": "Payload returned by GET /email_events. Every row includes id, status, and occurred_at. Recipient-scoped rows also include recipient_id, from, subject, and exactly one object-valued to, cc, or bcc field. Legacy or message-scoped rows can omit recipient_id and use object-valued or string-valued to/cc fields, including an empty string when no address exists; bcc is redacted. If the related message or recipient cannot be loaded, the minimal fallback can omit from, subject, and recipient fields. Additional persisted public evidence can be present.",
+            "$ref": "#/components/schemas/AccountEmailEventPayload"
           }
-        }
+        },
+        "description": "An account-polling event. The envelope is webhook-shaped, but polling preserves stored-event cardinality: queued, sending, sandbox, cancelled, and daily_limit_exceeded message events fan out per recipient; scheduled remains one message-scoped row. Payload fields vary among recipient-scoped, message-scoped, and minimal fallback rows."
       },
       "AccountEmailEventListResponse": {
         "required": [
@@ -80390,6 +80936,71 @@
             "$ref": "#/components/schemas/EventPaginationMeta"
           }
         }
+      },
+      "AccountEmailEventPayload": {
+        "required": [
+          "id",
+          "status",
+          "occurred_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Email message UUID.",
+            "format": "uuid"
+          },
+          "recipient_id": {
+            "type": "string",
+            "description": "Durable email recipient UUID. Present for recipient-scoped events.",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AccountEmailEventPayloadStatus"
+          },
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "from": {
+            "description": "Sender projection in account event polling. The display name is explicitly null when the message has no sender name.",
+            "$ref": "#/components/schemas/AccountEmailEventSender"
+          },
+          "to": {
+            "$ref": "#/components/schemas/AccountEmailEventPayloadTo"
+          },
+          "cc": {
+            "$ref": "#/components/schemas/AccountEmailEventPayloadCc"
+          },
+          "bcc": {
+            "$ref": "#/components/schemas/AccountEmailEventPayloadBcc"
+          },
+          "subject": {
+            "type": "string"
+          }
+        },
+        "description": "Payload returned by GET /email_events. Every row includes id, status, and occurred_at. Recipient-scoped rows also include recipient_id, from, subject, and exactly one object-valued to, cc, or bcc field. Legacy or message-scoped rows can omit recipient_id and use object-valued or string-valued to/cc fields, including an empty string when no address exists; bcc is redacted. If the related message or recipient cannot be loaded, the minimal fallback can omit from, subject, and recipient fields. Additional persisted public evidence can be present."
+      },
+      "AccountEmailEventSender": {
+        "required": [
+          "email",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "Sender projection in account event polling. The display name is explicitly null when the message has no sender name."
       },
       "AccountSid": {
         "type": "string",
@@ -96639,7 +97250,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Tags for categorization and reporting. Stored on the message and propagated to Email Detail Records. Not returned in API responses."
+            "description": "Tags for categorization and filtering. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in \u0060filter[tags]\u0060 when listing messages."
           },
           "group_id": {
             "type": [
@@ -96673,7 +97284,7 @@
               "null",
               "string"
             ],
-            "description": "Future ISO 8601 time to schedule sending. Invalid or past timestamps\nare silently ignored and the email is sent immediately. The legacy\nalias \u0060send_at\u0060 is still accepted for backward compatibility; when\nboth are provided, \u0060scheduled_at\u0060 wins.\n",
+            "description": "Future ISO 8601 delivery time. Invalid or non-future timestamps are rejected. Single sends return HTTP 422; in batch sends the invalid item is reported in the 207 per-item errors while other items continue. \u0060send_at\u0060 remains a deprecated request alias. A non-null \u0060scheduled_at\u0060 takes precedence over \u0060send_at\u0060; when \u0060scheduled_at\u0060 is omitted or null, \u0060send_at\u0060 is used.",
             "format": "date-time"
           },
           "send_at": {
@@ -96688,6 +97299,7 @@
           },
           "sandbox_mode": {
             "type": "boolean",
+            "description": "Per-message sandbox flag. The batch-level \u0060sandbox_mode\u0060 envelope value is authoritative: it overwrites every message\u0027s \u0060sandbox_mode\u0060 before processing, including the \u0060false\u0060 default when the envelope omits the field. A per-item \u0060sandbox_mode: true\u0060 inside a non-sandbox batch is therefore a real send. Set the envelope field to run any batch item in sandbox mode.",
             "default": false
           }
         },
@@ -96710,7 +97322,7 @@
           },
           "sandbox_mode": {
             "type": "boolean",
-            "description": "Applies sandbox mode to all messages in the batch. Overrides any per-message sandbox_mode in the messages array.",
+            "description": "Applies sandbox mode to all messages in the batch and overrides any per-message \u0060sandbox_mode\u0060 value \u2014 each message\u0027s effective \u0060sandbox_mode\u0060 is exactly this envelope value. Reserved recipients at \u0060test.telnyx.com\u0060 produce the deterministic event chains documented on CreateEmailRequest.sandbox_mode; no batch item is injected into the MTA or outbound Kafka path. Sandbox batch items are non-billable, consume no daily-send-limit quota, and feed no delivery-reputation signals.",
             "default": false
           }
         }
@@ -96851,7 +97463,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Tags for categorization and reporting. Stored on the message and propagated to Email Detail Records. Not returned in API responses."
+            "description": "Tags for categorization and filtering. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in \u0060filter[tags]\u0060 when listing messages."
           },
           "group_id": {
             "type": [
@@ -96885,7 +97497,7 @@
               "null",
               "string"
             ],
-            "description": "Future ISO 8601 time to schedule sending. Invalid or past timestamps\nare silently ignored and the email is sent immediately. The legacy\nalias \u0060send_at\u0060 is still accepted for backward compatibility; when\nboth are provided, \u0060scheduled_at\u0060 wins.\n",
+            "description": "Future ISO 8601 delivery time. Invalid or non-future timestamps are rejected. Single sends return HTTP 422; in batch sends the invalid item is reported in the 207 per-item errors while other items continue. \u0060send_at\u0060 remains a deprecated request alias. A non-null \u0060scheduled_at\u0060 takes precedence over \u0060send_at\u0060; when \u0060scheduled_at\u0060 is omitted or null, \u0060send_at\u0060 is used.",
             "format": "date-time"
           },
           "send_at": {
@@ -96900,6 +97512,7 @@
           },
           "sandbox_mode": {
             "type": "boolean",
+            "description": "Validates and accepts the message without injecting it into the MTA or outbound Kafka path. Nothing is delivered: sandbox records are non-billable, consume no daily-send-limit quota, and feed no delivery-reputation signals.\n\nThe reserved sandbox test-recipient domain is \u0060test.telnyx.com\u0060. In sandbox mode, these addresses produce deterministic recipient-scoped lifecycle events:\n\n- \u0060delivered@test.telnyx.com\u0060: queued -\u003E sending -\u003E sent -\u003E delivered\n- \u0060hard-bounce@test.telnyx.com\u0060: queued -\u003E sending -\u003E sent -\u003E bounced (permanent)\n- \u0060soft-bounce@test.telnyx.com\u0060: queued -\u003E sending -\u003E sent -\u003E bounced (transient)\n- \u0060complaint@test.telnyx.com\u0060: queued -\u003E sending -\u003E sent -\u003E complained\n- \u0060suppressed@test.telnyx.com\u0060: queued -\u003E suppressed\n- \u0060invalid@test.telnyx.com\u0060: queued -\u003E sending -\u003E failed (invalid recipient)\n- \u0060dkim-fail@test.telnyx.com\u0060: queued -\u003E sending -\u003E failed (DKIM unavailable)\n- \u0060rate-limit@test.telnyx.com\u0060: queued -\u003E sending -\u003E failed (rate limit exceeded)\n\nMatching is case-insensitive for both the local part and the domain and requires the exact domain \u0060test.telnyx.com\u0060 \u2014 subdomains and other domains do not match. Mixed sandbox sends simulate only reserved test recipients; other recipients retain ordinary sandbox behavior (accepted, no delivery attempted). Hard-bounce and complaint outcomes also use the normal automatic-suppression pipeline. Non-sandbox sends to these addresses use the normal delivery path.",
             "default": false
           },
           "in_reply_to_message_id": {
@@ -96967,6 +97580,19 @@
               "type": "string"
             },
             "description": "Template variables. Auto-extracted from subject/body fields when absent."
+          },
+          "strict_variables": {
+            "type": "boolean",
+            "description": "Per-template strict variable-validation setting. Defaults to \u0060false\u0060 for backward compatibility. When \u0060true\u0060, a send or render that is missing a variable marked \u0060required: true\u0060 in \u0060variable_schema\u0060 fails with 422 naming the variable. Missing optional variables never fail; their schema \u0060default\u0060 (when set) is applied to the render.",
+            "default": false
+          },
+          "autoescape": {
+            "type": "boolean",
+            "description": "Per-template HTML autoescaping setting. Defaults to \u0060false\u0060 for backward compatibility. When \u0060true\u0060, the rendered \u0060html_body\u0060 HTML-escapes each Liquid expression\u0027s output at the output boundary (after its filters run, before concatenation with literal template markup). Input values are never mutated and \u0060subject\u0060/\u0060text_body\u0060 are never autoescaped. The boundary escape is idempotent: HTML entities already present in the output (e.g. from an explicit \u0060escape\u0060 filter) are preserved, so an explicit \u0060escape\u0060/\u0060escape_once\u0060 is never double-escaped, and markup introduced by any later filter in the chain is still escaped.",
+            "default": false
+          },
+          "variable_schema": {
+            "$ref": "#/components/schemas/CreateEmailTemplateRequestVariableSchemaProperty"
           }
         }
       },
@@ -102960,6 +103586,55 @@
           "MachineDetectionBeepProfile": {
             "$ref": "#/components/schemas/DialConferenceParticipantRequestMachineDetectionBeepProfile"
           },
+          "MachineDetectionBeepMinFrequency": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Lowest frequency, in Hz, that a tone must reach to be treated as a beep. Raising it above 480 excludes North American ringback (440 \u002B 480 Hz), which can otherwise be reported as a beep when the \u0060freq_only\u0060 profile is in use. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 550
+          },
+          "MachineDetectionBeepMaxFrequency": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Highest frequency, in Hz, that a tone can reach and still be treated as a beep. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 2000
+          },
+          "MachineDetectionBeepMinToneDuration": {
+            "maximum": 5000,
+            "minimum": 50,
+            "type": "integer",
+            "description": "Shortest tone, in milliseconds, that can be treated as a beep. Raising it rejects brief tones such as call-progress blips. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 300
+          },
+          "MachineDetectionBeepSpectralConfirmation": {
+            "type": "boolean",
+            "description": "When enabled, a candidate beep must pass an additional spectral check before it is reported. Only used when MachineDetection is enabled.",
+            "example": true
+          },
+          "MachineDetectionBeepSpectralWindow": {
+            "maximum": 1000,
+            "minimum": 20,
+            "type": "integer",
+            "description": "Length of the spectral confirmation window, in milliseconds. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 100
+          },
+          "MachineDetectionBeepSpectralMinPurity": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number",
+            "description": "Minimum spectral purity, from 0 to 1, for a tone to be treated as a beep. Raising it rejects mixed tones such as ringback, which combines two frequencies. Only used when MachineDetection is enabled.",
+            "example": 0.8
+          },
+          "MachineDetectionBeepSpectralRejectFaxCng": {
+            "type": "boolean",
+            "description": "When enabled, the fax CNG tone is rejected rather than reported as a beep. Only used when MachineDetection is enabled.",
+            "example": true
+          },
           "AmdStatusCallback": {
             "type": "string",
             "description": "The URL the result of answering machine detection will be sent to.",
@@ -104654,6 +105329,7 @@
               "null",
               "string"
             ],
+            "description": "Optional expiration time. An active row stops matching\nsend-time suppression checks as soon as \u0060expires_at \u003C= now()\u0060.\nA maintenance worker later transitions the row to \u0060status: expired\u0060\nand appends an \u0060expired\u0060 audit event (normally within 15 minutes).\n",
             "format": "date-time"
           }
         },
@@ -104779,7 +105455,7 @@
           },
           "error_count": {
             "type": "integer",
-            "description": "Only when \u0060status == completed\u0060."
+            "description": "Rows that passed CSV parsing but failed suppression creation.\nThis is the creation-failure subset of \u0060skipped_count\u0060;\nparser-rejected rows equal \u0060skipped_count - error_count\u0060.\nOnly when \u0060status == completed\u0060.\n"
           },
           "errors": {
             "$ref": "#/components/schemas/EmailBlockImportErrorsProperty"
@@ -105002,6 +105678,93 @@
           "created_at": "2026-01-01T00:00:00Z",
           "updated_at": "2026-01-01T00:00:00Z",
           "verified_at": null
+        }
+      },
+      "EmailDomainDkimRotation": {
+        "required": [
+          "record_type",
+          "domain_id",
+          "domain",
+          "dkim",
+          "previous_dkim_key",
+          "old_selector_retained",
+          "dns_records"
+        ],
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "$ref": "#/components/schemas/EmailDomainDkimRotationRecordType"
+          },
+          "domain_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "dkim": {
+            "$ref": "#/components/schemas/EmailDomainDkimRotationDkim"
+          },
+          "previous_dkim_key": {
+            "$ref": "#/components/schemas/EmailDomainDkimRotationPreviousDkimKey"
+          },
+          "old_selector_retained": {
+            "type": "boolean",
+            "description": "False for this service: one selector is fixed per domain, so rotation replaces the TXT value at the existing _domainkey host. There is no dual-selector overlap; publish the replacement TXT promptly because signing switches immediately."
+          },
+          "dns_records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DnsRecord"
+            },
+            "description": "The DKIM DNS records the customer must publish, carrying the new key\u0027s TXT value with verification reset to pending.\n"
+          }
+        },
+        "description": "Result of rotating a domain\u0027s DKIM key. The new key is active and signing switches to it immediately; the previous key is retired to a \u0060retiring\u0060 state (retained, not revoked) so it can be revoked after the DNS propagation grace period. Selectors are fixed, so the DKIM DNS record\u0027s TXT value is replaced in place at the shared \u0060\u003Cselector\u003E._domainkey.\u003Cdomain\u003E\u0060 host \u2014 \u0060old_selector_retained\u0060 is false and the returned dns_records carry the new value the customer must publish promptly.\n",
+        "example": {
+          "record_type": "email_domain_dkim_rotation",
+          "domain_id": "123e4567-e89b-12d3-a456-426614174002",
+          "domain": "example.com",
+          "dkim": {
+            "id": "123e4567-e89b-12d3-a456-42661417400a",
+            "selector": "telnyx1",
+            "algorithm": "rsa-sha256",
+            "key_length": 2048,
+            "version": 2,
+            "status": "active",
+            "activated_at": "2026-09-11T12:00:00Z"
+          },
+          "previous_dkim_key": {
+            "id": "123e4567-e89b-12d3-a456-426614174009",
+            "selector": "telnyx1",
+            "version": 1,
+            "status": "retiring"
+          },
+          "old_selector_retained": false,
+          "dns_records": [
+            {
+              "id": "123e4567-e89b-12d3-a456-42661417400b",
+              "purpose": "dkim",
+              "record_type": "TXT",
+              "host": "telnyx1._domainkey.example.com",
+              "value": "v=DKIM1; k=rsa; p=MIIBIjANBgkqh...",
+              "actual_value": null,
+              "priority": null,
+              "required": true,
+              "status": "pending"
+            }
+          ]
+        }
+      },
+      "EmailDomainDkimRotationResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EmailDomainDkimRotation"
+          }
         }
       },
       "EmailDomainHealth": {
@@ -105589,14 +106352,25 @@
           "delivered",
           "bounced",
           "complained",
+          "suppressed",
           "rejected",
           "opened",
           "clicked",
           "unsubscribed",
-          "daily_limit_exceeded"
+          "daily_limit_exceeded",
+          "scan_deferred",
+          "quarantined",
+          "quarantine_released",
+          "quarantine_release_dispatched",
+          "quarantine_rejected",
+          "quarantine_expired",
+          "gw_reject",
+          "injection_timeout",
+          "expired"
         ],
         "type": "string",
         "additionalProperties": false,
+        "description": "Bare stored event names returned by message history. In addition to the normal send and delivery lifecycle, polling can expose suppression, scan, and quarantine lifecycle rows. Sharp canonical names gw_reject, injection_timeout, and expired distinguish gateway rejection, ambiguous injection timeout, and MTA expiration. The failed and bounced names remain valid for system/admin failures and hard bounces respectively. Existing stored rows retain their original names.",
         "x-ms-enum": {
           "name": "EmailEventType",
           "modelAsString": false,
@@ -105646,6 +106420,10 @@
               "name": "Complained"
             },
             {
+              "value": "suppressed",
+              "name": "Suppressed"
+            },
+            {
               "value": "rejected",
               "name": "Rejected"
             },
@@ -105664,6 +106442,42 @@
             {
               "value": "daily_limit_exceeded",
               "name": "DailyLimitExceeded"
+            },
+            {
+              "value": "scan_deferred",
+              "name": "ScanDeferred"
+            },
+            {
+              "value": "quarantined",
+              "name": "Quarantined"
+            },
+            {
+              "value": "quarantine_released",
+              "name": "QuarantineReleased"
+            },
+            {
+              "value": "quarantine_release_dispatched",
+              "name": "QuarantineReleaseDispatched"
+            },
+            {
+              "value": "quarantine_rejected",
+              "name": "QuarantineRejected"
+            },
+            {
+              "value": "quarantine_expired",
+              "name": "QuarantineExpired"
+            },
+            {
+              "value": "gw_reject",
+              "name": "GwReject"
+            },
+            {
+              "value": "injection_timeout",
+              "name": "InjectionTimeout"
+            },
+            {
+              "value": "expired",
+              "name": "Expired"
             }
           ]
         }
@@ -105776,6 +106590,8 @@
           "reply_to",
           "template_id",
           "template_variables",
+          "tags",
+          "metadata",
           "attachments",
           "events",
           "created_at"
@@ -105833,6 +106649,17 @@
           "template_variables": {
             "$ref": "#/components/schemas/EmailMessageTemplateVariablesProperty"
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Customer-supplied tags stored with the message.",
+            "default": []
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/EmailMessageMetadataProperty"
+          },
           "attachments": {
             "type": "array",
             "items": {
@@ -105842,7 +106669,7 @@
           "events": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MessageEvent"
+              "$ref": "#/components/schemas/EmbeddedMessageEvent"
             }
           },
           "created_at": {
@@ -105887,6 +106714,8 @@
           "reply_to",
           "template_id",
           "template_variables",
+          "tags",
+          "metadata",
           "attachments",
           "events",
           "created_at",
@@ -105946,6 +106775,17 @@
           "template_variables": {
             "$ref": "#/components/schemas/EmailMessageDetailTemplateVariables"
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Customer-supplied tags stored with the message.",
+            "default": []
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/EmailMessageDetailMetadata"
+          },
           "attachments": {
             "type": "array",
             "items": {
@@ -105955,7 +106795,7 @@
           "events": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MessageEvent"
+              "$ref": "#/components/schemas/EmbeddedMessageEvent"
             }
           },
           "created_at": {
@@ -106254,6 +107094,9 @@
           "html_body",
           "text_body",
           "variables",
+          "strict_variables",
+          "autoescape",
+          "variable_schema",
           "created_at",
           "updated_at"
         ],
@@ -106291,7 +107134,19 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "Legacy unstructured variable names. This path remains supported unchanged."
+          },
+          "strict_variables": {
+            "type": "boolean",
+            "description": "Whether strict variable validation is enabled for this template. When \u0060true\u0060, sends and renders that are missing a variable marked \u0060required: true\u0060 in \u0060variable_schema\u0060 fail with 422 naming the variable."
+          },
+          "autoescape": {
+            "type": "boolean",
+            "description": "Whether HTML autoescaping is enabled for this template. When \u0060true\u0060, only rendered \u0060html_body\u0060 expression output is HTML-escaped at the output boundary; \u0060subject\u0060 and \u0060text_body\u0060 are never autoescaped."
+          },
+          "variable_schema": {
+            "$ref": "#/components/schemas/EmailTemplateVariableSchemaProperty"
           },
           "created_at": {
             "type": "string",
@@ -106738,15 +107593,18 @@
           "email.clicked",
           "email.unsubscribed",
           "email.received",
+          "email.cancelled",
+          "email.daily_limit_exceeded",
           "email_domain.created",
           "email_domain.verified",
           "email_domain.degraded",
           "email_domain.suspended",
-          "email_domain.deleted"
+          "email_domain.deleted",
+          "email_domain.dkim_rotated"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Event types a webhook may subscribe to. The union of email.* events (published by email-api) and email_domain.* lifecycle events (published by this service). An event not listed here can never be subscribed to and is silently dropped.\n",
+        "description": "Event types accepted by domain webhook subscriptions. Allowlists match the legacy event_type, not canonical_event_type. Of the 22 accepted types, email.sending is stored but intentionally not published. Cancellation, daily-limit failures, and system failures publish after commit when a matching domain webhook is configured.",
         "x-ms-enum": {
           "name": "EmailWebhookEvent",
           "modelAsString": false,
@@ -106808,6 +107666,14 @@
               "name": "EmailReceived"
             },
             {
+              "value": "email.cancelled",
+              "name": "EmailCancelled"
+            },
+            {
+              "value": "email.daily_limit_exceeded",
+              "name": "EmailDailyLimitExceeded"
+            },
+            {
               "value": "email_domain.created",
               "name": "EmailDomainCreated"
             },
@@ -106826,6 +107692,10 @@
             {
               "value": "email_domain.deleted",
               "name": "EmailDomainDeleted"
+            },
+            {
+              "value": "email_domain.dkim_rotated",
+              "name": "EmailDomainDkimRotated"
             }
           ]
         }
@@ -106848,6 +107718,27 @@
           }
         }
       },
+      "EmailWebhookRecipient": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/EmailWebhookRecipientKind"
+          }
+        }
+      },
       "EmailWebhookResponse": {
         "required": [
           "data"
@@ -106858,6 +107749,27 @@
             "$ref": "#/components/schemas/EmailWebhook"
           }
         }
+      },
+      "EmbeddedMessageEvent": {
+        "required": [
+          "type",
+          "occurred_at"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Bare stored event names returned by message history. In addition to the normal send and delivery lifecycle, polling can expose suppression, scan, and quarantine lifecycle rows. Sharp canonical names gw_reject, injection_timeout, and expired distinguish gateway rejection, ambiguous injection timeout, and MTA expiration. The failed and bounced names remain valid for system/admin failures and hard bounces respectively. Existing stored rows retain their original names.",
+            "$ref": "#/components/schemas/EmailEventType"
+          },
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/EmbeddedMessageEventPayloadProperty"
+          }
+        },
+        "description": "An event embedded in a message response. The dedicated per-message events endpoint additionally returns event_type and canonical_event_type."
       },
       "EmbeddingBucketRequest": {
         "title": "EmbeddingBucketRequest",
@@ -108019,35 +108931,6 @@
           },
           "idempotency_key": {
             "title": "Idempotency Key",
-            "type": "string"
-          }
-        }
-      },
-      "EventEmailSummary": {
-        "required": [
-          "from",
-          "to",
-          "cc",
-          "subject"
-        ],
-        "type": "object",
-        "properties": {
-          "from": {
-            "$ref": "#/components/schemas/EmailAddress"
-          },
-          "to": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EmailAddress"
-            }
-          },
-          "cc": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EmailAddress"
-            }
-          },
-          "subject": {
             "type": "string"
           }
         }
@@ -113684,6 +114567,55 @@
           "MachineDetectionBeepProfile": {
             "$ref": "#/components/schemas/InitiateAiCallRequestMachineDetectionBeepProfile"
           },
+          "MachineDetectionBeepMinFrequency": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Lowest frequency, in Hz, that a tone must reach to be treated as a beep. Raising it above 480 excludes North American ringback (440 \u002B 480 Hz), which can otherwise be reported as a beep when the \u0060freq_only\u0060 profile is in use. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 550
+          },
+          "MachineDetectionBeepMaxFrequency": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Highest frequency, in Hz, that a tone can reach and still be treated as a beep. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 2000
+          },
+          "MachineDetectionBeepMinToneDuration": {
+            "maximum": 5000,
+            "minimum": 50,
+            "type": "integer",
+            "description": "Shortest tone, in milliseconds, that can be treated as a beep. Raising it rejects brief tones such as call-progress blips. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 300
+          },
+          "MachineDetectionBeepSpectralConfirmation": {
+            "type": "boolean",
+            "description": "When enabled, a candidate beep must pass an additional spectral check before it is reported. Only used when MachineDetection is enabled.",
+            "example": true
+          },
+          "MachineDetectionBeepSpectralWindow": {
+            "maximum": 1000,
+            "minimum": 20,
+            "type": "integer",
+            "description": "Length of the spectral confirmation window, in milliseconds. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 100
+          },
+          "MachineDetectionBeepSpectralMinPurity": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number",
+            "description": "Minimum spectral purity, from 0 to 1, for a tone to be treated as a beep. Raising it rejects mixed tones such as ringback, which combines two frequencies. Only used when MachineDetection is enabled.",
+            "example": 0.8
+          },
+          "MachineDetectionBeepSpectralRejectFaxCng": {
+            "type": "boolean",
+            "description": "When enabled, the fax CNG tone is rejected rather than reported as a beep. Only used when MachineDetection is enabled.",
+            "example": true
+          },
           "Passports": {
             "type": "string",
             "description": "A string of passport identifiers to associate with the call."
@@ -113916,6 +114848,55 @@
           },
           "MachineDetectionBeepProfile": {
             "$ref": "#/components/schemas/InitiateCallRequestMachineDetectionBeepProfile"
+          },
+          "MachineDetectionBeepMinFrequency": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Lowest frequency, in Hz, that a tone must reach to be treated as a beep. Raising it above 480 excludes North American ringback (440 \u002B 480 Hz), which can otherwise be reported as a beep when the \u0060freq_only\u0060 profile is in use. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 550
+          },
+          "MachineDetectionBeepMaxFrequency": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Highest frequency, in Hz, that a tone can reach and still be treated as a beep. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 2000
+          },
+          "MachineDetectionBeepMinToneDuration": {
+            "maximum": 5000,
+            "minimum": 50,
+            "type": "integer",
+            "description": "Shortest tone, in milliseconds, that can be treated as a beep. Raising it rejects brief tones such as call-progress blips. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 300
+          },
+          "MachineDetectionBeepSpectralConfirmation": {
+            "type": "boolean",
+            "description": "When enabled, a candidate beep must pass an additional spectral check before it is reported. Only used when MachineDetection is enabled.",
+            "example": true
+          },
+          "MachineDetectionBeepSpectralWindow": {
+            "maximum": 1000,
+            "minimum": 20,
+            "type": "integer",
+            "description": "Length of the spectral confirmation window, in milliseconds. Only used when MachineDetection is enabled.",
+            "format": "int32",
+            "example": 100
+          },
+          "MachineDetectionBeepSpectralMinPurity": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number",
+            "description": "Minimum spectral purity, from 0 to 1, for a tone to be treated as a beep. Raising it rejects mixed tones such as ringback, which combines two frequencies. Only used when MachineDetection is enabled.",
+            "example": 0.8
+          },
+          "MachineDetectionBeepSpectralRejectFaxCng": {
+            "type": "boolean",
+            "description": "When enabled, the fax CNG tone is rejected rather than reported as a beep. Only used when MachineDetection is enabled.",
+            "example": true
           },
           "CancelPlaybackOnMachineDetection": {
             "type": "boolean",
@@ -115737,6 +116718,143 @@
             "example": "Hello world!"
           }
         }
+      },
+      "MachinePaymentAccountCredit": {
+        "required": [
+          "id",
+          "record_type",
+          "account_id",
+          "amount",
+          "currency",
+          "payment_source"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the account-credit transaction."
+          },
+          "record_type": {
+            "$ref": "#/components/schemas/MachinePaymentAccountCreditRecordType"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Identifier of the credited Telnyx account. Derived from the authenticated user on the initial request and from the verified payment credential on a paid retry \u2014 never from the request body."
+          },
+          "amount": {
+            "type": "string",
+            "description": "Credited amount as a decimal string with two fractional digits."
+          },
+          "currency": {
+            "type": "string",
+            "description": "ISO 4217 currency code of the credited amount (currently always USD)."
+          },
+          "payment_source": {
+            "$ref": "#/components/schemas/MachinePaymentPaymentSource"
+          },
+          "provider": {
+            "$ref": "#/components/schemas/MachinePaymentAccountCreditProvider"
+          },
+          "payment_method": {
+            "$ref": "#/components/schemas/MachinePaymentAccountCreditPaymentMethod"
+          },
+          "payment_intent_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Stripe PaymentIntent identifier for Stripe settlements. Absent for Tempo settlements."
+          },
+          "receipt_reference": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Provider receipt reference: the Stripe PaymentIntent identifier for Stripe settlements, or the on-chain transaction hash for Tempo settlements."
+          },
+          "mpp_resource": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Machine Payment Protocol resource identifier the payment credential was bound to."
+          },
+          "status": {
+            "$ref": "#/components/schemas/MachinePaymentAccountCreditStatus"
+          },
+          "created": {
+            "type": "boolean",
+            "description": "True when this response created a new account credit, false when an existing transaction was returned for a duplicate paid retry."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 timestamp when the transaction was created.",
+            "format": "date-time"
+          }
+        },
+        "description": "An account-credit transaction settled through the Machine Payment Protocol."
+      },
+      "MachinePaymentAccountCreditRequest": {
+        "required": [
+          "amount_usd"
+        ],
+        "type": "object",
+        "properties": {
+          "amount_usd": {
+            "type": "string",
+            "description": "Amount to credit in USD, as a decimal string with up to two fractional digits (by default between 5.00 and 500.00). The request body is required on the initial challenge request and remains required on a paid retry, where you re-send the identical body plus the payment credential \u2014 the credential, not the body, selects the payment, and the retried body is not re-validated.",
+            "example": "10.00"
+          }
+        }
+      },
+      "MachinePaymentAccountCreditResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "An account-credit transaction settled through the Machine Payment Protocol.",
+            "$ref": "#/components/schemas/MachinePaymentAccountCredit"
+          }
+        }
+      },
+      "MachinePaymentSuspendedAccountFailure": {
+        "required": [
+          "success",
+          "message",
+          "reasons"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Always false for a failure response."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable reason the request failed."
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional machine-readable reasons for the failure."
+          }
+        },
+        "description": "Legacy failure envelope returned when the account is suspended."
+      },
+      "MachinePaymentUpstreamError": {
+        "required": [
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Upstream error message.",
+            "example": "Invalid Payment authorization credential"
+          }
+        },
+        "description": "Error envelope proxied verbatim from the upstream machine payment service. Unlike the standard Telnyx \u0060errors\u0060 array, it carries a single top-level \u0060error\u0060 message."
       },
       "ManagedAccount": {
         "title": "ManagedAccount",
@@ -117744,12 +118862,26 @@
       "MessageEvent": {
         "required": [
           "type",
+          "event_type",
+          "canonical_event_type",
           "occurred_at"
         ],
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/EmailEventType"
+            "$ref": "#/components/schemas/MessageEventType"
+          },
+          "event_type": {
+            "pattern": "^email\\.",
+            "type": "string",
+            "description": "Legacy customer-visible event name, prefixed with \u0060email.\u0060. Gateway rejections render \u0060email.failed\u0060; MTA expirations render \u0060email.bounced\u0060. Webhook subscription allowlists match the legacy name.",
+            "example": "email.delivered"
+          },
+          "canonical_event_type": {
+            "pattern": "^email\\.",
+            "type": "string",
+            "description": "Additive canonical outcome name, prefixed with \u0060email.\u0060. Gateway rejection is \u0060email.gw_reject\u0060, ambiguous injection timeout is \u0060email.injection_timeout\u0060, and MTA expiration is \u0060email.expired\u0060. Unchanged outcomes retain their names. Existing stored rows are translated only when recorded payload evidence proves the outcome; a legacy failed row is not guessed or sharpened.",
+            "example": "email.delivered"
           },
           "occurred_at": {
             "type": "string",
@@ -117758,7 +118890,8 @@
           "payload": {
             "$ref": "#/components/schemas/MessageEventPayloadProperty"
           }
-        }
+        },
+        "description": "An event on the per-message events endpoint. The legacy event_type and additive canonical_event_type are email.-prefixed. The deprecated type preserves the bare stored event name for compatibility."
       },
       "MessageEventListResponse": {
         "required": [
@@ -131819,6 +132952,9 @@
           "html_body",
           "text_body",
           "variables",
+          "strict_variables",
+          "autoescape",
+          "variable_schema",
           "created_at",
           "updated_at"
         ],
@@ -131856,7 +132992,19 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "Legacy unstructured variable names. This path remains supported unchanged."
+          },
+          "strict_variables": {
+            "type": "boolean",
+            "description": "Whether strict variable validation is enabled for this template. When \u0060true\u0060, sends and renders that are missing a variable marked \u0060required: true\u0060 in \u0060variable_schema\u0060 fail with 422 naming the variable."
+          },
+          "autoescape": {
+            "type": "boolean",
+            "description": "Whether HTML autoescaping is enabled for this template. When \u0060true\u0060, only rendered \u0060html_body\u0060 expression output is HTML-escaped at the output boundary; \u0060subject\u0060 and \u0060text_body\u0060 are never autoescaped."
+          },
+          "variable_schema": {
+            "$ref": "#/components/schemas/RenderedEmailTemplateVariableSchema"
           },
           "created_at": {
             "type": "string",
@@ -132341,6 +133489,20 @@
             }
           }
         }
+      },
+      "RescheduleEmailMessageRequest": {
+        "required": [
+          "scheduled_at"
+        ],
+        "type": "object",
+        "properties": {
+          "scheduled_at": {
+            "type": "string",
+            "description": "New ISO 8601 delivery time. Must be strictly in the future.",
+            "format": "date-time"
+          }
+        },
+        "description": "Only the delivery time is mutable; any other request fields are ignored."
       },
       "ResearchCitation": {
         "required": [
@@ -149483,6 +150645,17 @@
             "items": {
               "type": "string"
             }
+          },
+          "strict_variables": {
+            "type": "boolean",
+            "description": "Per-template strict variable-validation setting."
+          },
+          "autoescape": {
+            "type": "boolean",
+            "description": "Per-template HTML autoescaping setting."
+          },
+          "variable_schema": {
+            "$ref": "#/components/schemas/UpdateEmailTemplateRequestVariableSchemaProperty"
           }
         }
       },
@@ -152680,6 +153853,23 @@
             }
           ]
         }
+      },
+      "VariableSchemaEntry": {
+        "required": [
+          "required"
+        ],
+        "type": "object",
+        "properties": {
+          "required": {
+            "type": "boolean",
+            "description": "Whether the variable must be supplied when strict variable validation is enabled."
+          },
+          "default": {
+            "type": "string",
+            "description": "Default value for an optional variable. Rejected when \u0060required\u0060 is \u0060true\u0060."
+          }
+        },
+        "additionalProperties": false
       },
       "Verification": {
         "title": "Verification",
@@ -160908,6 +162098,20 @@
         "description": "The locality of the address. For US addresses, this corresponds to the city of the address.",
         "example": "Austin"
       },
+      "MachinePaymentsErrorResponse": {
+        "required": [
+          "errors"
+        ],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MachinePaymentsErrorResponseErrorsItem"
+            }
+          }
+        }
+      },
       "MediaStorageError": {
         "required": [
           "code",
@@ -166231,6 +167435,73 @@
           }
         }
       },
+      "WirelessPrivateWirelessGateway": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifies the resource.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "network_id": {
+            "type": "string",
+            "description": "The identification of the related network resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "record_type": {
+            "type": "string",
+            "readOnly": true,
+            "example": "private_wireless_gateway"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
+          },
+          "name": {
+            "type": "string",
+            "description": "The private wireless gateway name.",
+            "example": "My private wireless gateway"
+          },
+          "address_mode": {
+            "$ref": "#/components/schemas/WirelessPrivateWirelessGatewayAddressMode"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The name of the region where the Private Wireless Gateway is deployed.",
+            "default": null,
+            "example": "dc2"
+          },
+          "status": {
+            "description": "The current status or failure details of the Private Wireless Gateway.",
+            "$ref": "#/components/schemas/PrivateWirelessGatewayStatus"
+          },
+          "ip_range": {
+            "type": "string",
+            "description": "IP block used to assign IPs to the SIM cards in the Private Wireless Gateway.",
+            "default": null,
+            "readOnly": true,
+            "example": "100.64.1.0/24"
+          },
+          "assigned_resources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PwgAssignedResourcesSummary"
+            },
+            "description": "A list of the resources that have been assigned to the Private Wireless Gateway."
+          }
+        }
+      },
       "WirelessRegion": {
         "title": "Region",
         "required": [
@@ -167283,6 +168554,95 @@
             "ToolMessage": "#/components/schemas/ToolMessage",
             "SystemMessage": "#/components/schemas/SystemMessage",
             "DeveloperMessage": "#/components/schemas/DeveloperMessage"
+          }
+        }
+      },
+      "AccountEmailEventPayloadTo": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EmailWebhookRecipient"
+          },
+          {
+            "$ref": "#/components/schemas/AccountEmailEventPayloadToBranch2"
+          }
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/EmailWebhookRecipientKind"
+          },
+          "value": {
+            "type": "string",
+            "description": "Legacy message-scoped address, or an empty string when absent."
+          }
+        }
+      },
+      "AccountEmailEventPayloadCc": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EmailWebhookRecipient"
+          },
+          {
+            "$ref": "#/components/schemas/AccountEmailEventPayloadCcBranch2"
+          }
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/EmailWebhookRecipientKind"
+          },
+          "value": {
+            "type": "string",
+            "description": "Legacy message-scoped address, or an empty string when absent."
+          }
+        }
+      },
+      "AccountEmailEventPayloadBcc": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EmailWebhookRecipient"
+          },
+          {
+            "$ref": "#/components/schemas/AccountEmailEventPayloadBccWrapper"
+          }
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/EmailWebhookRecipientKind"
+          },
+          "value": {
+            "$ref": "#/components/schemas/RedactedValue"
           }
         }
       },
@@ -170503,6 +171863,19 @@
         },
         "description": "Assistant configuration if an assistant is attached, otherwise null."
       },
+      "MessageEventType": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/EmailEventType"
+          }
+        },
+        "description": "Deprecated name field retained for compatibility. Its value is the bare stored event name, never email.-prefixed. Use event_type for the legacy rendering or canonical_event_type for the canonical name.",
+        "deprecated": true
+      },
       "MessagingInboundMessagePayloadTo": {
         "type": "object",
         "oneOf": [
@@ -172801,9 +174174,6 @@
           }
         }
       },
-      "AccountEmailEventPayload": {
-        "type": "object"
-      },
       "ActionAcceptedResponseData": {
         "required": [
           "accepted"
@@ -174901,6 +176271,55 @@
           "beep_detection_profile": {
             "$ref": "#/components/schemas/CallRequestAnsweringMachineDetectionConfigBeepDetectionProfile"
           },
+          "beep_min_frequency_hz": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Lowest frequency, in Hz, that a tone must reach to be treated as a beep. Raising it above 480 excludes North American ringback (440 \u002B 480 Hz), which can otherwise be reported as a beep when the \u0060freq_only\u0060 profile is in use. Only used when beep detection is active.",
+            "format": "int32",
+            "example": 550
+          },
+          "beep_max_frequency_hz": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Highest frequency, in Hz, that a tone can reach and still be treated as a beep. Only used when beep detection is active.",
+            "format": "int32",
+            "example": 2000
+          },
+          "beep_min_tone_duration_millis": {
+            "maximum": 5000,
+            "minimum": 50,
+            "type": "integer",
+            "description": "Shortest tone, in milliseconds, that can be treated as a beep. Raising it rejects brief tones such as call-progress blips. Only used when beep detection is active.",
+            "format": "int32",
+            "example": 300
+          },
+          "beep_spectral_confirmation": {
+            "type": "boolean",
+            "description": "When enabled, a candidate beep must pass an additional spectral check before it is reported. Only used when beep detection is active.",
+            "example": true
+          },
+          "beep_spectral_window_millis": {
+            "maximum": 1000,
+            "minimum": 20,
+            "type": "integer",
+            "description": "Length of the spectral confirmation window, in milliseconds. Only used when beep detection is active.",
+            "format": "int32",
+            "example": 100
+          },
+          "beep_spectral_min_purity": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number",
+            "description": "Minimum spectral purity, from 0 to 1, for a tone to be treated as a beep. Raising it rejects mixed tones such as ringback, which combines two frequencies. Only used when beep detection is active.",
+            "example": 0.8
+          },
+          "beep_spectral_reject_fax_cng": {
+            "type": "boolean",
+            "description": "When enabled, the fax CNG tone is rejected rather than reported as a beep. Only used when beep detection is active.",
+            "example": true
+          },
           "after_greeting_silence_millis": {
             "type": "integer",
             "description": "Silence duration threshold after a greeting message or voice for it be considered human.",
@@ -176475,11 +177894,11 @@
       },
       "CreateEmailBatchItemRequestMetadata": {
         "type": "object",
-        "description": "Custom metadata. Write-only; not returned in responses."
+        "description": "Custom metadata key/value pairs. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in \u0060filter[metadata]\u0060 when listing messages."
       },
       "CreateEmailBatchItemRequestTemplateVariables": {
         "type": "object",
-        "description": "Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering."
+        "description": "Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering. When the template enables \u0060strict_variables\u0060, a missing required variable fails the request with 422 (single send) or a per-item \u0060unprocessable_entity\u0060 error (batch) naming the variable; no message is persisted for the failed item."
       },
       "CreateEmailRequestHeaders": {
         "type": "object",
@@ -176490,11 +177909,21 @@
       },
       "CreateEmailRequestMetadata": {
         "type": "object",
-        "description": "Custom metadata. Write-only; not returned in responses."
+        "description": "Custom metadata key/value pairs. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in \u0060filter[metadata]\u0060 when listing messages."
       },
       "CreateEmailRequestTemplateVariables": {
         "type": "object",
-        "description": "Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering."
+        "description": "Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering. When the template enables \u0060strict_variables\u0060, a missing required variable fails the request with 422 (single send) or a per-item \u0060unprocessable_entity\u0060 error (batch) naming the variable; no message is persisted for the failed item."
+      },
+      "CreateEmailTemplateRequestVariableSchema": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VariableSchemaEntry"
+        },
+        "description": "Structured variable requirements. Required variables cannot define defaults; invalid combinations return 422. This is independent of the legacy \u0060variables\u0060 array. On render with \u0060strict_variables\u0060 enabled: \u0060required\u0060 variables must be supplied as non-empty values \u2014 absent, \u0060null\u0060, empty string, empty object \u0060{}\u0060, and empty array \u0060[]\u0060 all fail with 422 naming the variable, while present values such as \u0060false\u0060 and \u00600\u0060 pass (they are present, not empty). Optional variables fall back to their \u0060default\u0060 when absent."
       },
       "CreateEventRequestPayload": {
         "title": "Payload",
@@ -177075,6 +178504,76 @@
         },
         "description": "Sender reputation for this domain (present on all domain responses)."
       },
+      "EmailDomainDkimRotationDkim": {
+        "required": [
+          "id",
+          "selector",
+          "algorithm",
+          "key_length",
+          "version",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "selector": {
+            "type": "string"
+          },
+          "algorithm": {
+            "$ref": "#/components/schemas/RsaSha256Algorithm"
+          },
+          "key_length": {
+            "$ref": "#/components/schemas/EmailDomainDkimRotationDkimKeyLength"
+          },
+          "version": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Monotonically increasing per-domain key version."
+          },
+          "status": {
+            "$ref": "#/components/schemas/ActiveStatus"
+          },
+          "activated_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        },
+        "description": "The new active DKIM key."
+      },
+      "EmailDomainDkimRotationPreviousDkimKey": {
+        "required": [
+          "id",
+          "selector",
+          "version",
+          "status"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "selector": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EmailDomainDkimRotationPreviousDkimKeyStatus"
+          }
+        },
+        "description": "The retired previous key, or null when the domain had no active key before rotation. Retained in a \u0060retiring\u0060 state so it can be revoked after the DNS propagation grace period.\n"
+      },
       "EmailDraftHeaders": {
         "type": "object",
         "additionalProperties": {
@@ -177107,6 +178606,10 @@
       "EmailMessageTemplateVariables": {
         "type": "object"
       },
+      "EmailMessageMetadata": {
+        "type": "object",
+        "description": "Customer-supplied metadata stored with the message."
+      },
       "EmailMessageRecipientStatuses": {
         "type": "object",
         "additionalProperties": {
@@ -177137,6 +178640,19 @@
             "description": "Cursor for the next page. Absent when there are no more results."
           }
         }
+      },
+      "EmailTemplateVariableSchema": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VariableSchemaEntry"
+        },
+        "description": "Structured variable requirements, or \u0060null\u0060 when the template uses only the legacy \u0060variables\u0060 array."
+      },
+      "EmbeddedMessageEventPayload": {
+        "type": "object"
       },
       "EmbeddingMetadataLoaderMetadata": {
         "title": "Loader Metadata",
@@ -181169,6 +182685,55 @@
           "beep_detection_profile": {
             "$ref": "#/components/schemas/TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile"
           },
+          "beep_min_frequency_hz": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Lowest frequency, in Hz, that a tone must reach to be treated as a beep. Raising it above 480 excludes North American ringback (440 \u002B 480 Hz), which can otherwise be reported as a beep when the \u0060freq_only\u0060 profile is in use. Only used when beep detection is active.",
+            "format": "int32",
+            "example": 550
+          },
+          "beep_max_frequency_hz": {
+            "maximum": 4000,
+            "minimum": 200,
+            "type": "integer",
+            "description": "Highest frequency, in Hz, that a tone can reach and still be treated as a beep. Only used when beep detection is active.",
+            "format": "int32",
+            "example": 2000
+          },
+          "beep_min_tone_duration_millis": {
+            "maximum": 5000,
+            "minimum": 50,
+            "type": "integer",
+            "description": "Shortest tone, in milliseconds, that can be treated as a beep. Raising it rejects brief tones such as call-progress blips. Only used when beep detection is active.",
+            "format": "int32",
+            "example": 300
+          },
+          "beep_spectral_confirmation": {
+            "type": "boolean",
+            "description": "When enabled, a candidate beep must pass an additional spectral check before it is reported. Only used when beep detection is active.",
+            "example": true
+          },
+          "beep_spectral_window_millis": {
+            "maximum": 1000,
+            "minimum": 20,
+            "type": "integer",
+            "description": "Length of the spectral confirmation window, in milliseconds. Only used when beep detection is active.",
+            "format": "int32",
+            "example": 100
+          },
+          "beep_spectral_min_purity": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number",
+            "description": "Minimum spectral purity, from 0 to 1, for a tone to be treated as a beep. Raising it rejects mixed tones such as ringback, which combines two frequencies. Only used when beep detection is active.",
+            "example": 0.8
+          },
+          "beep_spectral_reject_fax_cng": {
+            "type": "boolean",
+            "description": "When enabled, the fax CNG tone is rejected rather than reported as a beep. Only used when beep detection is active.",
+            "example": true
+          },
           "after_greeting_silence_millis": {
             "type": "integer",
             "description": "Silence duration threshold after a greeting message or voice for it be considered human.",
@@ -181341,6 +182906,16 @@
           }
         },
         "additionalProperties": false
+      },
+      "UpdateEmailTemplateRequestVariableSchema": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VariableSchemaEntry"
+        },
+        "description": "Structured variable requirements. Required variables cannot define defaults; invalid combinations return 422. Set to \u0060null\u0060 to clear the schema."
       },
       "UpdateExternalConnectionRequestInbound": {
         "type": "object",
@@ -183251,6 +184826,26 @@
       },
       "InvoiceErrorMeta": {
         "type": "object"
+      },
+      "MachinePaymentsErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MachinePaymentsErrorResponseErrorsItemMeta"
+          },
+          "source": {
+            "$ref": "#/components/schemas/MachinePaymentsErrorResponseErrorsItemSource"
+          }
+        }
       },
       "MediaStorageErrorSource": {
         "type": "object",
@@ -186202,6 +187797,22 @@
           }
         }
       },
+      "MachinePaymentsErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "MachinePaymentsErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        }
+      },
       "MessagingOutboundMessagePayloadCancelledCostBreakdownCarrierFee": {
         "type": "object",
         "properties": {
@@ -187627,7 +189238,7 @@
       },
       "ExportEmailBlocks200CsvResponse": {
         "type": "string",
-        "description": "CSV with header row \u0060id,to,from,reason,source,scope,status,domain_id,created_at,updated_at,expires_at,group_id\u0060."
+        "description": "CSV with header row \u0060id,to,from,reason,source,scope,status,domain_id,created_at,updated_at,expires_at,group_id,bounce_category,dsn_code,meta\u0060."
       },
       "GetEmailInboxThread200Response": {
         "required": [
@@ -188091,6 +189702,40 @@
           },
           "meta": {
             "$ref": "#/components/schemas/ConnectionsPaginationMeta"
+          }
+        }
+      },
+      "CreateMachinePaymentAccountCredit403Response": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/MachinePaymentsErrorResponse"
+          },
+          {
+            "$ref": "#/components/schemas/MachinePaymentSuspendedAccountFailure"
+          }
+        ],
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MachinePaymentsErrorResponseErrorsItem"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "Always false for a failure response."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable reason the request failed."
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional machine-readable reasons for the failure."
           }
         }
       },
@@ -189688,7 +191333,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PrivateWirelessGateway"
+              "$ref": "#/components/schemas/WirelessPrivateWirelessGateway"
             }
           },
           "meta": {
@@ -189718,6 +191363,9 @@
             "type": "string",
             "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
             "example": "dc2"
+          },
+          "address_mode": {
+            "$ref": "#/components/schemas/CreatePrivateWirelessGatewayRequestAddressMode"
           }
         }
       },
@@ -191609,6 +193257,17 @@
           ]
         }
       },
+      "AccountEmailEventPayloadBccWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/RedactedValue"
+          }
+        }
+      },
       "ActionsParticipantsRequestParticipantsWrapper": {
         "required": [
           "value"
@@ -191760,6 +193419,17 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/GoogleTranscriptionLanguage"
+          }
+        }
+      },
+      "EmailEventTypeWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/EmailEventType"
           }
         }
       },
@@ -192257,6 +193927,30 @@
               "$ref": "#/components/schemas/VoiceSdkCallReportStatsBranch1ValueItem"
             },
             "description": "Raw interval stats snapshots emitted by the Voice SDK."
+          }
+        }
+      },
+      "AccountEmailEventPayloadToBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Legacy message-scoped address, or an empty string when absent."
+          }
+        }
+      },
+      "AccountEmailEventPayloadCcBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Legacy message-scoped address, or an empty string when absent."
           }
         }
       },
@@ -193802,7 +195496,7 @@
       },
       "ExportEmailBlocks200CsvResponseSchema": {
         "type": "string",
-        "description": "CSV with header row \u0060id,to,from,reason,source,scope,status,domain_id,created_at,updated_at,expires_at,group_id\u0060."
+        "description": "CSV with header row \u0060id,to,from,reason,source,scope,status,domain_id,created_at,updated_at,expires_at,group_id,bounce_category,dsn_code,meta\u0060."
       },
       "GenerateReputationLoa200PdfResponseSchema": {
         "type": "string",
@@ -195804,7 +197498,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/PrivateWirelessGateway"
+            "$ref": "#/components/schemas/WirelessPrivateWirelessGateway"
           }
         },
         "example": {
@@ -195815,6 +197509,7 @@
             "created_at": "2018-02-02T22:25:27.521Z",
             "updated_at": "2018-02-02T22:25:27.521Z",
             "name": "My private wireless gateway",
+            "address_mode": "dynamic",
             "region_code": "dc2",
             "status": {
               "value": "provisioning",
@@ -195835,7 +197530,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/PrivateWirelessGateway"
+            "$ref": "#/components/schemas/WirelessPrivateWirelessGateway"
           }
         }
       },
@@ -195843,7 +197538,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/PrivateWirelessGateway"
+            "$ref": "#/components/schemas/WirelessPrivateWirelessGateway"
           }
         }
       },
@@ -197350,9 +199045,6 @@
           }
         ]
       },
-      "AccountEmailEventPayloadProperty": {
-        "type": "object"
-      },
       "AnswerRequestWebhookUrlsProperty": {
         "type": "object",
         "additionalProperties": {
@@ -197597,11 +199289,11 @@
       },
       "CreateEmailBatchItemRequestMetadataProperty": {
         "type": "object",
-        "description": "Custom metadata. Write-only; not returned in responses."
+        "description": "Custom metadata key/value pairs. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in \u0060filter[metadata]\u0060 when listing messages."
       },
       "CreateEmailBatchItemRequestTemplateVariablesProperty": {
         "type": "object",
-        "description": "Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering."
+        "description": "Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering. When the template enables \u0060strict_variables\u0060, a missing required variable fails the request with 422 (single send) or a per-item \u0060unprocessable_entity\u0060 error (batch) naming the variable; no message is persisted for the failed item."
       },
       "CreateEmailRequestHeadersProperty": {
         "type": "object",
@@ -197612,11 +199304,18 @@
       },
       "CreateEmailRequestMetadataProperty": {
         "type": "object",
-        "description": "Custom metadata. Write-only; not returned in responses."
+        "description": "Custom metadata key/value pairs. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in \u0060filter[metadata]\u0060 when listing messages."
       },
       "CreateEmailRequestTemplateVariablesProperty": {
         "type": "object",
-        "description": "Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering."
+        "description": "Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering. When the template enables \u0060strict_variables\u0060, a missing required variable fails the request with 422 (single send) or a per-item \u0060unprocessable_entity\u0060 error (batch) naming the variable; no message is persisted for the failed item."
+      },
+      "CreateEmailTemplateRequestVariableSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VariableSchemaEntry"
+        },
+        "description": "Structured variable requirements. Required variables cannot define defaults; invalid combinations return 422. This is independent of the legacy \u0060variables\u0060 array. On render with \u0060strict_variables\u0060 enabled: \u0060required\u0060 variables must be supplied as non-empty values \u2014 absent, \u0060null\u0060, empty string, empty object \u0060{}\u0060, and empty array \u0060[]\u0060 all fail with 422 naming the variable, while present values such as \u0060false\u0060 and \u00600\u0060 pass (they are present, not empty). Optional variables fall back to their \u0060default\u0060 when absent."
       },
       "CreateEventRequestPayloadProperty": {
         "type": "object"
@@ -197825,6 +199524,10 @@
       "EmailMessageTemplateVariablesProperty": {
         "type": "object"
       },
+      "EmailMessageMetadataProperty": {
+        "type": "object",
+        "description": "Customer-supplied metadata stored with the message."
+      },
       "EmailMessageRecipientStatusesProperty": {
         "type": "object",
         "additionalProperties": {
@@ -197835,6 +199538,10 @@
       "EmailMessageDetailTemplateVariables": {
         "type": "object"
       },
+      "EmailMessageDetailMetadata": {
+        "type": "object",
+        "description": "Customer-supplied metadata stored with the message."
+      },
       "EmailMessageDetailRecipientStatuses": {
         "type": "object",
         "additionalProperties": {
@@ -197842,12 +199549,22 @@
         },
         "description": "Per-status recipient counts for the message. Present only for outbound messages\nwith recipient rows. Keys are recipient statuses, values are counts.\nExample: \u0060{\u0022delivered\u0022: 998, \u0022bounced\u0022: 2}\u0060.\n"
       },
+      "EmailTemplateVariableSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VariableSchemaEntry"
+        },
+        "description": "Structured variable requirements, or \u0060null\u0060 when the template uses only the legacy \u0060variables\u0060 array."
+      },
       "EmailValidationBatchDetailResults": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/EmailValidationResult"
         },
         "description": "Map keyed by original email address. Present only when the batch is completed."
+      },
+      "EmbeddedMessageEventPayloadProperty": {
+        "type": "object"
       },
       "EmbeddingMetadataLoaderMetadataProperty": {
         "type": "object"
@@ -198001,6 +199718,13 @@
         "type": "object",
         "description": "Variables for Liquid template rendering. Non-object values are silently treated as an empty object."
       },
+      "RenderedEmailTemplateVariableSchema": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VariableSchemaEntry"
+        },
+        "description": "Structured variable requirements, or \u0060null\u0060 when the template uses only the legacy \u0060variables\u0060 array."
+      },
       "ResponseFormatJsonSchemaSchemaProperty": {
         "type": "object",
         "description": "The JSON schema the model output must conform to. A valid [JSON Schema](https://json-schema.org) object, e.g. a Pydantic \u0060model_json_schema()\u0060 export."
@@ -198137,6 +199861,13 @@
           "type": "string"
         },
         "description": "Metadata associated with the conversation. Set \u0060ai_disabled\u0060 to \u0060true\u0060 to stop AI from responding to messages (e.g., when a human agent takes over). Set to \u0060false\u0060 to re-enable AI responses."
+      },
+      "UpdateEmailTemplateRequestVariableSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VariableSchemaEntry"
+        },
+        "description": "Structured variable requirements. Required variables cannot define defaults; invalid combinations return 422. Set to \u0060null\u0060 to clear the schema."
       },
       "UpdateMissionRequestMetadataProperty": {
         "type": "object"
@@ -199729,19 +201460,145 @@
           ]
         }
       },
-      "EmailEventRecordType": {
+      "AccountEmailEventPayloadStatus": {
         "enum": [
-          "email_event"
+          "queued",
+          "deferred",
+          "scheduled",
+          "cancelled",
+          "sandbox",
+          "sending",
+          "sent",
+          "failed",
+          "delivered",
+          "bounced",
+          "complained",
+          "suppressed",
+          "rejected",
+          "opened",
+          "clicked",
+          "unsubscribed",
+          "daily_limit_exceeded",
+          "scan_deferred",
+          "quarantined",
+          "quarantine_released",
+          "quarantine_release_dispatched",
+          "quarantine_rejected",
+          "quarantine_expired",
+          "gw_reject",
+          "injection_timeout",
+          "expired"
         ],
         "type": "string",
         "additionalProperties": false,
+        "description": "Stored event outcome slug, not the authoritative recipient status. Account polling returns the stored name, including suppression, scan, and quarantine lifecycle names. Webhooks retain legacy payload names: gateway rejections use failed and MTA expirations use bounced. New sharp stored rows can expose gw_reject, injection_timeout, or expired. Use the envelope canonical_event_type to identify the outcome across surfaces.",
         "x-ms-enum": {
-          "name": "EmailEventRecordType",
+          "name": "AccountEmailEventPayloadStatus",
           "modelAsString": false,
           "values": [
             {
-              "value": "email_event",
-              "name": "EmailEvent"
+              "value": "queued",
+              "name": "Queued"
+            },
+            {
+              "value": "deferred",
+              "name": "Deferred"
+            },
+            {
+              "value": "scheduled",
+              "name": "Scheduled"
+            },
+            {
+              "value": "cancelled",
+              "name": "Cancelled"
+            },
+            {
+              "value": "sandbox",
+              "name": "Sandbox"
+            },
+            {
+              "value": "sending",
+              "name": "Sending"
+            },
+            {
+              "value": "sent",
+              "name": "Sent"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "delivered",
+              "name": "Delivered"
+            },
+            {
+              "value": "bounced",
+              "name": "Bounced"
+            },
+            {
+              "value": "complained",
+              "name": "Complained"
+            },
+            {
+              "value": "suppressed",
+              "name": "Suppressed"
+            },
+            {
+              "value": "rejected",
+              "name": "Rejected"
+            },
+            {
+              "value": "opened",
+              "name": "Opened"
+            },
+            {
+              "value": "clicked",
+              "name": "Clicked"
+            },
+            {
+              "value": "unsubscribed",
+              "name": "Unsubscribed"
+            },
+            {
+              "value": "daily_limit_exceeded",
+              "name": "DailyLimitExceeded"
+            },
+            {
+              "value": "scan_deferred",
+              "name": "ScanDeferred"
+            },
+            {
+              "value": "quarantined",
+              "name": "Quarantined"
+            },
+            {
+              "value": "quarantine_released",
+              "name": "QuarantineReleased"
+            },
+            {
+              "value": "quarantine_release_dispatched",
+              "name": "QuarantineReleaseDispatched"
+            },
+            {
+              "value": "quarantine_rejected",
+              "name": "QuarantineRejected"
+            },
+            {
+              "value": "quarantine_expired",
+              "name": "QuarantineExpired"
+            },
+            {
+              "value": "gw_reject",
+              "name": "GwReject"
+            },
+            {
+              "value": "injection_timeout",
+              "name": "InjectionTimeout"
+            },
+            {
+              "value": "expired",
+              "name": "Expired"
             }
           ]
         }
@@ -207501,6 +209358,23 @@
           ]
         }
       },
+      "EmailDomainDkimRotationRecordType": {
+        "enum": [
+          "email_domain_dkim_rotation"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "EmailDomainDkimRotationRecordType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "email_domain_dkim_rotation",
+              "name": "EmailDomainDkimRotation"
+            }
+          ]
+        }
+      },
       "EmailDomainHealthRecordType": {
         "enum": [
           "email_domain_health"
@@ -207879,7 +209753,9 @@
           "bounced",
           "failed",
           "gw_reject",
-          "cancelled"
+          "cancelled",
+          "injection_timeout",
+          "expired"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -207923,6 +209799,14 @@
             {
               "value": "cancelled",
               "name": "Cancelled"
+            },
+            {
+              "value": "injection_timeout",
+              "name": "InjectionTimeout"
+            },
+            {
+              "value": "expired",
+              "name": "Expired"
             }
           ]
         }
@@ -208040,6 +209924,33 @@
             {
               "value": "email_webhook",
               "name": "EmailWebhook"
+            }
+          ]
+        }
+      },
+      "EmailWebhookRecipientKind": {
+        "enum": [
+          "to",
+          "cc",
+          "bcc"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "EmailWebhookRecipientKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "to",
+              "name": "To"
+            },
+            {
+              "value": "cc",
+              "name": "Cc"
+            },
+            {
+              "value": "bcc",
+              "name": "Bcc"
             }
           ]
         }
@@ -211441,6 +213352,138 @@
             {
               "value": "deleted",
               "name": "Deleted"
+            }
+          ]
+        }
+      },
+      "MachinePaymentAccountCreditRecordType": {
+        "enum": [
+          "machine_payment_account_credit"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Record type identifier.",
+        "x-ms-enum": {
+          "name": "MachinePaymentAccountCreditRecordType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "machine_payment_account_credit",
+              "name": "MachinePaymentAccountCredit"
+            }
+          ]
+        }
+      },
+      "MachinePaymentPaymentSource": {
+        "enum": [
+          "machine_payment"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Payment source identifier distinguishing machine payments from other account-credit sources.",
+        "x-ms-enum": {
+          "name": "MachinePaymentPaymentSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "machine_payment",
+              "name": "MachinePayment"
+            }
+          ]
+        }
+      },
+      "MachinePaymentAccountCreditProvider": {
+        "enum": [
+          "stripe",
+          "tempo",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Upstream payment provider that settled the payment.",
+        "x-ms-enum": {
+          "name": "MachinePaymentAccountCreditProvider",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "stripe",
+              "name": "Stripe"
+            },
+            {
+              "value": "tempo",
+              "name": "Tempo"
+            }
+          ]
+        }
+      },
+      "MachinePaymentAccountCreditPaymentMethod": {
+        "enum": [
+          "stripe_spt",
+          "tempo_usdc",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Payment method used by the provider: \u0060stripe_spt\u0060 for Stripe Shared Payment Token payments, \u0060tempo_usdc\u0060 for Tempo USDC payments.",
+        "x-ms-enum": {
+          "name": "MachinePaymentAccountCreditPaymentMethod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "stripe_spt",
+              "name": "StripeSpt"
+            },
+            {
+              "value": "tempo_usdc",
+              "name": "TempoUsdc"
+            }
+          ]
+        }
+      },
+      "MachinePaymentAccountCreditStatus": {
+        "enum": [
+          "new",
+          "processing",
+          "settled",
+          "expired",
+          "invalid",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Status of the transaction. Successful machine payment credits are recorded as \u0060settled\u0060.",
+        "x-ms-enum": {
+          "name": "MachinePaymentAccountCreditStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "new",
+              "name": "NewValue"
+            },
+            {
+              "value": "processing",
+              "name": "Processing"
+            },
+            {
+              "value": "settled",
+              "name": "Settled"
+            },
+            {
+              "value": "expired",
+              "name": "Expired"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
             }
           ]
         }
@@ -226688,7 +228731,8 @@
           "500",
           "10007",
           "10008",
-          "10020"
+          "10020",
+          "40901"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -226719,6 +228763,10 @@
             {
               "value": "10020",
               "name": "Value10020"
+            },
+            {
+              "value": "40901",
+              "name": "Value40901"
             }
           ]
         }
@@ -227836,6 +229884,30 @@
             {
               "value": "failed",
               "name": "Failed"
+            }
+          ]
+        }
+      },
+      "WirelessPrivateWirelessGatewayAddressMode": {
+        "enum": [
+          "static",
+          "dynamic"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The address mode of the private wireless gateway. With static, each SIM card gets a fixed IP address from the gateway\u0027s IP range that is preserved across sessions. With dynamic, IP addresses are assigned by the network at attach time and may change between sessions.",
+        "example": "dynamic",
+        "x-ms-enum": {
+          "name": "WirelessPrivateWirelessGatewayAddressMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "static",
+              "name": "StaticValue"
+            },
+            {
+              "value": "dynamic",
+              "name": "Dynamic"
             }
           ]
         }
@@ -229487,6 +231559,69 @@
             {
               "value": "domain_graduation_limit_exceeded",
               "name": "DomainGraduationLimitExceeded"
+            }
+          ]
+        }
+      },
+      "RsaSha256Algorithm": {
+        "enum": [
+          "rsa-sha256"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "RsaSha256Algorithm",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "rsa-sha256",
+              "name": "RsaSha256"
+            }
+          ]
+        }
+      },
+      "EmailDomainDkimRotationDkimKeyLength": {
+        "enum": [
+          2048
+        ],
+        "type": "integer",
+        "additionalProperties": false
+      },
+      "ActiveStatus": {
+        "enum": [
+          "active"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ActiveStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            }
+          ]
+        }
+      },
+      "EmailDomainDkimRotationPreviousDkimKeyStatus": {
+        "enum": [
+          "retiring",
+          "revoked"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "EmailDomainDkimRotationPreviousDkimKeyStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "retiring",
+              "name": "Retiring"
+            },
+            {
+              "value": "revoked",
+              "name": "Revoked"
             }
           ]
         }
@@ -232948,6 +235083,30 @@
           ]
         }
       },
+      "CreatePrivateWirelessGatewayRequestAddressMode": {
+        "enum": [
+          "static",
+          "dynamic"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Determines how IP addresses are assigned to SIM cards using this gateway. With static, each SIM card gets a fixed IP address from the gateway\u0027s IP range that is preserved across sessions. With dynamic, an IP address is assigned by the network at attach time and may change between sessions. If omitted, the gateway is created with the default address mode, dynamic.",
+        "example": "static",
+        "x-ms-enum": {
+          "name": "CreatePrivateWirelessGatewayRequestAddressMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "static",
+              "name": "StaticValue"
+            },
+            {
+              "value": "dynamic",
+              "name": "Dynamic"
+            }
+          ]
+        }
+      },
       "OkStatus": {
         "enum": [
           "ok"
@@ -233320,6 +235479,23 @@
             {
               "value": "transcript.completed",
               "name": "TranscriptCompleted"
+            }
+          ]
+        }
+      },
+      "RedactedValue": {
+        "enum": [
+          "redacted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "RedactedValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "redacted",
+              "name": "Redacted"
             }
           ]
         }
@@ -236283,7 +238459,9 @@
           "bounced",
           "failed",
           "gw_reject",
-          "cancelled"
+          "cancelled",
+          "injection_timeout",
+          "expired"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -236326,6 +238504,14 @@
             {
               "value": "cancelled",
               "name": "Cancelled"
+            },
+            {
+              "value": "injection_timeout",
+              "name": "InjectionTimeout"
+            },
+            {
+              "value": "expired",
+              "name": "Expired"
             }
           ]
         }
@@ -248320,6 +250506,18 @@
           "additionalProperties": false,
           "example": true
         }
+      },
+      "PaymentReceipt": {
+        "description": "Machine Payment Protocol receipt returned on successful paid responses. Contains the receipt token identifying the settled payment; keep it for audit and reconciliation alongside the credited transaction.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "WWWAuthenticateChallenge": {
+        "description": "Machine Payment Protocol challenge(s) returned on a 402 response, following the HTTP WWW-Authenticate format (RFC 9110). Construct a payment credential from a challenge and retry the same request with an \u0060Authorization: Payment ...\u0060 header carrying it.",
+        "schema": {
+          "type": "string"
+        }
       }
     },
     "securitySchemes": {
@@ -248328,6 +250526,12 @@
         "description": "Telnyx API key supplied as \u0060Authorization: Bearer \u003Ctoken\u003E\u0060. In production, auth may be validated by the API gateway and forwarded via Telnyx auth headers.",
         "scheme": "bearer",
         "bearerFormat": "API key"
+      },
+      "Payment": {
+        "type": "apiKey",
+        "description": "Machine Payment Protocol credential used on paid retries, sent as \u0060Authorization: Payment ...\u0060. Obtained by paying a challenge returned in the \u0060WWW-Authenticate\u0060 header of a 402 response. This is not a Telnyx API key; initial challenge requests use standard bearer authentication instead.",
+        "name": "Authorization",
+        "in": "header"
       },
       "bearerAuth": {
         "type": "http",
@@ -248725,6 +250929,10 @@
     {
       "name": "MDR Usage Reports",
       "description": "Messaging usage reports"
+    },
+    {
+      "name": "Machine Payments",
+      "description": "Machine payment (MPP) account-credit operations. Fund your Telnyx account programmatically from a machine or agent using the Machine Payment Protocol, an HTTP-402 flow settled via Stripe or Tempo."
     },
     {
       "name": "Managed Accounts",

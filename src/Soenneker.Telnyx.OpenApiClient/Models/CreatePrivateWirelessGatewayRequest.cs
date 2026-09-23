@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Determines how IP addresses are assigned to SIM cards using this gateway. With static, each SIM card gets a fixed IP address from the gateway&apos;s IP range that is preserved across sessions. With dynamic, an IP address is assigned by the network at attach time and may change between sessions. If omitted, the gateway is created with the default address mode, dynamic.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePrivateWirelessGatewayRequestAddressMode? AddressMode { get; set; }
         /// <summary>The private wireless gateway name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "address_mode", n => { AddressMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePrivateWirelessGatewayRequestAddressMode>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network_id", n => { NetworkId = n.GetGuidValue(); } },
                 { "region_code", n => { RegionCode = n.GetStringValue(); } },
@@ -69,6 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePrivateWirelessGatewayRequestAddressMode>("address_mode", AddressMode);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("network_id", NetworkId);
             writer.WriteStringValue("region_code", RegionCode);

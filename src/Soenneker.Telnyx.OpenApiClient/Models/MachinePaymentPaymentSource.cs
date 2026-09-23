@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>Payment source identifier distinguishing machine payments from other account-credit sources.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum EmailEventRecordType
-    #pragma warning restore CS1591
+    public enum MachinePaymentPaymentSource
     {
-        [EnumMember(Value = "email_event")]
+        [EnumMember(Value = "machine_payment")]
         #pragma warning disable CS1591
-        EmailEvent,
+        MachinePayment,
         #pragma warning restore CS1591
     }
 }

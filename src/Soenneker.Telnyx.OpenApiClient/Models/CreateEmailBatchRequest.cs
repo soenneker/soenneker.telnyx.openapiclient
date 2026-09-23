@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest> Messages { get; set; }
 #endif
-        /// <summary>Applies sandbox mode to all messages in the batch. Overrides any per-message sandbox_mode in the messages array.</summary>
+        /// <summary>Applies sandbox mode to all messages in the batch and overrides any per-message `sandbox_mode` value — each message&apos;s effective `sandbox_mode` is exactly this envelope value. Reserved recipients at `test.telnyx.com` produce the deterministic event chains documented on CreateEmailRequest.sandbox_mode; no batch item is injected into the MTA or outbound Kafka path. Sandbox batch items are non-billable, consume no daily-send-limit quota, and feed no delivery-reputation signals.</summary>
         public bool? SandboxMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchRequest"/> and sets the default values.

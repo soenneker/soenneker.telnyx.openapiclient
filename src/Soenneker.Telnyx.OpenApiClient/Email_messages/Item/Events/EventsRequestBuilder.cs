@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Events
         {
         }
         /// <summary>
-        /// Lists events for a single message sorted oldest first by `occurred_at asc, id asc`.The legacy `/v2/emails/{id}/events` GET route is a backward-compatible alias.
+        /// Lists events for a single message sorted oldest first by `occurred_at asc, id asc`.The legacy `/v2/emails/{id}/events` GET route is a backward-compatible alias.For compatibility, each event carries the legacycustomer-visible `event_type` (`email.`-prefixed), the additive`canonical_event_type` (`email.`-prefixed), and the deprecated`type` duplicate — whose value keeps the exact legacy format:the bare stored event name, never `email.`-prefixed. Gatewayrejections render `email.failed` + canonical `email.gw_reject`; MTAexpirations render `email.bounced` + canonical `email.expired`;every unchanged outcome carries identical `event_type` and`canonical_event_type` values (and `type` keeps the stored name).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Events
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists events for a single message sorted oldest first by `occurred_at asc, id asc`.The legacy `/v2/emails/{id}/events` GET route is a backward-compatible alias.
+        /// Lists events for a single message sorted oldest first by `occurred_at asc, id asc`.The legacy `/v2/emails/{id}/events` GET route is a backward-compatible alias.For compatibility, each event carries the legacycustomer-visible `event_type` (`email.`-prefixed), the additive`canonical_event_type` (`email.`-prefixed), and the deprecated`type` duplicate — whose value keeps the exact legacy format:the bare stored event name, never `email.`-prefixed. Gatewayrejections render `email.failed` + canonical `email.gw_reject`; MTAexpirations render `email.bounced` + canonical `email.expired`;every unchanged outcome carries identical `event_type` and`canonical_event_type` values (and `type` keeps the stored name).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Events
             return new global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Events.EventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists events for a single message sorted oldest first by `occurred_at asc, id asc`.The legacy `/v2/emails/{id}/events` GET route is a backward-compatible alias.
+        /// Lists events for a single message sorted oldest first by `occurred_at asc, id asc`.The legacy `/v2/emails/{id}/events` GET route is a backward-compatible alias.For compatibility, each event carries the legacycustomer-visible `event_type` (`email.`-prefixed), the additive`canonical_event_type` (`email.`-prefixed), and the deprecated`type` duplicate — whose value keeps the exact legacy format:the bare stored event name, never `email.`-prefixed. Gatewayrejections render `email.failed` + canonical `email.gw_reject`; MTAexpirations render `email.bounced` + canonical `email.expired`;every unchanged outcome carries identical `event_type` and`canonical_event_type` values (and `type` keeps the stored name).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EventsRequestBuilderGetQueryParameters 

@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>Bare stored event names returned by message history. In addition to the normal send and delivery lifecycle, polling can expose suppression, scan, and quarantine lifecycle rows. Sharp canonical names gw_reject, injection_timeout, and expired distinguish gateway rejection, ambiguous injection timeout, and MTA expiration. The failed and bounced names remain valid for system/admin failures and hard bounces respectively. Existing stored rows retain their original names.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum EmailEventType
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "queued")]
         #pragma warning disable CS1591
@@ -52,6 +51,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Complained,
         #pragma warning restore CS1591
+        [EnumMember(Value = "suppressed")]
+        #pragma warning disable CS1591
+        Suppressed,
+        #pragma warning restore CS1591
         [EnumMember(Value = "rejected")]
         #pragma warning disable CS1591
         Rejected,
@@ -71,6 +74,42 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "daily_limit_exceeded")]
         #pragma warning disable CS1591
         DailyLimitExceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "scan_deferred")]
+        #pragma warning disable CS1591
+        ScanDeferred,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "quarantined")]
+        #pragma warning disable CS1591
+        Quarantined,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "quarantine_released")]
+        #pragma warning disable CS1591
+        QuarantineReleased,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "quarantine_release_dispatched")]
+        #pragma warning disable CS1591
+        QuarantineReleaseDispatched,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "quarantine_rejected")]
+        #pragma warning disable CS1591
+        QuarantineRejected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "quarantine_expired")]
+        #pragma warning disable CS1591
+        QuarantineExpired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gw_reject")]
+        #pragma warning disable CS1591
+        GwReject,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "injection_timeout")]
+        #pragma warning disable CS1591
+        InjectionTimeout,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "expired")]
+        #pragma warning disable CS1591
+        Expired,
         #pragma warning restore CS1591
     }
 }

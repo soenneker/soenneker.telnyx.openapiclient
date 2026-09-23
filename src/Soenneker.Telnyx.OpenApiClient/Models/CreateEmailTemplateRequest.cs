@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Per-template HTML autoescaping setting. Defaults to `false` for backward compatibility. When `true`, the rendered `html_body` HTML-escapes each Liquid expression&apos;s output at the output boundary (after its filters run, before concatenation with literal template markup). Input values are never mutated and `subject`/`text_body` are never autoescaped. The boundary escape is idempotent: HTML entities already present in the output (e.g. from an explicit `escape` filter) are preserved, so an explicit `escape`/`escape_once` is never double-escaped, and markup introduced by any later filter in the chain is still escaped.</summary>
+        public bool? Autoescape { get; set; }
         /// <summary>Liquid template HTML body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +32,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Per-template strict variable-validation setting. Defaults to `false` for backward compatibility. When `true`, a send or render that is missing a variable marked `required: true` in `variable_schema` fails with 422 naming the variable. Missing optional variables never fail; their schema `default` (when set) is applied to the render.</summary>
+        public bool? StrictVariables { get; set; }
         /// <summary>Liquid template subject.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,12 +58,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Variables { get; set; }
 #endif
+        /// <summary>Structured variable requirements. Required variables cannot define defaults; invalid combinations return 422. This is independent of the legacy `variables` array. On render with `strict_variables` enabled: `required` variables must be supplied as non-empty values — absent, `null`, empty string, empty object `{}`, and empty array `[]` all fail with 422 naming the variable, while present values such as `false` and `0` pass (they are present, not empty). Optional variables fall back to their `default` when absent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty? VariableSchema { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty VariableSchema { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequest"/> and sets the default values.
         /// </summary>
         public CreateEmailTemplateRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Autoescape = false;
+            StrictVariables = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -79,10 +93,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "autoescape", n => { Autoescape = n.GetBoolValue(); } },
                 { "html_body", n => { HtmlBody = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "strict_variables", n => { StrictVariables = n.GetBoolValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
+                { "variable_schema", n => { VariableSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "variables", n => { Variables = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -93,11 +110,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("autoescape", Autoescape);
             writer.WriteStringValue("html_body", HtmlBody);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("strict_variables", StrictVariables);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text_body", TextBody);
             writer.WriteCollectionOfPrimitiveValues<string>("variables", Variables);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty>("variable_schema", VariableSchema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
