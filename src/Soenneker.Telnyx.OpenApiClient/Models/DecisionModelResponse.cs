@@ -21,14 +21,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty Answers { get; set; }
 #endif
-        /// <summary>Opaque Telnyx-controlled identifier retained for TypeSafe SDK response compatibility. It is not a selectable model name or a guarantee of a particular underlying model.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Model { get; private set; }
-#nullable restore
-#else
-        public string Model { get; private set; }
-#endif
+        /// <summary>Public model alias used to evaluate the request. Returns telnyx/decision-flash when model was omitted. The underlying model is managed by Telnyx.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseModel? Model { get; private set; }
         /// <summary>Token usage for the completed evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "answers", n => { Answers = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseModel>(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage>(global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage.CreateFromDiscriminatorValue); } },
             };
         }

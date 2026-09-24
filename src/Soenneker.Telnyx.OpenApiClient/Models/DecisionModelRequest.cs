@@ -8,11 +8,13 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Decision Models beta request. Telnyx manages model selection. SDK-supplied model values are ignored for compatibility; they do not select a model.
+    /// Decision Models beta request. Choose a public model alias; omitted model defaults to telnyx/decision-flash. Telnyx manages the underlying models behind these aliases.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DecisionModelRequest : IParsable
     {
+        /// <summary>Public model alias. telnyx/decision-flash offers the lowest cost and latency; telnyx/decision-pro supports decisions that require long context, including inputs beyond Jev’s 32k per-decision limit. Applies to every question in the request. Other values are rejected.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelRequestModel? Model { get; set; }
         /// <summary>Between 1 and 64 named questions. Each key identifies the corresponding answer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelRequestModel>(); } },
                 { "questions", n => { Questions = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelRequestQuestionsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelRequestQuestionsProperty.CreateFromDiscriminatorValue); } },
                 { "state", n => { State = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContent>(global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContent.CreateFromDiscriminatorValue); } },
             };
@@ -58,6 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelRequestModel>("model", Model);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelRequestQuestionsProperty>("questions", Questions);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContent>("state", State);
         }

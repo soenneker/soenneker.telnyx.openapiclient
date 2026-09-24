@@ -46,6 +46,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance ModelProvenance { get; set; }
 #endif
+        /// <summary>The prompt that produced this artifact, or null for a named type. Non-null only when `type` is `custom`; the five named types always return `null`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Prompt { get; set; }
+#nullable restore
+#else
+        public string Prompt { get; set; }
+#endif
         /// <summary>The session_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "failure_reason", n => { FailureReason = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model_provenance", n => { ModelProvenance = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance>(global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance.CreateFromDiscriminatorValue); } },
+                { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactType>(); } },
@@ -101,6 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("failure_reason", FailureReason);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance>("model_provenance", ModelProvenance);
+            writer.WriteStringValue("prompt", Prompt);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactType>("type", Type);

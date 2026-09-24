@@ -100,7 +100,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberDetailedInboundCallScreening? InboundCallScreening { get; set; }
-        /// <summary>Identifies the messaging profile associated with the phone number.</summary>
+        /// <summary>Identifies the messaging campaign associated with the phone number&apos;s messaging profile. If the messaging profile details could not be retrieved, this value is the string `UNAVAILABLE`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MessagingCampaignId { get; set; }
+#nullable restore
+#else
+        public string MessagingCampaignId { get; set; }
+#endif
+        /// <summary>Identifies the messaging profile associated with the phone number. If the messaging profile details could not be retrieved, this value is the string `UNAVAILABLE`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MessagingProfileId { get; set; }
@@ -108,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MessagingProfileId { get; set; }
 #endif
-        /// <summary>The name of the messaging profile associated with the phone number.</summary>
+        /// <summary>The name of the messaging profile associated with the phone number. If the messaging profile details could not be retrieved, this value is the string `UNAVAILABLE`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MessagingProfileName { get; set; }
@@ -209,6 +217,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "hd_voice_enabled", n => { HdVoiceEnabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberDetailedInboundCallScreening>(); } },
+                { "messaging_campaign_id", n => { MessagingCampaignId = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "messaging_profile_name", n => { MessagingProfileName = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
@@ -237,6 +246,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("external_pin", ExternalPin);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberDetailedInboundCallScreening>("inbound_call_screening", InboundCallScreening);
+            writer.WriteStringValue("messaging_campaign_id", MessagingCampaignId);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteStringValue("messaging_profile_name", MessagingProfileName);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

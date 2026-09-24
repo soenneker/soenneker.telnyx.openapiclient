@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>When enabled, a human participant `speech_on` event interrupts and stops the current bot audio; it does not bypass admission or initiate speech. Assistant sessions reject `barge_in: true`.</summary>
         public bool? BargeIn { get; set; }
+        /// <summary>The message posted to chat on join, or null when unset.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChatOnEnter { get; set; }
+#nullable restore
+#else
+        public string ChatOnEnter { get; set; }
+#endif
         /// <summary>Text spoken on meeting entry, or null if not set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,6 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "barge_in", n => { BargeIn = n.GetBoolValue(); } },
+                { "chat_on_enter", n => { ChatOnEnter = n.GetStringValue(); } },
                 { "speak_on_enter", n => { SpeakOnEnter = n.GetStringValue(); } },
                 { "summarize_on_end", n => { SummarizeOnEnd = n.GetBoolValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
@@ -64,6 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("barge_in", BargeIn);
+            writer.WriteStringValue("chat_on_enter", ChatOnEnter);
             writer.WriteStringValue("speak_on_enter", SpeakOnEnter);
             writer.WriteBoolValue("summarize_on_end", SummarizeOnEnd);
             writer.WriteStringValue("voice", Voice);

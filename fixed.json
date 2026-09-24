@@ -15021,7 +15021,7 @@
           "Decision Models"
         ],
         "summary": "Evaluate decision models (TypeSafe-compatible)",
-        "description": "**Beta API.** Telnyx controls model selection.\n\nEvaluate shared context using named choice, noul (yes/no), and score questions. Returns TypeSafe System One-compatible answer shapes, an opaque compatibility identifier, and token usage. See the [decision model guide](https://developers.telnyx.com/docs/inference/decision-models) for examples and compatibility limits.\n\nThe supported request subset requires instructions for every question, string descriptions for criteria (or null for choice descriptions), 1\u201364 questions, and 2\u201364 options for choice and score questions. The SDK-supplied model value is ignored and cannot select a model. Other unknown fields are rejected. The endpoint is synchronous and does not stream.\n\nUse the TypeSafe Python SDK with base_url set to https://api.telnyx.com/v2/ai/typesafe and a Telnyx API key. The SDK appends /v1/systemone. Compatibility covers this operation and the documented request subset; it does not include TypeSafe model listing. Scores describe relative preference, not calibrated correctness.",
+        "description": "**Beta API.** Choose telnyx/decision-flash for the lowest cost and latency, or telnyx/decision-pro for decisions that require long context, including inputs beyond Jev\u2019s 32k per-decision limit. Omitted model defaults to telnyx/decision-flash.\n\nEvaluate shared context using named choice, noul (yes/no), and score questions. Returns TypeSafe System One-compatible answer shapes, the selected public model alias, and token usage. See the [decision model guide](https://developers.telnyx.com/docs/inference/decision-models) for examples and compatibility limits.\n\nThe supported request subset requires instructions for every question, string descriptions for criteria (or null for choice descriptions), 1\u201364 questions, and 2\u201364 options for choice and score questions. The model field accepts only telnyx/decision-flash or telnyx/decision-pro. Unsupported model values and unknown fields are rejected. The endpoint is synchronous and does not stream.\n\nUse the TypeSafe Python SDK with base_url set to https://api.telnyx.com/v2/ai/typesafe and a Telnyx API key. The SDK appends /v1/systemone; explicitly set model to a supported Telnyx alias because its own default model is not supported. Compatibility covers this operation and the documented request subset; it does not include TypeSafe model listing. Scores describe relative preference, not calibrated correctness.",
         "operationId": "CreateTypesafeSystemone",
         "requestBody": {
           "content": {
@@ -15030,6 +15030,7 @@
                 "$ref": "#/components/schemas/DecisionModelRequest"
               },
               "example": {
+                "model": "telnyx/decision-flash",
                 "state": "Our production calls are failing. Every customer is affected.",
                 "questions": {
                   "team": {
@@ -15070,7 +15071,7 @@
                   "$ref": "#/components/schemas/DecisionModelResponse"
                 },
                 "example": {
-                  "model": "telnyx-managed",
+                  "model": "telnyx/decision-flash",
                   "answers": {
                     "team": {
                       "type": "choice",
@@ -18542,6 +18543,10 @@
             "description": "Unprocessable entity. The request was well-formed but could not be processed due to semantic errors. This includes validation errors, invalid parameter values, call state errors, conference errors, queue errors, recording/transcription errors, and business logic violations.",
             "$ref": "#/components/responses/UnprocessableEntityResponse"
           },
+          "503": {
+            "description": "Service unavailable. The recording could not be started because the recording service is temporarily unavailable. The recording was not started; retry the request.",
+            "$ref": "#/components/responses/RecordingStartUnavailableResponse"
+          },
           "default": {
             "description": "Unexpected error",
             "$ref": "#/components/responses/call-control_GenericErrorResponse"
@@ -21509,6 +21514,10 @@
           "422": {
             "description": "Unprocessable entity. The request was well-formed but could not be processed due to semantic errors. This includes validation errors, invalid parameter values, call state errors, conference errors, queue errors, recording/transcription errors, and business logic violations.",
             "$ref": "#/components/responses/UnprocessableEntityResponse"
+          },
+          "503": {
+            "description": "Service unavailable. The recording could not be started because the recording service is temporarily unavailable. The recording was not started; retry the request.",
+            "$ref": "#/components/responses/RecordingStartUnavailableResponse"
           }
         }
       }
@@ -42045,7 +42054,8 @@
                         "voice": null,
                         "speak_on_enter": null,
                         "barge_in": false,
-                        "summarize_on_end": true
+                        "summarize_on_end": true,
+                        "chat_on_enter": null
                       },
                       "avatar": null,
                       "avatar_state": null,
@@ -42207,7 +42217,8 @@
                       "voice": null,
                       "speak_on_enter": null,
                       "barge_in": false,
-                      "summarize_on_end": true
+                      "summarize_on_end": true,
+                      "chat_on_enter": null
                     },
                     "avatar": null,
                     "avatar_state": null,
@@ -42298,7 +42309,8 @@
                       "voice": null,
                       "speak_on_enter": null,
                       "barge_in": false,
-                      "summarize_on_end": true
+                      "summarize_on_end": true,
+                      "chat_on_enter": null
                     },
                     "avatar": null,
                     "avatar_state": null,
@@ -42394,7 +42406,8 @@
                       "voice": null,
                       "speak_on_enter": null,
                       "barge_in": false,
-                      "summarize_on_end": true
+                      "summarize_on_end": true,
+                      "chat_on_enter": null
                     },
                     "avatar": null,
                     "avatar_state": null,
@@ -42549,7 +42562,7 @@
           "Meeting Session Actions"
         ],
         "summary": "Speak in a meeting session",
-        "description": "Sends audio / text-to-speech into a meeting session.",
+        "description": "Sends audio / text-to-speech into a meeting session. With a Telnyx AI Assistant (or avatar) attached, the bot is a webpage-output bot: the speak audio routes through the assistant\u0027s output page rather than the bot mic and plays once the assistant is connected -- it is not refused. If that page cannot be reached, delivery fails with the 502 below, which may arrive without an error envelope, so branch on the status code before parsing a body. The assistant is designed to own the conversation, so prefer letting it speak or use \u0060send_chat\u0060.",
         "operationId": "SpeakMeetingSession",
         "parameters": [
           {
@@ -42749,7 +42762,7 @@
           "Meeting Session Artifacts"
         ],
         "summary": "Create a meeting session artifact",
-        "description": "Requests asynchronous generation of one \u0060summary\u0060 or \u0060action_items\u0060 artifact. Each type requires its own request. Generation requires transcript content and configured inference and currently reads at most the first 10,000 segments, so exceptionally long transcripts may produce incomplete artifacts or fail model limits.",
+        "description": "Requests asynchronous generation of one artifact: \u0060summary\u0060, \u0060action_items\u0060, \u0060decisions\u0060, \u0060topics\u0060, \u0060open_questions\u0060, or \u0060custom\u0060. Each request produces one artifact. \u0060custom\u0060 is answered from a \u0060prompt\u0060 you supply, which is required for \u0060custom\u0060 and rejected on the five named types. Generation requires transcript content and configured inference and currently reads at most the first 10,000 segments, so exceptionally long transcripts may produce incomplete artifacts or fail model limits. **Not idempotent, and every call is billed**: each request is a separate inference run, so a retry or a duplicate POST produces a second artifact and a second charge. Guard the call rather than relying on the service to collapse it. The automatic \u0060summarize_on_end\u0060 attempt is billed on the same basis.",
         "operationId": "CreateMeetingSessionArtifact",
         "parameters": [
           {
@@ -42963,7 +42976,7 @@
           "Meeting Session Data"
         ],
         "summary": "Delete meeting session recording media",
-        "description": "**Not yet available in production** \u2014 this route is not currently routed on api.telnyx.com and returns a generic 404; it is documented ahead of rollout. Irreversibly requests deletion of provider-hosted aggregate recording media under the provider contract. The operation retains the Telnyx-local Meeting session, transcript segments, events, artifacts, and usage records. It is separate from \u0060DELETE /meeting_sessions/{id}\u0060, which stops or cancels participation without deleting the persisted session. A missing/foreign session returns 404; provider deletion failures return 502.",
+        "description": "Irreversibly requests deletion of provider-hosted aggregate recording media under the provider contract. The operation retains the Telnyx-local Meeting session, transcript segments, events, artifacts, and usage records. It is separate from \u0060DELETE /meeting_sessions/{id}\u0060, which stops or cancels participation without deleting the persisted session. A missing/foreign session returns 404; provider deletion failures return 502.",
         "operationId": "DeleteMeetingSessionRecordingMedia",
         "parameters": [
           {
@@ -98768,16 +98781,24 @@
       },
       "CreateMeetingSessionArtifactRequest": {
         "title": "CreateMeetingSessionArtifactRequest",
-        "required": [
-          "type"
-        ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateMeetingSessionArtifactRequestNamedArtifact"
+          },
+          {
+            "$ref": "#/components/schemas/CreateMeetingSessionArtifactRequestCustomArtifact"
+          }
+        ],
         "properties": {
-          "type": {
-            "$ref": "#/components/schemas/CreateMeetingSessionArtifactRequestType"
+          "prompt": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string",
+            "description": "An open-ended request answered from the transcript. Required when \u0060type\u0060 is \u0060custom\u0060, and rejected with 400 on any named type. Trimmed before storage and echoed back in artifact responses and the \u0060artifact.completed\u0060 webhook."
           }
         },
-        "additionalProperties": false
+        "description": "One of two shapes: a named type on its own, or \u0060custom\u0060 with the prompt it answers."
       },
       "CreateMeetingSessionRequest": {
         "examples": [
@@ -98799,10 +98820,11 @@
             "bot_name": "Voice Assistant",
             "assistant": {
               "id": "asst_fake-uuid-1234",
-              "call_control_connection_id": "conn-fake-abcdef",
-              "from": "\u002B12025550199",
-              "loopback_sip_uri": "sip:loopback@example.invalid",
-              "audio_gate": "half_duplex"
+              "audio_gate": "half_duplex",
+              "dynamic_variables": {
+                "candidate_name": "Ada Lovelace",
+                "role": "Staff Engineer"
+              }
             }
           }
         ],
@@ -98838,7 +98860,13 @@
             "maxLength": 4000,
             "minLength": 1,
             "type": "string",
-            "description": "Text the bot speaks when it enters the meeting."
+            "description": "Text the bot speaks when it enters the meeting. **Not spoken when an \u0060assistant\u0060 is attached**: the value is accepted and echoed back on the session, but the assistant owns the voice and the line is never delivered, with no event reporting the omission. Use \u0060chat_on_enter\u0060 to announce an assistant-backed bot."
+          },
+          "chat_on_enter": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string",
+            "description": "A message the bot posts to the meeting\u0027s chat as soon as it becomes active \u2014 typically a recording disclosure. Delivered at most once. Independent of \u0060speak_on_enter\u0060: both may be set, and the chat message posts first because it does not wait for text-to-speech or avatar startup. Rejected with 422 \u0060unsupported_capability\u0060 on platforms without meeting chat."
           },
           "barge_in": {
             "type": "boolean",
@@ -98873,7 +98901,7 @@
             "$ref": "#/components/schemas/MeetingSessionAvatarRequest"
           },
           "assistant": {
-            "description": "Request options for attaching a voice assistant to the session. Routing fields (\u0060call_control_connection_id\u0060, \u0060from\u0060, and \u0060loopback_sip_uri\u0060) are used only to establish the assistant call leg and are omitted from response objects. \u0060audio_gate\u0060 is returned with \u0060id\u0060 in the assistant response object.",
+            "description": "Attach a Telnyx AI Assistant to the session. Supply the Assistant\u0027s ID; the Meeting service connects it to the meeting directly. The Call Control connection, caller ID and loopback SIP URI previously required here have been removed and are now rejected as unknown fields.",
             "$ref": "#/components/schemas/MeetingSessionAssistantRequest"
           }
         },
@@ -102134,17 +102162,15 @@
         }
       },
       "DecisionModelRequest": {
-        "patternProperties": {
-          "^model$": {
-            "description": "Ignored SDK compatibility value. Telnyx controls model selection."
-          }
-        },
         "required": [
           "state",
           "questions"
         ],
         "type": "object",
         "properties": {
+          "model": {
+            "$ref": "#/components/schemas/DecisionModelRequestModel"
+          },
           "state": {
             "description": "Shared context evaluated by every question.",
             "example": "Our production calls are failing. Every customer is affected.",
@@ -102155,8 +102181,9 @@
           }
         },
         "additionalProperties": false,
-        "description": "Decision Models beta request. Telnyx manages model selection. SDK-supplied model values are ignored for compatibility; they do not select a model.",
+        "description": "Decision Models beta request. Choose a public model alias; omitted model defaults to telnyx/decision-flash. Telnyx manages the underlying models behind these aliases.",
         "example": {
+          "model": "telnyx/decision-flash",
           "state": "Our production calls are failing. Every customer is affected.",
           "questions": {
             "team": {
@@ -102194,9 +102221,7 @@
         "type": "object",
         "properties": {
           "model": {
-            "type": "string",
-            "description": "Opaque Telnyx-controlled identifier retained for TypeSafe SDK response compatibility. It is not a selectable model name or a guarantee of a particular underlying model.",
-            "readOnly": true
+            "$ref": "#/components/schemas/DecisionModelResponseModel"
           },
           "answers": {
             "$ref": "#/components/schemas/DecisionModelResponseAnswersProperty"
@@ -102209,7 +102234,7 @@
         "additionalProperties": false,
         "description": "A complete synchronous evaluation. Answers are returned directly without a data wrapper.",
         "example": {
-          "model": "telnyx-managed",
+          "model": "telnyx/decision-flash",
           "answers": {
             "team": {
               "type": "choice",
@@ -118011,7 +118036,8 @@
             "model_provenance": null,
             "failure_reason": null,
             "created_at": "2025-01-15T10:30:00Z",
-            "updated_at": "2025-01-15T10:30:00Z"
+            "updated_at": "2025-01-15T10:30:00Z",
+            "prompt": null
           },
           {
             "id": "mtgart_550e8400-e29b-41d4-a716-446655440002",
@@ -118027,7 +118053,8 @@
             },
             "failure_reason": null,
             "created_at": "2025-01-15T10:30:00Z",
-            "updated_at": "2025-01-15T10:31:00Z"
+            "updated_at": "2025-01-15T10:31:00Z",
+            "prompt": null
           }
         ],
         "required": [
@@ -118039,7 +118066,8 @@
           "model_provenance",
           "failure_reason",
           "created_at",
-          "updated_at"
+          "updated_at",
+          "prompt"
         ],
         "type": "object",
         "properties": {
@@ -118074,6 +118102,13 @@
           "updated_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "prompt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The prompt that produced this artifact, or null for a named type. Non-null only when \u0060type\u0060 is \u0060custom\u0060; the five named types always return \u0060null\u0060."
           }
         },
         "additionalProperties": false
@@ -118109,7 +118144,9 @@
         "title": "MeetingSessionAssistant",
         "required": [
           "id",
-          "audio_gate"
+          "audio_gate",
+          "dynamic_variables",
+          "leave_on_end"
         ],
         "type": "object",
         "properties": {
@@ -118119,6 +118156,13 @@
           },
           "audio_gate": {
             "$ref": "#/components/schemas/MeetingSessionAssistantAudioGate"
+          },
+          "dynamic_variables": {
+            "$ref": "#/components/schemas/MeetingSessionAssistantDynamicVariablesProperty"
+          },
+          "leave_on_end": {
+            "type": "boolean",
+            "description": "Whether the bot leaves when the Assistant\u0027s conversation ends or fails."
           }
         },
         "additionalProperties": false
@@ -118126,10 +118170,7 @@
       "MeetingSessionAssistantRequest": {
         "title": "MeetingSessionAssistantRequest",
         "required": [
-          "id",
-          "call_control_connection_id",
-          "from",
-          "loopback_sip_uri"
+          "id"
         ],
         "type": "object",
         "properties": {
@@ -118139,32 +118180,20 @@
             "type": "string",
             "description": "Identifier of the assistant to attach."
           },
-          "call_control_connection_id": {
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,254}$",
-            "type": "string",
-            "description": "Call control connection used to bridge the assistant into the meeting audio."
-          },
-          "from": {
-            "examples": [
-              "\u002B12025550199"
-            ],
-            "pattern": "^\\\u002B[1-9]\\d{6,14}$",
-            "type": "string",
-            "description": "E.164 calling number used as the originating party for the assistant call leg."
-          },
-          "loopback_sip_uri": {
-            "maxLength": 2048,
-            "minLength": 1,
-            "pattern": "^sip:[^\\s]\u002B$",
-            "type": "string",
-            "description": "SIP URI to which the assistant media loopback is established."
-          },
           "audio_gate": {
             "$ref": "#/components/schemas/MeetingSessionAssistantRequestAudioGate"
+          },
+          "dynamic_variables": {
+            "$ref": "#/components/schemas/MeetingSessionAssistantRequestDynamicVariablesProperty"
+          },
+          "leave_on_end": {
+            "type": "boolean",
+            "description": "Leave the meeting when the Assistant\u0027s conversation reaches a terminal state -- \u0060ended\u0060 **or** \u0060failed\u0060. Off by default, which leaves the bot in the meeting after the Assistant stops. Fires once: a second terminal transition does not leave twice, and a leave the provider refuses is logged without changing how the session settles.",
+            "default": false
           }
         },
         "additionalProperties": false,
-        "description": "Request options for attaching a voice assistant to the session. Routing fields (\u0060call_control_connection_id\u0060, \u0060from\u0060, and \u0060loopback_sip_uri\u0060) are used only to establish the assistant call leg and are omitted from response objects. \u0060audio_gate\u0060 is returned with \u0060id\u0060 in the assistant response object."
+        "description": "Attach a Telnyx AI Assistant to the session. Supply the Assistant\u0027s ID; the Meeting service connects it to the meeting directly. The Call Control connection, caller ID and loopback SIP URI previously required here have been removed and are now rejected as unknown fields."
       },
       "MeetingSessionAvatar": {
         "title": "MeetingSessionAvatar",
@@ -118308,7 +118337,8 @@
           "voice",
           "speak_on_enter",
           "barge_in",
-          "summarize_on_end"
+          "summarize_on_end",
+          "chat_on_enter"
         ],
         "type": "object",
         "properties": {
@@ -118325,6 +118355,13 @@
               "string"
             ],
             "description": "Text spoken on meeting entry, or null if not set."
+          },
+          "chat_on_enter": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The message posted to chat on join, or null when unset."
           },
           "barge_in": {
             "type": "boolean",
@@ -118353,7 +118390,8 @@
               "voice": null,
               "speak_on_enter": null,
               "barge_in": false,
-              "summarize_on_end": false
+              "summarize_on_end": false,
+              "chat_on_enter": null
             },
             "avatar": null,
             "avatar_state": null,
@@ -118384,14 +118422,17 @@
               "voice": "voice-fake-001",
               "speak_on_enter": "Hello, I am joining.",
               "barge_in": false,
-              "summarize_on_end": true
+              "summarize_on_end": true,
+              "chat_on_enter": null
             },
             "avatar": null,
             "avatar_state": null,
             "avatar_state_changed_at": null,
             "assistant": {
               "id": "asst_fake-uuid-1234",
-              "audio_gate": "half_duplex"
+              "audio_gate": "half_duplex",
+              "dynamic_variables": null,
+              "leave_on_end": false
             },
             "assistant_state": "starting",
             "assistant_state_changed_at": "2026-07-30T12:00:00Z",
@@ -141786,7 +141827,7 @@
             "maximum": 2.0,
             "minimum": 0.0,
             "type": "number",
-            "description": "Volume level for the Ultra model. Range: 0.0 to 2.0.",
+            "description": "Volume level for the Ultra model. Telnyx \u0060Ultra\u0060 voices accept values from 0.5 to 2.0 \u2014 requests outside that range are rejected by the synthesis engine. \u0060KokoroTTS\u0060, \u0060Qwen3TTS\u0060, \u0060Bayan\u0060, and \u0060Sukhan\u0060 voices accept the field but do not apply it.",
             "format": "float",
             "default": 1.0
           },
@@ -164729,15 +164770,22 @@
               "null",
               "string"
             ],
-            "description": "Identifies the messaging profile associated with the phone number."
+            "description": "Identifies the messaging profile associated with the phone number. If the messaging profile details could not be retrieved, this value is the string \u0060UNAVAILABLE\u0060."
           },
           "messaging_profile_name": {
             "type": [
               "null",
               "string"
             ],
-            "description": "The name of the messaging profile associated with the phone number.",
+            "description": "The name of the messaging profile associated with the phone number. If the messaging profile details could not be retrieved, this value is the string \u0060UNAVAILABLE\u0060.",
             "example": "regional-customers"
+          },
+          "messaging_campaign_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Identifies the messaging campaign associated with the phone number\u0027s messaging profile. If the messaging profile details could not be retrieved, this value is the string \u0060UNAVAILABLE\u0060."
           },
           "billing_group_id": {
             "type": [
@@ -170545,6 +170593,39 @@
         },
         "description": "DMARC policy. Omit/null for the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).\n"
       },
+      "CreateMeetingSessionArtifactRequestNamedArtifact": {
+        "title": "Named artifact",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CreateMeetingSessionArtifactRequestNamedArtifactType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMeetingSessionArtifactRequestCustomArtifact": {
+        "title": "Custom artifact",
+        "required": [
+          "type",
+          "prompt"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CustomType"
+          },
+          "prompt": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string",
+            "description": "An open-ended request answered from the transcript. Required when \u0060type\u0060 is \u0060custom\u0060, and rejected with 400 on any named type. Trimmed before storage and echoed back in artifact responses and the \u0060artifact.completed\u0060 webhook."
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateMsgReqToolChoice": {
         "title": "Tool Choice",
         "type": "object",
@@ -171782,6 +171863,13 @@
           },
           "audio_gate": {
             "$ref": "#/components/schemas/MeetingSessionAssistantAudioGate"
+          },
+          "dynamic_variables": {
+            "$ref": "#/components/schemas/MeetingSessionAssistantDynamicVariablesProperty"
+          },
+          "leave_on_end": {
+            "type": "boolean",
+            "description": "Whether the bot leaves when the Assistant\u0027s conversation ends or fails."
           }
         },
         "description": "Assistant configuration if an assistant is attached, otherwise null."
@@ -171859,6 +171947,13 @@
           },
           "audio_gate": {
             "$ref": "#/components/schemas/MeetingSessionAssistantAudioGate"
+          },
+          "dynamic_variables": {
+            "$ref": "#/components/schemas/MeetingSessionAssistantDynamicVariablesProperty"
+          },
+          "leave_on_end": {
+            "type": "boolean",
+            "description": "Whether the bot leaves when the Assistant\u0027s conversation ends or fails."
           }
         },
         "description": "Assistant configuration if an assistant is attached, otherwise null."
@@ -179921,6 +180016,53 @@
       "MeetingSessionMetadata": {
         "type": "object",
         "description": "Arbitrary key-value metadata attached to the session."
+      },
+      "MeetingSessionAssistantDynamicVariables": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "The dynamic variables in force for this session, or null when none were supplied."
+      },
+      "MeetingSessionAssistantRequestDynamicVariables": {
+        "propertyNames": {
+          "maxLength": 128,
+          "minLength": 1,
+          "not": {
+            "enum": [
+              "streaming_audio",
+              "ai_assistant_streaming_audio",
+              "meeting_session_id"
+            ],
+            "x-ms-enum": {
+              "name": "MeetingSessionAssistantRequestDynamicVariables",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "streaming_audio",
+                  "name": "StreamingAudio"
+                },
+                {
+                  "value": "ai_assistant_streaming_audio",
+                  "name": "AiAssistantStreamingAudio"
+                },
+                {
+                  "value": "meeting_session_id",
+                  "name": "MeetingSessionId"
+                }
+              ]
+            }
+          }
+        },
+        "maxProperties": 63,
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Per-conversation values for the [dynamic variables](/docs/inference/ai-assistants/dynamic-variables) used in the Assistant\u0027s instructions, greeting, or tools. Delivered before the Assistant\u0027s first utterance, so they resolve for the opening line as well as the rest of the conversation. At most 63 entries; keys 1-128 characters; values must be strings. The map is budgeted in aggregate at 1,047,552 bytes (1023 KiB) rather than capped per value. \u0060streaming_audio\u0060, \u0060ai_assistant_streaming_audio\u0060 and \u0060meeting_session_id\u0060 are reserved and rejected with \u0060400 invalid_request\u0060 -- they toggle provider infrastructure or are set by the service rather than fill a prompt template."
       },
       "MeetingSessionCreatedMetadata": {
         "type": "object",
@@ -199651,6 +199793,20 @@
         "type": "object",
         "description": "Arbitrary key-value metadata attached to the session."
       },
+      "MeetingSessionAssistantDynamicVariablesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "The dynamic variables in force for this session, or null when none were supplied."
+      },
+      "MeetingSessionAssistantRequestDynamicVariablesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Per-conversation values for the [dynamic variables](/docs/inference/ai-assistants/dynamic-variables) used in the Assistant\u0027s instructions, greeting, or tools. Delivered before the Assistant\u0027s first utterance, so they resolve for the opening line as well as the rest of the conversation. At most 63 entries; keys 1-128 characters; values must be strings. The map is budgeted in aggregate at 1,047,552 bytes (1023 KiB) rather than capped per value. \u0060streaming_audio\u0060, \u0060ai_assistant_streaming_audio\u0060 and \u0060meeting_session_id\u0060 are reserved and rejected with \u0060400 invalid_request\u0060 -- they toggle provider infrastructure or are set by the service rather than fill a prompt template."
+      },
       "MeetingSessionCreatedMetadataProperty": {
         "type": "object",
         "description": "Arbitrary key-value metadata attached to the session."
@@ -200951,7 +201107,8 @@
           "artifact_id",
           "type",
           "content",
-          "model_provenance"
+          "model_provenance",
+          "prompt"
         ],
         "type": "object",
         "properties": {
@@ -200973,6 +201130,13 @@
           },
           "model_provenance": {
             "$ref": "#/components/schemas/MeetingArtifactCompletedWebhookRequestDataModelProvenance"
+          },
+          "prompt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The prompt that produced this artifact, or null for a named type. Non-null only when \u0060type\u0060 is \u0060custom\u0060; the five named types always return \u0060null\u0060."
           }
         },
         "additionalProperties": false,
@@ -207037,29 +207201,6 @@
           ]
         }
       },
-      "CreateMeetingSessionArtifactRequestType": {
-        "enum": [
-          "summary",
-          "action_items"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Type of artifact to generate from the session.",
-        "x-ms-enum": {
-          "name": "CreateMeetingSessionArtifactRequestType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "summary",
-              "name": "Summary"
-            },
-            {
-              "value": "action_items",
-              "name": "ActionItems"
-            }
-          ]
-        }
-      },
       "CreateMessageRequestType": {
         "enum": [
           "SMS",
@@ -208022,6 +208163,55 @@
             {
               "value": "noul",
               "name": "Noul"
+            }
+          ]
+        }
+      },
+      "DecisionModelRequestModel": {
+        "enum": [
+          "telnyx/decision-flash",
+          "telnyx/decision-pro"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Public model alias. telnyx/decision-flash offers the lowest cost and latency; telnyx/decision-pro supports decisions that require long context, including inputs beyond Jev\u2019s 32k per-decision limit. Applies to every question in the request. Other values are rejected.",
+        "example": "telnyx/decision-flash",
+        "x-ms-enum": {
+          "name": "DecisionModelRequestModel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "telnyx/decision-flash",
+              "name": "TelnyxDecisionFlash"
+            },
+            {
+              "value": "telnyx/decision-pro",
+              "name": "TelnyxDecisionPro"
+            }
+          ]
+        }
+      },
+      "DecisionModelResponseModel": {
+        "enum": [
+          "telnyx/decision-flash",
+          "telnyx/decision-pro"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Public model alias used to evaluate the request. Returns telnyx/decision-flash when model was omitted. The underlying model is managed by Telnyx.",
+        "readOnly": true,
+        "example": "telnyx/decision-flash",
+        "x-ms-enum": {
+          "name": "DecisionModelResponseModel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "telnyx/decision-flash",
+              "name": "TelnyxDecisionFlash"
+            },
+            {
+              "value": "telnyx/decision-pro",
+              "name": "TelnyxDecisionPro"
             }
           ]
         }
@@ -213973,7 +214163,11 @@
       "MeetingSessionArtifactType": {
         "enum": [
           "summary",
-          "action_items"
+          "action_items",
+          "decisions",
+          "topics",
+          "open_questions",
+          "custom"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -213988,6 +214182,22 @@
             {
               "value": "action_items",
               "name": "ActionItems"
+            },
+            {
+              "value": "decisions",
+              "name": "Decisions"
+            },
+            {
+              "value": "topics",
+              "name": "Topics"
+            },
+            {
+              "value": "open_questions",
+              "name": "OpenQuestions"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
             }
           ]
         }
@@ -214021,46 +214231,46 @@
       },
       "MeetingSessionAssistantAudioGate": {
         "enum": [
-          "none",
-          "half_duplex"
+          "half_duplex",
+          "full_duplex"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Audio gating strategy for the assistant call leg.",
+        "description": "Audio gating strategy in force for the assistant call leg.",
         "x-ms-enum": {
           "name": "MeetingSessionAssistantAudioGate",
           "modelAsString": false,
           "values": [
             {
-              "value": "none",
-              "name": "None"
-            },
-            {
               "value": "half_duplex",
               "name": "HalfDuplex"
+            },
+            {
+              "value": "full_duplex",
+              "name": "FullDuplex"
             }
           ]
         }
       },
       "MeetingSessionAssistantRequestAudioGate": {
         "enum": [
-          "none",
-          "half_duplex"
+          "half_duplex",
+          "full_duplex"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Audio gating strategy for the assistant call leg.",
+        "description": "Audio gating strategy for the assistant call leg. \u0060half_duplex\u0060 (default) sends the assistant a single mixed meeting stream and mutes it while the assistant speaks, so the assistant cannot hear itself and cannot be interrupted. \u0060full_duplex\u0060 sends a separate stream per participant, which allows barge-in and removes self-hearing, and COSTS SIGNIFICANTLY MORE: per-participant streams multiply the per-minute cost by the number of participants.",
         "x-ms-enum": {
           "name": "MeetingSessionAssistantRequestAudioGate",
           "modelAsString": false,
           "values": [
             {
-              "value": "none",
-              "name": "None"
-            },
-            {
               "value": "half_duplex",
               "name": "HalfDuplex"
+            },
+            {
+              "value": "full_duplex",
+              "name": "FullDuplex"
             }
           ]
         }
@@ -230103,6 +230313,62 @@
           ]
         }
       },
+      "CreateMeetingSessionArtifactRequestNamedArtifactType": {
+        "enum": [
+          "summary",
+          "action_items",
+          "decisions",
+          "topics",
+          "open_questions"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "What to generate from the transcript. \u0060custom\u0060 is answered from a \u0060prompt\u0060 you supply; the five named types need none.",
+        "x-ms-enum": {
+          "name": "CreateMeetingSessionArtifactRequestNamedArtifactType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "summary",
+              "name": "Summary"
+            },
+            {
+              "value": "action_items",
+              "name": "ActionItems"
+            },
+            {
+              "value": "decisions",
+              "name": "Decisions"
+            },
+            {
+              "value": "topics",
+              "name": "Topics"
+            },
+            {
+              "value": "open_questions",
+              "name": "OpenQuestions"
+            }
+          ]
+        }
+      },
+      "CustomType": {
+        "const": null,
+        "enum": [
+          "custom"
+        ],
+        "type": "string",
+        "description": "Answered from the \u0060prompt\u0060 below rather than a fixed question.",
+        "x-ms-enum": {
+          "name": "CustomType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
       "ReceivedStatus": {
         "enum": [
           "received"
@@ -235687,7 +235953,11 @@
       "MeetingArtifactCompletedWebhookRequestDataType": {
         "enum": [
           "summary",
-          "action_items"
+          "action_items",
+          "decisions",
+          "topics",
+          "open_questions",
+          "custom"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -235703,6 +235973,22 @@
             {
               "value": "action_items",
               "name": "ActionItems"
+            },
+            {
+              "value": "decisions",
+              "name": "Decisions"
+            },
+            {
+              "value": "topics",
+              "name": "Topics"
+            },
+            {
+              "value": "open_questions",
+              "name": "OpenQuestions"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
             }
           ]
         }
@@ -235710,7 +235996,11 @@
       "MeetingArtifactFailedWebhookRequestDataType": {
         "enum": [
           "summary",
-          "action_items"
+          "action_items",
+          "decisions",
+          "topics",
+          "open_questions",
+          "custom"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -235726,6 +236016,22 @@
             {
               "value": "action_items",
               "name": "ActionItems"
+            },
+            {
+              "value": "decisions",
+              "name": "Decisions"
+            },
+            {
+              "value": "topics",
+              "name": "Topics"
+            },
+            {
+              "value": "open_questions",
+              "name": "OpenQuestions"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
             }
           ]
         }
@@ -242822,6 +243128,25 @@
                 "code": "unsupported_capability",
                 "message": "provider recording-media deletion is not supported"
               }
+            }
+          }
+        }
+      },
+      "RecordingStartUnavailableResponse": {
+        "description": "Service unavailable. The recording could not be started because the recording service is temporarily unavailable. The recording was not started; retry the request.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CallControlErrors"
+            },
+            "example": {
+              "errors": [
+                {
+                  "code": "90072",
+                  "title": "Call recording could not be started",
+                  "detail": "The recording service is temporarily unavailable. The recording was not started; please retry the request."
+                }
+              ]
             }
           }
         }
@@ -250768,7 +251093,7 @@
     },
     {
       "name": "Decision Models",
-      "description": "Beta API for evaluating shared context with typed questions and structured answers. Telnyx manages model selection."
+      "description": "Beta API for evaluating shared context with typed questions and structured answers using Flash or Pro."
     },
     {
       "name": "Detail Records",
@@ -253007,7 +253332,7 @@
           "Meeting Session Webhooks"
         ],
         "summary": "artifact.completed",
-        "description": "Sent when a summary or action-items artifact finishes generating. Deliveries are best effort and not guaranteed: up to 5 attempts with backoff that starts around 60 seconds and roughly doubles per retry, and a 10-second delivery timeout, so respond with a 2xx promptly. Retries can produce duplicates; deduplicate on envelope \u0060id\u0060.",
+        "description": "Sent when an artifact finishes generating -- \u0060summary\u0060, \u0060action_items\u0060, \u0060decisions\u0060, \u0060topics\u0060, \u0060open_questions\u0060 or \u0060custom\u0060. Deliveries are best effort and not guaranteed: up to 5 attempts with backoff that starts around 60 seconds and roughly doubles per retry, and a 10-second delivery timeout, so respond with a 2xx promptly. Retries can produce duplicates; deduplicate on envelope \u0060id\u0060.",
         "operationId": "MeetingArtifactCompletedWebhook",
         "parameters": [
           {
@@ -253042,7 +253367,8 @@
                   "model_provenance": {
                     "model": "example-model",
                     "provider": "telnyx"
-                  }
+                  },
+                  "prompt": null
                 }
               }
             }

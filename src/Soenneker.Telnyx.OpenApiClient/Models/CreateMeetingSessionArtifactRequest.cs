@@ -7,13 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCustomArtifact"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifact"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CreateMeetingSessionArtifactRequest : IParsable
-    #pragma warning restore CS1591
+    public partial class CreateMeetingSessionArtifactRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Type of artifact to generate from the session.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestType? Type { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCustomArtifact"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCustomArtifact? CreateMeetingSessionArtifactRequestCustomArtifact { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCustomArtifact CreateMeetingSessionArtifactRequestCustomArtifact { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifact"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifact? CreateMeetingSessionArtifactRequestNamedArtifact { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifact CreateMeetingSessionArtifactRequestNamedArtifact { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -22,7 +37,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequest();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequest();
+            if("CreateMeetingSessionArtifactRequestCustomArtifact".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateMeetingSessionArtifactRequestCustomArtifact = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCustomArtifact();
+            }
+            else if("CreateMeetingSessionArtifactRequestNamedArtifact".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateMeetingSessionArtifactRequestNamedArtifact = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifact();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -30,10 +55,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CreateMeetingSessionArtifactRequestCustomArtifact != null)
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestType>(); } },
-            };
+                return CreateMeetingSessionArtifactRequestCustomArtifact.GetFieldDeserializers();
+            }
+            else if(CreateMeetingSessionArtifactRequestNamedArtifact != null)
+            {
+                return CreateMeetingSessionArtifactRequestNamedArtifact.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -42,7 +72,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestType>("type", Type);
+            if(CreateMeetingSessionArtifactRequestCustomArtifact != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCustomArtifact>(null, CreateMeetingSessionArtifactRequestCustomArtifact);
+            }
+            else if(CreateMeetingSessionArtifactRequestNamedArtifact != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifact>(null, CreateMeetingSessionArtifactRequestNamedArtifact);
+            }
         }
     }
 }

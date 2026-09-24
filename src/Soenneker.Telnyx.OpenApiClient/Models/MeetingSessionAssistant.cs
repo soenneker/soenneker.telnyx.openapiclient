@@ -12,8 +12,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class MeetingSessionAssistant : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Audio gating strategy for the assistant call leg.</summary>
+        /// <summary>Audio gating strategy in force for the assistant call leg.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantAudioGate? AudioGate { get; set; }
+        /// <summary>The dynamic variables in force for this session, or null when none were supplied.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantDynamicVariablesProperty? DynamicVariables { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantDynamicVariablesProperty DynamicVariables { get; set; }
+#endif
         /// <summary>Identifier of the assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,6 +30,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Whether the bot leaves when the Assistant&apos;s conversation ends or fails.</summary>
+        public bool? LeaveOnEnd { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +51,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "audio_gate", n => { AudioGate = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantAudioGate>(); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "leave_on_end", n => { LeaveOnEnd = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +64,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantAudioGate>("audio_gate", AudioGate);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteStringValue("id", Id);
+            writer.WriteBoolValue("leave_on_end", LeaveOnEnd);
         }
     }
 }

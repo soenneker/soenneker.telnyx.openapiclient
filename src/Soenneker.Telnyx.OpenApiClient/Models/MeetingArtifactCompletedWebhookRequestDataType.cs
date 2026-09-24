@@ -15,5 +15,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         ActionItems,
         #pragma warning restore CS1591
+        [EnumMember(Value = "decisions")]
+        #pragma warning disable CS1591
+        Decisions,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "topics")]
+        #pragma warning disable CS1591
+        Topics,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "open_questions")]
+        #pragma warning disable CS1591
+        OpenQuestions,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom")]
+        #pragma warning disable CS1591
+        Custom,
+        #pragma warning restore CS1591
     }
 }

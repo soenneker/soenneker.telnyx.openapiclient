@@ -37,6 +37,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataModelProvenance ModelProvenance { get; set; }
 #endif
+        /// <summary>The prompt that produced this artifact, or null for a named type. Non-null only when `type` is `custom`; the five named types always return `null`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Prompt { get; set; }
+#nullable restore
+#else
+        public string Prompt { get; set; }
+#endif
         /// <summary>The meeting session this event belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,6 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "artifact_id", n => { ArtifactId = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataContent>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataContent.CreateFromDiscriminatorValue); } },
                 { "model_provenance", n => { ModelProvenance = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataModelProvenance>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataModelProvenance.CreateFromDiscriminatorValue); } },
+                { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataType>(); } },
             };
@@ -82,6 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("artifact_id", ArtifactId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataContent>("content", Content);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataModelProvenance>("model_provenance", ModelProvenance);
+            writer.WriteStringValue("prompt", Prompt);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingArtifactCompletedWebhookRequestDataType>("type", Type);
         }

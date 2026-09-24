@@ -8,28 +8,20 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Request options for attaching a voice assistant to the session. Routing fields (`call_control_connection_id`, `from`, and `loopback_sip_uri`) are used only to establish the assistant call leg and are omitted from response objects. `audio_gate` is returned with `id` in the assistant response object.
+    /// Attach a Telnyx AI Assistant to the session. Supply the Assistant&apos;s ID; the Meeting service connects it to the meeting directly. The Call Control connection, caller ID and loopback SIP URI previously required here have been removed and are now rejected as unknown fields.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MeetingSessionAssistantRequest : IParsable
     {
-        /// <summary>Audio gating strategy for the assistant call leg.</summary>
+        /// <summary>Audio gating strategy for the assistant call leg. `half_duplex` (default) sends the assistant a single mixed meeting stream and mutes it while the assistant speaks, so the assistant cannot hear itself and cannot be interrupted. `full_duplex` sends a separate stream per participant, which allows barge-in and removes self-hearing, and COSTS SIGNIFICANTLY MORE: per-participant streams multiply the per-minute cost by the number of participants.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestAudioGate? AudioGate { get; set; }
-        /// <summary>Call control connection used to bridge the assistant into the meeting audio.</summary>
+        /// <summary>Per-conversation values for the [dynamic variables](/docs/inference/ai-assistants/dynamic-variables) used in the Assistant&apos;s instructions, greeting, or tools. Delivered before the Assistant&apos;s first utterance, so they resolve for the opening line as well as the rest of the conversation. At most 63 entries; keys 1-128 characters; values must be strings. The map is budgeted in aggregate at 1,047,552 bytes (1023 KiB) rather than capped per value. `streaming_audio`, `ai_assistant_streaming_audio` and `meeting_session_id` are reserved and rejected with `400 invalid_request` -- they toggle provider infrastructure or are set by the service rather than fill a prompt template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallControlConnectionId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestDynamicVariablesProperty? DynamicVariables { get; set; }
 #nullable restore
 #else
-        public string CallControlConnectionId { get; set; }
-#endif
-        /// <summary>E.164 calling number used as the originating party for the assistant call leg.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? From { get; set; }
-#nullable restore
-#else
-        public string From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestDynamicVariablesProperty DynamicVariables { get; set; }
 #endif
         /// <summary>Identifier of the assistant to attach.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,14 +31,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>SIP URI to which the assistant media loopback is established.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? LoopbackSipUri { get; set; }
-#nullable restore
-#else
-        public string LoopbackSipUri { get; set; }
-#endif
+        /// <summary>Leave the meeting when the Assistant&apos;s conversation reaches a terminal state -- `ended` **or** `failed`. Off by default, which leaves the bot in the meeting after the Assistant stops. Fires once: a second terminal transition does not leave twice, and a leave the provider refuses is logged without changing how the session settles.</summary>
+        public bool? LeaveOnEnd { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest"/> and sets the default values.
+        /// </summary>
+        public MeetingSessionAssistantRequest()
+        {
+            LeaveOnEnd = false;
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -66,10 +59,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "audio_gate", n => { AudioGate = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestAudioGate>(); } },
-                { "call_control_connection_id", n => { CallControlConnectionId = n.GetStringValue(); } },
-                { "from", n => { From = n.GetStringValue(); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "loopback_sip_uri", n => { LoopbackSipUri = n.GetStringValue(); } },
+                { "leave_on_end", n => { LeaveOnEnd = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -80,10 +72,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestAudioGate>("audio_gate", AudioGate);
-            writer.WriteStringValue("call_control_connection_id", CallControlConnectionId);
-            writer.WriteStringValue("from", From);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("loopback_sip_uri", LoopbackSipUri);
+            writer.WriteBoolValue("leave_on_end", LeaveOnEnd);
         }
     }
 }

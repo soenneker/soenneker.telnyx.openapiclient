@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Audio gating strategy for the assistant call leg.</summary>
+    /// <summary>Audio gating strategy for the assistant call leg. `half_duplex` (default) sends the assistant a single mixed meeting stream and mutes it while the assistant speaks, so the assistant cannot hear itself and cannot be interrupted. `full_duplex` sends a separate stream per participant, which allows barge-in and removes self-hearing, and COSTS SIGNIFICANTLY MORE: per-participant streams multiply the per-minute cost by the number of participants.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MeetingSessionAssistantRequestAudioGate
     {
-        [EnumMember(Value = "none")]
-        #pragma warning disable CS1591
-        None,
-        #pragma warning restore CS1591
         [EnumMember(Value = "half_duplex")]
         #pragma warning disable CS1591
         HalfDuplex,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "full_duplex")]
+        #pragma warning disable CS1591
+        FullDuplex,
         #pragma warning restore CS1591
     }
 }

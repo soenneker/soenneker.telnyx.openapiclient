@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateMeetingSessionRequest : IParsable
     {
-        /// <summary>Request options for attaching a voice assistant to the session. Routing fields (`call_control_connection_id`, `from`, and `loopback_sip_uri`) are used only to establish the assistant call leg and are omitted from response objects. `audio_gate` is returned with `id` in the assistant response object.</summary>
+        /// <summary>Attach a Telnyx AI Assistant to the session. Supply the Assistant&apos;s ID; the Meeting service connects it to the meeting directly. The Call Control connection, caller ID and loopback SIP URI previously required here have been removed and are now rejected as unknown fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest? Assistant { get; set; }
@@ -47,6 +47,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage CameraImage { get; set; }
 #endif
+        /// <summary>A message the bot posts to the meeting&apos;s chat as soon as it becomes active — typically a recording disclosure. Delivered at most once. Independent of `speak_on_enter`: both may be set, and the chat message posts first because it does not wait for text-to-speech or avatar startup. Rejected with 422 `unsupported_capability` on platforms without meeting chat.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChatOnEnter { get; set; }
+#nullable restore
+#else
+        public string ChatOnEnter { get; set; }
+#endif
         /// <summary>Client-supplied idempotency key to safely retry creation requests without duplicating sessions. Lookup is scoped to the authenticated account and compares the key only; the request payload is not fingerprinted or compared.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty Metadata { get; set; }
 #endif
-        /// <summary>Text the bot speaks when it enters the meeting.</summary>
+        /// <summary>Text the bot speaks when it enters the meeting. **Not spoken when an `assistant` is attached**: the value is accepted and echoed back on the session, but the assistant owns the voice and the line is never delivered, with no event reporting the omission. Use `chat_on_enter` to announce an assistant-backed bot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SpeakOnEnter { get; set; }
@@ -130,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "barge_in", n => { BargeIn = n.GetBoolValue(); } },
                 { "bot_name", n => { BotName = n.GetStringValue(); } },
                 { "camera_image", n => { CameraImage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage.CreateFromDiscriminatorValue); } },
+                { "chat_on_enter", n => { ChatOnEnter = n.GetStringValue(); } },
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "join_at", n => { JoinAt = n.GetDateTimeOffsetValue(); } },
                 { "meeting_url", n => { MeetingUrl = n.GetStringValue(); } },
@@ -152,6 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("barge_in", BargeIn);
             writer.WriteStringValue("bot_name", BotName);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage>("camera_image", CameraImage);
+            writer.WriteStringValue("chat_on_enter", ChatOnEnter);
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteDateTimeOffsetValue("join_at", JoinAt);
             writer.WriteStringValue("meeting_url", MeetingUrl);
