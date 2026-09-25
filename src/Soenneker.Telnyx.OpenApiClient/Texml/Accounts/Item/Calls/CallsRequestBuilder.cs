@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,Status*,To*}", pathParameters)
+        public CallsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Calls{?EndTime*,EndTime%3C*,EndTime%3E*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime%3C*,StartTime%3E*,Status*,To*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,Status*,To*}", rawUrl)
+        public CallsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{accountSid}/Calls{?EndTime*,EndTime%3C*,EndTime%3E*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime%3C*,StartTime%3E*,Status*,To*}", rawUrl)
         {
         }
         /// <summary>
@@ -77,6 +77,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallResult?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -91,6 +93,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallResult>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallResult.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -161,22 +165,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
             /// <summary>Filters calls by their end date (after). Expected format is YYYY-MM-DD</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("EndTime_gt")]
-            public string? EndTimeGt { get; set; }
+            [QueryParameter("EndTime%3E")]
+            public string? EndTime0 { get; set; }
 #nullable restore
 #else
-            [QueryParameter("EndTime_gt")]
-            public string EndTimeGt { get; set; }
+            [QueryParameter("EndTime%3E")]
+            public string EndTime0 { get; set; }
 #endif
             /// <summary>Filters calls by their end date (before). Expected format is YYYY-MM-DD</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("EndTime_lt")]
-            public string? EndTimeLt { get; set; }
+            [QueryParameter("EndTime%3C")]
+            public string? EndTime1 { get; set; }
 #nullable restore
 #else
-            [QueryParameter("EndTime_lt")]
-            public string EndTimeLt { get; set; }
+            [QueryParameter("EndTime%3C")]
+            public string EndTime1 { get; set; }
 #endif
             /// <summary>Filters calls by the from number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -209,22 +213,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
             /// <summary>Filters calls by their start date (after). Expected format is YYYY-MM-DD</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("StartTime_gt")]
-            public string? StartTimeGt { get; set; }
+            [QueryParameter("StartTime%3E")]
+            public string? StartTime0 { get; set; }
 #nullable restore
 #else
-            [QueryParameter("StartTime_gt")]
-            public string StartTimeGt { get; set; }
+            [QueryParameter("StartTime%3E")]
+            public string StartTime0 { get; set; }
 #endif
             /// <summary>Filters calls by their start date (before). Expected format is YYYY-MM-DD</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("StartTime_lt")]
-            public string? StartTimeLt { get; set; }
+            [QueryParameter("StartTime%3C")]
+            public string? StartTime1 { get; set; }
 #nullable restore
 #else
-            [QueryParameter("StartTime_lt")]
-            public string StartTimeLt { get; set; }
+            [QueryParameter("StartTime%3C")]
+            public string StartTime1 { get; set; }
 #endif
             /// <summary>Filters calls by status.</summary>
             public global::Soenneker.Telnyx.OpenApiClient.Models.StatusEnum? Status { get; set; }

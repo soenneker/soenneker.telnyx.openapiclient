@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Edge condition evaluated by the LLM from a natural-language prompt.The model is asked to judge the prompt against conversation context andreturns true/false. Use this for fuzzy intents that aren&apos;t expressible asa deterministic expression (e.g. &apos;user wants to escalate to a human&apos;).
+    /// Edge condition routed by the assistant&apos;s LLM from a natural-languageprompt.How the edge is decided depends on the channel. On calls, each outgoing`llm` condition is offered to the assistant&apos;s model as a transition toolalongside the assistant&apos;s tools, and the edge fires when the modelselects it; the platform does not evaluate the prompt itself, andinstructions that forbid or discourage tool calls can stop these edgesfrom firing. On chat channels, the edge prompts are evaluated in aseparate model call after the reply, which does not use the assistant&apos;sinstructions. Use this for fuzzy intents that aren&apos;t expressible as adeterministic expression (e.g. &apos;user wants to escalate to a human&apos;).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LlmCondition : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Natural-language criterion the LLM judges as true/false.</summary>
+        /// <summary>Natural-language criterion the model routes on. On calls this is offered to the model as the transition tool&apos;s description; on chat channels it is judged as a statement in the post-reply evaluation call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Prompt { get; set; }

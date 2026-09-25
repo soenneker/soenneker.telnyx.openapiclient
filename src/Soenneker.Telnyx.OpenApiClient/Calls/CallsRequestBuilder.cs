@@ -55,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 503 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 4XX or 5XX status code</exception>
@@ -73,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors.CreateFromDiscriminatorValue },

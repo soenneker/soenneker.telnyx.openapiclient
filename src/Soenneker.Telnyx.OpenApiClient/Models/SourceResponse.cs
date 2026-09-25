@@ -14,21 +14,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>a string indicating which URI query parameter caused the error</summary>
+        /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Parameter { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContent? Data { get; set; }
 #nullable restore
 #else
-        public string Parameter { get; set; }
-#endif
-        /// <summary>A JSON Pointer [RFC6901] to the associated entity in the request document</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Pointer { get; set; }
-#nullable restore
-#else
-        public string Pointer { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContent Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SourceResponse"/> and sets the default values.
@@ -55,8 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "parameter", n => { Parameter = n.GetStringValue(); } },
-                { "pointer", n => { Pointer = n.GetStringValue(); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContent>(global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("parameter", Parameter);
-            writer.WriteStringValue("pointer", Pointer);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContent>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

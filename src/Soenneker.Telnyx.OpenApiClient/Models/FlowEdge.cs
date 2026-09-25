@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Directed transition from one node to a target, gated by a condition.The target is either another node in the same flow (`NodeTarget`) or adifferent assistant (`AssistantTarget`). Multiple edges may share a`start_node_id`; the runtime evaluates them in the order they&apos;redeclared and takes the first whose condition is true.
+    /// Directed transition from one node to a target, gated by a condition.The target is either another node in the same flow (`NodeTarget`) or adifferent assistant (`AssistantTarget`). Multiple edges may share a`start_node_id`. On calls, `expression` conditions are evaluated beforethe model turn and take precedence over `llm` conditions regardless ofdeclaration order, while `llm` conditions are offered to the assistant&apos;smodel as transition tools and fire when the model selects one. On chatchannels, an `expression` condition that is true when the turn beginsroutes before the reply is generated; all conditioned edges that remainare considered together in declaration order after the reply, and thefirst true one wins.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FlowEdge : IAdditionalDataHolder, IParsable

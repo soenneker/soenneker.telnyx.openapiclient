@@ -59,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The sources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Source>? Sources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CollectionsSource>? Sources { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Source> Sources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CollectionsSource> Sources { get; set; }
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettingsWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettingsWrapper.CreateFromDiscriminatorValue); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "sources", n => { Sources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Source>(global::Soenneker.Telnyx.OpenApiClient.Models.Source.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sources", n => { Sources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CollectionsSource>(global::Soenneker.Telnyx.OpenApiClient.Models.CollectionsSource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uuid", n => { Uuid = n.GetGuidValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettingsWrapper>("settings", Settings);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Source>("sources", Sources);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CollectionsSource>("sources", Sources);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteGuidValue("uuid", Uuid);

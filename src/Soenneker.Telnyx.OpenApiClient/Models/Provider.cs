@@ -28,10 +28,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Minimax,
         #pragma warning restore CS1591
-        [EnumMember(Value = "murfai")]
-        #pragma warning disable CS1591
-        Murfai,
-        #pragma warning restore CS1591
         [EnumMember(Value = "resemble")]
         #pragma warning disable CS1591
         Resemble,
@@ -43,6 +39,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "humain")]
         #pragma warning disable CS1591
         Humain,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "soniox")]
+        #pragma warning disable CS1591
+        Soniox,
         #pragma warning restore CS1591
     }
 }

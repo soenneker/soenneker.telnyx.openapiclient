@@ -93,13 +93,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Node kind discriminator. `prompt` is an LLM-driven step.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PromptType? Type { get; set; }
-        /// <summary>Per-node voice override. Only fields set here override the assistant-level voice settings; unset fields cascade.</summary>
+        /// <summary>The voice_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings? VoiceSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings VoiceSettings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReq"/> and sets the default values.
@@ -138,7 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "tools_mode", n => { ToolsMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReqToolsMode>(); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptType>(); } },
-                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -160,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReqToolsMode>("tools_mode", ToolsMode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>("transcription", Transcription);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

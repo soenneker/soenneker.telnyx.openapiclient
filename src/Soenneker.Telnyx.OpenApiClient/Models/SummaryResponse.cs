@@ -14,13 +14,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The summary property</summary>
+        /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Summary { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ProfileSummary? Data { get; set; }
 #nullable restore
 #else
-        public string Summary { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ProfileSummary Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SummaryResponse"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "summary", n => { Summary = n.GetStringValue(); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ProfileSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.ProfileSummary.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("summary", Summary);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ProfileSummary>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

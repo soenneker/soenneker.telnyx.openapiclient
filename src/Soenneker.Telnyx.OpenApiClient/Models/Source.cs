@@ -14,17 +14,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The Telnyx Storage bucket name. Present only for `bucket` sources.</summary>
+        /// <summary>When the source was first stored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BucketId { get; set; }
+        public string? CreatedAt { get; set; }
 #nullable restore
 #else
-        public string BucketId { get; set; }
+        public string CreatedAt { get; set; }
 #endif
-        /// <summary>The collection_id property</summary>
-        public Guid? CollectionId { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>Identifies one source within its profile: an ingested session, or one remembered fact. Returned by `ingest` and `remember` when the write is accepted. Re-ingesting a session keeps its source id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -32,23 +30,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>Identifies the record type. Always `ai_collection_source`.</summary>
+        /// <summary>Memories extracted from this source. A memory derived from several sources is not counted here.</summary>
+        public int? MemoryCount { get; set; }
+        /// <summary>The session this source was ingested as. Null for a remembered fact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get; set; }
+        public string? SessionId { get; set; }
 #nullable restore
 #else
-        public string RecordType { get; set; }
+        public string SessionId { get; set; }
 #endif
-        /// <summary>The type of Telnyx data attached as a source. `bucket` requires an additional `bucket_id`. Only `voice` is searchable today; `meeting_bot`, `message`, and `bucket` attach but are not yet searchable (Coming soon).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SourceType? SourceType { get; set; }
-        /// <summary>The status property</summary>
+        /// <summary>When the source was last written; re-ingesting moves it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? UpdatedAt { get; set; }
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string UpdatedAt { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Source"/> and sets the default values.
@@ -75,12 +73,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "bucket_id", n => { BucketId = n.GetStringValue(); } },
-                { "collection_id", n => { CollectionId = n.GetGuidValue(); } },
+                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SourceType>(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "memory_count", n => { MemoryCount = n.GetIntValue(); } },
+                { "session_id", n => { SessionId = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -90,12 +87,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("bucket_id", BucketId);
-            writer.WriteGuidValue("collection_id", CollectionId);
+            writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SourceType>("source_type", SourceType);
-            writer.WriteStringValue("status", Status);
+            writer.WriteIntValue("memory_count", MemoryCount);
+            writer.WriteStringValue("session_id", SessionId);
+            writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

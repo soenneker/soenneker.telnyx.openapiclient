@@ -16,6 +16,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this tool comes from the shared Tools Library. Responses merge shared tools into `tools` with `shared: true`; inline tools carry `shared: false`. Read-only: set by the server, not accepted in requests. When updating an assistant, omit `shared: true` tools from the request `tools` array and manage them through `tool_ids` instead — re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).</summary>
         public bool? Shared { get; private set; }
+        /// <summary>The maximum number of milliseconds to wait for the webhook to respond before the tool call is aborted. Set this at the tool level, as a sibling of `type` — a `timeout_ms` nested inside the `webhook` object is stored but not applied, and the tool runs at this default instead. Applies when `webhook.async` is false.</summary>
+        public int? TimeoutMs { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookType? Type { get; set; }
         /// <summary>The webhook property</summary>
@@ -32,6 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public InferenceEmbeddingWebhookTool()
         {
             AdditionalData = new Dictionary<string, object>();
+            TimeoutMs = 5000;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "shared", n => { Shared = n.GetBoolValue(); } },
+                { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookType>(); } },
                 { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams.CreateFromDiscriminatorValue); } },
             };
@@ -63,6 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams>("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);

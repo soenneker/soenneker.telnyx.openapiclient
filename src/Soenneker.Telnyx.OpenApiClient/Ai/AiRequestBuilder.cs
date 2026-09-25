@@ -15,6 +15,7 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning;
 using Soenneker.Telnyx.OpenApiClient.Ai.Integrations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Knowledge;
 using Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers;
+using Soenneker.Telnyx.OpenApiClient.Ai.Memory;
 using Soenneker.Telnyx.OpenApiClient.Ai.Missions;
 using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai;
@@ -98,6 +99,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Mcp_serversRequestBuilder Mcp_servers
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Mcp_serversRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The memory property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Memory.MemoryRequestBuilder Memory
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Memory.MemoryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The missions property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.MissionsRequestBuilder Missions

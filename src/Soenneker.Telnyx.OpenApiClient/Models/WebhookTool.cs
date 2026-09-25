@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The maximum number of milliseconds to wait for the webhook to respond before the tool call is aborted. Set this at the tool level, as a sibling of `type` — a `timeout_ms` nested inside the `webhook` object is not applied, and the tool runs at this default instead.</summary>
+        public int? TimeoutMs { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookType? Type { get; set; }
         /// <summary>The webhook property</summary>
@@ -30,6 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public WebhookTool()
         {
             AdditionalData = new Dictionary<string, object>();
+            TimeoutMs = 5000;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -49,6 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookType>(); } },
                 { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams.CreateFromDiscriminatorValue); } },
             };
@@ -60,6 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams>("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);

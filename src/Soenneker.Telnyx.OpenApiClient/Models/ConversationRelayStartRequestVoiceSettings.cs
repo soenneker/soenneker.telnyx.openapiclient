@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AwsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.XaiVoiceSettings"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AwsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.XaiVoiceSettings"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationRelayStartRequestVoiceSettings : IComposedTypeWrapper, IParsable
@@ -61,6 +61,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings ResembleVoiceSettings { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings? SonioxVoiceSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings SonioxVoiceSettings { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,6 +119,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.ResembleVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings();
             }
+            else if("soniox".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SonioxVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings();
+            }
             else if("telnyx".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.TelnyxVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings();
@@ -150,6 +162,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(ResembleVoiceSettings != null)
             {
                 return ResembleVoiceSettings.GetFieldDeserializers();
+            }
+            else if(SonioxVoiceSettings != null)
+            {
+                return SonioxVoiceSettings.GetFieldDeserializers();
             }
             else if(TelnyxVoiceSettings != null)
             {
@@ -191,6 +207,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(ResembleVoiceSettings != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings>(null, ResembleVoiceSettings);
+            }
+            else if(SonioxVoiceSettings != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings>(null, SonioxVoiceSettings);
             }
             else if(TelnyxVoiceSettings != null)
             {

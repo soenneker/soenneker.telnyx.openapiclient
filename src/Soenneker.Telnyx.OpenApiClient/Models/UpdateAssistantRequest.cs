@@ -235,10 +235,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The voice_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings? VoiceSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings VoiceSettings { get; set; }
 #endif
         /// <summary>Configuration settings for the assistant&apos;s web widget.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -303,7 +303,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings.CreateFromDiscriminatorValue); } },
                 { "version_name", n => { VersionName = n.GetStringValue(); } },
-                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings.CreateFromDiscriminatorValue); } },
                 { "widget_settings", n => { WidgetSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -342,7 +342,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>("transcription", Transcription);
             writer.WriteStringValue("version_name", VersionName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings>("widget_settings", WidgetSettings);
             writer.WriteAdditionalData(AdditionalData);
         }

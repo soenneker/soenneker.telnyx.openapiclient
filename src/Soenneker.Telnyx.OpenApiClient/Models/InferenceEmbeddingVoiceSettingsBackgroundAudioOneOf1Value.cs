@@ -5,12 +5,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum RecallProvider
+    public enum InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1Value
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "recall")]
+        [EnumMember(Value = "silence")]
         #pragma warning disable CS1591
-        Recall,
+        Silence,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "office")]
+        #pragma warning disable CS1591
+        Office,
         #pragma warning restore CS1591
     }
 }
