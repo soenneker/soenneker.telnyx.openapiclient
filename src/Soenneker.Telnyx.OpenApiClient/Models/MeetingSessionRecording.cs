@@ -12,7 +12,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class MeetingSessionRecording : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Expiry timestamp when supplied by the provider, or null. The current adapter returns null.</summary>
+        /// <summary>Expiry timestamp when available, or null. Currently returns null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExpiresAt { get; set; }

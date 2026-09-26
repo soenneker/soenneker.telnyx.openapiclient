@@ -46570,7 +46570,7 @@
           "Meeting Session Data"
         ],
         "summary": "Delete meeting session recording media",
-        "description": "Irreversibly requests deletion of provider-hosted aggregate recording media under the provider contract. The operation retains the Telnyx-local Meeting session, transcript segments, events, artifacts, and usage records. It is separate from `DELETE /meeting_sessions/{id}`, which stops or cancels participation without deleting the persisted session. A missing/foreign session returns 404; provider deletion failures return 502.",
+        "description": "Irreversibly requests deletion of the aggregate recording media for the session. The operation retains the Telnyx-local Meeting session, transcript segments, events, artifacts, and usage records. It is separate from `DELETE /meeting_sessions/{id}`, which stops or cancels participation without deleting the persisted session. A missing/foreign session returns 404; provider deletion failures return 502.",
         "security": [
           {
             "bearerAuth": []
@@ -46583,7 +46583,7 @@
         ],
         "responses": {
           "202": {
-            "description": "The recording provider accepted the irreversible recording-media deletion request, or a deletion is already in progress.",
+            "description": "The irreversible recording-media deletion request was accepted, or a deletion is already in progress.",
             "content": {
               "application/json": {
                 "schema": {
@@ -113017,8 +113017,12 @@
             "description": "Adjusts the \"creativity\" of the model. Lower values make the model more deterministic and repetitive, while higher values make the model more random and creative."
           },
           "max_tokens": {
-            "type": "integer",
-            "description": "Maximum number of completion tokens the model should generate."
+            "type": [
+              "integer",
+              "null"
+            ],
+            "default": 8192,
+            "description": "Maximum number of completion (output) tokens the model may generate per request. Defaults to 8192 when omitted or `null`. Set a higher value to allow longer completions. The model's `max_completion_tokens` metadata (see `GET /ai/models`), when set, caps both the default and any larger explicit value. Reasoning models consume this budget across reasoning and answer tokens combined."
           },
           "tools": {
             "items": {
@@ -144066,7 +144070,7 @@
               "string",
               "null"
             ],
-            "description": "Expiry timestamp when supplied by the provider, or null. The current adapter returns null."
+            "description": "Expiry timestamp when available, or null. Currently returns null."
           }
         }
       },
@@ -147625,7 +147629,7 @@
               "null"
             ],
             "title": "Max Completion Tokens",
-            "description": "Maximum number of completion (output) tokens the model will generate per request. `null` if unconstrained beyond `context_length`."
+            "description": "Maximum completion (output) tokens the model may generate per request. This value caps the Chat Completions `max_tokens` default and any larger explicit value on that model. `null` if unconstrained beyond `context_length`."
           },
           "languages": {
             "type": "array",
@@ -161197,10 +161201,12 @@
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
           },
           "cause": {
-            "description": "Cause for call rejection.",
+            "description": "Cause for call rejection. The cause sets the SIP response the caller receives: `USER_BUSY` sends 486 User Busy, `CALL_REJECTED` sends 603 Decline, `NOT_FOUND` sends 404 Not Found, and `TEMPORARILY_UNAVAILABLE` sends 480 Temporarily Unavailable.",
             "type": "string",
             "enum": [
               "CALL_REJECTED",
+              "NOT_FOUND",
+              "TEMPORARILY_UNAVAILABLE",
               "USER_BUSY"
             ],
             "example": "USER_BUSY"

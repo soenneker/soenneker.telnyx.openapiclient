@@ -3,13 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Cause for call rejection.</summary>
+    /// <summary>Cause for call rejection. The cause sets the SIP response the caller receives: `USER_BUSY` sends 486 User Busy, `CALL_REJECTED` sends 603 Decline, `NOT_FOUND` sends 404 Not Found, and `TEMPORARILY_UNAVAILABLE` sends 480 Temporarily Unavailable.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum RejectRequestCause
     {
         [EnumMember(Value = "CALL_REJECTED")]
         #pragma warning disable CS1591
         CallRejected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "NOT_FOUND")]
+        #pragma warning disable CS1591
+        NotFound,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "TEMPORARILY_UNAVAILABLE")]
+        #pragma warning disable CS1591
+        TemporarilyUnavailable,
         #pragma warning restore CS1591
         [EnumMember(Value = "USER_BUSY")]
         #pragma warning disable CS1591

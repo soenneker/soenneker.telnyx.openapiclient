@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string License { get; set; }
 #endif
-        /// <summary>Maximum number of completion (output) tokens the model will generate per request. `null` if unconstrained beyond `context_length`.</summary>
+        /// <summary>Maximum completion (output) tokens the model may generate per request. This value caps the Chat Completions `max_tokens` default and any larger explicit value on that model. `null` if unconstrained beyond `context_length`.</summary>
         public int? MaxCompletionTokens { get; set; }
         /// <summary>Object type. Always `model`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

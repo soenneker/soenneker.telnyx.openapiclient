@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? LengthPenalty { get; set; }
         /// <summary>Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`.</summary>
         public bool? Logprobs { get; set; }
-        /// <summary>Maximum number of completion tokens the model should generate.</summary>
+        /// <summary>Maximum number of completion (output) tokens the model may generate per request. Defaults to 8192 when omitted or `null`. Set a higher value to allow longer completions. The model&apos;s `max_completion_tokens` metadata (see `GET /ai/models`), when set, caps both the default and any larger explicit value. Reasoning models consume this budget across reasoning and answer tokens combined.</summary>
         public int? MaxTokens { get; set; }
         /// <summary>A list of the previous chat messages for context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,6 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             FrequencyPenalty = 0;
             LengthPenalty = 1;
             Logprobs = false;
+            MaxTokens = 8192;
             Model = "meta-llama/Meta-Llama-3.1-8B-Instruct";
             PresencePenalty = 0;
             Stream = false;

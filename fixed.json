@@ -44973,7 +44973,7 @@
           "Meeting Session Data"
         ],
         "summary": "Delete meeting session recording media",
-        "description": "Irreversibly requests deletion of provider-hosted aggregate recording media under the provider contract. The operation retains the Telnyx-local Meeting session, transcript segments, events, artifacts, and usage records. It is separate from \u0060DELETE /meeting_sessions/{id}\u0060, which stops or cancels participation without deleting the persisted session. A missing/foreign session returns 404; provider deletion failures return 502.",
+        "description": "Irreversibly requests deletion of the aggregate recording media for the session. The operation retains the Telnyx-local Meeting session, transcript segments, events, artifacts, and usage records. It is separate from \u0060DELETE /meeting_sessions/{id}\u0060, which stops or cancels participation without deleting the persisted session. A missing/foreign session returns 404; provider deletion failures return 502.",
         "operationId": "DeleteMeetingSessionRecordingMedia",
         "parameters": [
           {
@@ -44983,7 +44983,7 @@
         ],
         "responses": {
           "202": {
-            "description": "The recording provider accepted the irreversible recording-media deletion request, or a deletion is already in progress.",
+            "description": "The irreversible recording-media deletion request was accepted, or a deletion is already in progress.",
             "content": {
               "application/json": {
                 "schema": {
@@ -93886,8 +93886,12 @@
             "default": 0.1
           },
           "max_tokens": {
-            "type": "integer",
-            "description": "Maximum number of completion tokens the model should generate."
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Maximum number of completion (output) tokens the model may generate per request. Defaults to 8192 when omitted or \u0060null\u0060. Set a higher value to allow longer completions. The model\u0027s \u0060max_completion_tokens\u0060 metadata (see \u0060GET /ai/models\u0060), when set, caps both the default and any larger explicit value. Reasoning models consume this budget across reasoning and answer tokens combined.",
+            "default": 8192
           },
           "tools": {
             "type": "array",
@@ -120894,7 +120898,7 @@
               "null",
               "string"
             ],
-            "description": "Expiry timestamp when supplied by the provider, or null. The current adapter returns null."
+            "description": "Expiry timestamp when available, or null. Currently returns null."
           }
         },
         "additionalProperties": false
@@ -123405,7 +123409,7 @@
               "null",
               "integer"
             ],
-            "description": "Maximum number of completion (output) tokens the model will generate per request. \u0060null\u0060 if unconstrained beyond \u0060context_length\u0060."
+            "description": "Maximum completion (output) tokens the model may generate per request. This value caps the Chat Completions \u0060max_tokens\u0060 default and any larger explicit value on that model. \u0060null\u0060 if unconstrained beyond \u0060context_length\u0060."
           },
           "languages": {
             "title": "Languages",
@@ -223090,11 +223094,13 @@
       "RejectRequestCause": {
         "enum": [
           "CALL_REJECTED",
+          "NOT_FOUND",
+          "TEMPORARILY_UNAVAILABLE",
           "USER_BUSY"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Cause for call rejection.",
+        "description": "Cause for call rejection. The cause sets the SIP response the caller receives: \u0060USER_BUSY\u0060 sends 486 User Busy, \u0060CALL_REJECTED\u0060 sends 603 Decline, \u0060NOT_FOUND\u0060 sends 404 Not Found, and \u0060TEMPORARILY_UNAVAILABLE\u0060 sends 480 Temporarily Unavailable.",
         "example": "USER_BUSY",
         "x-ms-enum": {
           "name": "RejectRequestCause",
@@ -223103,6 +223109,14 @@
             {
               "value": "CALL_REJECTED",
               "name": "CallRejected"
+            },
+            {
+              "value": "NOT_FOUND",
+              "name": "NotFound"
+            },
+            {
+              "value": "TEMPORARILY_UNAVAILABLE",
+              "name": "TemporarilyUnavailable"
             },
             {
               "value": "USER_BUSY",
