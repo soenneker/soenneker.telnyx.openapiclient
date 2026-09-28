@@ -162,6 +162,7 @@ using Soenneker.Telnyx.OpenApiClient.Sim_card_orders;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards;
 using Soenneker.Telnyx.OpenApiClient.Siprec_connectors;
 using Soenneker.Telnyx.OpenApiClient.SpeechToText;
+using Soenneker.Telnyx.OpenApiClient.Spend_limits;
 using Soenneker.Telnyx.OpenApiClient.Storage;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report;
@@ -987,6 +988,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.SpeechToTextRequestBuilder SpeechToText
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.SpeechToText.SpeechToTextRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The spend_limits property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Spend_limits.Spend_limitsRequestBuilder Spend_limits
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Spend_limits.Spend_limitsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The storage property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Storage.StorageRequestBuilder Storage

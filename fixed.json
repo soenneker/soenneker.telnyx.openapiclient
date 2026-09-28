@@ -10107,7 +10107,7 @@
                 "bucket_name": "Bucket Name",
                 "document_chunk_size": 1024,
                 "document_chunk_overlap_size": 512,
-                "embedding_model": "thenlper/gte-large",
+                "embedding_model": "intfloat/multilingual-e5-large",
                 "loader": "default"
               }
             }
@@ -24689,7 +24689,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ConnectionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -36074,7 +36074,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ExternalVoiceIntegrationsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -36260,7 +36260,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ExternalVoiceIntegrationsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -36279,7 +36279,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ExternalVoiceIntegrationsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -37195,7 +37195,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ProgrammableFaxErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -37751,7 +37751,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ConnectionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -37907,7 +37907,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ConnectionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -38172,7 +38172,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ConnectionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -40274,7 +40274,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ConnectionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -40538,7 +40538,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ConnectionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -49237,7 +49237,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NoiseSuppressionEnginesErrorResponse"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -53260,7 +53260,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/OutboundVoiceProfilesErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -67335,6 +67335,928 @@
         "x-latency-category": "interactive"
       }
     },
+    "/spend_limits": {
+      "get": {
+        "tags": [
+          "Spend Limits"
+        ],
+        "summary": "List spend limits",
+        "description": "Returns one entry per product and period you can set a limit on, with the limit, the spend so far in the period and whether the product is blocked. An entry without a limit is still listed (\u0060limit: null\u0060). When the spend cannot be read, the entry is returned with \u0060spend_usd: null\u0060 and \u0060spend_error\u0060 set. The list is not paginated.",
+        "operationId": "ListSpendLimits",
+        "responses": {
+          "200": {
+            "description": "Spend limits, spend and blocks per product and period.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpendLimitListResponse"
+                },
+                "examples": {
+                  "daily_limit_set": {
+                    "summary": "A daily limit and no monthly limit",
+                    "value": {
+                      "data": [
+                        {
+                          "record_type": "spend_limit",
+                          "product": "inference",
+                          "product_name": "Inference",
+                          "period": "daily",
+                          "period_start": "2026-09-24",
+                          "period_end": "2026-09-25",
+                          "limit": {
+                            "amount": "100",
+                            "unlimited": false,
+                            "origin": "self_service",
+                            "updated_at": "2026-09-24T09:12:03.412Z"
+                          },
+                          "effective_limit_usd": "100",
+                          "spend_usd": "37.41",
+                          "spend_error": null,
+                          "blocked": false,
+                          "block": null
+                        },
+                        {
+                          "record_type": "spend_limit",
+                          "product": "inference",
+                          "product_name": "Inference",
+                          "period": "monthly",
+                          "period_start": "2026-09-01",
+                          "period_end": "2026-10-01",
+                          "limit": null,
+                          "effective_limit_usd": null,
+                          "spend_usd": "812.03",
+                          "spend_error": null,
+                          "blocked": false,
+                          "block": null
+                        }
+                      ],
+                      "meta": {
+                        "total_pages": 1,
+                        "total_results": 2,
+                        "page_number": 1,
+                        "page_size": 2
+                      }
+                    }
+                  },
+                  "blocked": {
+                    "summary": "Blocked by the daily limit",
+                    "value": {
+                      "data": [
+                        {
+                          "record_type": "spend_limit",
+                          "product": "inference",
+                          "product_name": "Inference",
+                          "period": "daily",
+                          "period_start": "2026-09-24",
+                          "period_end": "2026-09-25",
+                          "limit": {
+                            "amount": "10",
+                            "unlimited": false,
+                            "origin": "self_service",
+                            "updated_at": "2026-09-24T08:00:00Z"
+                          },
+                          "effective_limit_usd": "10",
+                          "spend_usd": "12.80",
+                          "spend_error": null,
+                          "blocked": true,
+                          "block": {
+                            "detected_at": "2026-09-24T08:41:17Z",
+                            "spend_usd": "10.20",
+                            "limit_usd": "10",
+                            "blocked_until": "2026-09-25"
+                          }
+                        },
+                        {
+                          "record_type": "spend_limit",
+                          "product": "inference",
+                          "product_name": "Inference",
+                          "period": "monthly",
+                          "period_start": "2026-09-01",
+                          "period_end": "2026-10-01",
+                          "limit": null,
+                          "effective_limit_usd": null,
+                          "spend_usd": "812.03",
+                          "spend_error": null,
+                          "blocked": false,
+                          "block": null
+                        }
+                      ],
+                      "meta": {
+                        "total_pages": 1,
+                        "total_results": 2,
+                        "page_number": 1,
+                        "page_size": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The request did not carry valid Telnyx API credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "unauthorized": {
+                    "summary": "Missing or invalid credentials",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10009",
+                          "title": "Authentication failed",
+                          "detail": "The required authentication headers were either invalid or not included in the request."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. The caller\u0027s access policy does not allow this spend limits action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "forbidden": {
+                    "summary": "Action not allowed",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10010",
+                          "title": "Authorization failed",
+                          "detail": "You do not have permission to perform the requested action on the specified resource or resources."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-endpoint-cost": "medium",
+        "x-latency-category": "responsive"
+      },
+      "post": {
+        "tags": [
+          "Spend Limits"
+        ],
+        "summary": "Create a spend limit",
+        "description": "Sets a limit for a product and period that has none. Send exactly one of \u0060amount\u0060 and \u0060unlimited: true\u0060. The period\u0027s spend is checked at once: if it is already above the new limit, the product is blocked immediately (\u0060evaluation.blocked_now\u0060). Returns 409 when a limit already exists for the product and period; update it instead.",
+        "operationId": "CreateSpendLimit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSpendLimitRequest"
+              },
+              "examples": {
+                "amount": {
+                  "summary": "A daily limit of 100 USD",
+                  "value": {
+                    "product": "inference",
+                    "period": "daily",
+                    "amount": 100,
+                    "reason": "Team budget"
+                  }
+                },
+                "unlimited": {
+                  "summary": "Explicitly no monthly limit",
+                  "value": {
+                    "product": "inference",
+                    "period": "monthly",
+                    "unlimited": true
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The limit was created. \u0060evaluation\u0060 says whether the change blocked the product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpendLimitResponse"
+                },
+                "examples": {
+                  "created": {
+                    "summary": "Created, spend below the limit",
+                    "value": {
+                      "data": {
+                        "record_type": "spend_limit",
+                        "product": "inference",
+                        "product_name": "Inference",
+                        "period": "daily",
+                        "period_start": "2026-09-24",
+                        "period_end": "2026-09-25",
+                        "limit": {
+                          "amount": "100",
+                          "unlimited": false,
+                          "origin": "self_service",
+                          "updated_at": "2026-09-24T09:12:03.412Z"
+                        },
+                        "effective_limit_usd": "100",
+                        "spend_usd": "37.41",
+                        "spend_error": null,
+                        "blocked": false,
+                        "block": null,
+                        "evaluation": {
+                          "spend_usd": "37.41",
+                          "released": false,
+                          "blocked_now": false,
+                          "still_over_limit": false,
+                          "still_blocked_other_period": false,
+                          "evaluation_deferred": false
+                        }
+                      }
+                    }
+                  },
+                  "blocked_now": {
+                    "summary": "Created below the current spend: blocked at once",
+                    "value": {
+                      "data": {
+                        "record_type": "spend_limit",
+                        "product": "inference",
+                        "product_name": "Inference",
+                        "period": "daily",
+                        "period_start": "2026-09-24",
+                        "period_end": "2026-09-25",
+                        "limit": {
+                          "amount": "20",
+                          "unlimited": false,
+                          "origin": "self_service",
+                          "updated_at": "2026-09-24T09:12:03.412Z"
+                        },
+                        "effective_limit_usd": "20",
+                        "spend_usd": "37.41",
+                        "spend_error": null,
+                        "blocked": false,
+                        "block": null,
+                        "evaluation": {
+                          "spend_usd": "37.41",
+                          "released": false,
+                          "blocked_now": true,
+                          "still_over_limit": false,
+                          "still_blocked_other_period": false,
+                          "evaluation_deferred": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. The product does not support self-service spend limits, the period is invalid or not available, not exactly one of \u0060amount\u0060 and \u0060unlimited\u0060 was sent, \u0060amount\u0060 is negative, \u0060reason\u0060 is longer than 500 characters, or the body has a field that is not listed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "unsupported_product": {
+                    "summary": "Product without self-service spend limits",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Product does not support self-service spend limits",
+                          "detail": "Spend limits for this product cannot be managed through the API; contact support"
+                        }
+                      ]
+                    }
+                  },
+                  "invalid_period": {
+                    "summary": "Invalid period",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Invalid period",
+                          "detail": "period must be daily or monthly"
+                        }
+                      ]
+                    }
+                  },
+                  "invalid_limit": {
+                    "summary": "Invalid amount or unlimited",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Invalid override",
+                          "detail": "Exactly one of amount (\u003E= 0) or unlimited: true must be given"
+                        }
+                      ]
+                    }
+                  },
+                  "period_not_available": {
+                    "summary": "Product and period cannot be limited",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Spend limits are not available",
+                          "detail": "Spend limits are not available for inference (monthly)"
+                        }
+                      ]
+                    }
+                  },
+                  "reason_too_long": {
+                    "summary": "Reason too long",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Invalid reason",
+                          "detail": "reason must be at most 500 characters"
+                        }
+                      ]
+                    }
+                  },
+                  "unknown_field": {
+                    "summary": "Unknown field in the body",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Unknown fields",
+                          "detail": "Unknown field(s): user_id; the account is always the one you are authenticated as"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The request did not carry valid Telnyx API credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "unauthorized": {
+                    "summary": "Missing or invalid credentials",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10009",
+                          "title": "Authentication failed",
+                          "detail": "The required authentication headers were either invalid or not included in the request."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. The caller\u0027s access policy does not allow this spend limits action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "forbidden": {
+                    "summary": "Action not allowed",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10010",
+                          "title": "Authorization failed",
+                          "detail": "You do not have permission to perform the requested action on the specified resource or resources."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A limit already exists for the product and period.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "limit_exists": {
+                    "summary": "Limit already exists",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Limit already exists",
+                          "detail": "An active daily limit exists for inference; update it instead"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-endpoint-cost": "light",
+        "x-latency-category": "responsive"
+      }
+    },
+    "/spend_limits/{product}": {
+      "delete": {
+        "tags": [
+          "Spend Limits"
+        ],
+        "summary": "Delete a spend limit",
+        "description": "Removes the limit for the product and period. For \u0060inference\u0060, which has no default limit, the product becomes unlimited for the period and the period\u0027s block is lifted (\u0060evaluation.released\u0060). The response carries \u0060limit: null\u0060 and the \u0060effective_limit_usd\u0060 that applies after the removal. Returns 404 when no limit is set.",
+        "operationId": "DeleteSpendLimit",
+        "parameters": [
+          {
+            "name": "product",
+            "in": "path",
+            "description": "Product the limit applies to, as returned in \u0060product\u0060 by the list operation.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "inference"
+            }
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "description": "Limit period. Defaults to \u0060daily\u0060; send it explicitly.",
+            "schema": {
+              "$ref": "#/components/schemas/SpendLimitPeriod"
+            }
+          },
+          {
+            "name": "reason",
+            "in": "query",
+            "description": "Why the limit is removed, kept for audit. At most 500 characters.",
+            "schema": {
+              "maxLength": 500,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The limit was deleted. \u0060evaluation\u0060 says whether a block was lifted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpendLimitResponse"
+                },
+                "examples": {
+                  "deleted": {
+                    "summary": "Deleted while blocked: the daily block is lifted",
+                    "value": {
+                      "data": {
+                        "record_type": "spend_limit",
+                        "product": "inference",
+                        "product_name": "Inference",
+                        "period": "daily",
+                        "period_start": "2026-09-24",
+                        "period_end": "2026-09-25",
+                        "limit": null,
+                        "effective_limit_usd": null,
+                        "spend_usd": "12.80",
+                        "spend_error": null,
+                        "blocked": false,
+                        "block": null,
+                        "evaluation": {
+                          "spend_usd": null,
+                          "released": true,
+                          "blocked_now": false,
+                          "still_over_limit": false,
+                          "still_blocked_other_period": false,
+                          "evaluation_deferred": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. The product does not support self-service spend limits or the period is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "unsupported_product": {
+                    "summary": "Product without self-service spend limits",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Product does not support self-service spend limits",
+                          "detail": "Spend limits for this product cannot be managed through the API; contact support"
+                        }
+                      ]
+                    }
+                  },
+                  "invalid_period": {
+                    "summary": "Invalid period",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Invalid period",
+                          "detail": "period must be daily or monthly"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The request did not carry valid Telnyx API credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "unauthorized": {
+                    "summary": "Missing or invalid credentials",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10009",
+                          "title": "Authentication failed",
+                          "detail": "The required authentication headers were either invalid or not included in the request."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. The caller\u0027s access policy does not allow this spend limits action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "forbidden": {
+                    "summary": "Action not allowed",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10010",
+                          "title": "Authorization failed",
+                          "detail": "You do not have permission to perform the requested action on the specified resource or resources."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. No spend limit is set for the product and period.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "limit_not_found": {
+                    "summary": "No limit for the product and period",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10005",
+                          "title": "Limit not found",
+                          "detail": "No active daily limit for inference; nothing to delete"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-endpoint-cost": "light",
+        "x-latency-category": "responsive"
+      },
+      "patch": {
+        "tags": [
+          "Spend Limits"
+        ],
+        "summary": "Update a spend limit",
+        "description": "Replaces the value of the existing limit for the product and period. Send exactly one of \u0060amount\u0060 and \u0060unlimited: true\u0060. The period\u0027s spend is checked at once: raising the limit above the spend lifts the period\u0027s block (\u0060evaluation.released\u0060), and lowering it below the spend blocks the product (\u0060evaluation.blocked_now\u0060). Returns 404 when no limit is set; create it instead.",
+        "operationId": "UpdateSpendLimit",
+        "parameters": [
+          {
+            "name": "product",
+            "in": "path",
+            "description": "Product the limit applies to, as returned in \u0060product\u0060 by the list operation.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "inference"
+            }
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "description": "Limit period. Defaults to \u0060daily\u0060; send it explicitly.",
+            "schema": {
+              "$ref": "#/components/schemas/SpendLimitPeriod"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSpendLimitRequest"
+              },
+              "examples": {
+                "amount": {
+                  "summary": "Raise the limit to 250 USD",
+                  "value": {
+                    "amount": 250
+                  }
+                },
+                "unlimited": {
+                  "summary": "Remove the cap but keep the limit",
+                  "value": {
+                    "unlimited": true
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The limit was updated. \u0060evaluation\u0060 says whether the change lifted or started a block.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpendLimitResponse"
+                },
+                "examples": {
+                  "released": {
+                    "summary": "Raised above the spend: the daily block is lifted",
+                    "value": {
+                      "data": {
+                        "record_type": "spend_limit",
+                        "product": "inference",
+                        "product_name": "Inference",
+                        "period": "daily",
+                        "period_start": "2026-09-24",
+                        "period_end": "2026-09-25",
+                        "limit": {
+                          "amount": "250",
+                          "unlimited": false,
+                          "origin": "self_service",
+                          "updated_at": "2026-09-24T09:12:03.412Z"
+                        },
+                        "effective_limit_usd": "250",
+                        "spend_usd": "37.41",
+                        "spend_error": null,
+                        "blocked": false,
+                        "block": null,
+                        "evaluation": {
+                          "spend_usd": "112.50",
+                          "released": true,
+                          "blocked_now": false,
+                          "still_over_limit": false,
+                          "still_blocked_other_period": false,
+                          "evaluation_deferred": false
+                        }
+                      }
+                    }
+                  },
+                  "still_blocked_other_period": {
+                    "summary": "Daily block lifted, still blocked by the monthly limit",
+                    "value": {
+                      "data": {
+                        "record_type": "spend_limit",
+                        "product": "inference",
+                        "product_name": "Inference",
+                        "period": "daily",
+                        "period_start": "2026-09-24",
+                        "period_end": "2026-09-25",
+                        "limit": {
+                          "amount": "250",
+                          "unlimited": false,
+                          "origin": "self_service",
+                          "updated_at": "2026-09-24T09:12:03.412Z"
+                        },
+                        "effective_limit_usd": "250",
+                        "spend_usd": "37.41",
+                        "spend_error": null,
+                        "blocked": false,
+                        "block": null,
+                        "evaluation": {
+                          "spend_usd": "112.50",
+                          "released": true,
+                          "blocked_now": false,
+                          "still_over_limit": false,
+                          "still_blocked_other_period": true,
+                          "evaluation_deferred": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. The product does not support self-service spend limits, the period is invalid or not available, not exactly one of \u0060amount\u0060 and \u0060unlimited\u0060 was sent, \u0060amount\u0060 is negative, \u0060reason\u0060 is longer than 500 characters, or the body has a field that is not listed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "unsupported_product": {
+                    "summary": "Product without self-service spend limits",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Product does not support self-service spend limits",
+                          "detail": "Spend limits for this product cannot be managed through the API; contact support"
+                        }
+                      ]
+                    }
+                  },
+                  "invalid_period": {
+                    "summary": "Invalid period",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Invalid period",
+                          "detail": "period must be daily or monthly"
+                        }
+                      ]
+                    }
+                  },
+                  "invalid_limit": {
+                    "summary": "Invalid amount or unlimited",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Invalid override",
+                          "detail": "Exactly one of amount (\u003E= 0) or unlimited: true must be given"
+                        }
+                      ]
+                    }
+                  },
+                  "period_not_available": {
+                    "summary": "Product and period cannot be limited",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Spend limits are not available",
+                          "detail": "Spend limits are not available for inference (monthly)"
+                        }
+                      ]
+                    }
+                  },
+                  "reason_too_long": {
+                    "summary": "Reason too long",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Invalid reason",
+                          "detail": "reason must be at most 500 characters"
+                        }
+                      ]
+                    }
+                  },
+                  "unknown_field": {
+                    "summary": "Unknown field in the body",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Unknown fields",
+                          "detail": "Unknown field(s): user_id; the account is always the one you are authenticated as"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The request did not carry valid Telnyx API credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "unauthorized": {
+                    "summary": "Missing or invalid credentials",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10009",
+                          "title": "Authentication failed",
+                          "detail": "The required authentication headers were either invalid or not included in the request."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. The caller\u0027s access policy does not allow this spend limits action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "forbidden": {
+                    "summary": "Action not allowed",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10010",
+                          "title": "Authorization failed",
+                          "detail": "You do not have permission to perform the requested action on the specified resource or resources."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. No spend limit is set for the product and period.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "limit_not_found": {
+                    "summary": "No limit for the product and period",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10005",
+                          "title": "Limit not found",
+                          "detail": "No active daily limit for inference; create it instead"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-endpoint-cost": "light",
+        "x-latency-category": "responsive"
+      }
+    },
     "/storage/buckets/{bucketName}/ssl_certificate": {
       "delete": {
         "tags": [
@@ -72672,7 +73594,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/CallScriptingErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -72968,7 +73890,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/CallScriptingErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -74073,7 +74995,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/ConnectionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -75758,7 +76680,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/StoredPaymentTransactionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -75777,7 +76699,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/StoredPaymentTransactionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -75796,7 +76718,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/StoredPaymentTransactionsErrorResponse"
                 },
                 "example": {
                   "errors": [
@@ -97392,7 +98314,7 @@
             "items": {
               "$ref": "#/components/schemas/ConversationFlowReqNodesItem"
             },
-            "description": "All nodes in the flow. Must contain \u0060start_node_id\u0060. Each node is a prompt node (\u0060type: prompt\u0060) or a tool node (\u0060type: tool\u0060)."
+            "description": "All nodes in the flow. Must contain \u0060start_node_id\u0060. Each node is a prompt node (\u0060type: prompt\u0060), a tool node (\u0060type: tool\u0060), or a speak node (\u0060type: speak\u0060)."
           },
           "start_node_id": {
             "title": "Start Node Id",
@@ -98567,6 +99489,14 @@
           "post_conversation_settings": {
             "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
             "$ref": "#/components/schemas/PostConversationSettingsReq"
+          },
+          "delegation_settings": {
+            "description": "Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all \u2014 when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single \u0060delegate\u0060 tool that returns immediately, so the conversation carries on while the backend works. Either way the backend\u0027s answer is spoken as commentary or kept as silent context, depending on \u0060speak_results\u0060. Beta feature.",
+            "$ref": "#/components/schemas/DelegationSettings"
+          },
+          "websocket_settings": {
+            "description": "Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature.",
+            "$ref": "#/components/schemas/WebsocketSettings"
           },
           "conversation_flow": {
             "description": "Conversation flow as supplied by API clients (create / update).\n\nA directed graph of \u0060FlowNodeReq\u0060 connected by \u0060FlowEdge\u0060s. Validation\nenforces unique node/edge IDs, that \u0060start_node_id\u0060 references a real\nnode, and that every edge\u0027s endpoints reference real nodes.",
@@ -102287,6 +103217,107 @@
           "type": "MMS"
         }
       },
+      "CreateSpendLimitRequest": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateSpendLimitWithAmount"
+          },
+          {
+            "$ref": "#/components/schemas/CreateSpendLimitUnlimited"
+          }
+        ],
+        "properties": {
+          "product": {
+            "type": "string",
+            "description": "Product to limit, as returned in \u0060product\u0060 by the list operation.",
+            "example": "inference"
+          },
+          "period": {
+            "description": "\u0060daily\u0060 is the current UTC day; \u0060monthly\u0060 is the current UTC calendar month.",
+            "$ref": "#/components/schemas/SpendLimitPeriod"
+          },
+          "amount": {
+            "minimum": 0,
+            "type": "number",
+            "description": "Limit in USD. \u00600\u0060 blocks at the first cent of spend.",
+            "example": 100
+          },
+          "reason": {
+            "maxLength": 500,
+            "type": "string",
+            "description": "Why the limit is set or changed, kept for audit.",
+            "example": "Team budget"
+          }
+        },
+        "description": "Send exactly one of \u0060amount\u0060 and \u0060unlimited: true\u0060."
+      },
+      "CreateSpendLimitUnlimited": {
+        "title": "Unlimited",
+        "required": [
+          "product",
+          "unlimited"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string",
+            "description": "Product to limit, as returned in \u0060product\u0060 by the list operation.",
+            "example": "inference"
+          },
+          "period": {
+            "description": "\u0060daily\u0060 is the current UTC day; \u0060monthly\u0060 is the current UTC calendar month.",
+            "$ref": "#/components/schemas/SpendLimitPeriod"
+          },
+          "unlimited": {
+            "$ref": "#/components/schemas/CreateSpendLimitUnlimitedUnlimited"
+          },
+          "reason": {
+            "maxLength": 500,
+            "type": "string",
+            "description": "Why the limit is set or changed, kept for audit.",
+            "example": "Team budget"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Explicitly no cap."
+      },
+      "CreateSpendLimitWithAmount": {
+        "title": "Amount",
+        "required": [
+          "product",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string",
+            "description": "Product to limit, as returned in \u0060product\u0060 by the list operation.",
+            "example": "inference"
+          },
+          "period": {
+            "description": "\u0060daily\u0060 is the current UTC day; \u0060monthly\u0060 is the current UTC calendar month.",
+            "$ref": "#/components/schemas/SpendLimitPeriod"
+          },
+          "amount": {
+            "minimum": 0,
+            "type": "number",
+            "description": "Limit in USD. \u00600\u0060 blocks at the first cent of spend.",
+            "example": 100
+          },
+          "unlimited": {
+            "$ref": "#/components/schemas/CreateSpendLimitWithAmountUnlimited"
+          },
+          "reason": {
+            "maxLength": 500,
+            "type": "string",
+            "description": "Why the limit is set or changed, kept for audit.",
+            "example": "Team budget"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A limit in USD."
+      },
       "CreateSqlDatabaseRequest": {
         "required": [
           "name"
@@ -105054,6 +106085,41 @@
             "$ref": "#/components/schemas/InterfaceStatus"
           }
         }
+      },
+      "DelegationSettings": {
+        "title": "DelegationSettings",
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the assistant delegates work to a backend model. Defaults to \u0060true\u0060: a GPT-Live assistant with delegation disabled can hold a conversation but can never look anything up or run a tool.",
+            "default": true
+          },
+          "mode": {
+            "$ref": "#/components/schemas/DelegationSettingsMode"
+          },
+          "model": {
+            "type": "string",
+            "description": "The backend model that answers delegations. Must be a model available for AI Assistants. Leave unset to use the platform default backend model. Only applies when \u0060mode\u0060 is \u0060telnyx\u0060."
+          },
+          "llm_api_key_ref": {
+            "type": "string",
+            "description": "Integration secret identifier for the backend model\u0027s API key. Required for models from providers other than Telnyx, OpenAI and Anthropic. A raw \u0060api_key\u0060 is rejected rather than ignored, so that no plaintext credential is stored on the assistant."
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Extra instructions for the backend model, in addition to the assistant\u0027s own. Use this for the business rules the backend needs and the talking model does not."
+          },
+          "speak_results": {
+            "type": "boolean",
+            "description": "Whether the backend\u0027s answer is spoken to the caller. When \u0060true\u0060 the result is appended as commentary and paraphrased aloud; when \u0060false\u0060 it is kept as silent context that informs later answers without being read out. Defaults to \u0060true\u0060.",
+            "default": true
+          },
+          "external_llm": {
+            "$ref": "#/components/schemas/DelegationSettingsExternalLlm"
+          }
+        },
+        "description": "Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all \u2014 when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single \u0060delegate\u0060 tool that returns immediately, so the conversation carries on while the backend works. Either way the backend\u0027s answer is spoken as commentary or kept as silent context, depending on \u0060speak_results\u0060. Beta feature."
       },
       "DetailRecord": {
         "required": [
@@ -110947,6 +112013,9 @@
         }
       },
       "ErrorResponse": {
+        "required": [
+          "errors"
+        ],
         "type": "object",
         "properties": {
           "errors": {
@@ -140465,6 +141534,277 @@
           ]
         }
       },
+      "SpendLimit": {
+        "required": [
+          "record_type",
+          "product",
+          "product_name",
+          "period",
+          "period_start",
+          "period_end",
+          "limit",
+          "effective_limit_usd",
+          "spend_usd",
+          "spend_error",
+          "blocked",
+          "block"
+        ],
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "example": "spend_limit"
+          },
+          "product": {
+            "type": "string",
+            "description": "Product the entry applies to.",
+            "example": "inference"
+          },
+          "product_name": {
+            "type": "string",
+            "description": "Display name of the product.",
+            "example": "Inference"
+          },
+          "period": {
+            "description": "\u0060daily\u0060 is the current UTC day; \u0060monthly\u0060 is the current UTC calendar month.",
+            "$ref": "#/components/schemas/SpendLimitPeriod"
+          },
+          "period_start": {
+            "type": "string",
+            "description": "First UTC day of the current period.",
+            "format": "date",
+            "example": "2026-09-24"
+          },
+          "period_end": {
+            "type": "string",
+            "description": "Exclusive end of the current period, a UTC date.",
+            "format": "date",
+            "example": "2026-09-25"
+          },
+          "limit": {
+            "description": "The limit set on the account for the product and period, whoever set it. \u0060null\u0060 when none is set.",
+            "$ref": "#/components/schemas/SpendLimitLimit"
+          },
+          "effective_limit_usd": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The limit in USD that is enforced, as a decimal string. \u0060null\u0060 means unlimited.",
+            "example": "100"
+          },
+          "spend_usd": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Spend in USD so far in the period, as a decimal string. It can lag actual usage by about a minute. \u0060null\u0060 when it could not be read.",
+            "example": "37.41"
+          },
+          "spend_error": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Set when \u0060spend_usd\u0060 is \u0060null\u0060.",
+            "example": null
+          },
+          "blocked": {
+            "type": "boolean",
+            "description": "The product is blocked for this period. Always \u0060false\u0060 in write responses; list the limits to read the block state.",
+            "example": false
+          },
+          "block": {
+            "description": "The active block of the period. \u0060null\u0060 when the period is not blocked.",
+            "$ref": "#/components/schemas/SpendLimitBlock"
+          },
+          "evaluation": {
+            "description": "What a create, update or delete did to the period at once. Only present in write responses.",
+            "$ref": "#/components/schemas/SpendLimitEvaluation"
+          }
+        },
+        "description": "The spend limit, spend and block state of one product and period."
+      },
+      "SpendLimitBlock": {
+        "required": [
+          "detected_at",
+          "spend_usd",
+          "limit_usd",
+          "blocked_until"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "detected_at": {
+            "type": "string",
+            "description": "When the block started.",
+            "format": "date-time",
+            "example": "2026-09-24T08:41:17Z"
+          },
+          "spend_usd": {
+            "type": "string",
+            "description": "Spend in USD when the block started, as a decimal string.",
+            "example": "10.20"
+          },
+          "limit_usd": {
+            "type": "string",
+            "description": "The limit in USD that the spend went above, as a decimal string.",
+            "example": "10"
+          },
+          "blocked_until": {
+            "type": "string",
+            "description": "Exclusive end of the block: it is lifted at 00:00 UTC on this date at the latest.",
+            "format": "date",
+            "example": "2026-09-25"
+          }
+        },
+        "description": "The active block of the period. \u0060null\u0060 when the period is not blocked."
+      },
+      "SpendLimitEvaluation": {
+        "required": [
+          "spend_usd",
+          "released",
+          "blocked_now",
+          "still_over_limit",
+          "still_blocked_other_period",
+          "evaluation_deferred"
+        ],
+        "type": "object",
+        "properties": {
+          "spend_usd": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Spend in USD used for the check, as a decimal string. \u0060null\u0060 when the spend was not checked.",
+            "example": "37.41"
+          },
+          "released": {
+            "type": "boolean",
+            "description": "The change lifted a block of this period.",
+            "example": false
+          },
+          "blocked_now": {
+            "type": "boolean",
+            "description": "The change blocked the product: the spend was already above the new limit.",
+            "example": false
+          },
+          "still_over_limit": {
+            "type": "boolean",
+            "description": "A block of this period remains because the spend is still above the new limit.",
+            "example": false
+          },
+          "still_blocked_other_period": {
+            "type": "boolean",
+            "description": "The other period has an active block, so the product stays blocked whatever this period\u0027s result.",
+            "example": false
+          },
+          "evaluation_deferred": {
+            "type": "boolean",
+            "description": "The spend could not be checked now. The change is saved and applied within a few minutes.",
+            "example": false
+          },
+          "note": {
+            "type": "string",
+            "description": "Additional information about the result, when there is any.",
+            "example": "A block was lifted by Telnyx support today; this limit applies from tomorrow."
+          }
+        },
+        "description": "What a create, update or delete did to the period at once. Only present in write responses."
+      },
+      "SpendLimitLimit": {
+        "required": [
+          "amount",
+          "unlimited",
+          "origin",
+          "updated_at"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Limit in USD, as a decimal string. \u0060null\u0060 when \u0060unlimited\u0060 is true.",
+            "example": "100"
+          },
+          "unlimited": {
+            "type": "boolean",
+            "description": "True when the limit was set to explicitly no cap.",
+            "example": false
+          },
+          "origin": {
+            "$ref": "#/components/schemas/SpendLimitLimitOrigin"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "When the limit was last set or changed.",
+            "format": "date-time",
+            "example": "2026-09-24T09:12:03.412Z"
+          }
+        },
+        "description": "The limit set on the account for the product and period, whoever set it. \u0060null\u0060 when none is set."
+      },
+      "SpendLimitListResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpendLimit"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/SpendLimitsPaginationMeta"
+          }
+        }
+      },
+      "SpendLimitPeriod": {
+        "enum": [
+          "daily",
+          "monthly"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0060daily\u0060 is the current UTC day; \u0060monthly\u0060 is the current UTC calendar month.",
+        "example": "daily",
+        "x-ms-enum": {
+          "name": "SpendLimitPeriod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "daily",
+              "name": "Daily"
+            },
+            {
+              "value": "monthly",
+              "name": "Monthly"
+            }
+          ]
+        }
+      },
+      "SpendLimitResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "The spend limit, spend and block state of one product and period.",
+            "$ref": "#/components/schemas/SpendLimit"
+          }
+        }
+      },
       "SqlDatabase": {
         "type": "object",
         "properties": {
@@ -148603,7 +149943,7 @@
           "shared_tool_id": {
             "title": "Shared Tool Id",
             "type": "string",
-            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060tool_result\u0060 edges then route on the outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write."
+            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060llm\u0060 / \u0060expression\u0060 edges route the flow on the tool\u0027s outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write."
           },
           "tool": {
             "type": "array",
@@ -148614,6 +149954,14 @@
           },
           "type": {
             "$ref": "#/components/schemas/ToolType"
+          },
+          "message": {
+            "title": "Message",
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Optional message delivered to the user verbatim immediately before the tool executes \u2014 an announcement such as \u0027One moment while I look that up.\u0027 No LLM turn and no customer turn: the message is spoken/sent, then the tool runs, in the same deterministic step. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables (unresolved \u2192 empty string); the tool\u0027s own result is not yet available when the message is rendered. Omit for a silent tool step.",
+            "example": "One moment while I process your payment."
           }
         },
         "description": "A standalone tool step in a conversation flow, as returned by the API."
@@ -148632,6 +149980,14 @@
             "description": "Caller-supplied unique identifier for this node within the flow.",
             "example": "n_charge"
           },
+          "message": {
+            "title": "Message",
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Optional message delivered to the user verbatim immediately before the tool executes \u2014 an announcement such as \u0027One moment while I look that up.\u0027 No LLM turn and no customer turn: the message is spoken/sent, then the tool runs, in the same deterministic step. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables (unresolved \u2192 empty string); the tool\u0027s own result is not yet available when the message is rendered. Omit for a silent tool step.",
+            "example": "One moment while I process your payment."
+          },
           "name": {
             "title": "Name",
             "type": "string",
@@ -148649,16 +150005,17 @@
           "shared_tool_id": {
             "title": "Shared Tool Id",
             "type": "string",
-            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060tool_result\u0060 edges then route on the outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write.",
+            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060llm\u0060 / \u0060expression\u0060 edges route the flow on the tool\u0027s outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write.",
             "example": "tool-charge-card"
           },
           "type": {
             "$ref": "#/components/schemas/ToolType"
           }
         },
-        "description": "A standalone tool step in a conversation flow, as supplied by clients.\n\nUnlike a prompt node, a tool node has no instructions or model \u2014 it\nisn\u0027t an LLM turn. Reaching it deterministically runs one shared tool\n(arguments filled from matching dynamic variables by name), then routes\non the result via outgoing \u0060tool_result\u0060 edges.",
+        "description": "A standalone tool step in a conversation flow, as supplied by clients.\n\nUnlike a prompt node, a tool node has no instructions or model \u2014 it\nisn\u0027t an LLM turn. Reaching it deterministically runs one shared tool\n(arguments filled from matching dynamic variables by name), then routes\nvia outgoing \u0060llm\u0060 / \u0060expression\u0060 edges, with exactly one \u0060default\u0060\nfallback edge required when the node has any outgoing edges (the\ntool\u0027s outcome is readable as \u0060telnyx_last_tool_status_code\u0060 in\n\u0060expression\u0060 conditions).",
         "example": {
           "id": "n_charge",
+          "message": "One moment while I process your payment.",
           "name": "Charge card",
           "position": {
             "x": 300,
@@ -152426,6 +153783,14 @@
             "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
             "$ref": "#/components/schemas/PostConversationSettingsReq"
           },
+          "delegation_settings": {
+            "description": "Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all \u2014 when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single \u0060delegate\u0060 tool that returns immediately, so the conversation carries on while the backend works. Either way the backend\u0027s answer is spoken as commentary or kept as silent context, depending on \u0060speak_results\u0060. Beta feature.",
+            "$ref": "#/components/schemas/DelegationSettings"
+          },
+          "websocket_settings": {
+            "description": "Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature.",
+            "$ref": "#/components/schemas/WebsocketSettings"
+          },
           "conversation_flow": {
             "description": "Conversation flow as supplied by API clients (create / update).\n\nA directed graph of \u0060FlowNodeReq\u0060 connected by \u0060FlowEdge\u0060s. Validation\nenforces unique node/edge IDs, that \u0060start_node_id\u0060 references a real\nnode, and that every edge\u0027s endpoints reference real nodes.",
             "$ref": "#/components/schemas/ConversationFlowReq"
@@ -152567,6 +153932,14 @@
           "post_conversation_settings": {
             "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
             "$ref": "#/components/schemas/PostConversationSettingsReq"
+          },
+          "delegation_settings": {
+            "description": "Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all \u2014 when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single \u0060delegate\u0060 tool that returns immediately, so the conversation carries on while the backend works. Either way the backend\u0027s answer is spoken as commentary or kept as silent context, depending on \u0060speak_results\u0060. Beta feature.",
+            "$ref": "#/components/schemas/DelegationSettings"
+          },
+          "websocket_settings": {
+            "description": "Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature.",
+            "$ref": "#/components/schemas/WebsocketSettings"
           },
           "conversation_flow": {
             "description": "Conversation flow as supplied by API clients (create / update).\n\nA directed graph of \u0060FlowNodeReq\u0060 connected by \u0060FlowEdge\u0060s. Validation\nenforces unique node/edge IDs, that \u0060start_node_id\u0060 references a real\nnode, and that every edge\u0027s endpoints reference real nodes.",
@@ -154992,6 +156365,78 @@
             "test_customer"
           ]
         }
+      },
+      "UpdateSpendLimitRequest": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UpdateSpendLimitWithAmount"
+          },
+          {
+            "$ref": "#/components/schemas/UpdateSpendLimitUnlimited"
+          }
+        ],
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "type": "number",
+            "description": "Limit in USD. \u00600\u0060 blocks at the first cent of spend.",
+            "example": 100
+          },
+          "reason": {
+            "maxLength": 500,
+            "type": "string",
+            "description": "Why the limit is set or changed, kept for audit.",
+            "example": "Raised for the product launch"
+          }
+        },
+        "description": "Send exactly one of \u0060amount\u0060 and \u0060unlimited: true\u0060."
+      },
+      "UpdateSpendLimitUnlimited": {
+        "title": "Unlimited",
+        "required": [
+          "unlimited"
+        ],
+        "type": "object",
+        "properties": {
+          "unlimited": {
+            "$ref": "#/components/schemas/UpdateSpendLimitUnlimitedUnlimited"
+          },
+          "reason": {
+            "maxLength": 500,
+            "type": "string",
+            "description": "Why the limit is set or changed, kept for audit.",
+            "example": "Raised for the product launch"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Explicitly no cap."
+      },
+      "UpdateSpendLimitWithAmount": {
+        "title": "Amount",
+        "required": [
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "type": "number",
+            "description": "Limit in USD. \u00600\u0060 blocks at the first cent of spend.",
+            "example": 100
+          },
+          "unlimited": {
+            "$ref": "#/components/schemas/UpdateSpendLimitWithAmountUnlimited"
+          },
+          "reason": {
+            "maxLength": 500,
+            "type": "string",
+            "description": "Why the limit is set or changed, kept for audit.",
+            "example": "Raised for the product launch"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A new limit in USD."
       },
       "UpdateSubNumberOrderRequest": {
         "type": "object",
@@ -159865,6 +161310,26 @@
           }
         }
       },
+      "WebsocketSettings": {
+        "title": "WebsocketSettings",
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether Telnyx opens a WebSocket to \u0060url\u0060 for each of this assistant\u0027s conversations. Defaults to \u0060false\u0060.",
+            "default": false
+          },
+          "url": {
+            "type": "string",
+            "description": "The \u0060ws://\u0060 or \u0060wss://\u0060 endpoint Telnyx connects to. Required when \u0060enabled\u0060 is \u0060true\u0060. Must be externally reachable \u2014 localhost, private IP ranges and \u0060.local\u0060 domains are rejected."
+          },
+          "auth_ref": {
+            "type": "string",
+            "description": "Integration secret identifier whose value Telnyx sends as an \u0060Authorization: Bearer \u003Cvalue\u003E\u0060 header on the upgrade request. Resolved on every connection attempt, so a rotated secret is picked up by the next reconnect."
+          }
+        },
+        "description": "Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature."
+      },
       "WhatsappAccountUpdateBody": {
         "required": [
           "record_type",
@@ -162199,6 +163664,17 @@
           "FriendlyName": "Support Queue"
         }
       },
+      "CallScriptingErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CallScriptingErrorResponseErrorsItem"
+            }
+          }
+        }
+      },
       "CallScriptingPaginationMeta": {
         "title": "Pagination Meta",
         "type": "object",
@@ -162734,6 +164210,17 @@
           "page_size": "1",
           "start": "0",
           "uri": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Calls.json?Page=0\u0026PageSize=1"
+        }
+      },
+      "CallsErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CallsErrorResponseErrorsItem"
+            }
+          }
         }
       },
       "CallsInitiateAiCallRequest": {
@@ -163950,6 +165437,17 @@
           "uri": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Conferences.json?Page=0\u0026PageSize=1"
         }
       },
+      "ConnectionsErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConnectionsErrorResponseErrorsItem"
+            }
+          }
+        }
+      },
       "ConnectionsOutboundVoiceProfileId": {
         "title": "Outbound Voice Profile ID",
         "type": "string",
@@ -164327,6 +165825,17 @@
         "description": "Additional street address information about the address such as, but not limited to, unit number or apartment number.",
         "example": "14th Floor"
       },
+      "ExternalVoiceIntegrationsErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalVoiceIntegrationsErrorResponseErrorsItem"
+            }
+          }
+        }
+      },
       "ExternalVoiceIntegrationsIntId": {
         "title": "Int ID",
         "type": "string",
@@ -164653,6 +166162,14 @@
           "post_conversation_settings": {
             "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
             "$ref": "#/components/schemas/PostConversationSettings"
+          },
+          "delegation_settings": {
+            "description": "Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all \u2014 when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single \u0060delegate\u0060 tool that returns immediately, so the conversation carries on while the backend works. Either way the backend\u0027s answer is spoken as commentary or kept as silent context, depending on \u0060speak_results\u0060. Beta feature.",
+            "$ref": "#/components/schemas/DelegationSettings"
+          },
+          "websocket_settings": {
+            "description": "Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature.",
+            "$ref": "#/components/schemas/WebsocketSettings"
           },
           "conversation_flow": {
             "description": "Conversation flow as returned by the API.",
@@ -167156,20 +168673,6 @@
           }
         }
       },
-      "NoiseSuppressionEnginesErrorResponse": {
-        "required": [
-          "errors"
-        ],
-        "type": "object",
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NoiseSuppressionEnginesErrorResponseErrorsItem"
-            }
-          }
-        }
-      },
       "NoiseSuppressionEnginesNoiseSuppressionEngine": {
         "required": [
           "value",
@@ -168257,6 +169760,17 @@
         "format": "uuid",
         "example": "24b4a4bb-c4df-46ad-bbcb-23fc741c5ad7"
       },
+      "OutboundVoiceProfilesErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutboundVoiceProfilesErrorResponseErrorsItem"
+            }
+          }
+        }
+      },
       "ParakeetModels": {
         "enum": [
           "nvidia/parakeet-v3",
@@ -168333,6 +169847,17 @@
           },
           "meta": {
             "$ref": "#/components/schemas/ProgrammableFaxErrorMetaProperty"
+          }
+        }
+      },
+      "ProgrammableFaxErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgrammableFaxErrorResponseErrorsItem"
+            }
           }
         }
       },
@@ -169116,6 +170641,27 @@
           ]
         }
       },
+      "SpendLimitsPaginationMeta": {
+        "type": "object",
+        "properties": {
+          "total_pages": {
+            "type": "integer",
+            "example": 1
+          },
+          "total_results": {
+            "type": "integer",
+            "example": 2
+          },
+          "page_number": {
+            "type": "integer",
+            "example": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "example": 2
+          }
+        }
+      },
       "StandardCdrGetUsageReportsResponse": {
         "type": "object",
         "properties": {
@@ -169290,10 +170836,32 @@
           }
         }
       },
+      "StoredPaymentTransactionsErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StoredPaymentTransactionsErrorResponseErrorsItem"
+            }
+          }
+        }
+      },
       "StreetAddress": {
         "type": "string",
         "description": "The primary street address information about the address.",
         "example": "600 Congress Avenue"
+      },
+      "TaggingsErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TaggingsErrorResponseErrorsItem"
+            }
+          }
+        }
       },
       "TelnyxModels": {
         "enum": [
@@ -169845,6 +171413,28 @@
         "type": "string",
         "description": "The primary street address information about the user address.",
         "example": "600 Congress Avenue"
+      },
+      "UserTagsErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserTagsErrorResponseErrorsItem"
+            }
+          }
+        }
+      },
+      "UsersErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UsersErrorResponseErrorsItem"
+            }
+          }
+        }
       },
       "UsersPaginationMeta": {
         "title": "Pagination Meta",
@@ -172905,7 +174495,7 @@
           "shared_tool_id": {
             "title": "Shared Tool Id",
             "type": "string",
-            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060tool_result\u0060 edges then route on the outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write."
+            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060llm\u0060 / \u0060expression\u0060 edges route the flow on the tool\u0027s outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write."
           },
           "tool": {
             "type": "array",
@@ -172916,8 +174506,11 @@
           },
           "message": {
             "title": "Message",
+            "minLength": 1,
+            "pattern": "\\S",
             "type": "string",
-            "description": "Message delivered to the user verbatim when the flow reaches this node. No LLM turn \u2014 the text is spoken/sent exactly as written. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables; an unresolved placeholder renders as an empty string. After delivering, the flow routes via the node\u0027s outgoing \u0060llm\u0060 / \u0060expression\u0060 edges (commonly a single unconditional edge)."
+            "description": "Optional message delivered to the user verbatim immediately before the tool executes \u2014 an announcement such as \u0027One moment while I look that up.\u0027 No LLM turn and no customer turn: the message is spoken/sent, then the tool runs, in the same deterministic step. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables (unresolved \u2192 empty string); the tool\u0027s own result is not yet available when the message is rendered. Omit for a silent tool step.",
+            "example": "One moment while I process your payment."
           },
           "type": {
             "type": "string"
@@ -173014,17 +174607,19 @@
           "voice_settings": {
             "$ref": "#/components/schemas/InferenceEmbeddingVoiceSettings"
           },
+          "message": {
+            "title": "Message",
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Optional message delivered to the user verbatim immediately before the tool executes \u2014 an announcement such as \u0027One moment while I look that up.\u0027 No LLM turn and no customer turn: the message is spoken/sent, then the tool runs, in the same deterministic step. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables (unresolved \u2192 empty string); the tool\u0027s own result is not yet available when the message is rendered. Omit for a silent tool step.",
+            "example": "One moment while I process your payment."
+          },
           "shared_tool_id": {
             "title": "Shared Tool Id",
             "type": "string",
-            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060tool_result\u0060 edges then route on the outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write.",
+            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060llm\u0060 / \u0060expression\u0060 edges route the flow on the tool\u0027s outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write.",
             "example": "tool-charge-card"
-          },
-          "message": {
-            "title": "Message",
-            "type": "string",
-            "description": "Message delivered to the user verbatim when the flow reaches this node. No LLM turn \u2014 the text is spoken/sent exactly as written. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables; an unresolved placeholder renders as an empty string. After delivering, the flow routes via the node\u0027s outgoing \u0060llm\u0060 / \u0060expression\u0060 edges (commonly a single unconditional edge).",
-            "example": "Thanks for calling, {{caller_name}}. Connecting you now."
           },
           "type": {
             "type": "string"
@@ -173759,6 +175354,45 @@
             "$ref": "#/components/schemas/InterfaceStatus"
           }
         }
+      },
+      "DelegationSettingsExternalLlm": {
+        "required": [
+          "model",
+          "base_url"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model identifier to use with the external LLM endpoint."
+          },
+          "base_url": {
+            "type": "string",
+            "description": "Base URL for the external LLM endpoint."
+          },
+          "llm_api_key_ref": {
+            "type": "string",
+            "description": "Integration secret identifier for the external LLM API key."
+          },
+          "authentication_method": {
+            "description": "Authentication method used when connecting to the external LLM endpoint.",
+            "$ref": "#/components/schemas/AuthenticationMethod"
+          },
+          "certificate_ref": {
+            "type": "string",
+            "description": "Integration secret identifier for the client certificate used with certificate authentication."
+          },
+          "token_retrieval_url": {
+            "type": "string",
+            "description": "URL used to retrieve an access token when certificate authentication is enabled."
+          },
+          "forward_metadata": {
+            "type": "boolean",
+            "description": "When \u0060true\u0060, Telnyx forwards the assistant\u0027s dynamic variables to the external LLM endpoint as a top-level \u0060extra_metadata\u0060 object on the chat completion request body. Defaults to \u0060false\u0060. Example payload sent to the external endpoint: \u0060{\u0022extra_metadata\u0022: {\u0022customer_name\u0022: \u0022Jane\u0022, \u0022account_id\u0022: \u0022acct_789\u0022, \u0022telnyx_agent_target\u0022: \u0022\u002B13125550100\u0022, \u0022telnyx_end_user_target\u0022: \u0022\u002B13125550123\u0022}}\u0060. Distinct from OpenAI\u0027s native \u0060metadata\u0060 field, which has its own size and type limits.",
+            "default": false
+          }
+        },
+        "description": "Run the backend on your own OpenAI-compatible endpoint instead of a Telnyx-hosted model. As above, a raw \u0060api_key\u0060 here is rejected \u2014 reference an integration secret with \u0060external_llm.llm_api_key_ref\u0060 instead."
       },
       "DirPhoneNumberRejectionReason": {
         "type": "object",
@@ -181978,9 +183612,16 @@
         "description": "Additional metadata. Present on 401 errors with a documentation URL."
       },
       "ErrorResponseErrorsItem": {
+        "required": [
+          "code",
+          "title"
+        ],
         "type": "object",
         "properties": {
           "code": {
+            "type": "string"
+          },
+          "title": {
             "type": "string"
           },
           "detail": {
@@ -181988,9 +183629,6 @@
           },
           "meta": {
             "$ref": "#/components/schemas/ErrorResponseErrorsItemMeta"
-          },
-          "title": {
-            "type": "string"
           },
           "source": {
             "$ref": "#/components/schemas/ErrorResponseErrorsItemSource"
@@ -187678,6 +189316,26 @@
       "CallRecordingsErrorMeta": {
         "type": "object"
       },
+      "CallScriptingErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/CallScriptingErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/CallScriptingErrorResponseErrorsItemSource"
+          }
+        }
+      },
       "CallScriptingResourceNotFoundErrorErrorsItem": {
         "type": "object",
         "properties": {
@@ -187914,6 +189572,26 @@
           }
         }
       },
+      "CallsErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/CallsErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/CallsErrorResponseErrorsItemSource"
+          }
+        }
+      },
       "CallsInitiateAiCallRequestAiAssistantDynamicVariables": {
         "type": "object",
         "additionalProperties": {
@@ -188027,6 +189705,26 @@
           "recordings": "/v2/texml/Accounts/4e71926f-8f13-450e-b91c-23c2ef786aa6/Conferences/cd5a70f4-759b-4d5e-9c06-88c00f16f3c1/Recordings.json"
         }
       },
+      "ConnectionsErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ConnectionsErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ConnectionsErrorResponseErrorsItemSource"
+          }
+        }
+      },
       "DocumentsErrorSource": {
         "type": "object",
         "properties": {
@@ -188066,6 +189764,26 @@
       },
       "EmergencyErrorMeta": {
         "type": "object"
+      },
+      "ExternalVoiceIntegrationsErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ExternalVoiceIntegrationsErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ExternalVoiceIntegrationsErrorResponseErrorsItemSource"
+          }
+        }
       },
       "HttpRequest": {
         "type": "object",
@@ -188411,30 +190129,6 @@
       "NetappsError17904FcfbcMeta": {
         "type": "object"
       },
-      "NoiseSuppressionEnginesErrorResponseErrorsItem": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "meta": {
-            "$ref": "#/components/schemas/NoiseSuppressionEnginesErrorResponseErrorsItemMeta"
-          },
-          "source": {
-            "$ref": "#/components/schemas/NoiseSuppressionEnginesErrorResponseErrorsItemSource"
-          }
-        }
-      },
       "NotificationsErrorSource": {
         "type": "object",
         "properties": {
@@ -188636,6 +190330,26 @@
           }
         }
       },
+      "OutboundVoiceProfilesErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/OutboundVoiceProfilesErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/OutboundVoiceProfilesErrorResponseErrorsItemSource"
+          }
+        }
+      },
       "ProgrammableFaxErrorSource": {
         "type": "object",
         "properties": {
@@ -188651,6 +190365,26 @@
       },
       "ProgrammableFaxErrorMeta": {
         "type": "object"
+      },
+      "ProgrammableFaxErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ProgrammableFaxErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ProgrammableFaxErrorResponseErrorsItemSource"
+          }
+        }
       },
       "PronunciationDictsErrorObjectSource": {
         "type": "object",
@@ -188737,6 +190471,46 @@
       "SpeechToTextErrorMeta": {
         "type": "object"
       },
+      "StoredPaymentTransactionsErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/StoredPaymentTransactionsErrorResponseErrorsItemMeta"
+          },
+          "source": {
+            "$ref": "#/components/schemas/StoredPaymentTransactionsErrorResponseErrorsItemSource"
+          }
+        }
+      },
+      "TaggingsErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/TaggingsErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/TaggingsErrorResponseErrorsItemSource"
+          }
+        }
+      },
       "TextToSpeechErrorResponseErrorsItem": {
         "type": "object",
         "properties": {
@@ -188782,6 +190556,46 @@
       },
       "TranscriptionsSearchErrorMeta": {
         "type": "object"
+      },
+      "UserTagsErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/UserTagsErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/UserTagsErrorResponseErrorsItemSource"
+          }
+        }
+      },
+      "UsersErrorResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/UsersErrorResponseErrorsItemMeta"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/UsersErrorResponseErrorsItemSource"
+          }
+        }
       },
       "VerifiedNumbersErrorSource": {
         "type": "object",
@@ -189936,8 +191750,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "type": "string",
-            "format": "uri"
+            "type": "string"
           }
         }
       },
@@ -191111,6 +192924,23 @@
         },
         "description": "Additional scheme-specific parameters including EIP-712 domain info and the facilitator URL."
       },
+      "CallScriptingErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "CallScriptingErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        }
+      },
       "CallConversationInsightsGeneratedBodyPayloadResultsItem": {
         "type": "object",
         "properties": {
@@ -191121,6 +192951,57 @@
           },
           "result": {
             "$ref": "#/components/schemas/CallConversationInsightsGeneratedBodyPayloadResultsItemResult"
+          }
+        }
+      },
+      "CallsErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "CallsErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        }
+      },
+      "ConnectionsErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "ConnectionsErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        }
+      },
+      "ExternalVoiceIntegrationsErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "ExternalVoiceIntegrationsErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
           }
         }
       },
@@ -191170,15 +193051,101 @@
           }
         }
       },
-      "NoiseSuppressionEnginesErrorResponseErrorsItemMeta": {
+      "OutboundVoiceProfilesErrorResponseErrorsItemMeta": {
         "type": "object",
         "properties": {
           "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "OutboundVoiceProfilesErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
             "type": "string"
           }
         }
       },
-      "NoiseSuppressionEnginesErrorResponseErrorsItemSource": {
+      "ProgrammableFaxErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "ProgrammableFaxErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        }
+      },
+      "StoredPaymentTransactionsErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "StoredPaymentTransactionsErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        }
+      },
+      "TaggingsErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "TaggingsErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        }
+      },
+      "UserTagsErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "UserTagsErrorResponseErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        }
+      },
+      "UsersErrorResponseErrorsItemMeta": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "UsersErrorResponseErrorsItemSource": {
         "type": "object",
         "properties": {
           "pointer": {
@@ -210719,6 +212686,24 @@
           ]
         }
       },
+      "CreateSpendLimitUnlimitedUnlimited": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "additionalProperties": false,
+        "description": "\u0060true\u0060: explicitly no cap.",
+        "example": true
+      },
+      "CreateSpendLimitWithAmountUnlimited": {
+        "enum": [
+          false
+        ],
+        "type": "boolean",
+        "additionalProperties": false,
+        "description": "Optional; only \u0060false\u0060 is allowed together with \u0060amount\u0060.",
+        "example": false
+      },
       "CreateSubNumberOrdersReportRequestStatus": {
         "enum": [
           "pending",
@@ -211545,6 +213530,29 @@
             {
               "value": "default",
               "name": "DefaultValue"
+            }
+          ]
+        }
+      },
+      "DelegationSettingsMode": {
+        "enum": [
+          "telnyx",
+          "client"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Who answers a delegation. \u0060telnyx\u0060 runs the backend model on Telnyx with the assistant\u0027s own tools, MCP servers and observability. \u0060client\u0060 relays the delegation to a server you host over the WebSocket configured in \u0060websocket_settings\u0060: Telnyx sends a \u0060session.delegation.created\u0060 frame and waits for your \u0060session.delegation.completed\u0060 answer. That answer is text only, since the socket offers no tool vocabulary. If no socket is connected the delegation is refused and the assistant tells the caller it cannot look things up right now. Defaults to \u0060telnyx\u0060.",
+        "x-ms-enum": {
+          "name": "DelegationSettingsMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "telnyx",
+              "name": "Telnyx"
+            },
+            {
+              "value": "client",
+              "name": "Client"
             }
           ]
         }
@@ -224794,6 +226802,30 @@
           ]
         }
       },
+      "SpendLimitLimitOrigin": {
+        "enum": [
+          "self_service",
+          "operator"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0060self_service\u0060 when a user of the account set it, \u0060operator\u0060 when Telnyx support did.",
+        "example": "self_service",
+        "x-ms-enum": {
+          "name": "SpendLimitLimitOrigin",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "self_service",
+              "name": "SelfService"
+            },
+            {
+              "value": "operator",
+              "name": "OperatorValue"
+            }
+          ]
+        }
+      },
       "SqlDatabaseStatus": {
         "enum": [
           "pending",
@@ -229194,6 +231226,24 @@
             }
           ]
         }
+      },
+      "UpdateSpendLimitUnlimitedUnlimited": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "additionalProperties": false,
+        "description": "\u0060true\u0060: explicitly no cap.",
+        "example": true
+      },
+      "UpdateSpendLimitWithAmountUnlimited": {
+        "enum": [
+          false
+        ],
+        "type": "boolean",
+        "additionalProperties": false,
+        "description": "Optional; only \u0060false\u0060 is allowed together with \u0060amount\u0060.",
+        "example": false
       },
       "UpdateTexmlApplicationRequestVoiceMethod": {
         "enum": [
@@ -246435,7 +248485,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/CallScriptingErrorResponse"
             },
             "examples": {
               "notFound": {
@@ -246762,7 +248812,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/CallScriptingErrorResponse"
             },
             "examples": {
               "Authentication Failed": {
@@ -247709,7 +249759,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/CallScriptingErrorResponse"
             },
             "examples": {
               "conference_ended": {
@@ -247745,7 +249795,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/CallScriptingErrorResponse"
             },
             "example": {
               "errors": [
@@ -247784,7 +249834,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/CallScriptingErrorResponse"
             },
             "example": {
               "errors": [
@@ -247803,7 +249853,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/CallScriptingErrorResponse"
             },
             "examples": {
               "notAuthorized": {
@@ -247832,7 +249882,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/CallsErrorResponse"
             },
             "examples": {
               "missing_required_parameter": {
@@ -247904,7 +249954,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/CallScriptingErrorResponse"
             },
             "examples": {
               "missing_required_parameter": {
@@ -248033,7 +250083,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/ConnectionsErrorResponse"
             },
             "examples": {
               "missingParameter": {
@@ -248062,7 +250112,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/ConnectionsErrorResponse"
             },
             "examples": {
               "notFound": {
@@ -248091,7 +250141,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/ConnectionsErrorResponse"
             },
             "examples": {
               "notAuthorized": {
@@ -248120,7 +250170,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/ConnectionsErrorResponse"
             },
             "examples": {
               "unprocessableEntity": {
@@ -249324,7 +251374,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/ProgrammableFaxErrorResponse"
             },
             "examples": {
               "missingParameter": {
@@ -249642,7 +251692,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/UsersErrorResponse"
             },
             "examples": {
               "missingParameter": {
@@ -249671,7 +251721,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/UsersErrorResponse"
             },
             "examples": {
               "notFound": {
@@ -249700,7 +251750,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
+              "$ref": "#/components/schemas/UsersErrorResponse"
             },
             "examples": {
               "notAuthorized": {
@@ -255115,6 +257165,10 @@
     {
       "name": "Speech to text Usage Reports",
       "description": "Speech to text usage reports"
+    },
+    {
+      "name": "Spend Limits",
+      "description": "Daily and monthly spend limits per product. A limit applies to the organization of the authenticated user, or to the user\u0027s own account when they belong to no organization; every user of the organization sees and changes the same limits.\n\n- **Periods.** \u0060daily\u0060 covers the current UTC day and \u0060monthly\u0060 the current UTC calendar month. The two limits are independent: you can set either, both or neither.\n- **Blocking.** When spend in a period goes above the limit (strictly greater), the product is blocked until the period ends: 00:00 UTC the next day for \u0060daily\u0060, 00:00 UTC on the 1st of the next month for \u0060monthly\u0060. A block appears within about 2 minutes (daily) or 10 minutes (monthly) of the spend being recorded.\n- **Changes apply immediately.** Creating, updating or deleting a limit checks the period\u0027s spend in the same request: raising the limit above the spend, or removing it, lifts that period\u0027s block, and lowering it below the spend blocks the product at once. The \u0060evaluation\u0060 object in the response says what happened.\n- **Supported products.** Today only \u0060inference\u0060 supports spend limits. A blocked account gets HTTP 403 with the error title \u0060Inference spend limit reached\u0060 (code \u006010039\u0060) on new billable chat completions, Responses, Anthropic Messages and classification requests; requests already running finish normally. Take the list of products from the list operation.\n- **Limits set by Telnyx.** Telnyx support can also set a limit on your account. It is listed with \u0060origin: operator\u0060 and you can update or delete it like your own."
     },
     {
       "name": "Stored Payment Transactions",

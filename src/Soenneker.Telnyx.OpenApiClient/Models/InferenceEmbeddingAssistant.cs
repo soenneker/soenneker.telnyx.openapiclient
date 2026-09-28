@@ -32,6 +32,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all — when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single `delegate` tool that returns immediately, so the conversation carries on while the backend works. Either way the backend&apos;s answer is spoken as commentary or kept as silent context, depending on `speak_results`. Beta feature.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings? DelegationSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings DelegationSettings { get; set; }
+#endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -268,6 +276,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings VoiceSettings { get; set; }
 #endif
+        /// <summary>Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings? WebsocketSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings WebsocketSettings { get; set; }
+#endif
         /// <summary>Configuration settings for the assistant&apos;s web widget.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -306,6 +322,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "a2a_agents", n => { A2aAgents = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "conversation_flow", n => { ConversationFlow = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlow>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlow.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "delegation_settings", n => { DelegationSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistantDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistantDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "dynamic_variables_webhook_timeout_ms", n => { DynamicVariablesWebhookTimeoutMs = n.GetIntValue(); } },
@@ -337,6 +354,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "version_id", n => { VersionId = n.GetStringValue(); } },
                 { "version_name", n => { VersionName = n.GetStringValue(); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings.CreateFromDiscriminatorValue); } },
+                { "websocket_settings", n => { WebsocketSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings.CreateFromDiscriminatorValue); } },
                 { "widget_settings", n => { WidgetSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -350,6 +368,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>("a2a_agents", A2aAgents);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlow>("conversation_flow", ConversationFlow);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings>("delegation_settings", DelegationSettings);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistantDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteIntValue("dynamic_variables_webhook_timeout_ms", DynamicVariablesWebhookTimeoutMs);
@@ -381,6 +400,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("version_id", VersionId);
             writer.WriteStringValue("version_name", VersionName);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings>("websocket_settings", WebsocketSettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings>("widget_settings", WidgetSettings);
             writer.WriteAdditionalData(AdditionalData);
         }

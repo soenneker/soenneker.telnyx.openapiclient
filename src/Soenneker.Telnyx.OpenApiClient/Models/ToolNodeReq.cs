@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// A standalone tool step in a conversation flow, as supplied by clients.Unlike a prompt node, a tool node has no instructions or model — itisn&apos;t an LLM turn. Reaching it deterministically runs one shared tool(arguments filled from matching dynamic variables by name), then routeson the result via outgoing `tool_result` edges.
+    /// A standalone tool step in a conversation flow, as supplied by clients.Unlike a prompt node, a tool node has no instructions or model — itisn&apos;t an LLM turn. Reaching it deterministically runs one shared tool(arguments filled from matching dynamic variables by name), then routesvia outgoing `llm` / `expression` edges, with exactly one `default`fallback edge required when the node has any outgoing edges (thetool&apos;s outcome is readable as `telnyx_last_tool_status_code` in`expression` conditions).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolNodeReq : IAdditionalDataHolder, IParsable
@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Id { get; set; }
+#endif
+        /// <summary>Optional message delivered to the user verbatim immediately before the tool executes — an announcement such as &apos;One moment while I look that up.&apos; No LLM turn and no customer turn: the message is spoken/sent, then the tool runs, in the same deterministic step. `{{variable}}` placeholders are interpolated from the conversation&apos;s dynamic variables (unresolved → empty string); the tool&apos;s own result is not yet available when the message is rendered. Omit for a silent tool step.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Message { get; set; }
+#nullable restore
+#else
+        public string Message { get; set; }
 #endif
         /// <summary>Optional human-readable label, displayed in authoring UIs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition Position { get; set; }
 #endif
-        /// <summary>ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing `tool_result` edges then route on the outcome. Arguments are filled from the conversation&apos;s dynamic variables by name — a dynamic variable whose name matches one of the tool&apos;s parameters supplies that argument. Cross-validated against the org&apos;s shared tools on write.</summary>
+        /// <summary>ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing `llm` / `expression` edges route the flow on the tool&apos;s outcome. Arguments are filled from the conversation&apos;s dynamic variables by name — a dynamic variable whose name matches one of the tool&apos;s parameters supplies that argument. Cross-validated against the org&apos;s shared tools on write.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SharedToolId { get; set; }
@@ -75,6 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "message", n => { Message = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "position", n => { Position = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>(global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition.CreateFromDiscriminatorValue); } },
                 { "shared_tool_id", n => { SharedToolId = n.GetStringValue(); } },
@@ -89,6 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("message", Message);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NodePosition>("position", Position);
             writer.WriteStringValue("shared_tool_id", SharedToolId);

@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class NoiseSuppressionEnginesErrorResponseErrorsItem : IAdditionalDataHolder, IParsable
+    public partial class ExternalVoiceIntegrationsErrorResponseErrorsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,18 +33,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemMeta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemMeta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemMeta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemMeta Meta { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemSource? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemSource? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemSource Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemSource Source { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,21 +55,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Title { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItem"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItem"/> and sets the default values.
         /// </summary>
-        public NoiseSuppressionEnginesErrorResponseErrorsItem()
+        public ExternalVoiceIntegrationsErrorResponseErrorsItem()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItem();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,8 +81,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemMeta.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemSource>(global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemSource.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemMeta.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemSource>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemSource.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -95,8 +95,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemMeta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEnginesErrorResponseErrorsItemSource>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemMeta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponseErrorsItemSource>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }
