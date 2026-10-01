@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The administrative_area property</summary>
+        /// <summary>The state or province of the partner&apos;s address, as its code, for example IL or ON.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdministrativeArea { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AdministrativeArea { get; set; }
 #endif
-        /// <summary>The city property</summary>
+        /// <summary>The city of the partner&apos;s address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? City { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string City { get; set; }
 #endif
-        /// <summary>The contact_email property</summary>
+        /// <summary>The email address of the contact person at the partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContactEmail { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ContactEmail { get; set; }
 #endif
-        /// <summary>The contact_name property</summary>
+        /// <summary>The name of a contact person at the partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContactName { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ContactName { get; set; }
 #endif
-        /// <summary>The contact_phone property</summary>
+        /// <summary>The phone number of the contact person at the partner, in E.164 format, for example +13125550000.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContactPhone { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ContactPhone { get; set; }
 #endif
-        /// <summary>The contact_title property</summary>
+        /// <summary>The job title of the contact person at the partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContactTitle { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ContactTitle { get; set; }
 #endif
-        /// <summary>The country property</summary>
+        /// <summary>The two-letter country code of the partner&apos;s address, for example US.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Country { get; set; }
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Country { get; set; }
 #endif
-        /// <summary>The dba property</summary>
+        /// <summary>The trade name (Doing Business As) the partner operates under, if different from its legal name. Leave blank if it does not apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Dba { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Dba { get; set; }
 #endif
-        /// <summary>The extended_address property</summary>
+        /// <summary>An optional second address line for the partner, such as a suite, unit, or floor. Leave blank if it does not apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExtendedAddress { get; set; }
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExtendedAddress { get; set; }
 #endif
-        /// <summary>The legal_name property</summary>
+        /// <summary>The legal name of the third-party partner or reseller managing these numbers on your behalf.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LegalName { get; set; }
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LegalName { get; set; }
 #endif
-        /// <summary>The postal_code property</summary>
+        /// <summary>The postal or ZIP code of the partner&apos;s address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostalCode { get; set; }
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PostalCode { get; set; }
 #endif
-        /// <summary>The street_address property</summary>
+        /// <summary>The street address of the partner, including the building number and street name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StreetAddress { get; set; }

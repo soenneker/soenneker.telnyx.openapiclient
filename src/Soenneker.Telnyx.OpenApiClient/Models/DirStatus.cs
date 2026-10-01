@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>DIR lifecycle status.- `draft` - newly created; editable; not yet submitted.- `submitted` / `in_review` - Telnyx is reviewing.- `verified` - approved; phone numbers may be attached.- `rejected` - Telnyx rejected this submission; `rejection_reasons` is populated; customer can edit and resubmit.- `unsuccessful` - system-side error during processing; customer can edit and resubmit.- `suspended` - temporarily disabled (e.g. by an active infringement claim).- `expired` - verification expired; customer must resubmit.- `infringement_claimed` - a trademark/impersonation claim is open against this DIR.- `permanently_rejected` - terminal; cannot be resubmitted.</summary>
+    /// <summary>DIR lifecycle status.- `draft` - newly created; editable; not yet submitted.- `submitted` / `in_review` - Telnyx is reviewing.- `verified` - approved; phone numbers may be attached.- `rejected` - Telnyx rejected this submission; `rejection_reasons` is populated; customer can edit and resubmit.- `unsuccessful` - system-side error during processing; customer can edit and resubmit.- `suspended` - temporarily disabled (e.g. by an active infringement claim).- `expired` - verification expired; customer must resubmit.- `infringement_claimed` - a trademark/impersonation claim is open against this DIR.- `permanently_rejected` - terminal; cannot be resubmitted.- `delete_requested` - you have requested deletion; the DIR still exists and Telnyx is completing the removal (de-registration and cleanup). A verified DIR keeps serving its branded identity, and keeps billing, until the removal finishes.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DirStatus
     {
@@ -46,6 +46,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "permanently_rejected")]
         #pragma warning disable CS1591
         PermanentlyRejected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "delete_requested")]
+        #pragma warning disable CS1591
+        DeleteRequested,
         #pragma warning restore CS1591
     }
 }

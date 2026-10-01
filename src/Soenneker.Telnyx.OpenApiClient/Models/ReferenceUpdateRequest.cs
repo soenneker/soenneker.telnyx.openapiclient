@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Reference contact email address.</summary>
+        /// <summary>The reference&apos;s email address. We email them scheduling and dial-in instructions before we call, so use an address they check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>Full name of the reference contact.</summary>
+        /// <summary>The full name of the person we should contact as your reference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FullName { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FullName { get; set; }
 #endif
-        /// <summary>Job title of the reference contact.</summary>
+        /// <summary>The reference contact&apos;s job title, for example CFO or Owner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JobTitle { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string JobTitle { get; set; }
 #endif
-        /// <summary>Organization the reference contact belongs to.</summary>
+        /// <summary>The name of the organization the reference contact works for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Organization { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Organization { get; set; }
 #endif
-        /// <summary>Reference phone number in E.164 format.</summary>
+        /// <summary>The reference&apos;s phone number in E.164 format, for example +14155550123. We call this number during their local business hours.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PhoneE164 { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RelationshipToRegistrant { get; set; }
 #endif
-        /// <summary>IANA timezone id for the reference.</summary>
+        /// <summary>The reference&apos;s IANA time zone, for example America/New_York. We only call during their local 8am to 9pm hours, which is why we need it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Timezone { get; set; }

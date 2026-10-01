@@ -11,7 +11,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// Third-party reseller / partner managing the enterprise&apos;s phone numbers. Omit when the enterprise works directly with Telnyx.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AgentInput : IAdditionalDataHolder, IParsable
+    public partial class NumberReputationAgentInput : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -112,21 +112,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StreetAddress { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput"/> and sets the default values.
         /// </summary>
-        public AgentInput()
+        public NumberReputationAgentInput()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput();
         }
         /// <summary>
         /// The deserialization information for the current model

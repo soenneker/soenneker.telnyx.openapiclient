@@ -46,6 +46,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? CertifyNoShaftContent { get; set; }
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
+        /// <summary>When deletion was requested. Set once the DIR enters `delete_requested`; `null` otherwise.</summary>
+        public DateTimeOffset? DeleteRequestedAt { get; private set; }
         /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The reselling property</summary>
         public bool? Reselling { get; set; }
-        /// <summary>DIR lifecycle status.- `draft` - newly created; editable; not yet submitted.- `submitted` / `in_review` - Telnyx is reviewing.- `verified` - approved; phone numbers may be attached.- `rejected` - Telnyx rejected this submission; `rejection_reasons` is populated; customer can edit and resubmit.- `unsuccessful` - system-side error during processing; customer can edit and resubmit.- `suspended` - temporarily disabled (e.g. by an active infringement claim).- `expired` - verification expired; customer must resubmit.- `infringement_claimed` - a trademark/impersonation claim is open against this DIR.- `permanently_rejected` - terminal; cannot be resubmitted.</summary>
+        /// <summary>DIR lifecycle status.- `draft` - newly created; editable; not yet submitted.- `submitted` / `in_review` - Telnyx is reviewing.- `verified` - approved; phone numbers may be attached.- `rejected` - Telnyx rejected this submission; `rejection_reasons` is populated; customer can edit and resubmit.- `unsuccessful` - system-side error during processing; customer can edit and resubmit.- `suspended` - temporarily disabled (e.g. by an active infringement claim).- `expired` - verification expired; customer must resubmit.- `infringement_claimed` - a trademark/impersonation claim is open against this DIR.- `permanently_rejected` - terminal; cannot be resubmitted.- `delete_requested` - you have requested deletion; the DIR still exists and Telnyx is completing the removal (de-registration and cleanup). A verified DIR keeps serving its branded identity, and keeps billing, until the removal finishes.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DirStatus? Status { get; set; }
         /// <summary>The submitted_at property</summary>
         public DateTimeOffset? SubmittedAt { get; private set; }
@@ -96,6 +98,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>The verified_at property</summary>
         public DateTimeOffset? VerifiedAt { get; private set; }
+        /// <summary>`https://` URL that receives webhook notifications for this DIR&apos;s compliance-review outcomes. `null` when not subscribed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebhookUrl { get; set; }
+#nullable restore
+#else
+        public string WebhookUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Dir"/> and sets the default values.
         /// </summary>
@@ -128,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "certify_ip_ownership", n => { CertifyIpOwnership = n.GetBoolValue(); } },
                 { "certify_no_shaft_content", n => { CertifyNoShaftContent = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "delete_requested_at", n => { DeleteRequestedAt = n.GetDateTimeOffsetValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "documents", n => { Documents = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Document>(global::Soenneker.Telnyx.OpenApiClient.Models.Document.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "enterprise_id", n => { EnterpriseId = n.GetGuidValue(); } },
@@ -141,6 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "submitted_at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "verified_at", n => { VerifiedAt = n.GetDateTimeOffsetValue(); } },
+                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -163,6 +175,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RejectionReason>("rejection_reasons", RejectionReasons);
             writer.WriteBoolValue("reselling", Reselling);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirStatus>("status", Status);
+            writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

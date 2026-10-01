@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact BillingContact { get; set; }
 #endif
-        /// <summary>Optional corporate-registration / company-number identifier.</summary>
+        /// <summary>The official number your company received when it was legally registered or incorporated (for example from your state or national business registry). It is on your certificate of incorporation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CorporateRegistrationNumber { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CountryCode { get; set; }
 #endif
-        /// <summary>Optional free-form string the caller can attach for their own bookkeeping. Telnyx does not interpret it.</summary>
+        /// <summary>Your own label for this account. Enter any reference that helps you find it in your records. Telnyx does not use it during vetting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomerReference { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomerReference { get; set; }
 #endif
-        /// <summary>The doing_business_as property</summary>
+        /// <summary>The trade name your business operates under if it is different from your legal name, also called a Doing Business As (DBA) name. Leave blank if you only use your legal name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DoingBusinessAs { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DoingBusinessAs { get; set; }
 #endif
-        /// <summary>Optional D-U-N-S Number.</summary>
+        /// <summary>Your optional 9-digit D-U-N-S Number issued by Dun &amp; Bradstreet, a unique identifier for your business. Leave blank if you do not have one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DunBradstreetNumber { get; set; }
@@ -78,9 +78,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Fein { get; set; }
 #endif
-        /// <summary>Industry classification.</summary>
+        /// <summary>The industry your business operates in. Choose the closest match from the list; if your value is not accepted, pick the nearest category.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseCreateIndustry? Industry { get; set; }
-        /// <summary>The jurisdiction_of_incorporation property</summary>
+        /// <summary>The state, province, or country where your business was legally incorporated, for example Delaware.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JurisdictionOfIncorporation { get; set; }
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string JurisdictionOfIncorporation { get; set; }
 #endif
-        /// <summary>Legal name of the enterprise.</summary>
+        /// <summary>Your business&apos;s full registered legal name, exactly as it appears on your incorporation or tax documents, 3 to 64 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LegalName { get; set; }
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Organization category for vetting purposes:- `commercial` - for-profit business entities (LLC, corp, partnership, sole proprietorship). Most callers fall here.- `government` - federal/state/local government bodies.- `non_profit` - registered 501(c)(3)/equivalent (incl. educational institutions, charities, religious organisations).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseCreateOrganizationType? OrganizationType { get; set; }
-        /// <summary>Optional SIC code for the primary line of business.</summary>
+        /// <summary>The 4-digit Standard Industrial Classification code for your main line of business, which tells us what industry you operate in. Look it up in the SIC code directory if you are unsure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PrimaryBusinessDomainSicCode { get; set; }
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PrimaryBusinessDomainSicCode { get; set; }
 #endif
-        /// <summary>Optional professional-license number for regulated industries.</summary>
+        /// <summary>If your business operates under a professional license (for example legal, medical, or financial services), enter the license number issued by the licensing authority. Leave blank if it does not apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProfessionalLicenseNumber { get; set; }
@@ -134,9 +134,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ProfessionalLicenseNumber { get; set; }
 #endif
-        /// <summary>`enterprise` for an organization registering its own DIRs; `bpo` for a Business Process Outsourcer placing calls on behalf of one or more enterprises.</summary>
+        /// <summary>`enterprise` for an organization registering its own DIRs (the default, and the right choice when the calls display your own brand). `bpo` for a Business Process Outsourcer: a call center that places calls on behalf of other enterprises and displays their brand. A `bpo` enterprise describes the call center itself and cannot own a DIR. Each client the call center calls for gets its own `enterprise` in the same account, with the client&apos;s DIR under it; that DIR is then linked to the `bpo` enterprise through `bpo_authorizations`. Fixed at creation.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseCreateRoleType? RoleType { get; set; }
-        /// <summary>The website property</summary>
+        /// <summary>Your business&apos;s public website address, including https://. Leave blank if your business has no website.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Website { get; set; }

@@ -12,7 +12,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class BulkDeletePhoneNumbersRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The phone_numbers property</summary>
+        /// <summary>The phone numbers to remove from this brand, in E.164 format, up to 100 per request. They must currently be attached to this brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? PhoneNumbers { get; set; }

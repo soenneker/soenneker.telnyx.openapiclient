@@ -26,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? CertifyBrandIsAccurate { get; set; }
         /// <summary>Must be `true`.</summary>
         public bool? CertifyIpOwnership { get; set; }
-        /// <summary>Must be `true`.</summary>
+        /// <summary>Check to certify that the brand no longer infringes anyone else&apos;s trademark or intellectual property.</summary>
         public bool? CertifyNoInfringement { get; set; }
         /// <summary>Must be `true`.</summary>
         public bool? CertifyNoShaftContent { get; set; }
-        /// <summary>The display_name property</summary>
+        /// <summary>The business name shown to call recipients, 1 to 35 characters, no emoji, not blank.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }

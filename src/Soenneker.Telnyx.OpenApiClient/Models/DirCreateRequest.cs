@@ -30,6 +30,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AuthorizerName { get; set; }
 #endif
+        /// <summary>Optional. Approved BPO (Business Process Outsourcer) accounts on your organization authorized to place branded calls for this DIR, each with the signed Letter of Authorization the Brand Owner granted it. Each authorization starts `pending` and takes effect only after an admin reviews its Letter of Authorization. Omit or send an empty list to authorize no BPO on this DIR. Maximum 10.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput>? BpoAuthorizations { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput> BpoAuthorizations { get; set; }
+#endif
         /// <summary>1–10 reasons your business calls customers. Validate phrasing against `POST /call_reasons/validate`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> CallReasons { get; set; }
 #endif
-        /// <summary>Must be `true`.</summary>
+        /// <summary>Certification that the DIR information is accurate. Must be `true` for the DIR to be submitted for vetting.</summary>
         public bool? CertifyBrandIsAccurate { get; set; }
         /// <summary>Must be `true`. Confirms ownership of any logos/trademarks shown.</summary>
         public bool? CertifyIpOwnership { get; set; }
@@ -70,6 +78,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Set to true if your organization places calls on behalf of other enterprises (BPO/reseller).</summary>
         public bool? Reselling { get; set; }
+        /// <summary>Optional `https://` URL that receives webhook notifications when this DIR&apos;s compliance review completes (rejection outcomes include structured rejection reasons). Maximum 2048 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebhookUrl { get; set; }
+#nullable restore
+#else
+        public string WebhookUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DirCreateRequest"/> and sets the default values.
         /// </summary>
@@ -98,6 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "authorizer_email", n => { AuthorizerEmail = n.GetStringValue(); } },
                 { "authorizer_name", n => { AuthorizerName = n.GetStringValue(); } },
+                { "bpo_authorizations", n => { BpoAuthorizations = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput>(global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "call_reasons", n => { CallReasons = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "certify_brand_is_accurate", n => { CertifyBrandIsAccurate = n.GetBoolValue(); } },
                 { "certify_ip_ownership", n => { CertifyIpOwnership = n.GetBoolValue(); } },
@@ -106,6 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "documents", n => { Documents = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Document>(global::Soenneker.Telnyx.OpenApiClient.Models.Document.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "logo_url", n => { LogoUrl = n.GetStringValue(); } },
                 { "reselling", n => { Reselling = n.GetBoolValue(); } },
+                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -117,6 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("authorizer_email", AuthorizerEmail);
             writer.WriteStringValue("authorizer_name", AuthorizerName);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput>("bpo_authorizations", BpoAuthorizations);
             writer.WriteCollectionOfPrimitiveValues<string>("call_reasons", CallReasons);
             writer.WriteBoolValue("certify_brand_is_accurate", CertifyBrandIsAccurate);
             writer.WriteBoolValue("certify_ip_ownership", CertifyIpOwnership);
@@ -125,6 +144,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Document>("documents", Documents);
             writer.WriteStringValue("logo_url", LogoUrl);
             writer.WriteBoolValue("reselling", Reselling);
+            writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

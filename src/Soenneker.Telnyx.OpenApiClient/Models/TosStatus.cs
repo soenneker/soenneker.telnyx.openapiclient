@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agreed_at property</summary>
+        /// <summary>When you accepted the terms, or null if you have not.</summary>
         public DateTimeOffset? AgreedAt { get; set; }
         /// <summary>Version the user previously agreed to (may be older than `current_terms_version`). `null` if the user has never agreed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

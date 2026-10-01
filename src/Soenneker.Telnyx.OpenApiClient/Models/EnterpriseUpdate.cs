@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact BillingContact { get; set; }
 #endif
-        /// <summary>The corporate_registration_number property</summary>
+        /// <summary>The official number your company received when it was legally registered or incorporated (for example from your state or national business registry). It is on your certificate of incorporation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CorporateRegistrationNumber { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CorporateRegistrationNumber { get; set; }
 #endif
-        /// <summary>The customer_reference property</summary>
+        /// <summary>Your own label for this account. Enter any reference that helps you find it in your records. Telnyx does not use it during vetting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomerReference { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomerReference { get; set; }
 #endif
-        /// <summary>The doing_business_as property</summary>
+        /// <summary>The trade name your business operates under if it is different from your legal name, also called a Doing Business As (DBA) name. Leave blank if you only use your legal name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DoingBusinessAs { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DoingBusinessAs { get; set; }
 #endif
-        /// <summary>The dun_bradstreet_number property</summary>
+        /// <summary>Your optional 9-digit D-U-N-S Number issued by Dun &amp; Bradstreet, a unique identifier for your business. Leave blank if you do not have one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DunBradstreetNumber { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DunBradstreetNumber { get; set; }
 #endif
-        /// <summary>The fein property</summary>
+        /// <summary>US Federal Employer Identification Number (`NN-NNNNNNN`) or Canadian equivalent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Fein { get; set; }
@@ -71,9 +71,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Fein { get; set; }
 #endif
-        /// <summary>The industry property</summary>
+        /// <summary>The industry your business operates in. Choose the closest match from the list; if your value is not accepted, pick the nearest category.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry? Industry { get; set; }
-        /// <summary>Updated state/province/country of incorporation. Optional on update.</summary>
+        /// <summary>The state, province, or country where your business was legally incorporated, for example Delaware.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JurisdictionOfIncorporation { get; set; }
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string JurisdictionOfIncorporation { get; set; }
 #endif
-        /// <summary>Legal name of the enterprise.</summary>
+        /// <summary>Your business&apos;s full registered legal name, exactly as it appears on your incorporation or tax documents, 3 to 64 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LegalName { get; set; }
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LegalName { get; set; }
 #endif
-        /// <summary>The number_of_employees property</summary>
+        /// <summary>Approximate headcount range. Used for vetting heuristics; pick the bucket that contains your current employee count.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NumberOfEmployees { get; set; }
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact OrganizationContact { get; set; }
 #endif
-        /// <summary>The organization_legal_type property</summary>
+        /// <summary>Legal-entity form. Pick the form that matches your incorporation documents:- `corporation` - C-corp or S-corp.- `llc` - limited liability company.- `partnership` - general/limited partnership.- `nonprofit` - non-profit corporation, charitable trust, or 501(c)(3)/equivalent.- `other` - anything else (sole proprietorships, government bodies, DBAs, etc.). You may be asked for additional documents during vetting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrganizationLegalType { get; set; }
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress OrganizationPhysicalAddress { get; set; }
 #endif
-        /// <summary>The primary_business_domain_sic_code property</summary>
+        /// <summary>The 4-digit Standard Industrial Classification code for your main line of business, which tells us what industry you operate in. Look it up in the SIC code directory if you are unsure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PrimaryBusinessDomainSicCode { get; set; }
@@ -129,7 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PrimaryBusinessDomainSicCode { get; set; }
 #endif
-        /// <summary>The professional_license_number property</summary>
+        /// <summary>If your business operates under a professional license (for example legal, medical, or financial services), enter the license number issued by the licensing authority. Leave blank if it does not apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProfessionalLicenseNumber { get; set; }
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ProfessionalLicenseNumber { get; set; }
 #endif
-        /// <summary>The website property</summary>
+        /// <summary>Your business&apos;s public website address, including https://. Leave blank if your business has no website.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Website { get; set; }

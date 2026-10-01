@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AdministrativeArea { get; set; }
 #endif
-        /// <summary>The city property</summary>
+        /// <summary>The city of your registered business address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? City { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Country { get; set; }
 #endif
-        /// <summary>The extended_address property</summary>
+        /// <summary>An optional second address line, such as a suite, unit, or floor. Leave blank if it does not apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExtendedAddress { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExtendedAddress { get; set; }
 #endif
-        /// <summary>The postal_code property</summary>
+        /// <summary>The postal or ZIP code of your registered business address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostalCode { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PostalCode { get; set; }
 #endif
-        /// <summary>The street_address property</summary>
+        /// <summary>The street address of your registered business, including the building number and street name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StreetAddress { get; set; }

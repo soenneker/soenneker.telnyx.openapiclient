@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Phone_numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Register phone numbers under a DIR. The enterprise is resolved server-side from the DIR id. Same body, failure modes, and batch semantics whichever path form you use.**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.
+        /// Register phone numbers under a DIR. The enterprise is resolved server-side from the DIR id.**Pricing:** Adding phone numbers is free. Branded Calling fees are charged per DIR and per branded call. See https://telnyx.com/pricing/branded-calling for current pricing.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBulkResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -148,7 +148,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Phone_numbers
             return requestInfo;
         }
         /// <summary>
-        /// Register phone numbers under a DIR. The enterprise is resolved server-side from the DIR id. Same body, failure modes, and batch semantics whichever path form you use.**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.
+        /// Register phone numbers under a DIR. The enterprise is resolved server-side from the DIR id.**Pricing:** Adding phone numbers is free. Branded Calling fees are charged per DIR and per branded call. See https://telnyx.com/pricing/branded-calling for current pricing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

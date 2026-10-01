@@ -11494,6 +11494,279 @@
         }
       }
     },
+    "/ai/memory/namespaces": {
+      "get": {
+        "tags": [
+          "Namespaces"
+        ],
+        "summary": "List your namespaces",
+        "description": "Every namespace in your organization, \u0060default\u0060 among them.",
+        "operationId": "ListNamespaces",
+        "responses": {
+          "200": {
+            "description": "Your namespaces",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NamespaceListResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "1f815759-d4d8-5548-aa5b-077a60b9f8dd",
+                      "name": "default"
+                    },
+                    {
+                      "id": "b3c17d90-2e4f-5a1b-9c8d-6f0a2b3c4d5e",
+                      "name": "staging"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10009",
+                      "title": "Authentication failed",
+                      "detail": "Could not find any usable credentials in the request.",
+                      "source": {
+                        "pointer": "/"
+                      },
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10009"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "upstream_error",
+                      "detail": "the memory dataplane is unavailable"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Namespaces"
+        ],
+        "summary": "Create a namespace",
+        "description": "Create a namespace. An organization can have at most five, \u0060default\u0060 among them \u2014 a sixth returns \u0060403\u0060.",
+        "operationId": "CreateNamespace",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NamespaceCreate"
+              },
+              "example": {
+                "name": "staging"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "The created namespace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NamespaceResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "b3c17d90-2e4f-5a1b-9c8d-6f0a2b3c4d5e",
+                    "name": "staging"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10009",
+                      "title": "Authentication failed",
+                      "detail": "Could not find any usable credentials in the request.",
+                      "source": {
+                        "pointer": "/"
+                      },
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10009"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Namespace limit reached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10039",
+                      "title": "Forbidden",
+                      "detail": "an organization can have 5 namespaces, \u0060default\u0060 among them, and this one already has that many",
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10039"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "upstream_error",
+                      "detail": "the memory dataplane is unavailable"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/memory/namespaces/{namespaceValue}": {
+      "delete": {
+        "tags": [
+          "Namespaces"
+        ],
+        "summary": "Delete a namespace",
+        "description": "Delete a namespace and every profile and memory in it. \u0060default\u0060 cannot be deleted. This cannot be undone.",
+        "operationId": "DeleteNamespace",
+        "parameters": [
+          {
+            "name": "namespaceValue",
+            "in": "path",
+            "description": "The namespace to delete. \u0060default\u0060 cannot be deleted.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The namespace to delete. \u0060default\u0060 cannot be deleted."
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The namespace was deleted"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10009",
+                      "title": "Authentication failed",
+                      "detail": "Could not find any usable credentials in the request.",
+                      "source": {
+                        "pointer": "/"
+                      },
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10009"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such namespace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10005",
+                      "title": "Resource not found",
+                      "detail": "no such namespace",
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10005"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "upstream_error",
+                      "detail": "the memory dataplane is unavailable"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ai/memory/namespaces/{namespaceValue}/operations/{operationId}": {
       "get": {
         "tags": [
@@ -25680,8 +25953,8 @@
         "tags": [
           "Display Identity Records"
         ],
-        "summary": "Delete a DIR",
-        "description": "Delete a DIR. Failure modes: \u0060400\u0060 if a child phone number is in a non-deletable status, \u0060409\u0060 if the DIR has an unresolved infringement claim, \u0060404\u0060 if the DIR is not yours.",
+        "summary": "Request deletion of a DIR",
+        "description": "Request deletion of a DIR. This does not remove the DIR on this call: it records the request, moves the DIR to \u0060delete_requested\u0060, and Telnyx completes the removal (de-registration and cleanup) shortly after. A verified DIR keeps serving its branded identity, and keeps billing, until the removal is executed. Failure modes: \u0060400\u0060 if a child phone number is still attached or the DIR is \u0060in_review\u0060 (wait for the review to finish), \u0060409\u0060 if the DIR has an unresolved infringement claim, \u0060404\u0060 if the DIR is not yours.",
         "operationId": "DeleteDirSimple",
         "parameters": [
           {
@@ -25694,8 +25967,21 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "DIR deleted."
+          "202": {
+            "description": "Deletion requested. The DIR moves to \u0060delete_requested\u0060 and is torn down shortly after.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DirDeleteRequestAccepted"
+                },
+                "example": {
+                  "data": {
+                    "id": "16635d38-75a6-4481-82e8-69af60e05011",
+                    "status": "delete_requested"
+                  }
+                }
+              }
+            }
           },
           "default": {
             "description": "An error occurred. The response carries the standard Telnyx error envelope.",
@@ -25750,7 +26036,7 @@
           "Display Identity Records"
         ],
         "summary": "Update a DIR",
-        "description": "Edit a DIR. DIRs in \u0060draft\u0060, \u0060rejected\u0060, \u0060unsuccessful\u0060, or \u0060suspended\u0060 can be edited freely: PATCH is a pure edit, \u0060status\u0060 is never changed, and you re-vet by calling \u0060POST /v2/dir/{dir_id}/submit\u0060 explicitly. A \u0060verified\u0060 DIR can also be edited in place: a PATCH that changes any value returns the DIR to \u0060draft\u0060 and branded delivery stops until you re-submit and the DIR is approved again, while a PATCH that changes nothing (an empty body or values identical to the current ones) leaves the DIR \u0060verified\u0060, so idempotent retries are safe. DIRs in any other status (\u0060submitted\u0060, \u0060in_review\u0060, \u0060expired\u0060, \u0060infringement_claimed\u0060, \u0060permanently_rejected\u0060) cannot be edited.",
+        "description": "Edit a DIR. DIRs in \u0060draft\u0060, \u0060rejected\u0060, \u0060unsuccessful\u0060, or \u0060suspended\u0060 can be edited freely: PATCH is a pure edit, \u0060status\u0060 is never changed, and you re-vet by calling \u0060POST /v2/dir/{dir_id}/submit\u0060 explicitly. A \u0060verified\u0060 DIR can also be edited in place: a PATCH that changes any value returns the DIR to \u0060draft\u0060; the currently approved identity keeps displaying, and the edited content goes live only after you re-submit and the DIR is approved again. A PATCH that changes nothing (an empty body or values identical to the current ones) leaves the DIR \u0060verified\u0060, so idempotent retries are safe. Changing only \u0060bpo_authorizations\u0060 or \u0060webhook_url\u0060 is the exception: the DIR stays \u0060verified\u0060. Each BPO authorization is reviewed on its own instead. DIRs in any other status (\u0060submitted\u0060, \u0060in_review\u0060, \u0060expired\u0060, \u0060infringement_claimed\u0060, \u0060permanently_rejected\u0060) cannot be edited.",
         "operationId": "UpdateDirSimple",
         "parameters": [
           {
@@ -25797,6 +26083,102 @@
             "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
           },
           "4XX": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/dir/{dirId}/bpo_authorizations": {
+      "get": {
+        "tags": [
+          "Display Identity Records"
+        ],
+        "summary": "List a DIR\u0027s authorized BPOs",
+        "description": "List the BPO (Business Process Outsourcer) accounts a Brand Owner has authorized on this DIR, together with the review state of each authorization.\n\nAuthorizations are supplied as the \u0060bpo_authorizations\u0060 array when creating or updating a DIR, and each one is reviewed on its own. Only an \u0060approved\u0060 authorization adds that BPO to this DIR\u0027s authorized callers in the branded calling registry; \u0060pending\u0060 and \u0060rejected\u0060 authorizations do not. Each entry includes the \u0060loa_document_id\u0060 you submitted: because \u0060bpo_authorizations\u0060 replaces the whole list on every DIR update, send each entry you want to keep back with its \u0060loa_document_id\u0060 unchanged, and it keeps its review state. A rejected entry carries a \u0060rejection_reason\u0060. Returns an empty list when the DIR has authorized no BPOs.",
+        "operationId": "ListDirBpoAuthorizations",
+        "parameters": [
+          {
+            "description": "1-based page number. Out-of-range values return an empty page with correct meta.",
+            "$ref": "#/components/parameters/BcPageNumber"
+          },
+          {
+            "description": "Items per page. Maximum 250; values above are clamped to 250.",
+            "$ref": "#/components/parameters/BcPageSize"
+          },
+          {
+            "name": "dirId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of the DIR\u0027s BPO authorizations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BpoAuthorizationList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/dir/{dirId}/bpo_loa": {
+      "post": {
+        "tags": [
+          "Display Identity Records"
+        ],
+        "summary": "Render the BPO Authorization LOA for a DIR",
+        "description": "The Letter of Authorization in which a Brand Owner authorizes an approved BPO (Business Process Outsourcer) to place branded calls that display this DIR on the owner\u0027s behalf. Both parties are read from the caller\u0027s account: the Brand Owner is the enterprise that owns the DIR, and the BPO is \u0060bpo_enterprise_id\u0060. No business identity is accepted in the body.\n\nWhen \u0060signature\u0060 is omitted the PDF is returned unsigned so the Brand Owner can sign it externally and the BPO can upload it via the Documents API. When \u0060signature\u0060 is present the PDF embeds the supplied image, printed name, and signed-at date.\n\nReturns \u0060application/pdf\u0060.",
+        "operationId": "RenderDirBpoLoa",
+        "parameters": [
+          {
+            "name": "dirId",
+            "in": "path",
+            "description": "The DIR id.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BpoAuthorizationLoaRenderRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The rendered BPO Authorization LOA PDF.",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/RenderDirBpoLoa200PdfResponseSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
+          },
+          "404": {
             "description": "An error occurred. The response carries the standard Telnyx error envelope.",
             "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
           }
@@ -26299,7 +26681,7 @@
           "Phone Numbers"
         ],
         "summary": "Add phone numbers to a DIR",
-        "description": "Register phone numbers under a DIR. The enterprise is resolved server-side from the DIR id. Same body, failure modes, and batch semantics whichever path form you use.\n\n**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.",
+        "description": "Register phone numbers under a DIR. The enterprise is resolved server-side from the DIR id.\n\n**Pricing:** Adding phone numbers is free. Branded Calling fees are charged per DIR and per branded call. See https://telnyx.com/pricing/branded-calling for current pricing.",
         "operationId": "AddDirPhoneNumbersSimplified",
         "parameters": [
           {
@@ -34482,6 +34864,14 @@
               "type": "string",
               "example": "Acme"
             }
+          },
+          {
+            "name": "filter[role_type]",
+            "in": "query",
+            "description": "Only return enterprises of this type: \u0060bpo\u0060 for call-center (BPO) enterprises, \u0060enterprise\u0060 for normal enterprises. Omit to return both.",
+            "schema": {
+              "$ref": "#/components/schemas/ListEnterprisesFilterRoleTypeParameter"
+            }
           }
         ],
         "responses": {
@@ -34664,7 +35054,7 @@
           "Enterprises"
         ],
         "summary": "Replace an enterprise",
-        "description": "Replace the enterprise\u0027s mutable fields. Only mutable fields may be sent. Server-assigned and immutable fields (\u0060id\u0060, \u0060record_type\u0060, \u0060created_at\u0060, \u0060updated_at\u0060, status fields, \u0060organization_type\u0060, \u0060country_code\u0060, \u0060role_type\u0060) cannot be changed: including any of them in the body is rejected with \u0060400 Bad Request\u0060 (\u0060Field \u0027X\u0027 is not allowed in this request\u0060).",
+        "description": "Replace the enterprise\u0027s mutable fields. Only mutable fields may be sent. Server-assigned and immutable fields (\u0060id\u0060, \u0060record_type\u0060, \u0060created_at\u0060, \u0060updated_at\u0060, status fields, \u0060organization_type\u0060, \u0060country_code\u0060, \u0060role_type\u0060) cannot be changed: including any of them in the body is rejected with \u0060400 Bad Request\u0060 (\u0060Field \u0027X\u0027 is not allowed in this request\u0060).\n\nFor an approved BPO enterprise (\u0060role_type\u0060 \u0060bpo\u0060), changing any identity field (legal name, DBA, website, FEIN, industry, number of employees, physical address, organization contact, D-U-N-S number, legal type, SIC code, corporate registration number, professional license number, or jurisdiction of incorporation) resets \u0060bpo_verification_status\u0060 to \u0060pending\u0060 for re-approval and sets every DIR authorization for that BPO to \u0060rejected\u0060. After re-approval, link it again with a newly signed LOA (a new \u0060loa_document_id\u0060); resending the old one keeps the authorization \u0060rejected\u0060. Re-sending an unchanged value does not reset anything.\n\nIf Number Reputation is enabled on the enterprise, \u0060legal_name\u0060, \u0060doing_business_as\u0060, \u0060website\u0060, \u0060fein\u0060, \u0060industry\u0060, \u0060number_of_employees\u0060, \u0060organization_physical_address\u0060, \u0060organization_contact\u0060, and \u0060dun_bradstreet_number\u0060 cannot be changed: the request is rejected with \u0060400\u0060.",
         "operationId": "UpdateEnterprise",
         "parameters": [
           {
@@ -34756,7 +35146,7 @@
           "Enterprises"
         ],
         "summary": "Activate Branded Calling on an enterprise",
-        "description": "Branded Calling is a paid product that must be activated on each enterprise. Activation is idempotent:\n- First call: marks the enterprise as activated and begins onboarding it with the Branded Calling platform asynchronously. Returns \u0060200\u0060 with \u0060branded_calling_enabled: true\u0060.\n- Re-call after success: no-op, returns the same enterprise body.\n- Re-call after a prior failure: re-queues onboarding, returns \u0060200\u0060.\n\nPrerequisite: the calling user must have agreed to the Branded Calling Terms of Service (\u0060POST /terms_of_service/branded_calling/agree\u0060). Without that, this endpoint returns \u0060403 terms_of_service_not_accepted\u0060.\n\nFailure modes:\n- \u0060403\u0060 - Branded Calling Terms of Service not accepted.\n- \u0060404\u0060 - enterprise does not exist or does not belong to your account.\n\n**Pricing:** This is a billable action. See https://telnyx.com/pricing/numbers for current pricing.",
+        "description": "Branded Calling must be activated on each enterprise. Activation is idempotent:\n- First call: marks the enterprise as activated and begins onboarding it with the Branded Calling platform asynchronously. Returns \u0060200\u0060 with \u0060branded_calling_enabled: true\u0060.\n- Re-call after success: no-op, returns the same enterprise body.\n- Re-call after a prior failure: re-queues onboarding, returns \u0060200\u0060.\n\nPrerequisite: the calling user must have agreed to the Branded Calling Terms of Service (\u0060POST /terms_of_service/branded_calling/agree\u0060). Without that, this endpoint returns \u0060403 terms_of_service_not_accepted\u0060.\n\nFailure modes:\n- \u0060400\u0060 - the account has no available credit. Add funds and retry.\n- \u0060400\u0060 - the enterprise is not in the United States. Branded Calling is currently available only to US enterprises.\n- \u0060403\u0060 - Branded Calling Terms of Service not accepted.\n- \u0060404\u0060 - enterprise does not exist or does not belong to your account.\n\n**Pricing:** Activation itself is free, but the account must have available credit. Branded Calling fees are charged per DIR and per branded call. See https://telnyx.com/pricing/branded-calling for current pricing.",
         "operationId": "ActivateBrandedCalling",
         "parameters": [
           {
@@ -35769,6 +36159,104 @@
           "404": {
             "description": "An error occurred. The response carries the standard Telnyx error envelope.",
             "$ref": "#/components/responses/number-reputation_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/enterprises/{enterpriseId}/verify_email": {
+      "post": {
+        "tags": [
+          "Email Verification"
+        ],
+        "summary": "Send an email-ownership verification code to an enterprise",
+        "description": "Email a 6-digit code to the enterprise account\u0027s contact email to confirm ownership of that address.\n\nA BPO (Business Process Outsourcer) account has no DIR, so it proves ownership of its own contact email here rather than through a DIR. A BPO account cannot be approved for use until this contact email is verified.\n\nThe code expires in 15 minutes. Requesting a new code invalidates any previous one. Resends are rate limited (a short cooldown plus a daily cap). Submit the code to \u0060POST /enterprises/{enterprise_id}/verify_email/confirm\u0060.",
+        "operationId": "RequestEnterpriseEmailVerification",
+        "parameters": [
+          {
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A code was emailed; the current verification state is returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseEmailVerificationStatusWrapped"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
+          },
+          "404": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
+          },
+          "429": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
+          },
+          "503": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/enterprises/{enterpriseId}/verify_email/confirm": {
+      "post": {
+        "tags": [
+          "Email Verification"
+        ],
+        "summary": "Confirm an enterprise email-ownership verification code",
+        "description": "Submit the 6-digit code that was emailed to the enterprise account\u0027s contact email. On success the contact email is marked verified.\n\nFor security, any failure (wrong, expired, already-used, or too many attempts) returns the same generic message.",
+        "operationId": "ConfirmEnterpriseEmailVerification",
+        "parameters": [
+          {
+            "name": "enterpriseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseEmailVerificationConfirmRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The contact email is verified.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseEmailVerificationStatusWrapped"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
+          },
+          "404": {
+            "description": "An error occurred. The response carries the standard Telnyx error envelope.",
+            "$ref": "#/components/responses/branded-calling_GenericErrorResponse"
           }
         }
       }
@@ -84946,59 +85434,71 @@
         "properties": {
           "legal_name": {
             "maxLength": 200,
-            "type": "string"
+            "type": "string",
+            "description": "The legal name of the third-party partner or reseller managing these numbers on your behalf."
           },
           "dba": {
             "maxLength": 200,
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "The trade name (Doing Business As) the partner operates under, if different from its legal name. Leave blank if it does not apply."
           },
           "street_address": {
             "maxLength": 255,
-            "type": "string"
+            "type": "string",
+            "description": "The street address of the partner, including the building number and street name."
           },
           "extended_address": {
             "maxLength": 255,
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "An optional second address line for the partner, such as a suite, unit, or floor. Leave blank if it does not apply."
           },
           "city": {
             "maxLength": 120,
-            "type": "string"
+            "type": "string",
+            "description": "The city of the partner\u0027s address."
           },
           "administrative_area": {
             "maxLength": 120,
-            "type": "string"
+            "type": "string",
+            "description": "The state or province of the partner\u0027s address, as its code, for example IL or ON."
           },
           "postal_code": {
             "maxLength": 30,
-            "type": "string"
+            "type": "string",
+            "description": "The postal or ZIP code of the partner\u0027s address."
           },
           "country": {
             "maxLength": 2,
             "minLength": 2,
             "type": "string",
+            "description": "The two-letter country code of the partner\u0027s address, for example US.",
             "example": "US"
           },
           "contact_name": {
             "maxLength": 200,
-            "type": "string"
+            "type": "string",
+            "description": "The name of a contact person at the partner."
           },
           "contact_title": {
             "maxLength": 200,
-            "type": "string"
+            "type": "string",
+            "description": "The job title of the contact person at the partner."
           },
           "contact_email": {
             "type": "string",
+            "description": "The email address of the contact person at the partner.",
             "format": "email"
           },
           "contact_phone": {
             "maxLength": 30,
             "type": "string",
+            "description": "The phone number of the contact person at the partner, in E.164 format, for example \u002B13125550000.",
             "example": "\u002B13125550000"
           }
         },
@@ -88465,21 +88965,24 @@
           "first_name": {
             "maxLength": 255,
             "type": "string",
+            "description": "The first name of the person Telnyx should contact about billing for this account.",
             "example": "Alex"
           },
           "last_name": {
             "maxLength": 255,
             "type": "string",
+            "description": "The last name of the person Telnyx should contact about billing for this account.",
             "example": "Bill"
           },
           "email": {
             "type": "string",
+            "description": "The email address of the person Telnyx should contact about billing for this account.",
             "format": "email",
             "example": "billing@acmeplumbing.example.com"
           },
           "phone_number": {
             "type": "string",
-            "description": "E.164 format with leading \u0060\u002B\u0060.",
+            "description": "The phone number of the billing contact, in E.164 format, for example \u002B12125551234.",
             "example": "\u002B13125550001"
           }
         }
@@ -88805,6 +89308,102 @@
             "type": "string",
             "description": "Answer to the issued bot challenge.",
             "example": "35"
+          }
+        }
+      },
+      "BpoAuthorization": {
+        "required": [
+          "record_type",
+          "bpo_enterprise_id",
+          "status",
+          "loa_document_id"
+        ],
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "$ref": "#/components/schemas/BpoAuthorizationRecordType"
+          },
+          "bpo_enterprise_id": {
+            "type": "string",
+            "description": "The authorized BPO account\u0027s enterprise id.",
+            "format": "uuid",
+            "example": "4a6192a4-573d-446d-b3ce-aff9117272a6"
+          },
+          "status": {
+            "$ref": "#/components/schemas/BpoAuthorizationStatus"
+          },
+          "loa_document_id": {
+            "type": "string",
+            "description": "Id of the signed Letter of Authorization document submitted for this BPO. Send it back unchanged in \u0060bpo_authorizations\u0060 when updating the DIR to keep this authorization and its review state.",
+            "format": "uuid",
+            "example": "2a7e8337-e803-4057-a4ae-26c40eb0bc6c"
+          },
+          "rejection_reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Why the authorization was rejected. \u0060null\u0060 unless \u0060status\u0060 is \u0060rejected\u0060.",
+            "example": "Letter of Authorization is unsigned"
+          }
+        },
+        "description": "A single authorization of a BPO (Business Process Outsourcer) account on a DIR."
+      },
+      "BpoAuthorizationInput": {
+        "required": [
+          "bpo_enterprise_id",
+          "loa_document_id"
+        ],
+        "type": "object",
+        "properties": {
+          "bpo_enterprise_id": {
+            "type": "string",
+            "description": "Enterprise id of an approved BPO (Business Process Outsourcer) account on your organization to authorize for this DIR.",
+            "format": "uuid",
+            "example": "4a6192a4-573d-446d-b3ce-aff9117272a6"
+          },
+          "loa_document_id": {
+            "type": "string",
+            "description": "Id of the signed Letter of Authorization document (uploaded via the Telnyx Documents API) in which the Brand Owner authorizes this BPO.",
+            "format": "uuid",
+            "example": "2a7e8337-e803-4057-a4ae-26c40eb0bc6c"
+          }
+        },
+        "description": "One authorization to include when creating or updating a DIR: an approved BPO (Business Process Outsourcer) account plus the signed Letter of Authorization the Brand Owner granted it."
+      },
+      "BpoAuthorizationList": {
+        "required": [
+          "data",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BpoAuthorization"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/BrandedCallingPaginationMeta"
+          }
+        },
+        "description": "Paginated list of a DIR\u0027s BPO authorizations."
+      },
+      "BpoAuthorizationLoaRenderRequest": {
+        "required": [
+          "bpo_enterprise_id"
+        ],
+        "type": "object",
+        "properties": {
+          "bpo_enterprise_id": {
+            "type": "string",
+            "description": "The approved BPO enterprise the Brand Owner is authorizing. Must be a BPO account on the caller\u0027s organization that has already been approved.",
+            "format": "uuid",
+            "example": "4a6192a4-573d-446d-b3ce-aff9117272a6"
+          },
+          "signature": {
+            "$ref": "#/components/schemas/BpoAuthorizationLoaRenderRequestSignature"
           }
         }
       },
@@ -90073,7 +90672,8 @@
             "items": {
               "type": "string",
               "example": "\u002B19493253498"
-            }
+            },
+            "description": "The phone numbers to remove from this brand, in E.164 format, up to 100 per request. They must currently be attached to this brand."
           }
         },
         "additionalProperties": false
@@ -106100,7 +106700,7 @@
           },
           "model": {
             "type": "string",
-            "description": "The backend model that answers delegations. Must be a model available for AI Assistants. Leave unset to use the platform default backend model. Only applies when \u0060mode\u0060 is \u0060telnyx\u0060."
+            "description": "The backend model that answers delegations. Must be a model available for AI Assistants. When enabling \u0060telnyx\u0060 delegation, explicitly set this field or \u0060external_llm.model\u0060; a configuration without either backend model is rejected. Only applies when \u0060mode\u0060 is \u0060telnyx\u0060."
           },
           "llm_api_key_ref": {
             "type": "string",
@@ -107051,7 +107651,7 @@
             }
           },
           "status": {
-            "description": "DIR lifecycle status.\n- \u0060draft\u0060 - newly created; editable; not yet submitted.\n- \u0060submitted\u0060 / \u0060in_review\u0060 - Telnyx is reviewing.\n- \u0060verified\u0060 - approved; phone numbers may be attached.\n- \u0060rejected\u0060 - Telnyx rejected this submission; \u0060rejection_reasons\u0060 is populated; customer can edit and resubmit.\n- \u0060unsuccessful\u0060 - system-side error during processing; customer can edit and resubmit.\n- \u0060suspended\u0060 - temporarily disabled (e.g. by an active infringement claim).\n- \u0060expired\u0060 - verification expired; customer must resubmit.\n- \u0060infringement_claimed\u0060 - a trademark/impersonation claim is open against this DIR.\n- \u0060permanently_rejected\u0060 - terminal; cannot be resubmitted.",
+            "description": "DIR lifecycle status.\n- \u0060draft\u0060 - newly created; editable; not yet submitted.\n- \u0060submitted\u0060 / \u0060in_review\u0060 - Telnyx is reviewing.\n- \u0060verified\u0060 - approved; phone numbers may be attached.\n- \u0060rejected\u0060 - Telnyx rejected this submission; \u0060rejection_reasons\u0060 is populated; customer can edit and resubmit.\n- \u0060unsuccessful\u0060 - system-side error during processing; customer can edit and resubmit.\n- \u0060suspended\u0060 - temporarily disabled (e.g. by an active infringement claim).\n- \u0060expired\u0060 - verification expired; customer must resubmit.\n- \u0060infringement_claimed\u0060 - a trademark/impersonation claim is open against this DIR.\n- \u0060permanently_rejected\u0060 - terminal; cannot be resubmitted.\n- \u0060delete_requested\u0060 - you have requested deletion; the DIR still exists and Telnyx is completing the removal (de-registration and cleanup). A verified DIR keeps serving its branded identity, and keeps billing, until the removal finishes.",
             "$ref": "#/components/schemas/DirStatus"
           },
           "rejection_reasons": {
@@ -107110,6 +107710,25 @@
             "format": "date-time",
             "readOnly": true,
             "example": "2027-04-26T18:07:29.537981Z"
+          },
+          "delete_requested_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When deletion was requested. Set once the DIR enters \u0060delete_requested\u0060; \u0060null\u0060 otherwise.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-04-27T09:12:44.201820Z"
+          },
+          "webhook_url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "\u0060https://\u0060 URL that receives webhook notifications for this DIR\u0027s compliance-review outcomes. \u0060null\u0060 when not subscribed.",
+            "format": "uri",
+            "example": "https://acmehealthcare.example.com/webhooks/branded-calling"
           }
         }
       },
@@ -107247,6 +107866,35 @@
               "$ref": "#/components/schemas/Document"
             },
             "description": "Supporting documents. Each \u0060document_id\u0060 may appear at most once on a DIR."
+          },
+          "webhook_url": {
+            "maxLength": 2048,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional \u0060https://\u0060 URL that receives webhook notifications when this DIR\u0027s compliance review completes (rejection outcomes include structured rejection reasons). Maximum 2048 characters.",
+            "format": "uri",
+            "example": "https://mapleridge.example.com/webhooks/branded-calling"
+          },
+          "bpo_authorizations": {
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BpoAuthorizationInput"
+            },
+            "description": "Optional. Approved BPO (Business Process Outsourcer) accounts on your organization authorized to place branded calls for this DIR, each with the signed Letter of Authorization the Brand Owner granted it. Each authorization starts \u0060pending\u0060 and takes effect only after an admin reviews its Letter of Authorization. Omit or send an empty list to authorize no BPO on this DIR. Maximum 10."
+          }
+        }
+      },
+      "DirDeleteRequestAccepted": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/DirDeleteRequestAcceptedData"
           }
         }
       },
@@ -107284,7 +107932,8 @@
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "The business name shown to call recipients, 1 to 35 characters, no emoji, not blank."
           },
           "logo_url": {
             "maxLength": 128,
@@ -107419,11 +108068,12 @@
           "suspended",
           "expired",
           "infringement_claimed",
-          "permanently_rejected"
+          "permanently_rejected",
+          "delete_requested"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "DIR lifecycle status.\n- \u0060draft\u0060 - newly created; editable; not yet submitted.\n- \u0060submitted\u0060 / \u0060in_review\u0060 - Telnyx is reviewing.\n- \u0060verified\u0060 - approved; phone numbers may be attached.\n- \u0060rejected\u0060 - Telnyx rejected this submission; \u0060rejection_reasons\u0060 is populated; customer can edit and resubmit.\n- \u0060unsuccessful\u0060 - system-side error during processing; customer can edit and resubmit.\n- \u0060suspended\u0060 - temporarily disabled (e.g. by an active infringement claim).\n- \u0060expired\u0060 - verification expired; customer must resubmit.\n- \u0060infringement_claimed\u0060 - a trademark/impersonation claim is open against this DIR.\n- \u0060permanently_rejected\u0060 - terminal; cannot be resubmitted.",
+        "description": "DIR lifecycle status.\n- \u0060draft\u0060 - newly created; editable; not yet submitted.\n- \u0060submitted\u0060 / \u0060in_review\u0060 - Telnyx is reviewing.\n- \u0060verified\u0060 - approved; phone numbers may be attached.\n- \u0060rejected\u0060 - Telnyx rejected this submission; \u0060rejection_reasons\u0060 is populated; customer can edit and resubmit.\n- \u0060unsuccessful\u0060 - system-side error during processing; customer can edit and resubmit.\n- \u0060suspended\u0060 - temporarily disabled (e.g. by an active infringement claim).\n- \u0060expired\u0060 - verification expired; customer must resubmit.\n- \u0060infringement_claimed\u0060 - a trademark/impersonation claim is open against this DIR.\n- \u0060permanently_rejected\u0060 - terminal; cannot be resubmitted.\n- \u0060delete_requested\u0060 - you have requested deletion; the DIR still exists and Telnyx is completing the removal (de-registration and cleanup). A verified DIR keeps serving its branded identity, and keeps billing, until the removal finishes.",
         "x-ms-enum": {
           "name": "DirStatus",
           "modelAsString": false,
@@ -107467,6 +108117,10 @@
             {
               "value": "permanently_rejected",
               "name": "PermanentlyRejected"
+            },
+            {
+              "value": "delete_requested",
+              "name": "DeleteRequested"
             }
           ]
         }
@@ -107532,6 +108186,24 @@
               "$ref": "#/components/schemas/Document"
             },
             "description": "Additional supporting documents to attach. Append-only: existing documents are never removed or replaced, and an empty or omitted list is a no-op. Each \u0060document_id\u0060 may appear at most once on a DIR."
+          },
+          "webhook_url": {
+            "maxLength": 2048,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional \u0060https://\u0060 URL that receives webhook notifications when this DIR\u0027s compliance review completes. Send \u0060null\u0060 to clear. Changing only this field on a \u0060verified\u0060 DIR does not re-vet it. Maximum 2048 characters.",
+            "format": "uri",
+            "example": "https://mapleridge.example.com/webhooks/branded-calling"
+          },
+          "bpo_authorizations": {
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BpoAuthorizationInput"
+            },
+            "description": "Optional. Replace this DIR\u0027s authorized BPO (Business Process Outsourcer) accounts with these, each with its signed Letter of Authorization. The supplied list replaces the current one: a BPO left out has its authorization removed, and a new BPO (or a changed Letter of Authorization) is created \u0060pending\u0060 admin review. Send an empty list to clear all authorizations; omit the field to leave them unchanged. Editing this list does not re-vet the DIR. Maximum 10."
           }
         },
         "description": "All fields are optional; only those supplied are updated. Same per-field rules as \u0060DirCreateRequest\u0060."
@@ -107871,6 +108543,7 @@
           "description": {
             "maxLength": 255,
             "type": "string",
+            "description": "An optional note describing this document, for example what it proves.",
             "example": "Certificate of incorporation."
           }
         }
@@ -111323,7 +111996,7 @@
             "maxLength": 64,
             "minLength": 3,
             "type": "string",
-            "description": "Legal name of the enterprise.",
+            "description": "Your business\u0027s full registered legal name, exactly as it appears on your incorporation or tax documents, 3 to 64 characters.",
             "example": "Acme Plumbing LLC"
           },
           "organization_type": {
@@ -111340,6 +112013,7 @@
           "website": {
             "maxLength": 255,
             "type": "string",
+            "description": "Your business\u0027s public website address, including https://. Leave blank if your business has no website.",
             "format": "uri",
             "example": "https://acmeplumbing.example.com"
           },
@@ -111360,17 +112034,19 @@
           "doing_business_as": {
             "maxLength": 255,
             "type": "string",
+            "description": "The trade name your business operates under if it is different from your legal name, also called a Doing Business As (DBA) name. Leave blank if you only use your legal name.",
             "example": "Acme Plumbing"
           },
           "jurisdiction_of_incorporation": {
             "maxLength": 255,
             "type": "string",
+            "description": "The state, province, or country where your business was legally incorporated, for example Delaware.",
             "example": "Delaware"
           },
           "customer_reference": {
             "maxLength": 255,
             "type": "string",
-            "description": "Optional free-form string the caller can attach for their own bookkeeping. Telnyx does not interpret it.",
+            "description": "Your own label for this account. Enter any reference that helps you find it in your records. Telnyx does not use it during vetting.",
             "example": "internal-id-12345"
           },
           "primary_business_domain_sic_code": {
@@ -111378,28 +112054,28 @@
               "null",
               "string"
             ],
-            "description": "Optional SIC code for the primary line of business."
+            "description": "The 4-digit Standard Industrial Classification code for your main line of business, which tells us what industry you operate in. Look it up in the SIC code directory if you are unsure."
           },
           "corporate_registration_number": {
             "type": [
               "null",
               "string"
             ],
-            "description": "Optional corporate-registration / company-number identifier."
+            "description": "The official number your company received when it was legally registered or incorporated (for example from your state or national business registry). It is on your certificate of incorporation."
           },
           "professional_license_number": {
             "type": [
               "null",
               "string"
             ],
-            "description": "Optional professional-license number for regulated industries."
+            "description": "If your business operates under a professional license (for example legal, medical, or financial services), enter the license number issued by the licensing authority. Leave blank if it does not apply."
           },
           "dun_bradstreet_number": {
             "type": [
               "null",
               "string"
             ],
-            "description": "Optional D-U-N-S Number."
+            "description": "Your optional 9-digit D-U-N-S Number issued by Dun \u0026 Bradstreet, a unique identifier for your business. Leave blank if you do not have one."
           },
           "organization_contact": {
             "$ref": "#/components/schemas/OrganizationContact"
@@ -111412,6 +112088,75 @@
           },
           "billing_address": {
             "$ref": "#/components/schemas/BillingAddress"
+          }
+        }
+      },
+      "EnterpriseEmailVerificationConfirmRequest": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "maxLength": 6,
+            "minLength": 6,
+            "pattern": "^\\d{6}$",
+            "type": "string",
+            "description": "The 6-digit code sent to the enterprise account\u0027s contact email.",
+            "example": "482915"
+          }
+        }
+      },
+      "EnterpriseEmailVerificationStatus": {
+        "required": [
+          "record_type",
+          "email_verified",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "$ref": "#/components/schemas/EmailVerificationRecordType"
+          },
+          "email_verified": {
+            "type": "boolean",
+            "description": "Whether the enterprise account\u0027s contact email has been confirmed.",
+            "example": false
+          },
+          "status": {
+            "$ref": "#/components/schemas/EnterpriseEmailVerificationStatusStatus"
+          },
+          "expires_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the code just sent stops being accepted. Present on a send response; null on a confirm response.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-07-30T17:15:00Z"
+          },
+          "sends_remaining_today": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "How many more codes may be requested for this enterprise account today. Present on a send response; null on a confirm response.",
+            "readOnly": true,
+            "example": 9
+          }
+        },
+        "description": "Verification state for an enterprise account\u0027s contact email."
+      },
+      "EnterpriseEmailVerificationStatusWrapped": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "Verification state for an enterprise account\u0027s contact email.",
+            "$ref": "#/components/schemas/EnterpriseEmailVerificationStatus"
           }
         }
       },
@@ -111444,6 +112189,7 @@
           },
           "legal_name": {
             "type": "string",
+            "description": "Your business\u0027s full registered legal name, exactly as it appears on your incorporation or tax documents, 3 to 64 characters.",
             "example": "Acme Plumbing LLC"
           },
           "organization_type": {
@@ -111455,39 +112201,46 @@
             "example": "US"
           },
           "role_type": {
-            "type": "string",
-            "example": "enterprise"
+            "$ref": "#/components/schemas/EnterprisePublicRoleType"
           },
           "website": {
             "type": "string",
+            "description": "Your business\u0027s public website address, including https://. Leave blank if your business has no website.",
             "example": "https://acmeplumbing.example.com"
           },
           "fein": {
             "type": "string",
+            "description": "US Federal Employer Identification Number (\u0060NN-NNNNNNN\u0060) or Canadian equivalent.",
             "example": "12-3456789"
           },
           "industry": {
             "type": "string",
+            "description": "The industry your business operates in. Choose the closest match from the list; if your value is not accepted, pick the nearest category.",
             "example": "technology"
           },
           "number_of_employees": {
             "type": "string",
+            "description": "Approximate headcount range. Used for vetting heuristics; pick the bucket that contains your current employee count.",
             "example": "51-200"
           },
           "organization_legal_type": {
             "type": "string",
+            "description": "Legal-entity form. Pick the form that matches your incorporation documents:\n- \u0060corporation\u0060 - C-corp or S-corp.\n- \u0060llc\u0060 - limited liability company.\n- \u0060partnership\u0060 - general/limited partnership.\n- \u0060nonprofit\u0060 - non-profit corporation, charitable trust, or 501(c)(3)/equivalent.\n- \u0060other\u0060 - anything else (sole proprietorships, government bodies, DBAs, etc.). You may be asked for additional documents during vetting.",
             "example": "llc"
           },
           "doing_business_as": {
             "type": "string",
+            "description": "The trade name your business operates under if it is different from your legal name, also called a Doing Business As (DBA) name. Leave blank if you only use your legal name.",
             "example": "Acme Plumbing"
           },
           "jurisdiction_of_incorporation": {
             "type": "string",
+            "description": "The state, province, or country where your business was legally incorporated, for example Delaware.",
             "example": "Delaware"
           },
           "customer_reference": {
             "type": "string",
+            "description": "Your own label for this account. Enter any reference that helps you find it in your records. Telnyx does not use it during vetting.",
             "example": "internal-id-12345"
           },
           "primary_business_domain_sic_code": {
@@ -111495,7 +112248,7 @@
               "null",
               "string"
             ],
-            "description": "Optional SIC code for the primary line of business.",
+            "description": "The 4-digit Standard Industrial Classification code for your main line of business, which tells us what industry you operate in. Look it up in the SIC code directory if you are unsure.",
             "example": null
           },
           "corporate_registration_number": {
@@ -111503,7 +112256,7 @@
               "null",
               "string"
             ],
-            "description": "Optional corporate-registration / company-number identifier.",
+            "description": "The official number your company received when it was legally registered or incorporated (for example from your state or national business registry). It is on your certificate of incorporation.",
             "example": null
           },
           "professional_license_number": {
@@ -111511,7 +112264,7 @@
               "null",
               "string"
             ],
-            "description": "Optional professional-license number for regulated industries.",
+            "description": "If your business operates under a professional license (for example legal, medical, or financial services), enter the license number issued by the licensing authority. Leave blank if it does not apply.",
             "example": null
           },
           "dun_bradstreet_number": {
@@ -111519,7 +112272,7 @@
               "null",
               "string"
             ],
-            "description": "Optional D-U-N-S Number issued by Dun \u0026 Bradstreet.",
+            "description": "Your optional 9-digit D-U-N-S Number issued by Dun \u0026 Bradstreet, a unique identifier for your business. Leave blank if you do not have one.",
             "example": null
           },
           "organization_contact": {
@@ -111553,6 +112306,17 @@
           "number_reputation_enabled": {
             "type": "boolean",
             "description": "True once Phone Number Reputation has been enabled on this enterprise (see \u0060POST /enterprises/{id}/reputation\u0060)."
+          },
+          "bpo_verification_status": {
+            "$ref": "#/components/schemas/EnterprisePublicBpoVerificationStatus"
+          },
+          "bpo_verification_rejection_reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reason Telnyx rejected the BPO (Business Process Outsourcer) verification, when \u0060bpo_verification_status\u0060 is \u0060rejected\u0060; \u0060null\u0060 otherwise.",
+            "example": "Business registration document could not be verified."
           }
         }
       },
@@ -111590,8 +112354,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "description": "Third-party reseller / partner managing the enterprise\u0027s phone numbers. Omit when the enterprise works directly with Telnyx.",
-            "$ref": "#/components/schemas/AgentInput"
+            "$ref": "#/components/schemas/NumberReputationAgentInput"
           },
           "signature": {
             "description": "Optional signature embedded in the rendered PDF. When omitted the PDF is returned unsigned for the customer to sign and upload.",
@@ -111698,56 +112461,66 @@
             "maxLength": 64,
             "minLength": 3,
             "type": "string",
-            "description": "Legal name of the enterprise."
+            "description": "Your business\u0027s full registered legal name, exactly as it appears on your incorporation or tax documents, 3 to 64 characters."
           },
           "website": {
             "maxLength": 255,
             "type": "string",
+            "description": "Your business\u0027s public website address, including https://. Leave blank if your business has no website.",
             "format": "uri"
           },
           "fein": {
-            "type": "string"
+            "type": "string",
+            "description": "US Federal Employer Identification Number (\u0060NN-NNNNNNN\u0060) or Canadian equivalent."
           },
           "industry": {
             "$ref": "#/components/schemas/EnterpriseUpdateIndustry"
           },
           "number_of_employees": {
-            "type": "string"
+            "type": "string",
+            "description": "Approximate headcount range. Used for vetting heuristics; pick the bucket that contains your current employee count."
           },
           "organization_legal_type": {
-            "type": "string"
+            "type": "string",
+            "description": "Legal-entity form. Pick the form that matches your incorporation documents:\n- \u0060corporation\u0060 - C-corp or S-corp.\n- \u0060llc\u0060 - limited liability company.\n- \u0060partnership\u0060 - general/limited partnership.\n- \u0060nonprofit\u0060 - non-profit corporation, charitable trust, or 501(c)(3)/equivalent.\n- \u0060other\u0060 - anything else (sole proprietorships, government bodies, DBAs, etc.). You may be asked for additional documents during vetting."
           },
           "doing_business_as": {
             "maxLength": 255,
-            "type": "string"
+            "type": "string",
+            "description": "The trade name your business operates under if it is different from your legal name, also called a Doing Business As (DBA) name. Leave blank if you only use your legal name."
           },
           "customer_reference": {
             "maxLength": 255,
-            "type": "string"
+            "type": "string",
+            "description": "Your own label for this account. Enter any reference that helps you find it in your records. Telnyx does not use it during vetting."
           },
           "primary_business_domain_sic_code": {
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "The 4-digit Standard Industrial Classification code for your main line of business, which tells us what industry you operate in. Look it up in the SIC code directory if you are unsure."
           },
           "corporate_registration_number": {
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "The official number your company received when it was legally registered or incorporated (for example from your state or national business registry). It is on your certificate of incorporation."
           },
           "professional_license_number": {
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "If your business operates under a professional license (for example legal, medical, or financial services), enter the license number issued by the licensing authority. Leave blank if it does not apply."
           },
           "dun_bradstreet_number": {
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "Your optional 9-digit D-U-N-S Number issued by Dun \u0026 Bradstreet, a unique identifier for your business. Leave blank if you do not have one."
           },
           "organization_contact": {
             "$ref": "#/components/schemas/OrganizationContact"
@@ -111764,7 +112537,7 @@
           "jurisdiction_of_incorporation": {
             "maxLength": 255,
             "type": "string",
-            "description": "Updated state/province/country of incorporation. Optional on update.",
+            "description": "The state, province, or country where your business was legally incorporated, for example Delaware.",
             "example": "Delaware"
           }
         },
@@ -117580,7 +118353,7 @@
             "example": "7eca8226-8081-4e11-abdc-437b5f53a81f"
           },
           "status": {
-            "description": "DIR lifecycle status.\n- \u0060draft\u0060 - newly created; editable; not yet submitted.\n- \u0060submitted\u0060 / \u0060in_review\u0060 - Telnyx is reviewing.\n- \u0060verified\u0060 - approved; phone numbers may be attached.\n- \u0060rejected\u0060 - Telnyx rejected this submission; \u0060rejection_reasons\u0060 is populated; customer can edit and resubmit.\n- \u0060unsuccessful\u0060 - system-side error during processing; customer can edit and resubmit.\n- \u0060suspended\u0060 - temporarily disabled (e.g. by an active infringement claim).\n- \u0060expired\u0060 - verification expired; customer must resubmit.\n- \u0060infringement_claimed\u0060 - a trademark/impersonation claim is open against this DIR.\n- \u0060permanently_rejected\u0060 - terminal; cannot be resubmitted.",
+            "description": "DIR lifecycle status.\n- \u0060draft\u0060 - newly created; editable; not yet submitted.\n- \u0060submitted\u0060 / \u0060in_review\u0060 - Telnyx is reviewing.\n- \u0060verified\u0060 - approved; phone numbers may be attached.\n- \u0060rejected\u0060 - Telnyx rejected this submission; \u0060rejection_reasons\u0060 is populated; customer can edit and resubmit.\n- \u0060unsuccessful\u0060 - system-side error during processing; customer can edit and resubmit.\n- \u0060suspended\u0060 - temporarily disabled (e.g. by an active infringement claim).\n- \u0060expired\u0060 - verification expired; customer must resubmit.\n- \u0060infringement_claimed\u0060 - a trademark/impersonation claim is open against this DIR.\n- \u0060permanently_rejected\u0060 - terminal; cannot be resubmitted.\n- \u0060delete_requested\u0060 - you have requested deletion; the DIR still exists and Telnyx is completing the removal (de-registration and cleanup). A verified DIR keeps serving its branded identity, and keeps billing, until the removal finishes.",
             "$ref": "#/components/schemas/DirStatus"
           }
         },
@@ -124671,6 +125444,69 @@
           }
         }
       },
+      "NamespaceType": {
+        "title": "Namespace",
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "The namespace\u0027s unique identifier."
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "The namespace\u0027s name, used in the path. \u0060default\u0060 exists for every organization."
+          }
+        },
+        "description": "An isolated memory store within your organization."
+      },
+      "NamespaceCreate": {
+        "title": "NamespaceCreate",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "A name for the new namespace, unique within your organization."
+          }
+        }
+      },
+      "NamespaceListResponse": {
+        "title": "NamespaceListResponse",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "Data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NamespaceType"
+            }
+          }
+        }
+      },
+      "NamespaceResponse": {
+        "title": "NamespaceResponse",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/NamespaceType"
+          }
+        }
+      },
       "NamespaceSettings": {
         "title": "NamespaceSettings",
         "type": "object",
@@ -127145,26 +127981,30 @@
           "first_name": {
             "maxLength": 255,
             "type": "string",
+            "description": "The first name of the main person Telnyx should contact about this account.",
             "example": "Sam"
           },
           "last_name": {
             "maxLength": 255,
             "type": "string",
+            "description": "The last name of the main person Telnyx should contact about this account.",
             "example": "Org"
           },
           "email": {
             "type": "string",
+            "description": "The email address of the main person Telnyx should contact about this account. For a call center (BPO) account this is the email you will verify later, so use a mailbox you can access.",
             "format": "email",
             "example": "sam@acmeplumbing.example.com"
           },
           "job_title": {
             "maxLength": 255,
             "type": "string",
+            "description": "The job title of the main person Telnyx should contact about this account.",
             "example": "Compliance Lead"
           },
           "phone_number": {
             "type": "string",
-            "description": "E.164 format with leading \u0060\u002B\u0060.",
+            "description": "The phone number of the main contact, in E.164 format, for example \u002B12125551234.",
             "example": "\u002B13125550000"
           }
         }
@@ -130793,16 +131633,19 @@
           "city": {
             "maxLength": 100,
             "type": "string",
+            "description": "The city of your registered business address.",
             "example": "Chicago"
           },
           "postal_code": {
             "maxLength": 20,
             "type": "string",
+            "description": "The postal or ZIP code of your registered business address.",
             "example": "60601"
           },
           "street_address": {
             "maxLength": 255,
             "type": "string",
+            "description": "The street address of your registered business, including the building number and street name.",
             "example": "100 Main St"
           },
           "extended_address": {
@@ -130811,6 +131654,7 @@
               "null",
               "string"
             ],
+            "description": "An optional second address line, such as a suite, unit, or floor. Leave blank if it does not apply.",
             "example": "Suite 504"
           }
         }
@@ -135875,7 +136719,7 @@
             "maxLength": 255,
             "minLength": 1,
             "type": "string",
-            "description": "Full name of the reference contact.",
+            "description": "The full name of the person we should contact as your reference.",
             "example": "Dana Reyes"
           },
           "job_title": {
@@ -135884,7 +136728,7 @@
               "null",
               "string"
             ],
-            "description": "Job title of the reference contact.",
+            "description": "The reference contact\u0027s job title, for example CFO or Owner.",
             "example": "VP of Operations"
           },
           "organization": {
@@ -135893,7 +136737,7 @@
               "null",
               "string"
             ],
-            "description": "Organization the reference contact belongs to.",
+            "description": "The name of the organization the reference contact works for.",
             "example": "Acme Logistics"
           },
           "relationship_to_registrant": {
@@ -135908,18 +136752,18 @@
           "phone_e164": {
             "pattern": "^\\\u002B[1-9]\\d{1,14}$",
             "type": "string",
-            "description": "Reference phone number in E.164 format.",
+            "description": "The reference\u0027s phone number in E.164 format, for example \u002B14155550123. We call this number during their local business hours.",
             "example": "\u002B14155550123"
           },
           "email": {
             "type": "string",
-            "description": "Reference contact email address.",
+            "description": "The reference\u0027s email address. We email them scheduling and dial-in instructions before we call, so use an address they check.",
             "format": "email",
             "example": "dana.reyes@example.com"
           },
           "timezone": {
             "type": "string",
-            "description": "IANA timezone id for the reference.",
+            "description": "The reference\u0027s IANA time zone, for example America/New_York. We only call during their local 8am to 9pm hours, which is why we need it.",
             "example": "America/New_York"
           }
         },
@@ -146588,19 +147432,23 @@
           },
           "current_version": {
             "type": "string",
+            "description": "The latest published version of these terms.",
             "example": "v1.0.0"
           },
           "terms_url": {
             "type": "string",
+            "description": "A link to the full terms text.",
             "example": "https://telnyx.com/terms/reputation-services"
           },
           "effective_date": {
             "type": "string",
+            "description": "The date this version took effect.",
             "format": "date",
             "example": "2025-07-10"
           },
           "description": {
             "type": "string",
+            "description": "A short summary of the product these terms cover.",
             "example": "Terms and Conditions for Telnyx Number Reputation service"
           }
         }
@@ -150030,12 +150878,14 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "The unique identifier of this recorded agreement.",
             "format": "uuid",
             "readOnly": true,
             "example": "550e8400-e29b-41d4-a716-446655440000"
           },
           "terms_version": {
             "type": "string",
+            "description": "The version of the terms you accepted.",
             "example": "v1.0.0"
           },
           "version": {
@@ -150050,12 +150900,14 @@
           },
           "agreed_at": {
             "type": "string",
+            "description": "When you accepted this version of the terms.",
             "format": "date-time",
             "readOnly": true,
             "example": "2025-07-10T10:30:00Z"
           },
           "created_at": {
             "type": "string",
+            "description": "When this agreement record was created.",
             "format": "date-time",
             "readOnly": true,
             "example": "2025-07-10T10:30:00Z"
@@ -150154,6 +151006,7 @@
               "null",
               "string"
             ],
+            "description": "When you accepted the terms, or null if you have not.",
             "format": "date-time",
             "example": "2025-07-10T10:30:00Z"
           },
@@ -168751,6 +169604,81 @@
           }
         }
       },
+      "NumberReputationAgentInput": {
+        "required": [
+          "legal_name",
+          "street_address",
+          "city",
+          "administrative_area",
+          "postal_code",
+          "country",
+          "contact_name",
+          "contact_title",
+          "contact_email",
+          "contact_phone"
+        ],
+        "type": "object",
+        "properties": {
+          "legal_name": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "dba": {
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "street_address": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "extended_address": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "maxLength": 120,
+            "type": "string"
+          },
+          "administrative_area": {
+            "maxLength": 120,
+            "type": "string"
+          },
+          "postal_code": {
+            "maxLength": 30,
+            "type": "string"
+          },
+          "country": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "example": "US"
+          },
+          "contact_name": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "contact_title": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "contact_email": {
+            "type": "string",
+            "format": "email"
+          },
+          "contact_phone": {
+            "maxLength": 30,
+            "type": "string",
+            "example": "\u002B13125550000"
+          }
+        },
+        "description": "Third-party reseller / partner managing the enterprise\u0027s phone numbers. Omit when the enterprise works directly with Telnyx."
+      },
       "NumberReputationError": {
         "required": [
           "code",
@@ -168831,6 +169759,44 @@
           }
         },
         "description": "JSON:API pagination metadata returned with every paginated list response. Page numbering is 1-based. \u0060page_size\u0060 reports the number of items actually returned in \u0060data\u0060 for this page; the requested size is taken from the \u0060page[size]\u0060 query parameter."
+      },
+      "NumberReputationTosAgreement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "550e8400-e29b-41d4-a716-446655440000"
+          },
+          "terms_version": {
+            "type": "string",
+            "example": "v1.0.0"
+          },
+          "version": {
+            "type": "string",
+            "description": "Convenience alias of \u0060terms_version\u0060. Both keys are present on every response.",
+            "readOnly": true,
+            "example": "v1.0.0"
+          },
+          "product_type": {
+            "description": "Telnyx product the Terms of Service apply to.",
+            "$ref": "#/components/schemas/TosProductType"
+          },
+          "agreed_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2025-07-10T10:30:00Z"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2025-07-10T10:30:00Z"
+          }
+        },
+        "description": "A recorded user agreement to a product\u0027s Terms of Service. The \u0060user_id\u0060 is intentionally NOT echoed back on this public surface - the caller already knows their own identity."
       },
       "NumbersError": {
         "type": "object",
@@ -173906,6 +174872,29 @@
         "description": "The previous value of the field. Can be any JSON type.",
         "example": 54321
       },
+      "BpoAuthorizationLoaRenderRequestSignature": {
+        "required": [
+          "image_base64"
+        ],
+        "type": "object",
+        "properties": {
+          "image_base64": {
+            "maxLength": 60000,
+            "minLength": 1,
+            "type": "string",
+            "description": "PNG image, base64-encoded."
+          },
+          "signer_name": {
+            "maxLength": 200,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional. When absent the rendered PDF falls back to the enterprise contact\u0027s legal name."
+          }
+        },
+        "description": "Optional. When provided the rendered PDF embeds the signature image, printed name, and signed-at date. When absent the PDF is returned unsigned so the Brand Owner can sign externally and the BPO can upload it via the Documents API."
+      },
       "BrandContactsBrand": {
         "required": [
           "contact_type",
@@ -173968,59 +174957,71 @@
         "properties": {
           "legal_name": {
             "maxLength": 200,
-            "type": "string"
+            "type": "string",
+            "description": "The legal name of the third-party partner or reseller managing these numbers on your behalf."
           },
           "dba": {
             "maxLength": 200,
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "The trade name (Doing Business As) the partner operates under, if different from its legal name. Leave blank if it does not apply."
           },
           "street_address": {
             "maxLength": 255,
-            "type": "string"
+            "type": "string",
+            "description": "The street address of the partner, including the building number and street name."
           },
           "extended_address": {
             "maxLength": 255,
             "type": [
               "null",
               "string"
-            ]
+            ],
+            "description": "An optional second address line for the partner, such as a suite, unit, or floor. Leave blank if it does not apply."
           },
           "city": {
             "maxLength": 120,
-            "type": "string"
+            "type": "string",
+            "description": "The city of the partner\u0027s address."
           },
           "administrative_area": {
             "maxLength": 120,
-            "type": "string"
+            "type": "string",
+            "description": "The state or province of the partner\u0027s address, as its code, for example IL or ON."
           },
           "postal_code": {
             "maxLength": 30,
-            "type": "string"
+            "type": "string",
+            "description": "The postal or ZIP code of the partner\u0027s address."
           },
           "country": {
             "maxLength": 2,
             "minLength": 2,
             "type": "string",
+            "description": "The two-letter country code of the partner\u0027s address, for example US.",
             "example": "US"
           },
           "contact_name": {
             "maxLength": 200,
-            "type": "string"
+            "type": "string",
+            "description": "The name of a contact person at the partner."
           },
           "contact_title": {
             "maxLength": 200,
-            "type": "string"
+            "type": "string",
+            "description": "The job title of the contact person at the partner."
           },
           "contact_email": {
             "type": "string",
+            "description": "The email address of the contact person at the partner.",
             "format": "email"
           },
           "contact_phone": {
             "maxLength": 30,
             "type": "string",
+            "description": "The phone number of the contact person at the partner, in E.164 format, for example \u002B13125550000.",
             "example": "\u002B13125550000"
           }
         },
@@ -183283,6 +184284,24 @@
             "type": "string",
             "description": "The JSON map to connect your Dialoglow account.",
             "example": "****"
+          }
+        }
+      },
+      "DirDeleteRequestAcceptedData": {
+        "required": [
+          "id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the DIR whose deletion was requested.",
+            "format": "uuid",
+            "example": "16635d38-75a6-4481-82e8-69af60e05011"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DeleteRequestedStatus"
           }
         }
       },
@@ -194436,6 +195455,10 @@
           }
         }
       },
+      "RenderDirBpoLoa200PdfResponse": {
+        "type": "string",
+        "format": "binary"
+      },
       "RenderDirLoa200PdfResponse": {
         "type": "string",
         "format": "binary"
@@ -200770,6 +201793,10 @@
             "$ref": "#/components/schemas/CustomerServiceRecord"
           }
         }
+      },
+      "RenderDirBpoLoa200PdfResponseSchema": {
+        "type": "string",
+        "format": "binary"
       },
       "RenderDirLoa200PdfResponseSchema": {
         "type": "string",
@@ -208179,6 +209206,55 @@
         "description": "EU terms-of-service acceptance. Required when EU consent enforcement is enabled.",
         "example": true
       },
+      "BpoAuthorizationRecordType": {
+        "enum": [
+          "bpo_authorization"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Always \u0060bpo_authorization\u0060.",
+        "readOnly": true,
+        "example": "bpo_authorization",
+        "x-ms-enum": {
+          "name": "BpoAuthorizationRecordType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "bpo_authorization",
+              "name": "BpoAuthorization"
+            }
+          ]
+        }
+      },
+      "BpoAuthorizationStatus": {
+        "enum": [
+          "pending",
+          "approved",
+          "rejected"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Review state of this authorization. \u0060pending\u0060 on create or when the Letter of Authorization is re-uploaded; an admin moves it to \u0060approved\u0060 or \u0060rejected\u0060. Only an \u0060approved\u0060 authorization adds the BPO to this DIR\u0027s authorized callers in the branded calling registry.",
+        "example": "pending",
+        "x-ms-enum": {
+          "name": "BpoAuthorizationStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "approved",
+              "name": "Approved"
+            },
+            {
+              "value": "rejected",
+              "name": "Rejected"
+            }
+          ]
+        }
+      },
       "BrandBasicStatus": {
         "title": "status",
         "enum": [
@@ -213993,7 +215069,7 @@
         ],
         "type": "boolean",
         "additionalProperties": false,
-        "description": "Must be \u0060true\u0060.",
+        "description": "Certification that the DIR information is accurate. Must be \u0060true\u0060 for the DIR to be submitted for vetting.",
         "example": true
       },
       "DirCreateRequestCertifyNoShaftContent": {
@@ -214020,7 +215096,7 @@
         ],
         "type": "boolean",
         "additionalProperties": false,
-        "description": "Must be \u0060true\u0060."
+        "description": "Check to certify that the brand no longer infringes anyone else\u0027s trademark or intellectual property."
       },
       "DirInfringementUpdateRequestCertifyBrandIsAccurate": {
         "enum": [
@@ -215483,7 +216559,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0060enterprise\u0060 for an organization registering its own DIRs; \u0060bpo\u0060 for a Business Process Outsourcer placing calls on behalf of one or more enterprises.",
+        "description": "\u0060enterprise\u0060 for an organization registering its own DIRs (the default, and the right choice when the calls display your own brand). \u0060bpo\u0060 for a Business Process Outsourcer: a call center that places calls on behalf of other enterprises and displays their brand. A \u0060bpo\u0060 enterprise describes the call center itself and cannot own a DIR. Each client the call center calls for gets its own \u0060enterprise\u0060 in the same account, with the client\u0027s DIR under it; that DIR is then linked to the \u0060bpo\u0060 enterprise through \u0060bpo_authorizations\u0060. Fixed at creation.",
         "example": "enterprise",
         "x-ms-enum": {
           "name": "EnterpriseCreateRoleType",
@@ -215548,7 +216624,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Industry classification.",
+        "description": "The industry your business operates in. Choose the closest match from the list; if your value is not accepted, pick the nearest category.",
         "example": "technology",
         "x-ms-enum": {
           "name": "EnterpriseCreateIndustry",
@@ -215817,6 +216893,85 @@
           ]
         }
       },
+      "EnterpriseEmailVerificationStatusStatus": {
+        "enum": [
+          "sent",
+          "verified"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0060sent\u0060 after a code is emailed; \u0060verified\u0060 after a successful confirm.",
+        "example": "sent",
+        "x-ms-enum": {
+          "name": "EnterpriseEmailVerificationStatusStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "sent",
+              "name": "Sent"
+            },
+            {
+              "value": "verified",
+              "name": "Verified"
+            }
+          ]
+        }
+      },
+      "EnterprisePublicRoleType": {
+        "enum": [
+          "enterprise",
+          "bpo"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "enterprise",
+        "x-ms-enum": {
+          "name": "EnterprisePublicRoleType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enterprise",
+              "name": "Enterprise"
+            },
+            {
+              "value": "bpo",
+              "name": "Bpo"
+            }
+          ]
+        }
+      },
+      "EnterprisePublicBpoVerificationStatus": {
+        "enum": [
+          "pending",
+          "approved",
+          "rejected"
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Whether Telnyx has approved this BPO (Business Process Outsourcer) account. Only set for accounts created with \u0060role_type\u0060 \u0060bpo\u0060; \u0060null\u0060 for normal enterprises. A BPO enterprise must be \u0060approved\u0060 before a DIR can be linked to it through \u0060bpo_authorizations\u0060.",
+        "example": "approved",
+        "x-ms-enum": {
+          "name": "EnterprisePublicBpoVerificationStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "approved",
+              "name": "Approved"
+            },
+            {
+              "value": "rejected",
+              "name": "Rejected"
+            }
+          ]
+        }
+      },
       "EnterpriseUpdateIndustry": {
         "enum": [
           "accounting",
@@ -215865,6 +217020,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "description": "The industry your business operates in. Choose the closest match from the list; if your value is not accepted, pick the nearest category.",
         "x-ms-enum": {
           "name": "EnterpriseUpdateIndustry",
           "modelAsString": false,
@@ -237324,6 +238480,25 @@
           ]
         }
       },
+      "DeleteRequestedStatus": {
+        "enum": [
+          "delete_requested"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Always \u0060delete_requested\u0060: the DIR has been queued for removal, not yet removed.",
+        "example": "delete_requested",
+        "x-ms-enum": {
+          "name": "DeleteRequestedStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "delete_requested",
+              "name": "DeleteRequested"
+            }
+          ]
+        }
+      },
       "DomainGraduationLimitExceededCode": {
         "enum": [
           "domain_graduation_limit_exceeded"
@@ -244357,6 +245532,29 @@
             {
               "value": "bcc",
               "name": "Bcc"
+            }
+          ]
+        }
+      },
+      "ListEnterprisesFilterRoleTypeParameter": {
+        "enum": [
+          "enterprise",
+          "bpo"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "bpo",
+        "x-ms-enum": {
+          "name": "ListEnterprisesFilterRoleTypeParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enterprise",
+              "name": "Enterprise"
+            },
+            {
+              "value": "bpo",
+              "name": "Bpo"
             }
           ]
         }

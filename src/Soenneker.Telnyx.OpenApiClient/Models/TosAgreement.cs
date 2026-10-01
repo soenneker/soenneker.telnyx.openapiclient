@@ -15,15 +15,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agreed_at property</summary>
+        /// <summary>When you accepted this version of the terms.</summary>
         public DateTimeOffset? AgreedAt { get; private set; }
-        /// <summary>The created_at property</summary>
+        /// <summary>When this agreement record was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>The id property</summary>
+        /// <summary>The unique identifier of this recorded agreement.</summary>
         public Guid? Id { get; private set; }
         /// <summary>Telnyx product the Terms of Service apply to.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType? ProductType { get; set; }
-        /// <summary>The terms_version property</summary>
+        /// <summary>The version of the terms you accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TermsVersion { get; set; }

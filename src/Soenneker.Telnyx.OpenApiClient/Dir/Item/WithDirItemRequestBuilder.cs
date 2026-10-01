@@ -3,6 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Dir.Item.Bpo_authorizations;
+using Soenneker.Telnyx.OpenApiClient.Dir.Item.Bpo_loa;
 using Soenneker.Telnyx.OpenApiClient.Dir.Item.Comments;
 using Soenneker.Telnyx.OpenApiClient.Dir.Item.Infringement_claims;
 using Soenneker.Telnyx.OpenApiClient.Dir.Item.Infringement_update;
@@ -26,6 +28,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithDirItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The bpo_authorizations property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Dir.Item.Bpo_authorizations.Bpo_authorizationsRequestBuilder Bpo_authorizations
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Dir.Item.Bpo_authorizations.Bpo_authorizationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bpo_loa property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Dir.Item.Bpo_loa.Bpo_loaRequestBuilder Bpo_loa
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Dir.Item.Bpo_loa.Bpo_loaRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The comments property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Dir.Item.Comments.CommentsRequestBuilder Comments
         {
@@ -88,18 +100,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item
         {
         }
         /// <summary>
-        /// Delete a DIR. Failure modes: `400` if a child phone number is in a non-deletable status, `409` if the DIR has an unresolved infringement claim, `404` if the DIR is not yours.
+        /// Request deletion of a DIR. This does not remove the DIR on this call: it records the request, moves the DIR to `delete_requested`, and Telnyx completes the removal (de-registration and cleanup) shortly after. A verified DIR keeps serving its branded identity, and keeps billing, until the removal is executed. Failure modes: `400` if a child phone number is still attached or the DIR is `in_review` (wait for the review to finish), `409` if the DIR has an unresolved infringement claim, `404` if the DIR is not yours.
         /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DirDeleteRequestAccepted"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DirDeleteRequestAccepted?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DirDeleteRequestAccepted> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -107,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item
             {
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DirDeleteRequestAccepted>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DirDeleteRequestAccepted.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a single DIR by id. The enterprise is resolved server-side from the DIR id. Returns `404` if the DIR does not exist or is not yours.
@@ -133,7 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DirWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DirWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Edit a DIR. DIRs in `draft`, `rejected`, `unsuccessful`, or `suspended` can be edited freely: PATCH is a pure edit, `status` is never changed, and you re-vet by calling `POST /v2/dir/{dir_id}/submit` explicitly. A `verified` DIR can also be edited in place: a PATCH that changes any value returns the DIR to `draft` and branded delivery stops until you re-submit and the DIR is approved again, while a PATCH that changes nothing (an empty body or values identical to the current ones) leaves the DIR `verified`, so idempotent retries are safe. DIRs in any other status (`submitted`, `in_review`, `expired`, `infringement_claimed`, `permanently_rejected`) cannot be edited.
+        /// Edit a DIR. DIRs in `draft`, `rejected`, `unsuccessful`, or `suspended` can be edited freely: PATCH is a pure edit, `status` is never changed, and you re-vet by calling `POST /v2/dir/{dir_id}/submit` explicitly. A `verified` DIR can also be edited in place: a PATCH that changes any value returns the DIR to `draft`; the currently approved identity keeps displaying, and the edited content goes live only after you re-submit and the DIR is approved again. A PATCH that changes nothing (an empty body or values identical to the current ones) leaves the DIR `verified`, so idempotent retries are safe. Changing only `bpo_authorizations` or `webhook_url` is the exception: the DIR stays `verified`. Each BPO authorization is reviewed on its own instead. DIRs in any other status (`submitted`, `in_review`, `expired`, `infringement_claimed`, `permanently_rejected`) cannot be edited.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DirWrapped"/></returns>
         /// <param name="body">All fields are optional; only those supplied are updated. Same per-field rules as `DirCreateRequest`.</param>
@@ -158,7 +171,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DirWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DirWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a DIR. Failure modes: `400` if a child phone number is in a non-deletable status, `409` if the DIR has an unresolved infringement claim, `404` if the DIR is not yours.
+        /// Request deletion of a DIR. This does not remove the DIR on this call: it records the request, moves the DIR to `delete_requested`, and Telnyx completes the removal (de-registration and cleanup) shortly after. A verified DIR keeps serving its branded identity, and keeps billing, until the removal is executed. Failure modes: `400` if a child phone number is still attached or the DIR is `in_review` (wait for the review to finish), `409` if the DIR has an unresolved infringement claim, `404` if the DIR is not yours.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -196,7 +209,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item
             return requestInfo;
         }
         /// <summary>
-        /// Edit a DIR. DIRs in `draft`, `rejected`, `unsuccessful`, or `suspended` can be edited freely: PATCH is a pure edit, `status` is never changed, and you re-vet by calling `POST /v2/dir/{dir_id}/submit` explicitly. A `verified` DIR can also be edited in place: a PATCH that changes any value returns the DIR to `draft` and branded delivery stops until you re-submit and the DIR is approved again, while a PATCH that changes nothing (an empty body or values identical to the current ones) leaves the DIR `verified`, so idempotent retries are safe. DIRs in any other status (`submitted`, `in_review`, `expired`, `infringement_claimed`, `permanently_rejected`) cannot be edited.
+        /// Edit a DIR. DIRs in `draft`, `rejected`, `unsuccessful`, or `suspended` can be edited freely: PATCH is a pure edit, `status` is never changed, and you re-vet by calling `POST /v2/dir/{dir_id}/submit` explicitly. A `verified` DIR can also be edited in place: a PATCH that changes any value returns the DIR to `draft`; the currently approved identity keeps displaying, and the edited content goes live only after you re-submit and the DIR is approved again. A PATCH that changes nothing (an empty body or values identical to the current ones) leaves the DIR `verified`, so idempotent retries are safe. Changing only `bpo_authorizations` or `webhook_url` is the exception: the DIR stays `verified`. Each BPO authorization is reviewed on its own instead. DIRs in any other status (`submitted`, `in_review`, `expired`, `infringement_claimed`, `permanently_rejected`) cannot be edited.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">All fields are optional; only those supplied are updated. Same per-field rules as `DirCreateRequest`.</param>

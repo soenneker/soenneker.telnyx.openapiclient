@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Third-party reseller / partner managing the enterprise&apos;s phone numbers. Omit when the enterprise works directly with Telnyx.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput? Agent { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput? Agent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput Agent { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput Agent { get; set; }
 #endif
         /// <summary>Optional signature embedded in the rendered PDF. When omitted the PDF is returned unsigned for the customer to sign and upload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput.CreateFromDiscriminatorValue); } },
+                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput.CreateFromDiscriminatorValue); } },
                 { "signature", n => { Signature = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.LoaSignaturePayload>(global::Soenneker.Telnyx.OpenApiClient.Models.LoaSignaturePayload.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInput>("agent", Agent);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationAgentInput>("agent", Agent);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.LoaSignaturePayload>("signature", Signature);
             writer.WriteAdditionalData(AdditionalData);
         }

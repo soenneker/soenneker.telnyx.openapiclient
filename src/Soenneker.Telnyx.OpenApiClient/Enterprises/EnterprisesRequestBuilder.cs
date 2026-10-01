@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EnterprisesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises{?filter%5Blegal_name%5D%5Bcontains%5D*,legal_name*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public EnterprisesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises{?filter%5Blegal_name%5D%5Bcontains%5D*,filter%5Brole_type%5D*,legal_name*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EnterprisesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises{?filter%5Blegal_name%5D%5Bcontains%5D*,legal_name*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public EnterprisesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises{?filter%5Blegal_name%5D%5Bcontains%5D*,filter%5Brole_type%5D*,legal_name*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -164,6 +164,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
             [QueryParameter("filter%5Blegal_name%5D%5Bcontains%5D")]
             public string FilterlegalNamecontains { get; set; }
 #endif
+            /// <summary>Only return enterprises of this type: `bpo` for call-center (BPO) enterprises, `enterprise` for normal enterprises. Omit to return both.</summary>
+            [QueryParameter("filter%5Brole_type%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListEnterprisesFilterRoleTypeParameter? FilterroleType { get; set; }
             /// <summary>Filter by legal name (partial match).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

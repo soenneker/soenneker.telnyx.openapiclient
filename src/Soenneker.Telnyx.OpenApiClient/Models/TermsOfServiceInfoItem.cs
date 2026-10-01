@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The current_version property</summary>
+        /// <summary>The latest published version of these terms.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CurrentVersion { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CurrentVersion { get; set; }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>A short summary of the product these terms cover.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -31,11 +31,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The effective_date property</summary>
+        /// <summary>The date this version took effect.</summary>
         public Date? EffectiveDate { get; set; }
         /// <summary>Telnyx product the Terms of Service apply to.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType? ProductType { get; set; }
-        /// <summary>The terms_url property</summary>
+        /// <summary>A link to the full terms text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TermsUrl { get; set; }

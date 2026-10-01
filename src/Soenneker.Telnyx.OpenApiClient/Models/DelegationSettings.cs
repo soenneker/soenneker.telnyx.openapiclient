@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Who answers a delegation. `telnyx` runs the backend model on Telnyx with the assistant&apos;s own tools, MCP servers and observability. `client` relays the delegation to a server you host over the WebSocket configured in `websocket_settings`: Telnyx sends a `session.delegation.created` frame and waits for your `session.delegation.completed` answer. That answer is text only, since the socket offers no tool vocabulary. If no socket is connected the delegation is refused and the assistant tells the caller it cannot look things up right now. Defaults to `telnyx`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettingsMode? Mode { get; set; }
-        /// <summary>The backend model that answers delegations. Must be a model available for AI Assistants. Leave unset to use the platform default backend model. Only applies when `mode` is `telnyx`.</summary>
+        /// <summary>The backend model that answers delegations. Must be a model available for AI Assistants. When enabling `telnyx` delegation, explicitly set this field or `external_llm.model`; a configuration without either backend model is rejected. Only applies when `mode` is `telnyx`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
