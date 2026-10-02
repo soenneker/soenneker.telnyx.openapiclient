@@ -4198,6 +4198,82 @@
         }
       }
     },
+    "/ai/assistants/deleted": {
+      "get": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "List deleted assistants",
+        "description": "List the organization\u0027s soft-deleted assistants in the Recently Deleted list.\n\nEach entry includes \u0060deleted_at\u0060 and \u0060permanently_deleted_at\u0060, the point after which the assistant is erased automatically and can no longer be restored.",
+        "operationId": "GetDeletedAssistantsPublicAssistantsDeletedGet",
+        "parameters": [
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "Page number to retrieve (1-based).",
+            "schema": {
+              "title": "Page[Number]",
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "Number of items to return per page.",
+            "schema": {
+              "title": "Page[Size]",
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedDeletedAssistantsResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "assistant_7f3c2a1b",
+                      "name": "Support Assistant",
+                      "created_at": "2025-08-14T09:24:11.000000Z",
+                      "model": "telnyx-gpt",
+                      "instructions": "You are a support assistant.",
+                      "deleted_at": "2026-10-02T00:46:15.245000Z",
+                      "permanently_deleted_at": "2026-11-01T00:46:15.245000Z"
+                    }
+                  ],
+                  "meta": {
+                    "total_pages": 1,
+                    "total_results": 1,
+                    "page_number": 1,
+                    "page_size": 20
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ai/assistants/import": {
       "post": {
         "tags": [
@@ -5116,7 +5192,7 @@
           "Assistants"
         ],
         "summary": "Delete an assistant",
-        "description": "Delete an AI Assistant by \u0060assistant_id\u0060.",
+        "description": "Delete an AI Assistant by \u0060assistant_id\u0060.\n\nBy default this performs a soft delete: the assistant moves to the Recently Deleted list and stays restorable for 30 days, after which it is permanently deleted automatically. The assistant\u0027s versions and TeXML application are preserved during the retention window.\n\nPass \u0060hard_delete=true\u0060 to skip the retention window and permanently delete the assistant immediately. A hard delete erases the assistant and all of its versions, and deletes its TeXML application unless phone numbers are still assigned to it. It does not delete conversations, recordings, shared tools the assistant referenced, or knowledge-base embeddings.\n\nDeletion fails with \u0060400\u0060 if other assistants reference this one through a handoff tool or a conversation-flow edge \u2014 remove those references first.",
         "operationId": "DeleteAssistantPublicAssistantsAssistantIdDelete",
         "parameters": [
           {
@@ -5127,6 +5203,16 @@
             "schema": {
               "title": "Assistant Id",
               "type": "string"
+            }
+          },
+          {
+            "name": "hard_delete",
+            "in": "query",
+            "description": "Permanently delete the assistant immediately instead of soft-deleting it to the Recently Deleted list, where it stays restorable for 30 days.",
+            "schema": {
+              "title": "Hard Delete",
+              "type": "boolean",
+              "default": false
             }
           }
         ],
@@ -5152,6 +5238,25 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request (code 10015). Another assistant depends on this one: a handoff tool points to it, or a conversation-flow edge hands off to it. The detail names the referencing assistants; remove those references and retry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Bad Request",
+                      "detail": "Cannot delete assistant assistant_7f3c2a1b. The following assistant(s) have handoff tools pointing to it: \u0027Billing Bot\u0027 (assistant_9c1d2e3f). Please remove these handoff tools before deleting."
+                    }
+                  ]
                 }
               }
             }
@@ -5836,6 +5941,163 @@
         }
       }
     },
+    "/ai/assistants/{assistantId}/chat/whatsapp": {
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Assistant WhatsApp Chat",
+        "description": "Start a WhatsApp conversation with a customer from the business side. This endpoint:\n1. Validates that \u0060from\u0060 is a WhatsApp number on your account whose messaging profile has this assistant configured\n2. Creates a new \u0060whatsapp_chat\u0060 conversation with the provided metadata\n3. Asks the assistant to pick one of its approved WhatsApp templates and fill its variables from \u0060content\u0060\n4. Sends the template from \u0060from\u0060 to \u0060to\u0060\n5. Returns the conversation ID and the message ID\n\nWhen the customer replies, the reply is routed to the same conversation and the assistant answers within the 24-hour customer service window. The assistant needs a \u0060whatsapp_template\u0060 tool with at least one approved template, data retention enabled and PII redaction disabled.",
+        "operationId": "AssistantWhatsappChatAssistantsAssistantIdChatWhatsappPost",
+        "parameters": [
+          {
+            "name": "assistantId",
+            "in": "path",
+            "description": "Unique identifier of the assistant. Must be the assistant configured on the messaging profile of the \u0060from\u0060 number.",
+            "required": true,
+            "schema": {
+              "title": "Assistant Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Optional opaque, unquoted key for safely retrying the same logical request. Keys must contain 1 to 255 letters, numbers, hyphens, or underscores. Generate a unique UUID v4 for each operation and reuse it only when retrying that operation with the same request. Invalid headers\u2014including duplicate, empty, malformed, or overlong values\u2014return 400 with error code 10015. A request already in progress with the same key returns 409; reusing the key with a different request returns 422. Only successful responses are replayed, for up to 24 hours. Do not include sensitive data in the key.",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssistantWhatsappChatReq"
+              },
+              "example": {
+                "from": "\u002B13125550001",
+                "to": "\u002B13125550002",
+                "content": "Send the login verification code 482913 to the customer.",
+                "conversation_metadata": {
+                  "order_id": "A1"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "headers": {
+              "Idempotent-Replayed": {
+                "$ref": "#/components/headers/IdempotentReplayed"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssistantWhatsappChatResponse"
+                },
+                "example": {
+                  "conversation_id": "59f1f39e-180c-4f5d-81e9-393b46ca4077",
+                  "message_id": "4031a0e8-f724-4e22-a086-0f18720ac829"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. Missing required fields or a reserved \u0060conversation_metadata\u0060 key, or the assistant is not the one configured on the messaging profile of \u0060from\u0060 (10015). Invalid JSON (10023). A field of the wrong type, for example a non-string \u0060from\u0060, \u0060to\u0060 or \u0060content\u0060, or a \u0060conversation_metadata\u0060 value that is not a string, integer or boolean (10026). \u0060from\u0060 is not a valid WhatsApp number on a messaging profile (40305). \u0060to\u0060 is not a valid E.164 number or BSUID (40310). Invalid, duplicate, empty, malformed, or overlong Idempotency-Key headers are rejected by Edge with HTTP 400 and error code 10015.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication Failed (10009). The API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. The \u0060from\u0060 number is not associated with your account (10010), messaging is disabled on the account (40314), or the account is inactive (20012), blocked (20013) or unverified (20014).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found (10005). The assistant does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. The messaging profile of \u0060from\u0060 is disabled (40312), or a request with the same Idempotency-Key is still being processed (10036), in which case retry later with the same key and request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10036",
+                      "title": "Resource is being processed",
+                      "detail": "A request with this Idempotency-Key is already being processed.",
+                      "source": {
+                        "pointer": "/header/Idempotency-Key"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Payload Too Large. A request sent with an Idempotency-Key whose body exceeds the endpoint\u0027s Edge replay-protection limit (256 KB) is rejected before it reaches the service. Requests sent without the header are not subject to this limit.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity (10027). The assistant did not return a WhatsApp template, or its privacy settings do not allow storing conversations. Reusing an Idempotency-Key with a different request body also returns 422 with error code 10027.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable (10037). The assistant could not be looked up, the conversation could not be started, or the template could not be sent. Retry the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ai/assistants/{assistantId}/clone": {
       "post": {
         "tags": [
@@ -5923,6 +6185,59 @@
         }
       }
     },
+    "/ai/assistants/{assistantId}/deleted": {
+      "get": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Get a deleted assistant",
+        "description": "Retrieve a soft-deleted assistant from the Recently Deleted list by \u0060assistant_id\u0060, including its \u0060deleted_at\u0060 and \u0060permanently_deleted_at\u0060 timestamps. This is a read-only view; the assistant cannot be modified while it remains deleted.",
+        "operationId": "GetDeletedAssistantPublicAssistantsAssistantIdDeletedGet",
+        "parameters": [
+          {
+            "name": "assistantId",
+            "in": "path",
+            "description": "Unique identifier of the assistant.",
+            "required": true,
+            "schema": {
+              "title": "Assistant Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedAssistant"
+                },
+                "example": {
+                  "id": "assistant_7f3c2a1b",
+                  "name": "Support Assistant",
+                  "created_at": "2025-08-14T09:24:11.000000Z",
+                  "model": "telnyx-gpt",
+                  "instructions": "You are a support assistant.",
+                  "deleted_at": "2026-10-02T00:46:15.245000Z",
+                  "permanently_deleted_at": "2026-11-01T00:46:15.245000Z"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ai/assistants/{assistantId}/instructions/enhance": {
       "post": {
         "tags": [
@@ -5965,6 +6280,57 @@
                   "$ref": "#/components/schemas/EnhanceAssistantInstructionsPublicAssistantsAssistantIdInstructionsEnhancePost200PlainResponse"
                 },
                 "example": "Enhanced Instructions Stream"
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/assistants/{assistantId}/restore": {
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Restore an assistant",
+        "description": "Restore a soft-deleted assistant from the Recently Deleted list.\n\nThe assistant becomes fully active again with its versions and TeXML application as they were at deletion time. Restoring does not re-enable numbers or connections that were released separately after the deletion.",
+        "operationId": "RestoreAssistantPublicAssistantsAssistantIdRestorePost",
+        "parameters": [
+          {
+            "name": "assistantId",
+            "in": "path",
+            "description": "Unique identifier of the assistant.",
+            "required": true,
+            "schema": {
+              "title": "Assistant Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceEmbeddingAssistant"
+                },
+                "example": {
+                  "id": "assistant_7f3c2a1b",
+                  "name": "Support Assistant",
+                  "created_at": "2025-08-14T09:24:11.000000Z",
+                  "model": "telnyx-gpt",
+                  "instructions": "You are a support assistant."
+                }
               }
             }
           },
@@ -17144,12 +17510,15 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successful Response",
+          "204": {
+            "description": "Tool deleted successfully. No content is returned."
+          },
+          "400": {
+            "description": "Bad Request (10015). The tool cannot be deleted: it is a predefined system tool (clone it instead to get a deletable copy), it is currently used by an active assistant, or it is referenced by a soft-deleted (Recently Deleted) assistant. References from soft-deleted assistants block deletion until those assistants are permanently deleted or restored and detached from the tool. The \u0060detail\u0060 names the referencing assistant(s) and the remedy.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteToolToolId200ResponseSchema"
+                  "$ref": "#/components/schemas/InferenceEmbeddingErrorResponse"
                 }
               }
             }
@@ -19755,7 +20124,7 @@
           "Call Commands"
         ],
         "summary": "Answer call",
-        "description": "Answer an incoming call. You must issue this command before executing subsequent commands on an incoming call.\n\n**Expected Webhooks:**\n\n- \u0060call.answered\u0060\n- \u0060call.hold\u0060 and \u0060call.unhold\u0060 if the call is held/unheld\n- \u0060call.deepfake_detection.result\u0060 if \u0060deepfake_detection\u0060 was enabled\n- \u0060call.deepfake_detection.error\u0060 if \u0060deepfake_detection\u0060 was enabled and an error occurred\n- \u0060streaming.started\u0060, \u0060streaming.stopped\u0060 or \u0060streaming.failed\u0060 if \u0060stream_url\u0060 was set\n\nWhen the \u0060record\u0060 parameter is set to \u0060record-from-answer\u0060, the response will include a \u0060recording_id\u0060 field.\n",
+        "description": "Answer an incoming call. You must issue this command before executing subsequent commands on an incoming call.\n\nTo answer with an AI assistant, include \u0060assistant.id\u0060 and any per-call overrides in the \u0060assistant\u0060 object. Telnyx attempts to warm up the assistant before answering the call, then starts the assistant automatically when the call is answered. Do not also send \u0060ai_assistant_start\u0060 for this flow. The HTTP success response can arrive before the call is answered; use the \u0060call.answered\u0060 webhook to track the answer. If warm-up fails, Telnyx falls back to starting the assistant after answering.\n\nSet the assistant voice with \u0060assistant.voice_settings.voice\u0060 and speech-to-text settings with \u0060assistant.transcription\u0060. You can reuse one stored assistant with different per-call settings. Warm-up prepares assistant configuration and dependencies; it does not wait for the greeting audio to be ready or guarantee zero silence after answer. A plain \u0060answer\u0060 followed by \u0060ai_assistant_start\u0060 performs assistant startup after the call has already been answered.\n\n**Expected Webhooks:**\n\n- \u0060call.answered\u0060\n- \u0060call.hold\u0060 and \u0060call.unhold\u0060 if the call is held/unheld\n- \u0060call.deepfake_detection.result\u0060 if \u0060deepfake_detection\u0060 was enabled\n- \u0060call.deepfake_detection.error\u0060 if \u0060deepfake_detection\u0060 was enabled and an error occurred\n- \u0060streaming.started\u0060, \u0060streaming.stopped\u0060 or \u0060streaming.failed\u0060 if \u0060stream_url\u0060 was set\n\nWhen the \u0060record\u0060 parameter is set to \u0060record-from-answer\u0060, the response will include a \u0060recording_id\u0060 field.\n",
         "operationId": "AnswerCall",
         "parameters": [
           {
@@ -84038,7 +84407,7 @@
         "type": "object",
         "properties": {
           "assistant": {
-            "description": "AI Assistant configuration. All fields except \u0060id\u0060 are optional \u2014 the assistant\u0027s stored configuration will be used as fallback for any omitted fields.",
+            "description": "AI Assistant configuration and per-call overrides. All fields except \u0060id\u0060 are optional. Omitted assistant fields use the stored configuration. Supplied \u0060voice_settings\u0060 and \u0060transcription\u0060 objects replace their stored objects rather than merging individual settings; include every setting you want to retain. \u0060dynamic_variables\u0060 are merged, with request values taking precedence.",
             "$ref": "#/components/schemas/CallAssistantRequest"
           },
           "greeting": {
@@ -86332,7 +86701,7 @@
         "type": "object",
         "properties": {
           "assistant": {
-            "description": "AI Assistant configuration. All fields except \u0060id\u0060 are optional \u2014 the assistant\u0027s stored configuration will be used as fallback for any omitted fields.",
+            "description": "AI Assistant configuration and per-call overrides. All fields except \u0060id\u0060 are optional. Omitted assistant fields use the stored configuration. Supplied \u0060voice_settings\u0060 and \u0060transcription\u0060 objects replace their stored objects rather than merging individual settings; include every setting you want to retain. \u0060dynamic_variables\u0060 are merged, with request values taking precedence.",
             "$ref": "#/components/schemas/CallAssistantRequest"
           },
           "conversation_relay_config": {
@@ -86416,7 +86785,7 @@
           },
           "transcription": {
             "type": "boolean",
-            "description": "Enable transcription upon call answer. The default value is false.",
+            "description": "Enable standalone call transcription upon call answer. The default value is false. Configure this feature with \u0060transcription_config\u0060. To configure speech recognition for an AI assistant, use \u0060assistant.transcription\u0060 instead.",
             "default": false,
             "example": true
           },
@@ -86476,6 +86845,13 @@
           "assistant": {
             "id": "asst_123",
             "greeting": "Hi, I\u0027m your assistant. How can I help?",
+            "voice_settings": {
+              "voice": "Telnyx.KokoroTTS.af_heart"
+            },
+            "transcription": {
+              "model": "deepgram/flux",
+              "language": "en"
+            },
             "tools": [
               {
                 "type": "hangup",
@@ -87160,6 +87536,55 @@
           "$ref": "#/components/schemas/AssistantToolsItemComposed"
         },
         "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
+      },
+      "AssistantWhatsappChatReq": {
+        "title": "AssistantWhatsappChatReq",
+        "required": [
+          "from",
+          "to",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "title": "From",
+            "type": "string",
+            "description": "WhatsApp number on your account to send from, in E.164 format. Its messaging profile must have this assistant configured."
+          },
+          "to": {
+            "title": "To",
+            "type": "string",
+            "description": "Customer to message, as an E.164 phone number or a WhatsApp business-scoped user ID (BSUID)."
+          },
+          "content": {
+            "title": "Content",
+            "type": "string",
+            "description": "Instruction for the assistant, including the values for the template variables, e.g. \u0060Send the login verification code 482913 to the customer.\u0060"
+          },
+          "conversation_metadata": {
+            "$ref": "#/components/schemas/AssistantWhatsappChatReqConversationMetadataProperty"
+          }
+        }
+      },
+      "AssistantWhatsappChatResponse": {
+        "title": "AssistantWhatsappChatResponse",
+        "required": [
+          "conversation_id",
+          "message_id"
+        ],
+        "type": "object",
+        "properties": {
+          "conversation_id": {
+            "title": "Conversation Id",
+            "type": "string",
+            "description": "ID of the conversation created for this WhatsApp chat."
+          },
+          "message_id": {
+            "title": "Message Id",
+            "type": "string",
+            "description": "ID of the WhatsApp template message that was sent."
+          }
+        }
       },
       "AssistantsListData": {
         "title": "AssistantsListData",
@@ -91274,7 +91699,12 @@
             "description": "Initial greeting text spoken when the assistant starts. Can be plain text for any voice or SSML for \u0060AWS.Polly.\u003Cvoice_id\u003E\u0060 voices. There is a 3,000 character limit."
           },
           "voice_settings": {
+            "description": "Per-call voice configuration. Set the voice identifier in \u0060voice_settings.voice\u0060, not in \u0060assistant.voice\u0060. If supplied, this object replaces the stored voice settings.",
             "$ref": "#/components/schemas/VoiceSettings"
+          },
+          "transcription": {
+            "description": "Per-call speech-to-text configuration for the assistant. If omitted, the stored assistant transcription configuration is used. If supplied, this object replaces the stored transcription settings. This is separate from the top-level \u0060transcription\u0060 boolean on answer and dial commands.",
+            "$ref": "#/components/schemas/TranscriptionConfig"
           },
           "tools": {
             "type": "array",
@@ -91315,7 +91745,7 @@
             "$ref": "#/components/schemas/CallAssistantRequestObservabilitySettingsProperty"
           }
         },
-        "description": "AI Assistant configuration. All fields except \u0060id\u0060 are optional \u2014 the assistant\u0027s stored configuration will be used as fallback for any omitted fields."
+        "description": "AI Assistant configuration and per-call overrides. All fields except \u0060id\u0060 are optional. Omitted assistant fields use the stored configuration. Supplied \u0060voice_settings\u0060 and \u0060transcription\u0060 objects replace their stored objects rather than merging individual settings; include every setting you want to retain. \u0060dynamic_variables\u0060 are merged, with request values taking precedence."
       },
       "CallBridgedBody": {
         "title": "Call Bridged",
@@ -93207,7 +93637,7 @@
         "type": "object",
         "properties": {
           "assistant": {
-            "description": "AI Assistant configuration. All fields except \u0060id\u0060 are optional \u2014 the assistant\u0027s stored configuration will be used as fallback for any omitted fields.",
+            "description": "AI Assistant configuration and per-call overrides. All fields except \u0060id\u0060 are optional. Omitted assistant fields use the stored configuration. Supplied \u0060voice_settings\u0060 and \u0060transcription\u0060 objects replace their stored objects rather than merging individual settings; include every setting you want to retain. \u0060dynamic_variables\u0060 are merged, with request values taking precedence.",
             "$ref": "#/components/schemas/CallAssistantRequest"
           },
           "conversation_relay_config": {
@@ -106720,6 +107150,199 @@
           }
         },
         "description": "Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all \u2014 when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single \u0060delegate\u0060 tool that returns immediately, so the conversation carries on while the backend works. Either way the backend\u0027s answer is spoken as commentary or kept as silent context, depending on \u0060speak_results\u0060. Beta feature."
+      },
+      "DeletedAssistant": {
+        "required": [
+          "id",
+          "name",
+          "created_at",
+          "model",
+          "instructions",
+          "deleted_at",
+          "permanently_deleted_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version_id": {
+            "type": "string",
+            "description": "Identifier for the assistant version returned by version-aware assistant endpoints."
+          },
+          "version_created_at": {
+            "type": "string",
+            "description": "Timestamp when this assistant version was created.",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string",
+            "description": "ID of the model to use when \u0060external_llm\u0060 is not set. You can use the [Get models API](https://developers.telnyx.com/api-reference/openai-chat/get-available-models-openai-compatible) to see available models. If \u0060external_llm\u0060 is provided, the assistant uses \u0060external_llm\u0060 instead of this field. If neither \u0060model\u0060 nor \u0060external_llm\u0060 is provided, Telnyx applies the default model."
+          },
+          "instructions": {
+            "type": "string",
+            "description": "System instructions for the assistant. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssistantToolsItemComposed"
+            },
+            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
+          },
+          "mcp_servers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssistantMcpServer"
+            },
+            "description": "MCP servers attached to the assistant. Create MCP servers with \u0060/ai/mcp_servers\u0060, then reference them by \u0060id\u0060 here.",
+            "default": []
+          },
+          "a2a_agents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssistantA2AAgent"
+            },
+            "description": "A2A agents this assistant can delegate to. Tools are not stored here: at the start of every conversation each agent\u0027s card is fetched and one tool is derived per skill the card advertises, named \u0060a2a_\u003Cname\u003E_\u003Cskill_id\u003E\u0060. The following limits are not enforced when the assistant is saved, and anything past them is dropped when the conversation starts: 64 agents per assistant, 64 skills per card, 128 derived tools per assistant, and a 6 second budget for all card fetches combined. An agent whose card cannot be fetched costs the assistant that capability for the conversation; it does not fail the call.",
+            "default": []
+          },
+          "greeting": {
+            "type": "string",
+            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables). Use an empty string to have the assistant wait for the user to speak first. Use the special value \u0060\u003Cassistant-speaks-first-with-model-generated-message\u003E\u0060 to have the assistant generate the greeting based on the system instructions."
+          },
+          "llm_api_key_ref": {
+            "type": "string",
+            "description": "This is only needed when using third-party inference providers selected by \u0060model\u0060. The \u0060identifier\u0060 for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api-reference/integration-secrets/create-a-secret) that refers to your LLM provider\u0027s API key. For bring-your-own endpoint authentication, use \u0060external_llm.llm_api_key_ref\u0060 instead. Warning: Free plans are unlikely to work with this integration."
+          },
+          "external_llm": {
+            "$ref": "#/components/schemas/ExternalLlm"
+          },
+          "fallback_config": {
+            "$ref": "#/components/schemas/FallbackConfig"
+          },
+          "voice_settings": {
+            "$ref": "#/components/schemas/InferenceEmbeddingVoiceSettings"
+          },
+          "transcription": {
+            "$ref": "#/components/schemas/TranscriptionSettings"
+          },
+          "telephony_settings": {
+            "$ref": "#/components/schemas/TelephonySettings"
+          },
+          "messaging_settings": {
+            "$ref": "#/components/schemas/MessagingSettings"
+          },
+          "enabled_features": {
+            "title": "Enabled Features",
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnabledFeatures"
+            }
+          },
+          "insight_settings": {
+            "$ref": "#/components/schemas/InsightSettings"
+          },
+          "privacy_settings": {
+            "$ref": "#/components/schemas/PrivacySettings"
+          },
+          "dynamic_variables_webhook_url": {
+            "type": "string",
+            "description": "If \u0060dynamic_variables_webhook_url\u0060 is set, Telnyx sends a POST request to this URL at the start of the conversation to resolve dynamic variables. **Gotcha:** the webhook response must wrap variables under a top-level \u0060dynamic_variables\u0060 object, e.g. \u0060{\u0022dynamic_variables\u0022: {\u0022customer_name\u0022: \u0022Jane\u0022}}\u0060. Returning a flat object will be ignored and variables will fall back to their defaults. See the [dynamic variables guide](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) for the full request/response format and timeout behavior."
+          },
+          "dynamic_variables_webhook_timeout_ms": {
+            "maximum": 10000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Timeout in milliseconds for the dynamic variables webhook. Must be between 1 and 10000 ms. If the webhook does not respond within this timeout, the call proceeds with default values. See the [dynamic variables guide](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables).",
+            "default": 1500
+          },
+          "dynamic_variables": {
+            "$ref": "#/components/schemas/DeletedAssistantDynamicVariables"
+          },
+          "import_metadata": {
+            "$ref": "#/components/schemas/ImportMetadata"
+          },
+          "widget_settings": {
+            "description": "Configuration settings for the assistant\u0027s web widget.",
+            "$ref": "#/components/schemas/WidgetSettings"
+          },
+          "interruption_settings": {
+            "$ref": "#/components/schemas/InferenceEmbeddingInterruptionSettings"
+          },
+          "integrations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssistantIntegration"
+            },
+            "description": "Connected integrations attached to the assistant. The catalog of available integrations is at \u0060/ai/integrations\u0060; the user\u0027s connected integrations are at \u0060/ai/integrations/connections\u0060. Each item references a catalog integration by \u0060integration_id\u0060.",
+            "default": []
+          },
+          "observability_settings": {
+            "$ref": "#/components/schemas/Observability"
+          },
+          "version_name": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Human-readable name for the assistant version.",
+            "default": "New assistant"
+          },
+          "related_mission_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IDs of missions related to this assistant.",
+            "default": []
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the assistant. Tags can also be managed with the assistant tag endpoints.",
+            "default": []
+          },
+          "post_conversation_settings": {
+            "description": "Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.",
+            "$ref": "#/components/schemas/PostConversationSettings"
+          },
+          "delegation_settings": {
+            "description": "Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all \u2014 when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single \u0060delegate\u0060 tool that returns immediately, so the conversation carries on while the backend works. Either way the backend\u0027s answer is spoken as commentary or kept as silent context, depending on \u0060speak_results\u0060. Beta feature.",
+            "$ref": "#/components/schemas/DelegationSettings"
+          },
+          "websocket_settings": {
+            "description": "Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature.",
+            "$ref": "#/components/schemas/WebsocketSettings"
+          },
+          "conversation_flow": {
+            "description": "Conversation flow as returned by the API.",
+            "$ref": "#/components/schemas/ConversationFlow"
+          },
+          "deleted_at": {
+            "title": "Deleted At",
+            "type": "string",
+            "description": "Timestamp of the soft delete.",
+            "format": "date-time"
+          },
+          "permanently_deleted_at": {
+            "title": "Permanently Deleted At",
+            "type": "string",
+            "description": "Point after which the assistant is permanently deleted automatically and can no longer be restored.",
+            "format": "date-time"
+          }
+        },
+        "description": "A soft-deleted assistant in the Recently Deleted list: the full assistant configuration plus deletion metadata."
       },
       "DetailRecord": {
         "required": [
@@ -129155,6 +129778,27 @@
           }
         }
       },
+      "PaginatedDeletedAssistantsResponse": {
+        "title": "PaginatedDeletedAssistantsResponse",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "Data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeletedAssistant"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "description": "Paginated list of Recently Deleted assistants."
+      },
       "PaginatedScheduledEventList": {
         "title": "PaginatedScheduledEventList",
         "required": [
@@ -146732,9 +147376,9 @@
         "properties": {
           "voice_speed": {
             "maximum": 2.0,
-            "minimum": 0.5,
+            "minimum": 0.1,
             "type": "number",
-            "description": "Voice speed multiplier. Applies to all models except \u0060Bayan\u0060 and \u0060Sukhan\u0060, which don\u0027t support it. Range: 0.5 to 2.0.",
+            "description": "Voice speed multiplier. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5 \u2014 requests outside that range are rejected by the synthesis engine. \u0060KokoroTTS\u0060 and \u0060Qwen3TTS\u0060 accept the field but do not apply it. \u0060Bayan\u0060 and \u0060Sukhan\u0060 don\u0027t support it.",
             "format": "float",
             "default": 1.0
           },
@@ -147382,7 +148026,7 @@
             "maximum": 2.0,
             "minimum": 0.1,
             "type": "number",
-            "description": "The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
+            "description": "The voice speed to be used for the voice. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. \u0060Qwen3TTS\u0060 and \u0060KokoroTTS\u0060 accept the field but do not apply it. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
             "format": "float",
             "default": 1.0,
             "example": 1.0
@@ -161408,7 +162052,7 @@
           },
           "voice_speed": {
             "type": "number",
-            "description": "The speed of the voice in the range [0.25, 2.0]. 1.0 is deafult speed. Larger numbers make the voice faster, smaller numbers make it slower. This is only applicable for Telnyx Natural voices.",
+            "description": "The speed of the voice in the range [0.6, 1.5]. 1.0 is the default speed. Larger numbers make the voice faster, smaller numbers make it slower. Applies to Telnyx \u0060Ultra\u0060 voices; values outside this range are rejected by the synthesis engine.",
             "default": 1
           },
           "api_key_ref": {
@@ -167162,7 +167806,7 @@
           },
           "voice_speed": {
             "type": "number",
-            "description": "The speed of the voice in the range [0.25, 2.0]. 1.0 is deafult speed. Larger numbers make the voice faster, smaller numbers make it slower. This is only applicable for Telnyx Natural voices and Soniox voices (0.7 to 1.3 for Soniox).",
+            "description": "The speed of the voice in the range [0.6, 1.5]. 1.0 is the default speed. Larger numbers make the voice faster, smaller numbers make it slower. Applies to Telnyx \u0060Ultra\u0060 voices; values outside this range are rejected by the synthesis engine. Soniox voices support a speed range of 0.7 to 1.3.",
             "default": 1
           },
           "api_key_ref": {
@@ -174822,6 +175466,20 @@
           }
         }
       },
+      "AssistantWhatsappChatReqConversationMetadataAdditionalProperties": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
       "AuditEventChangesTo": {
         "type": "object",
         "anyOf": [
@@ -175284,7 +175942,7 @@
             "maximum": 2.0,
             "minimum": 0.1,
             "type": "number",
-            "description": "The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
+            "description": "The voice speed to be used for the voice. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. \u0060Qwen3TTS\u0060 and \u0060KokoroTTS\u0060 accept the field but do not apply it. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
             "format": "float",
             "default": 1.0,
             "example": 1.0
@@ -175702,7 +176360,7 @@
             "maximum": 2.0,
             "minimum": 0.1,
             "type": "number",
-            "description": "The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
+            "description": "The voice speed to be used for the voice. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. \u0060Qwen3TTS\u0060 and \u0060KokoroTTS\u0060 accept the field but do not apply it. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
             "format": "float",
             "default": 1.0,
             "example": 1.0
@@ -175842,7 +176500,7 @@
             "maximum": 2.0,
             "minimum": 0.1,
             "type": "number",
-            "description": "The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
+            "description": "The voice speed to be used for the voice. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. \u0060Qwen3TTS\u0060 and \u0060KokoroTTS\u0060 accept the field but do not apply it. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
             "format": "float",
             "default": 1.0,
             "example": 1.0
@@ -175982,7 +176640,7 @@
             "maximum": 2.0,
             "minimum": 0.1,
             "type": "number",
-            "description": "The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
+            "description": "The voice speed to be used for the voice. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. \u0060Qwen3TTS\u0060 and \u0060KokoroTTS\u0060 accept the field but do not apply it. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
             "format": "float",
             "default": 1.0,
             "example": 1.0
@@ -176394,6 +177052,27 @@
           }
         },
         "description": "Run the backend on your own OpenAI-compatible endpoint instead of a Telnyx-hosted model. As above, a raw \u0060api_key\u0060 here is rejected \u2014 reference an integration secret with \u0060external_llm.llm_api_key_ref\u0060 instead."
+      },
+      "DeletedAssistantAllOf2": {
+        "required": [
+          "deleted_at",
+          "permanently_deleted_at"
+        ],
+        "type": "object",
+        "properties": {
+          "deleted_at": {
+            "title": "Deleted At",
+            "type": "string",
+            "description": "Timestamp of the soft delete.",
+            "format": "date-time"
+          },
+          "permanently_deleted_at": {
+            "title": "Permanently Deleted At",
+            "type": "string",
+            "description": "Point after which the assistant is permanently deleted automatically and can no longer be restored.",
+            "format": "date-time"
+          }
+        }
       },
       "DirPhoneNumberRejectionReason": {
         "type": "object",
@@ -176889,7 +177568,7 @@
             "maximum": 2.0,
             "minimum": 0.1,
             "type": "number",
-            "description": "The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
+            "description": "The voice speed to be used for the voice. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. \u0060Qwen3TTS\u0060 and \u0060KokoroTTS\u0060 accept the field but do not apply it. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
             "format": "float",
             "default": 1.0,
             "example": 1.0
@@ -177007,7 +177686,7 @@
             "maximum": 2.0,
             "minimum": 0.1,
             "type": "number",
-            "description": "The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
+            "description": "The voice speed to be used for the voice. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. \u0060Qwen3TTS\u0060 and \u0060KokoroTTS\u0060 accept the field but do not apply it. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
             "format": "float",
             "default": 1.0,
             "example": 1.0
@@ -178290,7 +178969,7 @@
             "maximum": 2.0,
             "minimum": 0.1,
             "type": "number",
-            "description": "The voice speed to be used for the voice. The voice speed must be between 0.1 and 2.0. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
+            "description": "The voice speed to be used for the voice. Telnyx \u0060Ultra\u0060 voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. \u0060Qwen3TTS\u0060 and \u0060KokoroTTS\u0060 accept the field but do not apply it. Default value is 1.0. Not supported for \u0060Telnyx.Bayan.*\u0060 or \u0060Telnyx.Sukhan.*\u0060 voices.",
             "format": "float",
             "default": 1.0,
             "example": 1.0
@@ -180203,6 +180882,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "AssistantWhatsappChatReqConversationMetadata": {
+        "title": "Conversation Metadata",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/AssistantWhatsappChatReqConversationMetadataAdditionalProperties"
+        },
+        "description": "Metadata stored on the conversation. Keys starting with \u0060telnyx_\u0060 and the \u0060assistant_id\u0060 key are reserved."
       },
       "AudioTranscriptionRequestModelConfig": {
         "type": "object",
@@ -195129,9 +195816,6 @@
           }
         }
       },
-      "DeleteToolToolId200Response": {
-        "type": "object"
-      },
       "ListAlphanumericSenderIds200Response": {
         "type": "object",
         "properties": {
@@ -200936,9 +201620,6 @@
       "ChatPublicResponsesCompletionsPost200ResponseSchema": {
         "type": "object"
       },
-      "DeleteToolToolId200ResponseSchema": {
-        "type": "object"
-      },
       "CreateAlphanumericSenderId201Response": {
         "type": "object",
         "properties": {
@@ -205490,6 +206171,13 @@
           "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         }
       },
+      "AssistantWhatsappChatReqConversationMetadataProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/AssistantWhatsappChatReqConversationMetadataAdditionalProperties"
+        },
+        "description": "Metadata stored on the conversation. Keys starting with \u0060telnyx_\u0060 and the \u0060assistant_id\u0060 key are reserved."
+      },
       "AudioTranscriptionRequestModelConfigProperty": {
         "type": "object",
         "description": "Additional model-specific configuration parameters. Only allowed with the \u0060deepgram/*\u0060 models. Can include Deepgram-specific options such as \u0060smart_format\u0060, \u0060punctuate\u0060, \u0060diarize\u0060, \u0060utterance\u0060, \u0060numerals\u0060, and \u0060language\u0060. If \u0060language\u0060 is provided both as a top-level parameter and in \u0060model_config\u0060, the top-level parameter takes precedence."
@@ -205843,6 +206531,10 @@
           "description": "Boost intensifier for the keyword. Higher values increase recognition confidence."
         },
         "description": "Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: \u0060{\u0022snuffleupagus\u0022: 5, \u0022systrom\u0022: 2, \u0022krieger\u0022: 1}\u0060."
+      },
+      "DeletedAssistantDynamicVariables": {
+        "type": "object",
+        "description": "Map of dynamic variables and their values"
       },
       "DeveloperMessageMetadata": {
         "type": "object",
@@ -224977,7 +225669,9 @@
           "landline",
           "local",
           "mobile",
+          "multipurpose",
           "national",
+          "other",
           "shared_cost",
           "toll_free"
         ],
@@ -225002,8 +225696,16 @@
               "name": "Mobile"
             },
             {
+              "value": "multipurpose",
+              "name": "Multipurpose"
+            },
+            {
               "value": "national",
               "name": "National"
+            },
+            {
+              "value": "other",
+              "name": "Other"
             },
             {
               "value": "shared_cost",
@@ -225443,7 +226145,9 @@
           "landline",
           "local",
           "mobile",
+          "multipurpose",
           "national",
+          "other",
           "shared_cost",
           "toll_free"
         ],
@@ -225468,8 +226172,16 @@
               "name": "Mobile"
             },
             {
+              "value": "multipurpose",
+              "name": "Multipurpose"
+            },
+            {
               "value": "national",
               "name": "National"
+            },
+            {
+              "value": "other",
+              "name": "Other"
             },
             {
               "value": "shared_cost",
@@ -225521,7 +226233,9 @@
           "landline",
           "local",
           "mobile",
+          "multipurpose",
           "national",
+          "other",
           "shared_cost",
           "toll_free"
         ],
@@ -225546,8 +226260,16 @@
               "name": "Mobile"
             },
             {
+              "value": "multipurpose",
+              "name": "Multipurpose"
+            },
+            {
               "value": "national",
               "name": "National"
+            },
+            {
+              "value": "other",
+              "name": "Other"
             },
             {
               "value": "shared_cost",

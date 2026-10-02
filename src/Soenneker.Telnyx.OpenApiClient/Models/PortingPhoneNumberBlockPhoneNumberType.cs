@@ -19,9 +19,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Mobile,
         #pragma warning restore CS1591
+        [EnumMember(Value = "multipurpose")]
+        #pragma warning disable CS1591
+        Multipurpose,
+        #pragma warning restore CS1591
         [EnumMember(Value = "national")]
         #pragma warning disable CS1591
         National,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "other")]
+        #pragma warning disable CS1591
+        Other,
         #pragma warning restore CS1591
         [EnumMember(Value = "shared_cost")]
         #pragma warning disable CS1591

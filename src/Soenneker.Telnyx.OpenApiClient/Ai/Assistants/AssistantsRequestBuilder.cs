@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Deleted;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Import;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tags;
@@ -21,6 +22,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssistantsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The deleted property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Deleted.DeletedRequestBuilder Deleted
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Deleted.DeletedRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The import property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Import.ImportRequestBuilder Import
         {

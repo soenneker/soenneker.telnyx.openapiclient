@@ -7,34 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// Metadata stored on the conversation. Keys starting with `telnyx_` and the `assistant_id` key are reserved.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class TelnyxVoiceSettings : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class AssistantWhatsappChatReqConversationMetadataProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxType? Type { get; set; }
-        /// <summary>The voice speed to be used for the voice. Telnyx `Ultra` voices accept values from 0.6 to 1.5; values outside that range are rejected by the synthesis engine. `Qwen3TTS` and `KokoroTTS` accept the field but do not apply it. Default value is 1.0. Not supported for `Telnyx.Bayan.*` or `Telnyx.Sukhan.*` voices.</summary>
-        public float? VoiceSpeed { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantWhatsappChatReqConversationMetadataProperty"/> and sets the default values.
         /// </summary>
-        public TelnyxVoiceSettings()
+        public AssistantWhatsappChatReqConversationMetadataProperty()
         {
             AdditionalData = new Dictionary<string, object>();
-            VoiceSpeed = 1.0f;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantWhatsappChatReqConversationMetadataProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AssistantWhatsappChatReqConversationMetadataProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AssistantWhatsappChatReqConversationMetadataProperty();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +40,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxType>(); } },
-                { "voice_speed", n => { VoiceSpeed = n.GetFloatValue(); } },
             };
         }
         /// <summary>
@@ -55,8 +49,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxType>("type", Type);
-            writer.WriteFloatValue("voice_speed", VoiceSpeed);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

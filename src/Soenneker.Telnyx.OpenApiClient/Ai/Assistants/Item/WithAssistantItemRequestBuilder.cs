@@ -6,7 +6,9 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Clone;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Deleted;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Instructions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Restore;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tags;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml;
@@ -41,10 +43,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Clone.CloneRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The deleted property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Deleted.DeletedRequestBuilder Deleted
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Deleted.DeletedRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The instructions property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Instructions.InstructionsRequestBuilder Instructions
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Instructions.InstructionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The restore property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Restore.RestoreRequestBuilder Restore
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Restore.RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The scheduled_events property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Scheduled_eventsRequestBuilder Scheduled_events
@@ -76,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAssistantItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistantId}{?call_control_id*,fetch_dynamic_variables_from_webhook*,from*,to*}", pathParameters)
+        public WithAssistantItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistantId}{?call_control_id*,fetch_dynamic_variables_from_webhook*,from*,hard_delete*,to*}", pathParameters)
         {
         }
         /// <summary>
@@ -84,28 +96,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAssistantItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistantId}{?call_control_id*,fetch_dynamic_variables_from_webhook*,from*,to*}", rawUrl)
+        public WithAssistantItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistantId}{?call_control_id*,fetch_dynamic_variables_from_webhook*,from*,hard_delete*,to*}", rawUrl)
         {
         }
         /// <summary>
-        /// Delete an AI Assistant by `assistant_id`.
+        /// Delete an AI Assistant by `assistant_id`.By default this performs a soft delete: the assistant moves to the Recently Deleted list and stays restorable for 30 days, after which it is permanently deleted automatically. The assistant&apos;s versions and TeXML application are preserved during the retention window.Pass `hard_delete=true` to skip the retention window and permanently delete the assistant immediately. A hard delete erases the assistant and all of its versions, and deletes its TeXML application unless phone numbers are still assigned to it. It does not delete conversations, recordings, shared tools the assistant referenced, or knowledge-base embeddings.Deletion fails with `400` if other assistants reference this one through a handoff tool or a conversation-flow edge — remove those references first.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantDeletedResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantDeletedResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantDeletedResponse?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder.WithAssistantItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantDeletedResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantDeletedResponse> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder.WithAssistantItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantDeletedResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssistantDeletedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -161,17 +175,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an AI Assistant by `assistant_id`.
+        /// Delete an AI Assistant by `assistant_id`.By default this performs a soft delete: the assistant moves to the Recently Deleted list and stays restorable for 30 days, after which it is permanently deleted automatically. The assistant&apos;s versions and TeXML application are preserved during the retention window.Pass `hard_delete=true` to skip the retention window and permanently delete the assistant immediately. A hard delete erases the assistant and all of its versions, and deletes its TeXML application unless phone numbers are still assigned to it. It does not delete conversations, recordings, shared tools the assistant referenced, or knowledge-base embeddings.Deletion fails with `400` if other assistants reference this one through a handoff tool or a conversation-flow edge — remove those references first.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder.WithAssistantItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder.WithAssistantItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
@@ -228,6 +242,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistantItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Delete an AI Assistant by `assistant_id`.By default this performs a soft delete: the assistant moves to the Recently Deleted list and stays restorable for 30 days, after which it is permanently deleted automatically. The assistant&apos;s versions and TeXML application are preserved during the retention window.Pass `hard_delete=true` to skip the retention window and permanently delete the assistant immediately. A hard delete erases the assistant and all of its versions, and deletes its TeXML application unless phone numbers are still assigned to it. It does not delete conversations, recordings, shared tools the assistant referenced, or knowledge-base embeddings.Deletion fails with `400` if other assistants reference this one through a handoff tool or a conversation-flow edge — remove those references first.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithAssistantItemRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>Permanently delete the assistant immediately instead of soft-deleting it to the Recently Deleted list, where it stays restorable for 30 days.</summary>
+            [QueryParameter("hard_delete")]
+            public bool? HardDelete { get; set; }
         }
         /// <summary>
         /// Retrieve an AI Assistant configuration by `assistant_id`.

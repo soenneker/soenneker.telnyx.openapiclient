@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// AI Assistant configuration. All fields except `id` are optional — the assistant&apos;s stored configuration will be used as fallback for any omitted fields.
+    /// AI Assistant configuration and per-call overrides. All fields except `id` are optional. Omitted assistant fields use the stored configuration. Supplied `voice_settings` and `transcription` objects replace their stored objects rather than merging individual settings; include every setting you want to retain. `dynamic_variables` are merged, with request values taking precedence.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallAssistantRequest : IAdditionalDataHolder, IParsable
@@ -120,7 +120,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem> Tools { get; set; }
 #endif
-        /// <summary>The voice_settings property</summary>
+        /// <summary>Per-call speech-to-text configuration for the assistant. If omitted, the stored assistant transcription configuration is used. If supplied, this object replaces the stored transcription settings. This is separate from the top-level `transcription` boolean on answer and dial commands.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig? Transcription { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig Transcription { get; set; }
+#endif
+        /// <summary>Per-call voice configuration. Set the voice identifier in `voice_settings.voice`, not in `assistant.voice`. If supplied, this object replaces the stored voice settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings? VoiceSettings { get; set; }
@@ -166,6 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "observability_settings", n => { ObservabilitySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty.CreateFromDiscriminatorValue); } },
                 { "openai_api_key_ref", n => { OpenaiApiKeyRef = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig.CreateFromDiscriminatorValue); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -189,6 +198,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestObservabilitySettingsProperty>("observability_settings", ObservabilitySettings);
             writer.WriteStringValue("openai_api_key_ref", OpenaiApiKeyRef);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig>("transcription", Transcription);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
