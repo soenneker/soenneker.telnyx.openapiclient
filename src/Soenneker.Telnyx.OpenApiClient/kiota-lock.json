@@ -2,7 +2,7 @@
   "descriptionHash": "56EAEE6ED39A249275B0ED03BCEAB161DC0CDD1264F4D115E51DBD1AFF691E45CF079D4D31DC9E9AB09867E7CEA9AEC06AC71C83F35B7A9FE5F43AAC7B01705C",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.35.0",
+  "kiotaVersion": "1.36.0",
   "clientClassName": "TelnyxOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Telnyx.OpenApiClient",
