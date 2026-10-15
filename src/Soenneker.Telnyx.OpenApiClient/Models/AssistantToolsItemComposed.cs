@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClientSideTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DtmfTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FunctionTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingHangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SipReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesTool"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClientSideTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DtmfTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FunctionTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingHangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SipReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VisionTool"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssistantToolsItemComposed : IComposedTypeWrapper, IParsable
@@ -125,6 +125,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesTool UpdateDynamicVariablesTool { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VisionTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VisionTool? VisionTool { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VisionTool VisionTool { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -191,6 +199,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.UpdateDynamicVariablesTool = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesTool();
             }
+            else if("VisionTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VisionTool = new global::Soenneker.Telnyx.OpenApiClient.Models.VisionTool();
+            }
             return result;
         }
         /// <summary>
@@ -254,6 +266,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(UpdateDynamicVariablesTool != null)
             {
                 return UpdateDynamicVariablesTool.GetFieldDeserializers();
+            }
+            else if(VisionTool != null)
+            {
+                return VisionTool.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -319,6 +335,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if(UpdateDynamicVariablesTool != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesTool>(null, UpdateDynamicVariablesTool);
+            }
+            else if(VisionTool != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VisionTool>(null, VisionTool);
             }
         }
     }

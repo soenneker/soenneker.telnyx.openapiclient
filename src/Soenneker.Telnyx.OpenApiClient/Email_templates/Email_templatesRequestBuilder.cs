@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Email_templatesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_templates{?page_cursor*,page_size*}", pathParameters)
+        public Email_templatesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_templates{?filter%5Bautoescape%5D*,filter%5Bcontent_type%5D*,filter%5Bquery%5D*,filter%5Bstrict_variables%5D*,page_cursor*,page_size*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,15 +43,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Email_templatesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_templates{?page_cursor*,page_size*}", rawUrl)
+        public Email_templatesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_templates{?filter%5Bautoescape%5D*,filter%5Bcontent_type%5D*,filter%5Bquery%5D*,filter%5Bstrict_variables%5D*,page_cursor*,page_size*}", rawUrl)
         {
         }
         /// <summary>
-        /// Lists templates sorted newest first by `created_at desc, id desc`.
+        /// Lists templates sorted newest first by `created_at desc, id desc`. Optional filters match a case-insensitive literal name/subject query, stored body presence, and the `strict_variables` and `autoescape` settings. Filters intersect, remain scoped to the authenticated account, and apply before cursor pagination. Invalid filter names or values return 400.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -105,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists templates sorted newest first by `created_at desc, id desc`.
+        /// Lists templates sorted newest first by `created_at desc, id desc`. Optional filters match a case-insensitive literal name/subject query, stored body presence, and the `strict_variables` and `autoescape` settings. Filters intersect, remain scoped to the authenticated account, and apply before cursor pagination. Invalid filter names or values return 400.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,11 +157,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_templates
             return new global::Soenneker.Telnyx.OpenApiClient.Email_templates.Email_templatesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists templates sorted newest first by `created_at desc, id desc`.
+        /// Lists templates sorted newest first by `created_at desc, id desc`. Optional filters match a case-insensitive literal name/subject query, stored body presence, and the `strict_variables` and `autoescape` settings. Filters intersect, remain scoped to the authenticated account, and apply before cursor pagination. Invalid filter names or values return 400.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Email_templatesRequestBuilderGetQueryParameters 
         {
+            /// <summary>Exact match on the template&apos;s `autoescape` option. Only the exact query strings `true` and `false` are accepted; other values, including blank, return 400.</summary>
+            [QueryParameter("filter%5Bautoescape%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TemplateAutoescapeFilter? Filterautoescape { get; set; }
+            /// <summary>Matches templates by stored body presence. `html_and_text` requires both an HTML and text body; `html_only` requires HTML and no text body; `text_only` requires text and no HTML body; `no_body` requires neither. `null` and exactly `&quot;&quot;` count as absent; whitespace-only strings count as content. An empty or unsupported value returns a 400 response.</summary>
+            [QueryParameter("filter%5Bcontent_type%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TemplateContentTypeFilter? FiltercontentType { get; set; }
+            /// <summary>Case-insensitive literal substring match over the template `name` or stored `subject` only; bodies are never searched. `%`, `_`, and `\` are literal characters with no wildcard meaning. A blank value is treated as omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bquery%5D")]
+            public string? Filterquery { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bquery%5D")]
+            public string Filterquery { get; set; }
+#endif
+            /// <summary>Exact match on the template&apos;s `strict_variables` option. Only the exact query strings `true` and `false` are accepted; other values, including blank, return 400.</summary>
+            [QueryParameter("filter%5Bstrict_variables%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TemplateStrictVariablesFilter? FilterstrictVariables { get; set; }
             /// <summary>Opaque URL-safe Base64 cursor returned by a previous list response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? PhoneNumbersIneligible { get; set; }
         /// <summary>Numbers accepted for remediation, i.e. not rejected as ineligible. Counts numbers still queued (pending) as well as processed ones.</summary>
         public int? PhoneNumbersSubmitted { get; set; }
-        /// <summary>The results property</summary>
+        /// <summary>Per-category buckets. Populated once results are available. Null while the request is still pending.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.RemediationPerNumberResults? Results { get; set; }

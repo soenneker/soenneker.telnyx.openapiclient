@@ -3,10 +3,12 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.External_verification;
 using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Frequency;
 using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Loa;
 using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers;
 using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Remediation;
+using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Webhook;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +23,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReputationRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The external_verification property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.External_verification.External_verificationRequestBuilder External_verification
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.External_verification.External_verificationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The frequency property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Frequency.FrequencyRequestBuilder Frequency
         {
@@ -40,6 +47,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
         public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Remediation.RemediationRequestBuilder Remediation
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Remediation.RemediationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhook property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Webhook.WebhookRequestBuilder Webhook
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Webhook.WebhookRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.ReputationRequestBuilder"/> and sets the default values.

@@ -15,6 +15,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Audio gating strategy for the assistant call leg. `half_duplex` (default) sends the assistant a single mixed meeting stream and mutes it while the assistant speaks, so the assistant cannot hear itself and cannot be interrupted. `full_duplex` sends a separate stream per participant, which allows barge-in and removes self-hearing, and COSTS SIGNIFICANTLY MORE: per-participant streams multiply the per-minute cost by the number of participants.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestAudioGate? AudioGate { get; set; }
+        /// <summary>Beta. Show the avatar configured on the assistant (its `avatar_settings`; see [AI Assistant avatars](/docs/inference/ai-assistants/avatars)) as the bot&apos;s camera, lip-synced to the assistant&apos;s own speech. The request carries no avatar ID or key: the assistant is read at creation and the request is rejected with 400 `invalid_request` if it has no Telnyx avatar configured. Supported on Google Meet, Zoom, Microsoft Teams and Webex; other platforms return 422 `unsupported_capability`. REST-only. Not echoed back on `assistant`; the session&apos;s top-level `avatar` and `avatar_state` fields report it instead. If the avatar fails, the session continues voice-only and `avatar_state` becomes `degraded`.</summary>
+        public bool? Avatar { get; set; }
         /// <summary>Per-conversation values for the [dynamic variables](/docs/inference/ai-assistants/dynamic-variables) used in the Assistant&apos;s instructions, greeting, or tools. Delivered before the Assistant&apos;s first utterance, so they resolve for the opening line as well as the rest of the conversation. At most 63 entries; keys 1-128 characters; values must be strings. The map is budgeted in aggregate at 1,047,552 bytes (1023 KiB) rather than capped per value. `streaming_audio`, `ai_assistant_streaming_audio` and `meeting_session_id` are reserved and rejected with `400 invalid_request` -- they toggle provider infrastructure or are set by the service rather than fill a prompt template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// </summary>
         public MeetingSessionAssistantRequest()
         {
+            Avatar = false;
             LeaveOnEnd = false;
         }
         /// <summary>
@@ -59,6 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "audio_gate", n => { AudioGate = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestAudioGate>(); } },
+                { "avatar", n => { Avatar = n.GetBoolValue(); } },
                 { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "leave_on_end", n => { LeaveOnEnd = n.GetBoolValue(); } },
@@ -72,6 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestAudioGate>("audio_gate", AudioGate);
+            writer.WriteBoolValue("avatar", Avatar);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequestDynamicVariablesProperty>("dynamic_variables", DynamicVariables);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("leave_on_end", LeaveOnEnd);

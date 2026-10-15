@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts;
 using Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates;
 using Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers;
+using Soenneker.Telnyx.OpenApiClient.Whatsapp.Signup;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp
         public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Phone_numbersRequestBuilder Phone_numbers
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Phone_numbersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The signup property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Signup.SignupRequestBuilder Signup
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Signup.SignupRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Whatsapp.WhatsappRequestBuilder"/> and sets the default values.

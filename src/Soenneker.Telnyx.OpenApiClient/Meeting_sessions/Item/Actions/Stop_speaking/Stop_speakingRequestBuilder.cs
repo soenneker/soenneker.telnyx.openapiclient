@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Actions.Stop_spea
         {
         }
         /// <summary>
-        /// Stops any active text-to-speech playback in a meeting session.
+        /// Stops any active text-to-speech playback in a meeting session. Sessions with a digital avatar (`assistant.avatar: true`) return 409 `invalid_state` (message prefix `avatar_requires_assistant_speech:`): the avatar renders only the assistant&apos;s own speech.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionAcceptedResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Actions.Stop_spea
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ActionAcceptedResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ActionAcceptedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Stops any active text-to-speech playback in a meeting session.
+        /// Stops any active text-to-speech playback in a meeting session. Sessions with a digital avatar (`assistant.avatar: true`) return 409 `invalid_state` (message prefix `avatar_requires_assistant_speech:`): the avatar renders only the assistant&apos;s own speech.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

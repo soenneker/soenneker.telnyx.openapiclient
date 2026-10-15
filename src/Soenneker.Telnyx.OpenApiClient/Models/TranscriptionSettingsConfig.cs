@@ -26,7 +26,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? EagerEotThreshold { get; set; }
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. When true, Soniox emits end-of-utterance events at the cadence configured by `max_endpoint_delay_ms`.</summary>
         public bool? EnableEndpointDetection { get; set; }
-        /// <summary>Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Confidence level required to trigger an end of turn. Higher values require more certainty before ending a turn.</summary>
+        /// <summary>Deprecated and ignored. Accepted for backwards compatibility. AssemblyAI turn detection is configured with min_turn_silence and max_turn_silence.</summary>
+        [Obsolete("")]
         public double? EndOfTurnConfidenceThreshold { get; set; }
         /// <summary>Available only for deepgram/flux. Confidence required to trigger an end of turn. Higher values = more reliable turn detection but slightly increased latency.</summary>
         public double? EotThreshold { get; set; }
@@ -34,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? EotTimeoutMs { get; set; }
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. When true, Soniox streams interim (non-final) results in addition to finalized transcripts.</summary>
         public bool? InterimResults { get; set; }
-        /// <summary>Available only for deepgram/nova-3 and deepgram/flux. A comma-separated list of key terms to boost for recognition during transcription. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to the speech-to-text engine.</summary>
+        /// <summary>A comma-separated list of key terms to boost for recognition during transcription, used by Deepgram, Reson8, Speechmatics Linden 1 and AssemblyAI models. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. At most 1000 characters in total. For assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming), also at most 100 terms of up to 50 characters each. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to the speech-to-text engine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Keyterm { get; set; }
@@ -58,6 +59,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? MinTurnSilence { get; set; }
         /// <summary>The numerals property</summary>
         public bool? Numerals { get; set; }
+        /// <summary>Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Context about the conversation (domain, names, terms) to improve transcription; describe the content, do not give instructions. Leave empty unless needed. At most 1750 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Prompt { get; set; }
+#nullable restore
+#else
+        public string Prompt { get; set; }
+#endif
         /// <summary>The smart_format property</summary>
         public bool? SmartFormat { get; set; }
         /// <summary>
@@ -68,7 +77,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             EagerEotThreshold = 0.8;
             EnableEndpointDetection = false;
-            EndOfTurnConfidenceThreshold = 0.4;
             EotThreshold = 0.8;
             EotTimeoutMs = 5000;
             InterimResults = false;
@@ -106,6 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "max_turn_silence", n => { MaxTurnSilence = n.GetIntValue(); } },
                 { "min_turn_silence", n => { MinTurnSilence = n.GetIntValue(); } },
                 { "numerals", n => { Numerals = n.GetBoolValue(); } },
+                { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "smart_format", n => { SmartFormat = n.GetBoolValue(); } },
             };
         }
@@ -129,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("max_turn_silence", MaxTurnSilence);
             writer.WriteIntValue("min_turn_silence", MinTurnSilence);
             writer.WriteBoolValue("numerals", Numerals);
+            writer.WriteStringValue("prompt", Prompt);
             writer.WriteBoolValue("smart_format", SmartFormat);
             writer.WriteAdditionalData(AdditionalData);
         }

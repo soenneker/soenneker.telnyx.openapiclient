@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Csv_downloadsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/csv_downloads{?csv_format*,filter*,page*}", pathParameters)
+        public Csv_downloadsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/csv_downloads{?csv_format*,filter*,include_managed_accounts*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Csv_downloadsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/csv_downloads{?csv_format*,filter*,page*}", rawUrl)
+        public Csv_downloadsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/csv_downloads{?csv_format*,filter*,include_managed_accounts*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -191,6 +191,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
+            /// <summary>When true, the CSV includes phone numbers from all managed accounts in addition to the requesting account&apos;s own numbers. Only applies to V2 format; ignored for V1. The export appends `user_id` and `email` columns identifying the account that owns each number. When a filter is provided, it applies to the combined set of numbers. Requires access to managed accounts; requests without that access are rejected.</summary>
+            [QueryParameter("include_managed_accounts")]
+            public bool? IncludeManagedAccounts { get; set; }
         }
     }
 }

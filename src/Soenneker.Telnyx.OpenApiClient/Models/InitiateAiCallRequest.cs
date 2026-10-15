@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAiCallRequestAiAssistantDynamicVariablesProperty AIAssistantDynamicVariables { get; set; }
 #endif
-        /// <summary>The ID of the AI assistant to use for the call.</summary>
+        /// <summary>The ID of the AI assistant to use for the call. Telnyx attempts to warm up this assistant before the call is placed and starts it automatically when the called party answers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AIAssistantId { get; set; }

@@ -42,6 +42,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? Style { get; set; }
         /// <summary>Determines how stable the voice is and the randomness between each generation. Lower values create a broader emotional range; higher values produce more consistent, monotonous output. Only applicable when using ElevenLabs.</summary>
         public double? Temperature { get; set; }
+        /// <summary>Optional sound played to the caller while the assistant runs a tool (for example a webhook or MCP tool). It replaces the background audio until the tool responds, then the background audio resumes. Defaults to null, which plays no sound; send `null` on update to clear it. Not played in conference calls.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsToolCallAudio? ToolCallAudio { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsToolCallAudio ToolCallAudio { get; set; }
+#endif
         /// <summary>Amplifies similarity to the original speaker voice. Increases computational load and latency slightly. Only applicable when using ElevenLabs.</summary>
         public bool? UseSpeakerBoost { get; set; }
         /// <summary>The voice to be used by the voice assistant. Check the full list of [available voices](https://developers.telnyx.com/docs/tts-stt/tts-available-voices) via our voices API.To use ElevenLabs, you must reference your ElevenLabs API key as an integration secret under the `api_key_ref` field. See [integration secrets documentation](https://developers.telnyx.com/api-reference/integration-secrets/create-a-secret) for details. For Telnyx voices, use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;` (e.g. Telnyx.KokoroTTS.af_heart). For Soniox voices, use `Soniox.tts-rt-v2.&lt;voice_id&gt;` (e.g. Soniox.tts-rt-v2.Emma); every Soniox voice speaks all supported languages.The voice portion of the identifier supports [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx.Ultra.{{voice_id}}`). The variable is resolved at call time from your dynamic variables webhook, allowing you to select the voice dynamically per call.</summary>
@@ -94,6 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
                 { "style", n => { Style = n.GetDoubleValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
+                { "tool_call_audio", n => { ToolCallAudio = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsToolCallAudio>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsToolCallAudio.CreateFromDiscriminatorValue); } },
                 { "use_speaker_boost", n => { UseSpeakerBoost = n.GetBoolValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
                 { "voice_speed", n => { VoiceSpeed = n.GetDoubleValue(); } },
@@ -114,6 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("speed", Speed);
             writer.WriteDoubleValue("style", Style);
             writer.WriteDoubleValue("temperature", Temperature);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsToolCallAudio>("tool_call_audio", ToolCallAudio);
             writer.WriteBoolValue("use_speaker_boost", UseSpeakerBoost);
             writer.WriteStringValue("voice", Voice);
             writer.WriteDoubleValue("voice_speed", VoiceSpeed);

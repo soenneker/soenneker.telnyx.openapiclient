@@ -81,6 +81,7 @@ using Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports;
 using Soenneker.Telnyx.OpenApiClient.Legacy;
 using Soenneker.Telnyx.OpenApiClient.Legacy_reporting;
 using Soenneker.Telnyx.OpenApiClient.List;
+using Soenneker.Telnyx.OpenApiClient.Llm_token_gateway;
 using Soenneker.Telnyx.OpenApiClient.MachinePayments;
 using Soenneker.Telnyx.OpenApiClient.Managed_accounts;
 using Soenneker.Telnyx.OpenApiClient.Media;
@@ -160,6 +161,7 @@ using Soenneker.Telnyx.OpenApiClient.Sim_card_groups;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_orders;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards;
+using Soenneker.Telnyx.OpenApiClient.Sip_registration_status;
 using Soenneker.Telnyx.OpenApiClient.Siprec_connectors;
 using Soenneker.Telnyx.OpenApiClient.SpeechToText;
 using Soenneker.Telnyx.OpenApiClient.Spend_limits;
@@ -584,6 +586,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.List.ListRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The llm_token_gateway property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Llm_token_gateway.Llm_token_gatewayRequestBuilder Llm_token_gateway
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Llm_token_gateway.Llm_token_gatewayRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The machinePayments property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.MachinePayments.MachinePaymentsRequestBuilder MachinePayments
         {
@@ -978,6 +985,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder Sim_cards
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sip_registration_status property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sip_registration_status.Sip_registration_statusRequestBuilder Sip_registration_status
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sip_registration_status.Sip_registration_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The siprec_connectors property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Siprec_connectorsRequestBuilder Siprec_connectors

@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RejectionReason { get; set; }
 #endif
-        /// <summary>Review state of this authorization. `pending` on create or when the Letter of Authorization is re-uploaded; an admin moves it to `approved` or `rejected`. Only an `approved` authorization adds the BPO to this DIR&apos;s authorized callers in the branded calling registry.</summary>
+        /// <summary>Review state of this authorization. `pending` when the authorization is first added, or when you send a different `loa_document_id` for this BPO in `bpo_authorizations` (uploading a document alone changes nothing). Approving the DIR approves its pending authorizations; an admin can also approve or reject one on its own. Only an `approved` authorization adds the BPO to this DIR&apos;s authorized callers in the branded calling registry.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorization"/> and sets the default values.

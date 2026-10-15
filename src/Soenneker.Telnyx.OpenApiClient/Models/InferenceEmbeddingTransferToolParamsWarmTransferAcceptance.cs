@@ -19,6 +19,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? Enabled { get; set; }
         /// <summary>Controls whether the private exchange between the assistant and the transfer destination is kept out of the conversation. With `private` (default) the exchange never reaches the conversation history, AI conversations, webhooks or insights, and the transfer tool result is rewritten with the outcome only. With `shared` the exchange stays in the conversation like any other messages.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptanceEndUserTargetContextMode? EndUserTargetContextMode { get; set; }
+        /// <summary>Fail closed when the acceptance consult cannot run. Off by default: if the consult cannot be set up for any reason — including where acceptance is unavailable at all (`gather_using_ai`, Conversation Relay or web calls, a conference, or additional invited participants) — the transfer degrades to a plain warm transfer (the warm transfer message is played to the destination as audio and the calls are bridged anyway). Set to true to treat those paths as a decline instead: the destination is disconnected without being asked, the assistant returns to the caller, and no bridge happens without an acceptance. Only consult-setup failures are affected; the destination must still explicitly accept on every consult that does run.</summary>
+        public bool? RequireAcceptance { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance"/> and sets the default values.
         /// </summary>
@@ -26,6 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Enabled = false;
+            RequireAcceptance = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,6 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "end_user_target_context_mode", n => { EndUserTargetContextMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptanceEndUserTargetContextMode>(); } },
+                { "require_acceptance", n => { RequireAcceptance = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -58,6 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptanceEndUserTargetContextMode>("end_user_target_context_mode", EndUserTargetContextMode);
+            writer.WriteBoolValue("require_acceptance", RequireAcceptance);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

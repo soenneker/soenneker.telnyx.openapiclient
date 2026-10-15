@@ -90,6 +90,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LlmModel { get; set; }
 #endif
+        /// <summary>The conversation transcript, in order. By default it contains only `user` and `assistant` text turns. When the assistant&apos;s `telephony_settings.conversation_ended_full_history` is `true`, it contains the full conversation history, including assistant tool calls, tool results, and `system` and `developer` entries. Redacted when data retention is disabled for the account.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationEndedBodyPayloadMessagesItem>? Messages { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationEndedBodyPayloadMessagesItem> Messages { get; set; }
+#endif
         /// <summary>Reason the conversation ended. For Conversation Relay, `customer_disconnect` indicates that the customer WebSocket disconnected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -174,6 +182,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "duration_sec", n => { DurationSec = n.GetIntValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationEndedBodyPayloadMessagesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationEndedBodyPayloadMessagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "stt_model", n => { SttModel = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
@@ -200,6 +209,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("duration_sec", DurationSec);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("llm_model", LlmModel);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationEndedBodyPayloadMessagesItem>("messages", Messages);
             writer.WriteStringValue("reason", Reason);
             writer.WriteStringValue("stt_model", SttModel);
             writer.WriteStringValue("to", To);

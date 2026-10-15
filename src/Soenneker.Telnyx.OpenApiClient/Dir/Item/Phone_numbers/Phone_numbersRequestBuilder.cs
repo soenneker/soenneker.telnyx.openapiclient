@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Phone_numbers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_numbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dir/{dirId}/phone_numbers{?page%5Bnumber%5D*,page%5Bsize%5D*,status*}", pathParameters)
+        public Phone_numbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dir/{dirId}/phone_numbers{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Phone_numbers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_numbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dir/{dirId}/phone_numbers{?page%5Bnumber%5D*,page%5Bsize%5D*,status*}", rawUrl)
+        public Phone_numbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dir/{dirId}/phone_numbers{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -190,9 +190,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Phone_numbers
             /// <summary>Items per page. Maximum 250; values above are clamped to 250.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
-            /// <summary>Filter by phone-number status.</summary>
-            [QueryParameter("status")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatus? Status { get; set; }
         }
     }
 }

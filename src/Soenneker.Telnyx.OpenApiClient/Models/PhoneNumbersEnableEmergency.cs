@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJob? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJob Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersEnableEmergency"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJob>(global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJob.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJob>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJob>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

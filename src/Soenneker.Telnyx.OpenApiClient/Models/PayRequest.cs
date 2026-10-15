@@ -70,6 +70,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestMetadataProperty Metadata { get; set; }
 #endif
+        /// <summary>Minimum number of digits the caller must enter when collecting a credit-card billing postal code. Applies only when `postal_code` is `true` or `&quot;true&quot;` and no `payment_token` is supplied. The default is 1. The maximum number of digits collected is the greater of 10 and this value. This does not validate the length of a postal code supplied directly in `postal_code`.</summary>
+        public int? MinPostalCodeLength { get; set; }
         /// <summary>Additional parameters forwarded to the Pay connector.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,6 +89,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string PaymentToken { get; set; }
+#endif
+        /// <summary>Controls billing postal code collection for credit-card payments when no `payment_token` is supplied. Set to `true` or the string `&quot;true&quot;` (the default) to prompt the caller for a postal code. Set to `false` or the string `&quot;false&quot;` to skip the postal code prompt without supplying a postal code to the payment connector. Supply any other non-empty string, such as `&quot;90210&quot;`, to use that postal code without prompting. Empty or whitespace-only strings are rejected. This option does not affect ACH debit payments or payments using an existing token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestPostalCode? PostalCode { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestPostalCode PostalCode { get; set; }
 #endif
         /// <summary>Custom text-to-speech prompts keyed by payment collection step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,6 +144,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             InterDigitTimeoutMillis = 5000;
             Language = "en-US";
             MaxAttempts = 3;
+            MinPostalCodeLength = 1;
             ServiceLevel = "premium";
             TimeoutMillis = 5000;
             Voice = "female";
@@ -166,9 +177,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "max_attempts", n => { MaxAttempts = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "min_postal_code_length", n => { MinPostalCodeLength = n.GetIntValue(); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestParametersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestParametersProperty.CreateFromDiscriminatorValue); } },
                 { "payment_method", n => { PaymentMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestPaymentMethod>(); } },
                 { "payment_token", n => { PaymentToken = n.GetStringValue(); } },
+                { "postal_code", n => { PostalCode = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestPostalCode>(global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestPostalCode.CreateFromDiscriminatorValue); } },
                 { "prompts", n => { Prompts = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPrompts>(global::Soenneker.Telnyx.OpenApiClient.Models.PayPrompts.CreateFromDiscriminatorValue); } },
                 { "service_level", n => { ServiceLevel = n.GetStringValue(); } },
                 { "timeout_millis", n => { TimeoutMillis = n.GetIntValue(); } },
@@ -194,9 +207,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("language", Language);
             writer.WriteIntValue("max_attempts", MaxAttempts);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestMetadataProperty>("metadata", Metadata);
+            writer.WriteIntValue("min_postal_code_length", MinPostalCodeLength);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestParametersProperty>("parameters", Parameters);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestPaymentMethod>("payment_method", PaymentMethod);
             writer.WriteStringValue("payment_token", PaymentToken);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestPostalCode>("postal_code", PostalCode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPrompts>("prompts", Prompts);
             writer.WriteStringValue("service_level", ServiceLevel);
             writer.WriteIntValue("timeout_millis", TimeoutMillis);

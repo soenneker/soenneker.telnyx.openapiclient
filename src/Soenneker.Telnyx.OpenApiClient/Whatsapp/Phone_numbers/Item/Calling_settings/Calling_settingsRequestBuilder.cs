@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_settings
 {
     /// <summary>
-    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{phoneNumber}\calling_settings
+    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{-id}\calling_settings
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Calling_settingsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_set
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Calling_settingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{phoneNumber}/calling_settings", pathParameters)
+        public Calling_settingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/calling_settings", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_set
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Calling_settingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{phoneNumber}/calling_settings", rawUrl)
+        public Calling_settingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/calling_settings", rawUrl)
         {
         }
         /// <summary>

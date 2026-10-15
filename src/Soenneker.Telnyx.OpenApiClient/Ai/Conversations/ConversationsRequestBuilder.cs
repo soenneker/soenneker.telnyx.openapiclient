@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConversationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations{?created_at*,id*,last_message_at*,limit*,metadata%2D%3Eassistant_id*,metadata%2D%3Ecall_control_id*,metadata%2D%3Etelnyx_agent_target*,metadata%2D%3Etelnyx_conversation_channel*,metadata%2D%3Etelnyx_end_user_target*,name*,or*,order*}", pathParameters)
+        public ConversationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations{?created_at*,id*,last_message_at*,limit*,metadata%2D%3Eassistant_id*,metadata%2D%3Eassistant_version_id*,metadata%2D%3Ecall_control_id*,metadata%2D%3Etelnyx_agent_target*,metadata%2D%3Etelnyx_conversation_channel*,metadata%2D%3Etelnyx_end_user_target*,name*,or*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConversationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations{?created_at*,id*,last_message_at*,limit*,metadata%2D%3Eassistant_id*,metadata%2D%3Ecall_control_id*,metadata%2D%3Etelnyx_agent_target*,metadata%2D%3Etelnyx_conversation_channel*,metadata%2D%3Etelnyx_end_user_target*,name*,or*,order*}", rawUrl)
+        public ConversationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations{?created_at*,id*,last_message_at*,limit*,metadata%2D%3Eassistant_id*,metadata%2D%3Eassistant_version_id*,metadata%2D%3Ecall_control_id*,metadata%2D%3Etelnyx_agent_target*,metadata%2D%3Etelnyx_conversation_channel*,metadata%2D%3Etelnyx_end_user_target*,name*,or*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -216,6 +216,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
 #else
             [QueryParameter("metadata%2D%3Eassistant_id")]
             public string MetadataassistantId { get; set; }
+#endif
+            /// <summary>Filter by assistant version ID (e.g., `metadata-&gt;assistant_version_id=eq.20250812T114318034399`). The version that handled the conversation is stored in metadata when the conversation starts; conversations created before this field was tracked, or that never resolved a version, have no `assistant_version_id` and do not match this filter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("metadata%2D%3Eassistant_version_id")]
+            public string? MetadataassistantVersionId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("metadata%2D%3Eassistant_version_id")]
+            public string MetadataassistantVersionId { get; set; }
 #endif
             /// <summary>Filter by call control ID (e.g., `metadata-&gt;call_control_id=eq.v3:123`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string From { get; set; }
 #endif
-        /// <summary>Premium Answering Machine Greeting Ended result.</summary>
+        /// <summary>Premium Answering Machine Greeting Ended result. `prompt_ended` is only sent when `answering_machine_detection` is `premium_ios_call_screening_detection` and the iOS call-screening prompt ends without a beep.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallMachinePremiumGreetingEndedBodyPayloadResult? Result { get; set; }
         /// <summary>Destination number or SIP URI of the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

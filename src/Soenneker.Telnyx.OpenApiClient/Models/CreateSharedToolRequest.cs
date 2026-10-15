@@ -89,6 +89,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams UpdateDynamicVariables { get; set; }
 #endif
+        /// <summary>The vision property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams? Vision { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams Vision { get; set; }
+#endif
         /// <summary>The webhook property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,6 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "update_dynamic_variables", n => { UpdateDynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams.CreateFromDiscriminatorValue); } },
+                { "vision", n => { Vision = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams.CreateFromDiscriminatorValue); } },
                 { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty.CreateFromDiscriminatorValue); } },
             };
         }
@@ -153,6 +162,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteStringValue("type", Type);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams>("update_dynamic_variables", UpdateDynamicVariables);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams>("vision", Vision);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty>("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);
         }

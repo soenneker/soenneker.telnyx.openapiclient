@@ -7,11 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>
-    /// Template object with `subject`, `html_body`, and `text_body` replaced by their Liquid-rendered values. All other template fields (id, name, variables, etc.) remain unchanged.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class RenderedEmailTemplate : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -59,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>Legacy unstructured variable names. This path remains supported unchanged.</summary>
+        /// <summary>Persisted variable names. In `explicit` mode this array preserves the exact provided order, duplicates, and string contents; in `automatic` mode it is derived from the stored subject and bodies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Variables { get; set; }
@@ -75,6 +74,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema VariableSchema { get; set; }
 #endif
+        /// <summary>`automatic` when variable names are derived from template content; `explicit` when `variables` is the exact manually managed array.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateVariablesMode? VariablesMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplate"/> and sets the default values.
         /// </summary>
@@ -112,6 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "variable_schema", n => { VariableSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema>(global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema.CreateFromDiscriminatorValue); } },
                 { "variables", n => { Variables = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "variables_mode", n => { VariablesMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateVariablesMode>(); } },
             };
         }
         /// <summary>
@@ -133,6 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("variables", Variables);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RenderedEmailTemplateVariableSchema>("variable_schema", VariableSchema);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailTemplateVariablesMode>("variables_mode", VariablesMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

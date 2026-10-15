@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Anthropic;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants;
 using Soenneker.Telnyx.OpenApiClient.Ai.Audio;
+using Soenneker.Telnyx.OpenApiClient.Ai.Avatars;
 using Soenneker.Telnyx.OpenApiClient.Ai.Chat;
 using Soenneker.Telnyx.OpenApiClient.Ai.Clusters;
 using Soenneker.Telnyx.OpenApiClient.Ai.Collections;
@@ -49,6 +50,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.AudioRequestBuilder Audio
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.AudioRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The avatars property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Avatars.AvatarsRequestBuilder Avatars
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Avatars.AvatarsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The chat property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Chat.ChatRequestBuilder Chat

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Conversation_window
 {
     /// <summary>
-    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{phoneNumber}\conversation_window
+    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{-id}\conversation_window
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Conversation_windowRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Conversatio
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Conversation_windowRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{phoneNumber}/conversation_window?destination_number={destination_number}", pathParameters)
+        public Conversation_windowRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/conversation_window?destination_number={destination_number}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Conversatio
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Conversation_windowRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{phoneNumber}/conversation_window?destination_number={destination_number}", rawUrl)
+        public Conversation_windowRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/conversation_window?destination_number={destination_number}", rawUrl)
         {
         }
         /// <summary>

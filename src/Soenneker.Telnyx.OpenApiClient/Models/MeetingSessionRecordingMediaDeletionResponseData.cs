@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MeetingSessionId { get; set; }
 #endif
-        /// <summary>The provider property</summary>
+        /// <summary>Avatar provider. The first release supports Telnyx avatars.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider? Provider { get; set; }
         /// <summary>The scope property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope? Scope { get; set; }

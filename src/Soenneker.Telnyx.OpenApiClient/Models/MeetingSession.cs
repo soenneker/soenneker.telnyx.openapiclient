@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantState? AssistantState { get; set; }
         /// <summary>Timestamp of the last assistant state change, or null.</summary>
         public DateTimeOffset? AssistantStateChangedAt { get; set; }
-        /// <summary>Avatar configuration if an avatar is attached, otherwise null.</summary>
+        /// <summary>The assistant&apos;s avatar when the session was created with `assistant.avatar: true`, otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar? Avatar { get; set; }
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar Avatar { get; set; }
 #endif
-        /// <summary>Current state of the avatar connection, or null if no avatar is attached.</summary>
+        /// <summary>Current state of the avatar, or null if the session has no avatar. `starting` until the avatar&apos;s video is playing, then `connected`; `degraded` when the session has fallen back to voice-only (the `avatar.degraded` event carries the reason); `disconnected` when the avatar has ended.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarState? AvatarState { get; set; }
         /// <summary>Timestamp of the last avatar state change, or null.</summary>
         public DateTimeOffset? AvatarStateChangedAt { get; set; }

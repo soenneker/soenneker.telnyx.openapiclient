@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Premium Answering Machine Greeting Ended result.</summary>
+    /// <summary>Premium Answering Machine Greeting Ended result. `prompt_ended` is only sent when `answering_machine_detection` is `premium_ios_call_screening_detection` and the iOS call-screening prompt ends without a beep.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CallMachinePremiumGreetingEndedBodyPayloadResult
     {
@@ -14,6 +14,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "no_beep_detected")]
         #pragma warning disable CS1591
         NoBeepDetected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "prompt_ended")]
+        #pragma warning disable CS1591
+        PromptEnded,
         #pragma warning restore CS1591
     }
 }

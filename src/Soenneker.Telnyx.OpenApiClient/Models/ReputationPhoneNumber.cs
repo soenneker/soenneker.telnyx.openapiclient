@@ -14,12 +14,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Deadline to confirm you still own the number. Set only while `ownership_status` is `pending_confirmation`.</summary>
+        public DateTimeOffset? ConfirmBy { get; set; }
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The enterprise_id property</summary>
         public Guid? EnterpriseId { get; set; }
+        /// <summary>Why the number&apos;s ownership was flagged. `carrier_changed` when an ownership check found the number with a different carrier.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FlagReason { get; set; }
+#nullable restore
+#else
+        public string FlagReason { get; set; }
+#endif
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
+        /// <summary>Result of ongoing ownership checks. `verified`: the number is with the carrier on record. `pending_confirmation`: the number&apos;s carrier changed, or a periodic ownership re-verification is due; confirm you still own it before `confirm_by`. `flagged`: a periodic re-verification went unanswered; the number stays monitored and is not removed, but confirm ownership (`POST .../ownership_confirm`) to return it to `verified`. `removed`: the number is no longer monitored; returned by `POST .../ownership_confirm` with `still_own: false`, and when listing numbers with `filter[ownership_status]=removed`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus? OwnershipStatus { get; set; }
         /// <summary>E.164 with leading `+`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,7 +40,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PhoneNumber { get; set; }
 #endif
-        /// <summary>The reputation_data property</summary>
+        /// <summary>Why the number was removed. Set only for removed numbers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper? RemovalReason { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper RemovalReason { get; set; }
+#endif
+        /// <summary>When the number was removed. Set only for removed numbers.</summary>
+        public DateTimeOffset? RemovedAt { get; set; }
+        /// <summary>`null` until the first refresh has been collected for this number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData? ReputationData { get; set; }
@@ -36,6 +58,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData ReputationData { get; set; }
 #endif
+        /// <summary>Where the phone number is hosted. `telnyx`: in your Telnyx inventory. `external`: a number you own that is hosted with another provider.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? Source { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
@@ -63,11 +87,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "confirm_by", n => { ConfirmBy = n.GetDateTimeOffsetValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "enterprise_id", n => { EnterpriseId = n.GetGuidValue(); } },
+                { "flag_reason", n => { FlagReason = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "ownership_status", n => { OwnershipStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus>(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
+                { "removal_reason", n => { RemovalReason = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper.CreateFromDiscriminatorValue); } },
+                { "removed_at", n => { RemovedAt = n.GetDateTimeOffsetValue(); } },
                 { "reputation_data", n => { ReputationData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -78,9 +108,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("confirm_by", ConfirmBy);
             writer.WriteGuidValue("enterprise_id", EnterpriseId);
+            writer.WriteStringValue("flag_reason", FlagReason);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus>("ownership_status", OwnershipStatus);
             writer.WriteStringValue("phone_number", PhoneNumber);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper>("removal_reason", RemovalReason);
+            writer.WriteDateTimeOffsetValue("removed_at", RemovedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData>("reputation_data", ReputationData);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource>("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

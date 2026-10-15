@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Optional. The third-party reseller / partner managing the enterprise&apos;s phone numbers. Omit when working directly with Telnyx; the LOA marks the Authorized Agent block as N/A.</summary>
+        /// <summary>Optional. The third-party reseller / partner managing the enterprise&apos;s phone numbers on its behalf; omitted, the LOA marks the Authorized Agent block as N/A. A call center (BPO) adding numbers to a client&apos;s DIR puts its own details here. The letter is signed by the DIR enterprise&apos;s organization contact (the client, in the BPO case), not by the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.BrandLoaRenderRequestAgent? Agent { get; set; }

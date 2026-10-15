@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces.Item.Profiles.Item.Summary.Preview;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces.Item.Profiles.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SummaryRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The preview property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces.Item.Profiles.Item.Summary.Preview.PreviewRequestBuilder Preview
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces.Item.Profiles.Item.Summary.Preview.PreviewRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces.Item.Profiles.Item.Summary.SummaryRequestBuilder"/> and sets the default values.
         /// </summary>

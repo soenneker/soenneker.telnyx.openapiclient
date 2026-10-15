@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.whatsapp.phone_numbers.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("phoneNumber", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("%2Did", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

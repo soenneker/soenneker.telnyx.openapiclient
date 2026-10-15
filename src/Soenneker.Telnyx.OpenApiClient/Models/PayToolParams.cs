@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConnectorName { get; set; }
 #endif
+        /// <summary>Custom key/value parameters forwarded to the pay connector as `parameters` in the processor request. String values may use `{{dynamic_variable}}` templating, resolved per call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty? ConnectorParameters { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty ConnectorParameters { get; set; }
+#endif
         /// <summary>Default currency for payments processed by this tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Currency { get; set; }
 #endif
-        /// <summary>Optional description of the pay tool that will be passed to the assistant.</summary>
+        /// <summary>Description of the pay tool shown to the assistant so it knows when to call the tool. Not sent to the payment connector — the per-call `description` argument the assistant passes is what reaches the processor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -45,6 +53,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string PaymentMethod { get; set; }
+#endif
+        /// <summary>Restricts accepted card numbers to the listed card types. When the caller enters a card number that does not match one of the listed types, Pay treats the input as invalid and re-prompts for the card number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem?>? ValidCardTypes { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem?> ValidCardTypes { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams"/> and sets the default values.
@@ -74,9 +90,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connector_name", n => { ConnectorName = n.GetStringValue(); } },
+                { "connector_parameters", n => { ConnectorParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty.CreateFromDiscriminatorValue); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "payment_method", n => { PaymentMethod = n.GetStringValue(); } },
+                { "valid_card_types", n => { ValidCardTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -87,9 +105,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connector_name", ConnectorName);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty>("connector_parameters", ConnectorParameters);
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("payment_method", PaymentMethod);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem>("valid_card_types", ValidCardTypes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

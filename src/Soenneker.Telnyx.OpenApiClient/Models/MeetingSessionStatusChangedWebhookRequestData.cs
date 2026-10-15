@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>Additional detail about the status (for example `timeout_exceeded_everyone_left` or `cancelled`), or null.</summary>
+        /// <summary>Additional detail about the status (for example `cancelled`), or null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StatusDetail { get; set; }

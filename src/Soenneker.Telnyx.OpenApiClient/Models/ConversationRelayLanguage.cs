@@ -33,13 +33,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Engine to use for speech recognition. Legacy values `A` - `Google`, `B` - `Telnyx` are supported for backward compatibility. When provided in a Conversation Relay language entry, Telnyx derives `transcription_provider` and `speech_model` for that language.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngine? TranscriptionEngine { get; set; }
-        /// <summary>Engine-specific transcription settings for Conversation Relay. This accepts the same provider-specific options used by the Call Transcription Start command, such as `transcription_model`, without requiring the engine discriminator to be repeated inside this object.</summary>
+        /// <summary>Engine-specific transcription settings for Conversation Relay. This accepts the same provider-specific options used by the Call Transcription Start command, such as `transcription_model`, without requiring the engine discriminator to be repeated inside this object. With Deepgram Flux (`deepgram/flux`), `interim_results`, `eot_threshold` and `eager_eot_threshold` control the interim prompts and the `eagerEndOfTurn` and `turnResumed` frames sent to your WebSocket server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngineConfig? TranscriptionEngineConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig? TranscriptionEngineConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngineConfig TranscriptionEngineConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig TranscriptionEngineConfig { get; set; }
 #endif
         /// <summary>Conversation Relay transcription provider name. Prefer `transcription_engine` when configuring speech-to-text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "speech_model", n => { SpeechModel = n.GetStringValue(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngine>(); } },
-                { "transcription_engine_config", n => { TranscriptionEngineConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngineConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngineConfig.CreateFromDiscriminatorValue); } },
+                { "transcription_engine_config", n => { TranscriptionEngineConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig.CreateFromDiscriminatorValue); } },
                 { "transcription_provider", n => { TranscriptionProvider = n.GetStringValue(); } },
                 { "tts_provider", n => { TtsProvider = n.GetStringValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("speech_model", SpeechModel);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngine>("transcription_engine", TranscriptionEngine);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngineConfig>("transcription_engine_config", TranscriptionEngineConfig);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig>("transcription_engine_config", TranscriptionEngineConfig);
             writer.WriteStringValue("transcription_provider", TranscriptionProvider);
             writer.WriteStringValue("tts_provider", TtsProvider);
             writer.WriteStringValue("voice", Voice);

@@ -3,13 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Enables Answering Machine Detection. When a call is answered, Telnyx runs real-time detection to determine if it was picked up by a human or a machine and sends an `call.machine.detection.ended` webhook with the analysis result. If &apos;greeting_end&apos; or &apos;detect_words&apos; is used and a &apos;machine&apos; is detected, you will receive another &apos;call.machine.greeting.ended&apos; webhook when the answering machine greeting ends with a beep or silence. If `detect_beep` is used, you will only receive &apos;call.machine.greeting.ended&apos; if a beep is detected.</summary>
+    /// <summary>Enables Answering Machine Detection. When a call is answered, Telnyx runs real-time detection to determine if it was picked up by a human or a machine and sends an `call.machine.detection.ended` webhook with the analysis result. If &apos;greeting_end&apos; or &apos;detect_words&apos; is used and a &apos;machine&apos; is detected, you will receive another &apos;call.machine.greeting.ended&apos; webhook when the answering machine greeting ends with a beep or silence. If `detect_beep` is used, you will only receive &apos;call.machine.greeting.ended&apos; if a beep is detected. If `answering_machine_detection` is set to `premium_ios_call_screening_detection`, Premium AMD runs with iOS Call Screening support: after an initial `machine` result, Telnyx listens for the iOS call-screening prompt to end or for an Apple Call Screening tone, sends `call.machine.premium.greeting.ended` with `result=prompt_ended` or `call.machine.premium.call_screening.detected` with `result=screening` respectively. When the Apple Call Screening tone is detected, Premium AMD is restarted on the screened call and a `call.machine.premium.detection.ended` webhook with the post-screening classification follows.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TransferCallRequestAnsweringMachineDetection
     {
         [EnumMember(Value = "premium")]
         #pragma warning disable CS1591
         Premium,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "premium_ios_call_screening_detection")]
+        #pragma warning disable CS1591
+        PremiumIosCallScreeningDetection,
         #pragma warning restore CS1591
         [EnumMember(Value = "detect")]
         #pragma warning disable CS1591

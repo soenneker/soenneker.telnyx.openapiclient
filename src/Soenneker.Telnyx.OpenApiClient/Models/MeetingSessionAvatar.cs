@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// The assistant&apos;s avatar, captured from its `avatar_settings` when the session was created. For display only; later changes to the assistant do not update it.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class MeetingSessionAvatar : IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Identifier of the avatar.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,8 +21,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AvatarId { get; set; }
 #endif
-        /// <summary>Avatar provider identifier.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnamProvider? Provider { get; set; }
+        /// <summary>Identifier of the avatar&apos;s background.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BackgroundId { get; set; }
+#nullable restore
+#else
+        public string BackgroundId { get; set; }
+#endif
+        /// <summary>Avatar rendering model, for example `foxtrot-1`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Model { get; set; }
+#nullable restore
+#else
+        public string Model { get; set; }
+#endif
+        /// <summary>Avatar provider. The first release supports Telnyx avatars.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider? Provider { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "avatar_id", n => { AvatarId = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnamProvider>(); } },
+                { "background_id", n => { BackgroundId = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>(); } },
             };
         }
         /// <summary>
@@ -52,7 +71,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("avatar_id", AvatarId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnamProvider>("provider", Provider);
+            writer.WriteStringValue("background_id", BackgroundId);
+            writer.WriteStringValue("model", Model);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>("provider", Provider);
         }
     }
 }

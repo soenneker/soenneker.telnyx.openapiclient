@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NumbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reputation/numbers{?filter%5Benterprise_id%5D*,filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Bphone_number%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public NumbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reputation/numbers{?filter%5Benterprise_id%5D*,filter%5Bownership_status%5D*,filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Bphone_number%5D%5Beq%5D*,filter%5Bsource%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NumbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reputation/numbers{?filter%5Benterprise_id%5D*,filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Bphone_number%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public NumbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reputation/numbers{?filter%5Benterprise_id%5D*,filter%5Bownership_status%5D*,filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Bphone_number%5D%5Beq%5D*,filter%5Bsource%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -106,6 +106,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
             /// <summary>Filter by enterprise ID.</summary>
             [QueryParameter("filter%5Benterprise_id%5D")]
             public Guid? FilterenterpriseId { get; set; }
+            /// <summary>Only numbers with this ownership status. `removed` lists the numbers that were removed, each with its `removal_reason` and `removed_at`; removed numbers are not returned otherwise.</summary>
+            [QueryParameter("filter%5Bownership_status%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus? FilterownershipStatus { get; set; }
             /// <summary>Partial match on phone number. Must contain at least 5 digits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,6 +129,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
             [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
             public string FilterphoneNumbereq { get; set; }
 #endif
+            /// <summary>Only numbers with this source.</summary>
+            [QueryParameter("filter%5Bsource%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? Filtersource { get; set; }
             /// <summary>1-based page number. Out-of-range values return an empty page with correct meta.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }

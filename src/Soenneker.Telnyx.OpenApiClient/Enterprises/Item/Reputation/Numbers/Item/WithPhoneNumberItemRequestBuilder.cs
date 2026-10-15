@@ -3,6 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.Ownership;
+using Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.Ownership_confirm;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +19,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Ite
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPhoneNumberItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The ownership property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.Ownership.OwnershipRequestBuilder Ownership
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.Ownership.OwnershipRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The ownership_confirm property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.Ownership_confirm.Ownership_confirmRequestBuilder Ownership_confirm
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.Ownership_confirm.Ownership_confirmRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder"/> and sets the default values.
         /// </summary>

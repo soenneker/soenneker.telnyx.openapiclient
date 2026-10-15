@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>How `shared_tool_ids` combine with the assistant-level tool set. `replace` (default): only the node&apos;s tools are callable. `append`: the node&apos;s tools are added to the assistant&apos;s tools. Ignored when `shared_tool_ids` is null.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReqToolsMode? ToolsMode { get; set; }
-        /// <summary>Per-node transcription override (model/language/region). Unset fields cascade from the assistant-level transcription.</summary>
+        /// <summary>Per-node transcription override (model/language/region). Unset fields cascade from the assistant-level transcription. A node that sets `model`, `fallback_models`, or `challenger` doesn&apos;t inherit the assistant&apos;s `fallback_models` or `challenger`; it uses only the ones it sets. Otherwise it inherits them, and they must fit the model and language the node runs; a change they no longer fit is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings? Transcription { get; set; }

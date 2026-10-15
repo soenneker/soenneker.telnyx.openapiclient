@@ -7,7 +7,6 @@ using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Actions;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Artifacts;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Events;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recording_media;
-using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recordings;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -42,11 +41,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item
         public global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recording_media.Recording_mediaRequestBuilder Recording_media
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recording_media.Recording_mediaRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The recordings property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recordings.RecordingsRequestBuilder Recordings
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recordings.RecordingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The transcript property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript.TranscriptRequestBuilder Transcript

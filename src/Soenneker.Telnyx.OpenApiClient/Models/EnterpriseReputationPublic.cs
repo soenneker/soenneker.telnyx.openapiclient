@@ -20,6 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The enterprise_id property</summary>
         public Guid? EnterpriseId { get; set; }
+        /// <summary>Review state of the enterprise&apos;s ownership proof for numbers hosted with another provider. `null` when no proof was submitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatusWrapper? ExternalVerificationStatus { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatusWrapper ExternalVerificationStatus { get; set; }
+#endif
         /// <summary>Id of the signed LOA document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,6 +50,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
+        /// <summary>HTTPS URL that receives number-ownership webhook events for this enterprise.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebhookUrl { get; set; }
+#nullable restore
+#else
+        public string WebhookUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublic"/> and sets the default values.
         /// </summary>
@@ -70,11 +86,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "check_frequency", n => { CheckFrequency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "enterprise_id", n => { EnterpriseId = n.GetGuidValue(); } },
+                { "external_verification_status", n => { ExternalVerificationStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatusWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatusWrapper.CreateFromDiscriminatorValue); } },
                 { "loa_document_id", n => { LoaDocumentId = n.GetStringValue(); } },
                 { "loa_status", n => { LoaStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic>(); } },
                 { "rejection_reasons", n => { RejectionReasons = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -86,10 +104,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency>("check_frequency", CheckFrequency);
             writer.WriteGuidValue("enterprise_id", EnterpriseId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatusWrapper>("external_verification_status", ExternalVerificationStatus);
             writer.WriteStringValue("loa_document_id", LoaDocumentId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic>("loa_status", LoaStatus);
             writer.WriteCollectionOfPrimitiveValues<string>("rejection_reasons", RejectionReasons);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus>("status", Status);
+            writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

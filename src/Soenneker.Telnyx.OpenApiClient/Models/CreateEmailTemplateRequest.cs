@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string TextBody { get; set; }
 #endif
-        /// <summary>Template variables. Auto-extracted from subject/body fields when absent.</summary>
+        /// <summary>Persisted variable names. In `automatic` mode a non-null array is rejected; in `explicit` mode this is the exact manual array and each item is limited to 255 Unicode code points.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Variables { get; set; }
@@ -66,6 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty VariableSchema { get; set; }
 #endif
+        /// <summary>Controls how `variables` is maintained. If both fields are omitted (or `variables` is null), the template uses `automatic` mode and extracts variable names from the effective subject, HTML body, and text body. A non-null `variables` array with no mode selects `explicit`. `automatic` rejects a simultaneous non-null array; `explicit` requires a non-null array, including valid `[]`, and preserves its exact order, duplicates, and string contents.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariablesMode? VariablesMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequest"/> and sets the default values.
         /// </summary>
@@ -101,6 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
                 { "variable_schema", n => { VariableSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "variables", n => { Variables = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "variables_mode", n => { VariablesMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariablesMode>(); } },
             };
         }
         /// <summary>
@@ -118,6 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("text_body", TextBody);
             writer.WriteCollectionOfPrimitiveValues<string>("variables", Variables);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariableSchemaProperty>("variable_schema", VariableSchema);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailTemplateRequestVariablesMode>("variables_mode", VariablesMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

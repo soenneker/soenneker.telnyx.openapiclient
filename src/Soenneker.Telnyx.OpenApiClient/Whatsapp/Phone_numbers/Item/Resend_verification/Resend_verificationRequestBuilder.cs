@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Resend_verification
 {
     /// <summary>
-    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{phoneNumber}\resend_verification
+    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{-id}\resend_verification
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Resend_verificationRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Resend_veri
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Resend_verificationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{phoneNumber}/resend_verification", pathParameters)
+        public Resend_verificationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/resend_verification", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Resend_veri
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Resend_verificationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{phoneNumber}/resend_verification", rawUrl)
+        public Resend_verificationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/resend_verification", rawUrl)
         {
         }
         /// <summary>

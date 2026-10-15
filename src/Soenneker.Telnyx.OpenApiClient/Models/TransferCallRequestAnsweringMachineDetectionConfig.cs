@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance. Only `total_analysis_time_millis` and `greeting_duration_millis` parameters are applicable when `premium` is selected as answering_machine_detection.
+    /// Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance. Only `total_analysis_time_millis` and `greeting_duration_millis` parameters are applicable when `premium` is selected as answering_machine_detection. `prompt_end_timeout_millis` is additionally applicable when `premium_ios_call_screening_detection` is selected.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferCallRequestAnsweringMachineDetectionConfig : IAdditionalDataHolder, IParsable
@@ -47,6 +47,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? MaximumNumberOfWords { get; set; }
         /// <summary>If a single word lasts longer than this threshold, consider it a machine.</summary>
         public int? MaximumWordLengthMillis { get; set; }
+        /// <summary>Maximum time Telnyx waits, in milliseconds, for the iOS call-screening prompt to end after Premium AMD initially detects a `machine`. Used when `answering_machine_detection` is `premium_ios_call_screening_detection`. Defaults to 5000 milliseconds.</summary>
+        public int? PromptEndTimeoutMillis { get; set; }
         /// <summary>Minimum noise threshold for any analysis.</summary>
         public int? SilenceThreshold { get; set; }
         /// <summary>Maximum timeout threshold for overall detection.</summary>
@@ -65,6 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             InitialSilenceMillis = 3500;
             MaximumNumberOfWords = 5;
             MaximumWordLengthMillis = 3500;
+            PromptEndTimeoutMillis = 5000;
             SilenceThreshold = 256;
             TotalAnalysisTimeMillis = 3500;
         }
@@ -102,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "initial_silence_millis", n => { InitialSilenceMillis = n.GetIntValue(); } },
                 { "maximum_number_of_words", n => { MaximumNumberOfWords = n.GetIntValue(); } },
                 { "maximum_word_length_millis", n => { MaximumWordLengthMillis = n.GetIntValue(); } },
+                { "prompt_end_timeout_millis", n => { PromptEndTimeoutMillis = n.GetIntValue(); } },
                 { "silence_threshold", n => { SilenceThreshold = n.GetIntValue(); } },
                 { "total_analysis_time_millis", n => { TotalAnalysisTimeMillis = n.GetIntValue(); } },
             };
@@ -129,6 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("initial_silence_millis", InitialSilenceMillis);
             writer.WriteIntValue("maximum_number_of_words", MaximumNumberOfWords);
             writer.WriteIntValue("maximum_word_length_millis", MaximumWordLengthMillis);
+            writer.WriteIntValue("prompt_end_timeout_millis", PromptEndTimeoutMillis);
             writer.WriteIntValue("silence_threshold", SilenceThreshold);
             writer.WriteIntValue("total_analysis_time_millis", TotalAnalysisTimeMillis);
             writer.WriteAdditionalData(AdditionalData);

@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When enabled, the `messages` array of the `call.conversation.ended` webhook contains the full conversation history in order: user and assistant turns, assistant tool calls (`tool_calls`), tool results (`role: tool` with `tool_call_id`), and informational `system` and `developer` entries. The assistant&apos;s instructions are never included. When disabled, `messages` contains only user and assistant text turns.</summary>
+        public bool? ConversationEndedFullHistory { get; set; }
         /// <summary>Default Texml App used for voice calls with your assistant. This will be created automatically on assistant creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,11 +56,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? SendMessageHistoryUpdates { get; set; }
         /// <summary>When enabled, allows users to interact with your AI assistant directly from your website without requiring authentication. This is required for FE widgets that work with assistants that have telephony enabled.</summary>
         public bool? SupportsUnauthenticatedWebCalls { get; set; }
-        /// <summary>Maximum duration in seconds for the AI assistant to participate on the call. When this limit is reached the assistant will be stopped. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).</summary>
+        /// <summary>Maximum duration in seconds for the AI assistant to participate on the call. When this limit is reached the assistant will be stopped. Stopping the assistant does not itself hang up the call, and what happens next depends on how the assistant is running. On Call Control (ai_assistant_start) the call leg stays connected and continues to be billed until it is hung up (for example with the Hangup call command) or until the call ends for another reason. On TeXML, the assistant&apos;s `&lt;Connect&gt;&lt;AIAssistant&gt;` instruction ends; in the default TeXML setup for assistants no instructions follow it, so the call is hung up. Your application receives a call.conversation.ended webhook when the assistant stops. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).</summary>
         public int? TimeLimitSecs { get; set; }
         /// <summary>Duration in seconds of end user silence before the assistant checks in on the user. When this limit is reached the assistant will prompt the user to respond. This is distinct from user_idle_timeout_secs which stops the assistant entirely.</summary>
         public int? UserIdleReplySecs { get; set; }
-        /// <summary>Maximum duration in seconds of end user silence on the call. When this limit is reached the assistant will be stopped. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).</summary>
+        /// <summary>Maximum duration in seconds of end user silence on the call. When this limit is reached the assistant will be stopped. Stopping the assistant does not itself hang up the call, and what happens next depends on how the assistant is running. On Call Control (ai_assistant_start) the call leg stays connected and continues to be billed until it is hung up (for example with the Hangup call command) or until the call ends for another reason. On TeXML, the assistant&apos;s `&lt;Connect&gt;&lt;AIAssistant&gt;` instruction ends; in the default TeXML setup for assistants no instructions follow it, so the call is hung up. Your application receives a call.conversation.ended webhook when the assistant stops. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).</summary>
         public int? UserIdleTimeoutSecs { get; set; }
         /// <summary>Configuration for voicemail detection (AMD - Answering Machine Detection) on outgoing calls. These settings only apply if AMD is enabled on the Dial command. See [TeXML Dial documentation](https://developers.telnyx.com/api-reference/texml-rest-commands/initiate-an-outbound-call) for enabling AMD. Recommended settings: MachineDetection=Enable, AsyncAmd=true, DetectionMode=Premium.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,6 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TelephonySettings()
         {
             AdditionalData = new Dictionary<string, object>();
+            ConversationEndedFullHistory = false;
             DisableDtmf = false;
             TimeLimitSecs = 1800;
             UserIdleReplySecs = 10;
@@ -96,6 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "conversation_ended_full_history", n => { ConversationEndedFullHistory = n.GetBoolValue(); } },
                 { "default_texml_app_id", n => { DefaultTexmlAppId = n.GetStringValue(); } },
                 { "disable_dtmf", n => { DisableDtmf = n.GetBoolValue(); } },
                 { "fallback_destination", n => { FallbackDestination = n.GetStringValue(); } },
@@ -117,6 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("conversation_ended_full_history", ConversationEndedFullHistory);
             writer.WriteStringValue("default_texml_app_id", DefaultTexmlAppId);
             writer.WriteBoolValue("disable_dtmf", DisableDtmf);
             writer.WriteStringValue("fallback_destination", FallbackDestination);

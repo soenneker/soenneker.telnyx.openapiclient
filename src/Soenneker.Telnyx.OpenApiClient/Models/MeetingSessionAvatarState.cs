@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Current state of the avatar connection, or null if no avatar is attached.</summary>
+    /// <summary>Current state of the avatar, or null if the session has no avatar. `starting` until the avatar&apos;s video is playing, then `connected`; `degraded` when the session has fallen back to voice-only (the `avatar.degraded` event carries the reason); `disconnected` when the avatar has ended.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MeetingSessionAvatarState
     {

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Request body for creating a new meeting session.Cross-field rules:- Neither `avatar` nor `assistant` can be combined with `join_at`; both are available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- The `avatar` and `assistant` options take effect at session creation and cannot be modified later.- An effective Avatar or Assistant webpage output takes precedence over `camera_image`; the static image is ignored and a URL source is not fetched.
+    /// Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- A digital avatar or Assistant webpage output takes precedence over `camera_image`; the static image is ignored and a URL source is not fetched.- The former top-level `avatar` object (bring-your-own-key avatar) has been removed and is rejected with 400 `invalid_request`; use `assistant.avatar` instead.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateMeetingSessionRequest : IParsable
@@ -20,14 +20,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest Assistant { get; set; }
-#endif
-        /// <summary>Request options for attaching a bring-your-own-key avatar to the session.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarRequest? Avatar { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarRequest Avatar { get; set; }
 #endif
         /// <summary>When enabled, a human participant `speech_on` event interrupts and stops the current bot audio; it does not bypass admission or initiate speech. Assistant sessions reject `barge_in: true`.</summary>
         public bool? BargeIn { get; set; }
@@ -81,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty Metadata { get; set; }
 #endif
-        /// <summary>Text the bot speaks when it enters the meeting. **Not spoken when an `assistant` is attached**: the value is accepted and echoed back on the session, but the assistant owns the voice and the line is never delivered, with no event reporting the omission. Use `chat_on_enter` to announce an assistant-backed bot.</summary>
+        /// <summary>Text the bot speaks when it enters the meeting. **Not spoken when an `assistant` is attached**: the value is accepted and echoed back on the session, but the assistant owns the voice and the line is never delivered, with no event reporting the omission. Use `chat_on_enter` to announce an assistant-backed bot. Rejected with 400 `invalid_request` when `assistant.avatar` is `true`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SpeakOnEnter { get; set; }
@@ -134,7 +126,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest.CreateFromDiscriminatorValue); } },
-                { "avatar", n => { Avatar = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarRequest.CreateFromDiscriminatorValue); } },
                 { "barge_in", n => { BargeIn = n.GetBoolValue(); } },
                 { "bot_name", n => { BotName = n.GetStringValue(); } },
                 { "camera_image", n => { CameraImage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage.CreateFromDiscriminatorValue); } },
@@ -157,7 +148,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest>("assistant", Assistant);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarRequest>("avatar", Avatar);
             writer.WriteBoolValue("barge_in", BargeIn);
             writer.WriteStringValue("bot_name", BotName);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage>("camera_image", CameraImage);

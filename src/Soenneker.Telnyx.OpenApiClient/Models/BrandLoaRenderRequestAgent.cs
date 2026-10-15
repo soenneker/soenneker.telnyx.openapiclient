@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional. The third-party reseller / partner managing the enterprise&apos;s phone numbers. Omit when working directly with Telnyx; the LOA marks the Authorized Agent block as N/A.
+    /// Optional. The third-party reseller / partner managing the enterprise&apos;s phone numbers on its behalf; omitted, the LOA marks the Authorized Agent block as N/A. A call center (BPO) adding numbers to a client&apos;s DIR puts its own details here. The letter is signed by the DIR enterprise&apos;s organization contact (the client, in the BPO case), not by the agent.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BrandLoaRenderRequestAgent : IAdditionalDataHolder, IParsable
