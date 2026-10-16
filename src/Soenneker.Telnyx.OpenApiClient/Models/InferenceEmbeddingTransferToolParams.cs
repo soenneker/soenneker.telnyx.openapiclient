@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Plays a short beep once the transfer completes and the calls are bridged, so the transfer destination knows the caller is now on the line. The warm transfer message plays before the bridge; this marks the moment the caller actually joins. Works with and without `warm_transfer_acceptance`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep? BridgeBeep { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep BridgeBeep { get; set; }
+#endif
         /// <summary>Custom headers to be added to the SIP INVITE for the transfer command.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,6 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "bridge_beep", n => { BridgeBeep = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep.CreateFromDiscriminatorValue); } },
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "diversion", n => { Diversion = n.GetStringValue(); } },
@@ -123,6 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep>("bridge_beep", BridgeBeep);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem>("custom_headers", CustomHeaders);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("diversion", Diversion);

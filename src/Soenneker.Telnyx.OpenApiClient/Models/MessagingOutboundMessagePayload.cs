@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>RCS webhook message body. Text messages use the text property.</summary>
+        /// <summary>Message body for RCS and WhatsApp. RCS text messages use the text property. WhatsApp messages contain the `whatsapp_message` object from the send request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadBody? Body { get; set; }
@@ -140,6 +140,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string TcrCampaignRegistered { get; set; }
 #endif
+        /// <summary>Telnyx ID of the WhatsApp template used by the message, when known.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TemplateId { get; set; }
+#nullable restore
+#else
+        public string TemplateId { get; set; }
+#endif
+        /// <summary>Name of the WhatsApp template used by the message. Present for WhatsApp template messages.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TemplateName { get; set; }
+#nullable restore
+#else
+        public string TemplateName { get; set; }
+#endif
         /// <summary>Message body (i.e., content) as a non-empty string.**Required for SMS**</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -227,6 +243,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "tcr_campaign_billable", n => { TcrCampaignBillable = n.GetBoolValue(); } },
                 { "tcr_campaign_id", n => { TcrCampaignId = n.GetStringValue(); } },
                 { "tcr_campaign_registered", n => { TcrCampaignRegistered = n.GetStringValue(); } },
+                { "template_id", n => { TemplateId = n.GetStringValue(); } },
+                { "template_name", n => { TemplateName = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadToItem>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadToItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadType>(); } },
@@ -267,6 +285,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("tcr_campaign_billable", TcrCampaignBillable);
             writer.WriteStringValue("tcr_campaign_id", TcrCampaignId);
             writer.WriteStringValue("tcr_campaign_registered", TcrCampaignRegistered);
+            writer.WriteStringValue("template_id", TemplateId);
+            writer.WriteStringValue("template_name", TemplateName);
             writer.WriteStringValue("text", Text);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadToItem>("to", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadType>("type", Type);

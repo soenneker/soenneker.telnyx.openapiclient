@@ -148,7 +148,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the specified AI assistant&apos;s attributes and returns the updated assistant. The request can also control how the change is promoted across assistant versions.
+        /// Updates the specified AI assistant&apos;s attributes and returns the updated assistant. The request can also control how the change is promoted across assistant versions. Every update saves a new version, and an assistant keeps at most 10 versions: once it has more, the oldest versions are permanently deleted, except the main version and any version referenced by a traffic distribution rule.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant"/></returns>
         /// <param name="body">The request body</param>
@@ -213,7 +213,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates the specified AI assistant&apos;s attributes and returns the updated assistant. The request can also control how the change is promoted across assistant versions.
+        /// Updates the specified AI assistant&apos;s attributes and returns the updated assistant. The request can also control how the change is promoted across assistant versions. Every update saves a new version, and an assistant keeps at most 10 versions: once it has more, the oldest versions are permanently deleted, except the main version and any version referenced by a traffic distribution rule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// RCS webhook message body. Text messages use the text property.
+    /// Message body for RCS and WhatsApp. RCS text messages use the text property. WhatsApp messages contain the `whatsapp_message` object from the send request.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagingOutboundMessagePayloadBody : IAdditionalDataHolder, IParsable

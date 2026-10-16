@@ -22,13 +22,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? HeightPx { get; set; }
         /// <summary>Indicates that avatar rendering runs on Telnyx-operated infrastructure.</summary>
         public bool? Hosted { get; set; }
-        /// <summary>Stable identifier of a Telnyx stock avatar or an organization-owned custom avatar. Custom avatar IDs are returned by the Avatars API and use the `avatar_` prefix.</summary>
+        /// <summary>Stable identifier returned by the Avatars API. Discover available stock IDs with GET /v2/ai/avatars and filter[avatar_type]=stock rather than maintaining a fixed list. Custom avatar IDs use the `avatar_` prefix and must belong to the authenticated organization. The service validates that the selected avatar is available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId? Id { get; set; }
+        public string? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId Id { get; set; }
+        public string Id { get; set; }
 #endif
         /// <summary>HTTPS image URL suitable for an avatar selection thumbnail. If the URL expires, list or retrieve the avatar again to refresh it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,6 +52,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider? Provider { get; set; }
         /// <summary>Size of a custom avatar image in bytes.</summary>
         public int? SizeBytes { get; set; }
+        /// <summary>Optional recommended Telnyx text-to-speech voice for this avatar. An omitted field or empty string means no recommendation is available. Custom avatars have no suggested voice. It is informational and selecting the avatar does not automatically change the AI Assistant&apos;s configured voice.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SuggestedVoiceId { get; private set; }
+#nullable restore
+#else
+        public string SuggestedVoiceId { get; private set; }
+#endif
         /// <summary>Time when the custom avatar was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Decoded width of a custom avatar image.</summary>
@@ -86,12 +94,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "height_px", n => { HeightPx = n.GetIntValue(); } },
                 { "hosted", n => { Hosted = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId>(global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "image_url", n => { ImageUrl = n.GetStringValue(); } },
                 { "image_url_expires_at", n => { ImageUrlExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>(); } },
                 { "size_bytes", n => { SizeBytes = n.GetIntValue(); } },
+                { "suggested_voice_id", n => { SuggestedVoiceId = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "width_px", n => { WidthPx = n.GetIntValue(); } },
             };
@@ -108,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteIntValue("height_px", HeightPx);
             writer.WriteBoolValue("hosted", Hosted);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId>("id", Id);
+            writer.WriteStringValue("id", Id);
             writer.WriteStringValue("image_url", ImageUrl);
             writer.WriteDateTimeOffsetValue("image_url_expires_at", ImageUrlExpiresAt);
             writer.WriteStringValue("name", Name);

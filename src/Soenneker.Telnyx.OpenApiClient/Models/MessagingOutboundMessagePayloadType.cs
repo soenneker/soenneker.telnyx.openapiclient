@@ -19,5 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Rcs,
         #pragma warning restore CS1591
+        [EnumMember(Value = "WHATSAPP")]
+        #pragma warning disable CS1591
+        Whatsapp,
+        #pragma warning restore CS1591
     }
 }

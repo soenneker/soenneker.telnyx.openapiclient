@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Avatars
         {
         }
         /// <summary>
-        /// Returns a paginated list of the Telnyx stock avatars and custom avatars available to the authenticated organization. Custom avatars owned by other organizations are never returned. The `image_url` value is suitable for displaying a thumbnail and may be refreshed by listing or retrieving the avatar again.
+        /// Returns a paginated list of the Telnyx stock avatars and custom avatars available to the authenticated organization. Custom avatars owned by other organizations are never returned. The `image_url` value is suitable for displaying a thumbnail and may be refreshed by listing or retrieving the avatar again. `suggested_voice_id` recommends a compatible Telnyx voice for stock avatars and is an empty string for custom avatars; it does not change an AI Assistant&apos;s voice automatically.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AvatarListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Avatars
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AvatarResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a paginated list of the Telnyx stock avatars and custom avatars available to the authenticated organization. Custom avatars owned by other organizations are never returned. The `image_url` value is suitable for displaying a thumbnail and may be refreshed by listing or retrieving the avatar again.
+        /// Returns a paginated list of the Telnyx stock avatars and custom avatars available to the authenticated organization. Custom avatars owned by other organizations are never returned. The `image_url` value is suitable for displaying a thumbnail and may be refreshed by listing or retrieving the avatar again. `suggested_voice_id` recommends a compatible Telnyx voice for stock avatars and is an empty string for custom avatars; it does not change an AI Assistant&apos;s voice automatically.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Avatars
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Avatars.AvatarsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a paginated list of the Telnyx stock avatars and custom avatars available to the authenticated organization. Custom avatars owned by other organizations are never returned. The `image_url` value is suitable for displaying a thumbnail and may be refreshed by listing or retrieving the avatar again.
+        /// Returns a paginated list of the Telnyx stock avatars and custom avatars available to the authenticated organization. Custom avatars owned by other organizations are never returned. The `image_url` value is suitable for displaying a thumbnail and may be refreshed by listing or retrieving the avatar again. `suggested_voice_id` recommends a compatible Telnyx voice for stock avatars and is an empty string for custom avatars; it does not change an AI Assistant&apos;s voice automatically.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AvatarsRequestBuilderGetQueryParameters 

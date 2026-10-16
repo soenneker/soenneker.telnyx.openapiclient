@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts;
+using Soenneker.Telnyx.OpenApiClient.Whatsapp.Hosted_signups;
 using Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates;
 using Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Whatsapp.Signup;
@@ -22,6 +23,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp
         public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Business_accountsRequestBuilder Business_accounts
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Business_accounts.Business_accountsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The hosted_signups property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Hosted_signups.Hosted_signupsRequestBuilder Hosted_signups
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Hosted_signups.Hosted_signupsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The message_templates property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Message_templates.Message_templatesRequestBuilder Message_templates

@@ -31,13 +31,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ForeignId { get; set; }
 #endif
-        /// <summary>WhatsApp sender in E.164 format.</summary>
+        /// <summary>WhatsApp sender in E.164 format. Empty when the user hides their phone number; `from_user_id` then identifies the sender.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? From { get; set; }
 #nullable restore
 #else
         public string From { get; set; }
+#endif
+        /// <summary>Business-scoped user ID (BSUID) of the WhatsApp sender when Meta provides one, for example `US.13491208655302741918`. When `from` is empty, pass this value as `to` to reply.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FromUserId { get; set; }
+#nullable restore
+#else
+        public string FromUserId { get; set; }
 #endif
         /// <summary>Telnyx identifier for this webhook message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,6 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "edit", n => { Edit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit.CreateFromDiscriminatorValue); } },
                 { "foreign_id", n => { ForeignId = n.GetStringValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
+                { "from_user_id", n => { FromUserId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation.CreateFromDiscriminatorValue); } },
                 { "revoke", n => { Revoke = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke.CreateFromDiscriminatorValue); } },
@@ -151,6 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit>("edit", Edit);
             writer.WriteStringValue("foreign_id", ForeignId);
             writer.WriteStringValue("from", From);
+            writer.WriteStringValue("from_user_id", FromUserId);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation>("location", Location);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke>("revoke", Revoke);

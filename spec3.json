@@ -6373,7 +6373,7 @@
           "Assistants"
         ],
         "summary": "Update an assistant",
-        "description": "Updates the specified AI assistant's attributes and returns the updated assistant. The request can also control how the change is promoted across assistant versions.",
+        "description": "Updates the specified AI assistant's attributes and returns the updated assistant. The request can also control how the change is promoted across assistant versions. Every update saves a new version, and an assistant keeps at most 10 versions: once it has more, the oldest versions are permanently deleted, except the main version and any version referenced by a traffic distribution rule.",
         "operationId": "update_assistant_public_assistants__assistant_id__post",
         "parameters": [
           {
@@ -8168,7 +8168,7 @@
           "Assistants"
         ],
         "summary": "Get all versions of an assistant",
-        "description": "Retrieves all versions of a specific assistant with complete configuration and metadata",
+        "description": "Retrieves all versions of a specific assistant with complete configuration and metadata. An assistant keeps at most 10 versions, including the main version. When an update takes it past that limit, the oldest versions are permanently deleted. The main version and any version referenced by a traffic distribution rule are never deleted this way.",
         "operationId": "get_assistant_versions_public_assistants__assistant_id__versions_get",
         "parameters": [
           {
@@ -8520,7 +8520,7 @@
           "Avatars"
         ],
         "summary": "List avatars",
-        "description": "Returns a paginated list of the Telnyx stock avatars and custom avatars available to the authenticated organization. Custom avatars owned by other organizations are never returned. The `image_url` value is suitable for displaying a thumbnail and may be refreshed by listing or retrieving the avatar again.",
+        "description": "Returns a paginated list of the Telnyx stock avatars and custom avatars available to the authenticated organization. Custom avatars owned by other organizations are never returned. The `image_url` value is suitable for displaying a thumbnail and may be refreshed by listing or retrieving the avatar again. `suggested_voice_id` recommends a compatible Telnyx voice for stock avatars and is an empty string for custom avatars; it does not change an AI Assistant's voice automatically.",
         "operationId": "list_avatars_public_avatars_get",
         "parameters": [
           {
@@ -8592,7 +8592,8 @@
                       "provider": "telnyx",
                       "avatar_type": "stock",
                       "hosted": true,
-                      "image_url": "https://example.com/avatars/elena.png"
+                      "image_url": "https://example.com/avatars/elena.png",
+                      "suggested_voice_id": "Telnyx.Ultra.db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
                     },
                     {
                       "id": "avatar_0123456789abcdef0123456789abcdef",
@@ -8602,6 +8603,7 @@
                       "hosted": true,
                       "image_url": "https://example.com/avatar.png",
                       "image_url_expires_at": "2026-10-13T15:00:00Z",
+                      "suggested_voice_id": "",
                       "content_type": "image/png",
                       "size_bytes": 248512,
                       "width_px": 1920,
@@ -8666,6 +8668,7 @@
                     "hosted": true,
                     "image_url": "https://example.com/avatar.png",
                     "image_url_expires_at": "2026-10-13T15:00:00Z",
+                    "suggested_voice_id": "",
                     "content_type": "image/png",
                     "size_bytes": 248512,
                     "width_px": 1920,
@@ -8719,6 +8722,7 @@
                     "hosted": true,
                     "image_url": "https://example.com/avatar.png",
                     "image_url_expires_at": "2026-10-13T15:00:00Z",
+                    "suggested_voice_id": "",
                     "content_type": "image/png",
                     "size_bytes": 248512,
                     "width_px": 1920,
@@ -50762,7 +50766,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WhatsappMessage"
+                "$ref": "#/components/schemas/messaging_WhatsappMessage"
               }
             }
           },
@@ -89599,6 +89603,149 @@
         "description": "Update the settings of a WhatsApp Business Account."
       }
     },
+    "/whatsapp/hosted_signups": {
+      "get": {
+        "tags": [
+          "Whatsapp Signup"
+        ],
+        "summary": "List Whatsapp hosted signups",
+        "operationId": "ListWhatsappHostedSignups",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whatsapp hosted signups list",
+            "$ref": "#/components/responses/WhatsappHostedSignupListResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/management_messaging_GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive",
+        "description": "List hosted signups created by the account, newest first. Expired hosted signups are included."
+      },
+      "post": {
+        "tags": [
+          "Whatsapp Signup"
+        ],
+        "summary": "Create a Whatsapp hosted signup",
+        "operationId": "CreateWhatsappHostedSignup",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappHostedSignupCreateRequest"
+              },
+              "example": {
+                "app_id": "123456789012345",
+                "signup_type": "coexistence"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Hosted signup created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/WhatsappHostedSignup"
+                    }
+                  }
+                },
+                "example": {
+                  "data": {
+                    "id": "0192345a-7b8c-7d9e-0f12-3456789abcde",
+                    "record_type": "whatsapp_jwt",
+                    "app_id": "123456789012345",
+                    "created_at": "2026-07-08T12:00:00Z",
+                    "expires_at": "2026-07-09T12:00:00Z",
+                    "jwt": "eyJhbGciOiJSUzI1NiIs...",
+                    "url": "https://acct.fyi?token=eyJhbGciOiJSUzI1NiIs...",
+                    "solution_id": "987654321098765"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/messaging_Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Bad request",
+                      "detail": "expires_at must be at most 3 days in the future"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/management_messaging_GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive",
+        "description": "Create a time-limited onboarding URL on the Telnyx-hosted Embedded Signup page for a Tech Provider's end customer. Set `signup_type` to `coexistence` to launch Meta's WhatsApp Business app coexistence flow instead of standard Cloud API onboarding."
+      }
+    },
+    "/whatsapp/hosted_signups/{id}": {
+      "get": {
+        "tags": [
+          "Whatsapp Signup"
+        ],
+        "summary": "Get a Whatsapp hosted signup",
+        "operationId": "GetWhatsappHostedSignup",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappHostedSignupId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whatsapp hosted signup",
+            "$ref": "#/components/responses/WhatsappHostedSignupResponse"
+          },
+          "404": {
+            "description": "Hosted signup not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/messaging_Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10005",
+                      "title": "Resource not found",
+                      "detail": "The requested resource or URL could not be found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/management_messaging_GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive",
+        "description": "Retrieve a hosted signup and its onboarding URL."
+      }
+    },
     "/whatsapp/message_templates": {
       "get": {
         "tags": [
@@ -95094,6 +95241,15 @@
         "description": "The BYON phone number in E.164 format. The leading `+` is optional.",
         "example": "+13125550100"
       },
+      "WhatsappHostedSignupId": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Hosted signup ID returned when the hosted signup was created"
+      },
       "WhatsappPhoneNumber": {
         "name": "phone_number",
         "in": "path",
@@ -100567,6 +100723,72 @@
                 "data": {
                   "$ref": "#/components/schemas/WhatsappConversationalComponent"
                 }
+              }
+            }
+          }
+        }
+      },
+      "WhatsappHostedSignupListResponse": {
+        "description": "Successful response with a list of WhatsApp hosted signups",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WhatsappHostedSignup"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/messaging_PaginationMeta"
+                }
+              }
+            },
+            "example": {
+              "data": [
+                {
+                  "id": "0192345a-7b8c-7d9e-0f12-3456789abcde",
+                  "record_type": "whatsapp_jwt",
+                  "app_id": "123456789012345",
+                  "created_at": "2026-07-08T12:00:00Z",
+                  "expires_at": "2026-07-09T12:00:00Z",
+                  "jwt": "eyJhbGciOiJSUzI1NiIs...",
+                  "url": "https://acct.fyi?token=eyJhbGciOiJSUzI1NiIs..."
+                }
+              ],
+              "meta": {
+                "page_number": 1,
+                "page_size": 20,
+                "total_pages": 1,
+                "total_results": 1
+              }
+            }
+          }
+        }
+      },
+      "WhatsappHostedSignupResponse": {
+        "description": "Successful response with a WhatsApp hosted signup",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/WhatsappHostedSignup"
+                }
+              }
+            },
+            "example": {
+              "data": {
+                "id": "0192345a-7b8c-7d9e-0f12-3456789abcde",
+                "record_type": "whatsapp_jwt",
+                "app_id": "123456789012345",
+                "created_at": "2026-07-08T12:00:00Z",
+                "expires_at": "2026-07-09T12:00:00Z",
+                "jwt": "eyJhbGciOiJSUzI1NiIs...",
+                "url": "https://acct.fyi?token=eyJhbGciOiJSUzI1NiIs..."
               }
             }
           }
@@ -108641,6 +108863,14 @@
             "description": "Expiration time of `image_url`. Omitted when the URL does not expire.",
             "example": "2026-10-13T15:00:00Z"
           },
+          "suggested_voice_id": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "readOnly": true,
+            "description": "Optional recommended Telnyx text-to-speech voice for this avatar. An omitted field or empty string means no recommendation is available. Custom avatars have no suggested voice. It is informational and selecting the avatar does not automatically change the AI Assistant's configured voice.",
+            "example": "Telnyx.Ultra.db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+          },
           "content_type": {
             "$ref": "#/components/schemas/AvatarContentType"
           },
@@ -108763,28 +108993,11 @@
         }
       },
       "AvatarId": {
-        "oneOf": [
-          {
-            "title": "Stock avatar ID",
-            "type": "string",
-            "enum": [
-              "elena",
-              "ben",
-              "jordan",
-              "lin",
-              "avery",
-              "raphael"
-            ]
-          },
-          {
-            "title": "Custom avatar ID",
-            "type": "string",
-            "pattern": "^avatar_[a-z0-9][a-z0-9._:-]{0,120}$",
-            "minLength": 8,
-            "maxLength": 128
-          }
-        ],
-        "description": "Stable identifier of a Telnyx stock avatar or an organization-owned custom avatar. Custom avatar IDs are returned by the Avatars API and use the `avatar_` prefix.",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$",
+        "description": "Stable identifier returned by the Avatars API. Discover available stock IDs with GET /v2/ai/avatars and filter[avatar_type]=stock rather than maintaining a fixed list. Custom avatar IDs use the `avatar_` prefix and must belong to the authenticated organization. The service validates that the selected avatar is available.",
         "example": "avatar_0123456789abcdef0123456789abcdef"
       },
       "AvatarListMeta": {
@@ -144692,6 +144905,12 @@
             "items": {
               "$ref": "#/components/schemas/CustomSipHeader"
             }
+          },
+          "reason": {
+            "description": "Text for the SIP `Reason` header (RFC 3326) sent when cancelling an unanswered outbound leg. The SIP CANCEL carries `Reason: SIP;cause=200;text=\"<reason>\"`; phones such as Poly and Yealink use it to suppress the missed-call entry for a call answered elsewhere. Has no effect on an answered leg or an inbound leg. A hangup sent before the leg's `call.initiated` webhook still hangs up the leg, but without the `Reason` header. Must not contain `\"`, `\\`, control characters, or characters outside the Basic Multilingual Plane (such as emoji); invalid values are rejected with a 422.",
+            "type": "string",
+            "maxLength": 128,
+            "example": "Call completed elsewhere"
           }
         },
         "example": {
@@ -146441,6 +146660,13 @@
                 "type": "boolean",
                 "default": false,
                 "description": "Fail closed when the acceptance consult cannot run. Off by default: if the consult cannot be set up for any reason \u2014 including where acceptance is unavailable at all (`gather_using_ai`, Conversation Relay or web calls, a conference, or additional invited participants) \u2014 the transfer degrades to a plain warm transfer (the warm transfer message is played to the destination as audio and the calls are bridged anyway). Set to true to treat those paths as a decline instead: the destination is disconnected without being asked, the assistant returns to the caller, and no bridge happens without an acceptance. Only consult-setup failures are affected; the destination must still explicitly accept on every consult that does run."
+              },
+              "timeout_secs": {
+                "type": "integer",
+                "minimum": 10,
+                "maximum": 600,
+                "default": 60,
+                "description": "How long, in seconds, the destination has to accept the transfer, counted from when the private consult starts (right after the destination answers, or after `warm_message_delay_ms`). The caller keeps hearing ringback the whole time. If no acceptance arrives in time, the destination is hung up and the assistant returns to the caller (the transfer fails as a timeout). Raise it for destinations that answer before a human is on the line, such as a call-center queue/ACD or an IVR playing hold audio; keep it as short as practical, since the caller waits on ringback until it expires."
               }
             }
           },
@@ -146448,6 +146674,26 @@
             "type": "string",
             "description": "A description of the transfer tool. By default, Telnyx generates this automatically based on the configured targets. Typically only set when importing an assistant from another provider that allowed a custom description; in that case the provided value is preserved. Most users should leave this empty and let Telnyx manage it.",
             "example": "Transfer the call to a human agent."
+          },
+          "bridge_beep": {
+            "type": "object",
+            "description": "Plays a short beep once the transfer completes and the calls are bridged, so the transfer destination knows the caller is now on the line. The warm transfer message plays before the bridge; this marks the moment the caller actually joins. Works with and without `warm_transfer_acceptance`.",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "default": false,
+                "description": "Whether to play the beep when the calls are bridged."
+              },
+              "target_legs": {
+                "type": "string",
+                "enum": [
+                  "self",
+                  "both"
+                ],
+                "default": "self",
+                "description": "Who hears the beep. `self` plays it to the transfer destination only; `both` plays it to the destination and the original caller."
+              }
+            }
           },
           "warm_message_delay_ms": {
             "type": [
@@ -152604,8 +152850,12 @@
             "properties": {
               "from": {
                 "type": "string",
-                "description": "WhatsApp sender in E.164 format.",
+                "description": "WhatsApp sender in E.164 format. Empty when the user hides their phone number; `from_user_id` then identifies the sender.",
                 "x-format": "address"
+              },
+              "from_user_id": {
+                "type": "string",
+                "description": "Business-scoped user ID (BSUID) of the WhatsApp sender when Meta provides one, for example `US.13491208655302741918`. When `from` is empty, pass this value as `to` to reply."
               },
               "id": {
                 "type": "string",
@@ -153165,7 +153415,8 @@
             "enum": [
               "SMS",
               "MMS",
-              "RCS"
+              "RCS",
+              "WHATSAPP"
             ],
             "description": "The type of message."
           },
@@ -153507,13 +153758,22 @@
           },
           "body": {
             "type": "object",
-            "description": "RCS webhook message body. Text messages use the text property.",
+            "description": "Message body for RCS and WhatsApp. RCS text messages use the text property. WhatsApp messages contain the `whatsapp_message` object from the send request.",
             "properties": {
               "text": {
                 "type": "string",
                 "description": "RCS text message."
               }
-            }
+            },
+            "additionalProperties": true
+          },
+          "template_id": {
+            "type": "string",
+            "description": "Telnyx ID of the WhatsApp template used by the message, when known."
+          },
+          "template_name": {
+            "type": "string",
+            "description": "Name of the WhatsApp template used by the message. Present for WhatsApp template messages."
           }
         },
         "example": {
@@ -179392,7 +179652,7 @@
       },
       "TelnyxAvatarSettings": {
         "title": "TelnyxAvatarSettings",
-        "description": "**Beta:** Configuration for the Telnyx open-source avatar provider. Use one of the six stock avatars or an organization-owned custom avatar returned by the Avatars API. Supported backgrounds are office, studio, and reception.",
+        "description": "**Beta:** Configuration for the Telnyx open-source avatar provider. Use a stock avatar or an organization-owned custom avatar returned by the Avatars API. Discover the available stock catalog with GET /v2/ai/avatars and filter[avatar_type]=stock; follow meta.total_pages to load every page. Supported backgrounds are office, studio, and reception.",
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -199012,6 +199272,84 @@
           }
         }
       },
+      "WhatsappHostedSignup": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Hosted signup ID",
+            "example": "0192345a-7b8c-7d9e-0f12-3456789abcde"
+          },
+          "record_type": {
+            "type": "string",
+            "enum": [
+              "whatsapp_jwt"
+            ],
+            "example": "whatsapp_jwt"
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Meta App ID the hosted signup onboards customers into",
+            "example": "123456789012345"
+          },
+          "solution_id": {
+            "type": "string",
+            "description": "Meta Partner Solution ID linked to the app. Returned only when creating a hosted signup.",
+            "example": "987654321098765"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-07-08T12:00:00Z"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the onboarding URL stops working",
+            "example": "2026-07-09T12:00:00Z"
+          },
+          "jwt": {
+            "type": "string",
+            "description": "Signed token embedded in `url`",
+            "example": "eyJhbGciOiJSUzI1NiIs..."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Hosted onboarding URL to share with the end customer",
+            "example": "https://acct.fyi?token=eyJhbGciOiJSUzI1NiIs..."
+          }
+        }
+      },
+      "WhatsappHostedSignupCreateRequest": {
+        "type": "object",
+        "required": [
+          "app_id"
+        ],
+        "properties": {
+          "app_id": {
+            "type": "string",
+            "description": "Meta App ID linked to the Telnyx account. The app must be enabled.",
+            "example": "123456789012345"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the onboarding URL expires, in RFC 3339 format. Must be in the future and at most 3 days ahead. Defaults to 24 hours after creation.",
+            "example": "2026-07-09T12:00:00Z"
+          },
+          "signup_type": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "coexistence"
+            ],
+            "default": "standard",
+            "description": "Onboarding flow the hosted page launches. Use `coexistence` for a number that remains active in the WhatsApp Business app.",
+            "example": "coexistence"
+          }
+        }
+      },
       "WhatsappInteractive": {
         "type": "object",
         "properties": {
@@ -202628,6 +202966,342 @@
         },
         "example": {
           "MaxSize": 10
+        }
+      },
+      "callAnalyzed": {
+        "type": "object",
+        "title": "Call Analyzed",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "example": "event",
+            "enum": [
+              "event"
+            ],
+            "description": "Identifies the type of the resource."
+          },
+          "event_type": {
+            "type": "string",
+            "example": "call.analyzed",
+            "enum": [
+              "call.analyzed"
+            ],
+            "description": "The type of event being delivered."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "afa6f4ac-f569-575b-9127-75a2746cf0ab",
+            "description": "Unique identifier for the event."
+          },
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-10-15T20:38:46.308491Z",
+            "description": "ISO 8601 datetime of when the event occurred."
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "assistant_id": {
+                "type": "string",
+                "example": "assistant-258e1b9b-aa09-5f71-a931-56fd3cf2eb1c",
+                "description": "Unique identifier of the assistant involved in the call."
+              },
+              "call_control_id": {
+                "type": "string",
+                "example": "v3:b5aa7d950dfd551e916cc42bee82e56e-510c4d08",
+                "description": "Call ID used to issue commands via Call Control API."
+              },
+              "connection_id": {
+                "type": "string",
+                "example": "1294850382059482660",
+                "description": "Call Control App ID (formerly Telnyx connection ID) used in the call."
+              },
+              "call_leg_id": {
+                "type": "string",
+                "example": "9f4eec6d-19a9-503f-be41-024cfaf1d5a6",
+                "description": "ID that is unique to the call leg."
+              },
+              "call_session_id": {
+                "type": "string",
+                "example": "340a438e-f327-5f36-be97-e5c13bde3a05",
+                "description": "ID that is unique to the call session (group of related call legs)."
+              },
+              "client_state": {
+                "type": "string",
+                "example": "g3QAAAACbQAAAAtkYXRhX2NlbnRlcm0AAAADY2gxbQAAAApkZXBsb3ltZW50bQAAAARiYXNl",
+                "description": "Base64-encoded state received from a command."
+              },
+              "conversation_id": {
+                "type": "string",
+                "example": "dc76aa9a-a1c2-5e6b-aed4-6775fe240151",
+                "description": "ID unique to the conversation generated for the call."
+              },
+              "llm_model": {
+                "type": "string",
+                "example": "moonshotai/Kimi-K2.6",
+                "description": "The large language model used during the conversation."
+              },
+              "stt_model": {
+                "type": "string",
+                "example": "deepgram/flux",
+                "description": "The speech-to-text model used in the conversation."
+              },
+              "tts_provider": {
+                "type": "string",
+                "example": "telnyx",
+                "description": "The text-to-speech provider used in the call."
+              },
+              "tts_model_id": {
+                "type": "string",
+                "example": "Ultra",
+                "description": "The model ID used for text-to-speech synthesis."
+              },
+              "tts_voice_id": {
+                "type": "string",
+                "example": "c80920a7-535c-5d39-b630-8ddf52d5a4f0",
+                "description": "Voice ID used for TTS."
+              },
+              "duration_sec": {
+                "type": "integer",
+                "example": 37,
+                "description": "Duration of the conversation in seconds."
+              },
+              "from": {
+                "type": "string",
+                "example": "+131****7421",
+                "description": "The caller's number or identifier."
+              },
+              "to": {
+                "type": "string",
+                "example": "+131****4802",
+                "description": "The callee's number or SIP address."
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "example": "normal",
+                "description": "Reason the conversation ended."
+              },
+              "conversation_insights": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "description": "The conversation's generated insights, when insight generation was enabled for the assistant and has completed. Each entry carries a `status` and the generated `conversation_insights` results. An empty array when the conversation has no generated insights; null when insight data could not be retrieved.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "completed",
+                      "description": "Status of insight generation for this entry."
+                    },
+                    "conversation_insights": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "description": "Generated insight results.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "insight_id": {
+                            "type": "string",
+                            "example": "6c5018ff-25a2-5364-b6be-f53de3d493c6",
+                            "description": "Identifier of the insight template the result was generated from."
+                          },
+                          "result": {
+                            "type": "string",
+                            "example": "The user called the voice assistant to schedule a dental appointment. The assistant confirmed availability for Tuesday at 10:00 AM and transferred the call to the office scheduling line.",
+                            "description": "The generated insight result."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "cost": {
+                "type": [
+                  "object",
+                  "string"
+                ],
+                "description": "The session's cost breakdown from Session Analysis, covering every product billed on the call: the AI Voice Assistant engine minutes (`ai-voice-assistant`), LLM inference tokens (`inference`), and call-control, SIP trunking, and recording lines. If cost data could not be retrieved after retries, this field carries the placeholder string `No cost data available.` instead of an object.",
+                "properties": {
+                  "total": {
+                    "type": "string",
+                    "example": "0.060300",
+                    "description": "The total cost of the call, summed across every product in the breakdown."
+                  },
+                  "currency": {
+                    "type": "string",
+                    "example": "USD",
+                    "description": "The currency of the cost amounts."
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "description": "Cost lines grouped by product.",
+                    "items": {
+                      "type": "object",
+                      "title": "Cost Breakdown",
+                      "properties": {
+                        "product": {
+                          "type": "string",
+                          "example": "ai-voice-assistant",
+                          "description": "The Telnyx product the cost line belongs to (for example `ai-voice-assistant`, `inference`, `callcontrol-cdrs`, `siptrunking-cdrs`, `recording-cdrs`)."
+                        },
+                        "cost": {
+                          "type": "string",
+                          "example": "0.050000",
+                          "description": "Total cost for this product across the call, in the currency given by `cost.currency`."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "recordings": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "description": "Recordings created for the call. An empty array when the call had no recordings; null when recording data could not be retrieved.",
+                "items": {
+                  "type": "object",
+                  "title": "Recording",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "850f003e-1278-5d6b-baf2-918aae3031dc",
+                      "description": "Unique identifier of the recording."
+                    },
+                    "start_time": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2026-10-15T20:34:07.955834Z",
+                      "description": "ISO 8601 datetime of when the recording started."
+                    },
+                    "end_time": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2026-10-15T20:34:52.395814Z",
+                      "description": "ISO 8601 datetime of when the recording ended."
+                    },
+                    "format": {
+                      "type": "string",
+                      "example": "mp3",
+                      "description": "The recording file format."
+                    },
+                    "channels": {
+                      "type": "string",
+                      "example": "dual",
+                      "description": "The recording channel configuration."
+                    },
+                    "download_urls": {
+                      "type": "object",
+                      "description": "Download URL per format. URLs are pre-signed and expire.",
+                      "properties": {
+                        "mp3": {
+                          "type": "string",
+                          "description": "Pre-signed URL for the mp3 recording file."
+                        },
+                        "wav": {
+                          "type": "string",
+                          "description": "Pre-signed URL for the wav recording file."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "record_type": "event",
+          "event_type": "call.analyzed",
+          "id": "afa6f4ac-f569-575b-9127-75a2746cf0ab",
+          "occurred_at": "2026-10-15T20:38:46.308491Z",
+          "payload": {
+            "assistant_id": "assistant-258e1b9b-aa09-5f71-a931-56fd3cf2eb1c",
+            "call_control_id": "v3:b5aa7d950dfd551e916cc42bee82e56e-510c4d08",
+            "call_leg_id": "9f4eec6d-19a9-503f-be41-024cfaf1d5a6",
+            "call_session_id": "340a438e-f327-5f36-be97-e5c13bde3a05",
+            "client_state": "g3QAAAACbQAAAAtkYXRhX2NlbnRlcm0AAAADY2gxbQAAAApkZXBsb3ltZW50bQAAAARiYXNl",
+            "connection_id": "1294850382059482660",
+            "conversation_id": "dc76aa9a-a1c2-5e6b-aed4-6775fe240151",
+            "conversation_insights": [
+              {
+                "conversation_insights": [
+                  {
+                    "insight_id": "6c5018ff-25a2-5364-b6be-f53de3d493c6",
+                    "result": "The user called the voice assistant to schedule a dental appointment. The assistant confirmed availability for Tuesday at 10:00 AM and transferred the call to the office scheduling line to complete the booking."
+                  }
+                ],
+                "status": "completed"
+              }
+            ],
+            "cost": {
+              "breakdown": [
+                {
+                  "cost": "0.050000",
+                  "product": "ai-voice-assistant"
+                },
+                {
+                  "cost": "0.003600",
+                  "product": "callcontrol-cdrs"
+                },
+                {
+                  "cost": "0.000900",
+                  "product": "inference"
+                },
+                {
+                  "cost": "0.000800",
+                  "product": "recording-cdrs"
+                },
+                {
+                  "cost": "0.005000",
+                  "product": "siptrunking-cdrs"
+                }
+              ],
+              "currency": "USD",
+              "total": "0.060300"
+            },
+            "duration_sec": 37,
+            "from": "+131****7421",
+            "llm_model": "moonshotai/Kimi-K2.6",
+            "reason": "normal",
+            "recordings": [
+              {
+                "channels": "dual",
+                "download_urls": {
+                  "mp3": "https://storage.telnyx.com/recordings/06069104-45f7-5d17-9fa7-34cfeb4534fa/2026-10-15/9f4eec6d-19a9-503f.mp3"
+                },
+                "end_time": "2026-10-15T20:34:52.395814Z",
+                "format": "mp3",
+                "id": "850f003e-1278-5d6b-baf2-918aae3031dc",
+                "start_time": "2026-10-15T20:34:07.955834Z"
+              }
+            ],
+            "stt_model": "deepgram/flux",
+            "to": "+131****4802",
+            "tts_model_id": "Ultra",
+            "tts_provider": "telnyx",
+            "tts_voice_id": "c80920a7-535c-5d39-b630-8ddf52d5a4f0"
+          }
+        }
+      },
+      "callAnalyzedEvent": {
+        "type": "object",
+        "title": "Call Analyzed Event",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/callAnalyzed"
+          }
         }
       },
       "callConversationCreated": {
@@ -208421,6 +209095,47 @@
             "required": [
               "type"
             ]
+          }
+        }
+      },
+      "messaging_WhatsappMessage": {
+        "required": [
+          "from",
+          "to",
+          "whatsapp_message"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Phone number in +E.164 format associated with Whatsapp account",
+            "example": "+13125551234"
+          },
+          "to": {
+            "type": "string",
+            "description": "Recipient phone number in +E.164 format, or the business-scoped user ID (BSUID) of a WhatsApp user who hides their phone number, for example `US.13491208655302741918`. Authentication templates cannot be sent to a BSUID.",
+            "example": "+13125551234"
+          },
+          "whatsapp_message": {
+            "$ref": "#/components/schemas/messaging_WhatsappMessageContent"
+          },
+          "type": {
+            "type": "string",
+            "description": "Message type - must be set to \"WHATSAPP\"",
+            "example": "WHATSAPP",
+            "enum": [
+              "WHATSAPP"
+            ]
+          },
+          "webhook_url": {
+            "description": "The URL where webhooks related to this message will be sent.",
+            "type": "string",
+            "format": "url"
+          },
+          "messaging_profile_id": {
+            "description": "Messaging profile ID - required if the 'from' number is not SMS-enabled",
+            "type": "string",
+            "format": "uuid"
           }
         }
       },
@@ -216651,6 +217366,131 @@
         },
         "operationId": "MeetingArtifactFailedWebhook",
         "security": []
+      }
+    },
+    "callAnalyzed": {
+      "post": {
+        "summary": "Call analyzed",
+        "description": "\n\nThis webhook uses Telnyx headers (telnyx-timestamp, telnyx-signature-ed25519) that are compatible with Standard Webhooks specification for SDK generation. Custom validation logic can map these to standard webhook-timestamp and webhook-signature equivalents. See https://github.com/standard-webhooks/standard-webhooks for details.\n\nDelivered after an AI assistant conversation ends and post-call processing completes. The payload consolidates the conversation's generated insights, its recordings, and the call's full cost breakdown (AI Voice Assistant engine minutes, LLM inference, call control, SIP trunking, recording).",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/callAnalyzedEvent"
+              },
+              "example": {
+                "data": {
+                  "record_type": "event",
+                  "event_type": "call.analyzed",
+                  "id": "afa6f4ac-f569-575b-9127-75a2746cf0ab",
+                  "occurred_at": "2026-10-15T20:38:46.308491Z",
+                  "payload": {
+                    "assistant_id": "assistant-258e1b9b-aa09-5f71-a931-56fd3cf2eb1c",
+                    "call_control_id": "v3:b5aa7d950dfd551e916cc42bee82e56e-510c4d08",
+                    "call_leg_id": "9f4eec6d-19a9-503f-be41-024cfaf1d5a6",
+                    "call_session_id": "340a438e-f327-5f36-be97-e5c13bde3a05",
+                    "client_state": "g3QAAAACbQAAAAtkYXRhX2NlbnRlcm0AAAADY2gxbQAAAApkZXBsb3ltZW50bQAAAARiYXNl",
+                    "connection_id": "1294850382059482660",
+                    "conversation_id": "dc76aa9a-a1c2-5e6b-aed4-6775fe240151",
+                    "conversation_insights": [
+                      {
+                        "conversation_insights": [
+                          {
+                            "insight_id": "6c5018ff-25a2-5364-b6be-f53de3d493c6",
+                            "result": "The user called the voice assistant to schedule a dental appointment. The assistant confirmed availability for Tuesday at 10:00 AM and transferred the call to the office scheduling line to complete the booking."
+                          }
+                        ],
+                        "status": "completed"
+                      }
+                    ],
+                    "cost": {
+                      "breakdown": [
+                        {
+                          "cost": "0.050000",
+                          "product": "ai-voice-assistant"
+                        },
+                        {
+                          "cost": "0.003600",
+                          "product": "callcontrol-cdrs"
+                        },
+                        {
+                          "cost": "0.000900",
+                          "product": "inference"
+                        },
+                        {
+                          "cost": "0.000800",
+                          "product": "recording-cdrs"
+                        },
+                        {
+                          "cost": "0.005000",
+                          "product": "siptrunking-cdrs"
+                        }
+                      ],
+                      "currency": "USD",
+                      "total": "0.060300"
+                    },
+                    "duration_sec": 37,
+                    "from": "+131****7421",
+                    "llm_model": "moonshotai/Kimi-K2.6",
+                    "reason": "normal",
+                    "recordings": [
+                      {
+                        "channels": "dual",
+                        "download_urls": {
+                          "mp3": "https://storage.telnyx.com/recordings/06069104-45f7-5d17-9fa7-34cfeb4534fa/2026-10-15/9f4eec6d-19a9-503f.mp3"
+                        },
+                        "end_time": "2026-10-15T20:34:52.395814Z",
+                        "format": "mp3",
+                        "id": "850f003e-1278-5d6b-baf2-918aae3031dc",
+                        "start_time": "2026-10-15T20:34:07.955834Z"
+                      }
+                    ],
+                    "stt_model": "deepgram/flux",
+                    "to": "+131****4802",
+                    "tts_model_id": "Ultra",
+                    "tts_provider": "telnyx",
+                    "tts_voice_id": "c80920a7-535c-5d39-b630-8ddf52d5a4f0"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The server must return an HTTP 200, otherwise we will reattempt delivery at the failover webhook URL."
+          }
+        },
+        "parameters": [
+          {
+            "name": "telnyx-timestamp",
+            "in": "header",
+            "required": true,
+            "description": "Unix timestamp (seconds since epoch) of when the webhook was sent - compatible with webhook-timestamp",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unix timestamp for replay attack prevention"
+            },
+            "x-webhook-equivalent": "webhook-timestamp"
+          },
+          {
+            "name": "telnyx-signature-ed25519",
+            "in": "header",
+            "required": true,
+            "description": "Base64 encoded Ed25519 signature for webhook verification - compatible with webhook-signature",
+            "schema": {
+              "type": "string",
+              "description": "Ed25519 signature of timestamp|payload for verification"
+            },
+            "x-webhook-equivalent": "webhook-signature"
+          }
+        ],
+        "operationId": "CallAnalyzed",
+        "tags": [
+          "Callbacks"
+        ]
       }
     },
     "callAnswered": {

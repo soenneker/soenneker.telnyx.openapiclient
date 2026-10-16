@@ -38,6 +38,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader> CustomHeaders { get; set; }
 #endif
+        /// <summary>Text for the SIP `Reason` header (RFC 3326) sent when cancelling an unanswered outbound leg. The SIP CANCEL carries `Reason: SIP;cause=200;text=&quot;&lt;reason&gt;&quot;`; phones such as Poly and Yealink use it to suppress the missed-call entry for a call answered elsewhere. Has no effect on an answered leg or an inbound leg. A hangup sent before the leg&apos;s `call.initiated` webhook still hangs up the leg, but without the `Reason` header. Must not contain `&quot;`, `\`, control characters, or characters outside the Basic Multilingual Plane (such as emoji); invalid values are rejected with a 422.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Reason { get; set; }
+#nullable restore
+#else
+        public string Reason { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupRequest"/> and sets the default values.
         /// </summary>
@@ -66,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -78,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>("custom_headers", CustomHeaders);
+            writer.WriteStringValue("reason", Reason);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

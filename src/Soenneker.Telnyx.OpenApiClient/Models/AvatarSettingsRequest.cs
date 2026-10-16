@@ -15,13 +15,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The Telnyx stock avatar or organization-owned custom avatar to render.</summary>
+        /// <summary>Stable identifier returned by the Avatars API. Discover available stock IDs with GET /v2/ai/avatars and filter[avatar_type]=stock rather than maintaining a fixed list. Custom avatar IDs use the `avatar_` prefix and must belong to the authenticated organization. The service validates that the selected avatar is available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId? AvatarId { get; set; }
+        public string? AvatarId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId AvatarId { get; set; }
+        public string AvatarId { get; set; }
 #endif
         /// <summary>The background to render.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId? BackgroundId { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "avatar_id", n => { AvatarId = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId>(global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId.CreateFromDiscriminatorValue); } },
+                { "avatar_id", n => { AvatarId = n.GetStringValue(); } },
                 { "background_id", n => { BackgroundId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId>(); } },
                 { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model>(); } },
                 { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>(); } },
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarId>("avatar_id", AvatarId);
+            writer.WriteStringValue("avatar_id", AvatarId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId>("background_id", BackgroundId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model>("model", Model);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>("provider", Provider);

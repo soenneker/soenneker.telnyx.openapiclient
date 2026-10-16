@@ -5,32 +5,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum AvatarIdWrapperValue
+    public enum MessagingWhatsappInteractiveType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "elena")]
+        [EnumMember(Value = "cta_url")]
         #pragma warning disable CS1591
-        Elena,
+        CtaUrl,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ben")]
+        [EnumMember(Value = "list")]
         #pragma warning disable CS1591
-        Ben,
+        List,
         #pragma warning restore CS1591
-        [EnumMember(Value = "jordan")]
+        [EnumMember(Value = "carousel")]
         #pragma warning disable CS1591
-        Jordan,
+        Carousel,
         #pragma warning restore CS1591
-        [EnumMember(Value = "lin")]
+        [EnumMember(Value = "button")]
         #pragma warning disable CS1591
-        Lin,
+        Button,
         #pragma warning restore CS1591
-        [EnumMember(Value = "avery")]
+        [EnumMember(Value = "location_request_message")]
         #pragma warning disable CS1591
-        Avery,
+        LocationRequestMessage,
         #pragma warning restore CS1591
-        [EnumMember(Value = "raphael")]
+        [EnumMember(Value = "flow")]
         #pragma warning disable CS1591
-        Raphael,
+        Flow,
         #pragma warning restore CS1591
     }
 }

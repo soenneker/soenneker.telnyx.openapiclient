@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions
         {
         }
         /// <summary>
-        /// Retrieves all versions of a specific assistant with complete configuration and metadata
+        /// Retrieves all versions of a specific assistant with complete configuration and metadata. An assistant keeps at most 10 versions, including the main version. When an update takes it past that limit, the oldest versions are permanently deleted. The main version and any version referenced by a traffic distribution rule are never deleted this way.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssistantsListData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves all versions of a specific assistant with complete configuration and metadata
+        /// Retrieves all versions of a specific assistant with complete configuration and metadata. An assistant keeps at most 10 versions, including the main version. When an update takes it past that limit, the oldest versions are permanently deleted. The main version and any version referenced by a traffic distribution rule are never deleted this way.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
