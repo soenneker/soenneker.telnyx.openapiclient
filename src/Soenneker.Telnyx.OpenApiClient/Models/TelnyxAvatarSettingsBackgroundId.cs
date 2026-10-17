@@ -19,5 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Reception,
         #pragma warning restore CS1591
+        [EnumMember(Value = "illustrated_workspace")]
+        #pragma warning disable CS1591
+        IllustratedWorkspace,
+        #pragma warning restore CS1591
     }
 }
