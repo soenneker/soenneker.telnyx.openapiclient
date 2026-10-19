@@ -15,6 +15,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Local,
         #pragma warning restore CS1591
+        [EnumMember(Value = "localcommercial")]
+        #pragma warning disable CS1591
+        Localcommercial,
+        #pragma warning restore CS1591
         [EnumMember(Value = "mobile")]
         #pragma warning disable CS1591
         Mobile,

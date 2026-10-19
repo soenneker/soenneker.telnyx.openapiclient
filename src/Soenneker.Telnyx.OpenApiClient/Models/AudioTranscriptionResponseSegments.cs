@@ -14,11 +14,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Zero-indexed audio channel of this segment. Returned by the `deepgram/*` models when `multichannel` is enabled via `model_config` and the file has more than one channel. Segments from all channels are merged in one list ordered by start time.</summary>
+        public int? Channel { get; set; }
         /// <summary>End time of the segment in seconds.</summary>
         public double? End { get; set; }
         /// <summary>Unique identifier of the segment.</summary>
         public double? Id { get; set; }
-        /// <summary>Speaker indices heard in this segment. Returned by the `deepgram/*` models when `diarize` is enabled via `model_config`.</summary>
+        /// <summary>Speaker indices heard in this segment. Returned by the `deepgram/*` models when `diarize` is enabled via `model_config`. With `multichannel`, speakers are numbered per channel from 0, so identify a speaker by (`channel`, speaker).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<int?>? Speakers { get; set; }
@@ -69,6 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "channel", n => { Channel = n.GetIntValue(); } },
                 { "end", n => { End = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetDoubleValue(); } },
                 { "speakers", n => { Speakers = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
@@ -84,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("channel", Channel);
             writer.WriteDoubleValue("end", End);
             writer.WriteDoubleValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<int?>("speakers", Speakers);

@@ -19,6 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         ArticlesOfIncorporation,
         #pragma warning restore CS1591
+        [EnumMember(Value = "certificate_of_good_standing")]
+        #pragma warning disable CS1591
+        CertificateOfGoodStanding,
+        #pragma warning restore CS1591
         [EnumMember(Value = "tax_document")]
         #pragma warning disable CS1591
         TaxDocument,
@@ -54,6 +58,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "bank_statement")]
         #pragma warning disable CS1591
         BankStatement,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "business_credit_report")]
+        #pragma warning disable CS1591
+        BusinessCreditReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "bank_reference_letter")]
+        #pragma warning disable CS1591
+        BankReferenceLetter,
         #pragma warning restore CS1591
         [EnumMember(Value = "other")]
         #pragma warning disable CS1591

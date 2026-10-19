@@ -26,6 +26,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AndroidPushCredentialId { get; set; }
 #endif
+        /// <summary>Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; omitting this field preserves the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.</summary>
+        public bool? BridgeGenerateComfortNoiseOnCn { get; set; }
         /// <summary>Specifies if call cost webhooks should be sent for this connection.</summary>
         public bool? CallCostInWebhooks { get; set; }
         /// <summary>A user-assigned name to help manage the connection.</summary>
@@ -150,6 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateCredentialConnectionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            BridgeGenerateComfortNoiseOnCn = false;
             CallCostInWebhooks = false;
             DefaultOnHoldComfortNoiseEnabled = false;
             EncodeContactHeaderEnabled = false;
@@ -176,6 +179,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
+                { "bridge_generate_comfort_noise_on_cn", n => { BridgeGenerateComfortNoiseOnCn = n.GetBoolValue(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "conversation_persistence", n => { ConversationPersistence = n.GetBoolValue(); } },
@@ -211,6 +215,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
+            writer.WriteBoolValue("bridge_generate_comfort_noise_on_cn", BridgeGenerateComfortNoiseOnCn);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteBoolValue("conversation_persistence", ConversationPersistence);

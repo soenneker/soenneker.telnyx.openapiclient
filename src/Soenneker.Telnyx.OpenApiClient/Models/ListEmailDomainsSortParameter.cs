@@ -24,5 +24,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Domain1,
         #pragma warning restore CS1591
+        [EnumMember(Value = "updated_at")]
+        #pragma warning disable CS1591
+        UpdatedAt,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "-updated_at")]
+        #pragma warning disable CS1591
+        UpdatedAt1,
+        #pragma warning restore CS1591
     }
 }

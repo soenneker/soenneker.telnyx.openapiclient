@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Exactly two business references plus one financial reference. The DIR&apos;s authorizer email must be verified before this is accepted.
+    /// Exactly two business references plus one financial reference.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReferenceSubmissionRequest : IAdditionalDataHolder, IParsable

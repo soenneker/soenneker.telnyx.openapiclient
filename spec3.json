@@ -180,7 +180,7 @@
     },
     {
       "name": "DIR References",
-      "description": "Submit and manage the two business references and one financial reference that vouch for a DIR. References are contacted to confirm the business identity during vetting."
+      "description": "Submit and manage the two business references and one financial reference that vouch for a DIR. References are contacted to confirm the business identity during vetting.\n\nReferences (two business references and one financial reference) are needed only if the documents uploaded with the DIR don't already prove the business is legitimate and financially stable. Any one of these is enough proof: audited or certified financial statements (uploaded as `other`, with a description), a commercial credit report (uploaded as `business_credit_report`), or references. Telnyx reviewers decide during vetting whether your documents are enough."
     },
     {
       "name": "Data Migration",
@@ -268,7 +268,7 @@
     },
     {
       "name": "Email Verification",
-      "description": "Verify ownership of a DIR's authorizer email. A short code is emailed and confirmed; the email must be verified before references can be submitted."
+      "description": "Verify ownership of a DIR's authorizer email. A short code is emailed and confirmed."
     },
     {
       "name": "Email Webhooks",
@@ -29026,7 +29026,7 @@
         ],
         "summary": "Submit a DIR's references",
         "operationId": "submitDirReferences",
-        "description": "Submit the two business references and one financial reference for a DIR.\n\nThe DIR's authorizer email must be verified first (see the email-verification endpoint). Until it is, this returns `409` and no references are stored.\n\nThe request body carries exactly two business references plus one financial reference. The first submission stores them and returns `201`. Resubmitting returns `200`: identical values are simply confirmed and nothing is written, while changed values replace those references.\n\nReplacing a reference is allowed only while the DIR itself is still editable, the same window in which a single reference may be updated; once the DIR has been submitted for vetting this returns `400`. A replaced reference's pending verification call is cancelled and its dial-in code stops working, and the replacement contact is emailed fresh scheduling details. References whose details did not change keep their existing call, code, and the notice already sent to them.\n\nThe response always echoes the stored references in the same shape as the GET.\n\nWho qualifies: the two business references confirm the company's reputation and operations. Each should be a senior contact at an organization the business works with, such as a vendor, partner, or client: a C-suite executive (CEO, CFO, CTO, COO), an owner or founder as reflected in the company's corporate records, or a senior manager, director, or executive. The financial reference confirms the company pays its bills and should be a licensed certified public accountant (CPA) the company uses, a contact at a bank or financial institution that has a relationship with the company, or a reasonable alternative banking or financial reference.",
+        "description": "Submit the two business references and one financial reference for a DIR.\n\nReferences (two business references and one financial reference) are needed only if the documents uploaded with the DIR don't already prove the business is legitimate and financially stable. Any one of these is enough proof: audited or certified financial statements (uploaded as `other`, with a description), a commercial credit report (uploaded as `business_credit_report`), or references. Telnyx reviewers decide during vetting whether your documents are enough.\n\nReferences can't be changed while the DIR is `verified`. Update the DIR first, which returns it to draft.\n\nThe request body carries exactly two business references plus one financial reference. The first submission stores them and returns `201`. Resubmitting returns `200`: identical values are simply confirmed and nothing is written, while changed values replace those references.\n\nA replaced reference's pending verification call is cancelled and its dial-in code stops working, and the replacement contact is emailed fresh scheduling details. References whose details did not change keep their existing call, code, and the notice already sent to them.\n\nThe response always echoes the stored references in the same shape as the GET.\n\nWho qualifies: the two business references confirm the company's reputation and operations. Each should be a senior contact at an organization the business works with, such as a vendor, partner, or client: a C-suite executive (CEO, CFO, CTO, COO), an owner or founder as reflected in the company's corporate records, or a senior manager, director, or executive. The financial reference confirms the company pays its bills and should be a licensed certified public accountant (CPA) the company uses, a contact at a bank or financial institution that has a relationship with the company, or a reasonable alternative banking or financial reference.",
         "parameters": [
           {
             "$ref": "#/components/parameters/DirId"
@@ -29147,7 +29147,7 @@
     "/dir/{dir_id}/submit": {
       "post": {
         "summary": "Submit a DIR for vetting",
-        "description": "Submit a DIR for vetting. Sends the DIR back through the vetting cycle from any non-terminal status. When re-submitting from `suspended` or `expired`, the DIR's previous Branded Calling registration is torn down transactionally and its phone numbers flip back to `submitted`. When re-submitting from `verified`, the existing registration stays live throughout the new vetting cycle.\n\nReturns `400` from `submitted`/`in_review`/`permanently_rejected`. Returns `400` if the DIR's business and financial references have not been submitted. Returns `400` if the DIR has an unresolved infringement claim.",
+        "description": "Submit a DIR for vetting. Sends the DIR back through the vetting cycle from any non-terminal status. When re-submitting from `suspended` or `expired`, the DIR's previous Branded Calling registration is torn down transactionally and its phone numbers flip back to `submitted`. When re-submitting from `verified`, the existing registration stays live throughout the new vetting cycle.\n\nReturns `400` from `submitted`/`in_review`/`permanently_rejected`. Returns `400` if the DIR has an unresolved infringement claim.",
         "operationId": "submitDirSimple",
         "tags": [
           "Display Identity Records"
@@ -29212,7 +29212,7 @@
         ],
         "summary": "Send an email-ownership verification code",
         "operationId": "requestDirEmailVerification",
-        "description": "Email a 6-digit code to the DIR's authorizer email to confirm ownership of that address.\n\nThe code expires in 15 minutes. Requesting a new code invalidates any previous one. Resends are rate limited (a short cooldown plus a daily cap). Submit the code to `POST /dir/{dir_id}/verify_email/confirm`.",
+        "description": "Email a 6-digit code to the DIR's authorizer email to confirm ownership of that address. The code goes to the authorizer, not to the caller. If the authorizer is someone else (for example a client's executive), that person has to share the code with whoever is completing setup.\n\nHow long the code lasts: 15 minutes by default. 8 hours when the DIR has a call center (BPO) linked through `bpo_authorizations` whose authorization is pending review or approved (a rejected authorization does not count). Link the call center before you send the code: a code sent before the link keeps the 15-minute window, and a code sent after the link lasts 8 hours. The email states the window, and `expires_at` in the response always shows the exact expiry.\n\nTo resend, call this endpoint again. Each send issues a fresh code and invalidates the previous one. Sends are limited to one every 60 seconds and 10 per DIR per UTC day. A throttled send returns `429` with `retry_after_secs` and `sends_remaining_today` in the error `meta`.\n\nSubmit the code to `POST /dir/{dir_id}/verify_email/confirm`.",
         "parameters": [
           {
             "$ref": "#/components/parameters/DirId"
@@ -30820,7 +30820,9 @@
                 "created_at",
                 "-created_at",
                 "domain",
-                "-domain"
+                "-domain",
+                "updated_at",
+                "-updated_at"
               ]
             }
           },
@@ -107886,7 +107888,7 @@
           },
           "model_config": {
             "type": "object",
-            "description": "Additional model-specific configuration parameters. Only allowed with the `deepgram/*` models. Can include Deepgram-specific options such as `smart_format`, `punctuate`, `diarize`, `utterance`, `numerals`, and `language`. If `language` is provided both as a top-level parameter and in `model_config`, the top-level parameter takes precedence.",
+            "description": "Additional model-specific configuration parameters. Only allowed with the `deepgram/*` models. Sent as a JSON string in multipart requests and passed through to Deepgram as query parameters. Any other model with `model_config` returns 422. Can include Deepgram-specific options such as `smart_format`, `punctuate`, `diarize` (speaker labels), `multichannel` (transcribe each channel independently; billed duration is file duration multiplied by the number of channels), `utterances`, `numerals`, and `language`. If `language` is provided both as a top-level parameter and in `model_config`, the top-level parameter takes precedence.",
             "additionalProperties": true,
             "example": {
               "smart_format": true,
@@ -107957,10 +107959,14 @@
           },
           "speakers": {
             "type": "array",
-            "description": "Speaker indices heard in this segment. Returned by the `deepgram/*` models when `diarize` is enabled via `model_config`.",
+            "description": "Speaker indices heard in this segment. Returned by the `deepgram/*` models when `diarize` is enabled via `model_config`. With `multichannel`, speakers are numbered per channel from 0, so identify a speaker by (`channel`, speaker).",
             "items": {
               "type": "integer"
             }
+          },
+          "channel": {
+            "type": "integer",
+            "description": "Zero-indexed audio channel of this segment. Returned by the `deepgram/*` models when `multichannel` is enabled via `model_config` and the file has more than one channel. Segments from all channels are merged in one list ordered by start time."
           }
         },
         "required": [
@@ -126888,6 +126894,12 @@
             "default": false,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; defaults to false when omitted on creation. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -127042,7 +127054,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         }
       },
       "CreateDocServiceDocumentRequest": {
@@ -127891,6 +127904,12 @@
             "default": true,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; defaults to false when omitted on creation. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -128035,7 +128054,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         },
         "type": "object"
       },
@@ -128416,6 +128436,12 @@
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout.",
             "example": true
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; defaults to false when omitted on creation. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -128580,7 +128606,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         },
         "type": "object"
       },
@@ -130863,6 +130890,12 @@
             "default": false,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; defaults to false when omitted on creation. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -131037,7 +131070,8 @@
             "expiration_sec": 600,
             "transport": "TLS",
             "user_agent": "Telnyx-Usage-Voice-Trunk/1.0"
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         },
         "description": "A UAC (User Agent Client) Connection registers Telnyx to your PBX \u2014 the opposite of a standard SIP trunk, where the PBX registers to Telnyx. Use UAC when your PBX doesn\u2019t support outbound SIP registration or you need Telnyx to maintain the registration."
       },
@@ -131575,6 +131609,12 @@
             "default": true,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Defaults to false and returns the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -131737,7 +131777,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         }
       },
       "CredentialInbound": {
@@ -133098,6 +133139,156 @@
         ],
         "additionalProperties": false
       },
+      "DeepgramEnglishTranscriptionLanguage": {
+        "type": "string",
+        "enum": [
+          "en",
+          "en-US",
+          "en-AU",
+          "en-GB",
+          "en-IN",
+          "en-NZ"
+        ],
+        "default": "en",
+        "description": "Language to transcribe. Deepgram's medical and phonecall models support English only."
+      },
+      "DeepgramFluxConfig": {
+        "type": "object",
+        "title": "DeepgramFluxConfig",
+        "description": "Deepgram Flux (English), a conversational speech recognition model with built-in end-of-turn detection. `smart_format`, `utterance_end_ms`, `hints` and `keywords_boosting` do not apply to Flux.",
+        "properties": {
+          "transcription_engine": {
+            "type": "string",
+            "enum": [
+              "Deepgram"
+            ]
+          },
+          "transcription_model": {
+            "type": "string",
+            "enum": [
+              "deepgram/flux"
+            ]
+          },
+          "interim_results": {
+            "type": "boolean",
+            "default": false,
+            "example": true,
+            "description": "Whether to send also interim results. If set to false, only final results will be sent."
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en"
+            ],
+            "default": "en",
+            "description": "Language to transcribe. `deepgram/flux` supports English only."
+          },
+          "keyterms": {
+            "type": "array",
+            "description": "Keyterm prompting. Up to 100 domain-specific terms or brand names to bias recognition toward. Supported on Nova-3 and Flux models (`deepgram/nova-3`, `deepgram/nova-3-medical`, `deepgram/flux`, `deepgram/flux-multi`); use `hints` on Nova-2.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "default": [],
+            "example": [
+              "Telnyx",
+              "LiveKit",
+              "VoIP"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transcription_engine",
+          "transcription_model"
+        ],
+        "example": {
+          "transcription_engine": "Deepgram",
+          "transcription_model": "deepgram/flux",
+          "language": "en",
+          "keyterms": [
+            "Telnyx",
+            "LiveKit",
+            "VoIP"
+          ]
+        }
+      },
+      "DeepgramFluxMultiConfig": {
+        "type": "object",
+        "title": "DeepgramFluxMultiConfig",
+        "description": "Deepgram Flux multilingual, a conversational speech recognition model with built-in end-of-turn detection. `smart_format`, `utterance_end_ms`, `hints` and `keywords_boosting` do not apply to Flux.",
+        "properties": {
+          "transcription_engine": {
+            "type": "string",
+            "enum": [
+              "Deepgram"
+            ]
+          },
+          "transcription_model": {
+            "type": "string",
+            "enum": [
+              "deepgram/flux-multi"
+            ]
+          },
+          "interim_results": {
+            "type": "boolean",
+            "default": false,
+            "example": true,
+            "description": "Whether to send also interim results. If set to false, only final results will be sent."
+          },
+          "language": {
+            "$ref": "#/components/schemas/DeepgramFluxMultiTranscriptionLanguage"
+          },
+          "keyterms": {
+            "type": "array",
+            "description": "Keyterm prompting. Up to 100 domain-specific terms or brand names to bias recognition toward. Supported on Nova-3 and Flux models (`deepgram/nova-3`, `deepgram/nova-3-medical`, `deepgram/flux`, `deepgram/flux-multi`); use `hints` on Nova-2.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "default": [],
+            "example": [
+              "Telnyx",
+              "LiveKit",
+              "VoIP"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transcription_engine",
+          "transcription_model"
+        ],
+        "example": {
+          "transcription_engine": "Deepgram",
+          "transcription_model": "deepgram/flux-multi",
+          "language": "es",
+          "keyterms": [
+            "Telnyx",
+            "LiveKit",
+            "VoIP"
+          ]
+        }
+      },
+      "DeepgramFluxMultiTranscriptionLanguage": {
+        "type": "string",
+        "enum": [
+          "en",
+          "es",
+          "fr",
+          "de",
+          "hi",
+          "ru",
+          "pt",
+          "ja",
+          "it",
+          "nl",
+          "auto"
+        ],
+        "default": "en",
+        "description": "Language to transcribe. Flux-multi uses the language as a hint; `auto` lets Flux detect the language."
+      },
       "DeepgramNova2Config": {
         "type": "object",
         "title": "DeepgramNova2Config",
@@ -133153,7 +133344,7 @@
           },
           "hints": {
             "type": "array",
-            "description": "Nova-2 keyword biasing without intensifiers. Up to 100 terms to bias recognition toward. For weighted biasing, use `keywords_boosting` instead. Nova-2-only; use `keyterms` on Nova-3.",
+            "description": "Nova-2 keyword biasing without intensifiers. Up to 100 terms to bias recognition toward. For weighted biasing, use `keywords_boosting` instead. Supported on Nova-2 models only (`deepgram/nova-2`, `deepgram/nova-2-medical`, `deepgram/nova-2-phonecall`); use `keyterms` on Nova-3 and Flux.",
             "items": {
               "type": "string"
             },
@@ -133187,6 +133378,98 @@
             "krieger": 1
           }
         }
+      },
+      "DeepgramNova2SpecialtyConfig": {
+        "type": "object",
+        "title": "DeepgramNova2SpecialtyConfig",
+        "properties": {
+          "transcription_engine": {
+            "type": "string",
+            "enum": [
+              "Deepgram"
+            ]
+          },
+          "transcription_model": {
+            "type": "string",
+            "enum": [
+              "deepgram/nova-2-medical",
+              "deepgram/nova-2-phonecall"
+            ]
+          },
+          "interim_results": {
+            "type": "boolean",
+            "default": false,
+            "example": true,
+            "description": "Whether to send also interim results. If set to false, only final results will be sent."
+          },
+          "utterance_end_ms": {
+            "type": "integer",
+            "default": 1000,
+            "example": 800,
+            "minimum": 0,
+            "maximum": 5000,
+            "description": "Number of milliseconds of silence to consider an utterance ended. Ranges from 0 to 5000 ms."
+          },
+          "language": {
+            "$ref": "#/components/schemas/DeepgramEnglishTranscriptionLanguage"
+          },
+          "smart_format": {
+            "type": "boolean",
+            "default": true,
+            "example": false,
+            "description": "Enable Deepgram's smart formatting (capitalization, punctuation, and digit normalization). Note: Telnyx defaults this to `true`, overriding Deepgram's underlying default of `false` \u2014 omit the field to get a smart-formatted transcript, or set it to `false` to receive the raw lowercase transcript without punctuation."
+          },
+          "keywords_boosting": {
+            "type": "object",
+            "description": "Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\"snuffleupagus\": 5, \"systrom\": 2, \"krieger\": 1}`.",
+            "additionalProperties": {
+              "type": "number",
+              "description": "Boost intensifier for the keyword. Higher values increase recognition confidence."
+            },
+            "default": null,
+            "example": {
+              "snuffleupagus": 5,
+              "systrom": 2,
+              "krieger": 1
+            }
+          },
+          "hints": {
+            "type": "array",
+            "description": "Nova-2 keyword biasing without intensifiers. Up to 100 terms to bias recognition toward. For weighted biasing, use `keywords_boosting` instead. Supported on Nova-2 models only (`deepgram/nova-2`, `deepgram/nova-2-medical`, `deepgram/nova-2-phonecall`); use `keyterms` on Nova-3 and Flux.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "default": [],
+            "example": [
+              "Telnyx",
+              "LiveKit",
+              "VoIP"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transcription_engine",
+          "transcription_model"
+        ],
+        "example": {
+          "transcription_engine": "Deepgram",
+          "transcription_model": "deepgram/nova-2-medical",
+          "language": "en-US",
+          "smart_format": false,
+          "hints": [
+            "Telnyx",
+            "LiveKit",
+            "VoIP"
+          ],
+          "keywords_boosting": {
+            "snuffleupagus": 5,
+            "systrom": 2,
+            "krieger": 1
+          }
+        },
+        "description": "Deepgram Nova-2 specialty models: `deepgram/nova-2-medical` (medical vocabulary) and `deepgram/nova-2-phonecall` (low-bandwidth phone audio). English only."
       },
       "DeepgramNova2TranscriptionLanguage": {
         "title": "Deepgram nova-2 transcription engine list of languages",
@@ -133306,7 +133589,7 @@
           },
           "keyterms": {
             "type": "array",
-            "description": "Nova-3 keyterm prompting. Up to 100 domain-specific terms or brand names to bias recognition toward. Nova-3-only; use `hints` on Nova-2.",
+            "description": "Keyterm prompting. Up to 100 domain-specific terms or brand names to bias recognition toward. Supported on Nova-3 and Flux models (`deepgram/nova-3`, `deepgram/nova-3-medical`, `deepgram/flux`, `deepgram/flux-multi`); use `hints` on Nova-2.",
             "items": {
               "type": "string"
             },
@@ -133340,6 +133623,97 @@
             "krieger": 1
           }
         }
+      },
+      "DeepgramNova3MedicalConfig": {
+        "type": "object",
+        "title": "DeepgramNova3MedicalConfig",
+        "properties": {
+          "transcription_engine": {
+            "type": "string",
+            "enum": [
+              "Deepgram"
+            ]
+          },
+          "transcription_model": {
+            "type": "string",
+            "enum": [
+              "deepgram/nova-3-medical"
+            ]
+          },
+          "interim_results": {
+            "type": "boolean",
+            "default": false,
+            "example": true,
+            "description": "Whether to send also interim results. If set to false, only final results will be sent."
+          },
+          "utterance_end_ms": {
+            "type": "integer",
+            "default": 1000,
+            "example": 800,
+            "minimum": 0,
+            "maximum": 5000,
+            "description": "Number of milliseconds of silence to consider an utterance ended. Ranges from 0 to 5000 ms."
+          },
+          "language": {
+            "$ref": "#/components/schemas/DeepgramEnglishTranscriptionLanguage"
+          },
+          "smart_format": {
+            "type": "boolean",
+            "default": true,
+            "example": false,
+            "description": "Enable Deepgram's smart formatting (capitalization, punctuation, and digit normalization). Note: Telnyx defaults this to `true`, overriding Deepgram's underlying default of `false` \u2014 omit the field to get a smart-formatted transcript, or set it to `false` to receive the raw lowercase transcript without punctuation."
+          },
+          "keywords_boosting": {
+            "type": "object",
+            "description": "Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\"snuffleupagus\": 5, \"systrom\": 2, \"krieger\": 1}`.",
+            "additionalProperties": {
+              "type": "number",
+              "description": "Boost intensifier for the keyword. Higher values increase recognition confidence."
+            },
+            "default": null,
+            "example": {
+              "snuffleupagus": 5,
+              "systrom": 2,
+              "krieger": 1
+            }
+          },
+          "keyterms": {
+            "type": "array",
+            "description": "Keyterm prompting. Up to 100 domain-specific terms or brand names to bias recognition toward. Supported on Nova-3 and Flux models (`deepgram/nova-3`, `deepgram/nova-3-medical`, `deepgram/flux`, `deepgram/flux-multi`); use `hints` on Nova-2.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "default": [],
+            "example": [
+              "Telnyx",
+              "LiveKit",
+              "VoIP"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transcription_engine",
+          "transcription_model"
+        ],
+        "example": {
+          "transcription_engine": "Deepgram",
+          "transcription_model": "deepgram/nova-3-medical",
+          "language": "en-US",
+          "smart_format": false,
+          "keyterms": [
+            "Telnyx",
+            "LiveKit",
+            "VoIP"
+          ],
+          "keywords_boosting": {
+            "snuffleupagus": 5,
+            "systrom": 2,
+            "krieger": 1
+          }
+        },
+        "description": "Deepgram Nova-3 medical model, tuned for medical vocabulary. English only."
       },
       "DeepgramNova3TranscriptionLanguage": {
         "title": "Deepgram nova-3 transcription engine list of languages",
@@ -135100,6 +135474,7 @@
               "letter_of_authorization",
               "business_registration",
               "articles_of_incorporation",
+              "certificate_of_good_standing",
               "tax_document",
               "ein_letter",
               "trademark_registration",
@@ -135109,6 +135484,8 @@
               "government_id",
               "utility_bill",
               "bank_statement",
+              "business_credit_report",
+              "bank_reference_letter",
               "other"
             ],
             "example": "business_registration",
@@ -142191,6 +142568,12 @@
             "default": true,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Defaults to false and returns the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -142390,7 +142773,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         }
       },
       "FqdnConnectionTransportProtocol": {
@@ -148867,6 +149251,12 @@
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout.",
             "example": true
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Defaults to false and returns the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -149048,7 +149438,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         }
       },
       "JWKSet": {
@@ -165126,6 +165517,7 @@
             "enum": [
               "landline",
               "local",
+              "localcommercial",
               "mobile",
               "multipurpose",
               "national",
@@ -165931,6 +166323,7 @@
             "enum": [
               "landline",
               "local",
+              "localcommercial",
               "mobile",
               "multipurpose",
               "national",
@@ -166003,6 +166396,7 @@
             "enum": [
               "landline",
               "local",
+              "localcommercial",
               "mobile",
               "multipurpose",
               "national",
@@ -166973,6 +167367,15 @@
           "data_retention": {
             "type": "boolean",
             "description": "If true, conversation history and insights will be stored. If false, they will not be stored. This in\u2011tool toggle governs solely the retention of conversation history and insights via the AI assistant. It has no effect on any separate recording, transcription, or storage configuration that you have set at the account, number, or application level. All such external settings remain in force regardless of your selection here."
+          },
+          "pii_redaction": {
+            "type": "string",
+            "enum": [
+              "disabled",
+              "redact"
+            ],
+            "default": "disabled",
+            "description": "Controls redaction of personally identifiable information (PII) from the conversation history that is stored for this assistant. `disabled` (default) stores content as-is. `redact` replaces detected PII with `<PII:type/>` placeholders (e.g. `<PII:name/>`, `<PII:phone/>`) as the stored copies are written: message content (user, assistant, and tool-result messages) and tool-call arguments are redacted when written to conversation history, so the stored transcript, its read-back via the history API, and any insights generated from the stored messages contain the placeholders instead of the PII; response bodies returned by webhook tools are redacted too, as stored in the webhook logs \u2014 a per-conversation record separate from the transcript. In the Mission Control Portal this field appears as a \"PII Redaction\" on/off toggle, where Enabled corresponds to `redact`. Redaction runs when the stored copy is written, after the LLM has generated its reply: the live conversation is not redacted, the assistant's tools keep receiving the full (unredacted) values during the call, and the LLM still sees full content in its context window. Call recordings (including any recording layout configured under telephony settings) and the payloads of messages/webhooks delivered during the call are never redacted by this setting. The set of detected PII types (names, street addresses, phone numbers, email addresses, government identifiers like SSN and driver's license numbers, credit card and bank account numbers, IP addresses, dates of birth, and other identifiers unique to a person) is fixed by Telnyx and cannot be configured or extended per assistant. Assistants with `redact` cannot be used for SMS/WhatsApp messaging (that combination is rejected with a 400 error); voice and web chat are unaffected."
           },
           "in_transit_data_locality": {
             "type": "boolean",
@@ -169414,7 +169817,7 @@
       },
       "ReferenceSubmissionRequest": {
         "type": "object",
-        "description": "Exactly two business references plus one financial reference. The DIR's authorizer email must be verified before this is accepted.",
+        "description": "Exactly two business references plus one financial reference.",
         "required": [
           "business_references",
           "financial_reference"
@@ -187285,14 +187688,31 @@
             "$ref": "#/components/schemas/DeepgramNova2Config"
           },
           {
+            "$ref": "#/components/schemas/DeepgramNova2SpecialtyConfig"
+          },
+          {
             "$ref": "#/components/schemas/DeepgramNova3Config"
+          },
+          {
+            "$ref": "#/components/schemas/DeepgramNova3MedicalConfig"
+          },
+          {
+            "$ref": "#/components/schemas/DeepgramFluxConfig"
+          },
+          {
+            "$ref": "#/components/schemas/DeepgramFluxMultiConfig"
           }
         ],
         "discriminator": {
           "propertyName": "transcription_model",
           "mapping": {
             "deepgram/nova-2": "#/components/schemas/DeepgramNova2Config",
-            "deepgram/nova-3": "#/components/schemas/DeepgramNova3Config"
+            "deepgram/nova-2-medical": "#/components/schemas/DeepgramNova2SpecialtyConfig",
+            "deepgram/nova-2-phonecall": "#/components/schemas/DeepgramNova2SpecialtyConfig",
+            "deepgram/nova-3": "#/components/schemas/DeepgramNova3Config",
+            "deepgram/nova-3-medical": "#/components/schemas/DeepgramNova3MedicalConfig",
+            "deepgram/flux": "#/components/schemas/DeepgramFluxConfig",
+            "deepgram/flux-multi": "#/components/schemas/DeepgramFluxMultiConfig"
           }
         }
       },
@@ -188997,6 +189417,12 @@
             "default": true,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Defaults to false and returns the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -189240,7 +189666,8 @@
             "expiration_sec": 600,
             "transport": "TLS",
             "user_agent": "Telnyx-Usage-Voice-Trunk/1.0"
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         },
         "description": "A UAC (User Agent Client) Connection registers Telnyx to your PBX \u2014 the opposite of a standard SIP trunk, where the PBX registers to Telnyx. Use UAC when your PBX doesn\u2019t support outbound SIP registration or you need Telnyx to maintain the registration."
       },
@@ -190853,6 +191280,12 @@
             "default": false,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; omitting this field preserves the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -191010,7 +191443,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         }
       },
       "UpdateDynamicVariablesTool": {
@@ -191476,6 +191910,12 @@
             "default": true,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; omitting this field preserves the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -191598,7 +192038,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         },
         "type": "object"
       },
@@ -191698,6 +192139,12 @@
             "type": "boolean",
             "default": true,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
+          },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; omitting this field preserves the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
           },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
@@ -191861,7 +192308,8 @@
             "enable_jitter_buffer": true,
             "jitterbuffer_msec_min": 60,
             "jitterbuffer_msec_max": 200
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         },
         "type": "object"
       },
@@ -193136,6 +193584,12 @@
             "default": false,
             "description": "When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout."
           },
+          "bridge_generate_comfort_noise_on_cn": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stores the connection preference for generating silent RTP toward the opposite call leg when comfort-noise packets (CN, payload type 13) are received during hold. Optional; omitting this field preserves the saved value. Only JSON true and false are accepted; null and non-boolean values are rejected. This preference is independent of default_on_hold_comfort_noise_enabled and does not modify that setting. This API provisions the preference; call-processing behavior is implemented separately.",
+            "example": false
+          },
           "dtmf_type": {
             "$ref": "#/components/schemas/DtmfType"
           },
@@ -193313,7 +193767,8 @@
             "expiration_sec": 600,
             "transport": "TLS",
             "user_agent": null
-          }
+          },
+          "bridge_generate_comfort_noise_on_cn": false
         },
         "description": "Parameters that can be updated in a UAC connection. A UAC (User Agent Client) Connection registers Telnyx to your PBX \u2014 the opposite of a standard SIP trunk, where the PBX registers to Telnyx. Use UAC when your PBX doesn\u2019t support outbound SIP registration or you need Telnyx to maintain the registration."
       },
