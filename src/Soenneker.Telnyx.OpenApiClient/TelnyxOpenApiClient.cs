@@ -37,6 +37,7 @@ using Soenneker.Telnyx.OpenApiClient.Credential_connections;
 using Soenneker.Telnyx.OpenApiClient.Custom_storage_credentials;
 using Soenneker.Telnyx.OpenApiClient.Customer_service_records;
 using Soenneker.Telnyx.OpenApiClient.Detail_records;
+using Soenneker.Telnyx.OpenApiClient.Dial_metrics;
 using Soenneker.Telnyx.OpenApiClient.Dialogflow_connections;
 using Soenneker.Telnyx.OpenApiClient.Dir;
 using Soenneker.Telnyx.OpenApiClient.Document_links;
@@ -365,6 +366,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder Detail_records
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dial_metrics property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Dial_metrics.Dial_metricsRequestBuilder Dial_metrics
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Dial_metrics.Dial_metricsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The dialogflow_connections property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Dialogflow_connectionsRequestBuilder Dialogflow_connections
