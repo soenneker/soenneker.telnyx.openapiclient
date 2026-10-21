@@ -34,14 +34,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones.From_upload
         {
         }
         /// <summary>
-        /// Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5–60 seconds of clear speech (Ultra accepts up to 60 seconds; Qwen3TTS auto-trims to 10 seconds; Minimax accepts up to 5 minutes). Maximum file size: 5MB for Telnyx, 20MB for Minimax.
+        /// Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. Maximum file size: 20MB. Reference audio is trimmed per model: Qwen3TTS and Bayan use the first 10 seconds, Ultra uses up to 60 seconds, and Minimax accepts 10 seconds to 5 minutes. Ultra clones return `202` with status `pending`; all other models return `201` with status `active`. Bayan clones require `ref_text` (the exact transcript of the reference audio) and support `ar` (default) and `en` only.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse"/></returns>
-        /// <param name="body">Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 5MB for Telnyx, 20MB for Minimax.</param>
+        /// <param name="body">Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 20MB.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse">When receiving a 413 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse">When receiving a 502 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,16 +60,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones.From_upload
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5–60 seconds of clear speech (Ultra accepts up to 60 seconds; Qwen3TTS auto-trims to 10 seconds; Minimax accepts up to 5 minutes). Maximum file size: 5MB for Telnyx, 20MB for Minimax.
+        /// Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. Maximum file size: 20MB. Reference audio is trimmed per model: Qwen3TTS and Bayan use the first 10 seconds, Ultra uses up to 60 seconds, and Minimax accepts 10 seconds to 5 minutes. Ultra clones return `202` with status `pending`; all other models return `201` with status `active`. Bayan clones require `ref_text` (the exact transcript of the reference audio) and support `ar` (default) and `en` only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 5MB for Telnyx, 20MB for Minimax.</param>
+        /// <param name="body">Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 20MB.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

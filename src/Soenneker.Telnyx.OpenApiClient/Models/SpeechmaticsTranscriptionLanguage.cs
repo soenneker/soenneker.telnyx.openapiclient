@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Language to use for speech recognition</summary>
+    /// <summary>Language to use for speech recognition. Accepted values depend on the selected `transcription_model`. `speechmatics/standard` supports: `en`, `ba`, `eu`, `gl`, `ga`, `mt`, `mn`, `sw`, `ug`, `cy`, `ar_en`, `cmn_en`, `en_ms`, `en_ta`, `tl`, `es-bilingual-en`, `cmn_en_ms_ta`. `speechmatics/linden-1` (preview) supports the same languages as Speechmatics Realtime: `ar`, `ar_en`, `ba`, `be`, `bg`, `bn`, `ca`, `cmn`, `cmn_en`, `cmn_en_ms_ta`, `cs`, `cy`, `da`, `de`, `el`, `en`, `en_ms`, `en_ta`, `eo`, `es`, `es-bilingual-en`, `et`, `eu`, `fa`, `fi`, `fr`, `ga`, `gl`, `he`, `hi`, `hr`, `hu`, `ia`, `id`, `it`, `ja`, `ko`, `lt`, `lv`, `mn`, `mr`, `ms`, `mt`, `nl`, `no`, `pl`, `pt`, `ro`, `ru`, `sk`, `sl`, `sv`, `sw`, `ta`, `th`, `tl`, `tr`, `ug`, `uk`, `ur`, `vi`, `yue`, plus the spelling and script variants `en-US`, `en-GB`, `en-AU`, `cmn-Hans`, and `cmn-Hant` (`en` alone uses the default spelling). A value outside the selected model&apos;s list is rejected. For `speechmatics/standard`, unset, blank, `auto`, `auto_beta`, or `multi` defaults to `en`; for `speechmatics/linden-1`, only an unset language defaults to `en`, and `auto`, `auto_beta`, or `multi` is rejected.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SpeechmaticsTranscriptionLanguage
     {
@@ -74,6 +74,206 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "cmn_en_ms_ta")]
         #pragma warning disable CS1591
         CmnEnMsTa,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ar")]
+        #pragma warning disable CS1591
+        Ar,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "be")]
+        #pragma warning disable CS1591
+        Be,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "bg")]
+        #pragma warning disable CS1591
+        Bg,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "bn")]
+        #pragma warning disable CS1591
+        Bn,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ca")]
+        #pragma warning disable CS1591
+        Ca,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cmn")]
+        #pragma warning disable CS1591
+        Cmn,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cs")]
+        #pragma warning disable CS1591
+        Cs,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "da")]
+        #pragma warning disable CS1591
+        Da,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "de")]
+        #pragma warning disable CS1591
+        De,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "el")]
+        #pragma warning disable CS1591
+        El,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "eo")]
+        #pragma warning disable CS1591
+        Eo,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "es")]
+        #pragma warning disable CS1591
+        Es,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "et")]
+        #pragma warning disable CS1591
+        Et,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "fa")]
+        #pragma warning disable CS1591
+        Fa,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "fi")]
+        #pragma warning disable CS1591
+        Fi,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "fr")]
+        #pragma warning disable CS1591
+        Fr,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "he")]
+        #pragma warning disable CS1591
+        He,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "hi")]
+        #pragma warning disable CS1591
+        Hi,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "hr")]
+        #pragma warning disable CS1591
+        Hr,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "hu")]
+        #pragma warning disable CS1591
+        Hu,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ia")]
+        #pragma warning disable CS1591
+        Ia,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "id")]
+        #pragma warning disable CS1591
+        Id,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "it")]
+        #pragma warning disable CS1591
+        It,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ja")]
+        #pragma warning disable CS1591
+        Ja,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ko")]
+        #pragma warning disable CS1591
+        Ko,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "lt")]
+        #pragma warning disable CS1591
+        Lt,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "lv")]
+        #pragma warning disable CS1591
+        Lv,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mr")]
+        #pragma warning disable CS1591
+        Mr,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ms")]
+        #pragma warning disable CS1591
+        Ms,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "nl")]
+        #pragma warning disable CS1591
+        Nl,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "no")]
+        #pragma warning disable CS1591
+        No,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "pl")]
+        #pragma warning disable CS1591
+        Pl,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "pt")]
+        #pragma warning disable CS1591
+        Pt,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ro")]
+        #pragma warning disable CS1591
+        Ro,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ru")]
+        #pragma warning disable CS1591
+        Ru,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sk")]
+        #pragma warning disable CS1591
+        Sk,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sl")]
+        #pragma warning disable CS1591
+        Sl,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sv")]
+        #pragma warning disable CS1591
+        Sv,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ta")]
+        #pragma warning disable CS1591
+        Ta,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "th")]
+        #pragma warning disable CS1591
+        Th,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tr")]
+        #pragma warning disable CS1591
+        Tr,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "uk")]
+        #pragma warning disable CS1591
+        Uk,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ur")]
+        #pragma warning disable CS1591
+        Ur,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "vi")]
+        #pragma warning disable CS1591
+        Vi,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "yue")]
+        #pragma warning disable CS1591
+        Yue,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "en-US")]
+        #pragma warning disable CS1591
+        EnUs,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "en-GB")]
+        #pragma warning disable CS1591
+        EnGb,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "en-AU")]
+        #pragma warning disable CS1591
+        EnAu,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cmn-Hans")]
+        #pragma warning disable CS1591
+        CmnHans,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cmn-Hant")]
+        #pragma warning disable CS1591
+        CmnHant,
         #pragma warning restore CS1591
     }
 }

@@ -30,6 +30,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>A human-readable explanation of the error.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Detail { get; set; }
+#nullable restore
+#else
+        public string Detail { get; set; }
+#endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,6 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "detail", n => { Detail = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorMetaProperty2>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorMetaProperty2.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSourceProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSourceProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -95,6 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("detail", Detail);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorMetaProperty2>("meta", Meta);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSourceProperty>("source", Source);
             writer.WriteStringValue("title", Title);

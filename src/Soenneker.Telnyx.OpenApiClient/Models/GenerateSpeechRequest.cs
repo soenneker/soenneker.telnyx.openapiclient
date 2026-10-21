@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxProviderParams Soniox { get; set; }
 #endif
-        /// <summary>Telnyx provider-specific parameters. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`, and don&apos;t support `voice_speed`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).</summary>
+        /// <summary>Telnyx provider-specific parameters. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`. `Bayan` accepts `voice_speed` from 0.5 to 2.0; `Sukhan` doesn&apos;t support it. `Bayan` synthesizes at a native 16 kHz: `sampling_rate` `8000`, `22050`, or `24000` is resampled, needs `response_format: pcm`, and isn&apos;t available with `output_type: audio_id`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams? Telnyx { get; set; }

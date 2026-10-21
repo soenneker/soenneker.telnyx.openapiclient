@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Compute.Actors;
 using Soenneker.Telnyx.OpenApiClient.Compute.Funcs;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Compute
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ComputeRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The actors property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Compute.Actors.ActorsRequestBuilder Actors
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Compute.Actors.ActorsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The funcs property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Compute.Funcs.FuncsRequestBuilder Funcs
         {

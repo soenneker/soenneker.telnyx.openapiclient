@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceIndex.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the connection in the Mission Control Portal.
+        /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the TeXML Application in the Mission Control Portal.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallResult"/></returns>
         /// <param name="body">The request body</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
             return requestInfo;
         }
         /// <summary>
-        /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the connection in the Mission Control Portal.
+        /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the TeXML Application in the Mission Control Portal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

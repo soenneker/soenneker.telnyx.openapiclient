@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Echo of the applied sort order.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaSort? Sort { get; set; }
-        /// <summary>Echo of the requested `start_time`.</summary>
+        /// <summary>Start of the range actually used: the requested `start_time`, or the start of the retention window when the requested value is older.</summary>
         public DateTimeOffset? StartTime { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMeta"/> and sets the default values.

@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dial_metrics
             /// <summary>Sort order of the buckets by `start_time`. `-start_time` (default) returns the newest first, `start_time` the oldest first. `region` follows the same direction for buckets with the same `start_time`. To read the live rate, use `granularity=second` and `sort=-start_time`, then take the first record of each `region`.</summary>
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.ListDialMetricsSortParameter? Sort { get; set; }
-            /// <summary>Inclusive start of the range, ISO 8601 (for example `2026-09-29T12:00:00.000Z`). Buckets that start at or after this time are returned. Must not be older than the retention window of the chosen `granularity`.</summary>
+            /// <summary>Inclusive start of the range, ISO 8601 (for example `2026-09-29T12:00:00.000Z`). Buckets that start at or after this time are returned. A `start_time` older than the retention window of the chosen `granularity` is moved forward to the start of that window, and `meta.start_time` returns the start actually used.</summary>
             [QueryParameter("start_time")]
             public DateTimeOffset? StartTime { get; set; }
         }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Word-level timing detail. Only present when using a `deepgram/*` model with `model_config` options that enable word timestamps.
+    /// Word-level timing detail. Only present when using a `deepgram/*` model with `model_config` options that enable word timestamps, or `reson8/prerecorded`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AudioTranscriptionResponseWord : IAdditionalDataHolder, IParsable

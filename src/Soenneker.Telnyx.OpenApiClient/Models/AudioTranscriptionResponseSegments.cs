@@ -20,7 +20,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? End { get; set; }
         /// <summary>Unique identifier of the segment.</summary>
         public double? Id { get; set; }
-        /// <summary>Speaker indices heard in this segment. Returned by the `deepgram/*` models when `diarize` is enabled via `model_config`. With `multichannel`, speakers are numbered per channel from 0, so identify a speaker by (`channel`, speaker).</summary>
+        /// <summary>Speaker indices heard in this segment. Returned by the `deepgram/*` models and `reson8/prerecorded` when `diarize` is enabled via `model_config`. With `multichannel`, speakers are numbered per channel from 0, so identify a speaker by (`channel`, speaker).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<int?>? Speakers { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>Word-level timing detail for this segment. Returned by the `deepgram/*` models when word-level output is enabled via `model_config`.</summary>
+        /// <summary>Word-level timing detail for this segment. Returned by the `deepgram/*` models when word-level output is enabled via `model_config`, and by `reson8/prerecorded`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseWord>? Words { get; set; }

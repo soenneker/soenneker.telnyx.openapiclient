@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to send also interim results. If set to false, only final results will be sent.</summary>
         public bool? InterimResults { get; set; }
-        /// <summary>Language to use for speech recognition</summary>
+        /// <summary>Language to use for speech recognition. Accepted values depend on the selected `transcription_model`. `speechmatics/standard` supports: `en`, `ba`, `eu`, `gl`, `ga`, `mt`, `mn`, `sw`, `ug`, `cy`, `ar_en`, `cmn_en`, `en_ms`, `en_ta`, `tl`, `es-bilingual-en`, `cmn_en_ms_ta`. `speechmatics/linden-1` (preview) supports the same languages as Speechmatics Realtime: `ar`, `ar_en`, `ba`, `be`, `bg`, `bn`, `ca`, `cmn`, `cmn_en`, `cmn_en_ms_ta`, `cs`, `cy`, `da`, `de`, `el`, `en`, `en_ms`, `en_ta`, `eo`, `es`, `es-bilingual-en`, `et`, `eu`, `fa`, `fi`, `fr`, `ga`, `gl`, `he`, `hi`, `hr`, `hu`, `ia`, `id`, `it`, `ja`, `ko`, `lt`, `lv`, `mn`, `mr`, `ms`, `mt`, `nl`, `no`, `pl`, `pt`, `ro`, `ru`, `sk`, `sl`, `sv`, `sw`, `ta`, `th`, `tl`, `tr`, `ug`, `uk`, `ur`, `vi`, `yue`, plus the spelling and script variants `en-US`, `en-GB`, `en-AU`, `cmn-Hans`, and `cmn-Hant` (`en` alone uses the default spelling). A value outside the selected model&apos;s list is rejected. For `speechmatics/standard`, unset, blank, `auto`, `auto_beta`, or `multi` defaults to `en`; for `speechmatics/linden-1`, only an unset language defaults to `en`, and `auto`, `auto_beta`, or `multi` is rejected.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage? Language { get; set; }
         /// <summary>Engine identifier for Speechmatics transcription service</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionEngine? TranscriptionEngine { get; set; }
-        /// <summary>The model to use for transcription.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsStandardTranscriptionModel? TranscriptionModel { get; set; }
+        /// <summary>The model to use for transcription. `speechmatics/linden-1` is a preview, vendor-hosted model with its own language support (see `language`).</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel? TranscriptionModel { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "interim_results", n => { InterimResults = n.GetBoolValue(); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage>(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionEngine>(); } },
-                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsStandardTranscriptionModel>(); } },
+                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("interim_results", InterimResults);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage>("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionEngine>("transcription_engine", TranscriptionEngine);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsStandardTranscriptionModel>("transcription_model", TranscriptionModel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel>("transcription_model", TranscriptionModel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

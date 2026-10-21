@@ -71,12 +71,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindAddresses200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindAddresses200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new address on your account from the provided details, for use with services that require a physical address such as emergency calling and regulatory compliance.
+        /// Creates a new address on your account from the provided details, for use with services that require a physical address such as emergency calling and regulatory compliance.By default, the new record is validated for emergency use at creation time. If the address fails validation, no record is created and the request is rejected with a 422 response; the `errors` array includes a suggested value for each offending field when one is available.Set `validate_address` to `false` to skip validation at creation, for example when the address was already validated with the Validate an address action. The record is then created without emergency validation: if it is not valid it will not be able to be used for emergency services (such as a phone number&apos;s emergency address), and because address records cannot be updated, a new record has to be created to correct it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAddress200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAddress200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -88,7 +89,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAddress200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateAddress200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAddress200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateAddress200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a paginated list of the addresses on your account, with support for filtering and sorting.
@@ -110,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new address on your account from the provided details, for use with services that require a physical address such as emergency calling and regulatory compliance.
+        /// Creates a new address on your account from the provided details, for use with services that require a physical address such as emergency calling and regulatory compliance.By default, the new record is validated for emergency use at creation time. If the address fails validation, no record is created and the request is rejected with a 422 response; the `errors` array includes a suggested value for each offending field when one is available.Set `validate_address` to `false` to skip validation at creation, for example when the address was already validated with the Validate an address action. The record is then created without emergency validation: if it is not valid it will not be able to be used for emergency services (such as a phone number&apos;s emergency address), and because address records cannot be updated, a new record has to be created to correct it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

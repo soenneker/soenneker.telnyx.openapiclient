@@ -15,6 +15,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Ultra,
         #pragma warning restore CS1591
+        [EnumMember(Value = "Bayan")]
+        #pragma warning disable CS1591
+        Bayan,
+        #pragma warning restore CS1591
         [EnumMember(Value = "speech-2.8-turbo")]
         #pragma warning disable CS1591
         Speech28Turbo,

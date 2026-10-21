@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType? DtmfType { get; set; }
         /// <summary>Encode the SIP contact header sent by Telnyx to avoid issues for NAT or ALG scenarios.</summary>
         public bool? EncodeContactHeaderEnabled { get; set; }
-        /// <summary>Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS.</summary>
+        /// <summary>Enable use of SRTP for encryption. Can only be set when the SIP signaling transport protocol is TLS.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get; set; }
         /// <summary>External SIP peer settings used by Telnyx when registering to your PBX and routing outbound calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Telnyx provider-specific parameters. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`, and don&apos;t support `voice_speed`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).
+    /// Telnyx provider-specific parameters. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`. `Bayan` accepts `voice_speed` from 0.5 to 2.0; `Sukhan` doesn&apos;t support it. `Bayan` synthesizes at a native 16 kHz: `sampling_rate` `8000`, `22050`, or `24000` is resampled, needs `response_format: pcm`, and isn&apos;t available with `output_type: audio_id`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TelnyxProviderParams : IAdditionalDataHolder, IParsable
@@ -25,9 +25,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ResponseFormat { get; set; }
 #endif
-        /// <summary>Audio sampling rate in Hz.</summary>
+        /// <summary>Audio sampling rate in Hz. `Bayan` ignores the default and synthesizes at its native 16 kHz unless `8000`, `22050`, or `24000` is set explicitly with `response_format: pcm`. Resampled rates aren&apos;t available with `output_type: audio_id`.</summary>
         public int? SamplingRate { get; set; }
-        /// <summary>Voice speed multiplier. Telnyx `Ultra` voices accept values from 0.6 to 1.5 — requests outside that range are rejected by the synthesis engine. `KokoroTTS` and `Qwen3TTS` accept the field but do not apply it. `Bayan` and `Sukhan` don&apos;t support it.</summary>
+        /// <summary>Voice speed multiplier. Telnyx `Ultra` voices accept values from 0.6 to 1.5 — requests outside that range are rejected by the synthesis engine. `Bayan` accepts values from 0.5 to 2.0. `KokoroTTS` and `Qwen3TTS` accept the field but do not apply it. `Sukhan` doesn&apos;t support it.</summary>
         public float? VoiceSpeed { get; set; }
         /// <summary>Volume level for the Ultra model. Telnyx `Ultra` voices accept values from 0.5 to 2.0 — requests outside that range are rejected by the synthesis engine. `KokoroTTS`, `Qwen3TTS`, `Bayan`, and `Sukhan` voices accept the field but do not apply it.</summary>
         public float? Volume { get; set; }

@@ -16,6 +16,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         PrivateWirelessGateway,
         #pragma warning restore CS1591
+        [EnumMember(Value = "tailscale_subnet_router")]
+        #pragma warning disable CS1591
+        TailscaleSubnetRouter,
+        #pragma warning restore CS1591
         [EnumMember(Value = "virtual_cross_connect")]
         #pragma warning disable CS1591
         VirtualCrossConnect,

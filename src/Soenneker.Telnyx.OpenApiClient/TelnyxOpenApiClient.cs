@@ -169,6 +169,7 @@ using Soenneker.Telnyx.OpenApiClient.Spend_limits;
 using Soenneker.Telnyx.OpenApiClient.Storage;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report;
+using Soenneker.Telnyx.OpenApiClient.Tailscale_subnet_routers;
 using Soenneker.Telnyx.OpenApiClient.Telephony_credentials;
 using Soenneker.Telnyx.OpenApiClient.Terms_of_service;
 using Soenneker.Telnyx.OpenApiClient.Texml;
@@ -1026,6 +1027,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportRequestBuilder Sub_number_orders_report
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tailscale_subnet_routers property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Tailscale_subnet_routers.Tailscale_subnet_routersRequestBuilder Tailscale_subnet_routers
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Tailscale_subnet_routers.Tailscale_subnet_routersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The telephony_credentials property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Telephony_credentialsRequestBuilder Telephony_credentials

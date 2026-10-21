@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? CallParkingEnabled { get; set; }
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
         public int? ChannelLimit { get; set; }
-        /// <summary>Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS.</summary>
+        /// <summary>Enable use of SRTP for encryption. Can only be set when the SIP signaling transport protocol is TLS.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get; set; }
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
         public bool? GenerateRingbackTone { get; set; }

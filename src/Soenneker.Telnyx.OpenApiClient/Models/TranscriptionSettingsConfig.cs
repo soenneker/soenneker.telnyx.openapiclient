@@ -67,6 +67,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Prompt { get; set; }
 #endif
+        /// <summary>Available only for speechmatics/linden-1. When true, filler words such as &quot;um&quot; and &quot;uh&quot; are removed from the transcript. Disfluency removal is supported only for `ar`, `cmn`, `da`, `de`, `el`, `en`, `es`, `fr`, `he`, `hi`, `hu`, `it`, `ja`, `nl`, `pl`, `pt`, and `ru`, determined by the base language (so `en-US`, `en-GB`, `en-AU`, `cmn-Hans`, and `cmn-Hant` are supported); for other languages, filler words remain in the transcript.</summary>
+        public bool? RemoveDisfluencies { get; set; }
         /// <summary>The smart_format property</summary>
         public bool? SmartFormat { get; set; }
         /// <summary>
@@ -82,6 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             InterimResults = false;
             MaxTurnSilence = 1280;
             MinTurnSilence = 400;
+            RemoveDisfluencies = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -115,6 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "min_turn_silence", n => { MinTurnSilence = n.GetIntValue(); } },
                 { "numerals", n => { Numerals = n.GetBoolValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
+                { "remove_disfluencies", n => { RemoveDisfluencies = n.GetBoolValue(); } },
                 { "smart_format", n => { SmartFormat = n.GetBoolValue(); } },
             };
         }
@@ -139,6 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("min_turn_silence", MinTurnSilence);
             writer.WriteBoolValue("numerals", Numerals);
             writer.WriteStringValue("prompt", Prompt);
+            writer.WriteBoolValue("remove_disfluencies", RemoveDisfluencies);
             writer.WriteBoolValue("smart_format", SmartFormat);
             writer.WriteAdditionalData(AdditionalData);
         }
