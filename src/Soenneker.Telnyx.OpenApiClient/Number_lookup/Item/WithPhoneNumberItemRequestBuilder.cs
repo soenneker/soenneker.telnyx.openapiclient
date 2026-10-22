@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_lookup.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPhoneNumberItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>Specifies the type of number lookup to be performed</summary>
+            /// <summary>Specifies the type of number lookup to be performed. May be supplied more than once to request several data sources in a single call (for example, `?type=carrier&amp;type=enhanced-caller-name`). Each requested type populates the corresponding object in the response.</summary>
             [QueryParameter("type")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupType? Type { get; set; }
         }

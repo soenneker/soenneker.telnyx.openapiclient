@@ -15,6 +15,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Limit in USD. `0` blocks at the first cent of spend.</summary>
         public double? Amount { get; set; }
+        /// <summary>Optional. Identifier of one API key as recorded on usage, never the key&apos;s secret: the limit then applies to that key only. Absent or `null` sets the total limit. A blank value, or one with control characters, is refused; it never means the total limit. An API key limit always has an `amount`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CredentialId { get; set; }
+#nullable restore
+#else
+        public string CredentialId { get; set; }
+#endif
         /// <summary>`daily` is the current UTC day; `monthly` is the current UTC calendar month.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitPeriod? Period { get; set; }
         /// <summary>Product to limit, as returned in `product` by the list operation.</summary>
@@ -54,6 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetDoubleValue(); } },
+                { "credential_id", n => { CredentialId = n.GetStringValue(); } },
                 { "period", n => { Period = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitPeriod>(); } },
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
@@ -68,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("amount", Amount);
+            writer.WriteStringValue("credential_id", CredentialId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitPeriod>("period", Period);
             writer.WriteStringValue("product", Product);
             writer.WriteStringValue("reason", Reason);

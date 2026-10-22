@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string InsightGroupId { get; set; }
 #endif
+        /// <summary>The model that generates the assistant&apos;s insights when a conversation ends. It runs every insight in the group, Telnyx-managed insights included. Must be `zai-org/GLM-5.3-Flash` or `meta-llama/Llama-3.3-70B-Instruct`; any other model returns `422`. When omitted on create, it defaults to `zai-org/GLM-5.3-Flash`; when omitted on update, the current model is kept. `null` uses Telnyx&apos;s default insight models, which assistants created before this setting have. Insights of messaging conversations, and insights regenerated later, always use Telnyx&apos;s default insight models.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Model { get; set; }
+#nullable restore
+#else
+        public string Model { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings"/> and sets the default values.
         /// </summary>
@@ -48,6 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "insight_group_id", n => { InsightGroupId = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,6 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("insight_group_id", InsightGroupId);
+            writer.WriteStringValue("model", Model);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -22,6 +22,7 @@ using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai;
 using Soenneker.Telnyx.OpenApiClient.Ai.Responses;
 using Soenneker.Telnyx.OpenApiClient.Ai.Summarize;
+using Soenneker.Telnyx.OpenApiClient.Ai.Tests;
 using Soenneker.Telnyx.OpenApiClient.Ai.Tools;
 using Soenneker.Telnyx.OpenApiClient.Ai.Typesafe;
 using System.Collections.Generic;
@@ -135,6 +136,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Summarize.SummarizeRequestBuilder Summarize
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Summarize.SummarizeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tests property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Tests.TestsRequestBuilder Tests
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Tests.TestsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The tools property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Tools.ToolsRequestBuilder Tools

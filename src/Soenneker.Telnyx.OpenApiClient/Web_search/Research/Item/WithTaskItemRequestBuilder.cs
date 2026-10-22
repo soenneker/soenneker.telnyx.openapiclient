@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Web_search.Research.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetWebSearchResearchStatus200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.GatewayError">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchGatewayError">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError">When receiving a 502 status code</exception>
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Web_search.Research.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.GatewayError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchGatewayError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError.CreateFromDiscriminatorValue },

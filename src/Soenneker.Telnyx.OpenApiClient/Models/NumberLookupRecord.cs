@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Identity information for the phone number&apos;s owner, including name and postal address. Populated when `type=caller-identity` is requested.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity? CallerIdentity { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity CallerIdentity { get; set; }
+#endif
         /// <summary>The caller_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +46,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CountryCode { get; set; }
 #endif
+        /// <summary>Enhanced caller name for the phone number&apos;s owner. Populated when `type=enhanced-caller-name` is requested.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName? EnhancedCallerName { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName EnhancedCallerName { get; set; }
+#endif
         /// <summary>Unused</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,6 +69,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string NationalFormat { get; set; }
+#endif
+        /// <summary>Network number ID (NNID) override for the phone number, when one applies (available only to accounts enabled for NNID); otherwise null.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride? NnidOverride { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride NnidOverride { get; set; }
 #endif
         /// <summary>E164-formatted phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,6 +102,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RecordType { get; set; }
 #endif
+        /// <summary>Indicates whether the phone number is valid.</summary>
+        public bool? ValidNumber { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord"/> and sets the default values.
         /// </summary>
@@ -103,14 +129,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "caller_identity", n => { CallerIdentity = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity>(global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity.CreateFromDiscriminatorValue); } },
                 { "caller_name", n => { CallerName = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallerName>(global::Soenneker.Telnyx.OpenApiClient.Models.CallerName.CreateFromDiscriminatorValue); } },
                 { "carrier", n => { Carrier = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Carrier>(global::Soenneker.Telnyx.OpenApiClient.Models.Carrier.CreateFromDiscriminatorValue); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
+                { "enhanced_caller_name", n => { EnhancedCallerName = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName>(global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName.CreateFromDiscriminatorValue); } },
                 { "fraud", n => { Fraud = n.GetStringValue(); } },
                 { "national_format", n => { NationalFormat = n.GetStringValue(); } },
+                { "nnid_override", n => { NnidOverride = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride.CreateFromDiscriminatorValue); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "portability", n => { Portability = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Portability>(global::Soenneker.Telnyx.OpenApiClient.Models.Portability.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
+                { "valid_number", n => { ValidNumber = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -120,14 +150,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity>("caller_identity", CallerIdentity);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallerName>("caller_name", CallerName);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Carrier>("carrier", Carrier);
             writer.WriteStringValue("country_code", CountryCode);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName>("enhanced_caller_name", EnhancedCallerName);
             writer.WriteStringValue("fraud", Fraud);
             writer.WriteStringValue("national_format", NationalFormat);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride>("nnid_override", NnidOverride);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Portability>("portability", Portability);
             writer.WriteStringValue("record_type", RecordType);
+            writer.WriteBoolValue("valid_number", ValidNumber);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -46,14 +46,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string City { get; set; }
 #endif
-        /// <summary>Type of number</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? LineType { get; set; }
-#nullable restore
-#else
-        public string LineType { get; set; }
-#endif
+        /// <summary>The line type of the phone number. Uses the same value set as carrier.type; see the API reference for the full list.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityLineType? LineType { get; set; }
         /// <summary>Local Routing Number, if assigned to the requested phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "altspid_carrier_name", n => { AltspidCarrierName = n.GetStringValue(); } },
                 { "altspid_carrier_type", n => { AltspidCarrierType = n.GetStringValue(); } },
                 { "city", n => { City = n.GetStringValue(); } },
-                { "line_type", n => { LineType = n.GetStringValue(); } },
+                { "line_type", n => { LineType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityLineType>(); } },
                 { "lrn", n => { Lrn = n.GetStringValue(); } },
                 { "ocn", n => { Ocn = n.GetStringValue(); } },
                 { "ported_date", n => { PortedDate = n.GetStringValue(); } },
@@ -163,7 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("altspid_carrier_name", AltspidCarrierName);
             writer.WriteStringValue("altspid_carrier_type", AltspidCarrierType);
             writer.WriteStringValue("city", City);
-            writer.WriteStringValue("line_type", LineType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityLineType>("line_type", LineType);
             writer.WriteStringValue("lrn", Lrn);
             writer.WriteStringValue("ocn", Ocn);
             writer.WriteStringValue("ported_date", PortedDate);

@@ -15,13 +15,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The errors property</summary>
+        /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseErrorsItem>? Errors { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseError? Error { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseErrorsItem> Errors { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseError Error { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseErrorsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseErrorsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseError>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseError.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseErrorsItem>("errors", Errors);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponseError>("error", Error);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

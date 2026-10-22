@@ -13,6 +13,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpendLimitEvaluation : IAdditionalDataHolder, IParsable
     {
+        /// <summary>API key writes only: the account itself remains blocked for the product under a total limit. Absent for total limit writes.</summary>
+        public bool? AccountBlocked { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The change blocked the product: the spend was already above the new limit.</summary>
@@ -37,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string SpendUsd { get; set; }
 #endif
-        /// <summary>The other period has an active block, so the product stays blocked whatever this period&apos;s result.</summary>
+        /// <summary>The other period has an active block, so the product stays blocked whatever this period&apos;s result. For an API key write, the API key&apos;s limit in the other period.</summary>
         public bool? StillBlockedOtherPeriod { get; set; }
         /// <summary>A block of this period remains because the spend is still above the new limit.</summary>
         public bool? StillOverLimit { get; set; }
@@ -66,6 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_blocked", n => { AccountBlocked = n.GetBoolValue(); } },
                 { "blocked_now", n => { BlockedNow = n.GetBoolValue(); } },
                 { "evaluation_deferred", n => { EvaluationDeferred = n.GetBoolValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
@@ -82,6 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("account_blocked", AccountBlocked);
             writer.WriteBoolValue("blocked_now", BlockedNow);
             writer.WriteBoolValue("evaluation_deferred", EvaluationDeferred);
             writer.WriteStringValue("note", Note);

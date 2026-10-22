@@ -9,13 +9,21 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// The spend limit, spend and block state of one product and period.
+    /// The spend limit, spend and block state of one product and period. The top-level fields describe the total limit of the account; API key limits are nested in `credential_limits`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpendLimit : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>How much of the period&apos;s total limit is given to API key limits. `null` unless the period has a total limit with an amount.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation? Allocation { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation Allocation { get; set; }
+#endif
         /// <summary>The active block of the period. `null` when the period is not blocked.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,8 +32,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock Block { get; set; }
 #endif
-        /// <summary>The product is blocked for this period. Always `false` in write responses; list the limits to read the block state.</summary>
+        /// <summary>The product is blocked for the whole account in this period (total limit). An API key&apos;s own block appears only in `credential_limits`. Always `false` in write responses; list the limits to read the block state.</summary>
         public bool? Blocked { get; set; }
+        /// <summary>In write responses, the API key the write was about; `null` for the total limit. Always `null` in list entries, which describe the total limit.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CredentialId { get; set; }
+#nullable restore
+#else
+        public string CredentialId { get; set; }
+#endif
+        /// <summary>List responses only. One item per API key limit of the product and period, sorted by `credential_id`, plus every API key that is still blocked. `[]` when there are none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit>? CredentialLimits { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit> CredentialLimits { get; set; }
+#endif
         /// <summary>The limit in USD that is enforced, as a decimal string. `null` means unlimited.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,8 +145,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "allocation", n => { Allocation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation.CreateFromDiscriminatorValue); } },
                 { "block", n => { Block = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock.CreateFromDiscriminatorValue); } },
                 { "blocked", n => { Blocked = n.GetBoolValue(); } },
+                { "credential_id", n => { CredentialId = n.GetStringValue(); } },
+                { "credential_limits", n => { CredentialLimits = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "effective_limit_usd", n => { EffectiveLimitUsd = n.GetStringValue(); } },
                 { "evaluation", n => { Evaluation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation.CreateFromDiscriminatorValue); } },
                 { "limit", n => { Limit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit.CreateFromDiscriminatorValue); } },
@@ -143,8 +170,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation>("allocation", Allocation);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock>("block", Block);
             writer.WriteBoolValue("blocked", Blocked);
+            writer.WriteStringValue("credential_id", CredentialId);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit>("credential_limits", CredentialLimits);
             writer.WriteStringValue("effective_limit_usd", EffectiveLimitUsd);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation>("evaluation", Evaluation);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit>("limit", Limit);

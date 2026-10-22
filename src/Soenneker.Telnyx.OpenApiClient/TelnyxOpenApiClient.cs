@@ -13,12 +13,14 @@ using Soenneker.Telnyx.OpenApiClient.Addresses;
 using Soenneker.Telnyx.OpenApiClient.Advanced_orders;
 using Soenneker.Telnyx.OpenApiClient.Ai;
 using Soenneker.Telnyx.OpenApiClient.Alphanumeric_sender_ids;
+using Soenneker.Telnyx.OpenApiClient.Artifact_downloads;
 using Soenneker.Telnyx.OpenApiClient.Audit_events;
 using Soenneker.Telnyx.OpenApiClient.Authentication_providers;
 using Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks;
 using Soenneker.Telnyx.OpenApiClient.Available_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Balance;
 using Soenneker.Telnyx.OpenApiClient.Billing_groups;
+using Soenneker.Telnyx.OpenApiClient.Browser_sessions;
 using Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions;
 using Soenneker.Telnyx.OpenApiClient.Bundle_pricing;
 using Soenneker.Telnyx.OpenApiClient.Call_control_applications;
@@ -248,6 +250,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The artifact_downloads property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Artifact_downloads.Artifact_downloadsRequestBuilder Artifact_downloads
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Artifact_downloads.Artifact_downloadsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The audit_events property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Audit_events.Audit_eventsRequestBuilder Audit_events
         {
@@ -277,6 +284,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder Billing_groups
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The browser_sessions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Browser_sessions.Browser_sessionsRequestBuilder Browser_sessions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Browser_sessions.Browser_sessionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The bulk_sim_card_actions property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder Bulk_sim_card_actions

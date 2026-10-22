@@ -16,5 +16,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         CallerName,
         #pragma warning restore CS1591
+        [EnumMember(Value = "caller-identity")]
+        #pragma warning disable CS1591
+        CallerIdentity,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "enhanced-caller-name")]
+        #pragma warning disable CS1591
+        EnhancedCallerName,
+        #pragma warning restore CS1591
     }
 }

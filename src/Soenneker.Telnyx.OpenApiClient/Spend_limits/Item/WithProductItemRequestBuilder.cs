@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithProductItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spend_limits/{product}{?period*,reason*}", pathParameters)
+        public WithProductItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spend_limits/{product}{?credential_id*,period*,reason*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,19 +30,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithProductItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spend_limits/{product}{?period*,reason*}", rawUrl)
+        public WithProductItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spend_limits/{product}{?credential_id*,period*,reason*}", rawUrl)
         {
         }
         /// <summary>
-        /// Removes the limit for the product and period. For `inference`, which has no default limit, the product becomes unlimited for the period and the period&apos;s block is lifted (`evaluation.released`). The response carries `limit: null` and the `effective_limit_usd` that applies after the removal. Returns 404 when no limit is set.
+        /// Removes the limit for the product and period. For `inference`, which has no default limit, the product becomes unlimited for the period and the period&apos;s block is lifted (`evaluation.released`). The response carries `limit: null` and the `effective_limit_usd` that applies after the removal. Returns 404 when no limit is set. With the `credential_id` query parameter, the request removes that API key&apos;s limit for the period and lifts the key&apos;s block in that period at once. A block under the key&apos;s limit in the other period stays (`evaluation.still_blocked_other_period`). Removing the total limit leaves the API key limits in place.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Spend_limits.Item.WithProductItemRequestBuilder.WithProductItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,24 +55,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead.
+        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and raising it is subject to the allocation rule.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse"/></returns>
         /// <param name="body">Send exactly one of `amount` and `unlimited: true`.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSpendLimitRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Spend_limits.Item.WithProductItemRequestBuilder.WithProductItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -86,15 +86,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitsErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Removes the limit for the product and period. For `inference`, which has no default limit, the product becomes unlimited for the period and the period&apos;s block is lifted (`evaluation.released`). The response carries `limit: null` and the `effective_limit_usd` that applies after the removal. Returns 404 when no limit is set.
+        /// Removes the limit for the product and period. For `inference`, which has no default limit, the product becomes unlimited for the period and the period&apos;s block is lifted (`evaluation.released`). The response carries `limit: null` and the `effective_limit_usd` that applies after the removal. Returns 404 when no limit is set. With the `credential_id` query parameter, the request removes that API key&apos;s limit for the period and lifts the key&apos;s block in that period at once. A block under the key&apos;s limit in the other period stays (`evaluation.still_blocked_other_period`). Removing the total limit leaves the API key limits in place.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
             return requestInfo;
         }
         /// <summary>
-        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead.
+        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and raising it is subject to the allocation rule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Send exactly one of `amount` and `unlimited: true`.</param>
@@ -144,11 +144,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Spend_limits.Item.WithProductItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Removes the limit for the product and period. For `inference`, which has no default limit, the product becomes unlimited for the period and the period&apos;s block is lifted (`evaluation.released`). The response carries `limit: null` and the `effective_limit_usd` that applies after the removal. Returns 404 when no limit is set.
+        /// Removes the limit for the product and period. For `inference`, which has no default limit, the product becomes unlimited for the period and the period&apos;s block is lifted (`evaluation.released`). The response carries `limit: null` and the `effective_limit_usd` that applies after the removal. Returns 404 when no limit is set. With the `credential_id` query parameter, the request removes that API key&apos;s limit for the period and lifts the key&apos;s block in that period at once. A block under the key&apos;s limit in the other period stays (`evaluation.still_blocked_other_period`). Removing the total limit leaves the API key limits in place.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithProductItemRequestBuilderDeleteQueryParameters 
         {
+            /// <summary>Identifier of one API key as recorded on usage, never the key&apos;s secret, percent-encoded: the request is then about that key&apos;s limit. Absent means the total limit; present but blank is refused.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("credential_id")]
+            public string? CredentialId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("credential_id")]
+            public string CredentialId { get; set; }
+#endif
             /// <summary>Limit period. Defaults to `daily`; send it explicitly.</summary>
             [QueryParameter("period")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitPeriod? Period { get; set; }
@@ -164,11 +174,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
 #endif
         }
         /// <summary>
-        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead.
+        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and raising it is subject to the allocation rule.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithProductItemRequestBuilderPatchQueryParameters 
         {
+            /// <summary>Identifier of one API key as recorded on usage, never the key&apos;s secret, percent-encoded: the request is then about that key&apos;s limit. Absent means the total limit; present but blank is refused.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("credential_id")]
+            public string? CredentialId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("credential_id")]
+            public string CredentialId { get; set; }
+#endif
             /// <summary>Limit period. Defaults to `daily`; send it explicitly.</summary>
             [QueryParameter("period")]
             public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitPeriod? Period { get; set; }
