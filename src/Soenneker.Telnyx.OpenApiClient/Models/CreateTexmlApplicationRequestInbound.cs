@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? ChannelLimit { get; set; }
         /// <summary>When enabled Telnyx will include Shaken/Stir data in the Webhook for new inbound calls.</summary>
         public bool? ShakenStirEnabled { get; set; }
-        /// <summary>Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain &quot;example.sip.telnyx.com&quot; can be called from any SIP endpoint by using the SIP URI &quot;sip:@example.sip.telnyx.com&quot; where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.</summary>
+        /// <summary>Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain &quot;example.sip.telnyx.com&quot; can be called from any SIP endpoint by using the SIP URI &quot;sip:@example.sip.telnyx.com&quot; where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SipSubdomain { get; set; }

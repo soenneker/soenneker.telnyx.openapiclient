@@ -58,6 +58,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string HealthWebhookUrl { get; set; }
 #endif
+        /// <summary>MM7 settings for inbound messages</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata? Mm7Metadata { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata Mm7Metadata { get; set; }
+#endif
         /// <summary>enables SMS fallback for MMS messages.</summary>
         public bool? MmsFallBackToSms { get; set; }
         /// <summary>enables automated resizing of MMS media.</summary>
@@ -161,6 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "features", n => { Features = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures.CreateFromDiscriminatorValue); } },
                 { "health_webhook_url", n => { HealthWebhookUrl = n.GetStringValue(); } },
+                { "mm7_metadata", n => { Mm7Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata.CreateFromDiscriminatorValue); } },
                 { "mms_fall_back_to_sms", n => { MmsFallBackToSms = n.GetBoolValue(); } },
                 { "mms_transcoding", n => { MmsTranscoding = n.GetBoolValue(); } },
                 { "mobile_only", n => { MobileOnly = n.GetBoolValue(); } },
@@ -189,6 +198,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures>("features", Features);
             writer.WriteStringValue("health_webhook_url", HealthWebhookUrl);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata>("mm7_metadata", Mm7Metadata);
             writer.WriteBoolValue("mms_fall_back_to_sms", MmsFallBackToSms);
             writer.WriteBoolValue("mms_transcoding", MmsTranscoding);
             writer.WriteBoolValue("mobile_only", MobileOnly);

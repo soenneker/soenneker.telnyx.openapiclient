@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? SipCompactHeadersEnabled { get; set; }
         /// <summary>Selects which `sip_region` to receive inbound calls from. If null, the default region (US) will be used.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundIpSipRegion? SipRegion { get; set; }
-        /// <summary>Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain &quot;example.sip.telnyx.com&quot; can be called from any SIP endpoint by using the SIP URI &quot;sip:@example.sip.telnyx.com&quot; where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.</summary>
+        /// <summary>Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain &quot;example.sip.telnyx.com&quot; can be called from any SIP endpoint by using the SIP URI &quot;sip:@example.sip.telnyx.com&quot; where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SipSubdomain { get; set; }

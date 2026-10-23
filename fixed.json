@@ -35853,6 +35853,2203 @@
         }
       }
     },
+    "/email/dedicated_ips": {
+      "get": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "List dedicated IPs",
+        "description": "List the dedicated sending IPs owned by the account, newest first. Narrow the list with \u0060filter[status]\u0060, \u0060filter[pool_id]\u0060, and \u0060filter[region]\u0060; supplied filters combine, so an IP must match every one. An empty value, or a nested or array value such as \u0060filter[status][]=active\u0060, applies no filter, and other \u0060filter[...]\u0060 keys are ignored. A value that no IP can match (an unknown status, a \u0060pool_id\u0060 that is not a UUID, or a value containing a NUL byte) returns an empty list, not an error.",
+        "operationId": "ListDedicatedIps",
+        "parameters": [
+          {
+            "name": "filter[status]",
+            "in": "query",
+            "description": "Return only IPs in this lifecycle status (exact match). Any other value returns an empty list. An empty value applies no filter.",
+            "schema": {
+              "$ref": "#/components/schemas/ListDedicatedIpsFilterStatusParameter"
+            },
+            "example": "warming_up"
+          },
+          {
+            "name": "filter[pool_id]",
+            "in": "query",
+            "description": "Return only IPs in this pool (exact match on \u0060pool_id\u0060). A value that is not a UUID returns an empty list. An empty value applies no filter.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b"
+          },
+          {
+            "name": "filter[region]",
+            "in": "query",
+            "description": "Return only IPs in this region (exact, case-sensitive match on \u0060region\u0060). An empty value applies no filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ewr-nj1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dedicated IP list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpListResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                      "record_type": "dedicated_ip",
+                      "ip_address": "64.16.239.170",
+                      "ip_version": "ipv4",
+                      "pool_id": null,
+                      "region": "ewr-nj1",
+                      "status": "provisioning",
+                      "warmup": {
+                        "started_at": null,
+                        "progress": 0,
+                        "daily_cap": null,
+                        "paused": false,
+                        "paused_at": null,
+                        "today": null
+                      },
+                      "billing": {
+                        "status": "active",
+                        "charged": true
+                      },
+                      "provisioning_status": "dns_confirmed",
+                      "provisioning": {
+                        "dns_status": "dns_confirmed",
+                        "ptr_request_state": "confirmed",
+                        "ptr_request_pr_url": null,
+                        "checklist": {
+                          "ptr_requested": true,
+                          "ptr_authored": false,
+                          "ptr_merged": true,
+                          "forward_confirmed": true
+                        }
+                      },
+                      "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                      "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                      "quarantine_until": null,
+                      "released_at": null,
+                      "suspension_reason": null,
+                      "created_at": "2026-09-30T02:03:09.474123Z",
+                      "updated_at": "2026-10-14T20:30:00.000000Z"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10007",
+                      "title": "Unauthorized",
+                      "detail": "The API key provided is invalid or unauthorized"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "Purchase a dedicated IP",
+        "description": "Purchase a dedicated sending IP. Requires a verified, enterprise, or legacy account, and an \u0060Idempotency-Key\u0060 header: a request without the header returns \u0060400\u0060 (code \u006010015\u0060) and allocates nothing. Telnyx allocates the next available IP from stock. The optional \u0060region\u0060 and \u0060ip_version\u0060 fields each restrict which stock IP is allocated; they never change the allocated IP\u0027s metadata. An omitted field applies no restriction for that field, and omitting the body applies neither restriction. An unsupported selector value returns \u0060422\u0060; a supported value that matches no available IP returns \u0060429\u0060 and records the request on the waitlist. Billing: $14/month/IP, charged as a monthly recurring charge (MRC) from purchase. The IP is returned in \u0060provisioning\u0060 status with a Telnyx-managed PTR hostname and carries no mail until you call \u0060start_warmup\u0060 and add it to a pool that routes mail.",
+        "operationId": "CreateDedicatedIp",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "Required. Opaque, unquoted key for safely retrying the same purchase. Keys must contain 1 to 255 letters, numbers, hyphens, or underscores. Generate a unique UUID v4 for each purchase and reuse it only when retrying that purchase with the same request. A missing header, or an invalid one \u2014including duplicate, empty, malformed, or overlong values\u2014returns 400 with error code 10015. A request already in progress with the same key returns 409; reusing the key with a different request returns 422. Only successful responses are replayed, for up to 24 hours. Do not include sensitive data in the key.",
+            "required": true,
+            "schema": {
+              "maxLength": 255,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{1,255}$",
+              "type": "string"
+            },
+            "example": "8e03978e-40d5-43e8-bc93-6894a57f9326"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DedicatedIpCreateRequest"
+              },
+              "example": {
+                "region": "ewr-nj1",
+                "ip_version": "ipv4"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Dedicated IP allocated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "record_type": "dedicated_ip",
+                    "ip_address": "64.16.239.170",
+                    "ip_version": "ipv4",
+                    "pool_id": null,
+                    "region": "ewr-nj1",
+                    "status": "provisioning",
+                    "warmup": {
+                      "started_at": null,
+                      "progress": 0,
+                      "daily_cap": null,
+                      "paused": false,
+                      "paused_at": null,
+                      "today": null
+                    },
+                    "billing": {
+                      "status": "pending",
+                      "charged": false
+                    },
+                    "provisioning_status": "dns_confirmed",
+                    "provisioning": {
+                      "dns_status": "dns_confirmed",
+                      "ptr_request_state": "confirmed",
+                      "ptr_request_pr_url": null,
+                      "checklist": {
+                        "ptr_requested": true,
+                        "ptr_authored": false,
+                        "ptr_merged": true,
+                        "forward_confirmed": true
+                      }
+                    },
+                    "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                    "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                    "quarantine_until": null,
+                    "released_at": null,
+                    "suspension_reason": null,
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-14T20:30:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request, or a missing or invalid \u0060Idempotency-Key\u0060 header",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Bad Request",
+                      "detail": "Idempotency-Key header is required.",
+                      "source": {
+                        "pointer": "/header/Idempotency-Key"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - the account is not eligible to purchase dedicated IPs (eligible: verified, enterprise, legacy)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10008",
+                      "title": "Forbidden",
+                      "detail": "Dedicated IP purchases require a verified or enterprise account"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A \u0060region\u0060 or \u0060ip_version\u0060 selector is unsupported, empty, \u0060null\u0060, or not a string. Nothing was allocated or added to the waitlist. \u0060source.pointer\u0060 names the field and \u0060detail\u0060 lists the supported values. One field is reported per response, \u0060region\u0060 first.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "examples": {
+                  "unsupportedRegion": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Validation Failed",
+                          "detail": "region is not available for purchase (available: ewr-nj1)",
+                          "source": {
+                            "pointer": "/data/attributes/region"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "unsupportedIpVersion": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Validation Failed",
+                          "detail": "ip_version is not available for purchase (available: ipv4)",
+                          "source": {
+                            "pointer": "/data/attributes/ip_version"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "nonStringSelector": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Validation Failed",
+                          "detail": "region must be a string (available: ewr-nj1)",
+                          "source": {
+                            "pointer": "/data/attributes/region"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Out of stock (no available IP, or none matching the supplied \u0060region\u0060 and \u0060ip_version\u0060) or admission capacity exceeded. meta carries capacity/waitlist details and retry_after_seconds.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpCapacityErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10020",
+                      "title": "Rate Limit Exceeded",
+                      "detail": "No dedicated IPs are currently available for purchase. Your request can be added to the waitlist \u2014 retry after 300 seconds."
+                    }
+                  ],
+                  "meta": {
+                    "retry_after_seconds": 300,
+                    "waitlist": true
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Billing is unavailable, the admission capacity could not be read, or the waitlist could not be recorded. Nothing was allocated; retry shortly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10031",
+                      "title": "Service Unavailable",
+                      "detail": "Dedicated IP Billing is unavailable \u2014 the purchase was not allocated; retry shortly"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/dedicated_ips/{id}": {
+      "delete": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "Release a dedicated IP",
+        "description": "Release the dedicated IP to Telnyx. The IP stops carrying mail immediately, leaves its pool, and moves to \u0060released\u0060. Telnyx sets \u0060quarantine_until\u0060 to 30 days after release. Release requests that the MRC stop asynchronously. Check \u0060billing\u0060: \u0060stopping\u0060 means the stop is pending, \u0060stopped\u0060 means it completed, and \u0060stop_failed\u0060 means the charge remains. If the charge was never created or its creation has not completed, \u0060billing\u0060 keeps showing the creation status (\u0060not_started\u0060, \u0060pending\u0060, \u0060in_progress\u0060, or \u0060failed\u0060). Any status except \u0060released\u0060 can be released. Releasing the last IP in a pool requires \u0060force=true\u0060 and \u0060drain=true\u0060.",
+        "operationId": "DeleteDedicatedIp",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The dedicated IP identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "description": "Set together with \u0060drain=true\u0060 to release the last IP in a pool. Either flag alone has no effect. Also accepted in the JSON body.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "drain",
+            "in": "query",
+            "description": "Set together with \u0060force=true\u0060 to release the last IP in a pool. Acknowledges that mail routed to the emptied pool is held until the pool has a sendable IP again. Also accepted in the JSON body.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "reason",
+            "in": "query",
+            "description": "Free-text reason recorded with the release. Also accepted in the JSON body.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DedicatedIpDeleteRequest"
+              },
+              "example": {
+                "reason": "No longer needed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Released dedicated IP",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "record_type": "dedicated_ip",
+                    "ip_address": "64.16.239.170",
+                    "ip_version": "ipv4",
+                    "pool_id": null,
+                    "region": "ewr-nj1",
+                    "status": "released",
+                    "warmup": {
+                      "started_at": null,
+                      "progress": 0,
+                      "daily_cap": null,
+                      "paused": false,
+                      "paused_at": null,
+                      "today": null
+                    },
+                    "billing": {
+                      "status": "stopping",
+                      "charged": true
+                    },
+                    "provisioning_status": "not_applicable",
+                    "provisioning": {
+                      "dns_status": "not_applicable",
+                      "ptr_request_state": "confirmed",
+                      "ptr_request_pr_url": null,
+                      "checklist": {
+                        "ptr_requested": true,
+                        "ptr_authored": false,
+                        "ptr_merged": true,
+                        "forward_confirmed": true
+                      }
+                    },
+                    "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                    "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                    "quarantine_until": "2026-11-23T22:00:00.000000Z",
+                    "released_at": "2026-10-24T22:00:00.000000Z",
+                    "suspension_reason": null,
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-24T22:00:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested dedicated IP was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The IP is the last member of its pool and \u0060force\u0060/\u0060drain\u0060 were not both set.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "cannot release the last IP in a pool without force: true and drain: true (in-flight messages need a routable source)"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The IP is already released.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Validation Failed",
+                      "detail": "cannot transition dedicated IP from released to released",
+                      "source": {
+                        "pointer": "/data/attributes/status"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Billing is unavailable; the IP was not released. Retry shortly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10031",
+                      "title": "Service Unavailable",
+                      "detail": "Dedicated IP Billing is unavailable \u2014 the purchase was not allocated; retry shortly"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "Retrieve a dedicated IP",
+        "description": "Retrieve a single dedicated IP by its identifier, including warm-up state, billing state, and the DNS/PTR provisioning checklist.",
+        "operationId": "GetDedicatedIp",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The dedicated IP identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dedicated IP details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "record_type": "dedicated_ip",
+                    "ip_address": "64.16.239.170",
+                    "ip_version": "ipv4",
+                    "pool_id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "region": "ewr-nj1",
+                    "status": "warming_up",
+                    "warmup": {
+                      "started_at": "2026-10-14T20:36:50.000000Z",
+                      "progress": 25,
+                      "daily_cap": 32000,
+                      "paused": false,
+                      "paused_at": null,
+                      "today": {
+                        "day": "2026-10-24",
+                        "cap": 32000,
+                        "granted": 1250,
+                        "remaining": 30750
+                      }
+                    },
+                    "billing": {
+                      "status": "active",
+                      "charged": true
+                    },
+                    "provisioning_status": "dns_confirmed",
+                    "provisioning": {
+                      "dns_status": "dns_confirmed",
+                      "ptr_request_state": "confirmed",
+                      "ptr_request_pr_url": null,
+                      "checklist": {
+                        "ptr_requested": true,
+                        "ptr_authored": false,
+                        "ptr_merged": true,
+                        "forward_confirmed": true
+                      }
+                    },
+                    "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                    "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                    "quarantine_until": null,
+                    "released_at": null,
+                    "suspension_reason": null,
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-24T00:00:12.118402Z"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested dedicated IP was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "Update a dedicated IP",
+        "description": "Move the IP to another pool, or pause/resume its warm-up ramp. One change applies per request. \u0060pool_id\u0060 takes precedence over warm-up changes. Otherwise, use \u0060warmup_paused\u0060 or \u0060warmup.paused\u0060; a Boolean \u0060warmup_paused\u0060 takes precedence. Moving the last IP out of a pool requires \u0060force: true\u0060 and \u0060drain: true\u0060. The PTR hostname is managed by Telnyx: a request that includes \u0060ptr_hostname\u0060 returns \u0060422\u0060 unless \u0060pool_id\u0060 or a warm-up field is present, in which case \u0060ptr_hostname\u0060 is ignored.",
+        "operationId": "UpdateDedicatedIp",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The dedicated IP identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DedicatedIpUpdateRequest"
+              },
+              "example": {
+                "pool_id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                "weight": 100
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated dedicated IP",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "record_type": "dedicated_ip",
+                    "ip_address": "64.16.239.170",
+                    "ip_version": "ipv4",
+                    "pool_id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "region": "ewr-nj1",
+                    "status": "warming_up",
+                    "warmup": {
+                      "started_at": "2026-10-14T20:36:50.000000Z",
+                      "progress": 25,
+                      "daily_cap": 32000,
+                      "paused": false,
+                      "paused_at": null,
+                      "today": {
+                        "day": "2026-10-24",
+                        "cap": 32000,
+                        "granted": 1250,
+                        "remaining": 30750
+                      }
+                    },
+                    "billing": {
+                      "status": "active",
+                      "charged": true
+                    },
+                    "provisioning_status": "dns_confirmed",
+                    "provisioning": {
+                      "dns_status": "dns_confirmed",
+                      "ptr_request_state": "confirmed",
+                      "ptr_request_pr_url": null,
+                      "checklist": {
+                        "ptr_requested": true,
+                        "ptr_authored": false,
+                        "ptr_merged": true,
+                        "forward_confirmed": true
+                      }
+                    },
+                    "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                    "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                    "quarantine_until": null,
+                    "released_at": null,
+                    "suspension_reason": null,
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-24T00:00:12.118402Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The dedicated IP or the target pool was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested ip pool was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The IP is the last member of its current pool and \u0060force\u0060/\u0060drain\u0060 were not both set, or \u0060warmup_paused\u0060 or \u0060warmup.paused\u0060 was sent for an IP that is not \u0060warming_up\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "cannot remove the last IP from a pool without force: true and drain: true (in-flight messages need a routable source)"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed. Pool reassignment rejects invalid weights and released IPs. A request that includes \u0060ptr_hostname\u0060 (any value, including \u0060null\u0060) and neither \u0060pool_id\u0060 nor a warm-up field is rejected because the PTR hostname is managed by Telnyx; the IP is unchanged.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "examples": {
+                  "invalidWeight": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Validation Failed",
+                          "detail": "weight must be a positive integer (got 0)",
+                          "source": {
+                            "pointer": "/data/attributes/weight"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "ptrHostnameManaged": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "10015",
+                          "title": "Validation Failed",
+                          "detail": "ptr_hostname is managed by Telnyx and cannot be changed",
+                          "source": {
+                            "pointer": "/data/attributes/ptr_hostname"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/dedicated_ips/{id}/actions/complete_warmup": {
+      "post": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "Manually complete warmup",
+        "description": "Manually complete the warm-up ramp (\u0060warming_up\u0060 to \u0060active\u0060), bypassing the schedule. Use only for an IP already warmed elsewhere. Completion sets \u0060warmup.progress\u0060 to \u0060100\u0060, clears \u0060warmup.daily_cap\u0060, and applies the ramp-complete allowance to the current UTC day: \u0060warmup.today.cap\u0060 becomes \u0060100000000\u0060, \u0060warmup.today.granted\u0060 keeps the sends already released today, and \u0060warmup.today.remaining\u0060 becomes \u0060cap\u0060 minus \u0060granted\u0060. Once completion applies this allowance, an exhausted stage allowance does not block the next eligible first-attempt send. The response reports these values. On an \u0060active\u0060 IP, \u0060warmup.progress\u0060 and \u0060warmup.daily_cap\u0060 are informational: they can keep earlier values after a suspension is lifted and do not limit sending.",
+        "operationId": "CompleteDedicatedIpWarmup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The dedicated IP identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dedicated IP",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "record_type": "dedicated_ip",
+                    "ip_address": "64.16.239.170",
+                    "ip_version": "ipv4",
+                    "pool_id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "region": "ewr-nj1",
+                    "status": "active",
+                    "warmup": {
+                      "started_at": "2026-10-14T20:36:50.000000Z",
+                      "progress": 100,
+                      "daily_cap": null,
+                      "paused": false,
+                      "paused_at": null,
+                      "today": {
+                        "day": "2026-10-24",
+                        "cap": 100000000,
+                        "granted": 1250,
+                        "remaining": 99998750
+                      }
+                    },
+                    "billing": {
+                      "status": "active",
+                      "charged": true
+                    },
+                    "provisioning_status": "dns_confirmed",
+                    "provisioning": {
+                      "dns_status": "dns_confirmed",
+                      "ptr_request_state": "confirmed",
+                      "ptr_request_pr_url": null,
+                      "checklist": {
+                        "ptr_requested": true,
+                        "ptr_authored": false,
+                        "ptr_merged": true,
+                        "forward_confirmed": true
+                      }
+                    },
+                    "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                    "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                    "quarantine_until": null,
+                    "released_at": null,
+                    "suspension_reason": null,
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-24T21:45:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested dedicated IP was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The IP is suspended by Telnyx; a customer action cannot activate it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "a suspended dedicated IP is operator-held and cannot be activated by customer action (operator suspension: abuse review)"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The IP is not in \u0060warming_up\u0060 status, or it has no PTR hostname.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Validation Failed",
+                      "detail": "complete_warmup requires status warming_up (cannot complete warmup from provisioning)",
+                      "source": {
+                        "pointer": "/data/attributes/status"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/dedicated_ips/{id}/actions/pause_warmup": {
+      "post": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "Pause warmup",
+        "description": "Pause the warm-up ramp at its current stage. While paused, the IP releases no first-attempt sends from hold and the ramp does not advance. Only a \u0060warming_up\u0060 IP can be paused; pausing an already paused IP refreshes \u0060paused_at\u0060.",
+        "operationId": "PauseDedicatedIpWarmup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The dedicated IP identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dedicated IP",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "record_type": "dedicated_ip",
+                    "ip_address": "64.16.239.170",
+                    "ip_version": "ipv4",
+                    "pool_id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "region": "ewr-nj1",
+                    "status": "warming_up",
+                    "warmup": {
+                      "started_at": "2026-10-14T20:36:50.000000Z",
+                      "progress": 25,
+                      "daily_cap": 32000,
+                      "paused": true,
+                      "paused_at": "2026-10-24T21:00:00.000000Z",
+                      "today": {
+                        "day": "2026-10-24",
+                        "cap": 32000,
+                        "granted": 1250,
+                        "remaining": 30750
+                      }
+                    },
+                    "billing": {
+                      "status": "active",
+                      "charged": true
+                    },
+                    "provisioning_status": "dns_confirmed",
+                    "provisioning": {
+                      "dns_status": "dns_confirmed",
+                      "ptr_request_state": "confirmed",
+                      "ptr_request_pr_url": null,
+                      "checklist": {
+                        "ptr_requested": true,
+                        "ptr_authored": false,
+                        "ptr_merged": true,
+                        "forward_confirmed": true
+                      }
+                    },
+                    "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                    "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                    "quarantine_until": null,
+                    "released_at": null,
+                    "suspension_reason": null,
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-24T21:00:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested dedicated IP was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The IP is not in \u0060warming_up\u0060 status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "warmup actions are only available for a dedicated IP in warming_up status (suspended IPs are operator-held and cannot be resumed by customer action)"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/dedicated_ips/{id}/actions/resume_warmup": {
+      "post": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "Resume warmup",
+        "description": "Resume a paused warm-up ramp from its held stage. Only a \u0060warming_up\u0060 IP can be resumed; resuming a ramp that is not paused returns the IP unchanged.",
+        "operationId": "ResumeDedicatedIpWarmup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The dedicated IP identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dedicated IP",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "record_type": "dedicated_ip",
+                    "ip_address": "64.16.239.170",
+                    "ip_version": "ipv4",
+                    "pool_id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "region": "ewr-nj1",
+                    "status": "warming_up",
+                    "warmup": {
+                      "started_at": "2026-10-14T20:36:50.000000Z",
+                      "progress": 25,
+                      "daily_cap": 32000,
+                      "paused": false,
+                      "paused_at": null,
+                      "today": {
+                        "day": "2026-10-24",
+                        "cap": 32000,
+                        "granted": 1250,
+                        "remaining": 30750
+                      }
+                    },
+                    "billing": {
+                      "status": "active",
+                      "charged": true
+                    },
+                    "provisioning_status": "dns_confirmed",
+                    "provisioning": {
+                      "dns_status": "dns_confirmed",
+                      "ptr_request_state": "confirmed",
+                      "ptr_request_pr_url": null,
+                      "checklist": {
+                        "ptr_requested": true,
+                        "ptr_authored": false,
+                        "ptr_merged": true,
+                        "forward_confirmed": true
+                      }
+                    },
+                    "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                    "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                    "quarantine_until": null,
+                    "released_at": null,
+                    "suspension_reason": null,
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-24T21:30:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested dedicated IP was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The IP is not in \u0060warming_up\u0060 status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "warmup actions are only available for a dedicated IP in warming_up status (suspended IPs are operator-held and cannot be resumed by customer action)"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/dedicated_ips/{id}/actions/start_warmup": {
+      "post": {
+        "tags": [
+          "Dedicated IPs"
+        ],
+        "summary": "Start warmup for a dedicated IP",
+        "description": "Start the warm-up ramp (\u0060provisioning\u0060 to \u0060warming_up\u0060). The ramp never starts automatically. Only a \u0060provisioning\u0060 IP can be started; a \u0060suspended\u0060 IP returns \u0060409\u0060. Starting does not check DNS: the IP carries mail only while \u0060dns_confirmed_at\u0060 is set and the IP is in a pool that routes mail.",
+        "operationId": "StartDedicatedIpWarmup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The dedicated IP identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dedicated IP",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DedicatedIpShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "record_type": "dedicated_ip",
+                    "ip_address": "64.16.239.170",
+                    "ip_version": "ipv4",
+                    "pool_id": null,
+                    "region": "ewr-nj1",
+                    "status": "warming_up",
+                    "warmup": {
+                      "started_at": "2026-10-14T20:36:50.000000Z",
+                      "progress": 0,
+                      "daily_cap": null,
+                      "paused": false,
+                      "paused_at": null,
+                      "today": {
+                        "day": "2026-10-14",
+                        "cap": null,
+                        "granted": 0,
+                        "remaining": null
+                      }
+                    },
+                    "billing": {
+                      "status": "active",
+                      "charged": true
+                    },
+                    "provisioning_status": "dns_confirmed",
+                    "provisioning": {
+                      "dns_status": "dns_confirmed",
+                      "ptr_request_state": "confirmed",
+                      "ptr_request_pr_url": null,
+                      "checklist": {
+                        "ptr_requested": true,
+                        "ptr_authored": false,
+                        "ptr_merged": true,
+                        "forward_confirmed": true
+                      }
+                    },
+                    "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                    "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                    "quarantine_until": null,
+                    "released_at": null,
+                    "suspension_reason": null,
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-14T20:36:50.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested dedicated IP was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The IP is suspended by Telnyx; a customer action cannot start its warm-up. Only Telnyx can lift a suspension; you can still release the IP.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "dedicated IP is suspended by an operator \u2014 only an operator can clear the suspension (customer cannot transition to warming_up; release remains available via the release flow)"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The IP is \u0060warming_up\u0060, \u0060active\u0060, or \u0060released\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Validation Failed",
+                      "detail": "cannot transition dedicated IP from warming_up to warming_up",
+                      "source": {
+                        "pointer": "/data/attributes/status"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/ip_pools": {
+      "get": {
+        "tags": [
+          "IP Pools"
+        ],
+        "summary": "List IP pools",
+        "description": "List the account\u0027s dedicated-IP pools. Member IPs are not included (\u0060ips\u0060 is empty); retrieve a pool to see its members.",
+        "operationId": "ListIpPools",
+        "responses": {
+          "200": {
+            "description": "IP pool list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpPoolListResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                      "record_type": "ip_pool",
+                      "name": "primary-pool",
+                      "is_default": true,
+                      "domain_id": null,
+                      "ips": [],
+                      "created_at": "2026-09-30T02:03:09.474123Z",
+                      "updated_at": "2026-09-30T02:03:09.474123Z"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10007",
+                      "title": "Unauthorized",
+                      "detail": "The API key provided is invalid or unauthorized"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "IP Pools"
+        ],
+        "summary": "Create an IP pool",
+        "description": "Create an account-scoped pool of dedicated IPs. Set \u0060is_default\u0060 or \u0060domain_id\u0060 for the pool to carry mail; a pool with neither carries none.",
+        "operationId": "CreateIpPool",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IpPoolCreateRequest"
+              },
+              "example": {
+                "name": "primary-pool",
+                "is_default": true
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created IP pool",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpPoolShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "record_type": "ip_pool",
+                    "name": "primary-pool",
+                    "is_default": true,
+                    "domain_id": null,
+                    "ips": [],
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-09-30T02:03:09.474123Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The referenced email domain was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested email domain was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed: invalid or duplicate \u0060name\u0060, a second default pool, or a \u0060domain_id\u0060 owned by another account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Validation Failed",
+                      "detail": "already has a default pool",
+                      "source": {
+                        "pointer": "/data/attributes/account_id"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/ip_pools/{id}": {
+      "delete": {
+        "tags": [
+          "IP Pools"
+        ],
+        "summary": "Delete an IP pool",
+        "description": "Delete the pool. Member IPs are kept but leave the pool, so they carry no mail until added to another pool. Deleting a pool changes routing for subsequently resolved messages. It does not reroute messages already assigned to the deleted pool. Deleting a pool that still has IPs requires \u0060force=true\u0060 and \u0060drain=true\u0060.",
+        "operationId": "DeleteIpPool",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The IP pool identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "description": "Set together with \u0060drain=true\u0060 to delete a pool that still has IPs. Either flag alone has no effect.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "drain",
+            "in": "query",
+            "description": "Set together with \u0060force=true\u0060 to delete a pool that still has IPs. Acknowledges deletion while the pool still has members; this flag does not reroute already queued messages.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Pool deleted. No response body."
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested ip pool was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The pool still has IPs and \u0060force\u0060/\u0060drain\u0060 were not both set.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "pool still has 2 member IP(s) \u2014 remove them first or pass force: true with drain: true"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "IP Pools"
+        ],
+        "summary": "Retrieve an IP pool",
+        "description": "Retrieve a single IP pool by its identifier, including its dedicated-IP members with billing state.",
+        "operationId": "GetIpPool",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The IP pool identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IP pool details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpPoolShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "record_type": "ip_pool",
+                    "name": "primary-pool",
+                    "is_default": true,
+                    "domain_id": null,
+                    "ips": [
+                      {
+                        "id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                        "record_type": "dedicated_ip",
+                        "ip_address": "64.16.239.170",
+                        "ip_version": "ipv4",
+                        "pool_id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                        "region": "ewr-nj1",
+                        "status": "active",
+                        "warmup": {
+                          "started_at": "2026-09-15T00:00:00.000000Z",
+                          "progress": 100,
+                          "daily_cap": null,
+                          "paused": false,
+                          "paused_at": null,
+                          "today": {
+                            "day": "2026-10-24",
+                            "cap": 100000000,
+                            "granted": 0,
+                            "remaining": 100000000
+                          }
+                        },
+                        "billing": {
+                          "status": "active",
+                          "charged": true
+                        },
+                        "provisioning_status": "dns_confirmed",
+                        "provisioning": {
+                          "dns_status": "dns_confirmed",
+                          "ptr_request_state": "confirmed",
+                          "ptr_request_pr_url": null,
+                          "checklist": {
+                            "ptr_requested": true,
+                            "ptr_authored": false,
+                            "ptr_merged": true,
+                            "forward_confirmed": true
+                          }
+                        },
+                        "ptr_hostname": "mta-64-16-239-170.msgtelnyx.com",
+                        "dns_confirmed_at": "2026-10-14T20:12:41.552310Z",
+                        "quarantine_until": null,
+                        "released_at": null,
+                        "suspension_reason": null,
+                        "created_at": "2026-09-30T02:03:09.474123Z",
+                        "updated_at": "2026-10-20T04:00:03.402117Z",
+                        "weight": 100
+                      }
+                    ],
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-09-30T02:03:09.474123Z"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested ip pool was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "IP Pools"
+        ],
+        "summary": "Update an IP pool",
+        "description": "Rename the pool, set or clear the default flag, or change its domain scope. Routing follows the new settings for subsequent mail.",
+        "operationId": "UpdateIpPool",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The IP pool identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IpPoolUpdateRequest"
+              },
+              "example": {
+                "name": "renamed-pool"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated IP pool",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpPoolShowResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "record_type": "ip_pool",
+                    "name": "renamed-pool",
+                    "is_default": true,
+                    "domain_id": null,
+                    "ips": [],
+                    "created_at": "2026-09-30T02:03:09.474123Z",
+                    "updated_at": "2026-10-14T21:30:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The pool or the referenced email domain was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested ip pool was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed: invalid or duplicate \u0060name\u0060, a second default pool, or a \u0060domain_id\u0060 owned by another account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Validation Failed",
+                      "detail": "must contain only lowercase letters, numbers, dots, underscores and hyphens",
+                      "source": {
+                        "pointer": "/data/attributes/name"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/ip_pools/{id}/ips": {
+      "post": {
+        "tags": [
+          "IP Pools"
+        ],
+        "summary": "Add a dedicated IP to a pool",
+        "description": "Add a dedicated IP to the pool with an optional routing weight. An IP can belong to one pool; to move an IP that is already in a pool, use \u0060PATCH /email/dedicated_ips/{id}\u0060 with \u0060pool_id\u0060.",
+        "operationId": "AddIpToPool",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The IP pool identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IpPoolAddIpRequest"
+              },
+              "example": {
+                "dedicated_ip_id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                "weight": 100
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Pool membership created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PoolMembershipResponse"
+                },
+                "example": {
+                  "data": {
+                    "pool_id": "9b1c4d70-abcd-4e5f-8a9b-0c1d2e3f4a5b",
+                    "dedicated_ip_id": "6a7f9a30-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "weight": 100,
+                    "created_at": "2026-10-14T20:40:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The pool or the dedicated IP was not found in this account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested ip pool was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed: missing \u0060dedicated_ip_id\u0060, invalid \u0060weight\u0060, released IP, or IP already in a pool.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10015",
+                      "title": "Validation Failed",
+                      "detail": "weight must be a positive integer (got 0)",
+                      "source": {
+                        "pointer": "/data/attributes/weight"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/ip_pools/{id}/ips/{ipId}": {
+      "delete": {
+        "tags": [
+          "IP Pools"
+        ],
+        "summary": "Remove a dedicated IP from a pool",
+        "description": "Remove the dedicated IP from the pool. The IP is kept but carries no mail until added to a pool again. Removing the last IP requires \u0060force=true\u0060 and \u0060drain=true\u0060.",
+        "operationId": "RemoveIpFromPool",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The IP pool identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "ipId",
+            "in": "path",
+            "description": "The dedicated IP identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "description": "Set together with \u0060drain=true\u0060 to remove the last IP in the pool. Either flag alone has no effect.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "drain",
+            "in": "query",
+            "description": "Set together with \u0060force=true\u0060 to remove the last IP in the pool. Acknowledges that mail routed to the emptied pool is held until the pool has a sendable IP again.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "IP removed from the pool. No response body."
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The pool or the dedicated IP was not found, or the IP is not in this pool.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10001",
+                      "title": "Not Found",
+                      "detail": "The requested pool membership was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The IP is the pool\u0027s last member and \u0060force\u0060/\u0060drain\u0060 were not both set.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "40901",
+                      "title": "Conflict",
+                      "detail": "cannot remove the last IP from a pool without force: true and drain: true (in-flight messages need a routable source)"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/email_blocks": {
       "get": {
         "tags": [
@@ -64348,6 +66545,551 @@
                   "errors": [
                     {
                       "detail": "A previous update to this outbound voice profile is still in progress. Please try again later."
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pay_connectors": {
+      "get": {
+        "tags": [
+          "Pay Connectors"
+        ],
+        "summary": "List Pay connectors",
+        "description": "List connectors belonging to the authenticated organization, including connectors created by other users in that organization. Set filter[type]=generic to restrict results to the type covered here. Results default to newest created_at first. Use meta.end_cursor as page[after] for the next page, or meta.start_cursor as page[before] for the preceding page. Omit both cursors for the first page; if both are supplied, page[after] takes precedence. Responses omit passwords and tokens.",
+        "operationId": "ListPayConnectors",
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "Number of records per page.",
+            "schema": {
+              "maximum": 249,
+              "minimum": 1,
+              "type": "integer",
+              "default": 25
+            }
+          },
+          {
+            "name": "page[after]",
+            "in": "query",
+            "description": "Opaque cursor from meta.end_cursor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page[before]",
+            "in": "query",
+            "description": "Opaque cursor from meta.start_cursor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Comma-separated created_at or updated_at fields, optionally prefixed with - for descending order.",
+            "schema": {
+              "type": "string",
+              "default": "-created_at",
+              "example": "-created_at"
+            }
+          },
+          {
+            "name": "filter[name]",
+            "in": "query",
+            "description": "Exact match on name.",
+            "schema": {
+              "type": "string",
+              "example": "my-payment-connector"
+            }
+          },
+          {
+            "name": "filter[type]",
+            "in": "query",
+            "description": "Exact match on type.",
+            "schema": {
+              "type": "string",
+              "example": "generic"
+            }
+          },
+          {
+            "name": "filter[mode]",
+            "in": "query",
+            "description": "Exact match on mode.",
+            "schema": {
+              "type": "string",
+              "example": "test"
+            }
+          },
+          {
+            "name": "filter[created_at][eq]",
+            "in": "query",
+            "description": "Equal to this created_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[created_at][gt]",
+            "in": "query",
+            "description": "After this created_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[created_at][gte]",
+            "in": "query",
+            "description": "At or after this created_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[created_at][lt]",
+            "in": "query",
+            "description": "Before this created_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[created_at][lte]",
+            "in": "query",
+            "description": "At or before this created_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[updated_at][eq]",
+            "in": "query",
+            "description": "Equal to this updated_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[updated_at][gt]",
+            "in": "query",
+            "description": "After this updated_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[updated_at][gte]",
+            "in": "query",
+            "description": "At or after this updated_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[updated_at][lt]",
+            "in": "query",
+            "description": "Before this updated_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "filter[updated_at][lte]",
+            "in": "query",
+            "description": "At or before this updated_at timestamp.",
+            "schema": {
+              "type": "string",
+              "example": "2026-10-01T00:00:00Z"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization connectors and cursor metadata.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorListResponse"
+                },
+                "example": {
+                  "data": [],
+                  "meta": {
+                    "page_size": 25,
+                    "start_cursor": null,
+                    "end_cursor": null
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid filter, sort or cursor parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10000",
+                      "title": "Invalid request",
+                      "detail": "Provided cursor is invalid.",
+                      "source": {
+                        "pointer": "/after"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Pay Connectors"
+        ],
+        "summary": "Create a Pay connector",
+        "description": "Create a generic payment connector in the authenticated organization. The name must be unique in that organization. Authentication supplies ownership; do not send user_id or organization_id. Config is encrypted at rest; passwords and tokens are omitted from responses. This operation stores configuration and does not initiate a payment. See the [processor contract](/docs/voice/programmable-voice/pay#request-sent-to-the-payment-processor).",
+        "operationId": "CreatePayConnector",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGenericPayConnectorRequest"
+              },
+              "examples": {
+                "none": {
+                  "summary": "None processor authentication",
+                  "value": {
+                    "name": "my-payment-connector",
+                    "type": "generic",
+                    "mode": "test",
+                    "config": {
+                      "endpoint_url": "https://processor.example.com/pay",
+                      "auth_type": "none"
+                    }
+                  }
+                },
+                "basic": {
+                  "summary": "Basic processor authentication",
+                  "value": {
+                    "name": "my-payment-connector",
+                    "type": "generic",
+                    "mode": "test",
+                    "config": {
+                      "endpoint_url": "https://processor.example.com/pay",
+                      "auth_type": "basic",
+                      "username": "merchant-example",
+                      "password": "\u003Cprocessor-password\u003E"
+                    }
+                  }
+                },
+                "bearer": {
+                  "summary": "Bearer processor authentication",
+                  "value": {
+                    "name": "my-payment-connector",
+                    "type": "generic",
+                    "mode": "test",
+                    "config": {
+                      "endpoint_url": "https://processor.example.com/pay",
+                      "auth_type": "bearer",
+                      "token": "\u003Cprocessor-bearer-token\u003E"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Connector created. Credentials are omitted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "550e8400-e29b-41d4-a716-446655440000",
+                    "record_type": "pay_connector",
+                    "name": "my-payment-connector",
+                    "type": "generic",
+                    "mode": "test",
+                    "user_id": "user-example",
+                    "organization_id": "organization-example",
+                    "config": {
+                      "endpoint_url": "https://processor.example.com/pay",
+                      "auth_type": "bearer"
+                    },
+                    "created_at": "2026-10-01T12:00:00.000000Z",
+                    "updated_at": "2026-10-01T12:00:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields or duplicate name in the organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10000",
+                      "title": "Invalid request",
+                      "detail": "The \u0027config\u0027 parameter is invalid. Please consult the documentation.",
+                      "source": {
+                        "pointer": "/config"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pay_connectors/{name}": {
+      "delete": {
+        "tags": [
+          "Pay Connectors"
+        ],
+        "summary": "Delete a Pay connector",
+        "description": "Delete a connector by name in the authenticated organization. Both test and live connectors can be deleted. Returns no response body on success; a missing name or a connector in another organization returns 404.",
+        "operationId": "DeletePayConnector",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Connector name, not its UUID. URL-encode the name as a path segment.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "my-payment-connector"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Connector deleted. No response body."
+          },
+          "404": {
+            "description": "Connector not found in the organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Resource not found"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Pay Connectors"
+        ],
+        "summary": "Retrieve a Pay connector",
+        "description": "Retrieve a connector by name within the authenticated organization. Password and token are omitted. A missing name or a connector owned by another organization returns 404.",
+        "operationId": "GetPayConnector",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Connector name, not its UUID. URL-encode the name as a path segment.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "my-payment-connector"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Connector details with credentials omitted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "550e8400-e29b-41d4-a716-446655440000",
+                    "record_type": "pay_connector",
+                    "name": "my-payment-connector",
+                    "type": "generic",
+                    "mode": "test",
+                    "user_id": "user-example",
+                    "organization_id": "organization-example",
+                    "config": {
+                      "endpoint_url": "https://processor.example.com/pay",
+                      "auth_type": "bearer"
+                    },
+                    "created_at": "2026-10-01T12:00:00.000000Z",
+                    "updated_at": "2026-10-01T12:00:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Connector not found in the organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Resource not found"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Pay Connectors"
+        ],
+        "summary": "Update a Pay connector",
+        "description": "Update a generic connector by name in the authenticated organization. Both test and live connectors can be updated through the API. Omitted fields remain unchanged. Supplying config replaces the entire config; it does not merge keys. Include endpoint_url and the credentials required for the selected auth_type on every config replacement. Omitting config preserves existing credentials, allowing a mode-only update. The path name cannot be renamed. Public updates use PATCH.",
+        "operationId": "UpdatePayConnector",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Connector name, not its UUID. URL-encode the name as a path segment.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "my-payment-connector"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateGenericPayConnectorRequest"
+              },
+              "examples": {
+                "modeOnly": {
+                  "summary": "Change mode without re-sending credentials",
+                  "value": {
+                    "mode": "live"
+                  }
+                },
+                "replaceConfig": {
+                  "summary": "Replace all config and re-send the bearer token",
+                  "value": {
+                    "config": {
+                      "endpoint_url": "https://processor.example.com/pay",
+                      "auth_type": "bearer",
+                      "token": "\u003Cprocessor-bearer-token\u003E",
+                      "timeout": 15000
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated connector after the modeOnly example, with credentials omitted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "550e8400-e29b-41d4-a716-446655440000",
+                    "record_type": "pay_connector",
+                    "name": "my-payment-connector",
+                    "type": "generic",
+                    "mode": "live",
+                    "user_id": "user-example",
+                    "organization_id": "organization-example",
+                    "config": {
+                      "endpoint_url": "https://processor.example.com/pay",
+                      "auth_type": "bearer"
+                    },
+                    "created_at": "2026-10-01T12:00:00.000000Z",
+                    "updated_at": "2026-10-01T12:00:00.000000Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Connector not found in the organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Resource not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields or duplicate name in the organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayConnectorErrors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10000",
+                      "title": "Invalid request",
+                      "detail": "The \u0027config\u0027 parameter is invalid. Please consult the documentation.",
+                      "source": {
+                        "pointer": "/config"
+                      }
                     }
                   ]
                 }
@@ -104769,7 +107511,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.",
             "default": null,
             "example": "example"
           },
@@ -115489,6 +118231,33 @@
           "dns_record_type": "a"
         }
       },
+      "CreateGenericPayConnectorRequest": {
+        "required": [
+          "name",
+          "config"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Unique within the authenticated organization. Used in resource paths and as connector_name in the Call Control Pay request. Cannot be renamed by update.",
+            "example": "my-payment-connector"
+          },
+          "type": {
+            "$ref": "#/components/schemas/GenericType"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/CreateGenericPayConnectorRequestMode"
+          },
+          "config": {
+            "description": "Configuration for a generic connector. A config update replaces the complete object, not individual keys. Unknown config keys are discarded. Authentication credentials must be nonblank strings when required by the selected auth_type.",
+            "$ref": "#/components/schemas/GenericPayConnectorConfig"
+          }
+        }
+      },
       "CreateGrantResponse": {
         "required": [
           "redirect_uri"
@@ -115646,7 +118415,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls."
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport."
           },
           "sip_subdomain_receive_settings": {
             "$ref": "#/components/schemas/CreateInboundIpRequestSipSubdomainReceiveSettings"
@@ -120051,6 +122820,326 @@
         },
         "additionalProperties": false,
         "description": "Token usage for the completed evaluation."
+      },
+      "DedicatedIp": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "record_type": {
+            "$ref": "#/components/schemas/DedicatedIpRecordType"
+          },
+          "ip_address": {
+            "type": "string",
+            "description": "The allocated IPv4/IPv6 address."
+          },
+          "ip_version": {
+            "$ref": "#/components/schemas/DedicatedIpIpVersion"
+          },
+          "pool_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region label of the allocated IP (for example, \u0060ewr-nj1\u0060)."
+          },
+          "status": {
+            "$ref": "#/components/schemas/DedicatedIpStatus"
+          },
+          "warmup": {
+            "description": "Warmup ramp state for a dedicated IP.",
+            "$ref": "#/components/schemas/DedicatedIpWarmup"
+          },
+          "billing": {
+            "description": "Monthly recurring charge (MRC) state for the IP\u0027s current allocation.",
+            "$ref": "#/components/schemas/DedicatedIpBilling"
+          },
+          "provisioning_status": {
+            "$ref": "#/components/schemas/DedicatedIpProvisioningStatus"
+          },
+          "provisioning": {
+            "description": "Read-only status of the Telnyx-managed PTR record. No customer action is required to complete it.",
+            "$ref": "#/components/schemas/DedicatedIpProvisioning"
+          },
+          "ptr_hostname": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Telnyx-managed reverse DNS (PTR) hostname of the IP, in the form \u0060mta-\u003Ca-b-c-d\u003E.msgtelnyx.com\u0060. Also used as the EHLO hostname when sending from the IP. Managed by Telnyx and cannot be changed through the API."
+          },
+          "dns_confirmed_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the PTR hostname was forward-confirmed (PTR \u2192 hostname \u2192 A record \u2192 this IP). The IP carries mail only while this is set.",
+            "format": "date-time"
+          },
+          "quarantine_until": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Set on release to 30 days after \u0060released_at\u0060. The address is not returned to stock before this time.",
+            "format": "date-time"
+          },
+          "released_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the IP was released. Null until release.",
+            "format": "date-time"
+          },
+          "suspension_reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reason Telnyx recorded when suspending the IP. Null unless \u0060status\u0060 is \u0060suspended\u0060."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": "A dedicated sending IP address owned by the account."
+      },
+      "DedicatedIpBilling": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/DedicatedIpBillingStatus"
+          },
+          "charged": {
+            "type": "boolean",
+            "description": "True when \u0060status\u0060 is \u0060active\u0060, \u0060stopping\u0060, or \u0060stop_failed\u0060. An IP carries mail only after its charge has been created."
+          }
+        },
+        "description": "Monthly recurring charge (MRC) state for the IP\u0027s current allocation."
+      },
+      "DedicatedIpCapacityErrorResponse": {
+        "required": [
+          "errors",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmailError"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/DedicatedIpCapacityMeta"
+          }
+        },
+        "description": "429 envelope with machine-readable capacity or waitlist meta."
+      },
+      "DedicatedIpCapacityMeta": {
+        "required": [
+          "retry_after_seconds"
+        ],
+        "type": "object",
+        "properties": {
+          "capacity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "used": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "remaining": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "retry_after_seconds": {
+            "type": "integer"
+          },
+          "waitlist": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "True when the request was recorded on the waitlist."
+          }
+        }
+      },
+      "DedicatedIpCreateRequest": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "$ref": "#/components/schemas/EwrNj1Region"
+          },
+          "ip_version": {
+            "$ref": "#/components/schemas/Ipv4IpVersion"
+          }
+        },
+        "description": "Optional purchase selectors. Each supplied field restricts which stock IP is allocated; neither field is written to the IP. Omit the body or a field to apply no restriction for it. Other fields are ignored."
+      },
+      "DedicatedIpDeleteRequest": {
+        "type": "object",
+        "properties": {
+          "force": {
+            "type": "boolean",
+            "description": "Set together with \u0060drain: true\u0060 to release the last IP in a pool. Either flag alone has no effect.",
+            "default": false
+          },
+          "drain": {
+            "type": "boolean",
+            "description": "Set together with \u0060force: true\u0060 to release the last IP in a pool. Acknowledges that mail routed to the emptied pool is held until the pool has a sendable IP again.",
+            "default": false
+          },
+          "reason": {
+            "type": "string",
+            "description": "Free-text reason recorded with the release."
+          }
+        },
+        "description": "Optional release options. The same fields are accepted as query parameters."
+      },
+      "DedicatedIpListResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DedicatedIp"
+            }
+          }
+        }
+      },
+      "DedicatedIpProvisioning": {
+        "type": "object",
+        "properties": {
+          "dns_status": {
+            "$ref": "#/components/schemas/DedicatedIpProvisioningDnsStatus"
+          },
+          "ptr_request_state": {
+            "$ref": "#/components/schemas/DedicatedIpProvisioningPtrRequestState"
+          },
+          "ptr_request_pr_url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reference to the Telnyx PTR change request, when one exists. Informational."
+          },
+          "checklist": {
+            "$ref": "#/components/schemas/DedicatedIpProvisioningChecklist"
+          }
+        },
+        "description": "Read-only status of the Telnyx-managed PTR record. No customer action is required to complete it."
+      },
+      "DedicatedIpShowResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "A dedicated sending IP address owned by the account.",
+            "$ref": "#/components/schemas/DedicatedIp"
+          }
+        }
+      },
+      "DedicatedIpUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "pool_id": {
+            "type": "string",
+            "description": "Move the IP to this pool, replacing its current membership. Use the IP\u0027s current pool to change only its weight. To take an IP out of a pool, use \u0060DELETE /email/ip_pools/{id}/ips/{ip_id}\u0060.",
+            "format": "uuid"
+          },
+          "weight": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Routing weight in the target pool. Used only with \u0060pool_id\u0060.",
+            "default": 100
+          },
+          "force": {
+            "type": "boolean",
+            "description": "Set together with \u0060drain: true\u0060 to move the last IP out of its current pool. Used only with \u0060pool_id\u0060.",
+            "default": false
+          },
+          "drain": {
+            "type": "boolean",
+            "description": "Set together with \u0060force: true\u0060 to move the last IP out of its current pool. Acknowledges that mail routed to the emptied pool is held. Used only with \u0060pool_id\u0060.",
+            "default": false
+          },
+          "warmup_paused": {
+            "type": "boolean",
+            "description": "Pause (\u0060true\u0060) or resume (\u0060false\u0060) the warm-up ramp; equivalent to the \u0060pause_warmup\u0060 and \u0060resume_warmup\u0060 actions. A Boolean value takes precedence over \u0060warmup.paused\u0060. When a pause field is present and \u0060pool_id\u0060 is absent, supplying neither pause field as a Boolean invokes resume."
+          },
+          "warmup": {
+            "$ref": "#/components/schemas/DedicatedIpUpdateRequestWarmup"
+          }
+        },
+        "description": "Applies one change per request. \u0060pool_id\u0060 takes precedence over warm-up changes: when it is present, the IP moves to that pool (with \u0060weight\u0060, \u0060force\u0060, and \u0060drain\u0060) and other fields are ignored. Otherwise, use \u0060warmup_paused\u0060 or \u0060warmup.paused\u0060; a Boolean \u0060warmup_paused\u0060 takes precedence. The PTR hostname is managed by Telnyx and cannot be changed: when neither \u0060pool_id\u0060 nor a warm-up field is present, a body that includes \u0060ptr_hostname\u0060 (including \u0060null\u0060) returns \u0060422\u0060 and the IP is unchanged. A body with none of these fields returns the IP unchanged."
+      },
+      "DedicatedIpWarmup": {
+        "type": "object",
+        "properties": {
+          "started_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When \u0060start_warmup\u0060 was called. Null before warm-up starts and after release.",
+            "format": "date-time"
+          },
+          "progress": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Ramp progress (0-100): the share of the 28 send-day schedule completed. Only UTC days on which the IP sent mail count. Set to 100 when the ramp completes, automatically or through \u0060complete_warmup\u0060. On an \u0060active\u0060 IP this value is informational and can keep an earlier value after a suspension is lifted."
+          },
+          "daily_cap": {
+            "minimum": 1,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Daily cap of the current ramp stage. Null until the scheduler arms the first stage, and cleared when the ramp completes, automatically or through \u0060complete_warmup\u0060. On an \u0060active\u0060 IP this value is informational and can keep an earlier stage cap after a suspension is lifted; it does not limit sending."
+          },
+          "paused": {
+            "type": "boolean",
+            "description": "True while the ramp is paused."
+          },
+          "paused_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the ramp was paused. Null when not paused.",
+            "format": "date-time"
+          },
+          "today": {
+            "$ref": "#/components/schemas/DedicatedIpWarmupToday"
+          }
+        },
+        "description": "Warmup ramp state for a dedicated IP."
       },
       "DeepgramEnglishTranscriptionLanguage": {
         "enum": [
@@ -127420,6 +130509,21 @@
           "description": "The street address provided is invalid."
         }
       },
+      "ErrorEnvelope": {
+        "required": [
+          "errors"
+        ],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorEnvelopeErrorsItem"
+            }
+          }
+        },
+        "description": "Telnyx v2 error envelope."
+      },
       "ErrorFrame": {
         "type": "object",
         "properties": {
@@ -131252,6 +134356,54 @@
           }
         }
       },
+      "GenericPayConnectorConfig": {
+        "required": [
+          "endpoint_url"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault"
+          },
+          {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigBearerAuthentication"
+          },
+          {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigNoProcessorAuthentication"
+          }
+        ],
+        "properties": {
+          "endpoint_url": {
+            "pattern": "^https?://\\S\u002B",
+            "type": "string",
+            "description": "HTTP or HTTPS processor URL with a host. Use HTTPS to protect payment data in transit.",
+            "example": "https://processor.example.com/pay"
+          },
+          "auth_type": {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigAuthType"
+          },
+          "username": {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigUsername"
+          },
+          "password": {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigPassword"
+          },
+          "token": {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigToken"
+          },
+          "timeout": {
+            "maximum": 4294967295,
+            "minimum": 1,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Processor HTTP timeout in milliseconds. Omitted or null uses 10000; null is removed before storage. Not the IVR digit-gather timeout.",
+            "default": 10000
+          }
+        },
+        "description": "Configuration for a generic connector. A config update replaces the complete object, not individual keys. Unknown config keys are discarded. Authentication credentials must be nonblank strings when required by the selected auth_type."
+      },
       "GetInsightTemplateGroupsRespData": {
         "title": "GetInsightTemplateGroupsRespData",
         "required": [
@@ -132886,7 +136038,7 @@
               "null",
               "string"
             ],
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.",
             "default": null
           },
           "sip_subdomain_receive_settings": {
@@ -133008,7 +136160,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls."
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport."
           },
           "sip_subdomain_receive_settings": {
             "$ref": "#/components/schemas/InboundIpSipSubdomainReceiveSettings"
@@ -135814,6 +138966,236 @@
           "bridge_generate_comfort_noise_on_cn": false
         }
       },
+      "IpPool": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "record_type": {
+            "$ref": "#/components/schemas/IpPoolRecordType"
+          },
+          "name": {
+            "type": "string",
+            "description": "Pool name, unique within the account."
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "Whether this is the account\u0027s default pool. The default pool carries mail for sending domains that have no domain-scoped pool. At most one per account."
+          },
+          "domain_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Email domain this pool is scoped to. The pool carries that domain\u0027s mail. Null when the pool is not domain-scoped.",
+            "format": "uuid"
+          },
+          "ips": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IpPoolMemberIp"
+            },
+            "description": "Member IPs with their routing weights. Populated by Retrieve an IP pool; list, create, and update responses return an empty array."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": "An account-scoped pool of dedicated IPs. Mail uses a pool only when the pool is scoped to the sending domain (\u0060domain_id\u0060) or is the account default (\u0060is_default\u0060)."
+      },
+      "IpPoolAddIpRequest": {
+        "required": [
+          "dedicated_ip_id"
+        ],
+        "type": "object",
+        "properties": {
+          "dedicated_ip_id": {
+            "type": "string",
+            "description": "The dedicated IP to add. It must belong to the account, must not be released, and must not already be in a pool.",
+            "format": "uuid"
+          },
+          "weight": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Relative routing weight for this IP in the pool. Positive integer; defaults to 100."
+          }
+        }
+      },
+      "IpPoolCreateRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Pool name: 1-64 characters of lowercase letters, digits, \u0060.\u0060, \u0060_\u0060, and \u0060-\u0060, starting and ending with a letter or digit. Must be unique within the account and must not start with \u0060dip_\u0060."
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "Make this the account\u0027s default pool, which carries mail for sending domains without a domain-scoped pool. An account can have one default pool. Defaults to \u0060false\u0060."
+          },
+          "domain_id": {
+            "type": "string",
+            "description": "Scope the pool to one of the account\u0027s email domains; the pool then carries that domain\u0027s mail. Scope at most one pool to each domain.",
+            "format": "uuid"
+          }
+        }
+      },
+      "IpPoolListResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IpPool"
+            }
+          }
+        }
+      },
+      "IpPoolMemberIp": {
+        "type": "object",
+        "properties": {
+          "weight": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Relative routing weight of this IP within the pool."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "record_type": {
+            "$ref": "#/components/schemas/DedicatedIpRecordType"
+          },
+          "ip_address": {
+            "type": "string",
+            "description": "The allocated IPv4/IPv6 address."
+          },
+          "ip_version": {
+            "$ref": "#/components/schemas/DedicatedIpIpVersion"
+          },
+          "pool_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region label of the allocated IP (for example, \u0060ewr-nj1\u0060)."
+          },
+          "status": {
+            "$ref": "#/components/schemas/DedicatedIpStatus"
+          },
+          "warmup": {
+            "description": "Warmup ramp state for a dedicated IP.",
+            "$ref": "#/components/schemas/DedicatedIpWarmup"
+          },
+          "billing": {
+            "description": "Monthly recurring charge (MRC) state for the IP\u0027s current allocation.",
+            "$ref": "#/components/schemas/DedicatedIpBilling"
+          },
+          "provisioning_status": {
+            "$ref": "#/components/schemas/DedicatedIpProvisioningStatus"
+          },
+          "provisioning": {
+            "description": "Read-only status of the Telnyx-managed PTR record. No customer action is required to complete it.",
+            "$ref": "#/components/schemas/DedicatedIpProvisioning"
+          },
+          "ptr_hostname": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Telnyx-managed reverse DNS (PTR) hostname of the IP, in the form \u0060mta-\u003Ca-b-c-d\u003E.msgtelnyx.com\u0060. Also used as the EHLO hostname when sending from the IP. Managed by Telnyx and cannot be changed through the API."
+          },
+          "dns_confirmed_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the PTR hostname was forward-confirmed (PTR \u2192 hostname \u2192 A record \u2192 this IP). The IP carries mail only while this is set.",
+            "format": "date-time"
+          },
+          "quarantine_until": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Set on release to 30 days after \u0060released_at\u0060. The address is not returned to stock before this time.",
+            "format": "date-time"
+          },
+          "released_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the IP was released. Null until release.",
+            "format": "date-time"
+          },
+          "suspension_reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reason Telnyx recorded when suspending the IP. Null unless \u0060status\u0060 is \u0060suspended\u0060."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": "A dedicated IP as a member of a pool, with its routing weight in this pool. Weight is a positive integer (default 100)."
+      },
+      "IpPoolShowResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "An account-scoped pool of dedicated IPs. Mail uses a pool only when the pool is scoped to the sending domain (\u0060domain_id\u0060) or is the account default (\u0060is_default\u0060).",
+            "$ref": "#/components/schemas/IpPool"
+          }
+        }
+      },
+      "IpPoolUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Pool name: 1-64 characters of lowercase letters, digits, \u0060.\u0060, \u0060_\u0060, and \u0060-\u0060, starting and ending with a letter or digit. Must be unique within the account and must not start with \u0060dip_\u0060."
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "Set or clear the account default flag. An account can have one default pool."
+          },
+          "domain_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Scope the pool to one of the account\u0027s email domains, or \u0060null\u0060 to remove the scope.",
+            "format": "uuid"
+          }
+        }
+      },
       "JwkSet": {
         "type": "object",
         "properties": {
@@ -136530,6 +139912,25 @@
         "items": {
           "$ref": "#/components/schemas/McpServer"
         }
+      },
+      "Mm7Metadata": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "mm7_webhook_url": {
+            "type": "string",
+            "description": "Webhook URL to receive inbound MM7 traffic",
+            "format": "url"
+          },
+          "mm7_failover_webhook_url": {
+            "type": "string",
+            "description": "Failover webhook URL to receive inbound MM7 traffic",
+            "format": "url"
+          }
+        },
+        "description": "MM7 settings for inbound messages"
       },
       "MmsFallback": {
         "type": "object",
@@ -145733,6 +149134,86 @@
           }
         }
       },
+      "PayConnector": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Connector identifier.",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Connector name used for retrieval, update, deletion and Pay."
+          },
+          "record_type": {
+            "$ref": "#/components/schemas/PayConnectorRecordType"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Creating user; assigned from authentication, not request input."
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "Owning organization; assigned from authentication, not request input."
+          },
+          "type": {
+            "type": "string",
+            "description": "Connector type; generic is covered by this reference. Other types may appear in unfiltered lists."
+          },
+          "mode": {
+            "$ref": "#/components/schemas/PayConnectorMode"
+          },
+          "config": {
+            "$ref": "#/components/schemas/PayConnectorConfig"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Creation time.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Last update time.",
+            "format": "date-time"
+          }
+        },
+        "description": "Organization-owned connector. Examples and config properties here describe generic connectors; listing is not restricted to that type unless filter[type]=generic is supplied. Passwords and bearer tokens are omitted, not masked. Defaults for auth_type and timeout need not appear in stored config."
+      },
+      "PayConnectorErrors": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayConnectorErrorsErrorsItem"
+            }
+          }
+        }
+      },
+      "PayConnectorListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayConnector"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PayConnectorListResponseMeta"
+          }
+        }
+      },
+      "PayConnectorResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "Organization-owned connector. Examples and config properties here describe generic connectors; listing is not restricted to that type unless filter[type]=generic is supplied. Passwords and bearer tokens are omitted, not masked. Defaults for auth_type and timeout need not appear in stored config.",
+            "$ref": "#/components/schemas/PayConnector"
+          }
+        }
+      },
       "PayPrompt": {
         "title": "Pay Prompt",
         "required": [
@@ -147818,6 +151299,17 @@
           "stop": "all",
           "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
+        }
+      },
+      "PoolMembershipResponse": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/PoolMembershipResponseData"
+          }
         }
       },
       "PortOutSupportingDocument": {
@@ -175794,6 +179286,22 @@
           "dns_record_type": "a"
         }
       },
+      "UpdateGenericPayConnectorRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/GenericType"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/UpdateGenericPayConnectorRequestMode"
+          },
+          "config": {
+            "description": "Configuration for a generic connector. A config update replaces the complete object, not individual keys. Unknown config keys are discarded. Authentication credentials must be nonblank strings when required by the selected auth_type.",
+            "$ref": "#/components/schemas/GenericPayConnectorConfig"
+          }
+        },
+        "description": "Only type, mode and config are updated; the connector name is selected by the path. Omit config to preserve existing configuration and credentials. If supplied, send the entire replacement config including required credentials."
+      },
       "UpdateInboundMessageRequest": {
         "required": [
           "read_at"
@@ -182919,7 +186427,7 @@
         "properties": {
           "app_id": {
             "type": "string",
-            "description": "Meta App ID linked to the Telnyx account. The app must be enabled.",
+            "description": "Meta App ID linked to the Telnyx account or its manager account. The app must be enabled.",
             "example": "123456789012345"
           },
           "expires_at": {
@@ -185749,7 +189257,7 @@
               {
                 "channels": "dual",
                 "download_urls": {
-                  "mp3": "https://storage.telnyx.com/recordings/06069104-45f7-5d17-9fa7-34cfeb4534fa/2026-10-15/9f4eec6d-19a9-503f.mp3"
+                  "mp3": "https://us-central-1.telnyxcloudstorage.com/recordings/06069104-45f7-5d17-9fa7-34cfeb4534fa/2026-10-15/9f4eec6d-19a9-503f.mp3"
                 },
                 "end_time": "2026-10-15T20:34:52.395814Z",
                 "format": "mp3",
@@ -188725,6 +192233,9 @@
             "description": "The URL shortener feature allows automatic replacement of URLs that were generated using\na public URL shortener service. Some examples include bit.do, bit.ly, goo.gl, ht.ly,\nis.gd, ow.ly, rebrand.ly, t.co, tiny.cc, and tinyurl.com. Such URLs are replaced with\nwith links generated by Telnyx. The use of custom links can improve branding and message\ndeliverability.\n\nTo disable this feature, set the object field to \u0060null\u0060.\n",
             "$ref": "#/components/schemas/UrlShortenerSettings"
           },
+          "mm7_metadata": {
+            "$ref": "#/components/schemas/Mm7Metadata"
+          },
           "alpha_sender": {
             "pattern": "^[A-Za-z0-9 ]{1,11}$",
             "type": [
@@ -188810,6 +192321,10 @@
             "prefix": "",
             "replace_blacklist_only": true,
             "send_webhooks": false
+          },
+          "mm7_metadata": {
+            "mm7_webhook_url": "https://www.example.com/hooks",
+            "mm7_failover_webhook_url": "https://backup.example.com/hooks"
           },
           "whitelisted_destinations": [
             "US"
@@ -189063,6 +192578,9 @@
             "description": "The URL shortener feature allows automatic replacement of URLs that were generated using\na public URL shortener service. Some examples include bit.do, bit.ly, goo.gl, ht.ly,\nis.gd, ow.ly, rebrand.ly, t.co, tiny.cc, and tinyurl.com. Such URLs are replaced with\nwith links generated by Telnyx. The use of custom links can improve branding and message\ndeliverability.\n\nTo disable this feature, set the object field to \u0060null\u0060.\n",
             "$ref": "#/components/schemas/UrlShortenerSettings"
           },
+          "mm7_metadata": {
+            "$ref": "#/components/schemas/Mm7Metadata"
+          },
           "alpha_sender": {
             "pattern": "^[A-Za-z0-9 ]{1,11}$",
             "type": [
@@ -189149,6 +192667,10 @@
             "prefix": "cmpny",
             "replace_blacklist_only": true,
             "send_webhooks": false
+          },
+          "mm7_metadata": {
+            "mm7_webhook_url": "https://www.example.com/hooks",
+            "mm7_failover_webhook_url": "https://backup.example.com/hooks"
           },
           "v1_secret": "rP1VamejkU2v0qIUxntqLW2c",
           "health_webhook_url": null,
@@ -189520,6 +193042,9 @@
             "description": "The URL shortener feature allows automatic replacement of URLs that were generated using\na public URL shortener service. Some examples include bit.do, bit.ly, goo.gl, ht.ly,\nis.gd, ow.ly, rebrand.ly, t.co, tiny.cc, and tinyurl.com. Such URLs are replaced with\nwith links generated by Telnyx. The use of custom links can improve branding and message\ndeliverability.\n\nTo disable this feature, set the object field to \u0060null\u0060.\n",
             "$ref": "#/components/schemas/UrlShortenerSettings"
           },
+          "mm7_metadata": {
+            "$ref": "#/components/schemas/Mm7Metadata"
+          },
           "alpha_sender": {
             "pattern": "^[A-Za-z0-9 ]{1,11}$",
             "type": [
@@ -189601,6 +193126,10 @@
             "prefix": "cmpny",
             "replace_blacklist_only": true,
             "send_webhooks": false
+          },
+          "mm7_metadata": {
+            "mm7_webhook_url": "https://www.example.com/hooks",
+            "mm7_failover_webhook_url": "https://backup.example.com/hooks"
           },
           "v1_secret": "rP1VamejkU2v0qIUxntqLW2c"
         }
@@ -198959,6 +202488,62 @@
           }
         }
       },
+      "GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault": {
+        "title": "Basic authentication (also the validation default)",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "auth_type": {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefaultAuthType"
+          },
+          "username": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Basic username."
+          },
+          "password": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Basic password."
+          }
+        }
+      },
+      "GenericPayConnectorConfigBearerAuthentication": {
+        "title": "Bearer authentication",
+        "required": [
+          "auth_type",
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "auth_type": {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigBearerAuthenticationAuthType"
+          },
+          "token": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Processor bearer token."
+          }
+        }
+      },
+      "GenericPayConnectorConfigNoProcessorAuthentication": {
+        "title": "No processor authentication",
+        "required": [
+          "auth_type"
+        ],
+        "type": "object",
+        "properties": {
+          "auth_type": {
+            "$ref": "#/components/schemas/GenericPayConnectorConfigNoProcessorAuthenticationAuthType"
+          }
+        }
+      },
       "GlobalIpGlobalIp": {
         "title": "Global IP",
         "type": "object",
@@ -206484,7 +210069,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.",
             "default": null,
             "example": "example"
           },
@@ -206707,7 +210292,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.",
             "default": null,
             "example": "example"
           },
@@ -206880,6 +210465,66 @@
           "type": "string"
         },
         "description": "Criterion descriptions keyed by stringified zero-based indices, such as \u00220\u0022, \u00221\u0022, and \u00222\u0022."
+      },
+      "DedicatedIpProvisioningChecklist": {
+        "type": "object",
+        "properties": {
+          "ptr_requested": {
+            "type": "boolean"
+          },
+          "ptr_authored": {
+            "type": "boolean"
+          },
+          "ptr_merged": {
+            "type": "boolean"
+          },
+          "forward_confirmed": {
+            "type": "boolean"
+          }
+        },
+        "description": "Informational progress flags for the Telnyx-managed PTR. They do not gate \u0060start_warmup\u0060; use \u0060dns_status\u0060 to check whether the IP can carry mail."
+      },
+      "DedicatedIpUpdateRequestWarmup": {
+        "type": "object",
+        "properties": {
+          "paused": {
+            "type": "boolean",
+            "description": "Pause (\u0060true\u0060) or resume (\u0060false\u0060) the warm-up ramp. Used only when \u0060warmup_paused\u0060 is not a Boolean."
+          }
+        },
+        "description": "Alias for \u0060warmup_paused\u0060."
+      },
+      "DedicatedIpWarmupToday": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "day": {
+            "type": "string",
+            "description": "The UTC day this snapshot describes (warmup caps reset at UTC midnight).",
+            "format": "date"
+          },
+          "cap": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The day\u0027s allowance cap. Null when the ramp has not opened yet (day 0: the scheduler has not armed a stage cap) \u2014 distinct from a spent day, which reports the cap with remaining 0. \u0060active\u0060 IPs report \u0060100000000\u0060, the ramp-complete cap; \u0060complete_warmup\u0060 applies it to the current day immediately. A day\u0027s allowance created before the IP became \u0060active\u0060 can keep its stored \u0060cap\u0060 and \u0060remaining\u0060 until the next first-attempt send refreshes them."
+          },
+          "granted": {
+            "type": "integer",
+            "description": "First-attempt sends released from warmup hold so far today. Delivery retries never lease allowance and are not counted."
+          },
+          "remaining": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Headroom left today. A queued send held by the daily cap is explained by remaining == 0; null mirrors cap (ramp not open yet). On an \u0060active\u0060 IP whose \u0060cap\u0060 is below \u0060100000000\u0060, remaining == 0 is a stored allowance and does not block the next eligible first-attempt send."
+          }
+        },
+        "description": "Today\u0027s warmup allowance report card (current UTC day). Null outside the warmup window (before start_warmup, after release/suspension). \u0060active\u0060 IPs report the ramp-complete allowance, except as described for \u0060cap\u0060."
       },
       "DeepgramNova2ConfigKeywordsBoosting": {
         "type": "object",
@@ -207351,6 +210996,23 @@
       "ErrorMetaProperty": {
         "type": "object"
       },
+      "ErrorEnvelopeErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ErrorEnvelopeErrorsItemSource"
+          }
+        }
+      },
       "ErrorItemMeta": {
         "required": [
           "request_id"
@@ -207642,7 +211304,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.",
             "default": null,
             "example": "example"
           },
@@ -210102,6 +213764,74 @@
         },
         "description": "Info about the conference that the participant is in"
       },
+      "PayConnectorConfig": {
+        "type": "object",
+        "properties": {
+          "endpoint_url": {
+            "pattern": "^https?://\\S\u002B",
+            "type": "string",
+            "description": "HTTP or HTTPS processor URL with a host. Use HTTPS to protect payment data in transit.",
+            "example": "https://processor.example.com/pay"
+          },
+          "auth_type": {
+            "$ref": "#/components/schemas/PayConnectorConfigAuthType"
+          },
+          "username": {
+            "$ref": "#/components/schemas/PayConnectorConfigUsername"
+          },
+          "timeout": {
+            "maximum": 4294967295,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Stored processor HTTP timeout in milliseconds. Omitted when no timeout was configured; the effective runtime default is 10000."
+          }
+        },
+        "description": "Redacted stored configuration. Generic connector fields are shown here. Unknown config keys are discarded. Password and token are never returned."
+      },
+      "PayConnectorErrorsErrorsItem": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Telnyx error code."
+          },
+          "title": {
+            "type": "string",
+            "description": "Error title."
+          },
+          "detail": {
+            "type": "string",
+            "description": "Error detail."
+          },
+          "source": {
+            "$ref": "#/components/schemas/PayConnectorErrorsErrorsItemSource"
+          }
+        }
+      },
+      "PayConnectorListResponseMeta": {
+        "type": "object",
+        "properties": {
+          "page_size": {
+            "type": "integer",
+            "description": "Page size."
+          },
+          "start_cursor": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Cursor for requesting the preceding page."
+          },
+          "end_cursor": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Cursor for requesting the following page."
+          }
+        },
+        "description": "Cursor pagination metadata. No total_count, page_count or page_number is returned."
+      },
       "PayRequestMetadata": {
         "type": "object",
         "description": "Metadata forwarded to the Pay connector.",
@@ -210170,6 +213900,27 @@
       "PlanStepDataMetadata": {
         "title": "Metadata",
         "type": "object"
+      },
+      "PoolMembershipResponseData": {
+        "type": "object",
+        "properties": {
+          "pool_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "dedicated_ip_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "weight": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
       },
       "PortingAssociatedPhoneNumberPhoneNumberRange": {
         "type": "object",
@@ -211984,7 +215735,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.",
             "default": null,
             "example": "example"
           },
@@ -212629,7 +216380,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.",
             "default": null,
             "example": "example"
           },
@@ -212758,7 +216509,7 @@
           },
           "sip_subdomain": {
             "type": "string",
-            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \u0022example.sip.telnyx.com\u0022 can be called from any SIP endpoint by using the SIP URI \u0022sip:@example.sip.telnyx.com\u0022 where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.",
             "default": null,
             "example": "example"
           },
@@ -217299,6 +221050,17 @@
       "EmailDomainReputationBreakdown": {
         "type": "object"
       },
+      "ErrorEnvelopeErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          },
+          "parameter": {
+            "type": "string"
+          }
+        }
+      },
       "EvaluatorScenarioTestProfileDataInformation": {
         "type": [
           "null",
@@ -218390,6 +222152,15 @@
             "type": "string",
             "description": "The ISO 4217 currency identifier.",
             "x-format": "iso4217"
+          }
+        }
+      },
+      "PayConnectorErrorsErrorsItemSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string",
+            "description": "Invalid field pointer."
           }
         }
       },
@@ -232034,6 +235805,20 @@
       "GenericErrorMetaProperty": {
         "type": "object"
       },
+      "GenericPayConnectorConfigUsername": {
+        "type": "object",
+        "description": "Nonblank string required for basic authentication. Returned in connector responses."
+      },
+      "GenericPayConnectorConfigPassword": {
+        "type": "object",
+        "description": "Nonblank string required for basic authentication. Write-only; omitted from responses. Re-send when replacing a basic-auth config.",
+        "writeOnly": true
+      },
+      "GenericPayConnectorConfigToken": {
+        "type": "object",
+        "description": "Nonblank string required for bearer authentication. Write-only; omitted from responses. Re-send when replacing a bearer-auth config.",
+        "writeOnly": true
+      },
       "GlobalIpPorts": {
         "type": "object",
         "description": "A Global IP ports grouped by protocol code."
@@ -232904,6 +236689,57 @@
         },
         "description": "Map keyed by original email address. Present only when the batch is completed."
       },
+      "GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefaultAuthType": {
+        "const": null,
+        "enum": [
+          "basic"
+        ],
+        "type": "object",
+        "x-ms-enum": {
+          "name": "GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefaultAuthType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "basic",
+              "name": "Basic"
+            }
+          ]
+        }
+      },
+      "GenericPayConnectorConfigBearerAuthenticationAuthType": {
+        "const": null,
+        "enum": [
+          "bearer"
+        ],
+        "type": "object",
+        "x-ms-enum": {
+          "name": "GenericPayConnectorConfigBearerAuthenticationAuthType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "bearer",
+              "name": "Bearer"
+            }
+          ]
+        }
+      },
+      "GenericPayConnectorConfigNoProcessorAuthenticationAuthType": {
+        "const": null,
+        "enum": [
+          "none"
+        ],
+        "type": "object",
+        "x-ms-enum": {
+          "name": "GenericPayConnectorConfigNoProcessorAuthenticationAuthType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            }
+          ]
+        }
+      },
       "GlobalIpGlobalIpPortsProperty": {
         "type": "object",
         "description": "A Global IP ports grouped by protocol code."
@@ -233107,6 +236943,10 @@
       },
       "ImproveScenariosProgressResultUpdatedScenariosItemProperty": {
         "type": "object"
+      },
+      "PayConnectorConfigUsername": {
+        "type": "object",
+        "description": "Stored username, when supplied. Required to be a nonblank string for basic authentication."
       },
       "PortingOrderRequirementDetailRequirementTypeAcceptanceCriteriaProperty": {
         "type": "object",
@@ -239905,6 +243745,47 @@
           ]
         }
       },
+      "GenericType": {
+        "enum": [
+          "generic"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Connector type covered by this reference.",
+        "x-ms-enum": {
+          "name": "GenericType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "generic",
+              "name": "Generic"
+            }
+          ]
+        }
+      },
+      "CreateGenericPayConnectorRequestMode": {
+        "enum": [
+          "test",
+          "live"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Defaults to test on creation. Test restricts collected card numbers but still contacts the configured processor; use a processor sandbox URL and sandbox credentials. Live removes the test-card restriction. Neither mode locks API updates.",
+        "x-ms-enum": {
+          "name": "CreateGenericPayConnectorRequestMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "test",
+              "name": "Test"
+            },
+            {
+              "value": "live",
+              "name": "Live"
+            }
+          ]
+        }
+      },
       "CreateInboundIpRequestAniNumberFormat": {
         "enum": [
           "\u002BE.164",
@@ -241261,6 +245142,295 @@
             {
               "value": "score",
               "name": "Score"
+            }
+          ]
+        }
+      },
+      "DedicatedIpRecordType": {
+        "enum": [
+          "dedicated_ip"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DedicatedIpRecordType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "dedicated_ip",
+              "name": "DedicatedIp"
+            }
+          ]
+        }
+      },
+      "DedicatedIpIpVersion": {
+        "enum": [
+          "ipv4",
+          "ipv6"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DedicatedIpIpVersion",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ipv4",
+              "name": "Ipv4"
+            },
+            {
+              "value": "ipv6",
+              "name": "Ipv6"
+            }
+          ]
+        }
+      },
+      "DedicatedIpStatus": {
+        "enum": [
+          "provisioning",
+          "warming_up",
+          "active",
+          "suspended",
+          "released"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Lifecycle status. \u0060provisioning\u0060: purchased and billed, carries no mail until \u0060start_warmup\u0060. \u0060warming_up\u0060: warm-up ramp in progress. \u0060active\u0060: ramp complete. \u0060suspended\u0060: suspended by Telnyx; carries no mail and is still billed. \u0060released\u0060: returned to Telnyx; carries no mail.",
+        "x-ms-enum": {
+          "name": "DedicatedIpStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "provisioning",
+              "name": "Provisioning"
+            },
+            {
+              "value": "warming_up",
+              "name": "WarmingUp"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "suspended",
+              "name": "Suspended"
+            },
+            {
+              "value": "released",
+              "name": "Released"
+            }
+          ]
+        }
+      },
+      "DedicatedIpProvisioningStatus": {
+        "enum": [
+          "not_applicable",
+          "pending_ptr",
+          "pending_dns",
+          "dns_confirmed",
+          "dns_lost"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Same value as \u0060provisioning.dns_status\u0060.",
+        "x-ms-enum": {
+          "name": "DedicatedIpProvisioningStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "not_applicable",
+              "name": "NotApplicable"
+            },
+            {
+              "value": "pending_ptr",
+              "name": "PendingPtr"
+            },
+            {
+              "value": "pending_dns",
+              "name": "PendingDns"
+            },
+            {
+              "value": "dns_confirmed",
+              "name": "DnsConfirmed"
+            },
+            {
+              "value": "dns_lost",
+              "name": "DnsLost"
+            }
+          ]
+        }
+      },
+      "DedicatedIpBillingStatus": {
+        "enum": [
+          "not_started",
+          "pending",
+          "in_progress",
+          "active",
+          "stopping",
+          "stopped",
+          "stop_failed",
+          "failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0060not_started\u0060: no charge recorded for the current allocation. \u0060pending\u0060: the charge is queued. \u0060in_progress\u0060: the charge is being created. \u0060active\u0060: the MRC is active. \u0060stopping\u0060: release requested; the MRC stop is being processed. \u0060stopped\u0060: the MRC has stopped. \u0060stop_failed\u0060: the MRC stop failed and the charge remains. \u0060failed\u0060: the charge could not be created.",
+        "x-ms-enum": {
+          "name": "DedicatedIpBillingStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "not_started",
+              "name": "NotStarted"
+            },
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "in_progress",
+              "name": "InProgress"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "stopping",
+              "name": "Stopping"
+            },
+            {
+              "value": "stopped",
+              "name": "Stopped"
+            },
+            {
+              "value": "stop_failed",
+              "name": "StopFailed"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "EwrNj1Region": {
+        "enum": [
+          "ewr-nj1"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Allocate an IP in this region. Supported value: \u0060ewr-nj1\u0060. Any other value, including an empty string or \u0060null\u0060, returns \u0060422\u0060.",
+        "x-ms-enum": {
+          "name": "EwrNj1Region",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ewr-nj1",
+              "name": "EwrNj1"
+            }
+          ]
+        }
+      },
+      "Ipv4IpVersion": {
+        "enum": [
+          "ipv4"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Allocate an IP of this address family. Supported value: \u0060ipv4\u0060. Any other value, including \u0060ipv6\u0060 or \u0060null\u0060, returns \u0060422\u0060.",
+        "x-ms-enum": {
+          "name": "Ipv4IpVersion",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ipv4",
+              "name": "Ipv4"
+            }
+          ]
+        }
+      },
+      "DedicatedIpProvisioningDnsStatus": {
+        "enum": [
+          "not_applicable",
+          "pending_ptr",
+          "pending_dns",
+          "dns_confirmed",
+          "dns_lost"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0060dns_confirmed\u0060: the PTR is forward-confirmed and \u0060dns_confirmed_at\u0060 is set. \u0060pending_ptr\u0060: the PTR record is not yet in place. \u0060pending_dns\u0060: the PTR record is waiting for forward confirmation. \u0060dns_lost\u0060: a previously confirmed PTR no longer confirms, or the PTR request was abandoned before it ever confirmed (\u0060ptr_request_state\u0060 is \u0060abandoned\u0060); the IP carries no mail until DNS is confirmed. \u0060not_applicable\u0060: the IP is released or has no PTR record on file.",
+        "x-ms-enum": {
+          "name": "DedicatedIpProvisioningDnsStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "not_applicable",
+              "name": "NotApplicable"
+            },
+            {
+              "value": "pending_ptr",
+              "name": "PendingPtr"
+            },
+            {
+              "value": "pending_dns",
+              "name": "PendingDns"
+            },
+            {
+              "value": "dns_confirmed",
+              "name": "DnsConfirmed"
+            },
+            {
+              "value": "dns_lost",
+              "name": "DnsLost"
+            }
+          ]
+        }
+      },
+      "DedicatedIpProvisioningPtrRequestState": {
+        "enum": [
+          "pending",
+          "pr_open",
+          "merged",
+          "confirmed",
+          "failed",
+          "abandoned",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "State of the Telnyx PTR change: \u0060pending\u0060, \u0060pr_open\u0060, \u0060merged\u0060, \u0060confirmed\u0060, \u0060failed\u0060, or \u0060abandoned\u0060. Informational.",
+        "x-ms-enum": {
+          "name": "DedicatedIpProvisioningPtrRequestState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "pr_open",
+              "name": "PrOpen"
+            },
+            {
+              "value": "merged",
+              "name": "Merged"
+            },
+            {
+              "value": "confirmed",
+              "name": "Confirmed"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "abandoned",
+              "name": "Abandoned"
             }
           ]
         }
@@ -245216,6 +249386,34 @@
           ]
         }
       },
+      "GenericPayConnectorConfigAuthType": {
+        "enum": [
+          "none",
+          "basic",
+          "bearer"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Processor authentication, separate from the Telnyx API key. If omitted, validation requires basic credentials but no Basic Authorization header is added. Explicitly set basic or bearer to send its corresponding Authorization header, or none for no processor authentication.",
+        "x-ms-enum": {
+          "name": "GenericPayConnectorConfigAuthType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "basic",
+              "name": "Basic"
+            },
+            {
+              "value": "bearer",
+              "name": "Bearer"
+            }
+          ]
+        }
+      },
       "GuardrailEventStage": {
         "enum": [
           "prompt",
@@ -246943,6 +251141,23 @@
             {
               "value": "2",
               "name": "Value2"
+            }
+          ]
+        }
+      },
+      "IpPoolRecordType": {
+        "enum": [
+          "ip_pool"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IpPoolRecordType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ip_pool",
+              "name": "IpPool"
             }
           ]
         }
@@ -250506,6 +254721,47 @@
             {
               "value": "completed",
               "name": "Completed"
+            }
+          ]
+        }
+      },
+      "PayConnectorRecordType": {
+        "enum": [
+          "pay_connector"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Resource type.",
+        "x-ms-enum": {
+          "name": "PayConnectorRecordType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pay_connector",
+              "name": "PayConnector"
+            }
+          ]
+        }
+      },
+      "PayConnectorMode": {
+        "enum": [
+          "test",
+          "live"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Configured mode.",
+        "x-ms-enum": {
+          "name": "PayConnectorMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "test",
+              "name": "Test"
+            },
+            {
+              "value": "live",
+              "name": "Live"
             }
           ]
         }
@@ -260478,6 +264734,29 @@
           ]
         }
       },
+      "UpdateGenericPayConnectorRequestMode": {
+        "enum": [
+          "test",
+          "live"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Omit to preserve the existing mode. Use an explicit test or live value.",
+        "x-ms-enum": {
+          "name": "UpdateGenericPayConnectorRequestMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "test",
+              "name": "Test"
+            },
+            {
+              "value": "live",
+              "name": "Live"
+            }
+          ]
+        }
+      },
       "UpdateIpConnectionRequestTransportProtocol": {
         "enum": [
           "UDP",
@@ -269266,6 +273545,34 @@
           ]
         }
       },
+      "PayConnectorConfigAuthType": {
+        "enum": [
+          "none",
+          "basic",
+          "bearer"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Stored processor authentication selection. Omitted if it was not explicitly configured.",
+        "x-ms-enum": {
+          "name": "PayConnectorConfigAuthType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "basic",
+              "name": "Basic"
+            },
+            {
+              "value": "bearer",
+              "name": "Bearer"
+            }
+          ]
+        }
+      },
       "ImagePngContentType": {
         "enum": [
           "image/png"
@@ -275646,6 +279953,43 @@
             {
               "value": "rejected",
               "name": "Rejected"
+            }
+          ]
+        }
+      },
+      "ListDedicatedIpsFilterStatusParameter": {
+        "enum": [
+          "provisioning",
+          "warming_up",
+          "active",
+          "suspended",
+          "released"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListDedicatedIpsFilterStatusParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "provisioning",
+              "name": "Provisioning"
+            },
+            {
+              "value": "warming_up",
+              "name": "WarmingUp"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "suspended",
+              "name": "Suspended"
+            },
+            {
+              "value": "released",
+              "name": "Released"
             }
           ]
         }
@@ -289705,6 +294049,11 @@
         "scheme": "bearer",
         "bearerFormat": "JWT"
       },
+      "pay-connectors_bearerAuth": {
+        "type": "http",
+        "description": "Telnyx API key, not the processor bearer token.",
+        "scheme": "bearer"
+      },
       "pronunciation-dicts_bearerAuth": {
         "type": "http",
         "description": "Telnyx API v2 key. Obtain from https://portal.telnyx.com",
@@ -289928,6 +294277,10 @@
       "description": "Beta API for evaluating shared context with typed questions and structured answers using Flash or Pro."
     },
     {
+      "name": "Dedicated IPs",
+      "description": "Purchase and manage dedicated sending IP addresses for your Telnyx email traffic."
+    },
+    {
       "name": "Detail Records",
       "description": "Detail Records operations"
     },
@@ -290050,6 +294403,10 @@
     {
       "name": "IP Connections",
       "description": "IP connection operations"
+    },
+    {
+      "name": "IP Pools",
+      "description": "Group dedicated IPs into pools for sending."
     },
     {
       "name": "IP Ranges",
@@ -290194,6 +294551,10 @@
     {
       "name": "Outbound Voice Profiles",
       "description": "Outbound voice profiles operations"
+    },
+    {
+      "name": "Pay Connectors",
+      "description": "Generic payment connector configuration."
     },
     {
       "name": "Phone Number Batches",
@@ -292394,7 +296755,7 @@
                       {
                         "channels": "dual",
                         "download_urls": {
-                          "mp3": "https://storage.telnyx.com/recordings/06069104-45f7-5d17-9fa7-34cfeb4534fa/2026-10-15/9f4eec6d-19a9-503f.mp3"
+                          "mp3": "https://us-central-1.telnyxcloudstorage.com/recordings/06069104-45f7-5d17-9fa7-34cfeb4534fa/2026-10-15/9f4eec6d-19a9-503f.mp3"
                         },
                         "end_time": "2026-10-15T20:34:52.395814Z",
                         "format": "mp3",

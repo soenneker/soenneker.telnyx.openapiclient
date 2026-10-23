@@ -46,6 +46,7 @@ using Soenneker.Telnyx.OpenApiClient.Document_links;
 using Soenneker.Telnyx.OpenApiClient.Documents;
 using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses;
 using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints;
+using Soenneker.Telnyx.OpenApiClient.Email;
 using Soenneker.Telnyx.OpenApiClient.Email_blocks;
 using Soenneker.Telnyx.OpenApiClient.Email_domains;
 using Soenneker.Telnyx.OpenApiClient.Email_events;
@@ -125,6 +126,7 @@ using Soenneker.Telnyx.OpenApiClient.Operator_connect;
 using Soenneker.Telnyx.OpenApiClient.Organizations;
 using Soenneker.Telnyx.OpenApiClient.Ota_updates;
 using Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles;
+using Soenneker.Telnyx.OpenApiClient.Pay_connectors;
 using Soenneker.Telnyx.OpenApiClient.Payment;
 using Soenneker.Telnyx.OpenApiClient.Phone_number_blocks;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers;
@@ -414,6 +416,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder Dynamic_emergency_endpoints
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The email property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Email.EmailRequestBuilder Email
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Email.EmailRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The email_blocks property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Email_blocks.Email_blocksRequestBuilder Email_blocks
@@ -809,6 +816,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesRequestBuilder Outbound_voice_profiles
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pay_connectors property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Pay_connectors.Pay_connectorsRequestBuilder Pay_connectors
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Pay_connectors.Pay_connectorsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The payment property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Payment.PaymentRequestBuilder Payment
