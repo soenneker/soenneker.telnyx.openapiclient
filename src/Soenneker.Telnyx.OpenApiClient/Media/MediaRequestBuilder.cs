@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Media
     public partial class MediaRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.media.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Uniquely identifies a media resource.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Media.Item.WithMediaNameItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Media.Item.WithMediaNameItemRequestBuilder this[string position]
         {

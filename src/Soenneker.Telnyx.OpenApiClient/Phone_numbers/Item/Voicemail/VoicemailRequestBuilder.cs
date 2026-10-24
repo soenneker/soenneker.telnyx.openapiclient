@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
 {
     /// <summary>
-    /// Builds and executes requests for operations under \phone_numbers\{-id}\voicemail
+    /// Builds and executes requests for operations under \phone_numbers\{id}\voicemail
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoicemailRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VoicemailRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{%2Did}/voicemail", pathParameters)
+        public VoicemailRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{id}/voicemail", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VoicemailRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{%2Did}/voicemail", rawUrl)
+        public VoicemailRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{id}/voicemail", rawUrl)
         {
         }
         /// <summary>

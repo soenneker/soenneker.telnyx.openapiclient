@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The include_observation property</summary>
         public bool? IncludeObservation { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScrollActionType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScrollType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScrollAction"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "delta_y", n => { DeltaY = n.GetIntValue(); } },
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "include_observation", n => { IncludeObservation = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScrollActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScrollType>(); } },
             };
         }
         /// <summary>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("delta_y", DeltaY);
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteBoolValue("include_observation", IncludeObservation);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScrollActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScrollType>("type", Type);
         }
     }
 }

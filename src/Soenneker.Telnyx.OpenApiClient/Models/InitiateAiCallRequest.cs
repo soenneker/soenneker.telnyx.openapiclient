@@ -236,6 +236,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             MachineDetectionSpeechThreshold = 3500;
             MachineDetectionTimeout = 30000;
             RecordingTimeout = 0;
+            SendRecordingUrl = true;
             StatusCallbackEvent = "completed";
             TimeLimit = 14400;
             Timeout = 30;

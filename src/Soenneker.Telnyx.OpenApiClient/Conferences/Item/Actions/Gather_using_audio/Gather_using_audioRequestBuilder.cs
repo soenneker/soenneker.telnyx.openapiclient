@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Gather_using_audio
 {
     /// <summary>
-    /// Builds and executes requests for operations under \conferences\{conference-id}\actions\gather_using_audio
+    /// Builds and executes requests for operations under \conferences\{conferenceId}\actions\gather_using_audio
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Gather_using_audioRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Gather_using_a
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Gather_using_audioRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference%2Did}/actions/gather_using_audio", pathParameters)
+        public Gather_using_audioRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conferenceId}/actions/gather_using_audio", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Gather_using_a
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Gather_using_audioRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference%2Did}/actions/gather_using_audio", rawUrl)
+        public Gather_using_audioRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conferenceId}/actions/gather_using_audio", rawUrl)
         {
         }
         /// <summary>

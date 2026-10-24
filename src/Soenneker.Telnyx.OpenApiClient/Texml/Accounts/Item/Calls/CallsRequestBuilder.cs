@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
     public partial class CallsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Calls.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The CallSid that identifies the call to update.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCallSItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCallSItemRequestBuilder this[string position]
         {

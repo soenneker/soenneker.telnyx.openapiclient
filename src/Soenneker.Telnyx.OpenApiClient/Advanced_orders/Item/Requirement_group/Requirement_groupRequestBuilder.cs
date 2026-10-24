@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group
 {
     /// <summary>
-    /// Builds and executes requests for operations under \advanced_orders\{advancedOrder-id}\requirement_group
+    /// Builds and executes requests for operations under \advanced_orders\{advancedOrderId}\requirement_group
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Requirement_groupRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Requirement_groupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/advanced_orders/{advancedOrder%2Did}/requirement_group", pathParameters)
+        public Requirement_groupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/advanced_orders/{advancedOrderId}/requirement_group", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Requirement_groupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/advanced_orders/{advancedOrder%2Did}/requirement_group", rawUrl)
+        public Requirement_groupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/advanced_orders/{advancedOrderId}/requirement_group", rawUrl)
         {
         }
         /// <summary>

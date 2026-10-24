@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInputBranch1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmailAddressInput : IComposedTypeWrapper, IParsable
@@ -21,13 +21,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress EmailAddress { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInputBranch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInputBranch1? EmailAddressInputBranch1 { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInputBranch1 EmailAddressInputBranch1 { get; set; }
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -43,9 +43,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.EmailAddress = new global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress();
             }
-            else if("EmailAddressInputBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetStringValue() is string stringValue)
             {
-                result.EmailAddressInputBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInputBranch1();
+                result.String = stringValue;
             }
             return result;
         }
@@ -58,10 +58,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(EmailAddress != null)
             {
                 return EmailAddress.GetFieldDeserializers();
-            }
-            else if(EmailAddressInputBranch1 != null)
-            {
-                return EmailAddressInputBranch1.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -76,9 +72,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddress>(null, EmailAddress);
             }
-            else if(EmailAddressInputBranch1 != null)
+            else if(String != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInputBranch1>(null, EmailAddressInputBranch1);
+                writer.WriteStringValue(null, String);
             }
         }
     }

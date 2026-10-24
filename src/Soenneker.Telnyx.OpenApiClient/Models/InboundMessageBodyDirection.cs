@@ -12,9 +12,5 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Inbound,
         #pragma warning restore CS1591
-        [EnumMember(Value = "outbound")]
-        #pragma warning disable CS1591
-        Outbound,
-        #pragma warning restore CS1591
     }
 }

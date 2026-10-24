@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.Fqdn_authentication
 {
     /// <summary>
-    /// Builds and executes requests for operations under \fqdn_connections\{fqdnConnection-id}\fqdn_authentication
+    /// Builds and executes requests for operations under \fqdn_connections\{fqdnConnectionId}\fqdn_authentication
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Fqdn_authenticationRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.Fqdn_authenticati
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Fqdn_authenticationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fqdn_connections/{fqdnConnection%2Did}/fqdn_authentication", pathParameters)
+        public Fqdn_authenticationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fqdn_connections/{fqdnConnectionId}/fqdn_authentication", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.Fqdn_authenticati
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Fqdn_authenticationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fqdn_connections/{fqdnConnection%2Did}/fqdn_authentication", rawUrl)
+        public Fqdn_authenticationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fqdn_connections/{fqdnConnectionId}/fqdn_authentication", rawUrl)
         {
         }
         /// <summary>

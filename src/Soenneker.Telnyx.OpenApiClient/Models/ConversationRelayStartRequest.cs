@@ -120,6 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequestStructuredProvider StructuredProvider { get; set; }
 #endif
         /// <summary>Not supported for Conversation Relay start requests. Use `transcription_engine` and `transcription_engine_config` instead.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequestTranscriptionProperty? Transcription { get; set; }
@@ -178,6 +179,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             ConversationRelayDtmfDetection = false;
             DtmfDetection = false;
             Language = "en";
+            Voice = "Telnyx.KokoroTTS.af";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The timeout_ms property</summary>
         public int? TimeoutMs { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WaitForType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WaitForAction"/> and sets the default values.
         /// </summary>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "include_observation", n => { IncludeObservation = n.GetBoolValue(); } },
                 { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForType>(); } },
             };
         }
         /// <summary>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteBoolValue("include_observation", IncludeObservation);
             writer.WriteIntValue("timeout_ms", TimeoutMs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForType>("type", Type);
         }
     }
 }

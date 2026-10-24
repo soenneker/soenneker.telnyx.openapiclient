@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks
 {
     /// <summary>
-    /// Builds and executes requests for operations under \email_domains\{domain-id}\webhooks
+    /// Builds and executes requests for operations under \email_domains\{domainId}\webhooks
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhooksRequestBuilder : BaseRequestBuilder
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WebhooksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_domains/{domain%2Did}/webhooks{?page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public WebhooksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_domains/{domainId}/webhooks{?page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Webhooks
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WebhooksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_domains/{domain%2Did}/webhooks{?page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public WebhooksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_domains/{domainId}/webhooks{?page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
         {
         }
         /// <summary>

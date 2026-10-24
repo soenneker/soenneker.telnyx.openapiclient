@@ -8,35 +8,17 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2"/>
+    /// Composed type wrapper for classes <see cref="bool"/>, <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtOneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateInboundMessageRequestReadAt : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2? UpdateInboundMessageRequestReadAtBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2 UpdateInboundMessageRequestReadAtBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper? UpdateInboundMessageRequestReadAtWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper UpdateInboundMessageRequestReadAtWrapper { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2? UpdateInboundMessageRequestReadAtWrapper2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2 UpdateInboundMessageRequestReadAtWrapper2 { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="bool"/></summary>
+        public bool? Boolean { get; set; }
+        /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
+        public DateTimeOffset? DateTimeOffset { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtOneOf3"/></summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtOneOf3? UpdateInboundMessageRequestReadAtOneOf3 { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,17 +29,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAt();
-            if("UpdateInboundMessageRequestReadAtBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtOneOf3>() is global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtOneOf3 updateInboundMessageRequestReadAtOneOf3Value)
             {
-                result.UpdateInboundMessageRequestReadAtBranch2 = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2();
+                result.UpdateInboundMessageRequestReadAtOneOf3 = updateInboundMessageRequestReadAtOneOf3Value;
             }
-            else if("UpdateInboundMessageRequestReadAtWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetBoolValue() is bool booleanValue)
             {
-                result.UpdateInboundMessageRequestReadAtWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper();
+                result.Boolean = booleanValue;
             }
-            else if("UpdateInboundMessageRequestReadAtWrapper2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
             {
-                result.UpdateInboundMessageRequestReadAtWrapper2 = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2();
+                result.DateTimeOffset = dateTimeOffsetValue;
             }
             return result;
         }
@@ -67,18 +49,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(UpdateInboundMessageRequestReadAtBranch2 != null)
-            {
-                return UpdateInboundMessageRequestReadAtBranch2.GetFieldDeserializers();
-            }
-            else if(UpdateInboundMessageRequestReadAtWrapper != null)
-            {
-                return UpdateInboundMessageRequestReadAtWrapper.GetFieldDeserializers();
-            }
-            else if(UpdateInboundMessageRequestReadAtWrapper2 != null)
-            {
-                return UpdateInboundMessageRequestReadAtWrapper2.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -88,17 +58,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(UpdateInboundMessageRequestReadAtBranch2 != null)
+            if(UpdateInboundMessageRequestReadAtOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtBranch2>(null, UpdateInboundMessageRequestReadAtBranch2);
+                writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtOneOf3>(null, UpdateInboundMessageRequestReadAtOneOf3);
             }
-            else if(UpdateInboundMessageRequestReadAtWrapper != null)
+            else if(Boolean != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper>(null, UpdateInboundMessageRequestReadAtWrapper);
+                writer.WriteBoolValue(null, Boolean);
             }
-            else if(UpdateInboundMessageRequestReadAtWrapper2 != null)
+            else if(DateTimeOffset != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtWrapper2>(null, UpdateInboundMessageRequestReadAtWrapper2);
+                writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
             }
         }
     }

@@ -37,8 +37,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
-        /// <summary>Avatar provider. The first release supports Telnyx avatars.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider? Provider { get; set; }
+        /// <summary>Avatar provider identifier.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarProvider? Provider { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "avatar_id", n => { AvatarId = n.GetStringValue(); } },
                 { "background_id", n => { BackgroundId = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarProvider>(); } },
             };
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("avatar_id", AvatarId);
             writer.WriteStringValue("background_id", BackgroundId);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarProvider>("provider", Provider);
         }
     }
 }

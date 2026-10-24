@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_lookup
     public partial class Number_lookupRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.number_lookup.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The phone number to be looked up</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhoneNumberItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {

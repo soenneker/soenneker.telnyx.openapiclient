@@ -45,17 +45,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudio CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudio();
-            if("InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("predefined_media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1 = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1();
             }
-            else if("InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("media_url".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2();
             }
-            else if("InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("media_name".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3 = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3();
             }

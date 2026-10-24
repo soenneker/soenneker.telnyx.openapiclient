@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.email_domains.item collection</summary>
         /// <param name="position">Email domain UUID</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.DomainItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.DomainItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.WithDomainItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.WithDomainItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("domain%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.DomainItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("domainId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Email_domains.Item.WithDomainItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

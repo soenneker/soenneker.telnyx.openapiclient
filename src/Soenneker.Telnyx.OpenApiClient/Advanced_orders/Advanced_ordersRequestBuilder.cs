@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.advanced_orders.item collection</summary>
         /// <param name="position">Unique identifier of the order.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.AdvancedOrderItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.AdvancedOrderItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.WithAdvancedOrderItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.WithAdvancedOrderItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("advancedOrder%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.AdvancedOrderItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("advancedOrderId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.WithAdvancedOrderItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

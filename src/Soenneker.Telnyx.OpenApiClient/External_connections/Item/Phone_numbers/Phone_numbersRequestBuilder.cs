@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers
     public partial class Phone_numbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.phone_numbers.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">A phone number&apos;s ID via the Telnyx API</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {

@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The kind property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf2Kind? Kind { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RefValueKind? Kind { get; set; }
         /// <summary>The observation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf2Kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RefValueKind>(); } },
                 { "observation_id", n => { ObservationId = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
             };
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf2Kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RefValueKind>("kind", Kind);
             writer.WriteStringValue("observation_id", ObservationId);
             writer.WriteStringValue("ref", Ref);
         }

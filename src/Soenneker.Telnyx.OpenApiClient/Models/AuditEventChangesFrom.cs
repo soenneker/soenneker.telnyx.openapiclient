@@ -8,43 +8,11 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch3"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch5"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember2"/>
+    /// Composed type wrapper for classes <see cref="bool"/>, <see cref="double"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember3"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuditEventChangesFrom : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch1? AuditEventChangesFromBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch1 AuditEventChangesFromBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch2? AuditEventChangesFromBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch2 AuditEventChangesFromBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch3"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch3? AuditEventChangesFromBranch3 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch3 AuditEventChangesFromBranch3 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch5"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch5? AuditEventChangesFromBranch5 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch5 AuditEventChangesFromBranch5 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,6 +29,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember2 AuditEventChangesFromMember2 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember3? AuditEventChangesFromMember3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember3 AuditEventChangesFromMember3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="bool"/></summary>
+        public bool? Boolean { get; set; }
+        /// <summary>Composed type representation for type <see cref="double"/></summary>
+        public double? Double { get; set; }
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? String { get; set; }
+#nullable restore
+#else
+        public string String { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -70,12 +58,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFrom();
-            result.AuditEventChangesFromBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch1();
-            result.AuditEventChangesFromBranch2 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch2();
-            result.AuditEventChangesFromBranch3 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch3();
-            result.AuditEventChangesFromBranch5 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch5();
-            result.AuditEventChangesFromMember1 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember1();
-            result.AuditEventChangesFromMember2 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember2();
+            if(parseNode.GetBoolValue() is bool booleanValue)
+            {
+                result.Boolean = booleanValue;
+            }
+            else if(parseNode.GetDoubleValue() is double doubleValue)
+            {
+                result.Double = doubleValue;
+            }
+            else if(parseNode.GetStringValue() is string stringValue)
+            {
+                result.String = stringValue;
+            }
+            else {
+                result.AuditEventChangesFromMember1 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember1();
+                result.AuditEventChangesFromMember2 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember2();
+                result.AuditEventChangesFromMember3 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember3();
+            }
             return result;
         }
         /// <summary>
@@ -84,9 +83,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AuditEventChangesFromBranch1 != null || AuditEventChangesFromBranch2 != null || AuditEventChangesFromBranch3 != null || AuditEventChangesFromBranch5 != null || AuditEventChangesFromMember1 != null || AuditEventChangesFromMember2 != null)
+            if(AuditEventChangesFromMember1 != null || AuditEventChangesFromMember2 != null || AuditEventChangesFromMember3 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AuditEventChangesFromBranch1, AuditEventChangesFromBranch2, AuditEventChangesFromBranch3, AuditEventChangesFromBranch5, AuditEventChangesFromMember1, AuditEventChangesFromMember2);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AuditEventChangesFromMember1, AuditEventChangesFromMember2, AuditEventChangesFromMember3);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -97,7 +96,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromBranch1>(null, AuditEventChangesFromBranch1, AuditEventChangesFromBranch2, AuditEventChangesFromBranch3, AuditEventChangesFromBranch5, AuditEventChangesFromMember1, AuditEventChangesFromMember2);
+            if(Boolean != null)
+            {
+                writer.WriteBoolValue(null, Boolean);
+            }
+            else if(Double != null)
+            {
+                writer.WriteDoubleValue(null, Double);
+            }
+            else if(String != null)
+            {
+                writer.WriteStringValue(null, String);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChangesFromMember1>(null, AuditEventChangesFromMember1, AuditEventChangesFromMember2, AuditEventChangesFromMember3);
+            }
         }
     }
 }

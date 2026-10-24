@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \phone_numbers\{-id}\actions
+    /// Builds and executes requests for operations under \phone_numbers\{id}\actions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionsRequestBuilder : BaseRequestBuilder
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{%2Did}/actions", pathParameters)
+        public ActionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{id}/actions", pathParameters)
         {
         }
         /// <summary>
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{%2Did}/actions", rawUrl)
+        public ActionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{id}/actions", rawUrl)
         {
         }
     }

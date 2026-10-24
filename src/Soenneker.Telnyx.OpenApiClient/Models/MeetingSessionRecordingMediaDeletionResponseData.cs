@@ -22,8 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MeetingSessionId { get; set; }
 #endif
-        /// <summary>Avatar provider. The first release supports Telnyx avatars.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider? Provider { get; set; }
+        /// <summary>The provider property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataProvider? Provider { get; set; }
         /// <summary>The scope property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope? Scope { get; set; }
         /// <summary>
@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "deletion_status", n => { DeletionStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataDeletionStatus>(); } },
                 { "meeting_session_id", n => { MeetingSessionId = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataProvider>(); } },
                 { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope>(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataDeletionStatus>("deletion_status", DeletionStatus);
             writer.WriteStringValue("meeting_session_id", MeetingSessionId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataProvider>("provider", Provider);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope>("scope", Scope);
         }
     }

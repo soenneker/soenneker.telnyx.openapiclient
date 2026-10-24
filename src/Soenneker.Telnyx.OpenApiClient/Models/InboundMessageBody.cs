@@ -137,13 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Creation/send-acceptance time for outbound messages; null for inbound messages.</summary>
         public DateTimeOffset? SentAt { get; set; }
         /// <summary>Received for inbound messages; the current send status for outbound messages.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReceivedStatus? Status { get; set; }
         /// <summary>The subject property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -219,7 +213,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "reply_text", n => { ReplyText = n.GetStringValue(); } },
                 { "reply_to", n => { ReplyTo = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReceivedStatus>(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text_body_url", n => { TextBodyUrl = n.GetStringValue(); } },
                 { "thread_id", n => { ThreadId = n.GetGuidValue(); } },
@@ -256,7 +250,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("reply_text", ReplyText);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("reply_to", ReplyTo);
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
-            writer.WriteStringValue("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReceivedStatus>("status", Status);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text_body_url", TextBodyUrl);
             writer.WriteGuidValue("thread_id", ThreadId);

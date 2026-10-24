@@ -91,8 +91,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings Transcription { get; set; }
 #endif
-        /// <summary>Node kind discriminator. `prompt` is an LLM-driven step.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PromptType? Type { get; set; }
+        /// <summary>Node kind discriminator. `prompt` (default) is an LLM-driven step; `tool` is a standalone tool execution and `speak` a scripted message (see `ToolNodeReq` / `SpeakNodeReq`).</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReqType? Type { get; set; }
         /// <summary>The voice_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "shared_tool_ids", n => { SharedToolIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tools_mode", n => { ToolsMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReqToolsMode>(); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReqType>(); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -159,7 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("shared_tool_ids", SharedToolIds);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReqToolsMode>("tools_mode", ToolsMode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>("transcription", Transcription);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReqType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }

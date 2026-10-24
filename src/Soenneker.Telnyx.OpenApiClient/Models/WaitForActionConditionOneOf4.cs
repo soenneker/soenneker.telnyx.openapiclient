@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The kind property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf4Kind? Kind { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DomStableKind? Kind { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf4Kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DomStableKind>(); } },
             };
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf4Kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DomStableKind>("kind", Kind);
         }
     }
 }

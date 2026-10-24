@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Actions.Reply
 {
     /// <summary>
-    /// Builds and executes requests for operations under \email_inboxes\{-id}\messages\{messageId}\actions\reply
+    /// Builds and executes requests for operations under \email_inboxes\{id}\messages\{messageId}\actions\reply
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReplyRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Action
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReplyRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages/{messageId}/actions/reply", pathParameters)
+        public ReplyRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{id}/messages/{messageId}/actions/reply", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Action
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReplyRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages/{messageId}/actions/reply", rawUrl)
+        public ReplyRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{id}/messages/{messageId}/actions/reply", rawUrl)
         {
         }
         /// <summary>

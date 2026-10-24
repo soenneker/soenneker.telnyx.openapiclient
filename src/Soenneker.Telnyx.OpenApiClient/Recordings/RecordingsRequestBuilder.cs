@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
             get => new global::Soenneker.Telnyx.OpenApiClient.Recordings.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.recordings.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Uniquely identifies the recording by id.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Recordings.Item.WithRecordingItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Recordings.Item.WithRecordingItemRequestBuilder this[string position]
         {

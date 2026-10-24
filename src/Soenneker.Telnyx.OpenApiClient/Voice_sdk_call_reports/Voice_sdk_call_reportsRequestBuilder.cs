@@ -19,9 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports
     public partial class Voice_sdk_call_reportsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.voice_sdk_call_reports.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Call identifier used to retrieve reports owned by the authenticated user.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCallItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCallItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item.WithCallItemRequestBuilder this[Guid position]
         {
             get
             {

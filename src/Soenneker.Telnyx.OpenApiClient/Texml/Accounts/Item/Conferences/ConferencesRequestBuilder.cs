@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
     public partial class ConferencesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Conferences.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ConferenceSid that uniquely identifies a conference.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.WithConferenceSItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.WithConferenceSItemRequestBuilder this[string position]
         {

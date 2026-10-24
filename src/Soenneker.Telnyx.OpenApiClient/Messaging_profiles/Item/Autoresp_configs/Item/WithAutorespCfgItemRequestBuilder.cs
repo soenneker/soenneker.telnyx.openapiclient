@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \messaging_profiles\{-id}\autoresp_configs\{autorespCfgId}
+    /// Builds and executes requests for operations under \messaging_profiles\{id}\autoresp_configs\{autorespCfgId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithAutorespCfgItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAutorespCfgItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/autoresp_configs/{autorespCfgId}", pathParameters)
+        public WithAutorespCfgItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{id}/autoresp_configs/{autorespCfgId}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAutorespCfgItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/autoresp_configs/{autorespCfgId}", rawUrl)
+        public WithAutorespCfgItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{id}/autoresp_configs/{autorespCfgId}", rawUrl)
         {
         }
         /// <summary>

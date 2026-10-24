@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CreatedAt { get; private set; }
 #endif
         /// <summary>Global IP ID.</summary>
-        public Guid? GlobalIpId { get; set; }
+        public Guid? GlobalIpId { get; private set; }
         /// <summary>Identifies the resource.</summary>
         public Guid? Id { get; private set; }
         /// <summary>Status of BGP announcement.</summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>Wireguard peer ID.</summary>
-        public Guid? WireguardPeerId { get; set; }
+        public Guid? WireguardPeerId { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUpdate"/> and sets the default values.
         /// </summary>
@@ -96,9 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("global_ip_id", GlobalIpId);
             writer.WriteBoolValue("is_in_maintenance", IsInMaintenance);
-            writer.WriteGuidValue("wireguard_peer_id", WireguardPeerId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

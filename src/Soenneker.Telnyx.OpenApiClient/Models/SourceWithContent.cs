@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>What was stored, in the shape it was sent: an ingested JSON body as JSON, a string body or a remembered fact as a string. A session ingested before formats were recorded is returned as the text it was stored as.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContent? Content { get; set; }
+        public UntypedNode? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContent Content { get; set; }
+        public UntypedNode Content { get; set; }
 #endif
         /// <summary>When the source was first stored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContent>(global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContent.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "memory_count", n => { MemoryCount = n.GetIntValue(); } },
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContent>("content", Content);
+            writer.WriteObjectValue<UntypedNode>("content", Content);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("memory_count", MemoryCount);

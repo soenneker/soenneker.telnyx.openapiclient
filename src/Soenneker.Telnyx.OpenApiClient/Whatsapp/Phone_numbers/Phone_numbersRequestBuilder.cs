@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers
     public partial class Phone_numbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.whatsapp.phone_numbers.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.ItemRequestBuilder this[string position]
+        /// <param name="position">Phone number (E.164 format)</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Phone_numbersItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Phone_numbersItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Phone_numbersItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

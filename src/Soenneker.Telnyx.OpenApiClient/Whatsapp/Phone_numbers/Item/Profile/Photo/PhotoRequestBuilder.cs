@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Profile.Photo
 {
     /// <summary>
-    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{-id}\profile\photo
+    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{id}\profile\photo
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PhotoRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Profile.Pho
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PhotoRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/profile/photo", pathParameters)
+        public PhotoRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{id}/profile/photo", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Profile.Pho
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PhotoRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/profile/photo", rawUrl)
+        public PhotoRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{id}/profile/photo", rawUrl)
         {
         }
         /// <summary>

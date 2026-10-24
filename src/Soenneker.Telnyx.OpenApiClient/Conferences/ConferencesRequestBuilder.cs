@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.conferences.item collection</summary>
         /// <param name="position">Uniquely identifies the conference by id</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.ConferenceItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.ConferenceItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.WithConferenceItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.WithConferenceItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("conference%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.ConferenceItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("conferenceId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.WithConferenceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

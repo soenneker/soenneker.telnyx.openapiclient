@@ -25,14 +25,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The timestamp at which this status change occurred</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The verification status at this point in time</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Tollfree verification status</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatusHistoryEntryVerificationStatus? VerificationStatus { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatusHistoryEntryVerificationStatus VerificationStatus { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatusHistoryEntry"/> and sets the default values.
         /// </summary>
@@ -60,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "verificationStatus", n => { VerificationStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatusHistoryEntryVerificationStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatusHistoryEntryVerificationStatus.CreateFromDiscriminatorValue); } },
+                { "verificationStatus", n => { VerificationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatusHistoryEntryVerificationStatus>(); } },
             };
         }
         /// <summary>
@@ -72,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("reason", Reason);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatusHistoryEntryVerificationStatus>("verificationStatus", VerificationStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatusHistoryEntryVerificationStatus>("verificationStatus", VerificationStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

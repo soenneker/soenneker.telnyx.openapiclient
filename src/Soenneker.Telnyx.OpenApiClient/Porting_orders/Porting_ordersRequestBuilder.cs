@@ -32,14 +32,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.porting_orders.item collection</summary>
         /// <param name="position">Porting Order id</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Porting_ordersItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Porting_ordersItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Porting_ordersItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

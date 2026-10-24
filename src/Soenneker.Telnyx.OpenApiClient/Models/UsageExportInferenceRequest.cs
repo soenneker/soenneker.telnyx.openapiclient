@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The token_user_id property</summary>
         public Guid? TokenUserId { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceRequestType? Type { get; set; }
         /// <summary>The usage_source property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource? UsageSource { get; set; }
         /// <summary>The usage_status property</summary>
@@ -177,7 +177,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "token_group_id", n => { TokenGroupId = n.GetGuidValue(); } },
                 { "token_key_id", n => { TokenKeyId = n.GetGuidValue(); } },
                 { "token_user_id", n => { TokenUserId = n.GetGuidValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceRequestType>(); } },
                 { "usage_source", n => { UsageSource = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource>(); } },
                 { "usage_status", n => { UsageStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus>(); } },
             };
@@ -216,7 +216,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("token_group_id", TokenGroupId);
             writer.WriteGuidValue("token_key_id", TokenKeyId);
             writer.WriteGuidValue("token_user_id", TokenUserId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceRequestType>("type", Type);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource>("usage_source", UsageSource);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus>("usage_status", UsageStatus);
         }

@@ -62,14 +62,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.phone_numbers.item collection</summary>
         /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Phone_numbersItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Phone_numbersItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Phone_numbersItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

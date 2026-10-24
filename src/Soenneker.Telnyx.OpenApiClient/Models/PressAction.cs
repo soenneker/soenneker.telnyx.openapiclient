@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The key property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PressActionKey? Key { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PressActionType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PressType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PressAction"/> and sets the default values.
         /// </summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "include_observation", n => { IncludeObservation = n.GetBoolValue(); } },
                 { "key", n => { Key = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PressActionKey>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PressActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PressType>(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteBoolValue("include_observation", IncludeObservation);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PressActionKey>("key", Key);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PressActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PressType>("type", Type);
         }
     }
 }

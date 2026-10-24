@@ -26,14 +26,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.email_messages.item collection</summary>
         /// <param name="position">Email message UUID.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.EmailItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.EmailItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.WithEmailItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.WithEmailItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("email%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.EmailItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("emailId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Email_messages.Item.WithEmailItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

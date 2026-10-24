@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Actions.Regenerate_secret
 {
     /// <summary>
-    /// Builds and executes requests for operations under \messaging_profiles\{-id}\actions\regenerate_secret
+    /// Builds and executes requests for operations under \messaging_profiles\{id}\actions\regenerate_secret
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Regenerate_secretRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Actions.Regener
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Regenerate_secretRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/actions/regenerate_secret", pathParameters)
+        public Regenerate_secretRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{id}/actions/regenerate_secret", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Actions.Regener
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Regenerate_secretRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/actions/regenerate_secret", rawUrl)
+        public Regenerate_secretRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{id}/actions/regenerate_secret", rawUrl)
         {
         }
         /// <summary>

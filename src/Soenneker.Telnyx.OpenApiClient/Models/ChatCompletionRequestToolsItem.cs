@@ -37,13 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequestToolsItem();
-            if("ChatCompletionToolParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("function".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ChatCompletionToolParam = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam();
             }
-            else if("Retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Retrieval = new global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval();
             }

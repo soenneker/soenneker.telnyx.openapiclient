@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The input items for this turn, using the OpenAI Responses API input format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput? Input { get; set; }
+        public UntypedNode? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput Input { get; set; }
+        public UntypedNode Input { get; set; }
 #endif
         /// <summary>Optional system/developer instructions for the model. When used with a persisted `conversation`, send these on the first request that creates the thread; subsequent turns can rely on the stored history.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conversation", n => { Conversation = n.GetGuidValue(); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestMode>(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -106,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("conversation", Conversation);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestInput>("input", Input);
+            writer.WriteObjectValue<UntypedNode>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatPublicOpenaiResponsesCompletionsPostRequestMode>("mode", Mode);
             writer.WriteStringValue("model", Model);

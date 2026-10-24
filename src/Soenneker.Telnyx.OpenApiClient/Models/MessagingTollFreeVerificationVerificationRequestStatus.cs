@@ -155,14 +155,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DoingBusinessAs { get; set; }
 #endif
-        /// <summary>The entityType property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Business entity classification</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusEntityType? EntityType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusEntityType EntityType { get; set; }
-#endif
         /// <summary>The helpMessageResponse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -181,14 +175,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string IsvReseller { get; set; }
 #endif
-        /// <summary>One of the following exact values: 10; 100; 1,000; 10,000; 100,000; 250,000; 500,000; 750,000; 1,000,000; 5,000,000; 10,000,000+</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Message Volume Enums</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusMessageVolume? MessageVolume { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusMessageVolume MessageVolume { get; set; }
-#endif
         /// <summary>The optInConfirmationResponse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -263,14 +251,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The updatedAt property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The useCase property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Tollfree usecase categories</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusUseCase? UseCase { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusUseCase UseCase { get; set; }
-#endif
         /// <summary>The useCaseSummary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -279,14 +261,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string UseCaseSummary { get; set; }
 #endif
-        /// <summary>The verificationStatus property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Tollfree verification status</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusVerificationStatus? VerificationStatus { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusVerificationStatus VerificationStatus { get; set; }
-#endif
         /// <summary>The webhookUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -339,11 +315,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusEntityType>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusEntityType.CreateFromDiscriminatorValue); } },
+                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusEntityType>(); } },
                 { "helpMessageResponse", n => { HelpMessageResponse = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
-                { "messageVolume", n => { MessageVolume = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusMessageVolume>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusMessageVolume.CreateFromDiscriminatorValue); } },
+                { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusMessageVolume>(); } },
                 { "optInConfirmationResponse", n => { OptInConfirmationResponse = n.GetStringValue(); } },
                 { "optInKeywords", n => { OptInKeywords = n.GetStringValue(); } },
                 { "optInWorkflow", n => { OptInWorkflow = n.GetStringValue(); } },
@@ -354,9 +330,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "termsAndConditionURL", n => { TermsAndConditionURL = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "useCase", n => { UseCase = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusUseCase>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusUseCase.CreateFromDiscriminatorValue); } },
+                { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusUseCase>(); } },
                 { "useCaseSummary", n => { UseCaseSummary = n.GetStringValue(); } },
-                { "verificationStatus", n => { VerificationStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusVerificationStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusVerificationStatus.CreateFromDiscriminatorValue); } },
+                { "verificationStatus", n => { VerificationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusVerificationStatus>(); } },
                 { "webhookUrl", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -386,11 +362,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusEntityType>("entityType", EntityType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusEntityType>("entityType", EntityType);
             writer.WriteStringValue("helpMessageResponse", HelpMessageResponse);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("isvReseller", IsvReseller);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusMessageVolume>("messageVolume", MessageVolume);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusMessageVolume>("messageVolume", MessageVolume);
             writer.WriteStringValue("optInConfirmationResponse", OptInConfirmationResponse);
             writer.WriteStringValue("optInKeywords", OptInKeywords);
             writer.WriteStringValue("optInWorkflow", OptInWorkflow);
@@ -401,9 +377,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("reason", Reason);
             writer.WriteStringValue("termsAndConditionURL", TermsAndConditionURL);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusUseCase>("useCase", UseCase);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusUseCase>("useCase", UseCase);
             writer.WriteStringValue("useCaseSummary", UseCaseSummary);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusVerificationStatus>("verificationStatus", VerificationStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationVerificationRequestStatusVerificationStatus>("verificationStatus", VerificationStatus);
             writer.WriteStringValue("webhookUrl", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages
 {
     /// <summary>
-    /// Builds and executes requests for operations under \email_inboxes\{-id}\messages
+    /// Builds and executes requests for operations under \email_inboxes\{id}\messages
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagesRequestBuilder : BaseRequestBuilder
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages{?filter%5Bfrom%5D*,filter%5Blabel%5D*,filter%5Bread%5D*,filter%5Breceived_after%5D*,filter%5Breceived_before%5D*,filter%5Bsearch%5D*,filter%5Bsubject%5D*,filter%5Bunread%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", pathParameters)
+        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{id}/messages{?filter%5Bfrom%5D*,filter%5Blabel%5D*,filter%5Bread%5D*,filter%5Breceived_after%5D*,filter%5Breceived_before%5D*,filter%5Bsearch%5D*,filter%5Bsubject%5D*,filter%5Bunread%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages{?filter%5Bfrom%5D*,filter%5Blabel%5D*,filter%5Bread%5D*,filter%5Breceived_after%5D*,filter%5Breceived_before%5D*,filter%5Bsearch%5D*,filter%5Bsubject%5D*,filter%5Bunread%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", rawUrl)
+        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{id}/messages{?filter%5Bfrom%5D*,filter%5Blabel%5D*,filter%5Bread%5D*,filter%5Breceived_after%5D*,filter%5Breceived_before%5D*,filter%5Bsearch%5D*,filter%5Bsubject%5D*,filter%5Bunread%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>

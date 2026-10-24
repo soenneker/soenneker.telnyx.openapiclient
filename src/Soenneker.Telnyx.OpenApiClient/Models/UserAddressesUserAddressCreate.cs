@@ -126,6 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UserAddressesUserAddressCreate()
         {
             AdditionalData = new Dictionary<string, object>();
+            SkipAddressVerification = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

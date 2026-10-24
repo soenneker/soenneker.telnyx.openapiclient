@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template
 {
     /// <summary>
-    /// Builds and executes requests for operations under \porting_orders\{-id}\loa_template
+    /// Builds and executes requests for operations under \porting_orders\{id}\loa_template
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Loa_templateRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Loa_templateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/loa_template{?loa_configuration_id*}", pathParameters)
+        public Loa_templateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/loa_template{?loa_configuration_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Loa_templateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/loa_template{?loa_configuration_id*}", rawUrl)
+        public Loa_templateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/loa_template{?loa_configuration_id*}", rawUrl)
         {
         }
         /// <summary>

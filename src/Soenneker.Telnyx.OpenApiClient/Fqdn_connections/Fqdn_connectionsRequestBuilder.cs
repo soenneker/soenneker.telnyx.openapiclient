@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.fqdn_connections.item collection</summary>
         /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.FqdnConnectionItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.FqdnConnectionItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.WithFqdnConnectionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.WithFqdnConnectionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("fqdnConnection%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.FqdnConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("fqdnConnectionId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.WithFqdnConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -37,13 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage200ResponseData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("direction")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage200ResponseData();
-            if("MessagingInboundMessagePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("inbound".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessagingInboundMessagePayload = new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayload();
             }
-            else if("MessagingOutboundMessagePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("outbound".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessagingOutboundMessagePayload = new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayload();
             }

@@ -14,7 +14,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes
 {
     /// <summary>
-    /// Builds and executes requests for operations under \porting_orders\{-id}\verification_codes
+    /// Builds and executes requests for operations under \porting_orders\{id}\verification_codes
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Verification_codesRequestBuilder : BaseRequestBuilder
@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Verification_codesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/verification_codes{?filter*,page*,sort*}", pathParameters)
+        public Verification_codesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/verification_codes{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Verification_codesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/verification_codes{?filter*,page*,sort*}", rawUrl)
+        public Verification_codesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/verification_codes{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>

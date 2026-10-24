@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \messaging_profiles\{-id}\autoresp_configs
+    /// Builds and executes requests for operations under \messaging_profiles\{id}\autoresp_configs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Autoresp_configsRequestBuilder : BaseRequestBuilder
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Autoresp_configsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/autoresp_configs{?country_code*,created_at*,updated_at*}", pathParameters)
+        public Autoresp_configsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{id}/autoresp_configs{?country_code*,created_at*,updated_at*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Autoresp_configsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/autoresp_configs{?country_code*,created_at*,updated_at*}", rawUrl)
+        public Autoresp_configsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{id}/autoresp_configs{?country_code*,created_at*,updated_at*}", rawUrl)
         {
         }
         /// <summary>

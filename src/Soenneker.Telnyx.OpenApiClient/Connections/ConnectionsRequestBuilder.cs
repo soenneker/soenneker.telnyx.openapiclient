@@ -26,14 +26,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Connections
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.connections.item collection</summary>
         /// <param name="position">IP Connection ID</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Connections.Item.ConnectionItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Connections.Item.ConnectionItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Connections.Item.WithConnectionItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Connections.Item.WithConnectionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("connection%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Connections.Item.ConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("connectionId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Connections.Item.WithConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

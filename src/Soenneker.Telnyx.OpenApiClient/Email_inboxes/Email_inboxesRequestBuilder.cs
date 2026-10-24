@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.email_inboxes.item collection</summary>
         /// <param name="position">Email inbox UUID.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Email_inboxesItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Email_inboxesItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Email_inboxesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

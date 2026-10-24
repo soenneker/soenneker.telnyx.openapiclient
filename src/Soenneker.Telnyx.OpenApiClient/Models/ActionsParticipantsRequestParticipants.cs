@@ -8,26 +8,20 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsBranch2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsOneOf1"/>, List&lt;Guid&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionsParticipantsRequestParticipants : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsBranch2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsOneOf1"/></summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsOneOf1? ActionsParticipantsRequestParticipantsOneOf1 { get; set; }
+        /// <summary>Composed type representation for type List&lt;Guid&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsBranch2? ActionsParticipantsRequestParticipantsBranch2 { get; set; }
+        public List<Guid?>? Guid { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsBranch2 ActionsParticipantsRequestParticipantsBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsWrapper? ActionsParticipantsRequestParticipantsWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsWrapper ActionsParticipantsRequestParticipantsWrapper { get; set; }
+        public List<Guid?> Guid { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +33,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipants();
-            if("ActionsParticipantsRequestParticipantsBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsOneOf1>() is global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsOneOf1 actionsParticipantsRequestParticipantsOneOf1Value)
             {
-                result.ActionsParticipantsRequestParticipantsBranch2 = new global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsBranch2();
+                result.ActionsParticipantsRequestParticipantsOneOf1 = actionsParticipantsRequestParticipantsOneOf1Value;
             }
-            else if("ActionsParticipantsRequestParticipantsWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid?> guidValue)
             {
-                result.ActionsParticipantsRequestParticipantsWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsWrapper();
+                result.Guid = guidValue;
             }
             return result;
         }
@@ -55,14 +49,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ActionsParticipantsRequestParticipantsBranch2 != null)
-            {
-                return ActionsParticipantsRequestParticipantsBranch2.GetFieldDeserializers();
-            }
-            else if(ActionsParticipantsRequestParticipantsWrapper != null)
-            {
-                return ActionsParticipantsRequestParticipantsWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +58,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ActionsParticipantsRequestParticipantsBranch2 != null)
+            if(ActionsParticipantsRequestParticipantsOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsBranch2>(null, ActionsParticipantsRequestParticipantsBranch2);
+                writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsOneOf1>(null, ActionsParticipantsRequestParticipantsOneOf1);
             }
-            else if(ActionsParticipantsRequestParticipantsWrapper != null)
+            else if(Guid != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequestParticipantsWrapper>(null, ActionsParticipantsRequestParticipantsWrapper);
+                writer.WriteCollectionOfPrimitiveValues<Guid?>(null, Guid);
             }
         }
     }

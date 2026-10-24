@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The auth_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthenticationAuthType? AuthType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoneAuthType? AuthType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthenticationAuthType>(); } },
+                { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoneAuthType>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthenticationAuthType>("auth_type", AuthType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoneAuthType>("auth_type", AuthType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

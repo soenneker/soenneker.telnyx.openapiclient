@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Only JPEG images are accepted.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.JpegFormat? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImageUrlSourceFormat? Format { get; set; }
         /// <summary>Public HTTPS JPEG URL with at most 2,048 characters and no credentials, fragment, surrounding whitespace, raw control characters, or explicit non-default port. Signed queries are allowed but must be treated as credentials. Fetching is limited to public network destinations, a five-second timeout, no redirects, a 2xx image/jpeg response with identity or no content encoding, and a 1,363,148-byte limit enforced against both declared and streamed content. The service resolves the URL before bot creation and does not persist, return, or log the URL or image bytes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.JpegFormat>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImageUrlSourceFormat>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.JpegFormat>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImageUrlSourceFormat>("format", Format);
             writer.WriteStringValue("url", Url);
         }
     }

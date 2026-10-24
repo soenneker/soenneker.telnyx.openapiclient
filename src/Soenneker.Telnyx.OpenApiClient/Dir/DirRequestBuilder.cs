@@ -25,9 +25,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir
             get => new global::Soenneker.Telnyx.OpenApiClient.Dir.Document_types.Document_typesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.dir.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The DIR id. Lowercase UUID.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dir.Item.WithDirItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Dir.Item.WithDirItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Dir.Item.WithDirItemRequestBuilder this[Guid position]
         {
             get
             {

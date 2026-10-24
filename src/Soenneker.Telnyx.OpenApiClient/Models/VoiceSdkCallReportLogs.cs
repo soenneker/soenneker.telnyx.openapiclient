@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsBranch1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsOneOf2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsOneOf2"/>, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceSdkCallReportLogs : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsBranch1"/></summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsBranch1? VoiceSdkCallReportLogsBranch1 { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry>? VoiceSdkCallReportLogEntry { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsBranch1 VoiceSdkCallReportLogsBranch1 { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry> VoiceSdkCallReportLogEntry { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,13 +39,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs();
-            if("VoiceSdkCallReportLogsBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.VoiceSdkCallReportLogsBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsBranch1();
-            }
-            else if("VoiceSdkCallReportLogsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("VoiceSdkCallReportLogsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VoiceSdkCallReportLogsOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsOneOf2();
+            }
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry> voiceSdkCallReportLogEntryValue)
+            {
+                result.VoiceSdkCallReportLogEntry = voiceSdkCallReportLogEntryValue;
             }
             return result;
         }
@@ -55,11 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(VoiceSdkCallReportLogsBranch1 != null)
-            {
-                return VoiceSdkCallReportLogsBranch1.GetFieldDeserializers();
-            }
-            else if(VoiceSdkCallReportLogsOneOf2 != null)
+            if(VoiceSdkCallReportLogsOneOf2 != null)
             {
                 return VoiceSdkCallReportLogsOneOf2.GetFieldDeserializers();
             }
@@ -72,13 +68,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(VoiceSdkCallReportLogsBranch1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsBranch1>(null, VoiceSdkCallReportLogsBranch1);
-            }
-            else if(VoiceSdkCallReportLogsOneOf2 != null)
+            if(VoiceSdkCallReportLogsOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogsOneOf2>(null, VoiceSdkCallReportLogsOneOf2);
+            }
+            else if(VoiceSdkCallReportLogEntry != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogEntry>(null, VoiceSdkCallReportLogEntry);
             }
         }
     }

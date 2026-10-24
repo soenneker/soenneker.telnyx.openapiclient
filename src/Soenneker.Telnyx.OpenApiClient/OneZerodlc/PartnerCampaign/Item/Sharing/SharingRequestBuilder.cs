@@ -36,18 +36,18 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.PartnerCampaign.Item.Sharing
         /// <summary>
         /// Returns the partner-sharing state for the specified campaign.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPartnerCampaignSharingStatus200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResponseGetSharingStatusPublicPartnercampaignCampaignidSharingGetSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetPartnerCampaignSharingStatus200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ResponseGetSharingStatusPublicPartnercampaignCampaignidSharingGetSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetPartnerCampaignSharingStatus200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ResponseGetSharingStatusPublicPartnercampaignCampaignidSharingGetSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.PartnerCampaign.Item.Sharing
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPartnerCampaignSharingStatus200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPartnerCampaignSharingStatus200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ResponseGetSharingStatusPublicPartnercampaignCampaignidSharingGetSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ResponseGetSharingStatusPublicPartnercampaignCampaignidSharingGetSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the partner-sharing state for the specified campaign.

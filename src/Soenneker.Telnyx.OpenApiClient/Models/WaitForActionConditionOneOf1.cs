@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The kind property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf1Kind? Kind { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UrlPatternKind? Kind { get; set; }
         /// <summary>The pattern property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf1Kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlPatternKind>(); } },
                 { "pattern", n => { Pattern = n.GetStringValue(); } },
             };
         }
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf1Kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlPatternKind>("kind", Kind);
             writer.WriteStringValue("pattern", Pattern);
         }
     }

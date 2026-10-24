@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers
 {
     /// <summary>
-    /// Builds and executes requests for operations under \porting_orders\{-id}\associated_phone_numbers
+    /// Builds and executes requests for operations under \porting_orders\{id}\associated_phone_numbers
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Associated_phone_numbersRequestBuilder : BaseRequestBuilder
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_nu
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("id", position);
+                urlTplParams.Add("id2", position);
                 return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Item.Associated_phone_numbersItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_nu
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Associated_phone_numbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/associated_phone_numbers{?filter*,page*,sort*}", pathParameters)
+        public Associated_phone_numbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/associated_phone_numbers{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_nu
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Associated_phone_numbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/associated_phone_numbers{?filter*,page*,sort*}", rawUrl)
+        public Associated_phone_numbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/associated_phone_numbers{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>

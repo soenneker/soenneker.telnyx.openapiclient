@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues
     public partial class QueuesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Queues.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The QueueSid that identifies the call queue.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.Item.WithQueueSItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.Item.WithQueueSItemRequestBuilder this[string position]
         {
@@ -132,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/x-www-form-urlencoded", body);
+            global::Soenneker.OpenApi.Generated.OpenApiFormSerializer.SetContent(requestInfo, body, "{}");
             return requestInfo;
         }
         /// <summary>

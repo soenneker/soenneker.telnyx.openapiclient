@@ -31,10 +31,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>If specified, the output will follow the JSON schema.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateRespJsonSchema? JsonSchema { get; set; }
+        public string? JsonSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateRespJsonSchema JsonSchema { get; set; }
+        public string JsonSchema { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "insight_type", n => { InsightType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TemplateType>(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
-                { "json_schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateRespJsonSchema>(global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateRespJsonSchema.CreateFromDiscriminatorValue); } },
+                { "json_schema", n => { JsonSchema = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "webhook", n => { Webhook = n.GetStringValue(); } },
             };
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TemplateType>("insight_type", InsightType);
             writer.WriteStringValue("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateRespJsonSchema>("json_schema", JsonSchema);
+            writer.WriteStringValue("json_schema", JsonSchema);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);

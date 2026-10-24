@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationInsightsGeneratedBodyPayloadResultsItemResult? Result { get; set; }
+        public string? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationInsightsGeneratedBodyPayloadResultsItemResult Result { get; set; }
+        public string Result { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationInsightsGeneratedBodyPayloadResultsItem"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "insight_id", n => { InsightId = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationInsightsGeneratedBodyPayloadResultsItemResult>(global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationInsightsGeneratedBodyPayloadResultsItemResult.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("insight_id", InsightId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallConversationInsightsGeneratedBodyPayloadResultsItemResult>("result", Result);
+            writer.WriteStringValue("result", Result);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

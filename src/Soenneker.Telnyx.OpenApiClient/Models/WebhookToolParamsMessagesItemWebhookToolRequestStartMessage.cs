@@ -22,8 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>An optional delay value. This value is ignored for `request_start` messages.</summary>
         public int? TimingMs { get; set; }
-        /// <summary>Speak the filler message immediately when the call to the agent begins.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RequestStartType? Type { get; set; }
+        /// <summary>Speak the filler message immediately when the webhook request begins.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestStartMessageType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -44,7 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "timing_ms", n => { TimingMs = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RequestStartType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestStartMessageType>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
             writer.WriteIntValue("timing_ms", TimingMs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RequestStartType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestStartMessageType>("type", Type);
         }
     }
 }

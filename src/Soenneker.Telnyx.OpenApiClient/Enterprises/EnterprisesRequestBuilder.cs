@@ -19,9 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
     public partial class EnterprisesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.enterprises.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The enterprise id. Lowercase UUID.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterpriseItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterpriseItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.Item.WithEnterpriseItemRequestBuilder this[Guid position]
         {
             get
             {

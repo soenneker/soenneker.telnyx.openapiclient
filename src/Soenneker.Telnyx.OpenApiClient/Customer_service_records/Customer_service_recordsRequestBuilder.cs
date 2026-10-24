@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
             get => new global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Phone_number_coverages.Phone_number_coveragesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.customer_service_records.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID of the customer service record</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Item.WithCustomerServiceRecordItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Item.WithCustomerServiceRecordItemRequestBuilder this[string position]
         {

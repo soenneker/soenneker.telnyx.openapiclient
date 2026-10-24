@@ -183,7 +183,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.TranscriptionEngineTelnyxConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig();
             }
-            else if("TranscriptionEngineXaiConfig".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("xAI".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.TranscriptionEngineXaiConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineXaiConfig();
             }

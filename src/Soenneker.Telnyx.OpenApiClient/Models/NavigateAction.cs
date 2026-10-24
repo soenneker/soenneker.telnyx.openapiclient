@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The include_observation property</summary>
         public bool? IncludeObservation { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NavigateActionType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NavigateType? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "include_observation", n => { IncludeObservation = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NavigateActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NavigateType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "wait_until", n => { WaitUntil = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NavigateActionWaitUntil>(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteBoolValue("include_observation", IncludeObservation);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NavigateActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NavigateType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NavigateActionWaitUntil>("wait_until", WaitUntil);
         }

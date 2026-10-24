@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Actions.Forward
 {
     /// <summary>
-    /// Builds and executes requests for operations under \email_inboxes\{-id}\messages\{messageId}\actions\forward
+    /// Builds and executes requests for operations under \email_inboxes\{id}\messages\{messageId}\actions\forward
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ForwardRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Action
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ForwardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages/{messageId}/actions/forward", pathParameters)
+        public ForwardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{id}/messages/{messageId}/actions/forward", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Messages.Item.Action
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ForwardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/messages/{messageId}/actions/forward", rawUrl)
+        public ForwardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{id}/messages/{messageId}/actions/forward", rawUrl)
         {
         }
         /// <summary>

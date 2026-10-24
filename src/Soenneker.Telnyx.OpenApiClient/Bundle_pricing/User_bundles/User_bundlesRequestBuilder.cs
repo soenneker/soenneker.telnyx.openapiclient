@@ -31,9 +31,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
             get => new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Unused.UnusedRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.bundle_pricing.user_bundles.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the user bundle.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUserBundleItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUserBundleItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUserBundleItemRequestBuilder this[Guid position]
         {
             get
             {

@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType> Details { get; set; }
 #endif
-        /// <summary>The value property</summary>
+        /// <summary>The current status of the porting order</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus"/> and sets the default values.

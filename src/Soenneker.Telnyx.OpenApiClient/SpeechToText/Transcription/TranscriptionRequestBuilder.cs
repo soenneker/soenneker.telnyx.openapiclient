@@ -135,15 +135,8 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             public string Language { get; set; }
 #endif
             /// <summary>The specific model to use within the selected transcription engine.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("model")]
-            public string? Model { get; set; }
-#nullable restore
-#else
-            [QueryParameter("model")]
-            public string Model { get; set; }
-#endif
+            public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.GetModelQueryParameterType? Model { get; set; }
             /// <summary>Enable redaction of sensitive information (e.g., PCI data, SSN) from transcription results. Supported values depend on the transcription engine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

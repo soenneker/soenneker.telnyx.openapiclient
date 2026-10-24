@@ -42,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The timeout_ms property</summary>
         public int? TimeoutMs { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ClickActionType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ClickType? Type { get; set; }
         /// <summary>The wait property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ClickActionWait? Wait { get; set; }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "observation_id", n => { ObservationId = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ClickActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ClickType>(); } },
                 { "wait", n => { Wait = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ClickActionWait>(); } },
             };
         }
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("observation_id", ObservationId);
             writer.WriteStringValue("ref", Ref);
             writer.WriteIntValue("timeout_ms", TimeoutMs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ClickActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ClickType>("type", Type);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ClickActionWait>("wait", Wait);
         }
     }

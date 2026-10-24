@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_profiles.item collection</summary>
         /// <param name="position">The id of the messaging profile to retrieve</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Messaging_profilesItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Messaging_profilesItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Messaging_profilesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

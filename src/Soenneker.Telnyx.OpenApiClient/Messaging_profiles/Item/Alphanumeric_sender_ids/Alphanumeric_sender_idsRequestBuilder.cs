@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids
 {
     /// <summary>
-    /// Builds and executes requests for operations under \messaging_profiles\{-id}\alphanumeric_sender_ids
+    /// Builds and executes requests for operations under \messaging_profiles\{id}\alphanumeric_sender_ids
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Alphanumeric_sender_idsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_se
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Alphanumeric_sender_idsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/alphanumeric_sender_ids{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Alphanumeric_sender_idsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{id}/alphanumeric_sender_ids{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_se
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Alphanumeric_sender_idsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/alphanumeric_sender_ids{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Alphanumeric_sender_idsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{id}/alphanumeric_sender_ids{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>

@@ -20,7 +20,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Guid? DocumentId { get; set; }
         /// <summary>Uniquely identifies the report.</summary>
         public Guid? Id { get; set; }
-        /// <summary>The params property</summary>
+        /// <summary>The parameters for generating a port-outs CSV report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReportParams? Params { get; set; }

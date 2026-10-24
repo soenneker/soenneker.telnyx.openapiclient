@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \porting_orders\{-id}\phone_number_extensions
+    /// Builds and executes requests for operations under \porting_orders\{id}\phone_number_extensions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Phone_number_extensionsRequestBuilder : BaseRequestBuilder
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extens
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("id", position);
+                urlTplParams.Add("id2", position);
                 return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extens
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_number_extensionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/phone_number_extensions{?filter*,page*,sort*}", pathParameters)
+        public Phone_number_extensionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/phone_number_extensions{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extens
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_number_extensionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/phone_number_extensions{?filter*,page*,sort*}", rawUrl)
+        public Phone_number_extensionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/phone_number_extensions{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>

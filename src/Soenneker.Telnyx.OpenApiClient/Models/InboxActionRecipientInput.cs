@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionRecipientInputBranch2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput"/>, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InboxActionRecipientInput : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput>? InboxActionEmailAddressInput { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput> InboxActionEmailAddressInput { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput? InboxActionEmailAddressInput { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput? InboxActionRecipientInputInboxActionEmailAddressInput { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput InboxActionEmailAddressInput { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionRecipientInputBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionRecipientInputBranch2? InboxActionRecipientInputBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionRecipientInputBranch2 InboxActionRecipientInputBranch2 { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput InboxActionRecipientInputInboxActionEmailAddressInput { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,9 +39,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionRecipientInput();
-            if("InboxActionRecipientInputBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput> inboxActionEmailAddressInputValue)
             {
-                result.InboxActionRecipientInputBranch2 = new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionRecipientInputBranch2();
+                result.InboxActionEmailAddressInput = inboxActionEmailAddressInputValue;
             }
             return result;
         }
@@ -51,13 +51,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(InboxActionEmailAddressInput != null)
+            if(InboxActionRecipientInputInboxActionEmailAddressInput != null)
             {
-                return InboxActionEmailAddressInput.GetFieldDeserializers();
-            }
-            else if(InboxActionRecipientInputBranch2 != null)
-            {
-                return InboxActionRecipientInputBranch2.GetFieldDeserializers();
+                return InboxActionRecipientInputInboxActionEmailAddressInput.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +64,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(InboxActionEmailAddressInput != null)
+            if(InboxActionRecipientInputInboxActionEmailAddressInput != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput>(null, InboxActionEmailAddressInput);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput>(null, InboxActionRecipientInputInboxActionEmailAddressInput);
             }
-            else if(InboxActionRecipientInputBranch2 != null)
+            else if(InboxActionEmailAddressInput != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionRecipientInputBranch2>(null, InboxActionRecipientInputBranch2);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput>(null, InboxActionEmailAddressInput);
             }
         }
     }

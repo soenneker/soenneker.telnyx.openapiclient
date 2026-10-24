@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The request_id property</summary>
         public Guid? RequestId { get; set; }
         /// <summary>The schema_version property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationSchemaVersion? SchemaVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Value1SchemaVersion? SchemaVersion { get; set; }
         /// <summary>The stage property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationStage? Stage { get; set; }
         /// <summary>The token_group_id property</summary>
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The token_user_id property</summary>
         public Guid? TokenUserId { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvaluationType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -102,12 +102,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "outcome", n => { Outcome = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationOutcome>(); } },
                 { "request_id", n => { RequestId = n.GetGuidValue(); } },
-                { "schema_version", n => { SchemaVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationSchemaVersion>(); } },
+                { "schema_version", n => { SchemaVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Value1SchemaVersion>(); } },
                 { "stage", n => { Stage = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationStage>(); } },
                 { "token_group_id", n => { TokenGroupId = n.GetGuidValue(); } },
                 { "token_key_id", n => { TokenKeyId = n.GetGuidValue(); } },
                 { "token_user_id", n => { TokenUserId = n.GetGuidValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvaluationType>(); } },
             };
         }
         /// <summary>
@@ -127,12 +127,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationOutcome>("outcome", Outcome);
             writer.WriteGuidValue("request_id", RequestId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationSchemaVersion>("schema_version", SchemaVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Value1SchemaVersion>("schema_version", SchemaVersion);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationStage>("stage", Stage);
             writer.WriteGuidValue("token_group_id", TokenGroupId);
             writer.WriteGuidValue("token_key_id", TokenKeyId);
             writer.WriteGuidValue("token_user_id", TokenUserId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportGuardrailEvaluationType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvaluationType>("type", Type);
         }
     }
 }

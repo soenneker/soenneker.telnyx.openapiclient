@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change
 {
     /// <summary>
-    /// Builds and executes requests for operations under \phone_numbers\{-id}\actions\bundle_status_change
+    /// Builds and executes requests for operations under \phone_numbers\{id}\actions\bundle_status_change
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Bundle_status_changeRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_statu
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Bundle_status_changeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{%2Did}/actions/bundle_status_change", pathParameters)
+        public Bundle_status_changeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{id}/actions/bundle_status_change", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_statu
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Bundle_status_changeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{%2Did}/actions/bundle_status_change", rawUrl)
+        public Bundle_status_changeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{id}/actions/bundle_status_change", rawUrl)
         {
         }
         /// <summary>

@@ -93,41 +93,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.BatchActionActionsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.BatchActionActionsItem();
-            if("ClickAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("click".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ClickAction = new global::Soenneker.Telnyx.OpenApiClient.Models.ClickAction();
             }
-            else if("FillAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("fill".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FillAction = new global::Soenneker.Telnyx.OpenApiClient.Models.FillAction();
             }
-            else if("NavigateAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("navigate".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NavigateAction = new global::Soenneker.Telnyx.OpenApiClient.Models.NavigateAction();
             }
-            else if("ObserveAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("observe".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ObserveAction = new global::Soenneker.Telnyx.OpenApiClient.Models.ObserveAction();
             }
-            else if("PressAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("press".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PressAction = new global::Soenneker.Telnyx.OpenApiClient.Models.PressAction();
             }
-            else if("ScreenshotAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("screenshot".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ScreenshotAction = new global::Soenneker.Telnyx.OpenApiClient.Models.ScreenshotAction();
             }
-            else if("ScrollAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("scroll".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ScrollAction = new global::Soenneker.Telnyx.OpenApiClient.Models.ScrollAction();
             }
-            else if("SelectAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("select".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SelectAction = new global::Soenneker.Telnyx.OpenApiClient.Models.SelectAction();
             }
-            else if("WaitForAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("wait_for".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WaitForAction = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForAction();
             }

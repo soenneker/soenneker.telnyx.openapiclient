@@ -26,18 +26,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The bcc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>? Bcc { get; set; }
+        public List<string>? Bcc { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput> Bcc { get; set; }
+        public List<string> Bcc { get; set; }
 #endif
         /// <summary>The cc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>? Cc { get; set; }
+        public List<string>? Cc { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput> Cc { get; set; }
+        public List<string> Cc { get; set; }
 #endif
         /// <summary>Telnyx message UUID of the message this send forwards. Forwardedmessages start a NEW thread per RFC 5322 — NO `In-Reply-To` or`References` headers are set on the outbound MIME. The id isrecorded in the message&apos;s metadata for EDR provenance only.The id is validated as a UUID but is NOT looked up against themessage store — existence is the caller&apos;s responsibility (theforward is pure metadata; it does not affect delivery). Cannot becombined with `in_reply_to_message_id` (422).</summary>
         public Guid? ForwardOfMessageId { get; set; }
@@ -143,10 +143,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>? To { get; set; }
+        public List<string>? To { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput> To { get; set; }
+        public List<string> To { get; set; }
 #endif
         /// <summary>Per-send open and click tracking overrides. Omitted properties inherit the sender domain&apos;s tracking settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -186,8 +186,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "bcc", n => { Bcc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "bcc", n => { Bcc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "cc", n => { Cc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "forward_of_message_id", n => { ForwardOfMessageId = n.GetGuidValue(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue); } },
                 { "from_name", n => { FromName = n.GetStringValue(); } },
@@ -208,7 +208,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "template_id", n => { TemplateId = n.GetGuidValue(); } },
                 { "template_variables", n => { TemplateVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
-                { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "to", n => { To = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tracking_settings", n => { TrackingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -220,8 +220,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>("attachments", Attachments);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("bcc", Bcc);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("cc", Cc);
+            writer.WriteCollectionOfPrimitiveValues<string>("bcc", Bcc);
+            writer.WriteCollectionOfPrimitiveValues<string>("cc", Cc);
             writer.WriteGuidValue("forward_of_message_id", ForwardOfMessageId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("from", From);
             writer.WriteStringValue("from_name", FromName);
@@ -242,7 +242,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("template_id", TemplateId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty>("template_variables", TemplateVariables);
             writer.WriteStringValue("text_body", TextBody);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("to", To);
+            writer.WriteCollectionOfPrimitiveValues<string>("to", To);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>("tracking_settings", TrackingSettings);
             writer.WriteAdditionalData(AdditionalData);
         }

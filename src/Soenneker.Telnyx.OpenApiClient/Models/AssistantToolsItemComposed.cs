@@ -141,65 +141,65 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed();
-            if("ClientSideTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("client_side_tool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ClientSideTool = new global::Soenneker.Telnyx.OpenApiClient.Models.ClientSideTool();
             }
-            else if("DtmfTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("send_dtmf".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.DtmfTool = new global::Soenneker.Telnyx.OpenApiClient.Models.DtmfTool();
             }
-            else if("FunctionTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("function".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FunctionTool = new global::Soenneker.Telnyx.OpenApiClient.Models.FunctionTool();
             }
-            else if("HandoffTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("handoff".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.HandoffTool = new global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool();
             }
-            else if("InferenceEmbeddingHangupTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("hangup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InferenceEmbeddingHangupTool = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingHangupTool();
             }
-            else if("InferenceEmbeddingTransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("transfer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InferenceEmbeddingTransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool();
             }
-            else if("InferenceEmbeddingWebhookTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("webhook".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InferenceEmbeddingWebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool();
             }
-            else if("InviteTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("invite".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteTool = new global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool();
             }
-            else if("PayTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("pay".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PayTool = new global::Soenneker.Telnyx.OpenApiClient.Models.PayTool();
             }
-            else if("RetrievalTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool();
             }
-            else if("SendMessageTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("send_message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendMessageTool = new global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool();
             }
-            else if("SipReferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("refer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SipReferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.SipReferTool();
             }
-            else if("SkipTurnTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("skip_turn".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SkipTurnTool = new global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool();
             }
-            else if("UpdateDynamicVariablesTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("update_dynamic_variables".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UpdateDynamicVariablesTool = new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesTool();
             }
-            else if("VisionTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("vision".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VisionTool = new global::Soenneker.Telnyx.OpenApiClient.Models.VisionTool();
             }

@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The include_observation property</summary>
         public bool? IncludeObservation { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BatchActionType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BatchType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BatchAction"/> and sets the default values.
         /// </summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "actions", n => { Actions = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.BatchActionActionsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.BatchActionActionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "include_observation", n => { IncludeObservation = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BatchActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BatchType>(); } },
             };
         }
         /// <summary>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.BatchActionActionsItem>("actions", Actions);
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteBoolValue("include_observation", IncludeObservation);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BatchActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BatchType>("type", Type);
         }
     }
 }

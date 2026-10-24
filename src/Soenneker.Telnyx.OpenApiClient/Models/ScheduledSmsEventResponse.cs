@@ -69,13 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ScheduledEventId { get; set; }
 #endif
         /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus Status { get; set; }
-#endif
         /// <summary>The telnyx_agent_target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "retry_count", n => { RetryCount = n.GetIntValue(); } },
                 { "scheduled_at_fixed_datetime", n => { ScheduledAtFixedDatetime = n.GetDateTimeOffsetValue(); } },
                 { "scheduled_event_id", n => { ScheduledEventId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus>(); } },
                 { "telnyx_agent_target", n => { TelnyxAgentTarget = n.GetStringValue(); } },
                 { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>(); } },
                 { "telnyx_end_user_target", n => { TelnyxEndUserTarget = n.GetStringValue(); } },
@@ -160,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("retry_count", RetryCount);
             writer.WriteDateTimeOffsetValue("scheduled_at_fixed_datetime", ScheduledAtFixedDatetime);
             writer.WriteStringValue("scheduled_event_id", ScheduledEventId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponseStatus>("status", Status);
             writer.WriteStringValue("telnyx_agent_target", TelnyxAgentTarget);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("telnyx_end_user_target", TelnyxEndUserTarget);

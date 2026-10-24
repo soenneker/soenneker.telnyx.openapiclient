@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
     public partial class CallsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.queues.item.calls.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier and token for controlling the call</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCallControlItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCallControlItemRequestBuilder this[string position]
         {

@@ -19,9 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_address
     public partial class Civic_addressesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.civic_addresses.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Identifies a civic address or a location.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddressItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddressItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddressItemRequestBuilder this[Guid position]
         {
             get
             {

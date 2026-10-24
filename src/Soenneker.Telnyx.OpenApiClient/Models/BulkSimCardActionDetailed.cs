@@ -19,13 +19,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; set; }
+        public string? CreatedAt { get; private set; }
 #nullable restore
 #else
-        public string CreatedAt { get; set; }
+        public string CreatedAt { get; private set; }
 #endif
         /// <summary>Identifies the resource.</summary>
-        public Guid? Id { get; set; }
+        public Guid? Id { get; private set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,10 +37,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A JSON object representation of the bulk action payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkSimCardActionDetailedSettingsProperty? Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkSimCardActionDetailedSettingsProperty? Settings { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkSimCardActionDetailedSettingsProperty Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkSimCardActionDetailedSettingsProperty Settings { get; private set; }
 #endif
         /// <summary>The sim_card_actions_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,10 +53,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get; set; }
+        public string? UpdatedAt { get; private set; }
 #nullable restore
 #else
-        public string UpdatedAt { get; set; }
+        public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BulkSimCardActionDetailed"/> and sets the default values.
@@ -99,11 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("created_at", CreatedAt);
-            writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BulkSimCardActionDetailedSettingsProperty>("settings", Settings);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardActionsSummary>("sim_card_actions_summary", SimCardActionsSummary);
-            writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

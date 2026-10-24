@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>The predefined media to use. `silence` disables background audio.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum VoiceSettingsBackgroundAudioOneOf1Value
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "silence")]
         #pragma warning disable CS1591

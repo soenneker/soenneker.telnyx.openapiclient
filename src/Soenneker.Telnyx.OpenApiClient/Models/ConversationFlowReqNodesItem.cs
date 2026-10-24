@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReqNodesItem();
-            if("FlowNodeReq".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("prompt".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FlowNodeReq = new global::Soenneker.Telnyx.OpenApiClient.Models.FlowNodeReq();
             }

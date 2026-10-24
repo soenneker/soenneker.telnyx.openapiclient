@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers
     public partial class Phone_numbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.v2.whatsapp.phone_numbers.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Phone number (E.164 format)</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.Phone_numbers.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {

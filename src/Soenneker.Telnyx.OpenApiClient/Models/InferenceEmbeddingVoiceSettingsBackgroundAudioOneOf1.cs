@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Select from predefined media options.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PredefinedMediaType? Type { get; set; }
-        /// <summary>The value property</summary>
+        /// <summary>The predefined media to use. `silence` disables background audio.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1Value? Value { get; set; }
         /// <summary>Volume level for the predefined background audio. Supports values from 0.1 to 1.0 in 0.1 increments.</summary>
         public double? Volume { get; set; }

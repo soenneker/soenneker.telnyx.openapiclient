@@ -26,14 +26,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.sub_number_orders.item collection</summary>
         /// <param name="position">The sub number order ID.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Sub_number_ordersItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Sub_number_ordersItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Sub_number_ordersItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

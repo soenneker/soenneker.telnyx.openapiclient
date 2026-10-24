@@ -41,15 +41,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventPayloadProperty Payload { get; set; }
 #endif
-        /// <summary>Deprecated name field retained for compatibility. Its value is the bare stored event name, never email.-prefixed. Use event_type for the legacy rendering or canonical_event_type for the canonical name.</summary>
+        /// <summary>Bare stored event names returned by message history. In addition to the normal send and delivery lifecycle, polling can expose suppression, scan, and quarantine lifecycle rows. Sharp canonical names gw_reject, injection_timeout, and expired distinguish gateway rejection, ambiguous injection timeout, and MTA expiration. The failed and bounced names remain valid for system/admin failures and hard bounces respectively. Existing stored rows retain their original names.</summary>
         [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType? Type { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessageEvent"/> and sets the default values.
         /// </summary>
@@ -79,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "event_type", n => { EventType = n.GetStringValue(); } },
                 { "occurred_at", n => { OccurredAt = n.GetDateTimeOffsetValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventPayloadProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventPayloadProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType>(global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType>(); } },
             };
         }
         /// <summary>
@@ -93,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("event_type", EventType);
             writer.WriteDateTimeOffsetValue("occurred_at", OccurredAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventPayloadProperty>("payload", Payload);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageEventType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

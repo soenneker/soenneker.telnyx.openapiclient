@@ -46,6 +46,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TexmlCreateCallRecordingRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            PlayBeep = true;
+            SendRecordingUrl = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

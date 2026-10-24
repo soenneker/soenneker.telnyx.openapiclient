@@ -71,27 +71,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("event_type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent();
-            if("PortingEventDeletedPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("porting_order.deleted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PortingEventDeletedPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload();
             }
-            else if("PortingEventMessagingChangedPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("porting_order.messaging_changed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PortingEventMessagingChangedPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayload();
             }
-            else if("PortingEventNewCommentEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("porting_order.new_comment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PortingEventNewCommentEvent = new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEvent();
             }
-            else if("PortingEventSplitEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("porting_order.split".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PortingEventSplitEvent = new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEvent();
             }
-            else if("PortingEventStatusChangedEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("porting_order.status_changed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PortingEventStatusChangedEvent = new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventStatusChangedEvent();
             }
-            else if("PortingEventWithoutWebhook".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("porting_order.loa_updated".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PortingEventWithoutWebhook = new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventWithoutWebhook();
             }

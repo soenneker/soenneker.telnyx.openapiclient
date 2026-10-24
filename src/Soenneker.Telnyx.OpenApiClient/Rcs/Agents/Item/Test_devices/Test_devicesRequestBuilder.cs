@@ -19,9 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Test_devices
     public partial class Test_devicesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.rcs.agents.item.test_devices.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The Telnyx-assigned test device identifier.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Test_devices.Item.WithTestDeviceItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Test_devices.Item.WithTestDeviceItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Test_devices.Item.WithTestDeviceItemRequestBuilder this[Guid position]
         {
             get
             {

@@ -31,9 +31,9 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads
             get => new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Status.StatusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.uploads.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Identifies an Upload request</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicketItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicketItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.WithTicketItemRequestBuilder this[Guid position]
         {
             get
             {

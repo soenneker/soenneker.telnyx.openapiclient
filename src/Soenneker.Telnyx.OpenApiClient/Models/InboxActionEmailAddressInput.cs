@@ -11,7 +11,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// Email address accepted by inbox message actions, as a string or an object with `email` and optional `name`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class InboxActionEmailAddressInput : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class InboxActionEmailAddressInput : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -23,22 +23,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputBranch1? InboxActionEmailAddressInputBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputBranch1 InboxActionEmailAddressInputBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputOneOf2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputOneOf2? InboxActionEmailAddressInputOneOf2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputOneOf2 InboxActionEmailAddressInputOneOf2 { get; set; }
-#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,14 +30,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
-#endif
-        /// <summary>The value property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Value { get; set; }
-#nullable restore
-#else
-        public string Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput"/> and sets the default values.
@@ -70,29 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput();
-            if("InboxActionEmailAddressInputBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.InboxActionEmailAddressInputBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputBranch1();
-            }
-            else if("InboxActionEmailAddressInputOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.InboxActionEmailAddressInputOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputOneOf2();
-            }
-            else if(parseNode.GetStringValue() is string emailValue)
-            {
-                result.Email = emailValue;
-            }
-            else if(parseNode.GetStringValue() is string nameValue)
-            {
-                result.Name = nameValue;
-            }
-            else if(parseNode.GetStringValue() is string valueValue)
-            {
-                result.Value = valueValue;
-            }
-            return result;
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,15 +54,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(InboxActionEmailAddressInputBranch1 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return InboxActionEmailAddressInputBranch1.GetFieldDeserializers();
-            }
-            else if(InboxActionEmailAddressInputOneOf2 != null)
-            {
-                return InboxActionEmailAddressInputOneOf2.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -117,26 +67,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(InboxActionEmailAddressInputBranch1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputBranch1>(null, InboxActionEmailAddressInputBranch1);
-            }
-            else if(InboxActionEmailAddressInputOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInputOneOf2>(null, InboxActionEmailAddressInputOneOf2);
-            }
-            else if(Email != null)
-            {
-                writer.WriteStringValue(null, Email);
-            }
-            else if(Name != null)
-            {
-                writer.WriteStringValue(null, Name);
-            }
-            else if(Value != null)
-            {
-                writer.WriteStringValue(null, Value);
-            }
+            writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

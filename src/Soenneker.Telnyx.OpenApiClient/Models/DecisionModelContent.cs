@@ -8,27 +8,11 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch3"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember2"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DecisionModelContent : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch1? DecisionModelContentBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch1 DecisionModelContentBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch3"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch3? DecisionModelContentBranch3 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch3 DecisionModelContentBranch3 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,6 +20,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember1 DecisionModelContentMember1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember2? DecisionModelContentMember2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember2 DecisionModelContentMember2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? String { get; set; }
+#nullable restore
+#else
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,13 +47,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContent();
-            if("DecisionModelContentBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetStringValue() is string stringValue)
             {
-                result.DecisionModelContentBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch1();
-            }
-            else if("DecisionModelContentBranch3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DecisionModelContentBranch3 = new global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch3();
+                result.String = stringValue;
             }
             return result;
         }
@@ -63,17 +59,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(DecisionModelContentBranch1 != null)
-            {
-                return DecisionModelContentBranch1.GetFieldDeserializers();
-            }
-            else if(DecisionModelContentBranch3 != null)
-            {
-                return DecisionModelContentBranch3.GetFieldDeserializers();
-            }
-            else if(DecisionModelContentMember1 != null)
+            if(DecisionModelContentMember1 != null)
             {
                 return DecisionModelContentMember1.GetFieldDeserializers();
+            }
+            else if(DecisionModelContentMember2 != null)
+            {
+                return DecisionModelContentMember2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -84,17 +76,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(DecisionModelContentBranch1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch1>(null, DecisionModelContentBranch1);
-            }
-            else if(DecisionModelContentBranch3 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentBranch3>(null, DecisionModelContentBranch3);
-            }
-            else if(DecisionModelContentMember1 != null)
+            if(DecisionModelContentMember1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember1>(null, DecisionModelContentMember1);
+            }
+            else if(DecisionModelContentMember2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelContentMember2>(null, DecisionModelContentMember2);
+            }
+            else if(String != null)
+            {
+                writer.WriteStringValue(null, String);
             }
         }
     }

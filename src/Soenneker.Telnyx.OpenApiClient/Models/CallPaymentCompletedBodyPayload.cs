@@ -89,10 +89,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Additional connector error information, when supplied by the processor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallPaymentCompletedBodyPayloadConnectorError? ConnectorError { get; set; }
+        public string? ConnectorError { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallPaymentCompletedBodyPayloadConnectorError ConnectorError { get; set; }
+        public string ConnectorError { get; set; }
 #endif
         /// <summary>Card expiration date in MMYY format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -222,7 +222,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "charge_id", n => { ChargeId = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
-                { "connector_error", n => { ConnectorError = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallPaymentCompletedBodyPayloadConnectorError>(global::Soenneker.Telnyx.OpenApiClient.Models.CallPaymentCompletedBodyPayloadConnectorError.CreateFromDiscriminatorValue); } },
+                { "connector_error", n => { ConnectorError = n.GetStringValue(); } },
                 { "expiration_date", n => { ExpirationDate = n.GetStringValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "pay_error_code", n => { PayErrorCode = n.GetStringValue(); } },
@@ -255,7 +255,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("charge_id", ChargeId);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("connection_id", ConnectionId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallPaymentCompletedBodyPayloadConnectorError>("connector_error", ConnectorError);
+            writer.WriteStringValue("connector_error", ConnectorError);
             writer.WriteStringValue("expiration_date", ExpirationDate);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("pay_error_code", PayErrorCode);

@@ -61,25 +61,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateTemplateRequestComponentsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateTemplateRequestComponentsItem();
-            if("WhatsappTemplateBodyComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("BODY".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WhatsappTemplateBodyComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent();
             }
-            else if("WhatsappTemplateButtonsComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BUTTONS".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WhatsappTemplateButtonsComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponent();
             }
-            else if("WhatsappTemplateCarouselComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("CAROUSEL".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WhatsappTemplateCarouselComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent();
             }
-            else if("WhatsappTemplateFooterComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("FOOTER".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WhatsappTemplateFooterComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent();
             }
-            else if("WhatsappTemplateHeaderComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("HEADER".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WhatsappTemplateHeaderComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent();
             }

@@ -71,15 +71,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem();
-            if("BookAppointmentTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("book_appointment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BookAppointmentTool = new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool();
             }
-            else if("CallControlRetrievalTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CallControlRetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool();
             }
-            else if("CheckAvailabilityTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("check_availability".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CheckAvailabilityTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool();
             }

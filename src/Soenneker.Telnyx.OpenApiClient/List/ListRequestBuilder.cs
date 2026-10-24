@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.List
     public partial class ListRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.list.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Channel zone identifier</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithChannelZoneItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.List.Item.WithChannelZoneItemRequestBuilder this[string position]
         {

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Rotate_dkim
 {
     /// <summary>
-    /// Builds and executes requests for operations under \email_domains\{domain-id}\rotate_dkim
+    /// Builds and executes requests for operations under \email_domains\{domainId}\rotate_dkim
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Rotate_dkimRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Rotate_dkim
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Rotate_dkimRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_domains/{domain%2Did}/rotate_dkim", pathParameters)
+        public Rotate_dkimRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_domains/{domainId}/rotate_dkim", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Rotate_dkim
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Rotate_dkimRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_domains/{domain%2Did}/rotate_dkim", rawUrl)
+        public Rotate_dkimRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_domains/{domainId}/rotate_dkim", rawUrl)
         {
         }
         /// <summary>

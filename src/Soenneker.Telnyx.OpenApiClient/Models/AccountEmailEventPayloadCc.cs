@@ -8,19 +8,11 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCcBranch2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookRecipient"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookRecipient"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AccountEmailEventPayloadCc : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCcBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCcBranch2? AccountEmailEventPayloadCcBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCcBranch2 AccountEmailEventPayloadCcBranch2 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookRecipient"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,6 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookRecipient EmailWebhookRecipient { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? String { get; set; }
+#nullable restore
+#else
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCc();
-            if("AccountEmailEventPayloadCcBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.AccountEmailEventPayloadCcBranch2 = new global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCcBranch2();
-            }
-            else if("EmailWebhookRecipient".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("EmailWebhookRecipient".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EmailWebhookRecipient = new global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookRecipient();
+            }
+            else if(parseNode.GetStringValue() is string stringValue)
+            {
+                result.String = stringValue;
             }
             return result;
         }
@@ -55,11 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AccountEmailEventPayloadCcBranch2 != null)
-            {
-                return AccountEmailEventPayloadCcBranch2.GetFieldDeserializers();
-            }
-            else if(EmailWebhookRecipient != null)
+            if(EmailWebhookRecipient != null)
             {
                 return EmailWebhookRecipient.GetFieldDeserializers();
             }
@@ -72,13 +68,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(AccountEmailEventPayloadCcBranch2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCcBranch2>(null, AccountEmailEventPayloadCcBranch2);
-            }
-            else if(EmailWebhookRecipient != null)
+            if(EmailWebhookRecipient != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailWebhookRecipient>(null, EmailWebhookRecipient);
+            }
+            else if(String != null)
+            {
+                writer.WriteStringValue(null, String);
             }
         }
     }

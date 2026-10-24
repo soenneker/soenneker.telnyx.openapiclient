@@ -58,13 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem> Rubric { get; set; }
 #endif
         /// <summary>The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel? TelnyxConversationChannel { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel TelnyxConversationChannel { get; set; }
-#endif
         /// <summary>Optional test suite name to group related tests together. Useful for organizing tests by feature, team, or release cycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "max_duration_seconds", n => { MaxDurationSeconds = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "rubric", n => { Rubric = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel.CreateFromDiscriminatorValue); } },
+                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel>(); } },
                 { "test_suite", n => { TestSuite = n.GetStringValue(); } },
             };
         }
@@ -121,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("max_duration_seconds", MaxDurationSeconds);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestRubricItem>("rubric", Rubric);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel>("telnyx_conversation_channel", TelnyxConversationChannel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequestTelnyxConversationChannel>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("test_suite", TestSuite);
             writer.WriteAdditionalData(AdditionalData);
         }

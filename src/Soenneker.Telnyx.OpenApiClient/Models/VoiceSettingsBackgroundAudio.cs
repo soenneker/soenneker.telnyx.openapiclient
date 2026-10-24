@@ -45,17 +45,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio();
-            if("VoiceSettingsBackgroundAudioOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("predefined_media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VoiceSettingsBackgroundAudioOneOf1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1();
             }
-            else if("VoiceSettingsBackgroundAudioOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("media_url".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VoiceSettingsBackgroundAudioOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2();
             }
-            else if("VoiceSettingsBackgroundAudioOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("media_name".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VoiceSettingsBackgroundAudioOneOf3 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3();
             }

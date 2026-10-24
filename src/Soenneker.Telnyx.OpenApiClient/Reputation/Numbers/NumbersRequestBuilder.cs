@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reputation.Numbers
     public partial class NumbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.reputation.numbers.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Phone number in E.164 format (`+1NPANXXXXXX` for US/CA). The leading `+` MUST be URL-encoded as `%2B` (e.g. `%2B19493253498`).</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Reputation.Numbers.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {

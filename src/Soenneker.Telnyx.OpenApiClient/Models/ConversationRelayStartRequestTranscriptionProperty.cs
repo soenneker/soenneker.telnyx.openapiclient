@@ -10,6 +10,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// <summary>
     /// Not supported for Conversation Relay start requests. Use `transcription_engine` and `transcription_engine_config` instead.
     /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationRelayStartRequestTranscriptionProperty : IAdditionalDataHolder, IParsable
     {

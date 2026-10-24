@@ -154,13 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string DoingBusinessAs { get; set; }
 #endif
         /// <summary>Business entity classification. Must be one of the 5 valid enum values.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationEntityTypeWrapper? EntityType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationEntityTypeWrapper EntityType { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationEntityType? EntityType { get; set; }
         /// <summary>The message returned when users text &apos;HELP&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -177,14 +171,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string IsvReseller { get; set; }
 #endif
-        /// <summary>Estimated monthly volume of messages from the given phone numbers</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Message Volume Enums</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestMessageVolume? MessageVolume { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestMessageVolume MessageVolume { get; set; }
-#endif
         /// <summary>Message sent to users confirming their opt-in to receive messages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -249,14 +237,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string TermsAndConditionURL { get; set; }
 #endif
-        /// <summary>Machine-readable use-case for the phone numbers</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Tollfree usecase categories</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestUseCase? UseCase { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestUseCase UseCase { get; set; }
-#endif
         /// <summary>Human-readable summary of the desired use-case</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -317,10 +299,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "campaignVerifyAuthorizationToken", n => { CampaignVerifyAuthorizationToken = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationEntityTypeWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationEntityTypeWrapper.CreateFromDiscriminatorValue); } },
+                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationEntityType>(); } },
                 { "helpMessageResponse", n => { HelpMessageResponse = n.GetStringValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
-                { "messageVolume", n => { MessageVolume = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestMessageVolume>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestMessageVolume.CreateFromDiscriminatorValue); } },
+                { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestMessageVolume>(); } },
                 { "optInConfirmationResponse", n => { OptInConfirmationResponse = n.GetStringValue(); } },
                 { "optInKeywords", n => { OptInKeywords = n.GetStringValue(); } },
                 { "optInWorkflow", n => { OptInWorkflow = n.GetStringValue(); } },
@@ -329,7 +311,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "privacyPolicyURL", n => { PrivacyPolicyURL = n.GetStringValue(); } },
                 { "productionMessageContent", n => { ProductionMessageContent = n.GetStringValue(); } },
                 { "termsAndConditionURL", n => { TermsAndConditionURL = n.GetStringValue(); } },
-                { "useCase", n => { UseCase = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestUseCase>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestUseCase.CreateFromDiscriminatorValue); } },
+                { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestUseCase>(); } },
                 { "useCaseSummary", n => { UseCaseSummary = n.GetStringValue(); } },
                 { "webhookUrl", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -359,10 +341,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("campaignVerifyAuthorizationToken", CampaignVerifyAuthorizationToken);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationEntityTypeWrapper>("entityType", EntityType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationEntityType>("entityType", EntityType);
             writer.WriteStringValue("helpMessageResponse", HelpMessageResponse);
             writer.WriteStringValue("isvReseller", IsvReseller);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestMessageVolume>("messageVolume", MessageVolume);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestMessageVolume>("messageVolume", MessageVolume);
             writer.WriteStringValue("optInConfirmationResponse", OptInConfirmationResponse);
             writer.WriteStringValue("optInKeywords", OptInKeywords);
             writer.WriteStringValue("optInWorkflow", OptInWorkflow);
@@ -371,7 +353,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("privacyPolicyURL", PrivacyPolicyURL);
             writer.WriteStringValue("productionMessageContent", ProductionMessageContent);
             writer.WriteStringValue("termsAndConditionURL", TermsAndConditionURL);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestUseCase>("useCase", UseCase);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingTollFreeVerificationTfVerificationRequestUseCase>("useCase", UseCase);
             writer.WriteStringValue("useCaseSummary", UseCaseSummary);
             writer.WriteStringValue("webhookUrl", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

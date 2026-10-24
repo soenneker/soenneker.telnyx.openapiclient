@@ -83,10 +83,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Knowledge-base files associated with the test agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentKnowledgeBaseFilesItem>? KnowledgeBaseFiles { get; set; }
+        public UntypedNode? KnowledgeBaseFiles { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentKnowledgeBaseFilesItem> KnowledgeBaseFiles { get; set; }
+        public UntypedNode KnowledgeBaseFiles { get; set; }
 #endif
         /// <summary>ISO language code the test agent converses in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,10 +121,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Outbound numbers associated with the test agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentOutboundNumbersItem>? OutboundNumbers { get; set; }
+        public UntypedNode? OutboundNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentOutboundNumbersItem> OutboundNumbers { get; set; }
+        public UntypedNode OutboundNumbers { get; set; }
 #endif
         /// <summary>The sip_auth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,14 +181,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "hallucination_metric_kb_files", n => { HallucinationMetricKbFiles = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "inbound", n => { Inbound = n.GetBoolValue(); } },
-                { "knowledge_base_files", n => { KnowledgeBaseFiles = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentKnowledgeBaseFilesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentKnowledgeBaseFilesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "knowledge_base_files", n => { KnowledgeBaseFiles = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "llm_max_tokens", n => { LlmMaxTokens = n.GetIntValue(); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
                 { "llm_system_prompt", n => { LlmSystemPrompt = n.GetStringValue(); } },
                 { "llm_temperature", n => { LlmTemperature = n.GetDoubleValue(); } },
                 { "outbound_auto_call", n => { OutboundAutoCall = n.GetBoolValue(); } },
-                { "outbound_numbers", n => { OutboundNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentOutboundNumbersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentOutboundNumbersItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "outbound_numbers", n => { OutboundNumbers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "sip_auth", n => { SipAuth = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty.CreateFromDiscriminatorValue); } },
                 { "sip_endpoint", n => { SipEndpoint = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -213,14 +213,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("hallucination_metric_kb_files", HallucinationMetricKbFiles);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("inbound", Inbound);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentKnowledgeBaseFilesItem>("knowledge_base_files", KnowledgeBaseFiles);
+            writer.WriteObjectValue<UntypedNode>("knowledge_base_files", KnowledgeBaseFiles);
             writer.WriteStringValue("language", Language);
             writer.WriteIntValue("llm_max_tokens", LlmMaxTokens);
             writer.WriteStringValue("llm_model", LlmModel);
             writer.WriteStringValue("llm_system_prompt", LlmSystemPrompt);
             writer.WriteDoubleValue("llm_temperature", LlmTemperature);
             writer.WriteBoolValue("outbound_auto_call", OutboundAutoCall);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentOutboundNumbersItem>("outbound_numbers", OutboundNumbers);
+            writer.WriteObjectValue<UntypedNode>("outbound_numbers", OutboundNumbers);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty>("sip_auth", SipAuth);
             writer.WriteStringValue("sip_endpoint", SipEndpoint);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

@@ -26,18 +26,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The bcc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>? Bcc { get; set; }
+        public List<string>? Bcc { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput> Bcc { get; set; }
+        public List<string> Bcc { get; set; }
 #endif
         /// <summary>The cc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>? Cc { get; set; }
+        public List<string>? Cc { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput> Cc { get; set; }
+        public List<string> Cc { get; set; }
 #endif
         /// <summary>The from_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,10 +138,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>? To { get; set; }
+        public List<string>? To { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput> To { get; set; }
+        public List<string> To { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDraftRequest"/> and sets the default values.
@@ -169,8 +169,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDraftRequestAttachmentsItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailDraftRequestAttachmentsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "bcc", n => { Bcc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "bcc", n => { Bcc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "cc", n => { Cc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "from_email", n => { FromEmail = n.GetStringValue(); } },
                 { "from_name", n => { FromName = n.GetStringValue(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDraftRequestHeadersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailDraftRequestHeadersProperty.CreateFromDiscriminatorValue); } },
@@ -183,7 +183,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
-                { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "to", n => { To = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -194,8 +194,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDraftRequestAttachmentsItemProperty>("attachments", Attachments);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("bcc", Bcc);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("cc", Cc);
+            writer.WriteCollectionOfPrimitiveValues<string>("bcc", Bcc);
+            writer.WriteCollectionOfPrimitiveValues<string>("cc", Cc);
             writer.WriteStringValue("from_email", FromEmail);
             writer.WriteStringValue("from_name", FromName);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDraftRequestHeadersProperty>("headers", Headers);
@@ -208,7 +208,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("text_body", TextBody);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("to", To);
+            writer.WriteCollectionOfPrimitiveValues<string>("to", To);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

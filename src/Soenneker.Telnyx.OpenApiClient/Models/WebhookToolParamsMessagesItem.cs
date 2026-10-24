@@ -37,13 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem();
-            if("WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("request_response_delayed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessage();
             }
-            else if("WebhookToolParamsMessagesItemWebhookToolRequestStartMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("request_start".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WebhookToolParamsMessagesItemWebhookToolRequestStartMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestStartMessage();
             }

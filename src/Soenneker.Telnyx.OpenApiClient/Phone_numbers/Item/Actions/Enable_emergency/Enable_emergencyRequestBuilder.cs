@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency
 {
     /// <summary>
-    /// Builds and executes requests for operations under \phone_numbers\{-id}\actions\enable_emergency
+    /// Builds and executes requests for operations under \phone_numbers\{id}\actions\enable_emergency
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Enable_emergencyRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emerg
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Enable_emergencyRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{%2Did}/actions/enable_emergency", pathParameters)
+        public Enable_emergencyRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{id}/actions/enable_emergency", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emerg
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Enable_emergencyRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{%2Did}/actions/enable_emergency", rawUrl)
+        public Enable_emergencyRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/{id}/actions/enable_emergency", rawUrl)
         {
         }
         /// <summary>

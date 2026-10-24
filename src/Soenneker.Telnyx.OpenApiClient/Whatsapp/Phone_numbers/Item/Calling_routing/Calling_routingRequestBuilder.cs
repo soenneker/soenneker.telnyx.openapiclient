@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_routing
 {
     /// <summary>
-    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{-id}\calling_routing
+    /// Builds and executes requests for operations under \whatsapp\phone_numbers\{id}\calling_routing
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Calling_routingRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_rou
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Calling_routingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/calling_routing", pathParameters)
+        public Calling_routingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{id}/calling_routing", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Phone_numbers.Item.Calling_rou
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Calling_routingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{%2Did}/calling_routing", rawUrl)
+        public Calling_routingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/phone_numbers/{id}/calling_routing", rawUrl)
         {
         }
         /// <summary>

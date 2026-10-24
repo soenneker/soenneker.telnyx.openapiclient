@@ -14,14 +14,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The value property</summary>
+        /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseDataValue? Value { get; set; }
+        public string? Body { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseDataValue Value { get; set; }
+        public string Body { get; set; }
 #endif
+        /// <summary>The commenter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Commenter { get; private set; }
+#nullable restore
+#else
+        public string Commenter { get; private set; }
+#endif
+        /// <summary>The commenter_type property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommenterType? CommenterType { get; private set; }
+        /// <summary>The comment_record_id property</summary>
+        public Guid? CommentRecordId { get; set; }
+        /// <summary>The comment_record_type property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType? CommentRecordType { get; set; }
+        /// <summary>An ISO 8901 datetime string denoting when the comment was created.</summary>
+        public DateTimeOffset? CreatedAt { get; private set; }
+        /// <summary>The id property</summary>
+        public Guid? Id { get; private set; }
+        /// <summary>An ISO 8901 datetime string for when the comment was read.</summary>
+        public DateTimeOffset? ReadAt { get; private set; }
+        /// <summary>An ISO 8901 datetime string for when the comment was updated.</summary>
+        public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseData"/> and sets the default values.
         /// </summary>
@@ -47,7 +69,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseDataValue>(global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseDataValue.CreateFromDiscriminatorValue); } },
+                { "body", n => { Body = n.GetStringValue(); } },
+                { "comment_record_id", n => { CommentRecordId = n.GetGuidValue(); } },
+                { "comment_record_type", n => { CommentRecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType>(); } },
+                { "commenter", n => { Commenter = n.GetStringValue(); } },
+                { "commenter_type", n => { CommenterType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommenterType>(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "read_at", n => { ReadAt = n.GetDateTimeOffsetValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +87,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseDataValue>("value", Value);
+            writer.WriteStringValue("body", Body);
+            writer.WriteGuidValue("comment_record_id", CommentRecordId);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType>("comment_record_type", CommentRecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

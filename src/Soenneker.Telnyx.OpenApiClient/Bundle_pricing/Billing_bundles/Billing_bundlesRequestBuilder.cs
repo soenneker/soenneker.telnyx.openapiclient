@@ -19,9 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Billing_bundles
     public partial class Billing_bundlesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.bundle_pricing.billing_bundles.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the bundle.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Billing_bundles.Item.WithBundleItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Billing_bundles.Item.WithBundleItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Billing_bundles.Item.WithBundleItemRequestBuilder this[Guid position]
         {
             get
             {

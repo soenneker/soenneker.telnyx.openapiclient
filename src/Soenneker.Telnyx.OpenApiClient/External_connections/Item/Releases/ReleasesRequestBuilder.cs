@@ -19,9 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases
     public partial class ReleasesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.releases.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Identifies a Release request</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithReleaseItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithReleaseItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithReleaseItemRequestBuilder this[Guid position]
         {
             get
             {

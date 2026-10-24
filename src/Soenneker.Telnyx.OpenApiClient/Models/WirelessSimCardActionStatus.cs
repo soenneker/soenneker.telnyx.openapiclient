@@ -22,8 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Reason { get; private set; }
 #endif
-        /// <summary>The value property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionStatusValue? Value { get; set; }
+        /// <summary>The current status of the SIM card action.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionStatusValue? Value { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionStatus"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessSimCardActionStatusValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

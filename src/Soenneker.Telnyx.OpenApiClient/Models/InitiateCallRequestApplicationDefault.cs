@@ -17,18 +17,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The Texml property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultTexml? Texml { get; set; }
+        public UntypedNode? Texml { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultTexml Texml { get; set; }
+        public UntypedNode Texml { get; set; }
 #endif
         /// <summary>The Url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultUrl? Url { get; set; }
+        public UntypedNode? Url { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultUrl Url { get; set; }
+        public UntypedNode Url { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefault"/> and sets the default values.
@@ -55,8 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "Texml", n => { Texml = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultTexml>(global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultTexml.CreateFromDiscriminatorValue); } },
-                { "Url", n => { Url = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultUrl>(global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultUrl.CreateFromDiscriminatorValue); } },
+                { "Texml", n => { Texml = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "Url", n => { Url = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultTexml>("Texml", Texml);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefaultUrl>("Url", Url);
+            writer.WriteObjectValue<UntypedNode>("Texml", Texml);
+            writer.WriteObjectValue<UntypedNode>("Url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Human-readable error detail. Changeset responses may return a structured object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectDetail? Detail { get; set; }
+        public string? Detail { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectDetail Detail { get; set; }
+        public string Detail { get; set; }
 #endif
         /// <summary>Additional metadata. Present on 401 errors with a documentation URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectCode>(); } },
-                { "detail", n => { Detail = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectDetail>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectDetail.CreateFromDiscriminatorValue); } },
+                { "detail", n => { Detail = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMetaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMetaProperty.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSourceProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSourceProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectCode>("code", Code);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectDetail>("detail", Detail);
+            writer.WriteStringValue("detail", Detail);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectMetaProperty>("meta", Meta);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObjectSourceProperty>("source", Source);
             writer.WriteStringValue("title", Title);

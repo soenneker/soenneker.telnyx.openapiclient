@@ -58,17 +58,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
         /// <summary>
         /// Returns the configuration of a single MCP server attached to the specified mission.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -76,22 +76,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Replaces the configuration of the specified MCP server on this mission.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPutRequestInformation(requestConfiguration);
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Missions.Item.McpServers.Item
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PutPublicMissionsMissionsMissionIdMcpServersMcpServerId200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removes the specified MCP server from the mission, revoking agent access to its tools in subsequent runs.

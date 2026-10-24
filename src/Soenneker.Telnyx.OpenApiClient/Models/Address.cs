@@ -160,6 +160,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Address()
         {
             AdditionalData = new Dictionary<string, object>();
+            AddressBook = true;
+            ValidateAddress = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

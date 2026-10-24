@@ -45,17 +45,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("auth_type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfig();
-            if("GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("basic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault = new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault();
             }
-            else if("GenericPayConnectorConfigBearerAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("bearer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GenericPayConnectorConfigBearerAuthentication = new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication();
             }
-            else if("GenericPayConnectorConfigNoProcessorAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GenericPayConnectorConfigNoProcessorAuthentication = new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication();
             }

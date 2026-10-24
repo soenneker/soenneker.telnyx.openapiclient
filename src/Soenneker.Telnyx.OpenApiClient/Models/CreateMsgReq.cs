@@ -67,10 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice? ToolChoice { get; set; }
+        public string? ToolChoice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice ToolChoice { get; set; }
+        public string ToolChoice { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq"/> and sets the default values.
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
                 { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolCallsItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolCallsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice.CreateFromDiscriminatorValue); } },
+                { "tool_choice", n => { ToolChoice = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolCallsItemProperty>("tool_calls", ToolCalls);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReqToolChoice>("tool_choice", ToolChoice);
+            writer.WriteStringValue("tool_choice", ToolChoice);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

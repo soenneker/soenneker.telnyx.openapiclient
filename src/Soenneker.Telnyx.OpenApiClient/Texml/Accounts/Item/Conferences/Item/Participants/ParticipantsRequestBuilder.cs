@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
     public partial class ParticipantsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Conferences.item.Participants.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">CallSid or Label of the Participant to update.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Participants.Item.WithCallSidOrParticipantLabelItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Participants.Item.WithCallSidOrParticipantLabelItemRequestBuilder this[string position]
         {
@@ -132,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/x-www-form-urlencoded", body);
+            global::Soenneker.OpenApi.Generated.OpenApiFormSerializer.SetContent(requestInfo, body, "{}");
             return requestInfo;
         }
         /// <summary>

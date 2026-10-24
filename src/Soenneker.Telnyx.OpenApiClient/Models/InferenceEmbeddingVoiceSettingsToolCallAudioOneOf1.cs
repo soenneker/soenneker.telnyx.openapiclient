@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Select from predefined media options.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PredefinedMediaType? Type { get; set; }
-        /// <summary>The value property</summary>
+        /// <summary>The predefined media to use. `typing` plays a keyboard typing sound.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsToolCallAudioOneOf1Value? Value { get; set; }
         /// <summary>Volume level for the predefined media. Supports values from 0.0 to 1.0 in 0.1 increments. `0.0` plays no sound.</summary>
         public double? Volume { get; set; }

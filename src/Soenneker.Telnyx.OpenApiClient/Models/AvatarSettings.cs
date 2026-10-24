@@ -27,8 +27,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId? BackgroundId { get; set; }
         /// <summary>Required avatar model identifier, separate from `avatar_id`. The supported value is `foxtrot-1`. Omission, null, and unsupported model identifiers are rejected.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model? Model { get; set; }
-        /// <summary>Avatar provider. The first release supports Telnyx avatars.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider? Provider { get; set; }
+        /// <summary>The provider property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Provider { get; set; }
+#nullable restore
+#else
+        public string Provider { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettings"/> and sets the default values.
         /// </summary>
@@ -57,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "avatar_id", n => { AvatarId = n.GetStringValue(); } },
                 { "background_id", n => { BackgroundId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId>(); } },
                 { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model>(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>(); } },
+                { "provider", n => { Provider = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -70,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("avatar_id", AvatarId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId>("background_id", BackgroundId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model>("model", Model);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProvider>("provider", Provider);
+            writer.WriteStringValue("provider", Provider);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

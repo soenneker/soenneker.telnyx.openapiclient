@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Recipients
 {
     /// <summary>
-    /// Builds and executes requests for operations under \email_messages\{email-id}\recipients
+    /// Builds and executes requests for operations under \email_messages\{emailId}\recipients
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RecipientsRequestBuilder : BaseRequestBuilder
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Recipients
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RecipientsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_messages/{email%2Did}/recipients{?kind*,page_cursor*,page_size*,status*}", pathParameters)
+        public RecipientsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_messages/{emailId}/recipients{?kind*,page_cursor*,page_size*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Item.Recipients
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RecipientsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_messages/{email%2Did}/recipients{?kind*,page_cursor*,page_size*,status*}", rawUrl)
+        public RecipientsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_messages/{emailId}/recipients{?kind*,page_cursor*,page_size*,status*}", rawUrl)
         {
         }
         /// <summary>

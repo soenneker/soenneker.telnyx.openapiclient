@@ -37,13 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgentMessagesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgentMessagesItem();
-            if("AssistantA2AAgentMessagesItemA2AAgentRequestResponseDelayedMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("request_response_delayed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AssistantA2AAgentMessagesItemA2AAgentRequestResponseDelayedMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgentMessagesItemA2AAgentRequestResponseDelayedMessage();
             }
-            else if("AssistantA2AAgentMessagesItemA2AAgentRequestStartMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("request_start".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AssistantA2AAgentMessagesItemA2AAgentRequestStartMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgentMessagesItemA2AAgentRequestStartMessage();
             }

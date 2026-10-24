@@ -45,17 +45,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam();
-            if("ResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("json_object".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ResponseFormatJsonObject = new global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonObject();
             }
-            else if("ResponseFormatJsonSchemaParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("json_schema".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ResponseFormatJsonSchemaParam = new global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatJsonSchemaParam();
             }
-            else if("ResponseFormatText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ResponseFormatText = new global::Soenneker.Telnyx.OpenApiClient.Models.ResponseFormatText();
             }

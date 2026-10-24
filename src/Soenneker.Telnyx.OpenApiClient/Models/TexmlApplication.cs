@@ -124,7 +124,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TexmlApplication()
         {
             AdditionalData = new Dictionary<string, object>();
+            Active = true;
             CallCostInWebhooks = false;
+            FirstCommandTimeout = false;
+            FirstCommandTimeoutSecs = 30;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

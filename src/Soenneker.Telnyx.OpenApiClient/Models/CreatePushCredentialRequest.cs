@@ -37,13 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CreatePushCredentialRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CreatePushCredentialRequest();
-            if("CreateAndroidPushCredentialRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("android".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateAndroidPushCredentialRequest = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest();
             }
-            else if("CreateIosPushCredentialRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ios".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateIosPushCredentialRequest = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest();
             }

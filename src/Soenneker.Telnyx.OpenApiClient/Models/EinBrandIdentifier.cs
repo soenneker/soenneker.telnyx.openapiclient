@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The identifier_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifierIdentifierType? IdentifierType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EinIdentifierType? IdentifierType { get; set; }
         /// <summary>Nine digits, optionally formatted as NN-NNNNNNN.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "identifier_type", n => { IdentifierType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifierIdentifierType>(); } },
+                { "identifier_type", n => { IdentifierType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EinIdentifierType>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifierIdentifierType>("identifier_type", IdentifierType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EinIdentifierType>("identifier_type", IdentifierType);
             writer.WriteStringValue("value", Value);
         }
     }

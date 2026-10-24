@@ -53,21 +53,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionCondition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionCondition();
-            if("WaitForActionConditionOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("url_pattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WaitForActionConditionOneOf1 = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf1();
             }
-            else if("WaitForActionConditionOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ref".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WaitForActionConditionOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf2();
             }
-            else if("WaitForActionConditionOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WaitForActionConditionOneOf3 = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf3();
             }
-            else if("WaitForActionConditionOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("dom_stable".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WaitForActionConditionOneOf4 = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf4();
             }

@@ -13,15 +13,15 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \email_inboxes\{-id}\drafts
+    /// Builds and executes requests for operations under \email_inboxes\{id}\drafts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DraftsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.email_inboxes.item.drafts.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Email draft UUID.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts.Item.WithDraftItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts.Item.WithDraftItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts.Item.WithDraftItemRequestBuilder this[Guid position]
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DraftsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/drafts{?filter%5Bstatus%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", pathParameters)
+        public DraftsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{id}/drafts{?filter%5Bstatus%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_inboxes.Item.Drafts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DraftsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{%2Did}/drafts{?filter%5Bstatus%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", rawUrl)
+        public DraftsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/email_inboxes/{id}/drafts{?filter%5Bstatus%5D*,page%5Bafter%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>

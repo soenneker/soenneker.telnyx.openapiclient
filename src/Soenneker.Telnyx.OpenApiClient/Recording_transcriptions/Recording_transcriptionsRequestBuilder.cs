@@ -19,9 +19,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Recording_transcriptions
     public partial class Recording_transcriptionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.recording_transcriptions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Uniquely identifies the recording transcription by id.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecordingTranscriptionItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecordingTranscriptionItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Item.WithRecordingTranscriptionItemRequestBuilder this[Guid position]
         {
             get
             {

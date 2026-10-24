@@ -20,14 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.number_order_phone_numbers.item collection</summary>
         /// <param name="position">The number order phone number ID.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Number_order_phone_numbersItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Number_order_phone_numbersItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Number_order_phone_numbersItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

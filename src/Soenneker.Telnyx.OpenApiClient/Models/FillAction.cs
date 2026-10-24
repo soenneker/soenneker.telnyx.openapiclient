@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Ref { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FillActionType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FillType? Type { get; set; }
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "include_observation", n => { IncludeObservation = n.GetBoolValue(); } },
                 { "observation_id", n => { ObservationId = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FillActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FillType>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("include_observation", IncludeObservation);
             writer.WriteStringValue("observation_id", ObservationId);
             writer.WriteStringValue("ref", Ref);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FillActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FillType>("type", Type);
             writer.WriteStringValue("value", Value);
         }
     }

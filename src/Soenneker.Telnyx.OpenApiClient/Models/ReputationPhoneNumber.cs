@@ -41,13 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>Why the number was removed. Set only for removed numbers.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper? RemovalReason { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper RemovalReason { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReason? RemovalReason { get; set; }
         /// <summary>When the number was removed. Set only for removed numbers.</summary>
         public DateTimeOffset? RemovedAt { get; set; }
         /// <summary>`null` until the first refresh has been collected for this number.</summary>
@@ -94,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "ownership_status", n => { OwnershipStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus>(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "removal_reason", n => { RemovalReason = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper.CreateFromDiscriminatorValue); } },
+                { "removal_reason", n => { RemovalReason = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReason>(); } },
                 { "removed_at", n => { RemovedAt = n.GetDateTimeOffsetValue(); } },
                 { "reputation_data", n => { ReputationData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource>(); } },
@@ -113,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("flag_reason", FlagReason);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus>("ownership_status", OwnershipStatus);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReasonWrapper>("removal_reason", RemovalReason);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReason>("removal_reason", RemovalReason);
             writer.WriteDateTimeOffsetValue("removed_at", RemovedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData>("reputation_data", ReputationData);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource>("source", Source);

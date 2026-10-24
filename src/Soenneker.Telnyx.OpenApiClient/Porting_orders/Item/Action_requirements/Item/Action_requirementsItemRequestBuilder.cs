@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Action_requirements.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \porting_orders\{-id}\action_requirements\{id}
+    /// Builds and executes requests for operations under \porting_orders\{id}\action_requirements\{id2}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Action_requirementsItemRequestBuilder : BaseRequestBuilder
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Action_requirements
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Action_requirementsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/action_requirements/{id}", pathParameters)
+        public Action_requirementsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/action_requirements/{id2}", pathParameters)
         {
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Action_requirements
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Action_requirementsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/action_requirements/{id}", rawUrl)
+        public Action_requirementsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{id}/action_requirements/{id2}", rawUrl)
         {
         }
     }

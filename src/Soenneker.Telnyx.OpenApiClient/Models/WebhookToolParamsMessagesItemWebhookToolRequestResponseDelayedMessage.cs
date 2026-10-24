@@ -22,8 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The delay in milliseconds from the start of the webhook request.</summary>
         public int? TimingMs { get; set; }
-        /// <summary>Speak the filler message only if the agent has not answered yet after `timing_ms`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RequestResponseDelayedType? Type { get; set; }
+        /// <summary>Speak the filler message after the configured delay if the webhook response is still pending.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessageType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -44,7 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "timing_ms", n => { TimingMs = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RequestResponseDelayedType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessageType>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
             writer.WriteIntValue("timing_ms", TimingMs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RequestResponseDelayedType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessageType>("type", Type);
         }
     }
 }

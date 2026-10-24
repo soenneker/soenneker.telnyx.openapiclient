@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The direction property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyDirection? Direction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageDirection? Direction { get; set; }
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -201,7 +201,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "bcc", n => { Bcc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyDirection>(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageDirection>(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress.CreateFromDiscriminatorValue); } },
                 { "has_quoted_text", n => { HasQuotedText = n.GetBoolValue(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageHeadersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageHeadersProperty.CreateFromDiscriminatorValue); } },
@@ -238,7 +238,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("bcc", Bcc);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("cc", Cc);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessageBodyDirection>("direction", Direction);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageDirection>("direction", Direction);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundEmailAddress>("from", From);
             writer.WriteBoolValue("has_quoted_text", HasQuotedText);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ThreadMessageHeadersProperty>("headers", Headers);
