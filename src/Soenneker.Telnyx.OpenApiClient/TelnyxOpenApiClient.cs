@@ -105,6 +105,7 @@ using Soenneker.Telnyx.OpenApiClient.Mobile_network_operators;
 using Soenneker.Telnyx.OpenApiClient.Mobile_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials;
 using Soenneker.Telnyx.OpenApiClient.Network_coverage;
+using Soenneker.Telnyx.OpenApiClient.Network_routes;
 using Soenneker.Telnyx.OpenApiClient.Networks;
 using Soenneker.Telnyx.OpenApiClient.Noise_suppression_engines;
 using Soenneker.Telnyx.OpenApiClient.Notification_channels;
@@ -181,6 +182,7 @@ using Soenneker.Telnyx.OpenApiClient.Texml_applications;
 using Soenneker.Telnyx.OpenApiClient.TextToSpeech;
 using Soenneker.Telnyx.OpenApiClient.Traffic;
 using Soenneker.Telnyx.OpenApiClient.Traffic_policy_profiles;
+using Soenneker.Telnyx.OpenApiClient.Tunnels;
 using Soenneker.Telnyx.OpenApiClient.Uac_connections;
 using Soenneker.Telnyx.OpenApiClient.Usage_reports;
 using Soenneker.Telnyx.OpenApiClient.User;
@@ -712,6 +714,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Network_coverage.Network_coverageRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The network_routes property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Network_routes.Network_routesRequestBuilder Network_routes
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Network_routes.Network_routesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The networks property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Networks.NetworksRequestBuilder Networks
         {
@@ -1091,6 +1098,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Traffic_policy_profiles.Traffic_policy_profilesRequestBuilder Traffic_policy_profiles
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Traffic_policy_profiles.Traffic_policy_profilesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tunnels property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Tunnels.TunnelsRequestBuilder Tunnels
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Tunnels.TunnelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The uac_connections property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Uac_connections.Uac_connectionsRequestBuilder Uac_connections

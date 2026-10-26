@@ -63033,6 +63033,395 @@
         }
       }
     },
+    "/network_routes": {
+      "get": {
+        "tags": [
+          "Network Routes"
+        ],
+        "summary": "List all Network Routes",
+        "description": "Lists the routes of the account\u0027s Networks. A Network\u0027s list is its effective route table: the routes added with \u0060POST /network_routes\u0060 (\u0060origin\u0060 \u0060static\u0060) and the routes that its attachments install (\u0060origin\u0060 \u0060attachment\u0060). Lookup is longest prefix within the Network.",
+        "operationId": "ListNetworkRoutes",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[network_id], filter[origin], filter[next_hop.type], filter[cidr], filter[status]",
+            "required": true,
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "required": [
+                "network_id"
+              ],
+              "type": "object",
+              "properties": {
+                "network_id": {
+                  "type": "string",
+                  "description": "The id of the Network whose route table is returned. Required.",
+                  "format": "uuid",
+                  "example": "91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24"
+                },
+                "origin": {
+                  "$ref": "#/components/schemas/ListNetworkRoutesFilterParameterOrigin"
+                },
+                "next_hop.type": {
+                  "$ref": "#/components/schemas/ListNetworkRoutesFilterParameterNextHopType"
+                },
+                "cidr": {
+                  "type": "string",
+                  "description": "Only routes with this CIDR.",
+                  "example": "10.20.0.0/16"
+                },
+                "status": {
+                  "$ref": "#/components/schemas/ListNetworkRoutesFilterParameterStatus"
+                }
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorts the results by a field, ascending, or descending with a leading \u0060-\u0060. The default is \u0060-created_at\u0060.",
+            "schema": {
+              "$ref": "#/components/schemas/ListNetworkRoutesSortParameter"
+            }
+          },
+          {
+            "description": "Consolidated page parameter (deepObject style). Originally: page[after], page[limit]",
+            "$ref": "#/components/parameters/PageCursorConsolidated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListNetworkRoutes200Response"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "b6a10cb9-2d4e-4f61-9a3b-7e5c8d1f0a26",
+                      "record_type": "network_route",
+                      "network_id": "91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24",
+                      "cidr": "172.27.0.0/24",
+                      "next_hop": {
+                        "type": "wireguard_interface",
+                        "id": "b6a10cb9-2d4e-4f61-9a3b-7e5c8d1f0a26"
+                      },
+                      "origin": "attachment",
+                      "status": "active",
+                      "created_at": "2026-10-21T15:04:05.123456Z"
+                    },
+                    {
+                      "id": "e8a2c5d0-3f7b-4a19-b6d2-9c1e0f8a7b53",
+                      "record_type": "network_route",
+                      "network_id": "91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24",
+                      "cidr": "10.20.0.0/16",
+                      "next_hop": {
+                        "type": "tunnel",
+                        "id": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+                      },
+                      "origin": "static",
+                      "status": "active",
+                      "created_at": "2026-10-21T15:04:05.123456Z"
+                    }
+                  ],
+                  "meta": {
+                    "cursors": {}
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity: \u0060filter[network_id]\u0060 is missing, or a query parameter is not valid, such as an unsupported \u0060sort\u0060 field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10022",
+                      "title": "Unprocessable Entity",
+                      "detail": "filter[network_id] is required",
+                      "source": {
+                        "parameter": "filter[network_id]"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Network Routes"
+        ],
+        "summary": "Create a Network Route",
+        "description": "Adds a route to a Network. Traffic on the Network to an address in \u0060cidr\u0060 goes via \u0060next_hop\u0060. With a tunnel as the next hop, functions on the Network reach the CIDR through the tunnel without a redeploy. A Network holds each CIDR once.",
+        "operationId": "CreateNetworkRoute",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkRouteCreate"
+              },
+              "example": {
+                "network_id": "91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24",
+                "cidr": "10.20.0.0/16",
+                "next_hop": {
+                  "type": "tunnel",
+                  "id": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateNetworkRoute201Response"
+                },
+                "example": {
+                  "data": {
+                    "id": "e8a2c5d0-3f7b-4a19-b6d2-9c1e0f8a7b53",
+                    "record_type": "network_route",
+                    "network_id": "91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24",
+                    "cidr": "10.20.0.0/16",
+                    "next_hop": {
+                      "type": "tunnel",
+                      "id": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+                    },
+                    "origin": "static",
+                    "status": "pending",
+                    "created_at": "2026-10-21T15:04:05.123456Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found: no tunnel with the \u0060next_hop.id\u0060 exists on the account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10020",
+                      "title": "Resource not found",
+                      "detail": "tunnel 62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39 not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict: the Network already has a route for this CIDR.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10021",
+                      "title": "Resource conflict",
+                      "detail": "create route: resource already exists"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity: the body failed validation. \u0060source.pointer\u0060 names the field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10022",
+                      "title": "Unprocessable Entity",
+                      "detail": "cidr must be a valid CIDR range (e.g. 10.20.0.0/16)",
+                      "source": {
+                        "pointer": "/cidr"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/network_routes/{id}": {
+      "delete": {
+        "tags": [
+          "Network Routes"
+        ],
+        "summary": "Delete a Network Route",
+        "description": "Deletes a route that was added with \u0060POST /network_routes\u0060. Traffic to its CIDR stops going via the next hop at once. Routes that an attachment installs (\u0060origin\u0060 \u0060attachment\u0060) leave with the attachment and cannot be deleted here.",
+        "operationId": "DeleteNetworkRoute",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the route.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "e8a2c5d0-3f7b-4a19-b6d2-9c1e0f8a7b53"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "Not found: no route with this id exists on the account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10020",
+                      "title": "Resource not found",
+                      "detail": "get route: not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict: the route was installed by an attachment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10021",
+                      "title": "Resource conflict",
+                      "detail": "network_route b6a10cb9-2d4e-4f61-9a3b-7e5c8d1f0a26 was installed by an attachment (wireguard_interface on network 91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24); it is read-only and is removed with the attachment"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Network Routes"
+        ],
+        "summary": "Retrieve a Network Route",
+        "description": "Retrieves a route and its status.",
+        "operationId": "GetNetworkRoute",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the route.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "e8a2c5d0-3f7b-4a19-b6d2-9c1e0f8a7b53"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetNetworkRoute200Response"
+                },
+                "example": {
+                  "data": {
+                    "id": "e8a2c5d0-3f7b-4a19-b6d2-9c1e0f8a7b53",
+                    "record_type": "network_route",
+                    "network_id": "91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24",
+                    "cidr": "10.20.0.0/16",
+                    "next_hop": {
+                      "type": "tunnel",
+                      "id": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+                    },
+                    "origin": "static",
+                    "status": "active",
+                    "created_at": "2026-10-21T15:04:05.123456Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found: no route with this id exists on the account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10020",
+                      "title": "Resource not found",
+                      "detail": "get route: not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        }
+      }
+    },
     "/networks": {
       "get": {
         "tags": [
@@ -91422,6 +91811,426 @@
           "default": {
             "description": "Unexpected error",
             "$ref": "#/components/responses/wireless_GenericErrorResponse_c5290d5308"
+          }
+        }
+      }
+    },
+    "/tunnels": {
+      "get": {
+        "tags": [
+          "Tunnels"
+        ],
+        "summary": "List all Tunnels",
+        "description": "Lists the tunnels on the account with their status and connected tunnel processes. Responses never include \u0060tunnel_token\u0060.",
+        "operationId": "ListTunnels",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[name], filter[status]",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the tunnel.",
+                  "example": "chicago-dc"
+                },
+                "status": {
+                  "$ref": "#/components/schemas/ListTunnelsFilterParameterStatus"
+                }
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorts the results by a field, ascending, or descending with a leading \u0060-\u0060. The default is \u0060-created_at\u0060.",
+            "schema": {
+              "$ref": "#/components/schemas/ListTunnelsSortParameter"
+            }
+          },
+          {
+            "description": "Consolidated page parameter (deepObject style). Originally: page[after], page[limit]",
+            "$ref": "#/components/parameters/PageCursorConsolidated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTunnels200Response"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39",
+                      "record_type": "tunnel",
+                      "name": "chicago-dc",
+                      "status": "healthy",
+                      "connection_count": 2,
+                      "connections": [
+                        {
+                          "hostname": "dc1-tunnel-a",
+                          "version": "0.6.0",
+                          "region_code": "chicago-il",
+                          "connected_at": "2026-10-21T15:04:05.123456Z"
+                        },
+                        {
+                          "hostname": "dc1-tunnel-b",
+                          "version": "0.6.0",
+                          "region_code": "chicago-il",
+                          "connected_at": "2026-10-21T15:04:05.123456Z"
+                        }
+                      ],
+                      "created_at": "2026-10-21T15:04:05.123456Z"
+                    }
+                  ],
+                  "meta": {
+                    "cursors": {}
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity: a query parameter is not valid, such as an unsupported \u0060sort\u0060 field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10022",
+                      "title": "Unprocessable Entity",
+                      "detail": "unsupported sort field",
+                      "source": {
+                        "pointer": "sort"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tunnels"
+        ],
+        "summary": "Create a Tunnel",
+        "description": "Creates a tunnel and returns its \u0060tunnel_token\u0060. The token is the only credential the tunnel process needs, and this response and \u0060POST /tunnels/{id}/actions/rotate_token\u0060 are the only ones that return it. A new tunnel is \u0060inactive\u0060 until a tunnel process connects with the token.",
+        "operationId": "CreateTunnel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TunnelCreate"
+              },
+              "example": {
+                "name": "chicago-dc"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created. The response carries the tunnel token, once.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTunnel201Response"
+                },
+                "example": {
+                  "data": {
+                    "id": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39",
+                    "record_type": "tunnel",
+                    "name": "chicago-dc",
+                    "tunnel_token": "tnl_example-token-shown-once",
+                    "status": "inactive",
+                    "connection_count": 0,
+                    "connections": [],
+                    "created_at": "2026-10-21T15:04:05.123456Z"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity: the body failed validation. \u0060source.pointer\u0060 names the field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10022",
+                      "title": "Unprocessable Entity",
+                      "detail": "name is required",
+                      "source": {
+                        "pointer": "/name"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/tunnels/{id}": {
+      "delete": {
+        "tags": [
+          "Tunnels"
+        ],
+        "summary": "Delete a Tunnel",
+        "description": "Deletes a tunnel. A tunnel that a route names as its next hop cannot be deleted; delete those routes first. Connected tunnel processes are disconnected and cannot reconnect with the tunnel\u0027s token.",
+        "operationId": "DeleteTunnel",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the tunnel.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "Not found: no tunnel with this id exists on the account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10020",
+                      "title": "Resource not found",
+                      "detail": "get tunnel: not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict: one or more routes name the tunnel as their next hop. \u0060detail\u0060 and \u0060meta.route_ids\u0060 list them.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10021",
+                      "title": "Resource conflict",
+                      "detail": "tunnel 62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39 is the next hop of 1 route; delete it first: e8a2c5d0-3f7b-4a19-b6d2-9c1e0f8a7b53",
+                      "meta": {
+                        "route_ids": [
+                          "e8a2c5d0-3f7b-4a19-b6d2-9c1e0f8a7b53"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Tunnels"
+        ],
+        "summary": "Retrieve a Tunnel",
+        "description": "Retrieves a tunnel with its status and the tunnel processes connected to it. The response never includes \u0060tunnel_token\u0060.",
+        "operationId": "GetTunnel",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the tunnel.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTunnel200Response"
+                },
+                "example": {
+                  "data": {
+                    "id": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39",
+                    "record_type": "tunnel",
+                    "name": "chicago-dc",
+                    "status": "healthy",
+                    "connection_count": 2,
+                    "connections": [
+                      {
+                        "hostname": "dc1-tunnel-a",
+                        "version": "0.6.0",
+                        "region_code": "chicago-il",
+                        "connected_at": "2026-10-21T15:04:05.123456Z"
+                      },
+                      {
+                        "hostname": "dc1-tunnel-b",
+                        "version": "0.6.0",
+                        "region_code": "chicago-il",
+                        "connected_at": "2026-10-21T15:04:05.123456Z"
+                      }
+                    ],
+                    "created_at": "2026-10-21T15:04:05.123456Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found: no tunnel with this id exists on the account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10020",
+                      "title": "Resource not found",
+                      "detail": "get tunnel: not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/tunnels/{id}/actions/rotate_token": {
+      "post": {
+        "tags": [
+          "Tunnels"
+        ],
+        "summary": "Rotate a Tunnel Token",
+        "description": "Issues a new \u0060tunnel_token\u0060 and invalidates the previous one. Tunnel processes already connected stay connected until they reconnect, and are then refused until they use the new token.",
+        "operationId": "RotateTunnelToken",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the tunnel.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response. The response carries the new tunnel token, once.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RotateTunnelToken200Response"
+                },
+                "example": {
+                  "data": {
+                    "id": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39",
+                    "record_type": "tunnel",
+                    "name": "chicago-dc",
+                    "status": "healthy",
+                    "connection_count": 2,
+                    "connections": [
+                      {
+                        "hostname": "dc1-tunnel-a",
+                        "version": "0.6.0",
+                        "region_code": "chicago-il",
+                        "connected_at": "2026-10-21T15:04:05.123456Z"
+                      },
+                      {
+                        "hostname": "dc1-tunnel-b",
+                        "version": "0.6.0",
+                        "region_code": "chicago-il",
+                        "connected_at": "2026-10-21T15:04:05.123456Z"
+                      }
+                    ],
+                    "created_at": "2026-10-21T15:04:05.123456Z",
+                    "tunnel_token": "tnl_example-new-token-shown-once"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found: no tunnel with this id exists on the account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10020",
+                      "title": "Resource not found",
+                      "detail": "get tunnel: not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "$ref": "#/components/responses/GenericErrorResponse"
           }
         }
       }
@@ -146998,6 +147807,98 @@
           }
         }
       },
+      "NetworkRoute": {
+        "title": "NetworkRoute",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifies the resource.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "e8a2c5d0-3f7b-4a19-b6d2-9c1e0f8a7b53"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "network_route"
+          },
+          "network_id": {
+            "type": "string",
+            "description": "The id of the Network the route belongs to.",
+            "format": "uuid",
+            "example": "91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24"
+          },
+          "cidr": {
+            "type": "string",
+            "description": "The IPv4 CIDR the route covers.",
+            "example": "10.20.0.0/16"
+          },
+          "next_hop": {
+            "description": "Where the Network sends traffic for the route\u0027s CIDR.",
+            "$ref": "#/components/schemas/NetworkRouteNextHop"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/NetworkRouteOrigin"
+          },
+          "status": {
+            "$ref": "#/components/schemas/NetworkRouteStatus"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-10-21T15:04:05.123456Z"
+          }
+        }
+      },
+      "NetworkRouteCreate": {
+        "title": "NetworkRouteCreate",
+        "required": [
+          "network_id",
+          "cidr",
+          "next_hop"
+        ],
+        "type": "object",
+        "properties": {
+          "network_id": {
+            "type": "string",
+            "description": "The id of the Network to add the route to.",
+            "format": "uuid",
+            "example": "91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24"
+          },
+          "cidr": {
+            "type": "string",
+            "description": "The IPv4 subnet to route, such as a subnet behind the tunnel. It must be a canonical CIDR. Default, loopback, link-local, multicast, and shared address space (\u0060100.64.0.0/10\u0060) ranges are rejected. So are ranges that overlap the Tailscale Subnet Router ranges, \u0060172.27.254.0/24\u0060 and \u0060198.18.0.0/20\u0060, or a subnet already on the Network.",
+            "example": "10.20.0.0/16"
+          },
+          "next_hop": {
+            "$ref": "#/components/schemas/NetworkRouteCreateNextHop"
+          }
+        }
+      },
+      "NetworkRouteNextHop": {
+        "title": "NetworkRouteNextHop",
+        "required": [
+          "type",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/NetworkRouteNextHopType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The id of the tunnel or attachment.",
+            "format": "uuid",
+            "example": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+          }
+        },
+        "description": "Where the Network sends traffic for the route\u0027s CIDR."
+      },
       "NewBillingGroup": {
         "type": "object",
         "properties": {
@@ -178770,6 +179671,155 @@
           }
         }
       },
+      "Tunnel": {
+        "title": "Tunnel",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifies the resource.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "tunnel"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "A user specified name for the tunnel.",
+            "example": "chicago-dc"
+          },
+          "status": {
+            "$ref": "#/components/schemas/TunnelStatus"
+          },
+          "connection_count": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of tunnel processes connected with the tunnel\u0027s token.",
+            "readOnly": true,
+            "example": 2
+          },
+          "connections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TunnelConnection"
+            },
+            "description": "The tunnel processes connected with the tunnel\u0027s token.",
+            "readOnly": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-10-21T15:04:05.123456Z"
+          }
+        }
+      },
+      "TunnelConnection": {
+        "title": "TunnelConnection",
+        "type": "object",
+        "properties": {
+          "hostname": {
+            "type": "string",
+            "description": "The name the host reports for itself. Preview: empty until the CLI reports it.",
+            "example": "dc1-tunnel-a"
+          },
+          "version": {
+            "type": "string",
+            "description": "The \u0060telnyx-edge\u0060 CLI version of the process. Preview: empty until the CLI reports it.",
+            "example": "0.6.0"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The Telnyx region the process is connected to. Preview: empty until the CLI reports it.",
+            "example": "chicago-il"
+          },
+          "connected_at": {
+            "type": "string",
+            "description": "When the process connected.",
+            "format": "date-time",
+            "example": "2026-10-21T15:04:05.123456Z"
+          }
+        },
+        "description": "A tunnel process connected to the tunnel."
+      },
+      "TunnelCreate": {
+        "title": "TunnelCreate",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "A user specified name for the tunnel.",
+            "example": "chicago-dc"
+          }
+        }
+      },
+      "TunnelWithToken": {
+        "title": "TunnelWithToken",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifies the resource.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "tunnel"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "A user specified name for the tunnel.",
+            "example": "chicago-dc"
+          },
+          "status": {
+            "$ref": "#/components/schemas/TunnelStatus"
+          },
+          "connection_count": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of tunnel processes connected with the tunnel\u0027s token.",
+            "readOnly": true,
+            "example": 2
+          },
+          "connections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TunnelConnection"
+            },
+            "description": "The tunnel processes connected with the tunnel\u0027s token.",
+            "readOnly": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "2026-10-21T15:04:05.123456Z"
+          },
+          "tunnel_token": {
+            "type": "string",
+            "description": "The credential that a tunnel process presents with \u0060telnyx-edge tunnel run --token\u0060. Returned only by create and rotate_token. Telnyx stores only a hash of it.",
+            "readOnly": true,
+            "example": "tnl_example-token-shown-once"
+          }
+        }
+      },
       "TwimlRecordingChannels": {
         "enum": [
           1,
@@ -196450,6 +197500,24 @@
         "description": "The neighborhood of the address. This field is not used for addresses in the US but is used for some international addresses.",
         "example": "Ciudad de los deportes"
       },
+      "NetappsCursorPaginationMeta": {
+        "title": "CursorPaginationMeta",
+        "type": "object",
+        "properties": {
+          "cursors": {
+            "$ref": "#/components/schemas/NetappsCursorPaginationMetaCursors"
+          },
+          "next": {
+            "type": "string",
+            "description": "The path of the next page, with the same query parameters. Absent on the last page.",
+            "example": "/v2/network_routes?filter%5Bnetwork_id%5D=91446ee3-5b1c-4f0e-8d2a-6c7e9b0a1f24\u0026page%5Bafter%5D=MjAyNi0xMC0yMVQxNjowNjowMC4wNDMwNDRa\u0026page%5Blimit%5D=1"
+          },
+          "previous": {
+            "type": "string",
+            "description": "The path of the previous page. Present when the request used \u0060page[after]\u0060."
+          }
+        }
+      },
       "NetappsError": {
         "required": [
           "code",
@@ -206117,6 +207185,17 @@
             "Cohere": "#/components/schemas/TranscriptionEngineCohereConfig",
             "A": "#/components/schemas/TranscriptionEngineAConfig",
             "B": "#/components/schemas/TranscriptionEngineBConfig"
+          }
+        }
+      },
+      "TunnelWithTokenAllOf2": {
+        "type": "object",
+        "properties": {
+          "tunnel_token": {
+            "type": "string",
+            "description": "The credential that a tunnel process presents with \u0060telnyx-edge tunnel run --token\u0060. Returned only by create and rotate_token. Telnyx stores only a hash of it.",
+            "readOnly": true,
+            "example": "tnl_example-token-shown-once"
           }
         }
       },
@@ -216535,6 +217614,25 @@
           "unit": "1M_tokens"
         }
       },
+      "NetworkRouteCreateNextHop": {
+        "required": [
+          "type",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TunnelType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The id of the tunnel.",
+            "format": "uuid",
+            "example": "62d438d2-8a51-4c5e-9d0c-1f6b2a7e4c39"
+          }
+        },
+        "description": "Where the Network sends traffic for \u0060cidr\u0060."
+      },
       "NotificationEventConditionParametersItem": {
         "type": "object",
         "properties": {
@@ -222490,6 +223588,20 @@
       },
       "MessagingTollFreeVerificationErrorMeta": {
         "type": "object"
+      },
+      "NetappsCursorPaginationMetaCursors": {
+        "type": "object",
+        "properties": {
+          "after": {
+            "type": "string",
+            "description": "Pass as \u0060page[after]\u0060 to fetch the next page. Absent on the last page."
+          },
+          "before": {
+            "type": "string",
+            "description": "The cursor of the previous page. Present when the request used \u0060page[after]\u0060."
+          }
+        },
+        "description": "Opaque cursors. Absent keys mean there is no such page."
       },
       "NetappsErrorSource": {
         "type": "object",
@@ -228950,6 +230062,20 @@
           }
         }
       },
+      "ListNetworkRoutes200Response": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NetworkRoute"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/NetappsCursorPaginationMeta"
+          }
+        }
+      },
       "ListNetworks200Response": {
         "type": "object",
         "properties": {
@@ -231274,6 +232400,20 @@
           },
           "limit_bw_kbps": {
             "$ref": "#/components/schemas/UpdateTrafficPolicyProfile2RequestLimitBwKbps"
+          }
+        }
+      },
+      "ListTunnels200Response": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tunnel"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/NetappsCursorPaginationMeta"
           }
         }
       },
@@ -234426,6 +235566,22 @@
           }
         }
       },
+      "CreateNetworkRoute201Response": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/NetworkRoute"
+          }
+        }
+      },
+      "GetNetworkRoute200Response": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/NetworkRoute"
+          }
+        }
+      },
       "CreateNetwork200Response": {
         "type": "object",
         "properties": {
@@ -236461,6 +237617,30 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/TrafficPolicyProfile"
+          }
+        }
+      },
+      "CreateTunnel201Response": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TunnelWithToken"
+          }
+        }
+      },
+      "GetTunnel200Response": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Tunnel"
+          }
+        }
+      },
+      "RotateTunnelToken200Response": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TunnelWithToken"
           }
         }
       },
@@ -254614,6 +255794,112 @@
           ]
         }
       },
+      "NetworkRouteOrigin": {
+        "enum": [
+          "static",
+          "attachment"
+        ],
+        "type": "string",
+        "description": "\u0060static\u0060 for a route added with \u0060POST /network_routes\u0060, \u0060attachment\u0060 for a route that another resource installed and removes.",
+        "readOnly": true,
+        "example": "static",
+        "x-ms-enum": {
+          "name": "NetworkRouteOrigin",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "static",
+              "name": "StaticValue"
+            },
+            {
+              "value": "attachment",
+              "name": "Attachment"
+            }
+          ]
+        }
+      },
+      "NetworkRouteStatus": {
+        "enum": [
+          "pending",
+          "active",
+          "inactive",
+          "failed"
+        ],
+        "type": "string",
+        "description": "\u0060pending\u0060 until Telnyx installs the route on the Network, then \u0060active\u0060. \u0060inactive\u0060 while a tunnel next hop has no connected process. \u0060failed\u0060 (Preview, not reported yet) when Telnyx could not install the route.",
+        "readOnly": true,
+        "example": "active",
+        "x-ms-enum": {
+          "name": "NetworkRouteStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "NetworkRouteNextHopType": {
+        "enum": [
+          "tunnel",
+          "wireguard_peer",
+          "wireguard_interface",
+          "private_wireless_gateway",
+          "virtual_cross_connect",
+          "ipsec_tunnel",
+          "public_internet_gateway"
+        ],
+        "type": "string",
+        "description": "The type of the next hop. Routes added with \u0060POST /network_routes\u0060 use \u0060tunnel\u0060. Routes that attachments install carry the attachment\u0027s type.",
+        "example": "tunnel",
+        "x-ms-enum": {
+          "name": "NetworkRouteNextHopType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "tunnel",
+              "name": "Tunnel"
+            },
+            {
+              "value": "wireguard_peer",
+              "name": "WireguardPeer"
+            },
+            {
+              "value": "wireguard_interface",
+              "name": "WireguardInterface"
+            },
+            {
+              "value": "private_wireless_gateway",
+              "name": "PrivateWirelessGateway"
+            },
+            {
+              "value": "virtual_cross_connect",
+              "name": "VirtualCrossConnect"
+            },
+            {
+              "value": "ipsec_tunnel",
+              "name": "IpsecTunnel"
+            },
+            {
+              "value": "public_internet_gateway",
+              "name": "PublicInternetGateway"
+            }
+          ]
+        }
+      },
       "NewParticipantResourceStatus": {
         "enum": [
           "connecting",
@@ -265095,6 +266381,35 @@
           ]
         }
       },
+      "TunnelStatus": {
+        "enum": [
+          "inactive",
+          "healthy",
+          "degraded"
+        ],
+        "type": "string",
+        "description": "\u0060inactive\u0060 when no tunnel process is connected, and \u0060healthy\u0060 when one or more are. \u0060degraded\u0060 (Preview, not reported yet) when a process is connected but fails to reach its destinations.",
+        "readOnly": true,
+        "example": "healthy",
+        "x-ms-enum": {
+          "name": "TunnelStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            },
+            {
+              "value": "healthy",
+              "name": "Healthy"
+            },
+            {
+              "value": "degraded",
+              "name": "Degraded"
+            }
+          ]
+        }
+      },
       "UacConnectionSipUriCallingPreference": {
         "enum": [
           "disabled",
@@ -274262,6 +275577,24 @@
           ]
         }
       },
+      "TunnelType": {
+        "enum": [
+          "tunnel"
+        ],
+        "type": "string",
+        "description": "The type of the next hop.",
+        "example": "tunnel",
+        "x-ms-enum": {
+          "name": "TunnelType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "tunnel",
+              "name": "Tunnel"
+            }
+          ]
+        }
+      },
       "NumberOrderCompleteEventType": {
         "enum": [
           "number_order.complete"
@@ -281658,6 +282991,152 @@
           ]
         }
       },
+      "ListNetworkRoutesFilterParameterOrigin": {
+        "enum": [
+          "static",
+          "attachment"
+        ],
+        "type": "string",
+        "description": "Only routes of this origin.",
+        "example": "static",
+        "x-ms-enum": {
+          "name": "ListNetworkRoutesFilterParameterOrigin",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "static",
+              "name": "StaticValue"
+            },
+            {
+              "value": "attachment",
+              "name": "Attachment"
+            }
+          ]
+        }
+      },
+      "ListNetworkRoutesFilterParameterNextHopType": {
+        "enum": [
+          "tunnel",
+          "wireguard_peer",
+          "wireguard_interface",
+          "private_wireless_gateway",
+          "virtual_cross_connect",
+          "ipsec_tunnel",
+          "public_internet_gateway"
+        ],
+        "type": "string",
+        "description": "Only routes whose next hop has this type.",
+        "example": "tunnel",
+        "x-ms-enum": {
+          "name": "ListNetworkRoutesFilterParameterNextHopType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "tunnel",
+              "name": "Tunnel"
+            },
+            {
+              "value": "wireguard_peer",
+              "name": "WireguardPeer"
+            },
+            {
+              "value": "wireguard_interface",
+              "name": "WireguardInterface"
+            },
+            {
+              "value": "private_wireless_gateway",
+              "name": "PrivateWirelessGateway"
+            },
+            {
+              "value": "virtual_cross_connect",
+              "name": "VirtualCrossConnect"
+            },
+            {
+              "value": "ipsec_tunnel",
+              "name": "IpsecTunnel"
+            },
+            {
+              "value": "public_internet_gateway",
+              "name": "PublicInternetGateway"
+            }
+          ]
+        }
+      },
+      "ListNetworkRoutesFilterParameterStatus": {
+        "enum": [
+          "pending",
+          "active",
+          "inactive",
+          "failed"
+        ],
+        "type": "string",
+        "description": "Only routes with this status.",
+        "example": "active",
+        "x-ms-enum": {
+          "name": "ListNetworkRoutesFilterParameterStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "ListNetworkRoutesSortParameter": {
+        "enum": [
+          "cidr",
+          "-cidr",
+          "status",
+          "-status",
+          "created_at",
+          "-created_at"
+        ],
+        "type": "string",
+        "example": "-created_at",
+        "x-ms-enum": {
+          "name": "ListNetworkRoutesSortParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "cidr",
+              "name": "Cidr"
+            },
+            {
+              "value": "-cidr",
+              "name": "Cidr1"
+            },
+            {
+              "value": "status",
+              "name": "Status"
+            },
+            {
+              "value": "-status",
+              "name": "Status1"
+            },
+            {
+              "value": "created_at",
+              "name": "CreatedAt"
+            },
+            {
+              "value": "-created_at",
+              "name": "CreatedAt1"
+            }
+          ]
+        }
+      },
       "CodeResponseType": {
         "enum": [
           "code"
@@ -284103,6 +285582,86 @@
             {
               "value": "-type",
               "name": "Type1"
+            }
+          ]
+        }
+      },
+      "ListTunnelsFilterParameterStatus": {
+        "enum": [
+          "inactive",
+          "healthy",
+          "degraded"
+        ],
+        "type": "string",
+        "description": "The status of the tunnel.",
+        "example": "healthy",
+        "x-ms-enum": {
+          "name": "ListTunnelsFilterParameterStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            },
+            {
+              "value": "healthy",
+              "name": "Healthy"
+            },
+            {
+              "value": "degraded",
+              "name": "Degraded"
+            }
+          ]
+        }
+      },
+      "ListTunnelsSortParameter": {
+        "enum": [
+          "name",
+          "-name",
+          "status",
+          "-status",
+          "created_at",
+          "-created_at",
+          "updated_at",
+          "-updated_at"
+        ],
+        "type": "string",
+        "example": "-created_at",
+        "x-ms-enum": {
+          "name": "ListTunnelsSortParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "name",
+              "name": "Name"
+            },
+            {
+              "value": "-name",
+              "name": "Name1"
+            },
+            {
+              "value": "status",
+              "name": "Status"
+            },
+            {
+              "value": "-status",
+              "name": "Status1"
+            },
+            {
+              "value": "created_at",
+              "name": "CreatedAt"
+            },
+            {
+              "value": "-created_at",
+              "name": "CreatedAt1"
+            },
+            {
+              "value": "updated_at",
+              "name": "UpdatedAt"
+            },
+            {
+              "value": "-updated_at",
+              "name": "UpdatedAt1"
             }
           ]
         }
@@ -291733,6 +293292,29 @@
         },
         "example": "eyJpbnNlcnRlZF9hdCI6IjIwMjQtMDEtMDEifQ"
       },
+      "PageCursorConsolidated": {
+        "name": "page",
+        "in": "query",
+        "description": "Consolidated page parameter (deepObject style). Originally: page[after], page[limit]",
+        "style": "deepObject",
+        "explode": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "after": {
+              "type": "string",
+              "description": "The cursor from \u0060meta.cursors.after\u0060 of the previous page."
+            },
+            "limit": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "description": "The number of results per page.",
+              "default": 20
+            }
+          }
+        }
+      },
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
@@ -295386,6 +296968,10 @@
       "description": "Monthly Charges Report"
     },
     {
+      "name": "Network Routes",
+      "description": "Routes on a Network that send a CIDR to a next hop, such as a tunnel."
+    },
+    {
       "name": "Networks",
       "description": "Network operations"
     },
@@ -295696,6 +297282,10 @@
     {
       "name": "Traffic Policy Profiles",
       "description": "Traffic Policy Profiles operations"
+    },
+    {
+      "name": "Tunnels",
+      "description": "Tunnels connect a Network to hosts behind a tunnel process within the user\u0027s network."
     },
     {
       "name": "UAC Connections",
