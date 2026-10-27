@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones.From_upload
         {
         }
         /// <summary>
-        /// Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. Maximum file size: 20MB. Reference audio is trimmed per model: Qwen3TTS and Bayan use the first 10 seconds, Ultra uses up to 60 seconds, and Minimax accepts 10 seconds to 5 minutes. Ultra clones return `202` with status `pending`; all other models return `201` with status `active`. Bayan clones require `ref_text` (the exact transcript of the reference audio) and support `ar` (default) and `en` only.
+        /// Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. Maximum file size: 20MB. Reference audio is trimmed per model: Qwen3TTS, Bayan, and Resemble use the first 10 seconds, Ultra uses up to 60 seconds, and Minimax accepts 10 seconds to 5 minutes. Ultra clones return `202` with status `pending`; all other models return `201` with status `active`. Bayan clones require `ref_text` (the exact transcript of the reference audio) and support `ar` (default) and `en` only. Resemble clones (`provider: resemble`) take `model_id` `Pro`, `Turbo`, or `Urdu`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse"/></returns>
         /// <param name="body">Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 20MB.</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones.From_upload
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. Maximum file size: 20MB. Reference audio is trimmed per model: Qwen3TTS and Bayan use the first 10 seconds, Ultra uses up to 60 seconds, and Minimax accepts 10 seconds to 5 minutes. Ultra clones return `202` with status `pending`; all other models return `201` with status `active`. Bayan clones require `ref_text` (the exact transcript of the reference audio) and support `ar` (default) and `en` only.
+        /// Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. Maximum file size: 20MB. Reference audio is trimmed per model: Qwen3TTS, Bayan, and Resemble use the first 10 seconds, Ultra uses up to 60 seconds, and Minimax accepts 10 seconds to 5 minutes. Ultra clones return `202` with status `pending`; all other models return `201` with status `active`. Bayan clones require `ref_text` (the exact transcript of the reference audio) and support `ar` (default) and `en` only. Resemble clones (`provider: resemble`) take `model_id` `Pro`, `Turbo`, or `Urdu`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 20MB.</param>

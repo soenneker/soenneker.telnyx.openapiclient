@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargetsOneOf1Item>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargetsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargetsOneOf1Item> inferenceEmbeddingTransferToolParamsTargetsOneOf1ItemValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargetsOneOf1Item>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargetsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargetsOneOf1Item> inferenceEmbeddingTransferToolParamsTargetsOneOf1ItemValue)
             {
                 result.InferenceEmbeddingTransferToolParamsTargetsOneOf1Item = inferenceEmbeddingTransferToolParamsTargetsOneOf1ItemValue;
             }

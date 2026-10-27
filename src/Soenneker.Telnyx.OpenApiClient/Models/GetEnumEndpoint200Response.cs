@@ -67,11 +67,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.EnumPaginatedResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse();
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200ResponseMember1>(global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200ResponseMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200ResponseMember1> getEnumEndpoint200ResponseMember1Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200ResponseMember1>(global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200ResponseMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200ResponseMember1> getEnumEndpoint200ResponseMember1Value)
             {
                 result.GetEnumEndpoint200ResponseMember1 = getEnumEndpoint200ResponseMember1Value;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
                 result.String = stringValue;
             }

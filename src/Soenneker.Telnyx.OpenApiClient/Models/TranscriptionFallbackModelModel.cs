@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The fallback model. It must be a streaming model other than `transcription.model` and the other fallbacks: `deepgram/flux`, `deepgram/nova-3`, `deepgram/nova-2`, `assemblyai/universal-3-5-pro` (or its legacy alias `assemblyai/universal-streaming`), `xai/grok-stt`, `soniox/stt-rt-v4`, `soniox/stt-rt-v5`, `humain/realtime`, or `reson8/turns`.</summary>
+    /// <summary>The fallback model. It must be a streaming model other than `transcription.model` and the other fallbacks: `deepgram/flux`, `deepgram/nova-3`, `deepgram/nova-2`, `assemblyai/universal-3-6-pro` (or its legacy aliases `assemblyai/universal-3-5-pro` and `assemblyai/universal-streaming`), `xai/grok-stt`, `soniox/stt-rt-v4`, `soniox/stt-rt-v5`, `humain/realtime`, or `reson8/turns`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionFallbackModelModel
     {
@@ -18,6 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "deepgram/nova-2")]
         #pragma warning disable CS1591
         DeepgramNova2,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "assemblyai/universal-3-6-pro")]
+        #pragma warning disable CS1591
+        AssemblyaiUniversal36Pro,
         #pragma warning restore CS1591
         [EnumMember(Value = "assemblyai/universal-3-5-pro")]
         #pragma warning disable CS1591

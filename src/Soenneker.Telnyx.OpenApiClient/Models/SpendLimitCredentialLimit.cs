@@ -33,6 +33,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CredentialId { get; set; }
 #endif
+        /// <summary>The API key&apos;s limit is above the period&apos;s total limit. Only a change by Telnyx support can cause it; the total limit still applies to the whole account. Lower the API key limit or raise the total.</summary>
+        public bool? ExceedsTotal { get; set; }
         /// <summary>The limit of one API key. It always has an amount. `null` for an API key that is still blocked after its limit was removed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "block", n => { Block = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock.CreateFromDiscriminatorValue); } },
                 { "blocked", n => { Blocked = n.GetBoolValue(); } },
                 { "credential_id", n => { CredentialId = n.GetStringValue(); } },
+                { "exceeds_total", n => { ExceedsTotal = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue.CreateFromDiscriminatorValue); } },
                 { "spend_error", n => { SpendError = n.GetStringValue(); } },
                 { "spend_usd", n => { SpendUsd = n.GetStringValue(); } },
@@ -100,6 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock>("block", Block);
             writer.WriteBoolValue("blocked", Blocked);
             writer.WriteStringValue("credential_id", CredentialId);
+            writer.WriteBoolValue("exceeds_total", ExceedsTotal);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue>("limit", Limit);
             writer.WriteStringValue("spend_error", SpendError);
             writer.WriteStringValue("spend_usd", SpendUsd);

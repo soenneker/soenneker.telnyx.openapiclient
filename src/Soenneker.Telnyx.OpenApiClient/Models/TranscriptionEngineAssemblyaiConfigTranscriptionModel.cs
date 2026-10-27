@@ -3,10 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The model to use for transcription. `assemblyai/universal-streaming` is a legacy alias of `assemblyai/universal-3-5-pro` and resolves to the same model.</summary>
+    /// <summary>The model to use for transcription. `assemblyai/universal-3-6-pro` is the AssemblyAI Universal-3.6 Pro model. `assemblyai/universal-3-5-pro` (the default) and `assemblyai/universal-streaming` are legacy aliases that run the same Universal-3.6 Pro model.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionEngineAssemblyaiConfigTranscriptionModel
     {
+        [EnumMember(Value = "assemblyai/universal-3-6-pro")]
+        #pragma warning disable CS1591
+        AssemblyaiUniversal36Pro,
+        #pragma warning restore CS1591
         [EnumMember(Value = "assemblyai/universal-3-5-pro")]
         #pragma warning disable CS1591
         AssemblyaiUniversal35Pro,

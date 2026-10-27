@@ -16,14 +16,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>How much of the period&apos;s total limit is given to API key limits. `null` unless the period has a total limit with an amount.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation? Allocation { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation Allocation { get; set; }
-#endif
         /// <summary>The active block of the period. `null` when the period is not blocked.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -145,7 +137,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allocation", n => { Allocation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation.CreateFromDiscriminatorValue); } },
                 { "block", n => { Block = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock>(global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock.CreateFromDiscriminatorValue); } },
                 { "blocked", n => { Blocked = n.GetBoolValue(); } },
                 { "credential_id", n => { CredentialId = n.GetStringValue(); } },
@@ -170,7 +161,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitAllocation>("allocation", Allocation);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock>("block", Block);
             writer.WriteBoolValue("blocked", Blocked);
             writer.WriteStringValue("credential_id", CredentialId);

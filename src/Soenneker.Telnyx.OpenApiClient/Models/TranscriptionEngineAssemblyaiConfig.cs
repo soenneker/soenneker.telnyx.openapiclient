@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? InterimResults { get; set; }
         /// <summary>Engine identifier for AssemblyAI transcription service</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AssemblyAiTranscriptionEngine? TranscriptionEngine { get; set; }
-        /// <summary>The model to use for transcription. `assemblyai/universal-streaming` is a legacy alias of `assemblyai/universal-3-5-pro` and resolves to the same model.</summary>
+        /// <summary>The model to use for transcription. `assemblyai/universal-3-6-pro` is the AssemblyAI Universal-3.6 Pro model. `assemblyai/universal-3-5-pro` (the default) and `assemblyai/universal-streaming` are legacy aliases that run the same Universal-3.6 Pro model.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfigTranscriptionModel? TranscriptionModel { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAssemblyaiConfig"/> and sets the default values.

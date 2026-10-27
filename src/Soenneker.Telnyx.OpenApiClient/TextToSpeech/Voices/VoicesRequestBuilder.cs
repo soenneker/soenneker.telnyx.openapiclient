@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
         {
         }
         /// <summary>
-        /// Retrieve a list of available voices from one or all TTS providers. When `provider` is specified, returns voices for that provider only. Otherwise, returns voices from all providers.Some providers (ElevenLabs, Resemble) require an API key to list voices.
+        /// Retrieve a list of available voices from one or all TTS providers. When `provider` is specified, returns voices for that provider only. Otherwise, returns voices from all providers.Some providers (ElevenLabs) require an API key to list voices.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoicesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VoicesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VoicesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a list of available voices from one or all TTS providers. When `provider` is specified, returns voices for that provider only. Otherwise, returns voices from all providers.Some providers (ElevenLabs, Resemble) require an API key to list voices.
+        /// Retrieve a list of available voices from one or all TTS providers. When `provider` is specified, returns voices for that provider only. Otherwise, returns voices from all providers.Some providers (ElevenLabs) require an API key to list voices.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
             return new global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve a list of available voices from one or all TTS providers. When `provider` is specified, returns voices for that provider only. Otherwise, returns voices from all providers.Some providers (ElevenLabs, Resemble) require an API key to list voices.
+        /// Retrieve a list of available voices from one or all TTS providers. When `provider` is specified, returns voices for that provider only. Otherwise, returns voices from all providers.Some providers (ElevenLabs) require an API key to list voices.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class VoicesRequestBuilderGetQueryParameters 

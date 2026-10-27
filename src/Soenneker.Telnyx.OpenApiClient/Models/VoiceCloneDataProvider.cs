@@ -15,5 +15,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Minimax1,
         #pragma warning restore CS1591
+        [EnumMember(Value = "resemble")]
+        #pragma warning disable CS1591
+        Resemble1,
+        #pragma warning restore CS1591
     }
 }

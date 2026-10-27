@@ -25573,6 +25573,477 @@
         }
       }
     },
+    "/bot_challenge": {
+      "post": {
+        "tags": [
+          "Bot Signup"
+        ],
+        "summary": "Issue a bot challenge",
+        "description": "Generates a reverse-CAPTCHA challenge used to gate the bot signup flow. A random active problem is selected from the pool; math problems are returned obfuscated (case randomization, symbol injection, spacing noise) with an unobfuscated rounding instruction appended, while string and binary problems are returned as-is. The response contains a single-use nonce, the problem text, and the current terms-and-conditions and privacy-policy URLs, which must be echoed back on the signup request. Challenges expire after a short window (10 minutes by default) and can only be answered once. This endpoint is public and unauthenticated.",
+        "operationId": "CreateBotChallenge",
+        "requestBody": {
+          "description": "Optional self-reported metadata about the LLM solving the challenge. Used for analytics only; it does not influence which problem is served.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BotChallengeRequest"
+              },
+              "example": {
+                "llm_model_name": "claude-opus-4",
+                "llm_parameter_count": "175B",
+                "llm_quantization": "int8"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Challenge issued.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotChallengeResponse"
+                },
+                "example": {
+                  "data": {
+                    "nonce": "c6feda4e-6501-4db9-a21f-665e5b4ce2ba",
+                    "problem": "W#hAt iS f!Ve tImEs sEvEn? Round to 0 decimal places. Omit units.",
+                    "challenge_type": "math",
+                    "precision": 0,
+                    "terms_and_conditions_url": "https://telnyx.com/terms-and-conditions-of-service",
+                    "privacy_policy_url": "https://telnyx.com/privacy-policy"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The JSON request body could not be parsed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "There was a problem in the JSON you submitted. Please check your formatting and try again."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "No bot challenge problems are currently available.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "No bot challenge problems available"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-latency-category": "responsive",
+        "x-endpoint-cost": "light"
+      }
+    },
+    "/bot_sessions": {
+      "get": {
+        "tags": [
+          "Bot Signup"
+        ],
+        "summary": "Exchange a magic link token for a session",
+        "description": "Consumes the one-time portal redirect (magic link) token emailed during bot signup and returns an API session. The token is a UUIDv7 that encodes its creation time; it expires after a configurable validity window (15 minutes by default) and is cleared on first use. Although the action creates a session, the route uses the GET verb because it is opened from an email link. On first use the account is also initialized. For bot signup (freemium) accounts the response is a minimal envelope containing only the \u0060api_v2_token\u0060; accounts that are permitted to use magic links but are not freemium accounts may instead receive an extended session payload when additional steps (such as two-factor authentication or identity verification) are required. This endpoint is public; the magic link token in the query string is the credential.",
+        "operationId": "CreateBotSession",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Email address associated with the magic link token.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email",
+              "example": "agent-owner@example.com"
+            }
+          },
+          {
+            "name": "portal_redirect_token",
+            "in": "query",
+            "description": "Single-use portal redirect (magic link) token, a UUIDv7 sent to the account owner\u0027s email.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "01890a7e-e2f7-7c3d-8dbb-9a2c5f3d1e0b"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session created. Bot signup accounts receive a minimal token envelope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSessionResponse"
+                },
+                "example": {
+                  "data": {
+                    "api_v2_token": "KEY0189A1B2C3D4E5F6071829AB3C4D5E_5FhZonmFvcw8Yq0dME27Bg"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The account could not be initialized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Account could not be initialized"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid email or token, expired token, or the account is not eligible to sign in (inactive, suspended, not permitted to use magic links, or must use SSO).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Your sign-in link has expired. Please request a new one-time sign-in link."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Request blocked by security policy (for example, the caller\u0027s country is not accepted).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Your registration cannot be accepted as it does not comply with our security standards. You may contact support for assistance."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Bot signup is not available (freemium master switch disabled or the caller\u0027s country is not enabled).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10005",
+                      "title": "Resource not found",
+                      "detail": "The requested resource or URL could not be found.",
+                      "source": {
+                        "pointer": "/"
+                      },
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10005"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-latency-category": "responsive",
+        "x-endpoint-cost": "medium"
+      }
+    },
+    "/bot_signup": {
+      "post": {
+        "tags": [
+          "Bot Signup"
+        ],
+        "summary": "Register via bot signup",
+        "description": "Creates a freemium Telnyx account through the agentic signup flow. The request must carry a valid answer to a previously issued bot challenge (\u0060bot_challenge_nonce\u0060 and \u0060bot_challenge_answer\u0060), accept the terms of service, and echo the exact terms-and-conditions and privacy-policy URLs returned by the challenge endpoint. When EU consent enforcement is enabled, \u0060terms_of_service_eu\u0060 and \u0060terms_and_conditions_eu_url\u0060 are also required. On success a one-time sign-in (magic) link is emailed to the address provided; if the email address belongs to an existing account, a sign-in link is sent instead of creating a duplicate account. \u0060email\u0060 may only be omitted when placeholder-email registration is enabled server-side. This endpoint is public and unauthenticated, gated by the freemium feature flags and per-country availability, and subject to per-IP and per-domain registration limits.",
+        "operationId": "CreateBotSignup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BotSignupRequest"
+              },
+              "example": {
+                "email": "agent-owner@example.com",
+                "terms_of_service": true,
+                "terms_and_conditions_url": "https://telnyx.com/terms-and-conditions-of-service",
+                "privacy_policy_url": "https://telnyx.com/privacy-policy",
+                "bot_challenge_nonce": "c6feda4e-6501-4db9-a21f-665e5b4ce2ba",
+                "bot_challenge_answer": "35"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Registration accepted and a magic link emailed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                },
+                "example": {
+                  "success": true,
+                  "message": "A one-time sign-in link has been sent to your email address."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bot challenge parameters missing or verification failed, terms of service not accepted, or terms/privacy URLs missing or not matching the expected values.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Bot challenge parameters are required"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Registration blocked by security policy (for example, registration from the caller\u0027s country is not accepted).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Your registration cannot be accepted as it does not comply with our security standards. You may contact support for assistance."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Bot signup is not available (freemium master switch disabled or the caller\u0027s country is not enabled).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10005",
+                      "title": "Resource not found",
+                      "detail": "The requested resource or URL could not be found.",
+                      "source": {
+                        "pointer": "/"
+                      },
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10005"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed (for example an invalid email address), or the IP address has reached its bot signup limit.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10027",
+                      "title": "Unprocessable Entity",
+                      "detail": "Email is invalid",
+                      "source": {
+                        "pointer": "/email"
+                      },
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10027"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many registrations from this email domain.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10011",
+                      "title": "Too many requests",
+                      "detail": "You have exceeded the maximum number of allowed requests.",
+                      "source": {
+                        "pointer": "/"
+                      },
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10011"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-latency-category": "responsive",
+        "x-endpoint-cost": "medium"
+      }
+    },
+    "/bot_signup/resend_magic_link": {
+      "post": {
+        "tags": [
+          "Bot Signup"
+        ],
+        "summary": "Resend a bot signup magic link",
+        "description": "Resends the one-time sign-in (magic) link for an eligible bot signup account. Eligibility (account exists, was registered through bot signup, is active, and has not exceeded the resend limit or rate window) is evaluated server-side; the response is intentionally uniform and does not reveal whether the account exists or whether a link was actually sent. This endpoint is public and unauthenticated, gated by the freemium feature flags and per-country availability.",
+        "operationId": "ResendBotSignupMagicLink",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResendMagicLinkRequest"
+              },
+              "example": {
+                "email": "agent-owner@example.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Uniform acknowledgement, returned whether or not a link was sent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                },
+                "example": {
+                  "success": true,
+                  "message": "A one-time sign-in link has been sent to your email address."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The JSON request body could not be parsed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "There was a problem in the JSON you submitted. Please check your formatting and try again."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Request blocked by security policy (for example, the caller\u0027s country is not accepted).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "detail": "Your registration cannot be accepted as it does not comply with our security standards. You may contact support for assistance."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Bot signup is not available (freemium master switch disabled or the caller\u0027s country is not enabled).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BotSignupErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10005",
+                      "title": "Resource not found",
+                      "detail": "The requested resource or URL could not be found.",
+                      "source": {
+                        "pointer": "/"
+                      },
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10005"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-latency-category": "responsive",
+        "x-endpoint-cost": "light"
+      }
+    },
     "/browser_sessions": {
       "get": {
         "tags": [
@@ -83349,7 +83820,7 @@
           "Spend Limits"
         ],
         "summary": "List spend limits",
-        "description": "Returns one entry per product and period you can set a limit on, with the limit, the spend so far in the period and whether the product is blocked. An entry without a limit is still listed (\u0060limit: null\u0060). When the spend cannot be read, the entry is returned with \u0060spend_usd: null\u0060 and \u0060spend_error\u0060 set. The list is not paginated. Each entry also lists the API key limits of its product and period in \u0060credential_limits\u0060, with each key\u0027s spend and block, and in \u0060allocation\u0060 how much of the total limit they use.",
+        "description": "Returns one entry per product and period you can set a limit on, with the limit, the spend so far in the period and whether the product is blocked. An entry without a limit is still listed (\u0060limit: null\u0060). When the spend cannot be read, the entry is returned with \u0060spend_usd: null\u0060 and \u0060spend_error\u0060 set. The list is not paginated. Each entry also lists the API key limits of its product and period in \u0060credential_limits\u0060, with each key\u0027s spend and block. Each API key limit can be at most the total limit; together they may add up to more than it.",
         "operationId": "ListSpendLimits",
         "responses": {
           "200": {
@@ -83480,22 +83951,17 @@
                           "spend_error": null,
                           "blocked": false,
                           "block": null,
-                          "allocation": {
-                            "total_limit_usd": "1000.00",
-                            "allocated_usd": "800.00",
-                            "unallocated_usd": "200.00",
-                            "over_allocated_usd": "0.00"
-                          },
                           "credential_limits": [
                             {
                               "credential_id": "KEY0192F3A1B2C3D4E5F6A7B8C9D0E1F2",
                               "limit": {
-                                "amount": "300.00",
+                                "amount": "900.00",
                                 "origin": "self_service",
                                 "updated_at": "2026-10-20T08:03:40Z"
                               },
                               "spend_usd": "120.00",
                               "spend_error": null,
+                              "exceeds_total": false,
                               "blocked": false,
                               "block": null
                             },
@@ -83508,6 +83974,7 @@
                               },
                               "spend_usd": "510.30",
                               "spend_error": null,
+                              "exceeds_total": false,
                               "blocked": true,
                               "block": {
                                 "detected_at": "2026-10-20T11:02:19Z",
@@ -83532,7 +83999,6 @@
                           "spend_error": null,
                           "blocked": false,
                           "block": null,
-                          "allocation": null,
                           "credential_limits": []
                         }
                       ],
@@ -83741,12 +84207,6 @@
                         "spend_error": null,
                         "blocked": false,
                         "block": null,
-                        "allocation": {
-                          "total_limit_usd": "1000.00",
-                          "allocated_usd": "800.00",
-                          "unallocated_usd": "200.00",
-                          "over_allocated_usd": "0.00"
-                        },
                         "evaluation": {
                           "spend_usd": "120.00",
                           "released": false,
@@ -83891,14 +84351,14 @@
                       ]
                     }
                   },
-                  "allocation_exceeded": {
-                    "summary": "API key limits would exceed the total limit",
+                  "api_key_limit_above_total": {
+                    "summary": "An API key limit above the total limit",
                     "value": {
                       "errors": [
                         {
                           "code": "10015",
                           "title": "Limit exceeds the total limit",
-                          "detail": "The daily total limit for inference is 1000.00 USD and 800.00 USD is already allocated to API key limits; this API key can be given at most 200.00 USD"
+                          "detail": "The daily total limit for inference is 200.00 USD; an API key limit can be at most the total, so this API key can be given at most 200.00 USD"
                         }
                       ]
                     }
@@ -84225,7 +84685,7 @@
           "Spend Limits"
         ],
         "summary": "Update a spend limit",
-        "description": "Replaces the value of the existing limit for the product and period. Send exactly one of \u0060amount\u0060 and \u0060unlimited: true\u0060. The period\u0027s spend is checked at once: raising the limit above the spend lifts the period\u0027s block (\u0060evaluation.released\u0060), and lowering it below the spend blocks the product (\u0060evaluation.blocked_now\u0060). Returns 404 when no limit is set; create it instead. With the \u0060credential_id\u0060 query parameter, the request changes that API key\u0027s limit; it needs an \u0060amount\u0060, and raising it is subject to the allocation rule.",
+        "description": "Replaces the value of the existing limit for the product and period. Send exactly one of \u0060amount\u0060 and \u0060unlimited: true\u0060. The period\u0027s spend is checked at once: raising the limit above the spend lifts the period\u0027s block (\u0060evaluation.released\u0060), and lowering it below the spend blocks the product (\u0060evaluation.blocked_now\u0060). Returns 404 when no limit is set; create it instead. With the \u0060credential_id\u0060 query parameter, the request changes that API key\u0027s limit; it needs an \u0060amount\u0060, and it can be at most the period\u0027s total limit. Lowering the total limit below the period\u0027s highest API key limit is refused.",
         "operationId": "UpdateSpendLimit",
         "parameters": [
           {
@@ -84475,26 +84935,26 @@
                       ]
                     }
                   },
-                  "allocation_exceeded": {
-                    "summary": "Raising an API key limit beyond the total limit",
+                  "api_key_limit_above_total": {
+                    "summary": "Raising an API key limit above the total limit",
                     "value": {
                       "errors": [
                         {
                           "code": "10015",
                           "title": "Limit exceeds the total limit",
-                          "detail": "The daily total limit for inference is 1000.00 USD and 800.00 USD is allocated to API key limits; this API key can be given at most 500.00 USD"
+                          "detail": "The daily total limit for inference is 200.00 USD; an API key limit can be at most the total, so this API key can be given at most 200.00 USD"
                         }
                       ]
                     }
                   },
-                  "total_below_allocation": {
-                    "summary": "Lowering the total limit below the API key limits",
+                  "total_below_api_key_limit": {
+                    "summary": "Lowering the total limit below an API key limit",
                     "value": {
                       "errors": [
                         {
                           "code": "10015",
                           "title": "Limit exceeds the total limit",
-                          "detail": "800.00 USD of the daily inference limit is allocated to API key limits; the total can be at least 800.00 USD"
+                          "detail": "The highest daily inference API key limit is 175.00 USD; the total can be at least 175.00 USD"
                         }
                       ]
                     }
@@ -91052,7 +91512,6 @@
                   "language_boost": "string"
                 },
                 "resemble": {
-                  "api_key": "string",
                   "precision": "string",
                   "sample_rate": "string",
                   "format": "string"
@@ -91144,7 +91603,7 @@
           "Text To Speech Commands"
         ],
         "summary": "List available voices",
-        "description": "Retrieve a list of available voices from one or all TTS providers. When \u0060provider\u0060 is specified, returns voices for that provider only. Otherwise, returns voices from all providers.\n\nSome providers (ElevenLabs, Resemble) require an API key to list voices.",
+        "description": "Retrieve a list of available voices from one or all TTS providers. When \u0060provider\u0060 is specified, returns voices for that provider only. Otherwise, returns voices from all providers.\n\nSome providers (ElevenLabs) require an API key to list voices.",
         "operationId": "ListVoices",
         "parameters": [
           {
@@ -93241,477 +93700,6 @@
             "$ref": "#/components/responses/UnauthenticatedResponse"
           }
         }
-      }
-    },
-    "/v2/bot_challenge": {
-      "post": {
-        "tags": [
-          "Bot Signup"
-        ],
-        "summary": "Issue a bot challenge",
-        "description": "Generates a reverse-CAPTCHA challenge used to gate the bot signup flow. A random active problem is selected from the pool; math problems are returned obfuscated (case randomization, symbol injection, spacing noise) with an unobfuscated rounding instruction appended, while string and binary problems are returned as-is. The response contains a single-use nonce, the problem text, and the current terms-and-conditions and privacy-policy URLs, which must be echoed back on the signup request. Challenges expire after a short window (10 minutes by default) and can only be answered once. This endpoint is public and unauthenticated.",
-        "operationId": "CreateBotChallenge",
-        "requestBody": {
-          "description": "Optional self-reported metadata about the LLM solving the challenge. Used for analytics only; it does not influence which problem is served.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BotChallengeRequest"
-              },
-              "example": {
-                "llm_model_name": "claude-opus-4",
-                "llm_parameter_count": "175B",
-                "llm_quantization": "int8"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Challenge issued.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotChallengeResponse"
-                },
-                "example": {
-                  "data": {
-                    "nonce": "c6feda4e-6501-4db9-a21f-665e5b4ce2ba",
-                    "problem": "W#hAt iS f!Ve tImEs sEvEn? Round to 0 decimal places. Omit units.",
-                    "challenge_type": "math",
-                    "precision": 0,
-                    "terms_and_conditions_url": "https://telnyx.com/terms-and-conditions-of-service",
-                    "privacy_policy_url": "https://telnyx.com/privacy-policy"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The JSON request body could not be parsed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "There was a problem in the JSON you submitted. Please check your formatting and try again."
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "No bot challenge problems are currently available.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "No bot challenge problems available"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [],
-        "x-latency-category": "responsive",
-        "x-endpoint-cost": "light"
-      }
-    },
-    "/v2/bot_sessions": {
-      "get": {
-        "tags": [
-          "Bot Signup"
-        ],
-        "summary": "Exchange a magic link token for a session",
-        "description": "Consumes the one-time portal redirect (magic link) token emailed during bot signup and returns an API session. The token is a UUIDv7 that encodes its creation time; it expires after a configurable validity window (15 minutes by default) and is cleared on first use. Although the action creates a session, the route uses the GET verb because it is opened from an email link. On first use the account is also initialized. For bot signup (freemium) accounts the response is a minimal envelope containing only the \u0060api_v2_token\u0060; accounts that are permitted to use magic links but are not freemium accounts may instead receive an extended session payload when additional steps (such as two-factor authentication or identity verification) are required. This endpoint is public; the magic link token in the query string is the credential.",
-        "operationId": "CreateBotSession",
-        "parameters": [
-          {
-            "name": "email",
-            "in": "query",
-            "description": "Email address associated with the magic link token.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "email",
-              "example": "agent-owner@example.com"
-            }
-          },
-          {
-            "name": "portal_redirect_token",
-            "in": "query",
-            "description": "Single-use portal redirect (magic link) token, a UUIDv7 sent to the account owner\u0027s email.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid",
-              "example": "01890a7e-e2f7-7c3d-8dbb-9a2c5f3d1e0b"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Session created. Bot signup accounts receive a minimal token envelope.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSessionResponse"
-                },
-                "example": {
-                  "data": {
-                    "api_v2_token": "KEY0189A1B2C3D4E5F6071829AB3C4D5E_5FhZonmFvcw8Yq0dME27Bg"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The account could not be initialized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "Account could not be initialized"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing or invalid email or token, expired token, or the account is not eligible to sign in (inactive, suspended, not permitted to use magic links, or must use SSO).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "Your sign-in link has expired. Please request a new one-time sign-in link."
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Request blocked by security policy (for example, the caller\u0027s country is not accepted).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "Your registration cannot be accepted as it does not comply with our security standards. You may contact support for assistance."
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Bot signup is not available (freemium master switch disabled or the caller\u0027s country is not enabled).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "code": "10005",
-                      "title": "Resource not found",
-                      "detail": "The requested resource or URL could not be found.",
-                      "source": {
-                        "pointer": "/"
-                      },
-                      "meta": {
-                        "url": "https://developers.telnyx.com/docs/overview/errors/10005"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [],
-        "x-latency-category": "responsive",
-        "x-endpoint-cost": "medium"
-      }
-    },
-    "/v2/bot_signup": {
-      "post": {
-        "tags": [
-          "Bot Signup"
-        ],
-        "summary": "Register via bot signup",
-        "description": "Creates a freemium Telnyx account through the agentic signup flow. The request must carry a valid answer to a previously issued bot challenge (\u0060bot_challenge_nonce\u0060 and \u0060bot_challenge_answer\u0060), accept the terms of service, and echo the exact terms-and-conditions and privacy-policy URLs returned by the challenge endpoint. When EU consent enforcement is enabled, \u0060terms_of_service_eu\u0060 and \u0060terms_and_conditions_eu_url\u0060 are also required. On success a one-time sign-in (magic) link is emailed to the address provided; if the email address belongs to an existing account, a sign-in link is sent instead of creating a duplicate account. \u0060email\u0060 may only be omitted when placeholder-email registration is enabled server-side. This endpoint is public and unauthenticated, gated by the freemium feature flags and per-country availability, and subject to per-IP and per-domain registration limits.",
-        "operationId": "CreateBotSignup",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BotSignupRequest"
-              },
-              "example": {
-                "email": "agent-owner@example.com",
-                "terms_of_service": true,
-                "terms_and_conditions_url": "https://telnyx.com/terms-and-conditions-of-service",
-                "privacy_policy_url": "https://telnyx.com/privacy-policy",
-                "bot_challenge_nonce": "c6feda4e-6501-4db9-a21f-665e5b4ce2ba",
-                "bot_challenge_answer": "35"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Registration accepted and a magic link emailed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                },
-                "example": {
-                  "success": true,
-                  "message": "A one-time sign-in link has been sent to your email address."
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bot challenge parameters missing or verification failed, terms of service not accepted, or terms/privacy URLs missing or not matching the expected values.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "Bot challenge parameters are required"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Registration blocked by security policy (for example, registration from the caller\u0027s country is not accepted).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "Your registration cannot be accepted as it does not comply with our security standards. You may contact support for assistance."
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Bot signup is not available (freemium master switch disabled or the caller\u0027s country is not enabled).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "code": "10005",
-                      "title": "Resource not found",
-                      "detail": "The requested resource or URL could not be found.",
-                      "source": {
-                        "pointer": "/"
-                      },
-                      "meta": {
-                        "url": "https://developers.telnyx.com/docs/overview/errors/10005"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation failed (for example an invalid email address), or the IP address has reached its bot signup limit.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "code": "10027",
-                      "title": "Unprocessable Entity",
-                      "detail": "Email is invalid",
-                      "source": {
-                        "pointer": "/email"
-                      },
-                      "meta": {
-                        "url": "https://developers.telnyx.com/docs/overview/errors/10027"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many registrations from this email domain.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "code": "10011",
-                      "title": "Too many requests",
-                      "detail": "You have exceeded the maximum number of allowed requests.",
-                      "source": {
-                        "pointer": "/"
-                      },
-                      "meta": {
-                        "url": "https://developers.telnyx.com/docs/overview/errors/10011"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [],
-        "x-latency-category": "responsive",
-        "x-endpoint-cost": "medium"
-      }
-    },
-    "/v2/bot_signup/resend_magic_link": {
-      "post": {
-        "tags": [
-          "Bot Signup"
-        ],
-        "summary": "Resend a bot signup magic link",
-        "description": "Resends the one-time sign-in (magic) link for an eligible bot signup account. Eligibility (account exists, was registered through bot signup, is active, and has not exceeded the resend limit or rate window) is evaluated server-side; the response is intentionally uniform and does not reveal whether the account exists or whether a link was actually sent. This endpoint is public and unauthenticated, gated by the freemium feature flags and per-country availability.",
-        "operationId": "ResendBotSignupMagicLink",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResendMagicLinkRequest"
-              },
-              "example": {
-                "email": "agent-owner@example.com"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Uniform acknowledgement, returned whether or not a link was sent.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                },
-                "example": {
-                  "success": true,
-                  "message": "A one-time sign-in link has been sent to your email address."
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The JSON request body could not be parsed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "There was a problem in the JSON you submitted. Please check your formatting and try again."
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Request blocked by security policy (for example, the caller\u0027s country is not accepted).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "detail": "Your registration cannot be accepted as it does not comply with our security standards. You may contact support for assistance."
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Bot signup is not available (freemium master switch disabled or the caller\u0027s country is not enabled).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BotSignupErrorResponse"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "code": "10005",
-                      "title": "Resource not found",
-                      "detail": "The requested resource or URL could not be found.",
-                      "source": {
-                        "pointer": "/"
-                      },
-                      "meta": {
-                        "url": "https://developers.telnyx.com/docs/overview/errors/10005"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "security": [],
-        "x-latency-category": "responsive",
-        "x-endpoint-cost": "light"
       }
     },
     "/v2/mobile_phone_numbers": {
@@ -96699,6 +96687,10 @@
             "$ref": "#/components/parameters/FilterProvider"
           },
           {
+            "description": "Filter by TTS model. Case-insensitive.",
+            "$ref": "#/components/parameters/FilterModelId"
+          },
+          {
             "description": "Sort order. Prefix with \u0060-\u0060 for descending. Defaults to \u0060-created_at\u0060.",
             "$ref": "#/components/parameters/voice-designs_Sort"
           }
@@ -96803,7 +96795,7 @@
           "Voice Clones"
         ],
         "summary": "Create a voice clone from an audio file upload",
-        "description": "Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. Maximum file size: 20MB. Reference audio is trimmed per model: Qwen3TTS and Bayan use the first 10 seconds, Ultra uses up to 60 seconds, and Minimax accepts 10 seconds to 5 minutes. Ultra clones return \u0060202\u0060 with status \u0060pending\u0060; all other models return \u0060201\u0060 with status \u0060active\u0060. Bayan clones require \u0060ref_text\u0060 (the exact transcript of the reference audio) and support \u0060ar\u0060 (default) and \u0060en\u0060 only.",
+        "description": "Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. Maximum file size: 20MB. Reference audio is trimmed per model: Qwen3TTS, Bayan, and Resemble use the first 10 seconds, Ultra uses up to 60 seconds, and Minimax accepts 10 seconds to 5 minutes. Ultra clones return \u0060202\u0060 with status \u0060pending\u0060; all other models return \u0060201\u0060 with status \u0060active\u0060. Bayan clones require \u0060ref_text\u0060 (the exact transcript of the reference audio) and support \u0060ar\u0060 (default) and \u0060en\u0060 only. Resemble clones (\u0060provider: resemble\u0060) take \u0060model_id\u0060 \u0060Pro\u0060, \u0060Turbo\u0060, or \u0060Urdu\u0060.",
         "operationId": "CreateVoiceCloneFromUpload",
         "requestBody": {
           "content": {
@@ -96875,7 +96867,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable entity \u2014 validation error in the request body. For example, an unsupported \u0060language\u0060 for the model, or a missing \u0060ref_text\u0060 with \u0060model_id: Bayan\u0060.",
+            "description": "Unprocessable entity \u2014 validation error in the request body. For example, an unsupported \u0060language\u0060 for the model, a missing \u0060language\u0060 with \u0060model_id: Pro\u0060, or a missing \u0060ref_text\u0060 with \u0060model_id: Bayan\u0060.",
             "content": {
               "application/json": {
                 "schema": {
@@ -117641,7 +117633,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E\u0060 (e.g., \u0060Azure.en-CA-ClaraNeural\u0060, \u0060Azure.en-US-BrianMultilingualNeural\u0060, \u0060Azure.en-US-Ava:DragonHDLatestNeural\u0060). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use \u0060voice_settings\u0060 to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Telnyx.KokoroTTS.af\u0060). Use \u0060voice_settings\u0060 to configure voice_speed and other synthesis parameters. \u0060Bayan\u0060 provides Arabic (multiple dialects) and English voices (e.g., \u0060Telnyx.Bayan.Ahmed\u0060, \u0060Telnyx.Bayan.Amanda\u0060). \u0060Sukhan\u0060 provides Urdu voices (e.g., \u0060Telnyx.Sukhan.urdu-professor\u0060); \u0060voice_speed\u0060 is not supported.\n- **Minimax:** Use \u0060Minimax.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Minimax.speech-02-hd.Wise_Woman\u0060). Supported models: \u0060speech-02-turbo\u0060, \u0060speech-02-hd\u0060, \u0060speech-2.6-turbo\u0060, \u0060speech-2.8-turbo\u0060. Use \u0060voice_settings\u0060 to configure speed, volume, pitch, and language_boost.\n- **Resemble:** Use \u0060Resemble.Turbo.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Resemble.Turbo.my_voice\u0060). Only \u0060Turbo\u0060 model is supported. Use \u0060voice_settings\u0060 to configure precision, sample_rate, and format.\n- **Inworld:** Use \u0060Inworld.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Inworld.Mini.Loretta\u0060, \u0060Inworld.Max.Oliver\u0060, \u0060Inworld.TTS2.Loretta\u0060). Supported models: \u0060Mini\u0060, \u0060Max\u0060, \u0060TTS2\u0060. Use \u0060voice_settings\u0060 to configure \u0060delivery_mode\u0060 (\u0060STABLE\u0060, \u0060BALANCED\u0060, \u0060CREATIVE\u0060), supported by \u0060TTS2\u0060 only.\n- **Fish Audio:** Use \u0060FishAudio.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060FishAudio.s2.1-pro.\u003Creference_id\u003E\u0060). Supported models: \u0060s2.1-pro\u0060, \u0060s2-pro\u0060, \u0060s1\u0060. \u0060VoiceId\u0060 is a Fish Voice-Library reference ID.\n- **Soniox:** Use \u0060Soniox.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Soniox.tts-rt-v2.Emma\u0060). Supported model: \u0060tts-rt-v2\u0060. Browse the catalog via the [Voices API](https://developers.telnyx.com/api-reference/text-to-speech-commands/list-available-voices). Every voice speaks all supported languages; set \u0060language\u0060 to the two-letter ISO 639-1 code of the text, for example \u0060it\u0060. SSML is not supported. Use \u0060voice_settings\u0060 to configure \u0060speed\u0060 (0.7 to 1.3) and \u0060reduce_silence\u0060.\n- **xAI:** Use \u0060xAI.\u003CVoiceId\u003E\u0060 (e.g., \u0060xAI.eve\u0060). Available voices: \u0060eve\u0060, \u0060ara\u0060, \u0060rex\u0060, \u0060sal\u0060, \u0060leo\u0060.\n- **Humain:** Use \u0060Humain.\u003CVoiceId\u003E\u0060 (e.g., \u0060Humain.sara-ar\u0060). Available voices: \u0060sara-en\u0060, \u0060abdulaziz-en\u0060, \u0060sara-ar\u0060, \u0060abdulaziz-ar\u0060, \u0060nourah-ar\u0060, \u0060abdullah-ar\u0060. Native Arabic (Saudi dialect) and English voices only \u2014 no \u0060ModelId\u0060 segment.\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
+            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E\u0060 (e.g., \u0060Azure.en-CA-ClaraNeural\u0060, \u0060Azure.en-US-BrianMultilingualNeural\u0060, \u0060Azure.en-US-Ava:DragonHDLatestNeural\u0060). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use \u0060voice_settings\u0060 to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Telnyx.KokoroTTS.af\u0060). Use \u0060voice_settings\u0060 to configure voice_speed and other synthesis parameters. \u0060Bayan\u0060 provides Arabic (multiple dialects) and English voices (e.g., \u0060Telnyx.Bayan.Ahmed\u0060, \u0060Telnyx.Bayan.Amanda\u0060). \u0060Sukhan\u0060 provides Urdu voices (e.g., \u0060Telnyx.Sukhan.urdu-professor\u0060); \u0060voice_speed\u0060 is not supported.\n- **Minimax:** Use \u0060Minimax.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Minimax.speech-02-hd.Wise_Woman\u0060). Supported models: \u0060speech-02-turbo\u0060, \u0060speech-02-hd\u0060, \u0060speech-2.6-turbo\u0060, \u0060speech-2.8-turbo\u0060. Use \u0060voice_settings\u0060 to configure speed, volume, pitch, and language_boost.\n- **Resemble:** Use \u0060Resemble.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Resemble.Turbo.Aaron_en-US\u0060). Supported models: \u0060Pro\u0060, \u0060Turbo\u0060, \u0060Urdu\u0060. \u0060\u003CVoiceId\u003E\u0060 is a stock voice name or the ID of a Resemble voice clone. Use \u0060voice_settings\u0060 to configure precision, sample_rate, and format.\n- **Inworld:** Use \u0060Inworld.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Inworld.Mini.Loretta\u0060, \u0060Inworld.Max.Oliver\u0060, \u0060Inworld.TTS2.Loretta\u0060). Supported models: \u0060Mini\u0060, \u0060Max\u0060, \u0060TTS2\u0060. Use \u0060voice_settings\u0060 to configure \u0060delivery_mode\u0060 (\u0060STABLE\u0060, \u0060BALANCED\u0060, \u0060CREATIVE\u0060), supported by \u0060TTS2\u0060 only.\n- **Fish Audio:** Use \u0060FishAudio.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060FishAudio.s2.1-pro.\u003Creference_id\u003E\u0060). Supported models: \u0060s2.1-pro\u0060, \u0060s2-pro\u0060, \u0060s1\u0060. \u0060VoiceId\u0060 is a Fish Voice-Library reference ID.\n- **Soniox:** Use \u0060Soniox.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Soniox.tts-rt-v2.Emma\u0060). Supported model: \u0060tts-rt-v2\u0060. Browse the catalog via the [Voices API](https://developers.telnyx.com/api-reference/text-to-speech-commands/list-available-voices). Every voice speaks all supported languages; set \u0060language\u0060 to the two-letter ISO 639-1 code of the text, for example \u0060it\u0060. SSML is not supported. Use \u0060voice_settings\u0060 to configure \u0060speed\u0060 (0.7 to 1.3) and \u0060reduce_silence\u0060.\n- **xAI:** Use \u0060xAI.\u003CVoiceId\u003E\u0060 (e.g., \u0060xAI.eve\u0060). Available voices: \u0060eve\u0060, \u0060ara\u0060, \u0060rex\u0060, \u0060sal\u0060, \u0060leo\u0060.\n- **Humain:** Use \u0060Humain.\u003CVoiceId\u003E\u0060 (e.g., \u0060Humain.sara-ar\u0060). Available voices: \u0060sara-en\u0060, \u0060abdulaziz-en\u0060, \u0060sara-ar\u0060, \u0060abdulaziz-ar\u0060, \u0060nourah-ar\u0060, \u0060abdullah-ar\u0060. Native Arabic (Saudi dialect) and English voices only \u2014 no \u0060ModelId\u0060 segment.\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -136908,7 +136900,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E\u0060 (e.g., \u0060Azure.en-CA-ClaraNeural\u0060, \u0060Azure.en-US-BrianMultilingualNeural\u0060, \u0060Azure.en-US-Ava:DragonHDLatestNeural\u0060). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use \u0060voice_settings\u0060 to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Telnyx.KokoroTTS.af\u0060). Use \u0060voice_settings\u0060 to configure voice_speed and other synthesis parameters. \u0060Bayan\u0060 provides Arabic (multiple dialects) and English voices (e.g., \u0060Telnyx.Bayan.Ahmed\u0060, \u0060Telnyx.Bayan.Amanda\u0060). \u0060Sukhan\u0060 provides Urdu voices (e.g., \u0060Telnyx.Sukhan.urdu-professor\u0060); \u0060voice_speed\u0060 is not supported.\n- **Minimax:** Use \u0060Minimax.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Minimax.speech-02-hd.Wise_Woman\u0060). Supported models: \u0060speech-02-turbo\u0060, \u0060speech-02-hd\u0060, \u0060speech-2.6-turbo\u0060, \u0060speech-2.8-turbo\u0060. Use \u0060voice_settings\u0060 to configure speed, volume, pitch, and language_boost.\n- **Resemble:** Use \u0060Resemble.Turbo.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Resemble.Turbo.my_voice\u0060). Only \u0060Turbo\u0060 model is supported. Use \u0060voice_settings\u0060 to configure precision, sample_rate, and format.\n- **Inworld:** Use \u0060Inworld.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Inworld.Mini.Loretta\u0060, \u0060Inworld.Max.Oliver\u0060, \u0060Inworld.TTS2.Loretta\u0060). Supported models: \u0060Mini\u0060, \u0060Max\u0060, \u0060TTS2\u0060. Use \u0060voice_settings\u0060 to configure \u0060delivery_mode\u0060 (\u0060STABLE\u0060, \u0060BALANCED\u0060, \u0060CREATIVE\u0060), supported by \u0060TTS2\u0060 only.\n- **Fish Audio:** Use \u0060FishAudio.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060FishAudio.s2.1-pro.\u003Creference_id\u003E\u0060). Supported models: \u0060s2.1-pro\u0060, \u0060s2-pro\u0060, \u0060s1\u0060. \u0060VoiceId\u0060 is a Fish Voice-Library reference ID.\n- **Soniox:** Use \u0060Soniox.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Soniox.tts-rt-v2.Emma\u0060). Supported model: \u0060tts-rt-v2\u0060. Browse the catalog via the [Voices API](https://developers.telnyx.com/api-reference/text-to-speech-commands/list-available-voices). Every voice speaks all supported languages; set \u0060language\u0060 to the two-letter ISO 639-1 code of the text, for example \u0060it\u0060. SSML is not supported. Use \u0060voice_settings\u0060 to configure \u0060speed\u0060 (0.7 to 1.3) and \u0060reduce_silence\u0060.\n- **xAI:** Use \u0060xAI.\u003CVoiceId\u003E\u0060 (e.g., \u0060xAI.eve\u0060). Available voices: \u0060eve\u0060, \u0060ara\u0060, \u0060rex\u0060, \u0060sal\u0060, \u0060leo\u0060.\n- **Humain:** Use \u0060Humain.\u003CVoiceId\u003E\u0060 (e.g., \u0060Humain.sara-ar\u0060). Available voices: \u0060sara-en\u0060, \u0060abdulaziz-en\u0060, \u0060sara-ar\u0060, \u0060abdulaziz-ar\u0060, \u0060nourah-ar\u0060, \u0060abdullah-ar\u0060. Native Arabic (Saudi dialect) and English voices only \u2014 no \u0060ModelId\u0060 segment.\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
+            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E\u0060 (e.g., \u0060Azure.en-CA-ClaraNeural\u0060, \u0060Azure.en-US-BrianMultilingualNeural\u0060, \u0060Azure.en-US-Ava:DragonHDLatestNeural\u0060). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use \u0060voice_settings\u0060 to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Telnyx.KokoroTTS.af\u0060). Use \u0060voice_settings\u0060 to configure voice_speed and other synthesis parameters. \u0060Bayan\u0060 provides Arabic (multiple dialects) and English voices (e.g., \u0060Telnyx.Bayan.Ahmed\u0060, \u0060Telnyx.Bayan.Amanda\u0060). \u0060Sukhan\u0060 provides Urdu voices (e.g., \u0060Telnyx.Sukhan.urdu-professor\u0060); \u0060voice_speed\u0060 is not supported.\n- **Minimax:** Use \u0060Minimax.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Minimax.speech-02-hd.Wise_Woman\u0060). Supported models: \u0060speech-02-turbo\u0060, \u0060speech-02-hd\u0060, \u0060speech-2.6-turbo\u0060, \u0060speech-2.8-turbo\u0060. Use \u0060voice_settings\u0060 to configure speed, volume, pitch, and language_boost.\n- **Resemble:** Use \u0060Resemble.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Resemble.Turbo.Aaron_en-US\u0060). Supported models: \u0060Pro\u0060, \u0060Turbo\u0060, \u0060Urdu\u0060. \u0060\u003CVoiceId\u003E\u0060 is a stock voice name or the ID of a Resemble voice clone. Use \u0060voice_settings\u0060 to configure precision, sample_rate, and format.\n- **Inworld:** Use \u0060Inworld.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Inworld.Mini.Loretta\u0060, \u0060Inworld.Max.Oliver\u0060, \u0060Inworld.TTS2.Loretta\u0060). Supported models: \u0060Mini\u0060, \u0060Max\u0060, \u0060TTS2\u0060. Use \u0060voice_settings\u0060 to configure \u0060delivery_mode\u0060 (\u0060STABLE\u0060, \u0060BALANCED\u0060, \u0060CREATIVE\u0060), supported by \u0060TTS2\u0060 only.\n- **Fish Audio:** Use \u0060FishAudio.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060FishAudio.s2.1-pro.\u003Creference_id\u003E\u0060). Supported models: \u0060s2.1-pro\u0060, \u0060s2-pro\u0060, \u0060s1\u0060. \u0060VoiceId\u0060 is a Fish Voice-Library reference ID.\n- **Soniox:** Use \u0060Soniox.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Soniox.tts-rt-v2.Emma\u0060). Supported model: \u0060tts-rt-v2\u0060. Browse the catalog via the [Voices API](https://developers.telnyx.com/api-reference/text-to-speech-commands/list-available-voices). Every voice speaks all supported languages; set \u0060language\u0060 to the two-letter ISO 639-1 code of the text, for example \u0060it\u0060. SSML is not supported. Use \u0060voice_settings\u0060 to configure \u0060speed\u0060 (0.7 to 1.3) and \u0060reduce_silence\u0060.\n- **xAI:** Use \u0060xAI.\u003CVoiceId\u003E\u0060 (e.g., \u0060xAI.eve\u0060). Available voices: \u0060eve\u0060, \u0060ara\u0060, \u0060rex\u0060, \u0060sal\u0060, \u0060leo\u0060.\n- **Humain:** Use \u0060Humain.\u003CVoiceId\u003E\u0060 (e.g., \u0060Humain.sara-ar\u0060). Available voices: \u0060sara-en\u0060, \u0060abdulaziz-en\u0060, \u0060sara-ar\u0060, \u0060abdulaziz-ar\u0060, \u0060nourah-ar\u0060, \u0060abdullah-ar\u0060. Native Arabic (Saudi dialect) and English voices only \u2014 no \u0060ModelId\u0060 segment.\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -160891,13 +160883,48 @@
           }
         }
       },
+      "ResembleClone": {
+        "required": [
+          "audio_file",
+          "name",
+          "gender",
+          "provider",
+          "model_id"
+        ],
+        "type": "object",
+        "properties": {
+          "audio_file": {
+            "type": "string",
+            "description": "Audio file to clone the voice from. Supported formats: WAV, MP3, FLAC, OGG, M4A. Converted to WAV and trimmed to the first 10 seconds. For best quality, provide about 10 seconds of clean, single-speaker speech. Maximum size: 20MB.",
+            "format": "binary"
+          },
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Name for the voice clone."
+          },
+          "language": {
+            "$ref": "#/components/schemas/ResembleCloneLanguage"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/ResembleCloneGender"
+          },
+          "label": {
+            "type": "string",
+            "description": "Optional custom label describing the voice style."
+          },
+          "model_id": {
+            "$ref": "#/components/schemas/ResembleCloneModelId"
+          },
+          "provider": {
+            "$ref": "#/components/schemas/ResembleCloneProvider"
+          }
+        },
+        "description": "Upload-based voice clone using the Resemble provider. The clone is \u0060active\u0060 on creation. Use it as voice \u0060Resemble.\u003Cmodel_id\u003E.\u003Cclone_id\u003E\u0060."
+      },
       "ResembleProviderParams": {
         "type": "object",
         "properties": {
-          "api_key": {
-            "type": "string",
-            "description": "Custom Resemble API key."
-          },
           "precision": {
             "type": "string",
             "description": "Synthesis precision."
@@ -165490,7 +165517,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E\u0060 (e.g., \u0060Azure.en-CA-ClaraNeural\u0060, \u0060Azure.en-US-BrianMultilingualNeural\u0060, \u0060Azure.en-US-Ava:DragonHDLatestNeural\u0060). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use \u0060voice_settings\u0060 to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Telnyx.KokoroTTS.af\u0060). Use \u0060voice_settings\u0060 to configure voice_speed and other synthesis parameters. \u0060Bayan\u0060 provides Arabic (multiple dialects) and English voices (e.g., \u0060Telnyx.Bayan.Ahmed\u0060, \u0060Telnyx.Bayan.Amanda\u0060). \u0060Sukhan\u0060 provides Urdu voices (e.g., \u0060Telnyx.Sukhan.urdu-professor\u0060); \u0060voice_speed\u0060 is not supported.\n- **Minimax:** Use \u0060Minimax.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Minimax.speech-02-hd.Wise_Woman\u0060). Supported models: \u0060speech-02-turbo\u0060, \u0060speech-02-hd\u0060, \u0060speech-2.6-turbo\u0060, \u0060speech-2.8-turbo\u0060. Use \u0060voice_settings\u0060 to configure speed, volume, pitch, and language_boost.\n- **Resemble:** Use \u0060Resemble.Turbo.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Resemble.Turbo.my_voice\u0060). Only \u0060Turbo\u0060 model is supported. Use \u0060voice_settings\u0060 to configure precision, sample_rate, and format.\n- **Inworld:** Use \u0060Inworld.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Inworld.Mini.Loretta\u0060, \u0060Inworld.Max.Oliver\u0060, \u0060Inworld.TTS2.Loretta\u0060). Supported models: \u0060Mini\u0060, \u0060Max\u0060, \u0060TTS2\u0060. Use \u0060voice_settings\u0060 to configure \u0060delivery_mode\u0060 (\u0060STABLE\u0060, \u0060BALANCED\u0060, \u0060CREATIVE\u0060), supported by \u0060TTS2\u0060 only.\n- **Fish Audio:** Use \u0060FishAudio.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060FishAudio.s2.1-pro.\u003Creference_id\u003E\u0060). Supported models: \u0060s2.1-pro\u0060, \u0060s2-pro\u0060, \u0060s1\u0060. \u0060VoiceId\u0060 is a Fish Voice-Library reference ID.\n- **Soniox:** Use \u0060Soniox.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Soniox.tts-rt-v2.Emma\u0060). Supported model: \u0060tts-rt-v2\u0060. Browse the catalog via the [Voices API](https://developers.telnyx.com/api-reference/text-to-speech-commands/list-available-voices). Every voice speaks all supported languages; set \u0060language\u0060 to the two-letter ISO 639-1 code of the text, for example \u0060it\u0060. SSML is not supported. Use \u0060voice_settings\u0060 to configure \u0060speed\u0060 (0.7 to 1.3) and \u0060reduce_silence\u0060.\n- **xAI:** Use \u0060xAI.\u003CVoiceId\u003E\u0060 (e.g., \u0060xAI.eve\u0060). Available voices: \u0060eve\u0060, \u0060ara\u0060, \u0060rex\u0060, \u0060sal\u0060, \u0060leo\u0060.\n- **Humain:** Use \u0060Humain.\u003CVoiceId\u003E\u0060 (e.g., \u0060Humain.sara-ar\u0060). Available voices: \u0060sara-en\u0060, \u0060abdulaziz-en\u0060, \u0060sara-ar\u0060, \u0060abdulaziz-ar\u0060, \u0060nourah-ar\u0060, \u0060abdullah-ar\u0060. Native Arabic (Saudi dialect) and English voices only \u2014 no \u0060ModelId\u0060 segment.\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
+            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E\u0060 (e.g., \u0060Azure.en-CA-ClaraNeural\u0060, \u0060Azure.en-US-BrianMultilingualNeural\u0060, \u0060Azure.en-US-Ava:DragonHDLatestNeural\u0060). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use \u0060voice_settings\u0060 to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060 (e.g., \u0060Telnyx.KokoroTTS.af\u0060). Use \u0060voice_settings\u0060 to configure voice_speed and other synthesis parameters. \u0060Bayan\u0060 provides Arabic (multiple dialects) and English voices (e.g., \u0060Telnyx.Bayan.Ahmed\u0060, \u0060Telnyx.Bayan.Amanda\u0060). \u0060Sukhan\u0060 provides Urdu voices (e.g., \u0060Telnyx.Sukhan.urdu-professor\u0060); \u0060voice_speed\u0060 is not supported.\n- **Minimax:** Use \u0060Minimax.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Minimax.speech-02-hd.Wise_Woman\u0060). Supported models: \u0060speech-02-turbo\u0060, \u0060speech-02-hd\u0060, \u0060speech-2.6-turbo\u0060, \u0060speech-2.8-turbo\u0060. Use \u0060voice_settings\u0060 to configure speed, volume, pitch, and language_boost.\n- **Resemble:** Use \u0060Resemble.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Resemble.Turbo.Aaron_en-US\u0060). Supported models: \u0060Pro\u0060, \u0060Turbo\u0060, \u0060Urdu\u0060. \u0060\u003CVoiceId\u003E\u0060 is a stock voice name or the ID of a Resemble voice clone. Use \u0060voice_settings\u0060 to configure precision, sample_rate, and format.\n- **Inworld:** Use \u0060Inworld.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Inworld.Mini.Loretta\u0060, \u0060Inworld.Max.Oliver\u0060, \u0060Inworld.TTS2.Loretta\u0060). Supported models: \u0060Mini\u0060, \u0060Max\u0060, \u0060TTS2\u0060. Use \u0060voice_settings\u0060 to configure \u0060delivery_mode\u0060 (\u0060STABLE\u0060, \u0060BALANCED\u0060, \u0060CREATIVE\u0060), supported by \u0060TTS2\u0060 only.\n- **Fish Audio:** Use \u0060FishAudio.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060FishAudio.s2.1-pro.\u003Creference_id\u003E\u0060). Supported models: \u0060s2.1-pro\u0060, \u0060s2-pro\u0060, \u0060s1\u0060. \u0060VoiceId\u0060 is a Fish Voice-Library reference ID.\n- **Soniox:** Use \u0060Soniox.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060Soniox.tts-rt-v2.Emma\u0060). Supported model: \u0060tts-rt-v2\u0060. Browse the catalog via the [Voices API](https://developers.telnyx.com/api-reference/text-to-speech-commands/list-available-voices). Every voice speaks all supported languages; set \u0060language\u0060 to the two-letter ISO 639-1 code of the text, for example \u0060it\u0060. SSML is not supported. Use \u0060voice_settings\u0060 to configure \u0060speed\u0060 (0.7 to 1.3) and \u0060reduce_silence\u0060.\n- **xAI:** Use \u0060xAI.\u003CVoiceId\u003E\u0060 (e.g., \u0060xAI.eve\u0060). Available voices: \u0060eve\u0060, \u0060ara\u0060, \u0060rex\u0060, \u0060sal\u0060, \u0060leo\u0060.\n- **Humain:** Use \u0060Humain.\u003CVoiceId\u003E\u0060 (e.g., \u0060Humain.sara-ar\u0060). Available voices: \u0060sara-en\u0060, \u0060abdulaziz-en\u0060, \u0060sara-ar\u0060, \u0060abdulaziz-ar\u0060, \u0060nourah-ar\u0060, \u0060abdullah-ar\u0060. Native Arabic (Saudi dialect) and English voices only \u2014 no \u0060ModelId\u0060 segment.\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -166146,10 +166173,6 @@
             "description": "The active block of the period. \u0060null\u0060 when the period is not blocked.",
             "$ref": "#/components/schemas/SpendLimitBlock"
           },
-          "allocation": {
-            "description": "How much of the period\u0027s total limit is given to API key limits. \u0060null\u0060 unless the period has a total limit with an amount.",
-            "$ref": "#/components/schemas/SpendLimitAllocation"
-          },
           "credential_limits": {
             "type": "array",
             "items": {
@@ -166163,41 +166186,6 @@
           }
         },
         "description": "The spend limit, spend and block state of one product and period. The top-level fields describe the total limit of the account; API key limits are nested in \u0060credential_limits\u0060."
-      },
-      "SpendLimitAllocation": {
-        "required": [
-          "total_limit_usd",
-          "allocated_usd",
-          "unallocated_usd",
-          "over_allocated_usd"
-        ],
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "total_limit_usd": {
-            "type": "string",
-            "description": "The total limit in USD, as a decimal string.",
-            "example": "1000.00"
-          },
-          "allocated_usd": {
-            "type": "string",
-            "description": "Sum of the period\u0027s API key limits in USD, as a decimal string.",
-            "example": "800.00"
-          },
-          "unallocated_usd": {
-            "type": "string",
-            "description": "The part of the total not given to API key limits, as a decimal string: the largest amount a new API key limit can have.",
-            "example": "200.00"
-          },
-          "over_allocated_usd": {
-            "type": "string",
-            "description": "How far the API key limits exceed the total, as a decimal string. Non-zero only after Telnyx support lowered the total below them.",
-            "example": "0.00"
-          }
-        },
-        "description": "How much of the period\u0027s total limit is given to API key limits. \u0060null\u0060 unless the period has a total limit with an amount."
       },
       "SpendLimitBlock": {
         "required": [
@@ -166271,6 +166259,11 @@
             ],
             "description": "Set when \u0060spend_usd\u0060 is \u0060null\u0060.",
             "example": null
+          },
+          "exceeds_total": {
+            "type": "boolean",
+            "description": "The API key\u0027s limit is above the period\u0027s total limit. Only a change by Telnyx support can cause it; the total limit still applies to the whole account. Lower the API key limit or raise the total.",
+            "example": false
           },
           "blocked": {
             "type": "boolean",
@@ -177368,7 +177361,7 @@
           },
           "language": {
             "type": "string",
-            "description": "The language of the audio to be transcribed. If not set, or if set to \u0060auto\u0060, supported models will automatically detect the language. Supported and meaningful values depend on the selected transcription \u0060model\u0060. For \u0060deepgram/flux\u0060, supported values are: \u0060auto\u0060 (Telnyx language detection controls the language hint), \u0060multi\u0060 (no language hint), and language-specific hints \u0060en\u0060, \u0060es\u0060, \u0060fr\u0060, \u0060de\u0060, \u0060hi\u0060, \u0060ru\u0060, \u0060pt\u0060, \u0060ja\u0060, \u0060it\u0060, and \u0060nl\u0060. For \u0060soniox/stt-rt-v4\u0060, \u0060auto\u0060 omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. \u0060en\u0060, \u0060es\u0060) bias detection toward that language. For \u0060assemblyai/universal-3-5-pro\u0060 (and its legacy alias \u0060assemblyai/universal-streaming\u0060), \u0060auto\u0060 (or unset) enables native multilingual code-switching; ISO 639-1 codes (\u0060en\u0060, \u0060es\u0060, \u0060de\u0060, \u0060fr\u0060, \u0060pt\u0060, \u0060it\u0060, \u0060tr\u0060, \u0060nl\u0060, \u0060sv\u0060, \u0060no\u0060, \u0060da\u0060, \u0060fi\u0060, \u0060hi\u0060, \u0060vi\u0060, \u0060ar\u0060, \u0060he\u0060, \u0060ja\u0060, \u0060zh\u0060) bias the session to that language. For \u0060humain/realtime\u0060, supported values are \u0060ar\u0060, \u0060en\u0060, \u0060codeswitch\u0060 (Arabic/English code-switching), and \u0060auto\u0060 (resolves server-side to code-switching). Unlike other models, \u0060humain/realtime\u0060 does not fall back to \u0060auto\u0060 when \u0060language\u0060 is omitted \u2014 omitting it applies \u0060en\u0060 instead. For \u0060reson8/turns\u0060, supported values are \u0060auto\u0060 (or unset) for automatic language detection, and the language codes \u0060nl\u0060, \u0060en\u0060, \u0060fr\u0060, \u0060fy\u0060, \u0060de\u0060, \u0060it\u0060, \u0060pl\u0060, \u0060pt\u0060, \u0060es\u0060, and \u0060sv\u0060 to fix the transcription language. For \u0060cohere/ar-stt\u0060, supported values are \u0060ar\u0060 and \u0060en\u0060; unlike other models, this model does not auto-detect and defaults to \u0060ar\u0060 when \u0060language\u0060 is omitted. For \u0060speechmatics/linden-1\u0060, there is no auto-detect; set a code from Speechmatics\u0027 Realtime language list (see \u0060SpeechmaticsTranscriptionLanguage\u0060); unset defaults to \u0060en\u0060, while an explicit \u0060auto\u0060, \u0060auto_beta\u0060, or \u0060multi\u0060 is rejected (unlike \u0060speechmatics/standard\u0060, which defaults to \u0060en\u0060)."
+            "description": "The language of the audio to be transcribed. If not set, or if set to \u0060auto\u0060, supported models will automatically detect the language. Supported and meaningful values depend on the selected transcription \u0060model\u0060. For \u0060deepgram/flux\u0060, supported values are: \u0060auto\u0060 (Telnyx language detection controls the language hint), \u0060multi\u0060 (no language hint), and language-specific hints \u0060en\u0060, \u0060es\u0060, \u0060fr\u0060, \u0060de\u0060, \u0060hi\u0060, \u0060ru\u0060, \u0060pt\u0060, \u0060ja\u0060, \u0060it\u0060, and \u0060nl\u0060. For \u0060soniox/stt-rt-v4\u0060, \u0060auto\u0060 omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. \u0060en\u0060, \u0060es\u0060) bias detection toward that language. For \u0060assemblyai/universal-3-6-pro\u0060 (and its legacy aliases \u0060assemblyai/universal-3-5-pro\u0060 and \u0060assemblyai/universal-streaming\u0060), \u0060auto\u0060 (or unset) enables native multilingual code-switching; language codes (\u0060en\u0060, \u0060es\u0060, \u0060de\u0060, \u0060fr\u0060, \u0060pt\u0060, \u0060it\u0060, \u0060tr\u0060, \u0060nl\u0060, \u0060sv\u0060, \u0060no\u0060, \u0060da\u0060, \u0060fi\u0060, \u0060hi\u0060, \u0060vi\u0060, \u0060ar\u0060, \u0060he\u0060, \u0060ja\u0060, \u0060zh\u0060, \u0060ur\u0060, \u0060ru\u0060, \u0060ko\u0060, \u0060ca\u0060, \u0060gl\u0060, \u0060ro\u0060, \u0060et\u0060, \u0060fa\u0060, \u0060yue\u0060, \u0060af\u0060, \u0060mr\u0060, \u0060zu\u0060, \u0060xh\u0060, \u0060nn\u0060) bias the session to that language. For \u0060humain/realtime\u0060, supported values are \u0060ar\u0060, \u0060en\u0060, \u0060codeswitch\u0060 (Arabic/English code-switching), and \u0060auto\u0060 (resolves server-side to code-switching). Unlike other models, \u0060humain/realtime\u0060 does not fall back to \u0060auto\u0060 when \u0060language\u0060 is omitted \u2014 omitting it applies \u0060en\u0060 instead. For \u0060reson8/turns\u0060, supported values are \u0060auto\u0060 (or unset) for automatic language detection, and the language codes \u0060nl\u0060, \u0060en\u0060, \u0060fr\u0060, \u0060fy\u0060, \u0060de\u0060, \u0060it\u0060, \u0060pl\u0060, \u0060pt\u0060, \u0060es\u0060, and \u0060sv\u0060 to fix the transcription language. For \u0060cohere/ar-stt\u0060, supported values are \u0060ar\u0060 and \u0060en\u0060; unlike other models, this model does not auto-detect and defaults to \u0060ar\u0060 when \u0060language\u0060 is omitted. For \u0060speechmatics/linden-1\u0060, there is no auto-detect; set a code from Speechmatics\u0027 Realtime language list (see \u0060SpeechmaticsTranscriptionLanguage\u0060); unset defaults to \u0060en\u0060, while an explicit \u0060auto\u0060, \u0060auto_beta\u0060, or \u0060multi\u0060 is rejected (unlike \u0060speechmatics/standard\u0060, which defaults to \u0060en\u0060)."
           }
         },
         "description": "The settings associated with speech to text for the voice assistant. This is only relevant if the assistant uses a text-to-text language model. Any assistant using a model with native audio support (e.g. \u0060fixie-ai/ultravox-v0_4\u0060) will ignore this field."
@@ -179161,7 +179154,7 @@
             "title": "Keyterm",
             "maxLength": 1000,
             "type": "string",
-            "description": "A comma-separated list of key terms to boost for recognition during transcription, used by Deepgram, Reson8, Speechmatics Linden 1 and AssemblyAI models. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. At most 1000 characters in total. For assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming), also at most 100 terms of up to 50 characters each. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. \u0060Telnyx,{{customer_name}},VoIP\u0060). Variables are resolved at call time before the value is sent to the speech-to-text engine."
+            "description": "A comma-separated list of key terms to boost for recognition during transcription, used by Deepgram, Reson8, Speechmatics Linden 1 and AssemblyAI models. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. At most 1000 characters in total. For assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming), also at most 100 terms of up to 50 characters each. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. \u0060Telnyx,{{customer_name}},VoIP\u0060). Variables are resolved at call time before the value is sent to the speech-to-text engine."
           },
           "remove_disfluencies": {
             "title": "Remove Disfluencies",
@@ -179181,14 +179174,14 @@
             "title": "Prompt",
             "maxLength": 1750,
             "type": "string",
-            "description": "Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Context about the conversation (domain, names, terms) to improve transcription; describe the content, do not give instructions. Leave empty unless needed. At most 1750 characters."
+            "description": "Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Context about the conversation (domain, names, terms) to improve transcription; describe the content, do not give instructions. Leave empty unless needed. At most 1750 characters."
           },
           "min_turn_silence": {
             "title": "Min Turn Silence",
             "maximum": 5000,
             "minimum": 100,
             "type": "integer",
-            "description": "Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.",
+            "description": "Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.",
             "default": 400
           },
           "max_turn_silence": {
@@ -179196,7 +179189,7 @@
             "maximum": 5000,
             "minimum": 100,
             "type": "integer",
-            "description": "Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Maximum duration of silence in milliseconds before forcing an end of turn.",
+            "description": "Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Maximum duration of silence in milliseconds before forcing an end of turn.",
             "default": 1280
           },
           "interim_results": {
@@ -187964,7 +187957,7 @@
               "null",
               "string"
             ],
-            "description": "ISO 639-1 language code of the voice clone."
+            "description": "Language code of the voice clone (ISO 639-1, or the Resemble catalogue code such as \u0060en-US\u0060)."
           },
           "gender": {
             "$ref": "#/components/schemas/VoiceCloneDataGender"
@@ -188125,6 +188118,9 @@
           },
           {
             "$ref": "#/components/schemas/MinimaxClone"
+          },
+          {
+            "$ref": "#/components/schemas/ResembleClone"
           }
         ],
         "description": "Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 20MB."
@@ -188519,7 +188515,8 @@
         "description": "A raw Voice SDK log entry. Additional SDK-specific fields may be present."
       },
       "VoiceSdkCallReportLogs": {
-        "oneOf": [
+        "description": "Raw logs payload emitted by the Voice SDK and stored without normalization. Live responses commonly return an array of log entries, but object-shaped log payloads are also allowed for compatibility.",
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -188530,11 +188527,11 @@
           {
             "$ref": "#/components/schemas/VoiceSdkCallReportLogsOneOf2"
           }
-        ],
-        "description": "Raw logs payload emitted by the Voice SDK and stored without normalization. Live responses commonly return an array of log entries, but object-shaped log payloads are also allowed for compatibility."
+        ]
       },
       "VoiceSdkCallReportStats": {
-        "oneOf": [
+        "description": "Raw stats payload emitted by the Voice SDK and stored without normalization. The exact shape can vary by SDK platform and version. Live responses commonly return an array of interval snapshots, but object-shaped stats payloads are also allowed for compatibility.",
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -188546,8 +188543,7 @@
           {
             "$ref": "#/components/schemas/VoiceSdkCallReportStatsOneOf2"
           }
-        ],
-        "description": "Raw stats payload emitted by the Voice SDK and stored without normalization. The exact shape can vary by SDK platform and version. Live responses commonly return an array of interval snapshots, but object-shaped stats payloads are also allowed for compatibility."
+        ]
       },
       "VoiceSdkCallReportV2Error": {
         "required": [
@@ -260709,6 +260705,197 @@
           ]
         }
       },
+      "ResembleCloneLanguage": {
+        "enum": [
+          "ar",
+          "da",
+          "de",
+          "el",
+          "en",
+          "en-US",
+          "es",
+          "fi",
+          "fr-fr",
+          "he",
+          "hi",
+          "it",
+          "ja",
+          "ko",
+          "ms",
+          "nl",
+          "no",
+          "pl",
+          "pt",
+          "ru",
+          "sv",
+          "sw",
+          "tr",
+          "ur",
+          "zh"
+        ],
+        "type": "string",
+        "description": "Language of the reference audio, matched case-insensitively. Pro: required, one of \u0060ar\u0060, \u0060da\u0060, \u0060de\u0060, \u0060el\u0060, \u0060en-US\u0060, \u0060es\u0060, \u0060fi\u0060, \u0060fr-fr\u0060, \u0060he\u0060, \u0060hi\u0060, \u0060it\u0060, \u0060ja\u0060, \u0060ko\u0060, \u0060ms\u0060, \u0060nl\u0060, \u0060no\u0060, \u0060pl\u0060, \u0060pt\u0060, \u0060ru\u0060, \u0060sv\u0060, \u0060sw\u0060, \u0060tr\u0060, \u0060zh\u0060. Turbo: \u0060en\u0060 or \u0060en-US\u0060 (default \u0060en-US\u0060). Urdu: \u0060ur\u0060 (default). Other values return \u0060422\u0060.",
+        "x-ms-enum": {
+          "name": "ResembleCloneLanguage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ar",
+              "name": "Ar"
+            },
+            {
+              "value": "da",
+              "name": "Da"
+            },
+            {
+              "value": "de",
+              "name": "De"
+            },
+            {
+              "value": "el",
+              "name": "El"
+            },
+            {
+              "value": "en",
+              "name": "En"
+            },
+            {
+              "value": "en-US",
+              "name": "EnUs"
+            },
+            {
+              "value": "es",
+              "name": "Es"
+            },
+            {
+              "value": "fi",
+              "name": "Fi"
+            },
+            {
+              "value": "fr-fr",
+              "name": "FrFr"
+            },
+            {
+              "value": "he",
+              "name": "He"
+            },
+            {
+              "value": "hi",
+              "name": "Hi"
+            },
+            {
+              "value": "it",
+              "name": "It"
+            },
+            {
+              "value": "ja",
+              "name": "Ja"
+            },
+            {
+              "value": "ko",
+              "name": "Ko"
+            },
+            {
+              "value": "ms",
+              "name": "Ms"
+            },
+            {
+              "value": "nl",
+              "name": "Nl"
+            },
+            {
+              "value": "no",
+              "name": "No"
+            },
+            {
+              "value": "pl",
+              "name": "Pl"
+            },
+            {
+              "value": "pt",
+              "name": "Pt"
+            },
+            {
+              "value": "ru",
+              "name": "Ru"
+            },
+            {
+              "value": "sv",
+              "name": "Sv"
+            },
+            {
+              "value": "sw",
+              "name": "Sw"
+            },
+            {
+              "value": "tr",
+              "name": "Tr"
+            },
+            {
+              "value": "ur",
+              "name": "Ur"
+            },
+            {
+              "value": "zh",
+              "name": "Zh"
+            }
+          ]
+        }
+      },
+      "ResembleCloneGender": {
+        "enum": [
+          "male",
+          "female",
+          "neutral"
+        ],
+        "type": "string",
+        "description": "Gender of the voice clone.",
+        "x-ms-enum": {
+          "name": "ResembleCloneGender",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "male",
+              "name": "Male"
+            },
+            {
+              "value": "female",
+              "name": "Female"
+            },
+            {
+              "value": "neutral",
+              "name": "Neutral"
+            }
+          ]
+        }
+      },
+      "ResembleCloneModelId": {
+        "enum": [
+          "Pro",
+          "Turbo",
+          "Urdu"
+        ],
+        "type": "string",
+        "description": "Resemble model: \u0060Pro\u0060, \u0060Turbo\u0060 (English only), or \u0060Urdu\u0060. A clone works only with this model."
+      },
+      "ResembleCloneProvider": {
+        "enum": [
+          "resemble",
+          "Resemble"
+        ],
+        "type": "string",
+        "description": "Voice synthesis provider. Must be \u0060resemble\u0060.",
+        "x-ms-enum": {
+          "name": "ResembleCloneProvider",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "resemble",
+              "name": "Resemble1"
+            }
+          ]
+        }
+      },
       "ResembleType": {
         "enum": [
           "resemble"
@@ -265088,6 +265275,7 @@
           "deepgram/nova-3",
           "deepgram/nova-2",
           "azure/fast",
+          "assemblyai/universal-3-6-pro",
           "assemblyai/universal-3-5-pro",
           "assemblyai/universal-streaming",
           "xai/grok-stt",
@@ -265103,7 +265291,7 @@
           "openai/whisper-large-v3-turbo"
         ],
         "type": "string",
-        "description": "The language booster\u0027s model. It must be the same kind of model as \u0060transcription.model\u0060: both streaming (\u0060deepgram/flux\u0060, \u0060deepgram/nova-3\u0060, \u0060deepgram/nova-2\u0060, \u0060assemblyai/universal-3-5-pro\u0060 or its legacy alias \u0060assemblyai/universal-streaming\u0060, \u0060xai/grok-stt\u0060, \u0060soniox/stt-rt-v4\u0060, \u0060soniox/stt-rt-v5\u0060, \u0060humain/realtime\u0060, \u0060reson8/turns\u0060) or both non-streaming (\u0060azure/fast\u0060, \u0060nvidia/parakeet-v3\u0060, \u0060omi-health/omi-med-stt-v1\u0060, \u0060cohere/ar-stt\u0060, \u0060distil-whisper/distil-large-v2\u0060, \u0060openai/whisper-large-v3-turbo\u0060, \u0060telnyx/basira\u0060). It can be the same model as \u0060transcription.model\u0060 on a different \u0060language\u0060.",
+        "description": "The language booster\u0027s model. It must be the same kind of model as \u0060transcription.model\u0060: both streaming (\u0060deepgram/flux\u0060, \u0060deepgram/nova-3\u0060, \u0060deepgram/nova-2\u0060, \u0060assemblyai/universal-3-6-pro\u0060 or its legacy aliases \u0060assemblyai/universal-3-5-pro\u0060 and \u0060assemblyai/universal-streaming\u0060, \u0060xai/grok-stt\u0060, \u0060soniox/stt-rt-v4\u0060, \u0060soniox/stt-rt-v5\u0060, \u0060humain/realtime\u0060, \u0060reson8/turns\u0060) or both non-streaming (\u0060azure/fast\u0060, \u0060nvidia/parakeet-v3\u0060, \u0060omi-health/omi-med-stt-v1\u0060, \u0060cohere/ar-stt\u0060, \u0060distil-whisper/distil-large-v2\u0060, \u0060openai/whisper-large-v3-turbo\u0060, \u0060telnyx/basira\u0060). It can be the same model as \u0060transcription.model\u0060 on a different \u0060language\u0060.",
         "x-ms-enum": {
           "name": "TranscriptionChallengerModel",
           "modelAsString": false,
@@ -265123,6 +265311,10 @@
             {
               "value": "azure/fast",
               "name": "AzureFast"
+            },
+            {
+              "value": "assemblyai/universal-3-6-pro",
+              "name": "AssemblyaiUniversal36Pro"
             },
             {
               "value": "assemblyai/universal-3-5-pro",
@@ -265215,6 +265407,7 @@
           "speechmatics/standard",
           "speechmatics/enhanced",
           "speechmatics/linden-1",
+          "assemblyai/universal-3-6-pro",
           "assemblyai/universal-3-5-pro",
           "assemblyai/universal-streaming",
           "xai/grok-stt",
@@ -265231,7 +265424,7 @@
           "openai/whisper-large-v3-turbo"
         ],
         "type": "string",
-        "description": "The speech to text model to be used by the voice assistant. Supported models include:\n\n- \u0060deepgram/flux\u0060 (or \u0060flux\u0060) for live streaming turn-taking.\n- \u0060deepgram/nova-3\u0060 and \u0060deepgram/nova-2\u0060 for live streaming transcription.\n- \u0060speechmatics/standard\u0060 and \u0060speechmatics/enhanced\u0060 for live streaming transcription.\n- \u0060speechmatics/linden-1\u0060 (preview, vendor-hosted) for live streaming transcription; no auto-detect, so set \u0060language\u0060 from Speechmatics\u0027 Realtime language list (defaults to \u0060en\u0060).\n- \u0060assemblyai/universal-3-5-pro\u0060 for live streaming transcription. The legacy alias \u0060assemblyai/universal-streaming\u0060 is still accepted and resolves to the same model.\n- \u0060xai/grok-stt\u0060 for live streaming transcription.\n- \u0060soniox/stt-rt-v4\u0060 for live streaming multilingual transcription with automatic language detection.\n- \u0060nvidia/parakeet-v3\u0060 for multilingual transcription with automatic language detection.\n- \u0060omi-health/omi-med-stt-v1\u0060 for English-only medical transcription (Parakeet-based).\n- \u0060humain/realtime\u0060 for live streaming transcription with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 for live streaming turn-based transcription of 10 European languages with automatic language detection.\n- \u0060cohere/ar-stt\u0060 for non-streaming Arabic and English transcription.\n- \u0060azure/fast\u0060 and \u0060azure/realtime\u0060; Azure models require \u0060region\u0060, and unsupported regions require \u0060api_key_ref\u0060.\n- \u0060google/latest_long\u0060 for non-streaming multilingual transcription.\n- \u0060distil-whisper/distil-large-v2\u0060 for lower-latency English-only non-streaming transcription.\n- \u0060openai/whisper-large-v3-turbo\u0060 for multilingual non-streaming transcription with automatic language detection.",
+        "description": "The speech to text model to be used by the voice assistant. Supported models include:\n\n- \u0060deepgram/flux\u0060 (or \u0060flux\u0060) for live streaming turn-taking.\n- \u0060deepgram/nova-3\u0060 and \u0060deepgram/nova-2\u0060 for live streaming transcription.\n- \u0060speechmatics/standard\u0060 and \u0060speechmatics/enhanced\u0060 for live streaming transcription.\n- \u0060speechmatics/linden-1\u0060 (preview, vendor-hosted) for live streaming transcription; no auto-detect, so set \u0060language\u0060 from Speechmatics\u0027 Realtime language list (defaults to \u0060en\u0060).\n- \u0060assemblyai/universal-3-6-pro\u0060 (AssemblyAI Universal-3.6 Pro) for live streaming transcription. The legacy aliases \u0060assemblyai/universal-3-5-pro\u0060 and \u0060assemblyai/universal-streaming\u0060 are still accepted and run the same Universal-3.6 Pro model.\n- \u0060xai/grok-stt\u0060 for live streaming transcription.\n- \u0060soniox/stt-rt-v4\u0060 for live streaming multilingual transcription with automatic language detection.\n- \u0060nvidia/parakeet-v3\u0060 for multilingual transcription with automatic language detection.\n- \u0060omi-health/omi-med-stt-v1\u0060 for English-only medical transcription (Parakeet-based).\n- \u0060humain/realtime\u0060 for live streaming transcription with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 for live streaming turn-based transcription of 10 European languages with automatic language detection.\n- \u0060cohere/ar-stt\u0060 for non-streaming Arabic and English transcription.\n- \u0060azure/fast\u0060 and \u0060azure/realtime\u0060; Azure models require \u0060region\u0060, and unsupported regions require \u0060api_key_ref\u0060.\n- \u0060google/latest_long\u0060 for non-streaming multilingual transcription.\n- \u0060distil-whisper/distil-large-v2\u0060 for lower-latency English-only non-streaming transcription.\n- \u0060openai/whisper-large-v3-turbo\u0060 for multilingual non-streaming transcription with automatic language detection.",
         "example": "distil-whisper/distil-large-v2",
         "x-ms-enum": {
           "name": "TranscriptionConfigModel",
@@ -265264,6 +265457,10 @@
             {
               "value": "speechmatics/linden-1",
               "name": "SpeechmaticsLinden1"
+            },
+            {
+              "value": "assemblyai/universal-3-6-pro",
+              "name": "AssemblyaiUniversal36Pro"
             },
             {
               "value": "assemblyai/universal-3-5-pro",
@@ -265402,15 +265599,20 @@
       },
       "TranscriptionEngineAssemblyaiConfigTranscriptionModel": {
         "enum": [
+          "assemblyai/universal-3-6-pro",
           "assemblyai/universal-3-5-pro",
           "assemblyai/universal-streaming"
         ],
         "type": "string",
-        "description": "The model to use for transcription. \u0060assemblyai/universal-streaming\u0060 is a legacy alias of \u0060assemblyai/universal-3-5-pro\u0060 and resolves to the same model.",
+        "description": "The model to use for transcription. \u0060assemblyai/universal-3-6-pro\u0060 is the AssemblyAI Universal-3.6 Pro model. \u0060assemblyai/universal-3-5-pro\u0060 (the default) and \u0060assemblyai/universal-streaming\u0060 are legacy aliases that run the same Universal-3.6 Pro model.",
         "x-ms-enum": {
           "name": "TranscriptionEngineAssemblyaiConfigTranscriptionModel",
           "modelAsString": false,
           "values": [
+            {
+              "value": "assemblyai/universal-3-6-pro",
+              "name": "AssemblyaiUniversal36Pro"
+            },
             {
               "value": "assemblyai/universal-3-5-pro",
               "name": "AssemblyaiUniversal35Pro"
@@ -265863,6 +266065,7 @@
           "deepgram/flux",
           "deepgram/nova-3",
           "deepgram/nova-2",
+          "assemblyai/universal-3-6-pro",
           "assemblyai/universal-3-5-pro",
           "assemblyai/universal-streaming",
           "xai/grok-stt",
@@ -265872,7 +266075,7 @@
           "reson8/turns"
         ],
         "type": "string",
-        "description": "The fallback model. It must be a streaming model other than \u0060transcription.model\u0060 and the other fallbacks: \u0060deepgram/flux\u0060, \u0060deepgram/nova-3\u0060, \u0060deepgram/nova-2\u0060, \u0060assemblyai/universal-3-5-pro\u0060 (or its legacy alias \u0060assemblyai/universal-streaming\u0060), \u0060xai/grok-stt\u0060, \u0060soniox/stt-rt-v4\u0060, \u0060soniox/stt-rt-v5\u0060, \u0060humain/realtime\u0060, or \u0060reson8/turns\u0060.",
+        "description": "The fallback model. It must be a streaming model other than \u0060transcription.model\u0060 and the other fallbacks: \u0060deepgram/flux\u0060, \u0060deepgram/nova-3\u0060, \u0060deepgram/nova-2\u0060, \u0060assemblyai/universal-3-6-pro\u0060 (or its legacy aliases \u0060assemblyai/universal-3-5-pro\u0060 and \u0060assemblyai/universal-streaming\u0060), \u0060xai/grok-stt\u0060, \u0060soniox/stt-rt-v4\u0060, \u0060soniox/stt-rt-v5\u0060, \u0060humain/realtime\u0060, or \u0060reson8/turns\u0060.",
         "x-ms-enum": {
           "name": "TranscriptionFallbackModelModel",
           "modelAsString": false,
@@ -265888,6 +266091,10 @@
             {
               "value": "deepgram/nova-2",
               "name": "DeepgramNova2"
+            },
+            {
+              "value": "assemblyai/universal-3-6-pro",
+              "name": "AssemblyaiUniversal36Pro"
             },
             {
               "value": "assemblyai/universal-3-5-pro",
@@ -265928,6 +266135,7 @@
           "speechmatics/standard",
           "speechmatics/linden-1",
           "azure/fast",
+          "assemblyai/universal-3-6-pro",
           "assemblyai/universal-3-5-pro",
           "assemblyai/universal-streaming",
           "xai/grok-stt",
@@ -265943,7 +266151,7 @@
           "openai/whisper-large-v3-turbo"
         ],
         "type": "string",
-        "description": "The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.\n\n- \u0060deepgram/flux\u0060 is optimized for turn-taking with multilingual language hints.\n- \u0060deepgram/nova-3\u0060 is multilingual with automatic language detection.\n- \u0060deepgram/nova-2\u0060 is Deepgram\u0027s previous-generation multilingual model.\n- \u0060speechmatics/standard\u0060 is a Speechmatics model self-hosted by Telnyx; it supports a fixed set of language packs (including bilingual packs such as \u0060ar_en\u0060) and defaults to \u0060en\u0060.\n- \u0060speechmatics/linden-1\u0060 (preview) is a vendor-hosted streaming model with no auto-detect; set \u0060language\u0060 from Speechmatics\u0027 Realtime language list (defaults to \u0060en\u0060).\n- \u0060azure/fast\u0060 is a multilingual Azure transcription model.\n- \u0060assemblyai/universal-3-5-pro\u0060 is a multilingual streaming model with configurable turn detection. The legacy alias \u0060assemblyai/universal-streaming\u0060 is still accepted and resolves to the same model.\n- \u0060xai/grok-stt\u0060 is a multilingual Grok STT model.\n- \u0060soniox/stt-rt-v4\u0060 and \u0060soniox/stt-rt-v5\u0060 are multilingual streaming models with automatic language detection, configurable endpointing, term biasing (\u0060context\u0060), and \u0060language_hints\u0060.\n- \u0060nvidia/parakeet-v3\u0060 is a multilingual transcription model with automatic language detection.\n- \u0060omi-health/omi-med-stt-v1\u0060 is an English-only medical transcription model (Parakeet-based).\n- \u0060humain/realtime\u0060 is a streaming model with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 is a turn-based streaming model covering 10 European languages with automatic language detection.\n- \u0060cohere/ar-stt\u0060 is a non-streaming Arabic and English transcription model.\n- \u0060telnyx/basira\u0060 is a non-streaming Arabic transcription model.",
+        "description": "The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.\n\n- \u0060deepgram/flux\u0060 is optimized for turn-taking with multilingual language hints.\n- \u0060deepgram/nova-3\u0060 is multilingual with automatic language detection.\n- \u0060deepgram/nova-2\u0060 is Deepgram\u0027s previous-generation multilingual model.\n- \u0060speechmatics/standard\u0060 is a Speechmatics model self-hosted by Telnyx; it supports a fixed set of language packs (including bilingual packs such as \u0060ar_en\u0060) and defaults to \u0060en\u0060.\n- \u0060speechmatics/linden-1\u0060 (preview) is a vendor-hosted streaming model with no auto-detect; set \u0060language\u0060 from Speechmatics\u0027 Realtime language list (defaults to \u0060en\u0060).\n- \u0060azure/fast\u0060 is a multilingual Azure transcription model.\n- \u0060assemblyai/universal-3-6-pro\u0060 (AssemblyAI Universal-3.6 Pro) is a multilingual streaming model with configurable turn detection. The legacy aliases \u0060assemblyai/universal-3-5-pro\u0060 and \u0060assemblyai/universal-streaming\u0060 are still accepted and run the same model.\n- \u0060xai/grok-stt\u0060 is a multilingual Grok STT model.\n- \u0060soniox/stt-rt-v4\u0060 and \u0060soniox/stt-rt-v5\u0060 are multilingual streaming models with automatic language detection, configurable endpointing, term biasing (\u0060context\u0060), and \u0060language_hints\u0060.\n- \u0060nvidia/parakeet-v3\u0060 is a multilingual transcription model with automatic language detection.\n- \u0060omi-health/omi-med-stt-v1\u0060 is an English-only medical transcription model (Parakeet-based).\n- \u0060humain/realtime\u0060 is a streaming model with native Arabic and Arabic/English code-switching support.\n- \u0060reson8/turns\u0060 is a turn-based streaming model covering 10 European languages with automatic language detection.\n- \u0060cohere/ar-stt\u0060 is a non-streaming Arabic and English transcription model.\n- \u0060telnyx/basira\u0060 is a non-streaming Arabic transcription model.",
         "x-ms-enum": {
           "name": "TranscriptionSettingsModel",
           "modelAsString": false,
@@ -265971,6 +266179,10 @@
             {
               "value": "azure/fast",
               "name": "AzureFast"
+            },
+            {
+              "value": "assemblyai/universal-3-6-pro",
+              "name": "AssemblyaiUniversal36Pro"
             },
             {
               "value": "assemblyai/universal-3-5-pro",
@@ -268172,8 +268384,10 @@
         "enum": [
           "telnyx",
           "minimax",
+          "resemble",
           "Telnyx",
-          "Minimax"
+          "Minimax",
+          "Resemble"
         ],
         "type": "string",
         "description": "Voice synthesis provider used for this clone.",
@@ -268188,6 +268402,10 @@
             {
               "value": "minimax",
               "name": "Minimax1"
+            },
+            {
+              "value": "resemble",
+              "name": "Resemble1"
             }
           ]
         }
@@ -268197,7 +268415,10 @@
           "Qwen3TTS",
           "Ultra",
           "Bayan",
-          "speech-2.8-turbo"
+          "speech-2.8-turbo",
+          "Pro",
+          "Turbo",
+          "Urdu"
         ],
         "type": "string",
         "description": "TTS model identifier for the voice clone.",
@@ -279514,6 +279735,32 @@
           ]
         }
       },
+      "FilterModelId": {
+        "enum": [
+          "Qwen3TTS",
+          "Ultra",
+          "Bayan",
+          "speech-2.8-turbo",
+          "Pro",
+          "Turbo",
+          "Urdu"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "FilterModelId",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Qwen3TTS",
+              "name": "Qwen3Tts"
+            },
+            {
+              "value": "speech-2.8-turbo",
+              "name": "Speech28Turbo"
+            }
+          ]
+        }
+      },
       "FilterOtaUpdatesConsolidatedStatus": {
         "enum": [
           "in-progress",
@@ -279572,8 +279819,10 @@
         "enum": [
           "telnyx",
           "minimax",
+          "resemble",
           "Telnyx",
-          "Minimax"
+          "Minimax",
+          "Resemble"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -279587,6 +279836,10 @@
             {
               "value": "minimax",
               "name": "Minimax1"
+            },
+            {
+              "value": "resemble",
+              "name": "Resemble1"
             }
           ]
         }
@@ -292544,6 +292797,14 @@
               "example": true
             }
           }
+        }
+      },
+      "FilterModelId": {
+        "name": "filter[model_id]",
+        "in": "query",
+        "description": "Filter by TTS model. Case-insensitive.",
+        "schema": {
+          "$ref": "#/components/schemas/FilterModelId"
         }
       },
       "FilterName": {

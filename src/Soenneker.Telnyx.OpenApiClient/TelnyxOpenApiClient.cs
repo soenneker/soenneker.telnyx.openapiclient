@@ -20,6 +20,9 @@ using Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks;
 using Soenneker.Telnyx.OpenApiClient.Available_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Balance;
 using Soenneker.Telnyx.OpenApiClient.Billing_groups;
+using Soenneker.Telnyx.OpenApiClient.Bot_challenge;
+using Soenneker.Telnyx.OpenApiClient.Bot_sessions;
+using Soenneker.Telnyx.OpenApiClient.Bot_signup;
 using Soenneker.Telnyx.OpenApiClient.Browser_sessions;
 using Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions;
 using Soenneker.Telnyx.OpenApiClient.Bundle_pricing;
@@ -288,6 +291,21 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder Billing_groups
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bot_challenge property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Bot_challenge.Bot_challengeRequestBuilder Bot_challenge
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Bot_challenge.Bot_challengeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bot_sessions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder Bot_sessions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bot_signup property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Bot_signupRequestBuilder Bot_signup
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Bot_signupRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The browser_sessions property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Browser_sessions.Browser_sessionsRequestBuilder Browser_sessions

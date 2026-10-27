@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits
         {
         }
         /// <summary>
-        /// Returns one entry per product and period you can set a limit on, with the limit, the spend so far in the period and whether the product is blocked. An entry without a limit is still listed (`limit: null`). When the spend cannot be read, the entry is returned with `spend_usd: null` and `spend_error` set. The list is not paginated. Each entry also lists the API key limits of its product and period in `credential_limits`, with each key&apos;s spend and block, and in `allocation` how much of the total limit they use.
+        /// Returns one entry per product and period you can set a limit on, with the limit, the spend so far in the period and whether the product is blocked. An entry without a limit is still listed (`limit: null`). When the spend cannot be read, the entry is returned with `spend_usd: null` and `spend_error` set. The list is not paginated. Each entry also lists the API key limits of its product and period in `credential_limits`, with each key&apos;s spend and block. Each API key limit can be at most the total limit; together they may add up to more than it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns one entry per product and period you can set a limit on, with the limit, the spend so far in the period and whether the product is blocked. An entry without a limit is still listed (`limit: null`). When the spend cannot be read, the entry is returned with `spend_usd: null` and `spend_error` set. The list is not paginated. Each entry also lists the API key limits of its product and period in `credential_limits`, with each key&apos;s spend and block, and in `allocation` how much of the total limit they use.
+        /// Returns one entry per product and period you can set a limit on, with the limit, the spend so far in the period and whether the product is blocked. An entry without a limit is still listed (`limit: null`). When the spend cannot be read, the entry is returned with `spend_usd: null` and `spend_error` set. The list is not paginated. Each entry also lists the API key limits of its product and period in `credential_limits`, with each key&apos;s spend and block. Each API key limit can be at most the total limit; together they may add up to more than it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

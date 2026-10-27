@@ -37,15 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats();
-            if("VoiceSdkCallReportStatsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.VoiceSdkCallReportStatsOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2();
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1> voiceSdkCallReportStatsMember1Value)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1> voiceSdkCallReportStatsMember1Value)
             {
                 result.VoiceSdkCallReportStatsMember1 = voiceSdkCallReportStatsMember1Value;
+            }
+            else {
+                result.VoiceSdkCallReportStatsOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2();
             }
             return result;
         }
@@ -57,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(VoiceSdkCallReportStatsOneOf2 != null)
             {
-                return VoiceSdkCallReportStatsOneOf2.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VoiceSdkCallReportStatsOneOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +66,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(VoiceSdkCallReportStatsOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2>(null, VoiceSdkCallReportStatsOneOf2);
-            }
-            else if(VoiceSdkCallReportStatsMember1 != null)
+            if(VoiceSdkCallReportStatsMember1 != null)
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsMember1>(null, VoiceSdkCallReportStatsMember1);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2>(null, VoiceSdkCallReportStatsOneOf2);
             }
         }
     }

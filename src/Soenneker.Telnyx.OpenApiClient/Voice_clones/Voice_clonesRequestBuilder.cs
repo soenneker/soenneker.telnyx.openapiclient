@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Voice_clonesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/voice_clones{?filter%5Bname%5D*,filter%5Bprovider%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public Voice_clonesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/voice_clones{?filter%5Bmodel_id%5D*,filter%5Bname%5D*,filter%5Bprovider%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Voice_clonesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/voice_clones{?filter%5Bname%5D*,filter%5Bprovider%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public Voice_clonesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/voice_clones{?filter%5Bmodel_id%5D*,filter%5Bname%5D*,filter%5Bprovider%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -162,6 +162,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Voice_clonesRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter by TTS model. Case-insensitive.</summary>
+            [QueryParameter("filter%5Bmodel_id%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.FilterModelId? FiltermodelId { get; set; }
             /// <summary>Case-insensitive substring filter on the name field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

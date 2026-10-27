@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionRecipientInput();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput> inboxActionEmailAddressInputValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.InboxActionEmailAddressInput> inboxActionEmailAddressInputValue)
             {
                 result.InboxActionEmailAddressInput = inboxActionEmailAddressInputValue;
             }

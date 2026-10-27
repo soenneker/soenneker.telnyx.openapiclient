@@ -9,28 +9,28 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge
+namespace Soenneker.Telnyx.OpenApiClient.Bot_challenge
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\bot_challenge
+    /// Builds and executes requests for operations under \bot_challenge
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Bot_challengeRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge.Bot_challengeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_challenge.Bot_challengeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Bot_challengeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/bot_challenge", pathParameters)
+        public Bot_challengeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bot_challenge", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge.Bot_challengeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_challenge.Bot_challengeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Bot_challengeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/bot_challenge", rawUrl)
+        public Bot_challengeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bot_challenge", rawUrl)
         {
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge.Bot_challengeRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_challenge.Bot_challengeRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge.Bot_challengeRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Bot_challenge.Bot_challengeRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.OpenApiClient.V2.Bot_challenge.Bot_challengeRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Bot_challenge.Bot_challengeRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

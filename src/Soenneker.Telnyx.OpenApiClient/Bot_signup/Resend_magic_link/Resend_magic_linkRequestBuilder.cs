@@ -9,28 +9,28 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link
+namespace Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\bot_signup\resend_magic_link
+    /// Builds and executes requests for operations under \bot_signup\resend_magic_link
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Resend_magic_linkRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Resend_magic_linkRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/bot_signup/resend_magic_link", pathParameters)
+        public Resend_magic_linkRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bot_signup/resend_magic_link", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Resend_magic_linkRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/bot_signup/resend_magic_link", rawUrl)
+        public Resend_magic_linkRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bot_signup/resend_magic_link", rawUrl)
         {
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

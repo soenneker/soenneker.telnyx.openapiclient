@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Label { get; set; }
 #endif
-        /// <summary>ISO 639-1 language code of the voice clone.</summary>
+        /// <summary>Language code of the voice clone (ISO 639-1, or the Resemble catalogue code such as `en-US`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language { get; set; }

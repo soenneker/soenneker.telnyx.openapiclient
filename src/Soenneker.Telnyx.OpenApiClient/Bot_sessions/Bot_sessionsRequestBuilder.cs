@@ -9,28 +9,28 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions
+namespace Soenneker.Telnyx.OpenApiClient.Bot_sessions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\bot_sessions
+    /// Builds and executes requests for operations under \bot_sessions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Bot_sessionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Bot_sessionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/bot_sessions?email={email}&portal_redirect_token={portal_redirect_token}", pathParameters)
+        public Bot_sessionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bot_sessions?email={email}&portal_redirect_token={portal_redirect_token}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Bot_sessionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/bot_sessions?email={email}&portal_redirect_token={portal_redirect_token}", rawUrl)
+        public Bot_sessionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bot_sessions?email={email}&portal_redirect_token={portal_redirect_token}", rawUrl)
         {
         }
         /// <summary>
@@ -45,11 +45,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BotSignupErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BotSessionResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder.Bot_sessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BotSessionResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder.Bot_sessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BotSessionResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder.Bot_sessionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BotSessionResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder.Bot_sessionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -69,11 +69,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder.Bot_sessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder.Bot_sessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder.Bot_sessionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder.Bot_sessionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -84,11 +84,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.OpenApiClient.V2.Bot_sessions.Bot_sessionsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Bot_sessions.Bot_sessionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Consumes the one-time portal redirect (magic link) token emailed during bot signup and returns an API session. The token is a UUIDv7 that encodes its creation time; it expires after a configurable validity window (15 minutes by default) and is cleared on first use. Although the action creates a session, the route uses the GET verb because it is opened from an email link. On first use the account is also initialized. For bot signup (freemium) accounts the response is a minimal envelope containing only the `api_v2_token`; accounts that are permitted to use magic links but are not freemium accounts may instead receive an extended session payload when additional steps (such as two-factor authentication or identity verification) are required. This endpoint is public; the magic link token in the query string is the credential.

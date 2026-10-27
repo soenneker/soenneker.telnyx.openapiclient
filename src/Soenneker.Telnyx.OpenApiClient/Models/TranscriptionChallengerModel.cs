@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The language booster&apos;s model. It must be the same kind of model as `transcription.model`: both streaming (`deepgram/flux`, `deepgram/nova-3`, `deepgram/nova-2`, `assemblyai/universal-3-5-pro` or its legacy alias `assemblyai/universal-streaming`, `xai/grok-stt`, `soniox/stt-rt-v4`, `soniox/stt-rt-v5`, `humain/realtime`, `reson8/turns`) or both non-streaming (`azure/fast`, `nvidia/parakeet-v3`, `omi-health/omi-med-stt-v1`, `cohere/ar-stt`, `distil-whisper/distil-large-v2`, `openai/whisper-large-v3-turbo`, `telnyx/basira`). It can be the same model as `transcription.model` on a different `language`.</summary>
+    /// <summary>The language booster&apos;s model. It must be the same kind of model as `transcription.model`: both streaming (`deepgram/flux`, `deepgram/nova-3`, `deepgram/nova-2`, `assemblyai/universal-3-6-pro` or its legacy aliases `assemblyai/universal-3-5-pro` and `assemblyai/universal-streaming`, `xai/grok-stt`, `soniox/stt-rt-v4`, `soniox/stt-rt-v5`, `humain/realtime`, `reson8/turns`) or both non-streaming (`azure/fast`, `nvidia/parakeet-v3`, `omi-health/omi-med-stt-v1`, `cohere/ar-stt`, `distil-whisper/distil-large-v2`, `openai/whisper-large-v3-turbo`, `telnyx/basira`). It can be the same model as `transcription.model` on a different `language`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionChallengerModel
     {
@@ -22,6 +22,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "azure/fast")]
         #pragma warning disable CS1591
         AzureFast,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "assemblyai/universal-3-6-pro")]
+        #pragma warning disable CS1591
+        AssemblyaiUniversal36Pro,
         #pragma warning restore CS1591
         [EnumMember(Value = "assemblyai/universal-3-5-pro")]
         #pragma warning disable CS1591

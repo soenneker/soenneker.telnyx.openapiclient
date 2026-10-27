@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and raising it is subject to the allocation rule.
+        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and it can be at most the period&apos;s total limit. Lowering the total limit below the period&apos;s highest API key limit is refused.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitResponse"/></returns>
         /// <param name="body">Send exactly one of `amount` and `unlimited: true`.</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
             return requestInfo;
         }
         /// <summary>
-        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and raising it is subject to the allocation rule.
+        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and it can be at most the period&apos;s total limit. Lowering the total limit below the period&apos;s highest API key limit is refused.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Send exactly one of `amount` and `unlimited: true`.</param>
@@ -174,7 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Spend_limits.Item
 #endif
         }
         /// <summary>
-        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and raising it is subject to the allocation rule.
+        /// Replaces the value of the existing limit for the product and period. Send exactly one of `amount` and `unlimited: true`. The period&apos;s spend is checked at once: raising the limit above the spend lifts the period&apos;s block (`evaluation.released`), and lowering it below the spend blocks the product (`evaluation.blocked_now`). Returns 404 when no limit is set; create it instead. With the `credential_id` query parameter, the request changes that API key&apos;s limit; it needs an `amount`, and it can be at most the period&apos;s total limit. Lowering the total limit below the period&apos;s highest API key limit is refused.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithProductItemRequestBuilderPatchQueryParameters 

@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? EotTimeoutMs { get; set; }
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. When true, Soniox streams interim (non-final) results in addition to finalized transcripts.</summary>
         public bool? InterimResults { get; set; }
-        /// <summary>A comma-separated list of key terms to boost for recognition during transcription, used by Deepgram, Reson8, Speechmatics Linden 1 and AssemblyAI models. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. At most 1000 characters in total. For assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming), also at most 100 terms of up to 50 characters each. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to the speech-to-text engine.</summary>
+        /// <summary>A comma-separated list of key terms to boost for recognition during transcription, used by Deepgram, Reson8, Speechmatics Linden 1 and AssemblyAI models. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. At most 1000 characters in total. For assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming), also at most 100 terms of up to 50 characters each. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to the speech-to-text engine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Keyterm { get; set; }
@@ -53,13 +53,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. Maximum silence (in milliseconds) before Soniox emits an end-of-utterance event. Only honored when `enable_endpoint_detection` is true.</summary>
         public int? MaxEndpointDelayMs { get; set; }
-        /// <summary>Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Maximum duration of silence in milliseconds before forcing an end of turn.</summary>
+        /// <summary>Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Maximum duration of silence in milliseconds before forcing an end of turn.</summary>
         public int? MaxTurnSilence { get; set; }
-        /// <summary>Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.</summary>
+        /// <summary>Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.</summary>
         public int? MinTurnSilence { get; set; }
         /// <summary>The numerals property</summary>
         public bool? Numerals { get; set; }
-        /// <summary>Available only for assemblyai/universal-3-5-pro (and its legacy alias assemblyai/universal-streaming). Context about the conversation (domain, names, terms) to improve transcription; describe the content, do not give instructions. Leave empty unless needed. At most 1750 characters.</summary>
+        /// <summary>Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Context about the conversation (domain, names, terms) to improve transcription; describe the content, do not give instructions. Leave empty unless needed. At most 1750 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Prompt { get; set; }

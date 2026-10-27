@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxClone"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBayanClone"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxQwen3TtsClone"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxUltraClone"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxClone"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleClone"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBayanClone"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxQwen3TtsClone"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxUltraClone"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceCloneUploadRequest : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxClone MinimaxClone { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleClone"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleClone? ResembleClone { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleClone ResembleClone { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBayanClone"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,6 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.MinimaxClone = new global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxClone();
             }
+            else if("ResembleClone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ResembleClone = new global::Soenneker.Telnyx.OpenApiClient.Models.ResembleClone();
+            }
             else if("TelnyxBayanClone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.TelnyxBayanClone = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBayanClone();
@@ -82,6 +94,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(MinimaxClone != null)
             {
                 return MinimaxClone.GetFieldDeserializers();
+            }
+            else if(ResembleClone != null)
+            {
+                return ResembleClone.GetFieldDeserializers();
             }
             else if(TelnyxBayanClone != null)
             {
@@ -107,6 +123,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(MinimaxClone != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxClone>(null, MinimaxClone);
+            }
+            else if(ResembleClone != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleClone>(null, ResembleClone);
             }
             else if(TelnyxBayanClone != null)
             {

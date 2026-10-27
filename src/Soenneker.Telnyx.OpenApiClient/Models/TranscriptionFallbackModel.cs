@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The fallback model. It must be a streaming model other than `transcription.model` and the other fallbacks: `deepgram/flux`, `deepgram/nova-3`, `deepgram/nova-2`, `assemblyai/universal-3-5-pro` (or its legacy alias `assemblyai/universal-streaming`), `xai/grok-stt`, `soniox/stt-rt-v4`, `soniox/stt-rt-v5`, `humain/realtime`, or `reson8/turns`.</summary>
+        /// <summary>The fallback model. It must be a streaming model other than `transcription.model` and the other fallbacks: `deepgram/flux`, `deepgram/nova-3`, `deepgram/nova-2`, `assemblyai/universal-3-6-pro` (or its legacy aliases `assemblyai/universal-3-5-pro` and `assemblyai/universal-streaming`), `xai/grok-stt`, `soniox/stt-rt-v4`, `soniox/stt-rt-v5`, `humain/realtime`, or `reson8/turns`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelModel? Model { get; set; }
         /// <summary>Settings for the fallback, with the same fields and limits as `transcription.settings`. Fields that don&apos;t apply to this model&apos;s provider are dropped, and the provider&apos;s defaults fill in the rest. Omit it or set it to `null` to use the settings of `transcription.model` where they apply to this model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

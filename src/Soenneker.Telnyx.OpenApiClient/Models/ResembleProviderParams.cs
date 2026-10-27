@@ -15,14 +15,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Custom Resemble API key.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ApiKey { get; set; }
-#nullable restore
-#else
-        public string ApiKey { get; set; }
-#endif
         /// <summary>Audio output format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,7 +64,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key", n => { ApiKey = n.GetStringValue(); } },
                 { "format", n => { Format = n.GetStringValue(); } },
                 { "precision", n => { Precision = n.GetStringValue(); } },
                 { "sample_rate", n => { SampleRate = n.GetStringValue(); } },
@@ -85,7 +76,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("api_key", ApiKey);
             writer.WriteStringValue("format", Format);
             writer.WriteStringValue("precision", Precision);
             writer.WriteStringValue("sample_rate", SampleRate);

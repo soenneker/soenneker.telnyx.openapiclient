@@ -3,40 +3,40 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link;
 using Soenneker.Telnyx.OpenApiClient.Models;
-using Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_signup
+namespace Soenneker.Telnyx.OpenApiClient.Bot_signup
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\bot_signup
+    /// Builds and executes requests for operations under \bot_signup
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Bot_signupRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The resend_magic_link property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder Resend_magic_link
+        public global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder Resend_magic_link
         {
-            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Resend_magic_link.Resend_magic_linkRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Bot_signupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Bot_signupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Bot_signupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/bot_signup", pathParameters)
+        public Bot_signupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bot_signup", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Bot_signupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Bot_signupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Bot_signupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/bot_signup", rawUrl)
+        public Bot_signupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bot_signup", rawUrl)
         {
         }
         /// <summary>
@@ -97,11 +97,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Bot_signup
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Bot_signupRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Bot_signupRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Bot_signupRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Bot_signupRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.OpenApiClient.V2.Bot_signup.Bot_signupRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Bot_signup.Bot_signupRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }
