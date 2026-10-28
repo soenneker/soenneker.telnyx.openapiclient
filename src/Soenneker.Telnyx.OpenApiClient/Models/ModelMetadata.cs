@@ -23,6 +23,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string BaseModel { get; set; }
 #endif
+        /// <summary>Whether the model is in beta. New Telnyx-hosted models launch with `beta: true`; the label is removed once the model is established.</summary>
+        public bool? Beta { get; set; }
         /// <summary>Maximum total tokens (prompt + completion) supported by the model in a single request.</summary>
         public int? ContextLength { get; set; }
         /// <summary>Timestamp at which the model was registered on Telnyx Inference (ISO 8601).</summary>
@@ -141,6 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ModelMetadata()
         {
             AdditionalData = new Dictionary<string, object>();
+            Beta = false;
             IsFineTunable = false;
             IsVisionSupported = false;
             Object = "model";
@@ -166,6 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "base_model", n => { BaseModel = n.GetStringValue(); } },
+                { "beta", n => { Beta = n.GetBoolValue(); } },
                 { "context_length", n => { ContextLength = n.GetIntValue(); } },
                 { "created", n => { Created = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -196,6 +200,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("base_model", BaseModel);
+            writer.WriteBoolValue("beta", Beta);
             writer.WriteIntValue("context_length", ContextLength);
             writer.WriteDateTimeOffsetValue("created", Created);
             writer.WriteStringValue("description", Description);

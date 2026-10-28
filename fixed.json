@@ -3638,7 +3638,7 @@
         },
         "responses": {
           "200": {
-            "description": "Action response",
+            "description": "The address passed validation. The validation result is \u0060valid\u0060.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3648,8 +3648,64 @@
             }
           },
           "422": {
-            "description": "Unprocessable entity. The request could not be processed: supplied parameters were invalid, the address failed validation for emergency use at creation (when \u0060validate_address\u0060 is \u0060true\u0060, the default), or the address is in use by an active phone number order (delete). Check the \u0060errors\u0060 array for details; when the validation service can suggest corrections for an invalid address, each offending field\u0027s error entry carries the suggested value.",
-            "$ref": "#/components/responses/UnprocessableEntity"
+            "description": "Address validation failed. A completed validation with an invalid result returns \u0060data.result: invalid\u0060, with normalized or suggested address fields in \u0060data.suggested\u0060 when available, and a top-level \u0060errors\u0060 array. Other validation errors can return only \u0060errors\u0060, without \u0060data\u0060. Check \u0060errors\u0060 before accessing the optional validation result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateAddressFailureResponse"
+                },
+                "examples": {
+                  "invalid_result": {
+                    "summary": "Invalid result with errors",
+                    "description": "Completed invalid validation with suggested address fields and the generic invalid-address error.",
+                    "value": {
+                      "data": {
+                        "result": "invalid",
+                        "suggested": {
+                          "extended_address": "",
+                          "locality": "FULSHEAR",
+                          "street_address": "5419 CEDAR ELM LN",
+                          "administrative_area": "TX",
+                          "country_code": "US",
+                          "postal_code": "77441",
+                          "borough": "",
+                          "neighborhood": "",
+                          "latitude": null,
+                          "longitude": null
+                        },
+                        "record_type": "address_validation"
+                      },
+                      "errors": [
+                        {
+                          "code": "20200",
+                          "title": "Invalid address",
+                          "detail": "Invalid address",
+                          "meta": {
+                            "url": "https://developers.telnyx.com/docs/overview/errors/20200"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "errors_only": {
+                    "summary": "Validation error without a result",
+                    "description": "Address rejected before validation produces a result; data is omitted.",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "20200",
+                          "title": "Invalid address",
+                          "detail": "The street address must contain a house number or the extended address must have a house name",
+                          "meta": {
+                            "url": "https://developers.telnyx.com/docs/overview/errors/20200"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -146089,11 +146145,16 @@
           "ai_opt_out_detection_enabled": {
             "type": "boolean",
             "description": "Enables AI detection of inbound opt-out messages that do not follow the standard STOP/UNSTOP/HELP opt-out keyword pattern. When enabled, the messaging platform applies an AI model to identify non-standard opt-out requests (e.g. natural-language phrases) and treats them as opt-outs."
+          },
+          "auto_chunk_long_messages": {
+            "type": "boolean",
+            "description": "Enables server-side chunking of outbound SMS. When enabled, an outbound message that exceeds the maximum number of segments allowed for its destination (10 segments by default; some aggregators accept up to 25) is automatically split into multiple child messages, each within the segment limit, and sent sequentially in order. Splitting is encoding-aware: GSM-7 bodies split at 153-character boundaries and UCS-2 bodies at 134-character boundaries. When disabled (the default), messages exceeding the segment limit are rejected with an error."
           }
         },
         "description": "Telnyx product features the messaging customer can enable on the messaging profile. Keys map to individual feature flags; unknown keys are accepted and preserved for forward compatibility with rolling deployments.",
         "example": {
-          "ai_opt_out_detection_enabled": true
+          "ai_opt_out_detection_enabled": true,
+          "auto_chunk_long_messages": true
         }
       },
       "MessagingSettings": {
@@ -147362,6 +147423,12 @@
             "title": "Is Vision Supported",
             "type": "boolean",
             "description": "Whether the model accepts image inputs in chat completions (multimodal vision support).",
+            "default": false
+          },
+          "beta": {
+            "title": "Beta",
+            "type": "boolean",
+            "description": "Whether the model is in beta. New Telnyx-hosted models launch with \u0060beta: true\u0060; the label is removed once the model is established.",
             "default": false
           },
           "description": {
@@ -185874,6 +185941,30 @@
             "type": "string",
             "description": "The two-character (ISO 3166-1 alpha-2) country code of the address.",
             "example": "US"
+          },
+          "borough": {
+            "type": "string",
+            "description": "The borough of the address. This field is not used for addresses in the US but is used for some international addresses.",
+            "example": "Guadalajara"
+          },
+          "neighborhood": {
+            "type": "string",
+            "description": "The neighborhood of the address. This field is not used for addresses in the US but is used for some international addresses.",
+            "example": "Ciudad de los deportes"
+          },
+          "latitude": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Latitude of the suggested address, when available."
+          },
+          "longitude": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Longitude of the suggested address, when available."
           }
         }
       },
@@ -196035,7 +196126,8 @@
           "redaction_level": 2,
           "mobile_only": false,
           "features": {
-            "ai_opt_out_detection_enabled": true
+            "ai_opt_out_detection_enabled": true,
+            "auto_chunk_long_messages": true
           }
         }
       },
@@ -228526,6 +228618,33 @@
           }
         }
       },
+      "ValidateAddressActionResponse": {
+        "title": "Validate address action response",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ValidateAddressActionResponseData"
+          }
+        }
+      },
+      "ValidateAddressFailureResponse": {
+        "title": "Validate address failure response",
+        "required": [
+          "errors"
+        ],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "data": {
+            "$ref": "#/components/schemas/ValidateAddressFailureResponseData"
+          }
+        }
+      },
       "CreateAnthropicMessage200Response": {
         "type": "object",
         "description": "An Anthropic-format message response with \u0060type: \u0022message\u0022\u0060, \u0060role\u0060, \u0060content\u0060, \u0060stop_reason\u0060, \u0060stop_sequence\u0060, and \u0060usage\u0060. When \u0060stream\u0060 is true, the response is a text/event-stream of Anthropic SSE events."
@@ -233336,15 +233455,6 @@
           }
         }
       },
-      "ValidateAddressActionResponse": {
-        "title": "Validate address action response",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/ValidateAddressResult"
-          }
-        }
-      },
       "DeleteAddress200Response": {
         "type": "object",
         "properties": {
@@ -238127,6 +238237,42 @@
           }
         }
       },
+      "ValidateAddressActionResponseDataResult": {
+        "enum": [
+          "valid"
+        ],
+        "type": "string",
+        "description": "Indicates whether an address is valid or invalid.",
+        "example": "valid",
+        "x-ms-enum": {
+          "name": "ValidateAddressActionResponseDataResult",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "valid",
+              "name": "Valid"
+            }
+          ]
+        }
+      },
+      "ValidateAddressFailureResponseDataResult": {
+        "enum": [
+          "invalid"
+        ],
+        "type": "string",
+        "description": "Indicates whether an address is valid or invalid.",
+        "example": "valid",
+        "x-ms-enum": {
+          "name": "ValidateAddressFailureResponseDataResult",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            }
+          ]
+        }
+      },
       "GetMessage200ResponseData": {
         "oneOf": [
           {
@@ -239972,6 +240118,65 @@
       "MessagingWhatsappMessageContentTemplateComponentsItemParametersItemActionFlowActionDataProperty": {
         "type": "object",
         "description": "input data for the first screen of the flow"
+      },
+      "ValidateAddressActionResponseData": {
+        "required": [
+          "result",
+          "suggested"
+        ],
+        "type": "object",
+        "properties": {
+          "result": {
+            "$ref": "#/components/schemas/ValidateAddressActionResponseDataResult"
+          },
+          "suggested": {
+            "description": "Provides normalized address when available.",
+            "type": "object",
+            "additionalProperties": true,
+            "$ref": "#/components/schemas/ValidateAddressField"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "example": "address_validation"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "ValidateAddressFailureResponseData": {
+        "required": [
+          "result",
+          "suggested"
+        ],
+        "type": "object",
+        "properties": {
+          "result": {
+            "$ref": "#/components/schemas/ValidateAddressFailureResponseDataResult"
+          },
+          "suggested": {
+            "description": "Provides normalized address when available.",
+            "type": "object",
+            "additionalProperties": true,
+            "$ref": "#/components/schemas/ValidateAddressField"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "example": "address_validation"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "description": "Present when a validation result is available; omitted for errors that do not produce a validation result."
       },
       "ChatPublicOpenaiResponsesCompletionsPostRequestReasoning": {
         "type": "object",
@@ -279404,6 +279609,39 @@
             {
               "value": "transcript.completed",
               "name": "TranscriptCompleted"
+            }
+          ]
+        }
+      },
+      "ValidateAddressActionResponseDataResultAllOf2": {
+        "enum": [
+          "valid"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ValidateAddressActionResponseDataResultAllOf2",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "valid",
+              "name": "Valid"
+            }
+          ]
+        }
+      },
+      "ValidateAddressFailureResponseDataResultAllOf2": {
+        "enum": [
+          "invalid"
+        ],
+        "type": "string",
+        "example": "invalid",
+        "x-ms-enum": {
+          "name": "ValidateAddressFailureResponseDataResultAllOf2",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "invalid",
+              "name": "Invalid"
             }
           ]
         }

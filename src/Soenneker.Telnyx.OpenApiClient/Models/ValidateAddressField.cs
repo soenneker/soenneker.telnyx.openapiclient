@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AdministrativeArea { get; set; }
 #endif
+        /// <summary>The borough of the address. This field is not used for addresses in the US but is used for some international addresses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Borough { get; set; }
+#nullable restore
+#else
+        public string Borough { get; set; }
+#endif
         /// <summary>The two-character (ISO 3166-1 alpha-2) country code of the address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +46,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExtendedAddress { get; set; }
 #endif
+        /// <summary>Latitude of the suggested address, when available.</summary>
+        public double? Latitude { get; set; }
         /// <summary>The locality of the address. For US addresses, this corresponds to the city of the address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,6 +55,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Locality { get; set; }
+#endif
+        /// <summary>Longitude of the suggested address, when available.</summary>
+        public double? Longitude { get; set; }
+        /// <summary>The neighborhood of the address. This field is not used for addresses in the US but is used for some international addresses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Neighborhood { get; set; }
+#nullable restore
+#else
+        public string Neighborhood { get; set; }
 #endif
         /// <summary>The postal code of the address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,9 +108,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "administrative_area", n => { AdministrativeArea = n.GetStringValue(); } },
+                { "borough", n => { Borough = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "extended_address", n => { ExtendedAddress = n.GetStringValue(); } },
+                { "latitude", n => { Latitude = n.GetDoubleValue(); } },
                 { "locality", n => { Locality = n.GetStringValue(); } },
+                { "longitude", n => { Longitude = n.GetDoubleValue(); } },
+                { "neighborhood", n => { Neighborhood = n.GetStringValue(); } },
                 { "postal_code", n => { PostalCode = n.GetStringValue(); } },
                 { "street_address", n => { StreetAddress = n.GetStringValue(); } },
             };
@@ -103,9 +127,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("administrative_area", AdministrativeArea);
+            writer.WriteStringValue("borough", Borough);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("extended_address", ExtendedAddress);
+            writer.WriteDoubleValue("latitude", Latitude);
             writer.WriteStringValue("locality", Locality);
+            writer.WriteDoubleValue("longitude", Longitude);
+            writer.WriteStringValue("neighborhood", Neighborhood);
             writer.WriteStringValue("postal_code", PostalCode);
             writer.WriteStringValue("street_address", StreetAddress);
             writer.WriteAdditionalData(AdditionalData);

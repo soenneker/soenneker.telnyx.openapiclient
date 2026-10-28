@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ValidateAddressResult : IAdditionalDataHolder, IParsable
+    public partial class ValidateAddressActionResponseData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>Indicates whether an address is valid or invalid.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResultResult? Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressActionResponseDataResult? Result { get; set; }
         /// <summary>Provides normalized address when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,21 +41,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressField Suggested { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressActionResponseData"/> and sets the default values.
         /// </summary>
-        public ValidateAddressResult()
+        public ValidateAddressActionResponseData()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressActionResponseData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressActionResponseData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressActionResponseData();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResultResult>(); } },
+                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressActionResponseDataResult>(); } },
                 { "suggested", n => { Suggested = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressField>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressField.CreateFromDiscriminatorValue); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>("errors", Errors);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResultResult>("result", Result);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressActionResponseDataResult>("result", Result);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressField>("suggested", Suggested);
             writer.WriteAdditionalData(AdditionalData);
         }

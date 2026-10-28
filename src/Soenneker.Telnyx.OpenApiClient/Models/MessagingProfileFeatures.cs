@@ -17,6 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enables AI detection of inbound opt-out messages that do not follow the standard STOP/UNSTOP/HELP opt-out keyword pattern. When enabled, the messaging platform applies an AI model to identify non-standard opt-out requests (e.g. natural-language phrases) and treats them as opt-outs.</summary>
         public bool? AiOptOutDetectionEnabled { get; set; }
+        /// <summary>Enables server-side chunking of outbound SMS. When enabled, an outbound message that exceeds the maximum number of segments allowed for its destination (10 segments by default; some aggregators accept up to 25) is automatically split into multiple child messages, each within the segment limit, and sent sequentially in order. Splitting is encoding-aware: GSM-7 bodies split at 153-character boundaries and UCS-2 bodies at 134-character boundaries. When disabled (the default), messages exceeding the segment limit are rejected with an error.</summary>
+        public bool? AutoChunkLongMessages { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures"/> and sets the default values.
         /// </summary>
@@ -43,6 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ai_opt_out_detection_enabled", n => { AiOptOutDetectionEnabled = n.GetBoolValue(); } },
+                { "auto_chunk_long_messages", n => { AutoChunkLongMessages = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -53,6 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("ai_opt_out_detection_enabled", AiOptOutDetectionEnabled);
+            writer.WriteBoolValue("auto_chunk_long_messages", AutoChunkLongMessages);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
