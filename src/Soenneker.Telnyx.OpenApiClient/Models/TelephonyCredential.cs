@@ -80,6 +80,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string SipUsername { get; set; }
 #endif
+        /// <summary>Returned when the credential is created. See `GET /telephony_credentials/{id}/token_material` to fetch it again.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial? TokenMaterial { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial TokenMaterial { get; set; }
+#endif
         /// <summary>ISO-8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -130,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "sip_password", n => { SipPassword = n.GetStringValue(); } },
                 { "sip_username", n => { SipUsername = n.GetStringValue(); } },
+                { "token_material", n => { TokenMaterial = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial>(global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
@@ -150,6 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteStringValue("sip_password", SipPassword);
             writer.WriteStringValue("sip_username", SipUsername);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial>("token_material", TokenMaterial);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);

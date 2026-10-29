@@ -46,6 +46,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Time in milliseconds to wait between consecutive DTMF digits. Omitted means the platform default (5000) applies.</summary>
+        public int? InterDigitTimeoutMillis { get; set; }
+        /// <summary>Maximum number of attempts for each payment collection step. Omitted means the platform default (3) applies.</summary>
+        public int? MaxAttempts { get; set; }
+        /// <summary>Minimum number of digits the caller must enter when collecting a credit-card billing postal code. Applies only when `postal_code` prompts the caller. Omitted means the platform default (1) applies. The maximum number of digits collected is the greater of 10 and this value. This does not validate the length of a postal code supplied directly in `postal_code`.</summary>
+        public int? MinPostalCodeLength { get; set; }
         /// <summary>Default payment method for payments processed by this tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,6 +60,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PaymentMethod { get; set; }
 #endif
+        /// <summary>Controls billing postal code collection for credit-card payments. Set to `false` to skip the postal code prompt without supplying a postal code to the payment connector (non-US cards, e.g. Irish Eircodes). Set to `true` to prompt the caller. Supply a non-empty string, such as `&quot;90210&quot;`, to use that postal code without prompting. This option does not affect ACH debit payments or payments using an existing token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode? PostalCode { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode PostalCode { get; set; }
+#endif
+        /// <summary>Custom text-to-speech prompts keyed by payment collection step. The AI assistant merges its own card-number prompt into this map, matching on the same step keys.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts? Prompts { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts Prompts { get; set; }
+#endif
+        /// <summary>Time in milliseconds to wait for DTMF input for each collection step. Omitted means the platform default (5000) applies. Increase this for slower entry, e.g. a 16-digit card number.</summary>
+        public int? TimeoutMillis { get; set; }
         /// <summary>Restricts accepted card numbers to the listed card types. When the caller enters a card number that does not match one of the listed types, Pay treats the input as invalid and re-prompts for the card number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,7 +117,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connector_parameters", n => { ConnectorParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty.CreateFromDiscriminatorValue); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "inter_digit_timeout_millis", n => { InterDigitTimeoutMillis = n.GetIntValue(); } },
+                { "max_attempts", n => { MaxAttempts = n.GetIntValue(); } },
+                { "min_postal_code_length", n => { MinPostalCodeLength = n.GetIntValue(); } },
                 { "payment_method", n => { PaymentMethod = n.GetStringValue(); } },
+                { "postal_code", n => { PostalCode = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode>(global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode.CreateFromDiscriminatorValue); } },
+                { "prompts", n => { Prompts = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts>(global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts.CreateFromDiscriminatorValue); } },
+                { "timeout_millis", n => { TimeoutMillis = n.GetIntValue(); } },
                 { "valid_card_types", n => { ValidCardTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem>()?.AsList(); } },
             };
         }
@@ -108,7 +138,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty>("connector_parameters", ConnectorParameters);
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("description", Description);
+            writer.WriteIntValue("inter_digit_timeout_millis", InterDigitTimeoutMillis);
+            writer.WriteIntValue("max_attempts", MaxAttempts);
+            writer.WriteIntValue("min_postal_code_length", MinPostalCodeLength);
             writer.WriteStringValue("payment_method", PaymentMethod);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode>("postal_code", PostalCode);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts>("prompts", Prompts);
+            writer.WriteIntValue("timeout_millis", TimeoutMillis);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem>("valid_card_types", ValidCardTypes);
             writer.WriteAdditionalData(AdditionalData);
         }

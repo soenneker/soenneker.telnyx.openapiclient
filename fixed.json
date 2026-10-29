@@ -4217,7 +4217,7 @@
             }
           },
           "400": {
-            "description": "Bad Request / Validation Failed (10015). Invalid, duplicate, empty, malformed, or overlong Idempotency-Key headers are rejected by Edge with HTTP 400 and error code 10015. The assistant configuration is validated too: enabling \u0060privacy_settings.in_transit_data_locality\u0060 is refused when the organization\u0027s data-locality region has no in-region inference, or when any model the assistant could use \u2014 its \u0060model\u0060, its \u0060fallback_config\u0060, or a conversation-flow node override \u2014 is not Telnyx-hosted.",
+            "description": "Bad Request / Validation Failed (10015). Invalid, duplicate, empty, malformed, or overlong Idempotency-Key headers are rejected by Edge with HTTP 400 and error code 10015. The assistant configuration is validated too: enabling \u0060privacy_settings.in_transit_data_locality\u0060 is refused when the organization\u0027s data-locality region has no in-region inference, when any model the assistant could use \u2014 its \u0060model\u0060, its \u0060fallback_config\u0060, or a conversation-flow node override \u2014 is not Telnyx-hosted, or when its \u0060insight_settings.model\u0060 is not available in that region.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5448,7 +5448,7 @@
             }
           },
           "400": {
-            "description": "Bad Request. The resulting assistant configuration was rejected. For example, enabling \u0060privacy_settings.in_transit_data_locality\u0060 is refused when the organization\u0027s data-locality region has no in-region inference, or when any model the assistant could use \u2014 its \u0060model\u0060, its \u0060fallback_config\u0060, or a conversation-flow node override \u2014 is not Telnyx-hosted. The response detail names the model and where it is configured. Validation runs against the merged result of the update, not only the fields sent.",
+            "description": "Bad Request. The resulting assistant configuration was rejected. For example, enabling \u0060privacy_settings.in_transit_data_locality\u0060 is refused when the organization\u0027s data-locality region has no in-region inference, when any model the assistant could use \u2014 its \u0060model\u0060, its \u0060fallback_config\u0060, or a conversation-flow node override \u2014 is not Telnyx-hosted, or when its \u0060insight_settings.model\u0060 is not available in that region. The response detail names the model and where it is configured. Validation runs against the merged result of the update, not only the fields sent.",
             "content": {
               "application/json": {
                 "schema": {
@@ -7391,7 +7391,7 @@
             }
           },
           "400": {
-            "description": "Bad Request. The resulting assistant configuration was rejected. For example, enabling \u0060privacy_settings.in_transit_data_locality\u0060 is refused when the organization\u0027s data-locality region has no in-region inference, or when any model the assistant could use \u2014 its \u0060model\u0060, its \u0060fallback_config\u0060, or a conversation-flow node override \u2014 is not Telnyx-hosted. The response detail names the model and where it is configured. Validation runs against the merged result of the update, not only the fields sent.",
+            "description": "Bad Request. The resulting assistant configuration was rejected. For example, enabling \u0060privacy_settings.in_transit_data_locality\u0060 is refused when the organization\u0027s data-locality region has no in-region inference, when any model the assistant could use \u2014 its \u0060model\u0060, its \u0060fallback_config\u0060, or a conversation-flow node override \u2014 is not Telnyx-hosted, or when its \u0060insight_settings.model\u0060 is not available in that region. The response detail names the model and where it is configured. Validation runs against the merged result of the update, not only the fields sent.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10472,7 +10472,7 @@
           "Conversations"
         ],
         "summary": "Delete a conversation",
-        "description": "Delete a specific conversation by its ID.",
+        "description": "Delete a specific conversation by its ID. Permanently deletes the conversation and its associated data: the conversation\u0027s messages, its insight generation results, any conversation memories, and its webhook request logs. Recordings are not deleted \u2014 recordings are managed separately through the /v2/recordings endpoints. This action cannot be undone.",
         "operationId": "DeleteConversationByIdPublicConversationsDelete",
         "parameters": [
           {
@@ -10487,7 +10487,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response"
+            "description": "Successful Response. The conversation and its associated data (messages, insight generation results, memories, webhook request logs) are permanently deleted."
           },
           "404": {
             "description": "Conversation Not Found"
@@ -10669,6 +10669,54 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/conversations/{conversationId}/conversations-insights/{insightId}": {
+      "delete": {
+        "tags": [
+          "Conversations"
+        ],
+        "summary": "Delete a conversation\u0027s insight generation results",
+        "description": "Delete one insight generation request for a conversation. Generation results are stored per conversation and per insight template; deleting a request permanently removes the stored result but does not stop insight generation from running again. To remove every insight result for the conversation, delete the conversation itself. A successful delete returns an empty response.",
+        "operationId": "DeleteConversationInsight",
+        "parameters": [
+          {
+            "name": "conversationId",
+            "in": "path",
+            "description": "Unique identifier of the conversation.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "insightId",
+            "in": "path",
+            "description": "Unique identifier of the insight generation request to delete, as returned as \u0060data.id\u0060 by the insight generation and insights-list operations. Note that the nested \u0060conversation_insights[].insight_id\u0060 field returned in the insights-list response is the insight template ID, not the ID accepted here.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response. The stored insight generation result is permanently deleted."
+          },
+          "404": {
+            "description": "Conversation Insight Not Found"
           },
           "422": {
             "description": "Validation Error",
@@ -74201,7 +74249,7 @@
           "Number Portout"
         ],
         "summary": "List portout requests",
-        "description": "Returns the portout requests according to filters",
+        "description": "Returns the portout requests according to filters. Carrier Port Out API available. Please contact porting@telnyx.com.",
         "operationId": "ListPortoutRequest",
         "parameters": [
           {
@@ -89018,6 +89066,55 @@
           },
           "503": {
             "description": "Service unavailable (10016), including unavailable Edge idempotency protection for a keyed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TelephonyCredentialsErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/telephony_credentials/{id}/token_material": {
+      "get": {
+        "tags": [
+          "Access Tokens"
+        ],
+        "summary": "Retrieve token material.",
+        "description": "Returns the material a server needs to mint login tokens for the credential locally, with no request per token: \u0060kid\u0060, \u0060tel_token\u0060 and \u0060signing_secret\u0060. The same material is in the response of \u0060POST /telephony_credentials\u0060. Treat it like the SIP password.",
+        "operationId": "RetrieveTelephonyCredentialTokenMaterial",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifies the resource.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token material for the credential",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenMaterialResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Resource not Found"
+          },
+          "422": {
+            "description": "The credential is expired",
             "content": {
               "application/json": {
                 "schema": {
@@ -137342,13 +137439,16 @@
             "$ref": "#/components/schemas/GenericPayConnectorConfigAuthType"
           },
           "username": {
+            "type": "string",
             "description": "Nonblank string required for basic authentication. Returned in connector responses."
           },
           "password": {
+            "type": "string",
             "description": "Nonblank string required for basic authentication. Write-only; omitted from responses. Re-send when replacing a basic-auth config.",
             "writeOnly": true
           },
           "token": {
+            "type": "string",
             "description": "Nonblank string required for bearer authentication. Write-only; omitted from responses. Re-send when replacing a bearer-auth config.",
             "writeOnly": true
           },
@@ -140276,9 +140376,11 @@
         "title": "Payload",
         "anyOf": [
           {
+            "title": "Ingest Payload Object",
             "type": "object"
           },
           {
+            "title": "Ingest Payload Value",
             "anyOf": [
               {
                 "type": "boolean"
@@ -145790,7 +145892,7 @@
             "description": "Encoding scheme used for the message body."
           },
           "parts": {
-            "maximum": 10,
+            "maximum": 25,
             "minimum": 1,
             "type": "integer",
             "description": "Number of parts into which the message\u0027s body must be split."
@@ -145886,6 +145988,22 @@
           "template_name": {
             "type": "string",
             "description": "Name of the WhatsApp template used by the message. Present for WhatsApp template messages."
+          },
+          "parent_message_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Identifies the original request\u0027s message when server-side SMS chunking (\u0060auto_chunk_long_messages\u0060 on the messaging profile) split it into chunks. The first chunk\u0027s ID is the original request\u0027s message ID. Always present; null when this message is not part of a chunked send.",
+            "format": "uuid"
+          },
+          "child_message_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Identifies the next chunk when server-side SMS chunking (\u0060auto_chunk_long_messages\u0060 on the messaging profile) split this message. Always present; null on non-chunked messages and on the final chunk.",
+            "format": "uuid"
           }
         },
         "example": {
@@ -146148,7 +146266,7 @@
           },
           "auto_chunk_long_messages": {
             "type": "boolean",
-            "description": "Enables server-side chunking of outbound SMS. When enabled, an outbound message that exceeds the maximum number of segments allowed for its destination (10 segments by default; some aggregators accept up to 25) is automatically split into multiple child messages, each within the segment limit, and sent sequentially in order. Splitting is encoding-aware: GSM-7 bodies split at 153-character boundaries and UCS-2 bodies at 134-character boundaries. When disabled (the default), messages exceeding the segment limit are rejected with an error."
+            "description": "Enables server-side chunking of outbound SMS. When enabled, an outbound message that exceeds the maximum number of segments allowed for its destination (10 segments by default; some aggregators accept up to 25) is automatically split into multiple child messages, each within the segment limit, and sent sequentially in order. Splitting is encoding-aware: GSM-7 bodies split at 153-character boundaries and UCS-2 bodies at 134-byte (67-character) boundaries. When disabled (the default), messages exceeding the segment limit are rejected with an error."
           }
         },
         "description": "Telnyx product features the messaging customer can enable on the messaging profile. Keys map to individual feature flags; unknown keys are accepted and preserved for forward compatibility with rolling deployments.",
@@ -152654,6 +152772,38 @@
               "visa",
               "mastercard"
             ]
+          },
+          "postal_code": {
+            "$ref": "#/components/schemas/PayToolParamsPostalCode"
+          },
+          "min_postal_code_length": {
+            "maximum": 128,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Minimum number of digits the caller must enter when collecting a credit-card billing postal code. Applies only when \u0060postal_code\u0060 prompts the caller. Omitted means the platform default (1) applies. The maximum number of digits collected is the greater of 10 and this value. This does not validate the length of a postal code supplied directly in \u0060postal_code\u0060.",
+            "example": 5
+          },
+          "max_attempts": {
+            "maximum": 3,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum number of attempts for each payment collection step. Omitted means the platform default (3) applies."
+          },
+          "timeout_millis": {
+            "maximum": 600000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Time in milliseconds to wait for DTMF input for each collection step. Omitted means the platform default (5000) applies. Increase this for slower entry, e.g. a 16-digit card number.",
+            "example": 12000
+          },
+          "inter_digit_timeout_millis": {
+            "maximum": 600000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Time in milliseconds to wait between consecutive DTMF digits. Omitted means the platform default (5000) applies."
+          },
+          "prompts": {
+            "$ref": "#/components/schemas/PayToolParamsPrompts"
           }
         }
       },
@@ -156900,7 +157050,7 @@
           },
           "in_transit_data_locality": {
             "type": "boolean",
-            "description": "Requires every model call made for a web chat turn to be received and served inside your organization\u0027s data-locality region, rather than only stored there. Applies to web chat only \u2014 voice and messaging assistants are unaffected. Enabling it requires a data-locality region with in-region inference (USA, EU, AUS, UAE; see [Inference regions](https://developers.telnyx.com/docs/inference/models/regions)) and Telnyx-hosted models for the assistant, its fallback, and any conversation-flow node that overrides the model; the request is rejected otherwise. Once enabled, send chat requests to your region\u0027s API hostname: a request entering the platform in another region is rejected rather than forwarded, because forwarding it would already have moved the content across the border. Defaults to false.",
+            "description": "Requires this assistant\u0027s conversations to be processed inside your organization\u0027s data-locality region, rather than only stored there, on every channel: for web chat, every model call of a turn; for voice, the call\u0027s model calls and the Telnyx-hosted speech services it uses; for SMS and WhatsApp, the model calls of each turn (how messages travel through carriers is not covered). Covered processing that cannot be handled in region fails rather than being served elsewhere. Enabling it requires a data-locality region with in-region inference (USA, EU, AUS, UAE; see [Inference regions](https://developers.telnyx.com/docs/inference/models/regions)), Telnyx-hosted models for the assistant, its fallback, and any conversation-flow node that overrides the model, and, when \u0060insight_settings.model\u0060 is set, an insight model available in that region; the request is rejected otherwise. A voice call fails when it starts if its STT model or TTS voice is not self-hosted by Telnyx, if the assistant uses a speech-to-speech model, or if the call\u0027s media is anchored outside the region. Once enabled, send web chat requests and WebSocket or WebRTC conversations to your region\u0027s API hostname: one entering the platform in another region is refused rather than forwarded, because forwarding it would already have moved the content across the border. See [Data residency](https://developers.telnyx.com/docs/inference/data-residency#in-region-processing-for-ai-assistants). Defaults to false.",
             "default": false
           }
         }
@@ -169356,6 +169506,10 @@
             "type": "string",
             "description": "ISO-8601 formatted date indicating when the resource will expire.",
             "example": "2018-02-02T22:25:27.521Z"
+          },
+          "token_material": {
+            "description": "Returned when the credential is created. See \u0060GET /telephony_credentials/{id}/token_material\u0060 to fetch it again.",
+            "$ref": "#/components/schemas/TokenMaterial"
           }
         },
         "example": {
@@ -169480,6 +169634,15 @@
             "type": "boolean",
             "description": "When enabled, the \u0060messages\u0060 array of the \u0060call.conversation.ended\u0060 webhook contains the full conversation history in order: user and assistant turns, assistant tool calls (\u0060tool_calls\u0060), tool results (\u0060role: tool\u0060 with \u0060tool_call_id\u0060), and informational \u0060system\u0060 and \u0060developer\u0060 entries. The assistant\u0027s instructions are never included. When disabled, \u0060messages\u0060 contains only user and assistant text turns.",
             "default": false
+          },
+          "greeting_delay_ms": {
+            "maximum": 2000,
+            "minimum": 0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Milliseconds to wait after an inbound call is answered before the assistant starts and speaks its greeting. Increase it if the beginning of the greeting is cut off on some connections (for example, WebRTC calls). When unset (\u0060null\u0060), the platform default of 250 ms is used. Set to \u00600\u0060 to start without a delay. Maximum 2000."
           },
           "voicemail_detection": {
             "$ref": "#/components/schemas/TelephonySettingsVoicemailDetection"
@@ -176639,6 +176802,28 @@
         },
         "additionalProperties": false
       },
+      "TokenMaterial": {
+        "title": "Token Material",
+        "type": "object",
+        "properties": {
+          "kid": {
+            "type": "string",
+            "description": "Identifies the Telnyx signing key the \u0060signing_secret\u0060 was derived with. Goes in the token header.",
+            "example": "v1"
+          },
+          "tel_token": {
+            "type": "string",
+            "description": "Opaque value Telnyx uses to resolve the credential. Carried in the token\u0027s \u0060tel_token\u0060 claim as is.",
+            "example": "rj_ZkkZUOZMxZOfOmLpEUB3siU7u6RjZFeM9s-gb_xCR56WFKFAJiMyF2T6CBRmlh_Sy0i_lfyT9AI8sEif8MTIIszyzSl_aDnG48aO50yaHGuRSYbUbSYm9WIiQ0g=="
+          },
+          "signing_secret": {
+            "type": "string",
+            "description": "The HMAC-SHA256 key the token is signed with, base64url without padding.",
+            "example": "cCL985ACi7wpbe_2xh1VDF3NabPJ90u1wCKmJCPNpxw"
+          }
+        },
+        "description": "What a server needs to mint login tokens for the credential itself, with no request per token (\u0060TelephonyCredential#to_jwt\u0060 in telnyx-ruby 3.1.0 or later). As sensitive as \u0060sip_password\u0060: keep it on the server."
+      },
       "TokenRequest": {
         "required": [
           "grant_type"
@@ -179235,7 +179420,8 @@
             "minimum": 0,
             "type": "number",
             "description": "Deprecated and ignored. Accepted for backwards compatibility. AssemblyAI turn detection is configured with min_turn_silence and max_turn_silence.",
-            "deprecated": true
+            "deprecated": true,
+            "x-stainless-deprecation-message": "Ignored. Configure AssemblyAI turn detection with min_turn_silence and max_turn_silence instead."
           },
           "prompt": {
             "title": "Prompt",
@@ -205997,6 +206183,7 @@
         "type": "string",
         "description": "Bare stored event names returned by message history. In addition to the normal send and delivery lifecycle, polling can expose suppression, scan, and quarantine lifecycle rows. Sharp canonical names gw_reject, injection_timeout, and expired distinguish gateway rejection, ambiguous injection timeout, and MTA expiration. The failed and bounced names remain valid for system/admin failures and hard bounces respectively. Existing stored rows retain their original names.",
         "deprecated": true,
+        "x-stainless-deprecation-message": "Use event_type instead.",
         "x-ms-enum": {
           "name": "MessageEventType",
           "modelAsString": false,
@@ -206276,6 +206463,128 @@
         ],
         "description": "Controls billing postal code collection for credit-card payments when no \u0060payment_token\u0060 is supplied. Set to \u0060true\u0060 or the string \u0060\u0022true\u0022\u0060 (the default) to prompt the caller for a postal code. Set to \u0060false\u0060 or the string \u0060\u0022false\u0022\u0060 to skip the postal code prompt without supplying a postal code to the payment connector. Supply any other non-empty string, such as \u0060\u002290210\u0022\u0060, to use that postal code without prompting. Empty or whitespace-only strings are rejected. This option does not affect ACH debit payments or payments using an existing token.",
         "example": false
+      },
+      "PayToolParamsPostalCode": {
+        "oneOf": [
+          {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          }
+        ],
+        "description": "Controls billing postal code collection for credit-card payments. Set to \u0060false\u0060 to skip the postal code prompt without supplying a postal code to the payment connector (non-US cards, e.g. Irish Eircodes). Set to \u0060true\u0060 to prompt the caller. Supply a non-empty string, such as \u0060\u002290210\u0022\u0060, to use that postal code without prompting. This option does not affect ACH debit payments or payments using an existing token.",
+        "example": false
+      },
+      "PayToolParamsPromptsPaymentCardNumber": {
+        "title": "Pay Tool Prompt Value",
+        "oneOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "title": "Pay Tool Prompt List",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayToolParamsPromptsPaymentCardNumberPayToolPromptListItem"
+            }
+          }
+        ],
+        "description": "A default prompt string or an ordered list of qualified prompts."
+      },
+      "PayToolParamsPromptsExpirationDate": {
+        "title": "Pay Tool Prompt Value",
+        "oneOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "title": "Pay Tool Prompt List",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayToolParamsPromptsExpirationDatePayToolPromptListItem"
+            }
+          }
+        ],
+        "description": "A default prompt string or an ordered list of qualified prompts."
+      },
+      "PayToolParamsPromptsPostalCode": {
+        "title": "Pay Tool Prompt Value",
+        "oneOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "title": "Pay Tool Prompt List",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayToolParamsPromptsPostalCodePayToolPromptListItem"
+            }
+          }
+        ],
+        "description": "A default prompt string or an ordered list of qualified prompts."
+      },
+      "PayToolParamsPromptsSecurityCode": {
+        "title": "Pay Tool Prompt Value",
+        "oneOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "title": "Pay Tool Prompt List",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayToolParamsPromptsSecurityCodePayToolPromptListItem"
+            }
+          }
+        ],
+        "description": "A default prompt string or an ordered list of qualified prompts."
+      },
+      "PayToolParamsPromptsBankRoutingNumber": {
+        "title": "Pay Tool Prompt Value",
+        "oneOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "title": "Pay Tool Prompt List",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayToolParamsPromptsBankRoutingNumberPayToolPromptListItem"
+            }
+          }
+        ],
+        "description": "A default prompt string or an ordered list of qualified prompts."
+      },
+      "PayToolParamsPromptsBankAccountNumber": {
+        "title": "Pay Tool Prompt Value",
+        "oneOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "title": "Pay Tool Prompt List",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PayToolParamsPromptsBankAccountNumberPayToolPromptListItem"
+            }
+          }
+        ],
+        "description": "A default prompt string or an ordered list of qualified prompts."
       },
       "PortingOrderMiscComposed": {
         "anyOf": [
@@ -208828,6 +209137,19 @@
           }
         ]
       },
+      "CallAnalyzedBodyPayloadCost": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CallAnalyzedBodyPayloadCostCallCostBreakdown"
+          },
+          {
+            "title": "Call Cost Unavailable",
+            "type": "string",
+            "description": "The placeholder string \u0060No cost data available.\u0060, returned when cost data could not be retrieved after retries."
+          }
+        ],
+        "description": "The session\u0027s cost breakdown from Session Analysis, covering every product billed on the call: the AI Voice Assistant engine minutes (\u0060ai-voice-assistant\u0060), LLM inference tokens (\u0060inference\u0060), and call-control, SIP trunking, and recording lines. If cost data could not be retrieved after retries, this field carries the placeholder string \u0060No cost data available.\u0060 instead of an object."
+      },
       "CallConversationInsightsGeneratedBodyPayloadResultsItemResult": {
         "oneOf": [
           {
@@ -210191,6 +210513,54 @@
           }
         }
       },
+      "PayToolParamsPromptsPaymentCardNumberPayToolPromptList": {
+        "title": "Pay Tool Prompt List",
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PayToolParamsPromptsPaymentCardNumberPayToolPromptListItem"
+        }
+      },
+      "PayToolParamsPromptsExpirationDatePayToolPromptList": {
+        "title": "Pay Tool Prompt List",
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PayToolParamsPromptsExpirationDatePayToolPromptListItem"
+        }
+      },
+      "PayToolParamsPromptsPostalCodePayToolPromptList": {
+        "title": "Pay Tool Prompt List",
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PayToolParamsPromptsPostalCodePayToolPromptListItem"
+        }
+      },
+      "PayToolParamsPromptsSecurityCodePayToolPromptList": {
+        "title": "Pay Tool Prompt List",
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PayToolParamsPromptsSecurityCodePayToolPromptListItem"
+        }
+      },
+      "PayToolParamsPromptsBankRoutingNumberPayToolPromptList": {
+        "title": "Pay Tool Prompt List",
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PayToolParamsPromptsBankRoutingNumberPayToolPromptListItem"
+        }
+      },
+      "PayToolParamsPromptsBankAccountNumberPayToolPromptList": {
+        "title": "Pay Tool Prompt List",
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PayToolParamsPromptsBankAccountNumberPayToolPromptListItem"
+        }
+      },
       "VoiceSettingsBackgroundAudioOneOf1": {
         "required": [
           "type",
@@ -210367,6 +210737,30 @@
           }
         },
         "additionalProperties": false
+      },
+      "CallAnalyzedBodyPayloadCostCallCostBreakdown": {
+        "title": "Call Cost Breakdown",
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "string",
+            "description": "The total cost of the call, summed across every product in the breakdown.",
+            "example": "0.060300"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The currency of the cost amounts.",
+            "example": "USD"
+          },
+          "breakdown": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CallAnalyzedBodyPayloadCostCallCostBreakdownBreakdownItem"
+            },
+            "description": "Cost lines grouped by product."
+          }
+        },
+        "description": "The itemized cost of the call."
       },
       "InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1": {
         "required": [
@@ -218314,6 +218708,7 @@
             "$ref": "#/components/schemas/PayConnectorConfigAuthType"
           },
           "username": {
+            "type": "string",
             "description": "Stored username, when supplied. Required to be a nonblank string for basic authentication."
           },
           "timeout": {
@@ -218390,6 +218785,32 @@
           "campaignid": "abc",
           "customer_ref": "CUST-67890"
         }
+      },
+      "PayToolParamsPrompts": {
+        "title": "Pay Tool Prompts",
+        "type": "object",
+        "properties": {
+          "payment-card-number": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsPaymentCardNumber"
+          },
+          "expiration-date": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsExpirationDate"
+          },
+          "postal-code": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsPostalCode"
+          },
+          "security-code": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsSecurityCode"
+          },
+          "bank-routing-number": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsBankRoutingNumber"
+          },
+          "bank-account-number": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsBankAccountNumber"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Custom text-to-speech prompts keyed by payment collection step. The AI assistant merges its own card-number prompt into this map, matching on the same step keys."
       },
       "PhoneNumberBulkDeleteResponseMeta": {
         "required": [
@@ -225183,6 +225604,190 @@
           }
         }
       },
+      "PayToolParamsPromptsPaymentCardNumberPayToolPromptListItem": {
+        "title": "Pay Tool Prompt",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Text spoken for the payment collection step.",
+            "example": "Please enter your card number."
+          },
+          "attempt": {
+            "type": "string",
+            "description": "Space-separated 1-based attempt numbers (1-9 followed by digits only, e.g. \u0060\u00222 3\u0022\u0060) for which this prompt applies. A prompt qualified with an attempt number above \u0060max_attempts\u0060 (default 3) is rejected at write time \u2014 it could never play.",
+            "example": "2 3"
+          },
+          "error_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsPaymentCardNumberPayToolPromptListItemErrorType"
+          },
+          "card_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsPaymentCardNumberPayToolPromptListItemCardType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A text-to-speech prompt with optional matching qualifiers, mirroring the Voice API PayPrompt schema."
+      },
+      "PayToolParamsPromptsExpirationDatePayToolPromptListItem": {
+        "title": "Pay Tool Prompt",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Text spoken for the payment collection step.",
+            "example": "Please enter your card number."
+          },
+          "attempt": {
+            "type": "string",
+            "description": "Space-separated 1-based attempt numbers (1-9 followed by digits only, e.g. \u0060\u00222 3\u0022\u0060) for which this prompt applies. A prompt qualified with an attempt number above \u0060max_attempts\u0060 (default 3) is rejected at write time \u2014 it could never play.",
+            "example": "2 3"
+          },
+          "error_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsExpirationDatePayToolPromptListItemErrorType"
+          },
+          "card_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsExpirationDatePayToolPromptListItemCardType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A text-to-speech prompt with optional matching qualifiers, mirroring the Voice API PayPrompt schema."
+      },
+      "PayToolParamsPromptsPostalCodePayToolPromptListItem": {
+        "title": "Pay Tool Prompt",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Text spoken for the payment collection step.",
+            "example": "Please enter your card number."
+          },
+          "attempt": {
+            "type": "string",
+            "description": "Space-separated 1-based attempt numbers (1-9 followed by digits only, e.g. \u0060\u00222 3\u0022\u0060) for which this prompt applies. A prompt qualified with an attempt number above \u0060max_attempts\u0060 (default 3) is rejected at write time \u2014 it could never play.",
+            "example": "2 3"
+          },
+          "error_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsPostalCodePayToolPromptListItemErrorType"
+          },
+          "card_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsPostalCodePayToolPromptListItemCardType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A text-to-speech prompt with optional matching qualifiers, mirroring the Voice API PayPrompt schema."
+      },
+      "PayToolParamsPromptsSecurityCodePayToolPromptListItem": {
+        "title": "Pay Tool Prompt",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Text spoken for the payment collection step.",
+            "example": "Please enter your card number."
+          },
+          "attempt": {
+            "type": "string",
+            "description": "Space-separated 1-based attempt numbers (1-9 followed by digits only, e.g. \u0060\u00222 3\u0022\u0060) for which this prompt applies. A prompt qualified with an attempt number above \u0060max_attempts\u0060 (default 3) is rejected at write time \u2014 it could never play.",
+            "example": "2 3"
+          },
+          "error_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsSecurityCodePayToolPromptListItemErrorType"
+          },
+          "card_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsSecurityCodePayToolPromptListItemCardType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A text-to-speech prompt with optional matching qualifiers, mirroring the Voice API PayPrompt schema."
+      },
+      "PayToolParamsPromptsBankRoutingNumberPayToolPromptListItem": {
+        "title": "Pay Tool Prompt",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Text spoken for the payment collection step.",
+            "example": "Please enter your card number."
+          },
+          "attempt": {
+            "type": "string",
+            "description": "Space-separated 1-based attempt numbers (1-9 followed by digits only, e.g. \u0060\u00222 3\u0022\u0060) for which this prompt applies. A prompt qualified with an attempt number above \u0060max_attempts\u0060 (default 3) is rejected at write time \u2014 it could never play.",
+            "example": "2 3"
+          },
+          "error_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsBankRoutingNumberPayToolPromptListItemErrorType"
+          },
+          "card_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsBankRoutingNumberPayToolPromptListItemCardType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A text-to-speech prompt with optional matching qualifiers, mirroring the Voice API PayPrompt schema."
+      },
+      "PayToolParamsPromptsBankAccountNumberPayToolPromptListItem": {
+        "title": "Pay Tool Prompt",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Text spoken for the payment collection step.",
+            "example": "Please enter your card number."
+          },
+          "attempt": {
+            "type": "string",
+            "description": "Space-separated 1-based attempt numbers (1-9 followed by digits only, e.g. \u0060\u00222 3\u0022\u0060) for which this prompt applies. A prompt qualified with an attempt number above \u0060max_attempts\u0060 (default 3) is rejected at write time \u2014 it could never play.",
+            "example": "2 3"
+          },
+          "error_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsBankAccountNumberPayToolPromptListItemErrorType"
+          },
+          "card_type": {
+            "$ref": "#/components/schemas/PayToolParamsPromptsBankAccountNumberPayToolPromptListItemCardType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A text-to-speech prompt with optional matching qualifiers, mirroring the Voice API PayPrompt schema."
+      },
+      "CallAnalyzedBodyPayloadCostCallCostBreakdownBreakdownItem": {
+        "title": "Cost Breakdown",
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string",
+            "description": "The Telnyx product the cost line belongs to (for example \u0060ai-voice-assistant\u0060, \u0060inference\u0060, \u0060callcontrol-cdrs\u0060, \u0060siptrunking-cdrs\u0060, \u0060recording-cdrs\u0060).",
+            "example": "ai-voice-assistant"
+          },
+          "cost": {
+            "type": "string",
+            "description": "Total cost for this product across the call, in the currency given by \u0060cost.currency\u0060.",
+            "example": "0.050000"
+          }
+        }
+      },
       "ActionResponseResultObservation": {
         "type": "object",
         "properties": {
@@ -227372,36 +227977,6 @@
           }
         }
       },
-      "CallAnalyzedBodyPayloadCost": {
-        "properties": {
-          "total": {
-            "type": "string",
-            "description": "The total cost of the call, summed across every product in the breakdown.",
-            "example": "0.060300"
-          },
-          "currency": {
-            "type": "string",
-            "description": "The currency of the cost amounts.",
-            "example": "USD"
-          },
-          "breakdown": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CallAnalyzedBodyPayloadCostBreakdownItem"
-            },
-            "description": "Cost lines grouped by product."
-          }
-        },
-        "description": "The session\u0027s cost breakdown from Session Analysis, covering every product billed on the call: the AI Voice Assistant engine minutes (\u0060ai-voice-assistant\u0060), LLM inference tokens (\u0060inference\u0060), and call-control, SIP trunking, and recording lines. If cost data could not be retrieved after retries, this field carries the placeholder string \u0060No cost data available.\u0060 instead of an object.",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "object"
-          }
-        ]
-      },
       "CallAnalyzedBodyPayloadRecordingsItem": {
         "title": "Recording",
         "type": "object",
@@ -228162,22 +228737,6 @@
             "type": "string",
             "description": "The generated insight result.",
             "example": "The user called the voice assistant to schedule a dental appointment. The assistant confirmed availability for Tuesday at 10:00 AM and transferred the call to the office scheduling line."
-          }
-        }
-      },
-      "CallAnalyzedBodyPayloadCostBreakdownItem": {
-        "title": "Cost Breakdown",
-        "type": "object",
-        "properties": {
-          "product": {
-            "type": "string",
-            "description": "The Telnyx product the cost line belongs to (for example \u0060ai-voice-assistant\u0060, \u0060inference\u0060, \u0060callcontrol-cdrs\u0060, \u0060siptrunking-cdrs\u0060, \u0060recording-cdrs\u0060).",
-            "example": "ai-voice-assistant"
-          },
-          "cost": {
-            "type": "string",
-            "description": "Total cost for this product across the call, in the currency given by \u0060cost.currency\u0060.",
-            "example": "0.050000"
           }
         }
       },
@@ -237570,6 +238129,16 @@
       "CreateTelephonyCredentialToken201PlainResponseSchema": {
         "type": "string",
         "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0ZWxueXhfdGVsZXBob255IiwiZXhwIjoxNTkwMDEwMTQzLCJpYXQiOjE1ODc1OTA5NDMsImlzcyI6InRlbG55eF90ZWxlcGhvbnkiLCJqdGkiOiJiOGM3NDgzNy1kODllLTRhNjUtOWNmMi0zNGM3YTZmYTYwYzgiLCJuYmYiOjE1ODc1OTA5NDIsInN1YiI6IjVjN2FjN2QwLWRiNjUtNGYxMS05OGUxLWVlYzBkMWQ1YzZhZSIsInRlbF90b2tlbiI6InJqX1pra1pVT1pNeFpPZk9tTHBFVUIzc2lVN3U2UmpaRmVNOXMtZ2JfeENSNTZXRktGQUppTXlGMlQ2Q0JSbWxoX1N5MGlfbGZ5VDlBSThzRWlmOE1USUlzenl6U2xfYURuRzQ4YU81MHlhSEd1UlNZYlViU1ltOVdJaVEwZz09IiwidHlwIjoiYWNjZXNzIn0.gNEwzTow5MLLPLQENytca7pUN79PmPj6FyqZWW06ZeEmesxYpwKh0xRtA0TzLh6CDYIRHrI8seofOO0YFGDhpQ"
+      },
+      "TokenMaterialResponse": {
+        "title": "Token Material Response",
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "What a server needs to mint login tokens for the credential itself, with no request per token (\u0060TelephonyCredential#to_jwt\u0060 in telnyx-ruby 3.1.0 or later). As sensitive as \u0060sip_password\u0060: keep it on the server.",
+            "$ref": "#/components/schemas/TokenMaterial"
+          }
+        }
       },
       "ListRecordingTranscriptionsResponse": {
         "title": "List Recording Transcriptions Response",
@@ -277847,6 +278416,702 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsPaymentCardNumberPayToolPromptListItemErrorType": {
+        "enum": [
+          "timeout",
+          "invalid-card-number",
+          "invalid-card-type",
+          "invalid-date",
+          "invalid-security-code",
+          "invalid-postal-code",
+          "invalid-bank-routing-number",
+          "invalid-bank-account-number",
+          "input-matching-failed"
+        ],
+        "type": "string",
+        "description": "Step error for which this prompt applies.",
+        "example": "invalid-card-number",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsPaymentCardNumberPayToolPromptListItemErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "invalid-card-number",
+              "name": "InvalidCardNumber"
+            },
+            {
+              "value": "invalid-card-type",
+              "name": "InvalidCardType"
+            },
+            {
+              "value": "invalid-date",
+              "name": "InvalidDate"
+            },
+            {
+              "value": "invalid-security-code",
+              "name": "InvalidSecurityCode"
+            },
+            {
+              "value": "invalid-postal-code",
+              "name": "InvalidPostalCode"
+            },
+            {
+              "value": "invalid-bank-routing-number",
+              "name": "InvalidBankRoutingNumber"
+            },
+            {
+              "value": "invalid-bank-account-number",
+              "name": "InvalidBankAccountNumber"
+            },
+            {
+              "value": "input-matching-failed",
+              "name": "InputMatchingFailed"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsPaymentCardNumberPayToolPromptListItemCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "optima",
+          "discover",
+          "diners-club",
+          "jcb",
+          "maestro",
+          "enroute"
+        ],
+        "type": "string",
+        "description": "Lowercase, case-sensitive detected card type for which this prompt applies.",
+        "example": "amex",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsPaymentCardNumberPayToolPromptListItemCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "optima",
+              "name": "Optima"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            },
+            {
+              "value": "maestro",
+              "name": "Maestro"
+            },
+            {
+              "value": "enroute",
+              "name": "Enroute"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsExpirationDatePayToolPromptListItemErrorType": {
+        "enum": [
+          "timeout",
+          "invalid-card-number",
+          "invalid-card-type",
+          "invalid-date",
+          "invalid-security-code",
+          "invalid-postal-code",
+          "invalid-bank-routing-number",
+          "invalid-bank-account-number",
+          "input-matching-failed"
+        ],
+        "type": "string",
+        "description": "Step error for which this prompt applies.",
+        "example": "invalid-card-number",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsExpirationDatePayToolPromptListItemErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "invalid-card-number",
+              "name": "InvalidCardNumber"
+            },
+            {
+              "value": "invalid-card-type",
+              "name": "InvalidCardType"
+            },
+            {
+              "value": "invalid-date",
+              "name": "InvalidDate"
+            },
+            {
+              "value": "invalid-security-code",
+              "name": "InvalidSecurityCode"
+            },
+            {
+              "value": "invalid-postal-code",
+              "name": "InvalidPostalCode"
+            },
+            {
+              "value": "invalid-bank-routing-number",
+              "name": "InvalidBankRoutingNumber"
+            },
+            {
+              "value": "invalid-bank-account-number",
+              "name": "InvalidBankAccountNumber"
+            },
+            {
+              "value": "input-matching-failed",
+              "name": "InputMatchingFailed"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsExpirationDatePayToolPromptListItemCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "optima",
+          "discover",
+          "diners-club",
+          "jcb",
+          "maestro",
+          "enroute"
+        ],
+        "type": "string",
+        "description": "Lowercase, case-sensitive detected card type for which this prompt applies.",
+        "example": "amex",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsExpirationDatePayToolPromptListItemCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "optima",
+              "name": "Optima"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            },
+            {
+              "value": "maestro",
+              "name": "Maestro"
+            },
+            {
+              "value": "enroute",
+              "name": "Enroute"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsPostalCodePayToolPromptListItemErrorType": {
+        "enum": [
+          "timeout",
+          "invalid-card-number",
+          "invalid-card-type",
+          "invalid-date",
+          "invalid-security-code",
+          "invalid-postal-code",
+          "invalid-bank-routing-number",
+          "invalid-bank-account-number",
+          "input-matching-failed"
+        ],
+        "type": "string",
+        "description": "Step error for which this prompt applies.",
+        "example": "invalid-card-number",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsPostalCodePayToolPromptListItemErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "invalid-card-number",
+              "name": "InvalidCardNumber"
+            },
+            {
+              "value": "invalid-card-type",
+              "name": "InvalidCardType"
+            },
+            {
+              "value": "invalid-date",
+              "name": "InvalidDate"
+            },
+            {
+              "value": "invalid-security-code",
+              "name": "InvalidSecurityCode"
+            },
+            {
+              "value": "invalid-postal-code",
+              "name": "InvalidPostalCode"
+            },
+            {
+              "value": "invalid-bank-routing-number",
+              "name": "InvalidBankRoutingNumber"
+            },
+            {
+              "value": "invalid-bank-account-number",
+              "name": "InvalidBankAccountNumber"
+            },
+            {
+              "value": "input-matching-failed",
+              "name": "InputMatchingFailed"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsPostalCodePayToolPromptListItemCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "optima",
+          "discover",
+          "diners-club",
+          "jcb",
+          "maestro",
+          "enroute"
+        ],
+        "type": "string",
+        "description": "Lowercase, case-sensitive detected card type for which this prompt applies.",
+        "example": "amex",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsPostalCodePayToolPromptListItemCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "optima",
+              "name": "Optima"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            },
+            {
+              "value": "maestro",
+              "name": "Maestro"
+            },
+            {
+              "value": "enroute",
+              "name": "Enroute"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsSecurityCodePayToolPromptListItemErrorType": {
+        "enum": [
+          "timeout",
+          "invalid-card-number",
+          "invalid-card-type",
+          "invalid-date",
+          "invalid-security-code",
+          "invalid-postal-code",
+          "invalid-bank-routing-number",
+          "invalid-bank-account-number",
+          "input-matching-failed"
+        ],
+        "type": "string",
+        "description": "Step error for which this prompt applies.",
+        "example": "invalid-card-number",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsSecurityCodePayToolPromptListItemErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "invalid-card-number",
+              "name": "InvalidCardNumber"
+            },
+            {
+              "value": "invalid-card-type",
+              "name": "InvalidCardType"
+            },
+            {
+              "value": "invalid-date",
+              "name": "InvalidDate"
+            },
+            {
+              "value": "invalid-security-code",
+              "name": "InvalidSecurityCode"
+            },
+            {
+              "value": "invalid-postal-code",
+              "name": "InvalidPostalCode"
+            },
+            {
+              "value": "invalid-bank-routing-number",
+              "name": "InvalidBankRoutingNumber"
+            },
+            {
+              "value": "invalid-bank-account-number",
+              "name": "InvalidBankAccountNumber"
+            },
+            {
+              "value": "input-matching-failed",
+              "name": "InputMatchingFailed"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsSecurityCodePayToolPromptListItemCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "optima",
+          "discover",
+          "diners-club",
+          "jcb",
+          "maestro",
+          "enroute"
+        ],
+        "type": "string",
+        "description": "Lowercase, case-sensitive detected card type for which this prompt applies.",
+        "example": "amex",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsSecurityCodePayToolPromptListItemCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "optima",
+              "name": "Optima"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            },
+            {
+              "value": "maestro",
+              "name": "Maestro"
+            },
+            {
+              "value": "enroute",
+              "name": "Enroute"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsBankRoutingNumberPayToolPromptListItemErrorType": {
+        "enum": [
+          "timeout",
+          "invalid-card-number",
+          "invalid-card-type",
+          "invalid-date",
+          "invalid-security-code",
+          "invalid-postal-code",
+          "invalid-bank-routing-number",
+          "invalid-bank-account-number",
+          "input-matching-failed"
+        ],
+        "type": "string",
+        "description": "Step error for which this prompt applies.",
+        "example": "invalid-card-number",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsBankRoutingNumberPayToolPromptListItemErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "invalid-card-number",
+              "name": "InvalidCardNumber"
+            },
+            {
+              "value": "invalid-card-type",
+              "name": "InvalidCardType"
+            },
+            {
+              "value": "invalid-date",
+              "name": "InvalidDate"
+            },
+            {
+              "value": "invalid-security-code",
+              "name": "InvalidSecurityCode"
+            },
+            {
+              "value": "invalid-postal-code",
+              "name": "InvalidPostalCode"
+            },
+            {
+              "value": "invalid-bank-routing-number",
+              "name": "InvalidBankRoutingNumber"
+            },
+            {
+              "value": "invalid-bank-account-number",
+              "name": "InvalidBankAccountNumber"
+            },
+            {
+              "value": "input-matching-failed",
+              "name": "InputMatchingFailed"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsBankRoutingNumberPayToolPromptListItemCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "optima",
+          "discover",
+          "diners-club",
+          "jcb",
+          "maestro",
+          "enroute"
+        ],
+        "type": "string",
+        "description": "Lowercase, case-sensitive detected card type for which this prompt applies.",
+        "example": "amex",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsBankRoutingNumberPayToolPromptListItemCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "optima",
+              "name": "Optima"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            },
+            {
+              "value": "maestro",
+              "name": "Maestro"
+            },
+            {
+              "value": "enroute",
+              "name": "Enroute"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsBankAccountNumberPayToolPromptListItemErrorType": {
+        "enum": [
+          "timeout",
+          "invalid-card-number",
+          "invalid-card-type",
+          "invalid-date",
+          "invalid-security-code",
+          "invalid-postal-code",
+          "invalid-bank-routing-number",
+          "invalid-bank-account-number",
+          "input-matching-failed"
+        ],
+        "type": "string",
+        "description": "Step error for which this prompt applies.",
+        "example": "invalid-card-number",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsBankAccountNumberPayToolPromptListItemErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timeout",
+              "name": "Timeout"
+            },
+            {
+              "value": "invalid-card-number",
+              "name": "InvalidCardNumber"
+            },
+            {
+              "value": "invalid-card-type",
+              "name": "InvalidCardType"
+            },
+            {
+              "value": "invalid-date",
+              "name": "InvalidDate"
+            },
+            {
+              "value": "invalid-security-code",
+              "name": "InvalidSecurityCode"
+            },
+            {
+              "value": "invalid-postal-code",
+              "name": "InvalidPostalCode"
+            },
+            {
+              "value": "invalid-bank-routing-number",
+              "name": "InvalidBankRoutingNumber"
+            },
+            {
+              "value": "invalid-bank-account-number",
+              "name": "InvalidBankAccountNumber"
+            },
+            {
+              "value": "input-matching-failed",
+              "name": "InputMatchingFailed"
+            }
+          ]
+        }
+      },
+      "PayToolParamsPromptsBankAccountNumberPayToolPromptListItemCardType": {
+        "enum": [
+          "visa",
+          "mastercard",
+          "amex",
+          "optima",
+          "discover",
+          "diners-club",
+          "jcb",
+          "maestro",
+          "enroute"
+        ],
+        "type": "string",
+        "description": "Lowercase, case-sensitive detected card type for which this prompt applies.",
+        "example": "amex",
+        "x-ms-enum": {
+          "name": "PayToolParamsPromptsBankAccountNumberPayToolPromptListItemCardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "visa",
+              "name": "Visa"
+            },
+            {
+              "value": "mastercard",
+              "name": "Mastercard"
+            },
+            {
+              "value": "amex",
+              "name": "Amex"
+            },
+            {
+              "value": "optima",
+              "name": "Optima"
+            },
+            {
+              "value": "discover",
+              "name": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "name": "DinersClub"
+            },
+            {
+              "value": "jcb",
+              "name": "Jcb"
+            },
+            {
+              "value": "maestro",
+              "name": "Maestro"
+            },
+            {
+              "value": "enroute",
+              "name": "Enroute"
             }
           ]
         }

@@ -34,6 +34,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FallbackDestination { get; set; }
 #endif
+        /// <summary>Milliseconds to wait after an inbound call is answered before the assistant starts and speaks its greeting. Increase it if the beginning of the greeting is cut off on some connections (for example, WebRTC calls). When unset (`null`), the platform default of 250 ms is used. Set to `0` to start without a delay. Maximum 2000.</summary>
+        public int? GreetingDelayMs { get; set; }
         /// <summary>The noise suppression engine to use. &apos;aicoustics&apos; is STT-optimized and recommended for AI assistants (configure through noise_suppression_config). Use &apos;disabled&apos; to turn off noise suppression.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppression? NoiseSuppression { get; set; }
         /// <summary>Configuration for noise suppression. Applicable fields depend on the engine: &apos;attenuation_limit&apos; and &apos;mode&apos; only when noise_suppression is &apos;deepfilternet&apos;; &apos;family&apos;, &apos;size&apos; and &apos;enhancement_level&apos; only when noise_suppression is &apos;aicoustics&apos;.</summary>
@@ -103,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "default_texml_app_id", n => { DefaultTexmlAppId = n.GetStringValue(); } },
                 { "disable_dtmf", n => { DisableDtmf = n.GetBoolValue(); } },
                 { "fallback_destination", n => { FallbackDestination = n.GetStringValue(); } },
+                { "greeting_delay_ms", n => { GreetingDelayMs = n.GetIntValue(); } },
                 { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppression>(); } },
                 { "noise_suppression_config", n => { NoiseSuppressionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig.CreateFromDiscriminatorValue); } },
                 { "recording_settings", n => { RecordingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings.CreateFromDiscriminatorValue); } },
@@ -125,6 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("default_texml_app_id", DefaultTexmlAppId);
             writer.WriteBoolValue("disable_dtmf", DisableDtmf);
             writer.WriteStringValue("fallback_destination", FallbackDestination);
+            writer.WriteIntValue("greeting_delay_ms", GreetingDelayMs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppression>("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig>("noise_suppression_config", NoiseSuppressionConfig);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings>("recording_settings", RecordingSettings);

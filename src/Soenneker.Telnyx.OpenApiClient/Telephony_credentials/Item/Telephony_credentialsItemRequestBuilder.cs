@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token;
+using Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token_material;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,6 +23,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item
         public global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder Token
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The token_material property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token_material.Token_materialRequestBuilder Token_material
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token_material.Token_materialRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder"/> and sets the default values.

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsights.Item;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsi
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationsInsightsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.conversations.item.conversationsInsights.item collection</summary>
+        /// <param name="position">Unique identifier of the insight generation request to delete, as returned as `data.id` by the insight generation and insights-list operations. Note that the nested `conversation_insights[].insight_id` field returned in the insights-list response is the insight template ID, not the ID accepted here.</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsights.Item.WithInsightItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsights.Item.WithInsightItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("insightId", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsights.Item.WithInsightItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsights.ConversationsInsightsRequestBuilder"/> and sets the default values.
         /// </summary>

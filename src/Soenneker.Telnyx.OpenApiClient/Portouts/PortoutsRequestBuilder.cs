@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
         {
         }
         /// <summary>
-        /// Returns the portout requests according to filters
+        /// Returns the portout requests according to filters. Carrier Port Out API available. Please contact porting@telnyx.com.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutRequest200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutRequest200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutRequest200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the portout requests according to filters
+        /// Returns the portout requests according to filters. Carrier Port Out API available. Please contact porting@telnyx.com.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
             return new global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the portout requests according to filters
+        /// Returns the portout requests according to filters. Carrier Port Out API available. Please contact porting@telnyx.com.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PortoutsRequestBuilderGetQueryParameters 

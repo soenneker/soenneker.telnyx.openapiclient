@@ -30,10 +30,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stored username, when supplied. Required to be a nonblank string for basic authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Username { get; set; }
+        public string? Username { get; set; }
 #nullable restore
 #else
-        public UntypedNode Username { get; set; }
+        public string Username { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayConnectorConfig"/> and sets the default values.
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayConnectorConfigAuthType>(); } },
                 { "endpoint_url", n => { EndpointUrl = n.GetStringValue(); } },
                 { "timeout", n => { Timeout = n.GetIntValue(); } },
-                { "username", n => { Username = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "username", n => { Username = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayConnectorConfigAuthType>("auth_type", AuthType);
             writer.WriteStringValue("endpoint_url", EndpointUrl);
             writer.WriteIntValue("timeout", Timeout);
-            writer.WriteObjectValue<UntypedNode>("username", Username);
+            writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

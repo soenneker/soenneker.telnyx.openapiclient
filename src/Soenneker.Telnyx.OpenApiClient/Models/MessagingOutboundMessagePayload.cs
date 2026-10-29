@@ -30,6 +30,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCcItem> Cc { get; set; }
 #endif
+        /// <summary>Identifies the next chunk when server-side SMS chunking (`auto_chunk_long_messages` on the messaging profile) split this message. Always present; null on non-chunked messages and on the final chunk.</summary>
+        public Guid? ChildMessageId { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the message was finalized.</summary>
         public DateTimeOffset? CompletedAt { get; set; }
         /// <summary>The cost property</summary>
@@ -96,6 +98,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? NumChars { get; set; }
         /// <summary>The id of the organization the messaging profile belongs to.</summary>
         public Guid? OrganizationId { get; set; }
+        /// <summary>Identifies the original request&apos;s message when server-side SMS chunking (`auto_chunk_long_messages` on the messaging profile) split it into chunks. The first chunk&apos;s ID is the original request&apos;s message ID. Always present; null when this message is not part of a chunked send.</summary>
+        public Guid? ParentMessageId { get; set; }
         /// <summary>Number of parts into which the message&apos;s body must be split.</summary>
         public int? Parts { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the message request was received.</summary>
@@ -221,6 +225,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadBody>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadBody.CreateFromDiscriminatorValue); } },
                 { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCcItem>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCcItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "child_message_id", n => { ChildMessageId = n.GetGuidValue(); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCost>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCost.CreateFromDiscriminatorValue); } },
                 { "cost_breakdown", n => { CostBreakdown = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCostBreakdown>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCostBreakdown.CreateFromDiscriminatorValue); } },
@@ -233,6 +238,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "num_chars", n => { NumChars = n.GetIntValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "parent_message_id", n => { ParentMessageId = n.GetGuidValue(); } },
                 { "parts", n => { Parts = n.GetIntValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageRecordType>(); } },
@@ -263,6 +269,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadBody>("body", Body);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCcItem>("cc", Cc);
+            writer.WriteGuidValue("child_message_id", ChildMessageId);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCost>("cost", Cost);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCostBreakdown>("cost_breakdown", CostBreakdown);
@@ -275,6 +282,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteIntValue("num_chars", NumChars);
             writer.WriteGuidValue("organization_id", OrganizationId);
+            writer.WriteGuidValue("parent_message_id", ParentMessageId);
             writer.WriteIntValue("parts", Parts);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageRecordType>("record_type", RecordType);

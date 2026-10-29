@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item
         {
         }
         /// <summary>
-        /// Delete a specific conversation by its ID.
+        /// Delete a specific conversation by its ID. Permanently deletes the conversation and its associated data: the conversation&apos;s messages, its insight generation results, any conversation memories, and its webhook request logs. Recordings are not deleted — recordings are managed separately through the /v2/recordings endpoints. This action cannot be undone.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConversationByIdPublicConversationsPut200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConversationByIdPublicConversationsPut200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a specific conversation by its ID.
+        /// Delete a specific conversation by its ID. Permanently deletes the conversation and its associated data: the conversation&apos;s messages, its insight generation results, any conversation memories, and its webhook request logs. Recordings are not deleted — recordings are managed separately through the /v2/recordings endpoints. This action cannot be undone.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
