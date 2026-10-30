@@ -207999,7 +207999,13 @@
             "format": "date-time"
           },
           {
-            "$ref": "#/components/schemas/UpdateInboundMessageRequestReadAtOneOf3"
+            "enum": [
+              null
+            ],
+            "type": [
+              "null",
+              "string"
+            ]
           }
         ],
         "description": "Set to \u0060true\u0060 for server time, an ISO 8601 timestamp for an explicit read time, or \u0060null\u0060 to mark unread."
@@ -273777,15 +273783,6 @@
           true
         ],
         "type": "boolean"
-      },
-      "UpdateInboundMessageRequestReadAtOneOf3": {
-        "enum": [
-          null
-        ],
-        "type": [
-          "null",
-          "string"
-        ]
       },
       "RequestStartType": {
         "const": null,

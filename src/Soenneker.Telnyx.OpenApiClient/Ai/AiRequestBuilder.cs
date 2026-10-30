@@ -118,6 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.MissionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The models property</summary>
+        [Obsolete("")]
         public global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder Models
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder(PathParameters, RequestAdapter);
@@ -128,6 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.OpenaiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The responses property</summary>
+        [Obsolete("")]
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Responses.ResponsesRequestBuilder Responses
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Responses.ResponsesRequestBuilder(PathParameters, RequestAdapter);

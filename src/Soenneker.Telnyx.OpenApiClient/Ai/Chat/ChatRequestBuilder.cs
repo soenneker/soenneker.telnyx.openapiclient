@@ -16,6 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Chat
     public partial class ChatRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The completions property</summary>
+        [Obsolete("")]
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Chat.Completions.CompletionsRequestBuilder Completions
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Chat.Completions.CompletionsRequestBuilder(PathParameters, RequestAdapter);
