@@ -12,15 +12,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationRelayTranscriptionEngineConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("eager_eot_threshold") is { } nullNodeEagerEotThreshold && nullNodeEagerEotThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EagerEotThreshold = null;
+            if (parseNode.GetChildNode("eot_threshold") is { } nullNodeEotThreshold && nullNodeEotThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EotThreshold = null;
+            if (parseNode.GetChildNode("interim_results") is { } nullNodeInterimResults && nullNodeInterimResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterimResults = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Deepgram Flux: confidence at which an `eagerEndOfTurn` frame is sent before the final prompt, followed by `turnResumed` if the caller keeps talking. When omitted, these frames are not sent.</summary>
-        public double? EagerEotThreshold { get; set; }
+        public double? EagerEotThreshold { get => _explicitNullValueEagerEotThreshold; set { _explicitNullValueEagerEotThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eager_eot_threshold"); else _explicitNullProperties?.Remove("eager_eot_threshold"); } }
+        private double? _explicitNullValueEagerEotThreshold = default!;
         /// <summary>Deepgram Flux: confidence required to end the caller&apos;s turn.</summary>
-        public double? EotThreshold { get; set; }
+        public double? EotThreshold { get => _explicitNullValueEotThreshold; set { _explicitNullValueEotThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eot_threshold"); else _explicitNullProperties?.Remove("eot_threshold"); } }
+        private double? _explicitNullValueEotThreshold = default!;
         /// <summary>Deepgram Flux: send interim transcripts as `prompt` frames with `last: false`.</summary>
-        public bool? InterimResults { get; set; }
+        public bool? InterimResults { get => _explicitNullValueInterimResults; set { _explicitNullValueInterimResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interim_results"); else _explicitNullProperties?.Remove("interim_results"); } }
+        private bool? _explicitNullValueInterimResults = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig"/> and sets the default values.
         /// </summary>
@@ -38,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("eager_eot_threshold", EagerEotThreshold);
             writer.WriteDoubleValue("eot_threshold", EotThreshold);
             writer.WriteBoolValue("interim_results", InterimResults);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -53,6 +53,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Recordin
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingResourceNotFoundErrorC75353Cb83.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingsResponseBody>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingsResponseBody.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -78,6 +80,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Recordin
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingResourceNotFoundErrorC75353Cb83.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingResponseBody>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingResponseBody.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

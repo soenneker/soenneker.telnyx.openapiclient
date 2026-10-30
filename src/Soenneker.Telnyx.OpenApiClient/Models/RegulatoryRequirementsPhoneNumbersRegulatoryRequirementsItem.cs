@@ -11,14 +11,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acceptance_criteria") is { } nullNodeAcceptanceCriteria && nullNodeAcceptanceCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptanceCriteria = null;
+            if (parseNode.GetChildNode("field_type") is { } nullNodeFieldType && nullNodeFieldType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldType = null;
+            if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+        }
+
         /// <summary>The acceptance_criteria property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItemAcceptanceCriteria? AcceptanceCriteria { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItemAcceptanceCriteria? AcceptanceCriteria { get => _explicitNullValueAcceptanceCriteria; set { _explicitNullValueAcceptanceCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptance_criteria"); else _explicitNullProperties?.Remove("acceptance_criteria"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItemAcceptanceCriteria? _explicitNullValueAcceptanceCriteria = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItemAcceptanceCriteria AcceptanceCriteria { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItemAcceptanceCriteria AcceptanceCriteria { get => _explicitNullValueAcceptanceCriteria; set { _explicitNullValueAcceptanceCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptance_criteria"); else _explicitNullProperties?.Remove("acceptance_criteria"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItemAcceptanceCriteria _explicitNullValueAcceptanceCriteria = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -41,20 +53,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The field_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FieldType { get; set; }
+        public string? FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
+        private string? _explicitNullValueFieldType = default!;
 #nullable restore
 #else
-        public string FieldType { get; set; }
+        public string FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
+        private string _explicitNullValueFieldType = default!;
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
         /// <summary>The label property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Label { get; set; }
+        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        private string? _explicitNullValueLabel = default!;
 #nullable restore
 #else
-        public string Label { get; set; }
+        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        private string _explicitNullValueLabel = default!;
 #endif
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,6 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItemAcceptanceCriteria>("acceptance_criteria", AcceptanceCriteria);
             writer.WriteStringValue("field_type", FieldType);
             writer.WriteStringValue("label", Label);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

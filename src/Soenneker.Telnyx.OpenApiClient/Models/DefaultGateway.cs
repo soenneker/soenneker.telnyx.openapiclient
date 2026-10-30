@@ -11,7 +11,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DefaultGateway : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("wireguard_peer_id") is { } nullNodeWireguardPeerId && nullNodeWireguardPeerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WireguardPeerId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
@@ -45,7 +53,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>Wireguard peer ID.</summary>
-        public Guid? WireguardPeerId { get; set; }
+        public Guid? WireguardPeerId { get => _explicitNullValueWireguardPeerId; set { _explicitNullValueWireguardPeerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireguard_peer_id"); else _explicitNullProperties?.Remove("wireguard_peer_id"); } }
+        private Guid? _explicitNullValueWireguardPeerId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DefaultGateway"/> and sets the default values.
         /// </summary>
@@ -61,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DefaultGateway CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DefaultGateway();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DefaultGateway(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("wireguard_peer_id", WireguardPeerId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

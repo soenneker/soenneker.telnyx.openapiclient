@@ -11,240 +11,379 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DialConferenceParticipantRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("AmdStatusCallback") is { } nullNodeAmdStatusCallback && nullNodeAmdStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmdStatusCallback = null;
+            if (parseNode.GetChildNode("AmdStatusCallbackMethod") is { } nullNodeAmdStatusCallbackMethod && nullNodeAmdStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmdStatusCallbackMethod = null;
+            if (parseNode.GetChildNode("ApplicationSid") is { } nullNodeApplicationSid && nullNodeApplicationSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationSid = null;
+            if (parseNode.GetChildNode("Beep") is { } nullNodeBeep && nullNodeBeep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Beep = null;
+            if (parseNode.GetChildNode("CallerId") is { } nullNodeCallerId && nullNodeCallerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerId = null;
+            if (parseNode.GetChildNode("CallSidToCoach") is { } nullNodeCallSidToCoach && nullNodeCallSidToCoach.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidToCoach = null;
+            if (parseNode.GetChildNode("CancelPlaybackOnDetectMessageEnd") is { } nullNodeCancelPlaybackOnDetectMessageEnd && nullNodeCancelPlaybackOnDetectMessageEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelPlaybackOnDetectMessageEnd = null;
+            if (parseNode.GetChildNode("CancelPlaybackOnMachineDetection") is { } nullNodeCancelPlaybackOnMachineDetection && nullNodeCancelPlaybackOnMachineDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelPlaybackOnMachineDetection = null;
+            if (parseNode.GetChildNode("Coaching") is { } nullNodeCoaching && nullNodeCoaching.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Coaching = null;
+            if (parseNode.GetChildNode("ConferenceRecord") is { } nullNodeConferenceRecord && nullNodeConferenceRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceRecord = null;
+            if (parseNode.GetChildNode("ConferenceRecordingStatusCallback") is { } nullNodeConferenceRecordingStatusCallback && nullNodeConferenceRecordingStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceRecordingStatusCallback = null;
+            if (parseNode.GetChildNode("ConferenceRecordingStatusCallbackEvent") is { } nullNodeConferenceRecordingStatusCallbackEvent && nullNodeConferenceRecordingStatusCallbackEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceRecordingStatusCallbackEvent = null;
+            if (parseNode.GetChildNode("ConferenceRecordingStatusCallbackMethod") is { } nullNodeConferenceRecordingStatusCallbackMethod && nullNodeConferenceRecordingStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceRecordingStatusCallbackMethod = null;
+            if (parseNode.GetChildNode("ConferenceRecordingTimeout") is { } nullNodeConferenceRecordingTimeout && nullNodeConferenceRecordingTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceRecordingTimeout = null;
+            if (parseNode.GetChildNode("ConferenceStatusCallback") is { } nullNodeConferenceStatusCallback && nullNodeConferenceStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceStatusCallback = null;
+            if (parseNode.GetChildNode("ConferenceStatusCallbackEvent") is { } nullNodeConferenceStatusCallbackEvent && nullNodeConferenceStatusCallbackEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceStatusCallbackEvent = null;
+            if (parseNode.GetChildNode("ConferenceStatusCallbackMethod") is { } nullNodeConferenceStatusCallbackMethod && nullNodeConferenceStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceStatusCallbackMethod = null;
+            if (parseNode.GetChildNode("ConferenceTrim") is { } nullNodeConferenceTrim && nullNodeConferenceTrim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceTrim = null;
+            if (parseNode.GetChildNode("CustomHeaders") is { } nullNodeCustomHeaders && nullNodeCustomHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomHeaders = null;
+            if (parseNode.GetChildNode("EarlyMedia") is { } nullNodeEarlyMedia && nullNodeEarlyMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EarlyMedia = null;
+            if (parseNode.GetChildNode("EndConferenceOnExit") is { } nullNodeEndConferenceOnExit && nullNodeEndConferenceOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndConferenceOnExit = null;
+            if (parseNode.GetChildNode("From") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("Label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("MachineDetection") is { } nullNodeMachineDetection && nullNodeMachineDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetection = null;
+            if (parseNode.GetChildNode("MachineDetectionBeepMaxFrequency") is { } nullNodeMachineDetectionBeepMaxFrequency && nullNodeMachineDetectionBeepMaxFrequency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionBeepMaxFrequency = null;
+            if (parseNode.GetChildNode("MachineDetectionBeepMinFrequency") is { } nullNodeMachineDetectionBeepMinFrequency && nullNodeMachineDetectionBeepMinFrequency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionBeepMinFrequency = null;
+            if (parseNode.GetChildNode("MachineDetectionBeepMinToneDuration") is { } nullNodeMachineDetectionBeepMinToneDuration && nullNodeMachineDetectionBeepMinToneDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionBeepMinToneDuration = null;
+            if (parseNode.GetChildNode("MachineDetectionBeepProfile") is { } nullNodeMachineDetectionBeepProfile && nullNodeMachineDetectionBeepProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionBeepProfile = null;
+            if (parseNode.GetChildNode("MachineDetectionBeepSpectralConfirmation") is { } nullNodeMachineDetectionBeepSpectralConfirmation && nullNodeMachineDetectionBeepSpectralConfirmation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionBeepSpectralConfirmation = null;
+            if (parseNode.GetChildNode("MachineDetectionBeepSpectralMinPurity") is { } nullNodeMachineDetectionBeepSpectralMinPurity && nullNodeMachineDetectionBeepSpectralMinPurity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionBeepSpectralMinPurity = null;
+            if (parseNode.GetChildNode("MachineDetectionBeepSpectralRejectFaxCng") is { } nullNodeMachineDetectionBeepSpectralRejectFaxCng && nullNodeMachineDetectionBeepSpectralRejectFaxCng.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionBeepSpectralRejectFaxCng = null;
+            if (parseNode.GetChildNode("MachineDetectionBeepSpectralWindow") is { } nullNodeMachineDetectionBeepSpectralWindow && nullNodeMachineDetectionBeepSpectralWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionBeepSpectralWindow = null;
+            if (parseNode.GetChildNode("MachineDetectionSilenceTimeout") is { } nullNodeMachineDetectionSilenceTimeout && nullNodeMachineDetectionSilenceTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionSilenceTimeout = null;
+            if (parseNode.GetChildNode("MachineDetectionSpeechEndThreshold") is { } nullNodeMachineDetectionSpeechEndThreshold && nullNodeMachineDetectionSpeechEndThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionSpeechEndThreshold = null;
+            if (parseNode.GetChildNode("MachineDetectionSpeechThreshold") is { } nullNodeMachineDetectionSpeechThreshold && nullNodeMachineDetectionSpeechThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionSpeechThreshold = null;
+            if (parseNode.GetChildNode("MachineDetectionTimeout") is { } nullNodeMachineDetectionTimeout && nullNodeMachineDetectionTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionTimeout = null;
+            if (parseNode.GetChildNode("MaxParticipants") is { } nullNodeMaxParticipants && nullNodeMaxParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxParticipants = null;
+            if (parseNode.GetChildNode("Muted") is { } nullNodeMuted && nullNodeMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Muted = null;
+            if (parseNode.GetChildNode("PreferredCodecs") is { } nullNodePreferredCodecs && nullNodePreferredCodecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredCodecs = null;
+            if (parseNode.GetChildNode("Record") is { } nullNodeRecord && nullNodeRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Record = null;
+            if (parseNode.GetChildNode("RecordingChannels") is { } nullNodeRecordingChannels && nullNodeRecordingChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingChannels = null;
+            if (parseNode.GetChildNode("RecordingStatusCallback") is { } nullNodeRecordingStatusCallback && nullNodeRecordingStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStatusCallback = null;
+            if (parseNode.GetChildNode("RecordingStatusCallbackEvent") is { } nullNodeRecordingStatusCallbackEvent && nullNodeRecordingStatusCallbackEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStatusCallbackEvent = null;
+            if (parseNode.GetChildNode("RecordingStatusCallbackMethod") is { } nullNodeRecordingStatusCallbackMethod && nullNodeRecordingStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStatusCallbackMethod = null;
+            if (parseNode.GetChildNode("RecordingTrack") is { } nullNodeRecordingTrack && nullNodeRecordingTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingTrack = null;
+            if (parseNode.GetChildNode("SipAuthPassword") is { } nullNodeSipAuthPassword && nullNodeSipAuthPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAuthPassword = null;
+            if (parseNode.GetChildNode("SipAuthUsername") is { } nullNodeSipAuthUsername && nullNodeSipAuthUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAuthUsername = null;
+            if (parseNode.GetChildNode("StartConferenceOnEnter") is { } nullNodeStartConferenceOnEnter && nullNodeStartConferenceOnEnter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartConferenceOnEnter = null;
+            if (parseNode.GetChildNode("StatusCallback") is { } nullNodeStatusCallback && nullNodeStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallback = null;
+            if (parseNode.GetChildNode("StatusCallbackEvent") is { } nullNodeStatusCallbackEvent && nullNodeStatusCallbackEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackEvent = null;
+            if (parseNode.GetChildNode("StatusCallbackMethod") is { } nullNodeStatusCallbackMethod && nullNodeStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackMethod = null;
+            if (parseNode.GetChildNode("TimeLimit") is { } nullNodeTimeLimit && nullNodeTimeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeLimit = null;
+            if (parseNode.GetChildNode("Timeout") is { } nullNodeTimeout && nullNodeTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout = null;
+            if (parseNode.GetChildNode("To") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
+            if (parseNode.GetChildNode("Trim") is { } nullNodeTrim && nullNodeTrim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trim = null;
+            if (parseNode.GetChildNode("WaitUrl") is { } nullNodeWaitUrl && nullNodeWaitUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The URL the result of answering machine detection will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AmdStatusCallback { get; set; }
+        public string? AmdStatusCallback { get => _explicitNullValueAmdStatusCallback; set { _explicitNullValueAmdStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AmdStatusCallback"); else _explicitNullProperties?.Remove("AmdStatusCallback"); } }
+        private string? _explicitNullValueAmdStatusCallback = default!;
 #nullable restore
 #else
-        public string AmdStatusCallback { get; set; }
+        public string AmdStatusCallback { get => _explicitNullValueAmdStatusCallback; set { _explicitNullValueAmdStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AmdStatusCallback"); else _explicitNullProperties?.Remove("AmdStatusCallback"); } }
+        private string _explicitNullValueAmdStatusCallback = default!;
 #endif
         /// <summary>HTTP request type used for `AmdStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestAmdStatusCallbackMethod? AmdStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestAmdStatusCallbackMethod? AmdStatusCallbackMethod { get => _explicitNullValueAmdStatusCallbackMethod; set { _explicitNullValueAmdStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AmdStatusCallbackMethod"); else _explicitNullProperties?.Remove("AmdStatusCallbackMethod"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestAmdStatusCallbackMethod? _explicitNullValueAmdStatusCallbackMethod = default!;
         /// <summary>The SID of the TeXML application that will handle the new participant&apos;s call. Required unless joining an existing conference by its ConferenceSid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApplicationSid { get; set; }
+        public string? ApplicationSid { get => _explicitNullValueApplicationSid; set { _explicitNullValueApplicationSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ApplicationSid"); else _explicitNullProperties?.Remove("ApplicationSid"); } }
+        private string? _explicitNullValueApplicationSid = default!;
 #nullable restore
 #else
-        public string ApplicationSid { get; set; }
+        public string ApplicationSid { get => _explicitNullValueApplicationSid; set { _explicitNullValueApplicationSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ApplicationSid"); else _explicitNullProperties?.Remove("ApplicationSid"); } }
+        private string _explicitNullValueApplicationSid = default!;
 #endif
         /// <summary>Whether to play a notification beep to the conference when the participant enters and exits.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestBeep? Beep { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestBeep? Beep { get => _explicitNullValueBeep; set { _explicitNullValueBeep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Beep"); else _explicitNullProperties?.Remove("Beep"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestBeep? _explicitNullValueBeep = default!;
         /// <summary>To be used as the caller id name (SIP From Display Name) presented to the destination (`To` number). The string should have a maximum of 128 characters, containing only letters, numbers, spaces, and `-_~!.+` special characters. If ommited, the display name will be the same as the number in the `From` field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallerId { get; set; }
+        public string? CallerId { get => _explicitNullValueCallerId; set { _explicitNullValueCallerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallerId"); else _explicitNullProperties?.Remove("CallerId"); } }
+        private string? _explicitNullValueCallerId = default!;
 #nullable restore
 #else
-        public string CallerId { get; set; }
+        public string CallerId { get => _explicitNullValueCallerId; set { _explicitNullValueCallerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallerId"); else _explicitNullProperties?.Remove("CallerId"); } }
+        private string _explicitNullValueCallerId = default!;
 #endif
         /// <summary>The SID of the participant who is being coached. The participant being coached is the only participant who can hear the participant who is coaching.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSidToCoach { get; set; }
+        public string? CallSidToCoach { get => _explicitNullValueCallSidToCoach; set { _explicitNullValueCallSidToCoach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidToCoach"); else _explicitNullProperties?.Remove("CallSidToCoach"); } }
+        private string? _explicitNullValueCallSidToCoach = default!;
 #nullable restore
 #else
-        public string CallSidToCoach { get; set; }
+        public string CallSidToCoach { get => _explicitNullValueCallSidToCoach; set { _explicitNullValueCallSidToCoach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidToCoach"); else _explicitNullProperties?.Remove("CallSidToCoach"); } }
+        private string _explicitNullValueCallSidToCoach = default!;
 #endif
         /// <summary>Whether to cancel ongoing playback on `greeting ended` detection. Defaults to `true`.</summary>
-        public bool? CancelPlaybackOnDetectMessageEnd { get; set; }
+        public bool? CancelPlaybackOnDetectMessageEnd { get => _explicitNullValueCancelPlaybackOnDetectMessageEnd; set { _explicitNullValueCancelPlaybackOnDetectMessageEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CancelPlaybackOnDetectMessageEnd"); else _explicitNullProperties?.Remove("CancelPlaybackOnDetectMessageEnd"); } }
+        private bool? _explicitNullValueCancelPlaybackOnDetectMessageEnd = default!;
         /// <summary>Whether to cancel ongoing playback on `machine` detection. Defaults to `true`.</summary>
-        public bool? CancelPlaybackOnMachineDetection { get; set; }
+        public bool? CancelPlaybackOnMachineDetection { get => _explicitNullValueCancelPlaybackOnMachineDetection; set { _explicitNullValueCancelPlaybackOnMachineDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CancelPlaybackOnMachineDetection"); else _explicitNullProperties?.Remove("CancelPlaybackOnMachineDetection"); } }
+        private bool? _explicitNullValueCancelPlaybackOnMachineDetection = default!;
         /// <summary>Whether the participant is coaching another call. When `true`, `CallSidToCoach` has to be given.</summary>
-        public bool? Coaching { get; set; }
+        public bool? Coaching { get => _explicitNullValueCoaching; set { _explicitNullValueCoaching = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Coaching"); else _explicitNullProperties?.Remove("Coaching"); } }
+        private bool? _explicitNullValueCoaching = default!;
         /// <summary>Whether to record the conference the participant is joining. Defualts to `do-not-record`. The boolean values `true` and `false` are synonymous with `record-from-start` and `do-not-record` respectively.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord? ConferenceRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord? ConferenceRecord { get => _explicitNullValueConferenceRecord; set { _explicitNullValueConferenceRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecord"); else _explicitNullProperties?.Remove("ConferenceRecord"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord? _explicitNullValueConferenceRecord = default!;
         /// <summary>The URL the conference recording callbacks will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConferenceRecordingStatusCallback { get; set; }
+        public string? ConferenceRecordingStatusCallback { get => _explicitNullValueConferenceRecordingStatusCallback; set { _explicitNullValueConferenceRecordingStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecordingStatusCallback"); else _explicitNullProperties?.Remove("ConferenceRecordingStatusCallback"); } }
+        private string? _explicitNullValueConferenceRecordingStatusCallback = default!;
 #nullable restore
 #else
-        public string ConferenceRecordingStatusCallback { get; set; }
+        public string ConferenceRecordingStatusCallback { get => _explicitNullValueConferenceRecordingStatusCallback; set { _explicitNullValueConferenceRecordingStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecordingStatusCallback"); else _explicitNullProperties?.Remove("ConferenceRecordingStatusCallback"); } }
+        private string _explicitNullValueConferenceRecordingStatusCallback = default!;
 #endif
         /// <summary>The changes to the conference recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`. `failed` and `absent` are synonymous.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConferenceRecordingStatusCallbackEvent { get; set; }
+        public string? ConferenceRecordingStatusCallbackEvent { get => _explicitNullValueConferenceRecordingStatusCallbackEvent; set { _explicitNullValueConferenceRecordingStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecordingStatusCallbackEvent"); else _explicitNullProperties?.Remove("ConferenceRecordingStatusCallbackEvent"); } }
+        private string? _explicitNullValueConferenceRecordingStatusCallbackEvent = default!;
 #nullable restore
 #else
-        public string ConferenceRecordingStatusCallbackEvent { get; set; }
+        public string ConferenceRecordingStatusCallbackEvent { get => _explicitNullValueConferenceRecordingStatusCallbackEvent; set { _explicitNullValueConferenceRecordingStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecordingStatusCallbackEvent"); else _explicitNullProperties?.Remove("ConferenceRecordingStatusCallbackEvent"); } }
+        private string _explicitNullValueConferenceRecordingStatusCallbackEvent = default!;
 #endif
         /// <summary>HTTP request type used for `ConferenceRecordingStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecordingStatusCallbackMethod? ConferenceRecordingStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecordingStatusCallbackMethod? ConferenceRecordingStatusCallbackMethod { get => _explicitNullValueConferenceRecordingStatusCallbackMethod; set { _explicitNullValueConferenceRecordingStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecordingStatusCallbackMethod"); else _explicitNullProperties?.Remove("ConferenceRecordingStatusCallbackMethod"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecordingStatusCallbackMethod? _explicitNullValueConferenceRecordingStatusCallbackMethod = default!;
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected. The timer only starts when the speech is detected. Please note that the transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite)</summary>
-        public int? ConferenceRecordingTimeout { get; set; }
+        public int? ConferenceRecordingTimeout { get => _explicitNullValueConferenceRecordingTimeout; set { _explicitNullValueConferenceRecordingTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecordingTimeout"); else _explicitNullProperties?.Remove("ConferenceRecordingTimeout"); } }
+        private int? _explicitNullValueConferenceRecordingTimeout = default!;
         /// <summary>The URL the conference callbacks will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConferenceStatusCallback { get; set; }
+        public string? ConferenceStatusCallback { get => _explicitNullValueConferenceStatusCallback; set { _explicitNullValueConferenceStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceStatusCallback"); else _explicitNullProperties?.Remove("ConferenceStatusCallback"); } }
+        private string? _explicitNullValueConferenceStatusCallback = default!;
 #nullable restore
 #else
-        public string ConferenceStatusCallback { get; set; }
+        public string ConferenceStatusCallback { get => _explicitNullValueConferenceStatusCallback; set { _explicitNullValueConferenceStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceStatusCallback"); else _explicitNullProperties?.Remove("ConferenceStatusCallback"); } }
+        private string _explicitNullValueConferenceStatusCallback = default!;
 #endif
         /// <summary>The changes to the conference&apos;s state that should generate a call to `ConferenceStatusCallback`. Can be: `start`, `end`, `join` and `leave`. Separate multiple values with a space. By default no callbacks are sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConferenceStatusCallbackEvent { get; set; }
+        public string? ConferenceStatusCallbackEvent { get => _explicitNullValueConferenceStatusCallbackEvent; set { _explicitNullValueConferenceStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceStatusCallbackEvent"); else _explicitNullProperties?.Remove("ConferenceStatusCallbackEvent"); } }
+        private string? _explicitNullValueConferenceStatusCallbackEvent = default!;
 #nullable restore
 #else
-        public string ConferenceStatusCallbackEvent { get; set; }
+        public string ConferenceStatusCallbackEvent { get => _explicitNullValueConferenceStatusCallbackEvent; set { _explicitNullValueConferenceStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceStatusCallbackEvent"); else _explicitNullProperties?.Remove("ConferenceStatusCallbackEvent"); } }
+        private string _explicitNullValueConferenceStatusCallbackEvent = default!;
 #endif
         /// <summary>HTTP request type used for `ConferenceStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceStatusCallbackMethod? ConferenceStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceStatusCallbackMethod? ConferenceStatusCallbackMethod { get => _explicitNullValueConferenceStatusCallbackMethod; set { _explicitNullValueConferenceStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceStatusCallbackMethod"); else _explicitNullProperties?.Remove("ConferenceStatusCallbackMethod"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceStatusCallbackMethod? _explicitNullValueConferenceStatusCallbackMethod = default!;
         /// <summary>Whether to trim any leading and trailing silence from the conference recording. Defaults to `trim-silence`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceTrim? ConferenceTrim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceTrim? ConferenceTrim { get => _explicitNullValueConferenceTrim; set { _explicitNullValueConferenceTrim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceTrim"); else _explicitNullProperties?.Remove("ConferenceTrim"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceTrim? _explicitNullValueConferenceTrim = default!;
         /// <summary>Custom HTTP headers to be sent with the call. Each header should be an object with &apos;name&apos; and &apos;value&apos; properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem>? CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem>? CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CustomHeaders"); else _explicitNullProperties?.Remove("CustomHeaders"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem>? _explicitNullValueCustomHeaders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem> CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem> CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CustomHeaders"); else _explicitNullProperties?.Remove("CustomHeaders"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestCustomHeadersItem> _explicitNullValueCustomHeaders = default!;
 #endif
         /// <summary>Whether participant shall be bridged to conference before the participant answers (from early media if available). Defaults to `false`.</summary>
-        public bool? EarlyMedia { get; set; }
+        public bool? EarlyMedia { get => _explicitNullValueEarlyMedia; set { _explicitNullValueEarlyMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("EarlyMedia"); else _explicitNullProperties?.Remove("EarlyMedia"); } }
+        private bool? _explicitNullValueEarlyMedia = default!;
         /// <summary>Whether to end the conference when the participant leaves. Defaults to `false`.</summary>
-        public bool? EndConferenceOnExit { get; set; }
+        public bool? EndConferenceOnExit { get => _explicitNullValueEndConferenceOnExit; set { _explicitNullValueEndConferenceOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("EndConferenceOnExit"); else _explicitNullProperties?.Remove("EndConferenceOnExit"); } }
+        private bool? _explicitNullValueEndConferenceOnExit = default!;
         /// <summary>The phone number of the party that initiated the call. Phone numbers are formatted with a `+` and country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? From { get; set; }
+        public string? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("From"); else _explicitNullProperties?.Remove("From"); } }
+        private string? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public string From { get; set; }
+        public string From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("From"); else _explicitNullProperties?.Remove("From"); } }
+        private string _explicitNullValueFrom = default!;
 #endif
         /// <summary>A unique label for the participant that will be added to the conference. The label can be used to reference the participant for updates via the TeXML REST API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Label { get; set; }
+        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Label"); else _explicitNullProperties?.Remove("Label"); } }
+        private string? _explicitNullValueLabel = default!;
 #nullable restore
 #else
-        public string Label { get; set; }
+        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Label"); else _explicitNullProperties?.Remove("Label"); } }
+        private string _explicitNullValueLabel = default!;
 #endif
         /// <summary>Whether to detect if a human or an answering machine picked up the call. Use `Enable` if you would like to ne notified as soon as the called party is identified. Use `DetectMessageEnd`, if you would like to leave a message on an answering machine.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection? MachineDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection? MachineDetection { get => _explicitNullValueMachineDetection; set { _explicitNullValueMachineDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetection"); else _explicitNullProperties?.Remove("MachineDetection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetection? _explicitNullValueMachineDetection = default!;
         /// <summary>Highest frequency, in Hz, that a tone can reach and still be treated as a beep. Only used when MachineDetection is enabled.</summary>
-        public int? MachineDetectionBeepMaxFrequency { get; set; }
+        public int? MachineDetectionBeepMaxFrequency { get => _explicitNullValueMachineDetectionBeepMaxFrequency; set { _explicitNullValueMachineDetectionBeepMaxFrequency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionBeepMaxFrequency"); else _explicitNullProperties?.Remove("MachineDetectionBeepMaxFrequency"); } }
+        private int? _explicitNullValueMachineDetectionBeepMaxFrequency = default!;
         /// <summary>Lowest frequency, in Hz, that a tone must reach to be treated as a beep. Raising it above 480 excludes North American ringback (440 + 480 Hz), which can otherwise be reported as a beep when the `freq_only` profile is in use. Only used when MachineDetection is enabled.</summary>
-        public int? MachineDetectionBeepMinFrequency { get; set; }
+        public int? MachineDetectionBeepMinFrequency { get => _explicitNullValueMachineDetectionBeepMinFrequency; set { _explicitNullValueMachineDetectionBeepMinFrequency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionBeepMinFrequency"); else _explicitNullProperties?.Remove("MachineDetectionBeepMinFrequency"); } }
+        private int? _explicitNullValueMachineDetectionBeepMinFrequency = default!;
         /// <summary>Shortest tone, in milliseconds, that can be treated as a beep. Raising it rejects brief tones such as call-progress blips. Only used when MachineDetection is enabled.</summary>
-        public int? MachineDetectionBeepMinToneDuration { get; set; }
+        public int? MachineDetectionBeepMinToneDuration { get => _explicitNullValueMachineDetectionBeepMinToneDuration; set { _explicitNullValueMachineDetectionBeepMinToneDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionBeepMinToneDuration"); else _explicitNullProperties?.Remove("MachineDetectionBeepMinToneDuration"); } }
+        private int? _explicitNullValueMachineDetectionBeepMinToneDuration = default!;
         /// <summary>Selects which detectors must validate a beep. `both` requires the amplitude and frequency detectors to agree. `freq_only` uses the frequency detector alone, for beeps whose volume is too unsteady for the default profile. Only used when MachineDetection is enabled.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetectionBeepProfile? MachineDetectionBeepProfile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetectionBeepProfile? MachineDetectionBeepProfile { get => _explicitNullValueMachineDetectionBeepProfile; set { _explicitNullValueMachineDetectionBeepProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionBeepProfile"); else _explicitNullProperties?.Remove("MachineDetectionBeepProfile"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestMachineDetectionBeepProfile? _explicitNullValueMachineDetectionBeepProfile = default!;
         /// <summary>When enabled, a candidate beep must pass an additional spectral check before it is reported. Only used when MachineDetection is enabled.</summary>
-        public bool? MachineDetectionBeepSpectralConfirmation { get; set; }
+        public bool? MachineDetectionBeepSpectralConfirmation { get => _explicitNullValueMachineDetectionBeepSpectralConfirmation; set { _explicitNullValueMachineDetectionBeepSpectralConfirmation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionBeepSpectralConfirmation"); else _explicitNullProperties?.Remove("MachineDetectionBeepSpectralConfirmation"); } }
+        private bool? _explicitNullValueMachineDetectionBeepSpectralConfirmation = default!;
         /// <summary>Minimum spectral purity, from 0 to 1, for a tone to be treated as a beep. Raising it rejects mixed tones such as ringback, which combines two frequencies. Only used when MachineDetection is enabled.</summary>
-        public double? MachineDetectionBeepSpectralMinPurity { get; set; }
+        public double? MachineDetectionBeepSpectralMinPurity { get => _explicitNullValueMachineDetectionBeepSpectralMinPurity; set { _explicitNullValueMachineDetectionBeepSpectralMinPurity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionBeepSpectralMinPurity"); else _explicitNullProperties?.Remove("MachineDetectionBeepSpectralMinPurity"); } }
+        private double? _explicitNullValueMachineDetectionBeepSpectralMinPurity = default!;
         /// <summary>When enabled, the fax CNG tone is rejected rather than reported as a beep. Only used when MachineDetection is enabled.</summary>
-        public bool? MachineDetectionBeepSpectralRejectFaxCng { get; set; }
+        public bool? MachineDetectionBeepSpectralRejectFaxCng { get => _explicitNullValueMachineDetectionBeepSpectralRejectFaxCng; set { _explicitNullValueMachineDetectionBeepSpectralRejectFaxCng = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionBeepSpectralRejectFaxCng"); else _explicitNullProperties?.Remove("MachineDetectionBeepSpectralRejectFaxCng"); } }
+        private bool? _explicitNullValueMachineDetectionBeepSpectralRejectFaxCng = default!;
         /// <summary>Length of the spectral confirmation window, in milliseconds. Only used when MachineDetection is enabled.</summary>
-        public int? MachineDetectionBeepSpectralWindow { get; set; }
+        public int? MachineDetectionBeepSpectralWindow { get => _explicitNullValueMachineDetectionBeepSpectralWindow; set { _explicitNullValueMachineDetectionBeepSpectralWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionBeepSpectralWindow"); else _explicitNullProperties?.Remove("MachineDetectionBeepSpectralWindow"); } }
+        private int? _explicitNullValueMachineDetectionBeepSpectralWindow = default!;
         /// <summary>If initial silence duration is greater than this value, consider it a machine. Ignored when `premium` detection is used.</summary>
-        public int? MachineDetectionSilenceTimeout { get; set; }
+        public int? MachineDetectionSilenceTimeout { get => _explicitNullValueMachineDetectionSilenceTimeout; set { _explicitNullValueMachineDetectionSilenceTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionSilenceTimeout"); else _explicitNullProperties?.Remove("MachineDetectionSilenceTimeout"); } }
+        private int? _explicitNullValueMachineDetectionSilenceTimeout = default!;
         /// <summary>Silence duration threshold after a greeting message or voice for it be considered human. Ignored when `premium` detection is used.</summary>
-        public int? MachineDetectionSpeechEndThreshold { get; set; }
+        public int? MachineDetectionSpeechEndThreshold { get => _explicitNullValueMachineDetectionSpeechEndThreshold; set { _explicitNullValueMachineDetectionSpeechEndThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionSpeechEndThreshold"); else _explicitNullProperties?.Remove("MachineDetectionSpeechEndThreshold"); } }
+        private int? _explicitNullValueMachineDetectionSpeechEndThreshold = default!;
         /// <summary>Maximum threshold of a human greeting. If greeting longer than this value, considered machine. Ignored when `premium` detection is used.</summary>
-        public int? MachineDetectionSpeechThreshold { get; set; }
+        public int? MachineDetectionSpeechThreshold { get => _explicitNullValueMachineDetectionSpeechThreshold; set { _explicitNullValueMachineDetectionSpeechThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionSpeechThreshold"); else _explicitNullProperties?.Remove("MachineDetectionSpeechThreshold"); } }
+        private int? _explicitNullValueMachineDetectionSpeechThreshold = default!;
         /// <summary>How long answering machine detection should go on for before sending an `Unknown` result. Given in milliseconds.</summary>
-        public int? MachineDetectionTimeout { get; set; }
+        public int? MachineDetectionTimeout { get => _explicitNullValueMachineDetectionTimeout; set { _explicitNullValueMachineDetectionTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionTimeout"); else _explicitNullProperties?.Remove("MachineDetectionTimeout"); } }
+        private int? _explicitNullValueMachineDetectionTimeout = default!;
         /// <summary>The maximum number of participants in the conference. Can be a positive integer from 2 to 800. The default value is 250.</summary>
-        public int? MaxParticipants { get; set; }
+        public int? MaxParticipants { get => _explicitNullValueMaxParticipants; set { _explicitNullValueMaxParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MaxParticipants"); else _explicitNullProperties?.Remove("MaxParticipants"); } }
+        private int? _explicitNullValueMaxParticipants = default!;
         /// <summary>Whether the participant should be muted.</summary>
-        public bool? Muted { get; set; }
+        public bool? Muted { get => _explicitNullValueMuted; set { _explicitNullValueMuted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Muted"); else _explicitNullProperties?.Remove("Muted"); } }
+        private bool? _explicitNullValueMuted = default!;
         /// <summary>The list of comma-separated codecs to be offered on a call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreferredCodecs { get; set; }
+        public string? PreferredCodecs { get => _explicitNullValuePreferredCodecs; set { _explicitNullValuePreferredCodecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("PreferredCodecs"); else _explicitNullProperties?.Remove("PreferredCodecs"); } }
+        private string? _explicitNullValuePreferredCodecs = default!;
 #nullable restore
 #else
-        public string PreferredCodecs { get; set; }
+        public string PreferredCodecs { get => _explicitNullValuePreferredCodecs; set { _explicitNullValuePreferredCodecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("PreferredCodecs"); else _explicitNullProperties?.Remove("PreferredCodecs"); } }
+        private string _explicitNullValuePreferredCodecs = default!;
 #endif
         /// <summary>Whether to record the entire participant&apos;s call leg. Defaults to `false`.</summary>
-        public bool? Record { get; set; }
+        public bool? Record { get => _explicitNullValueRecord; set { _explicitNullValueRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Record"); else _explicitNullProperties?.Remove("Record"); } }
+        private bool? _explicitNullValueRecord = default!;
         /// <summary>The number of channels in the final recording. Defaults to `mono`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingChannels? RecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingChannels? RecordingChannels { get => _explicitNullValueRecordingChannels; set { _explicitNullValueRecordingChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingChannels"); else _explicitNullProperties?.Remove("RecordingChannels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingChannels? _explicitNullValueRecordingChannels = default!;
         /// <summary>The URL the recording callbacks will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordingStatusCallback { get; set; }
+        public string? RecordingStatusCallback { get => _explicitNullValueRecordingStatusCallback; set { _explicitNullValueRecordingStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallback"); else _explicitNullProperties?.Remove("RecordingStatusCallback"); } }
+        private string? _explicitNullValueRecordingStatusCallback = default!;
 #nullable restore
 #else
-        public string RecordingStatusCallback { get; set; }
+        public string RecordingStatusCallback { get => _explicitNullValueRecordingStatusCallback; set { _explicitNullValueRecordingStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallback"); else _explicitNullProperties?.Remove("RecordingStatusCallback"); } }
+        private string _explicitNullValueRecordingStatusCallback = default!;
 #endif
         /// <summary>The changes to the recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordingStatusCallbackEvent { get; set; }
+        public string? RecordingStatusCallbackEvent { get => _explicitNullValueRecordingStatusCallbackEvent; set { _explicitNullValueRecordingStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallbackEvent"); else _explicitNullProperties?.Remove("RecordingStatusCallbackEvent"); } }
+        private string? _explicitNullValueRecordingStatusCallbackEvent = default!;
 #nullable restore
 #else
-        public string RecordingStatusCallbackEvent { get; set; }
+        public string RecordingStatusCallbackEvent { get => _explicitNullValueRecordingStatusCallbackEvent; set { _explicitNullValueRecordingStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallbackEvent"); else _explicitNullProperties?.Remove("RecordingStatusCallbackEvent"); } }
+        private string _explicitNullValueRecordingStatusCallbackEvent = default!;
 #endif
         /// <summary>HTTP request type used for `RecordingStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingStatusCallbackMethod? RecordingStatusCallbackMethod { get => _explicitNullValueRecordingStatusCallbackMethod; set { _explicitNullValueRecordingStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallbackMethod"); else _explicitNullProperties?.Remove("RecordingStatusCallbackMethod"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingStatusCallbackMethod? _explicitNullValueRecordingStatusCallbackMethod = default!;
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingTrack? RecordingTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingTrack? RecordingTrack { get => _explicitNullValueRecordingTrack; set { _explicitNullValueRecordingTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingTrack"); else _explicitNullProperties?.Remove("RecordingTrack"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestRecordingTrack? _explicitNullValueRecordingTrack = default!;
         /// <summary>The password to use for SIP authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SipAuthPassword { get; set; }
+        public string? SipAuthPassword { get => _explicitNullValueSipAuthPassword; set { _explicitNullValueSipAuthPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SipAuthPassword"); else _explicitNullProperties?.Remove("SipAuthPassword"); } }
+        private string? _explicitNullValueSipAuthPassword = default!;
 #nullable restore
 #else
-        public string SipAuthPassword { get; set; }
+        public string SipAuthPassword { get => _explicitNullValueSipAuthPassword; set { _explicitNullValueSipAuthPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SipAuthPassword"); else _explicitNullProperties?.Remove("SipAuthPassword"); } }
+        private string _explicitNullValueSipAuthPassword = default!;
 #endif
         /// <summary>The username to use for SIP authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SipAuthUsername { get; set; }
+        public string? SipAuthUsername { get => _explicitNullValueSipAuthUsername; set { _explicitNullValueSipAuthUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SipAuthUsername"); else _explicitNullProperties?.Remove("SipAuthUsername"); } }
+        private string? _explicitNullValueSipAuthUsername = default!;
 #nullable restore
 #else
-        public string SipAuthUsername { get; set; }
+        public string SipAuthUsername { get => _explicitNullValueSipAuthUsername; set { _explicitNullValueSipAuthUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SipAuthUsername"); else _explicitNullProperties?.Remove("SipAuthUsername"); } }
+        private string _explicitNullValueSipAuthUsername = default!;
 #endif
         /// <summary>Whether to start the conference when the participant enters. Defaults to `true`.</summary>
-        public bool? StartConferenceOnEnter { get; set; }
+        public bool? StartConferenceOnEnter { get => _explicitNullValueStartConferenceOnEnter; set { _explicitNullValueStartConferenceOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StartConferenceOnEnter"); else _explicitNullProperties?.Remove("StartConferenceOnEnter"); } }
+        private bool? _explicitNullValueStartConferenceOnEnter = default!;
         /// <summary>URL destination for Telnyx to send status callback events to for the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusCallback { get; set; }
+        public string? StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
+        private string? _explicitNullValueStatusCallback = default!;
 #nullable restore
 #else
-        public string StatusCallback { get; set; }
+        public string StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
+        private string _explicitNullValueStatusCallback = default!;
 #endif
         /// <summary>The changes to the call&apos;s state that should generate a call to `StatusCallback`. Can be: `initiated`, `ringing`, `answered`, and `completed`. Separate multiple values with a space. The default value is `completed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusCallbackEvent { get; set; }
+        public string? StatusCallbackEvent { get => _explicitNullValueStatusCallbackEvent; set { _explicitNullValueStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackEvent"); else _explicitNullProperties?.Remove("StatusCallbackEvent"); } }
+        private string? _explicitNullValueStatusCallbackEvent = default!;
 #nullable restore
 #else
-        public string StatusCallbackEvent { get; set; }
+        public string StatusCallbackEvent { get => _explicitNullValueStatusCallbackEvent; set { _explicitNullValueStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackEvent"); else _explicitNullProperties?.Remove("StatusCallbackEvent"); } }
+        private string _explicitNullValueStatusCallbackEvent = default!;
 #endif
         /// <summary>HTTP request type used for `StatusCallback`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestStatusCallbackMethod? StatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestStatusCallbackMethod? StatusCallbackMethod { get => _explicitNullValueStatusCallbackMethod; set { _explicitNullValueStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackMethod"); else _explicitNullProperties?.Remove("StatusCallbackMethod"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestStatusCallbackMethod? _explicitNullValueStatusCallbackMethod = default!;
         /// <summary>The maximum duration of the call in seconds.</summary>
-        public int? TimeLimit { get; set; }
+        public int? TimeLimit { get => _explicitNullValueTimeLimit; set { _explicitNullValueTimeLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("TimeLimit"); else _explicitNullProperties?.Remove("TimeLimit"); } }
+        private int? _explicitNullValueTimeLimit = default!;
         /// <summary>The number of seconds that we should allow the phone to ring before assuming there is no answer. Can be an integer between 5 and 120, inclusive. The default value is 30.</summary>
-        public int? Timeout { get; set; }
+        public int? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Timeout"); else _explicitNullProperties?.Remove("Timeout"); } }
+        private int? _explicitNullValueTimeout = default!;
         /// <summary>The phone number of the called party. Phone numbers are formatted with a `+` and country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? To { get; set; }
+        public string? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("To"); else _explicitNullProperties?.Remove("To"); } }
+        private string? _explicitNullValueTo = default!;
 #nullable restore
 #else
-        public string To { get; set; }
+        public string To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("To"); else _explicitNullProperties?.Remove("To"); } }
+        private string _explicitNullValueTo = default!;
 #endif
         /// <summary>Whether to trim any leading and trailing silence from the recording. Defaults to `trim-silence`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestTrim? Trim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestTrim? Trim { get => _explicitNullValueTrim; set { _explicitNullValueTrim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Trim"); else _explicitNullProperties?.Remove("Trim"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestTrim? _explicitNullValueTrim = default!;
         /// <summary>The URL to call for an audio file to play while the participant is waiting for the conference to start.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WaitUrl { get; set; }
+        public string? WaitUrl { get => _explicitNullValueWaitUrl; set { _explicitNullValueWaitUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WaitUrl"); else _explicitNullProperties?.Remove("WaitUrl"); } }
+        private string? _explicitNullValueWaitUrl = default!;
 #nullable restore
 #else
-        public string WaitUrl { get; set; }
+        public string WaitUrl { get => _explicitNullValueWaitUrl; set { _explicitNullValueWaitUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WaitUrl"); else _explicitNullProperties?.Remove("WaitUrl"); } }
+        private string _explicitNullValueWaitUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest"/> and sets the default values.
@@ -268,7 +407,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -399,6 +538,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("To", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestTrim>("Trim", Trim);
             writer.WriteStringValue("WaitUrl", WaitUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

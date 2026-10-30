@@ -11,72 +11,105 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OAuthDynamicRegistrationRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("client_name") is { } nullNodeClientName && nullNodeClientName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientName = null;
+            if (parseNode.GetChildNode("grant_types") is { } nullNodeGrantTypes && nullNodeGrantTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantTypes = null;
+            if (parseNode.GetChildNode("logo_uri") is { } nullNodeLogoUri && nullNodeLogoUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoUri = null;
+            if (parseNode.GetChildNode("policy_uri") is { } nullNodePolicyUri && nullNodePolicyUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyUri = null;
+            if (parseNode.GetChildNode("redirect_uris") is { } nullNodeRedirectUris && nullNodeRedirectUris.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUris = null;
+            if (parseNode.GetChildNode("response_types") is { } nullNodeResponseTypes && nullNodeResponseTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponseTypes = null;
+            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+            if (parseNode.GetChildNode("token_endpoint_auth_method") is { } nullNodeTokenEndpointAuthMethod && nullNodeTokenEndpointAuthMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenEndpointAuthMethod = null;
+            if (parseNode.GetChildNode("tos_uri") is { } nullNodeTosUri && nullNodeTosUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TosUri = null;
+        }
+
         /// <summary>Human-readable string name of the client to be presented to the end-user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientName { get; set; }
+        public string? ClientName { get => _explicitNullValueClientName; set { _explicitNullValueClientName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_name"); else _explicitNullProperties?.Remove("client_name"); } }
+        private string? _explicitNullValueClientName = default!;
 #nullable restore
 #else
-        public string ClientName { get; set; }
+        public string ClientName { get => _explicitNullValueClientName; set { _explicitNullValueClientName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_name"); else _explicitNullProperties?.Remove("client_name"); } }
+        private string _explicitNullValueClientName = default!;
 #endif
         /// <summary>Array of OAuth 2.0 grant type strings that the client may use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem?>? GrantTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem?>? GrantTypes { get => _explicitNullValueGrantTypes; set { _explicitNullValueGrantTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_types"); else _explicitNullProperties?.Remove("grant_types"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem?>? _explicitNullValueGrantTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem?> GrantTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem?> GrantTypes { get => _explicitNullValueGrantTypes; set { _explicitNullValueGrantTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_types"); else _explicitNullProperties?.Remove("grant_types"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestGrantTypesItem?> _explicitNullValueGrantTypes = default!;
 #endif
         /// <summary>URL of the client logo</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoUri { get; set; }
+        public string? LogoUri { get => _explicitNullValueLogoUri; set { _explicitNullValueLogoUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_uri"); else _explicitNullProperties?.Remove("logo_uri"); } }
+        private string? _explicitNullValueLogoUri = default!;
 #nullable restore
 #else
-        public string LogoUri { get; set; }
+        public string LogoUri { get => _explicitNullValueLogoUri; set { _explicitNullValueLogoUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_uri"); else _explicitNullProperties?.Remove("logo_uri"); } }
+        private string _explicitNullValueLogoUri = default!;
 #endif
         /// <summary>URL of the client&apos;s privacy policy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PolicyUri { get; set; }
+        public string? PolicyUri { get => _explicitNullValuePolicyUri; set { _explicitNullValuePolicyUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_uri"); else _explicitNullProperties?.Remove("policy_uri"); } }
+        private string? _explicitNullValuePolicyUri = default!;
 #nullable restore
 #else
-        public string PolicyUri { get; set; }
+        public string PolicyUri { get => _explicitNullValuePolicyUri; set { _explicitNullValuePolicyUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_uri"); else _explicitNullProperties?.Remove("policy_uri"); } }
+        private string _explicitNullValuePolicyUri = default!;
 #endif
         /// <summary>Array of redirection URI strings for use in redirect-based flows</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RedirectUris { get; set; }
+        public List<string>? RedirectUris { get => _explicitNullValueRedirectUris; set { _explicitNullValueRedirectUris = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect_uris"); else _explicitNullProperties?.Remove("redirect_uris"); } }
+        private List<string>? _explicitNullValueRedirectUris = default!;
 #nullable restore
 #else
-        public List<string> RedirectUris { get; set; }
+        public List<string> RedirectUris { get => _explicitNullValueRedirectUris; set { _explicitNullValueRedirectUris = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect_uris"); else _explicitNullProperties?.Remove("redirect_uris"); } }
+        private List<string> _explicitNullValueRedirectUris = default!;
 #endif
         /// <summary>Array of the OAuth 2.0 response type strings that the client may use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ResponseTypes { get; set; }
+        public List<string>? ResponseTypes { get => _explicitNullValueResponseTypes; set { _explicitNullValueResponseTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_types"); else _explicitNullProperties?.Remove("response_types"); } }
+        private List<string>? _explicitNullValueResponseTypes = default!;
 #nullable restore
 #else
-        public List<string> ResponseTypes { get; set; }
+        public List<string> ResponseTypes { get => _explicitNullValueResponseTypes; set { _explicitNullValueResponseTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_types"); else _explicitNullProperties?.Remove("response_types"); } }
+        private List<string> _explicitNullValueResponseTypes = default!;
 #endif
         /// <summary>Space-separated string of scope values that the client may use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Scope { get; set; }
+        public string? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private string? _explicitNullValueScope = default!;
 #nullable restore
 #else
-        public string Scope { get; set; }
+        public string Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private string _explicitNullValueScope = default!;
 #endif
         /// <summary>Authentication method for the token endpoint</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestTokenEndpointAuthMethod? TokenEndpointAuthMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestTokenEndpointAuthMethod? TokenEndpointAuthMethod { get => _explicitNullValueTokenEndpointAuthMethod; set { _explicitNullValueTokenEndpointAuthMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_endpoint_auth_method"); else _explicitNullProperties?.Remove("token_endpoint_auth_method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestTokenEndpointAuthMethod? _explicitNullValueTokenEndpointAuthMethod = default!;
         /// <summary>URL of the client&apos;s terms of service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TosUri { get; set; }
+        public string? TosUri { get => _explicitNullValueTosUri; set { _explicitNullValueTosUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tos_uri"); else _explicitNullProperties?.Remove("tos_uri"); } }
+        private string? _explicitNullValueTosUri = default!;
 #nullable restore
 #else
-        public string TosUri { get; set; }
+        public string TosUri { get => _explicitNullValueTosUri; set { _explicitNullValueTosUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tos_uri"); else _explicitNullProperties?.Remove("tos_uri"); } }
+        private string _explicitNullValueTosUri = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -86,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,7 +155,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("response_types", ResponseTypes);
             writer.WriteStringValue("scope", Scope);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OAuthDynamicRegistrationRequestTokenEndpointAuthMethod>("token_endpoint_auth_method", TokenEndpointAuthMethod);
-            writer.WriteStringValue("tos_uri", TosUri);
+            writer.WriteStringValue("tos_uri", TosUri);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

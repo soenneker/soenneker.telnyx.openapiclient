@@ -11,27 +11,49 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PortingPhoneNumber : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activation_status") is { } nullNodeActivationStatus && nullNodeActivationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationStatus = null;
+            if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("phone_number_type") is { } nullNodePhoneNumberType && nullNodePhoneNumberType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberType = null;
+            if (parseNode.GetChildNode("portability_status") is { } nullNodePortabilityStatus && nullNodePortabilityStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortabilityStatus = null;
+            if (parseNode.GetChildNode("porting_order_id") is { } nullNodePortingOrderId && nullNodePortingOrderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortingOrderId = null;
+            if (parseNode.GetChildNode("porting_order_status") is { } nullNodePortingOrderStatus && nullNodePortingOrderStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortingOrderStatus = null;
+            if (parseNode.GetChildNode("requirements_status") is { } nullNodeRequirementsStatus && nullNodeRequirementsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementsStatus = null;
+            if (parseNode.GetChildNode("support_key") is { } nullNodeSupportKey && nullNodeSupportKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportKey = null;
+        }
+
         /// <summary>Activation status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? ActivationStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? ActivationStatus { get => _explicitNullValueActivationStatus; set { _explicitNullValueActivationStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_status"); else _explicitNullProperties?.Remove("activation_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? _explicitNullValueActivationStatus = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>E164 formatted phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get; set; }
+        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private string? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private string _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>The type of the phone number</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberPhoneNumberType? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberPhoneNumberType? PhoneNumberType { get => _explicitNullValuePhoneNumberType; set { _explicitNullValuePhoneNumberType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_type"); else _explicitNullProperties?.Remove("phone_number_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberPhoneNumberType? _explicitNullValuePhoneNumberType = default!;
         /// <summary>Specifies whether Telnyx is able to confirm portability this number in the United States &amp; Canada. International phone numbers are provisional by default.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityStatus? PortabilityStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityStatus? PortabilityStatus { get => _explicitNullValuePortabilityStatus; set { _explicitNullValuePortabilityStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("portability_status"); else _explicitNullProperties?.Remove("portability_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityStatus? _explicitNullValuePortabilityStatus = default!;
         /// <summary>Identifies the associated port request</summary>
-        public Guid? PortingOrderId { get; set; }
+        public Guid? PortingOrderId { get => _explicitNullValuePortingOrderId; set { _explicitNullValuePortingOrderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("porting_order_id"); else _explicitNullProperties?.Remove("porting_order_id"); } }
+        private Guid? _explicitNullValuePortingOrderId = default!;
         /// <summary>The current status of the porting order</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberPortingOrderStatus? PortingOrderStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberPortingOrderStatus? PortingOrderStatus { get => _explicitNullValuePortingOrderStatus; set { _explicitNullValuePortingOrderStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("porting_order_status"); else _explicitNullProperties?.Remove("porting_order_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberPortingOrderStatus? _explicitNullValuePortingOrderStatus = default!;
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,14 +63,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>The current status of the requirements in a INTL porting order</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberRequirementsStatus? RequirementsStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberRequirementsStatus? RequirementsStatus { get => _explicitNullValueRequirementsStatus; set { _explicitNullValueRequirementsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirements_status"); else _explicitNullProperties?.Remove("requirements_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberRequirementsStatus? _explicitNullValueRequirementsStatus = default!;
         /// <summary>A key to reference this porting order when contacting Telnyx customer support</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SupportKey { get; set; }
+        public string? SupportKey { get => _explicitNullValueSupportKey; set { _explicitNullValueSupportKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("support_key"); else _explicitNullProperties?.Remove("support_key"); } }
+        private string? _explicitNullValueSupportKey = default!;
 #nullable restore
 #else
-        public string SupportKey { get; set; }
+        public string SupportKey { get => _explicitNullValueSupportKey; set { _explicitNullValueSupportKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("support_key"); else _explicitNullProperties?.Remove("support_key"); } }
+        private string _explicitNullValueSupportKey = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber"/> and sets the default values.
@@ -65,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,6 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberPortingOrderStatus>("porting_order_status", PortingOrderStatus);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberRequirementsStatus>("requirements_status", RequirementsStatus);
             writer.WriteStringValue("support_key", SupportKey);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

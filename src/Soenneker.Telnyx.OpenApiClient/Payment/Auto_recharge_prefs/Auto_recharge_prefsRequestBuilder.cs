@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Payment.Auto_recharge_prefs
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetAutoRechargePrefs200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetAutoRechargePrefs200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetAutoRechargePrefs200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetAutoRechargePrefs200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update payment auto recharge preferences.
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Payment.Auto_recharge_prefs
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAutoRechargePrefs200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAutoRechargePrefs200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAutoRechargePrefs200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAutoRechargePrefs200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the payment auto recharge preferences.

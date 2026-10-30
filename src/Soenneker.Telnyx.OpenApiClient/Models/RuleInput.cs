@@ -12,24 +12,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RuleInput : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("match") is { } nullNodeMatch && nullNodeMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Match = null;
+            if (parseNode.GetChildNode("serve") is { } nullNodeServe && nullNodeServe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Serve = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The match property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Clause>? Match { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Clause>? Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.Clause>? _explicitNullValueMatch = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Clause> Match { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Clause> Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.Clause> _explicitNullValueMatch = default!;
 #endif
         /// <summary>What a rule serves when matched.Exactly one of:- ``version_id`` — serve a specific version- ``rollout`` — weighted random across versions; weights must sum to  less than 100, with the leftover routing to the main version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Serve? Serve { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Serve? Serve { get => _explicitNullValueServe; set { _explicitNullValueServe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serve"); else _explicitNullProperties?.Remove("serve"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Serve? _explicitNullValueServe = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Serve Serve { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Serve Serve { get => _explicitNullValueServe; set { _explicitNullValueServe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serve"); else _explicitNullProperties?.Remove("serve"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Serve _explicitNullValueServe = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Clause>("match", Match);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Serve>("serve", Serve);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

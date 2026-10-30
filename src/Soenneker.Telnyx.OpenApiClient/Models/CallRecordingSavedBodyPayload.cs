@@ -11,62 +11,93 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CallRecordingSavedBodyPayload : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_leg_id") is { } nullNodeCallLegId && nullNodeCallLegId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallLegId = null;
+            if (parseNode.GetChildNode("call_session_id") is { } nullNodeCallSessionId && nullNodeCallSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSessionId = null;
+            if (parseNode.GetChildNode("channels") is { } nullNodeChannels && nullNodeChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Channels = null;
+            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("public_recording_urls") is { } nullNodePublicRecordingUrls && nullNodePublicRecordingUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicRecordingUrls = null;
+            if (parseNode.GetChildNode("recording_ended_at") is { } nullNodeRecordingEndedAt && nullNodeRecordingEndedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingEndedAt = null;
+            if (parseNode.GetChildNode("recording_started_at") is { } nullNodeRecordingStartedAt && nullNodeRecordingStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStartedAt = null;
+            if (parseNode.GetChildNode("recording_urls") is { } nullNodeRecordingUrls && nullNodeRecordingUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingUrls = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ID that is unique to the call and can be used to correlate webhook events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallLegId { get; set; }
+        public string? CallLegId { get => _explicitNullValueCallLegId; set { _explicitNullValueCallLegId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_leg_id"); else _explicitNullProperties?.Remove("call_leg_id"); } }
+        private string? _explicitNullValueCallLegId = default!;
 #nullable restore
 #else
-        public string CallLegId { get; set; }
+        public string CallLegId { get => _explicitNullValueCallLegId; set { _explicitNullValueCallLegId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_leg_id"); else _explicitNullProperties?.Remove("call_leg_id"); } }
+        private string _explicitNullValueCallLegId = default!;
 #endif
         /// <summary>ID that is unique to the call session and can be used to correlate webhook events. Call session is a group of related call legs that logically belong to the same phone call, e.g. an inbound and outbound leg of a transferred call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSessionId { get; set; }
+        public string? CallSessionId { get => _explicitNullValueCallSessionId; set { _explicitNullValueCallSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_session_id"); else _explicitNullProperties?.Remove("call_session_id"); } }
+        private string? _explicitNullValueCallSessionId = default!;
 #nullable restore
 #else
-        public string CallSessionId { get; set; }
+        public string CallSessionId { get => _explicitNullValueCallSessionId; set { _explicitNullValueCallSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_session_id"); else _explicitNullProperties?.Remove("call_session_id"); } }
+        private string _explicitNullValueCallSessionId = default!;
 #endif
         /// <summary>Whether recording was recorded in `single` or `dual` channel.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadChannels? Channels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadChannels? Channels { get => _explicitNullValueChannels; set { _explicitNullValueChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channels"); else _explicitNullProperties?.Remove("channels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadChannels? _explicitNullValueChannels = default!;
         /// <summary>State received from a command.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Call Control App ID (formerly Telnyx connection ID) used in the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>Recording URLs in requested format. The URL is valid for as long as the file exists. For security purposes, this feature is activated on a per request basis.  Please contact customer support with your Account ID to request activation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadPublicRecordingUrls? PublicRecordingUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadPublicRecordingUrls? PublicRecordingUrls { get => _explicitNullValuePublicRecordingUrls; set { _explicitNullValuePublicRecordingUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_recording_urls"); else _explicitNullProperties?.Remove("public_recording_urls"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadPublicRecordingUrls? _explicitNullValuePublicRecordingUrls = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadPublicRecordingUrls PublicRecordingUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadPublicRecordingUrls PublicRecordingUrls { get => _explicitNullValuePublicRecordingUrls; set { _explicitNullValuePublicRecordingUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_recording_urls"); else _explicitNullProperties?.Remove("public_recording_urls"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadPublicRecordingUrls _explicitNullValuePublicRecordingUrls = default!;
 #endif
         /// <summary>ISO 8601 datetime of when recording ended.</summary>
-        public DateTimeOffset? RecordingEndedAt { get; set; }
+        public DateTimeOffset? RecordingEndedAt { get => _explicitNullValueRecordingEndedAt; set { _explicitNullValueRecordingEndedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_ended_at"); else _explicitNullProperties?.Remove("recording_ended_at"); } }
+        private DateTimeOffset? _explicitNullValueRecordingEndedAt = default!;
         /// <summary>ISO 8601 datetime of when recording started.</summary>
-        public DateTimeOffset? RecordingStartedAt { get; set; }
+        public DateTimeOffset? RecordingStartedAt { get => _explicitNullValueRecordingStartedAt; set { _explicitNullValueRecordingStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_started_at"); else _explicitNullProperties?.Remove("recording_started_at"); } }
+        private DateTimeOffset? _explicitNullValueRecordingStartedAt = default!;
         /// <summary>Recording URLs in requested format. These URLs are valid for 10 minutes. After 10 minutes, you may retrieve recordings via API using Reports -&gt; Call Recordings documentation, or via Mission Control under Reporting -&gt; Recordings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadRecordingUrls? RecordingUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadRecordingUrls? RecordingUrls { get => _explicitNullValueRecordingUrls; set { _explicitNullValueRecordingUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_urls"); else _explicitNullProperties?.Remove("recording_urls"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadRecordingUrls? _explicitNullValueRecordingUrls = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadRecordingUrls RecordingUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadRecordingUrls RecordingUrls { get => _explicitNullValueRecordingUrls; set { _explicitNullValueRecordingUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_urls"); else _explicitNullProperties?.Remove("recording_urls"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadRecordingUrls _explicitNullValueRecordingUrls = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayload"/> and sets the default values.
@@ -83,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayload();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayload(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -120,6 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("recording_ended_at", RecordingEndedAt);
             writer.WriteDateTimeOffsetValue("recording_started_at", RecordingStartedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingSavedBodyPayloadRecordingUrls>("recording_urls", RecordingUrls);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

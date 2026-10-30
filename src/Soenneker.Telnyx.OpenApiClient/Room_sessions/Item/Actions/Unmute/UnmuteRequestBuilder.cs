@@ -55,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Unmute
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.VideoGenericErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UnmuteParticipantInSession200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UnmuteParticipantInSession200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -12,54 +12,79 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PayPrompts : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bank-account-number") is { } nullNodeBankAccountNumber && nullNodeBankAccountNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BankAccountNumber = null;
+            if (parseNode.GetChildNode("bank-routing-number") is { } nullNodeBankRoutingNumber && nullNodeBankRoutingNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BankRoutingNumber = null;
+            if (parseNode.GetChildNode("expiration-date") is { } nullNodeExpirationDate && nullNodeExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationDate = null;
+            if (parseNode.GetChildNode("payment-card-number") is { } nullNodePaymentCardNumber && nullNodePaymentCardNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentCardNumber = null;
+            if (parseNode.GetChildNode("postal-code") is { } nullNodePostalCode && nullNodePostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostalCode = null;
+            if (parseNode.GetChildNode("security-code") is { } nullNodeSecurityCode && nullNodeSecurityCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityCode = null;
+        }
+
         /// <summary>A default prompt string or an ordered list of qualified prompts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? BankAccountNumber { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? BankAccountNumber { get => _explicitNullValueBankAccountNumber; set { _explicitNullValueBankAccountNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bank-account-number"); else _explicitNullProperties?.Remove("bank-account-number"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? _explicitNullValueBankAccountNumber = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue BankAccountNumber { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue BankAccountNumber { get => _explicitNullValueBankAccountNumber; set { _explicitNullValueBankAccountNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bank-account-number"); else _explicitNullProperties?.Remove("bank-account-number"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue _explicitNullValueBankAccountNumber = default!;
 #endif
         /// <summary>A default prompt string or an ordered list of qualified prompts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? BankRoutingNumber { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? BankRoutingNumber { get => _explicitNullValueBankRoutingNumber; set { _explicitNullValueBankRoutingNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bank-routing-number"); else _explicitNullProperties?.Remove("bank-routing-number"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? _explicitNullValueBankRoutingNumber = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue BankRoutingNumber { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue BankRoutingNumber { get => _explicitNullValueBankRoutingNumber; set { _explicitNullValueBankRoutingNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bank-routing-number"); else _explicitNullProperties?.Remove("bank-routing-number"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue _explicitNullValueBankRoutingNumber = default!;
 #endif
         /// <summary>A default prompt string or an ordered list of qualified prompts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? ExpirationDate { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? ExpirationDate { get => _explicitNullValueExpirationDate; set { _explicitNullValueExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration-date"); else _explicitNullProperties?.Remove("expiration-date"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? _explicitNullValueExpirationDate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue ExpirationDate { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue ExpirationDate { get => _explicitNullValueExpirationDate; set { _explicitNullValueExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration-date"); else _explicitNullProperties?.Remove("expiration-date"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue _explicitNullValueExpirationDate = default!;
 #endif
         /// <summary>A default prompt string or an ordered list of qualified prompts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? PaymentCardNumber { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? PaymentCardNumber { get => _explicitNullValuePaymentCardNumber; set { _explicitNullValuePaymentCardNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment-card-number"); else _explicitNullProperties?.Remove("payment-card-number"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? _explicitNullValuePaymentCardNumber = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue PaymentCardNumber { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue PaymentCardNumber { get => _explicitNullValuePaymentCardNumber; set { _explicitNullValuePaymentCardNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment-card-number"); else _explicitNullProperties?.Remove("payment-card-number"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue _explicitNullValuePaymentCardNumber = default!;
 #endif
         /// <summary>A default prompt string or an ordered list of qualified prompts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? PostalCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? PostalCode { get => _explicitNullValuePostalCode; set { _explicitNullValuePostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postal-code"); else _explicitNullProperties?.Remove("postal-code"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? _explicitNullValuePostalCode = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue PostalCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue PostalCode { get => _explicitNullValuePostalCode; set { _explicitNullValuePostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postal-code"); else _explicitNullProperties?.Remove("postal-code"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue _explicitNullValuePostalCode = default!;
 #endif
         /// <summary>A default prompt string or an ordered list of qualified prompts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? SecurityCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? SecurityCode { get => _explicitNullValueSecurityCode; set { _explicitNullValueSecurityCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security-code"); else _explicitNullProperties?.Remove("security-code"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue? _explicitNullValueSecurityCode = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue SecurityCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue SecurityCode { get => _explicitNullValueSecurityCode; set { _explicitNullValueSecurityCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security-code"); else _explicitNullProperties?.Remove("security-code"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue _explicitNullValueSecurityCode = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PayPrompts CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PayPrompts();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PayPrompts(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,7 +124,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue>("expiration-date", ExpirationDate);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue>("payment-card-number", PaymentCardNumber);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue>("postal-code", PostalCode);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue>("security-code", SecurityCode);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptValue>("security-code", SecurityCode);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

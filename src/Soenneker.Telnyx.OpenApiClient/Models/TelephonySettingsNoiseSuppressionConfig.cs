@@ -12,19 +12,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TelephonySettingsNoiseSuppressionConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attenuation_limit") is { } nullNodeAttenuationLimit && nullNodeAttenuationLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttenuationLimit = null;
+            if (parseNode.GetChildNode("enhancement_level") is { } nullNodeEnhancementLevel && nullNodeEnhancementLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnhancementLevel = null;
+            if (parseNode.GetChildNode("family") is { } nullNodeFamily && nullNodeFamily.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Family = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Attenuation limit for noise suppression. Range: 0-100. Only applicable when noise_suppression is &apos;deepfilternet&apos;.</summary>
-        public int? AttenuationLimit { get; set; }
+        public int? AttenuationLimit { get => _explicitNullValueAttenuationLimit; set { _explicitNullValueAttenuationLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attenuation_limit"); else _explicitNullProperties?.Remove("attenuation_limit"); } }
+        private int? _explicitNullValueAttenuationLimit = default!;
         /// <summary>AiCoustics enhancement intensity. Range: 0-1. Only applicable when noise_suppression is &apos;aicoustics&apos;.</summary>
-        public double? EnhancementLevel { get; set; }
+        public double? EnhancementLevel { get => _explicitNullValueEnhancementLevel; set { _explicitNullValueEnhancementLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enhancement_level"); else _explicitNullProperties?.Remove("enhancement_level"); } }
+        private double? _explicitNullValueEnhancementLevel = default!;
         /// <summary>AiCoustics model family optimized for Voice AI and STT. Only applicable when noise_suppression is &apos;aicoustics&apos;.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.QuailFamily? Family { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.QuailFamily? Family { get => _explicitNullValueFamily; set { _explicitNullValueFamily = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("family"); else _explicitNullProperties?.Remove("family"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.QuailFamily? _explicitNullValueFamily = default!;
         /// <summary>Mode for noise suppression configuration. Only applicable when noise_suppression is &apos;deepfilternet&apos;.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode? Mode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode? _explicitNullValueMode = default!;
         /// <summary>AiCoustics model size. &apos;vf&apos; tracks the latest model release; &apos;vf_2_0_l&apos; is pinned to version 2.0 for consistent, predictable behavior. Only applicable when noise_suppression is &apos;aicoustics&apos;.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigSize? Size { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigSize? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigSize? _explicitNullValueSize = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig"/> and sets the default values.
         /// </summary>
@@ -42,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QuailFamily>("family", Family);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedMode>("mode", Mode);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfigSize>("size", Size);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

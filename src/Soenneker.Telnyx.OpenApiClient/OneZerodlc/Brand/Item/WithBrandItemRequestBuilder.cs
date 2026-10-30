@@ -82,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrorCa4Eb0Ad6F.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -107,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrandWithCampaignsCount>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrandWithCampaignsCount.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -134,6 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcHttpValidationError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

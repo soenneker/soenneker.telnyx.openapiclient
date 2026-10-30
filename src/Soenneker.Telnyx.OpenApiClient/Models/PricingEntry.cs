@@ -12,144 +12,202 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PricingEntry : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cached_input_rate") is { } nullNodeCachedInputRate && nullNodeCachedInputRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedInputRate = null;
+            if (parseNode.GetChildNode("cached_input_tiers") is { } nullNodeCachedInputTiers && nullNodeCachedInputTiers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedInputTiers = null;
+            if (parseNode.GetChildNode("country_iso") is { } nullNodeCountryIso && nullNodeCountryIso.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryIso = null;
+            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
+            if (parseNode.GetChildNode("input_rate") is { } nullNodeInputRate && nullNodeInputRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputRate = null;
+            if (parseNode.GetChildNode("input_tiers") is { } nullNodeInputTiers && nullNodeInputTiers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTiers = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("output_rate") is { } nullNodeOutputRate && nullNodeOutputRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputRate = null;
+            if (parseNode.GetChildNode("output_tiers") is { } nullNodeOutputTiers && nullNodeOutputTiers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputTiers = null;
+            if (parseNode.GetChildNode("pricing_type") is { } nullNodePricingType && nullNodePricingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricingType = null;
+            if (parseNode.GetChildNode("rate") is { } nullNodeRate && nullNodeRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rate = null;
+            if (parseNode.GetChildNode("tiers") is { } nullNodeTiers && nullNodeTiers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tiers = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("unit") is { } nullNodeUnit && nullNodeUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Unit = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Cached input token rate. Present only on inference product entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CachedInputRate { get; set; }
+        public string? CachedInputRate { get => _explicitNullValueCachedInputRate; set { _explicitNullValueCachedInputRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_input_rate"); else _explicitNullProperties?.Remove("cached_input_rate"); } }
+        private string? _explicitNullValueCachedInputRate = default!;
 #nullable restore
 #else
-        public string CachedInputRate { get; set; }
+        public string CachedInputRate { get => _explicitNullValueCachedInputRate; set { _explicitNullValueCachedInputRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_input_rate"); else _explicitNullProperties?.Remove("cached_input_rate"); } }
+        private string _explicitNullValueCachedInputRate = default!;
 #endif
         /// <summary>Cached input token tiered pricing. Present only on inference product entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? CachedInputTiers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? CachedInputTiers { get => _explicitNullValueCachedInputTiers; set { _explicitNullValueCachedInputTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_input_tiers"); else _explicitNullProperties?.Remove("cached_input_tiers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? _explicitNullValueCachedInputTiers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> CachedInputTiers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> CachedInputTiers { get => _explicitNullValueCachedInputTiers; set { _explicitNullValueCachedInputTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_input_tiers"); else _explicitNullProperties?.Remove("cached_input_tiers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> _explicitNullValueCachedInputTiers = default!;
 #endif
         /// <summary>ISO country code. Null for non-geographic products.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CountryIso { get; set; }
+        public string? CountryIso { get => _explicitNullValueCountryIso; set { _explicitNullValueCountryIso = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_iso"); else _explicitNullProperties?.Remove("country_iso"); } }
+        private string? _explicitNullValueCountryIso = default!;
 #nullable restore
 #else
-        public string CountryIso { get; set; }
+        public string CountryIso { get => _explicitNullValueCountryIso; set { _explicitNullValueCountryIso = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_iso"); else _explicitNullProperties?.Remove("country_iso"); } }
+        private string _explicitNullValueCountryIso = default!;
 #endif
         /// <summary>ISO currency code (e.g., USD).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Currency { get; set; }
+        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string? _explicitNullValueCurrency = default!;
 #nullable restore
 #else
-        public string Currency { get; set; }
+        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string _explicitNullValueCurrency = default!;
 #endif
         /// <summary>Direction (e.g., termination). Null for non-directional products.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Direction { get; set; }
+        public string? Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
+        private string? _explicitNullValueDirection = default!;
 #nullable restore
 #else
-        public string Direction { get; set; }
+        public string Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
+        private string _explicitNullValueDirection = default!;
 #endif
         /// <summary>Input token rate. Present only on inference product entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InputRate { get; set; }
+        public string? InputRate { get => _explicitNullValueInputRate; set { _explicitNullValueInputRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_rate"); else _explicitNullProperties?.Remove("input_rate"); } }
+        private string? _explicitNullValueInputRate = default!;
 #nullable restore
 #else
-        public string InputRate { get; set; }
+        public string InputRate { get => _explicitNullValueInputRate; set { _explicitNullValueInputRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_rate"); else _explicitNullProperties?.Remove("input_rate"); } }
+        private string _explicitNullValueInputRate = default!;
 #endif
         /// <summary>Input token tiered pricing. Present only on inference product entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? InputTiers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? InputTiers { get => _explicitNullValueInputTiers; set { _explicitNullValueInputTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tiers"); else _explicitNullProperties?.Remove("input_tiers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? _explicitNullValueInputTiers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> InputTiers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> InputTiers { get => _explicitNullValueInputTiers; set { _explicitNullValueInputTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tiers"); else _explicitNullProperties?.Remove("input_tiers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> _explicitNullValueInputTiers = default!;
 #endif
         /// <summary>Model identifier. Present only on inference product entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>Human-readable name describing the pricing entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Additional note for rate-deck products (e.g., &quot;Pricing is determined by the WhatsApp rate deck.&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Note { get; set; }
+        public string? Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
+        private string? _explicitNullValueNote = default!;
 #nullable restore
 #else
-        public string Note { get; set; }
+        public string Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
+        private string _explicitNullValueNote = default!;
 #endif
         /// <summary>Output token rate. Present only on inference product entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OutputRate { get; set; }
+        public string? OutputRate { get => _explicitNullValueOutputRate; set { _explicitNullValueOutputRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_rate"); else _explicitNullProperties?.Remove("output_rate"); } }
+        private string? _explicitNullValueOutputRate = default!;
 #nullable restore
 #else
-        public string OutputRate { get; set; }
+        public string OutputRate { get => _explicitNullValueOutputRate; set { _explicitNullValueOutputRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_rate"); else _explicitNullProperties?.Remove("output_rate"); } }
+        private string _explicitNullValueOutputRate = default!;
 #endif
         /// <summary>Output token tiered pricing. Present only on inference product entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? OutputTiers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? OutputTiers { get => _explicitNullValueOutputTiers; set { _explicitNullValueOutputTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tiers"); else _explicitNullProperties?.Remove("output_tiers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? _explicitNullValueOutputTiers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> OutputTiers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> OutputTiers { get => _explicitNullValueOutputTiers; set { _explicitNullValueOutputTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tiers"); else _explicitNullProperties?.Remove("output_tiers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> _explicitNullValueOutputTiers = default!;
 #endif
         /// <summary>Pricing type for non-standard products (e.g., rate_deck). Absent on standard products.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PricingType { get; set; }
+        public string? PricingType { get => _explicitNullValuePricingType; set { _explicitNullValuePricingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pricing_type"); else _explicitNullProperties?.Remove("pricing_type"); } }
+        private string? _explicitNullValuePricingType = default!;
 #nullable restore
 #else
-        public string PricingType { get; set; }
+        public string PricingType { get => _explicitNullValuePricingType; set { _explicitNullValuePricingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pricing_type"); else _explicitNullProperties?.Remove("pricing_type"); } }
+        private string _explicitNullValuePricingType = default!;
 #endif
         /// <summary>Per-unit rate. Numeric for standard products, string for inference products. Null for rate-deck products.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntryRate? Rate { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntryRate? Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntryRate? _explicitNullValueRate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntryRate Rate { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntryRate Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntryRate _explicitNullValueRate = default!;
 #endif
         /// <summary>Volume-based tiered pricing. Empty for rate-deck products.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? Tiers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? Tiers { get => _explicitNullValueTiers; set { _explicitNullValueTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tiers"); else _explicitNullProperties?.Remove("tiers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>? _explicitNullValueTiers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> Tiers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> Tiers { get => _explicitNullValueTiers; set { _explicitNullValueTiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tiers"); else _explicitNullProperties?.Remove("tiers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier> _explicitNullValueTiers = default!;
 #endif
         /// <summary>Pricing type (e.g., usage).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>Unit of measurement (e.g., part, message, GB, per_1k_tokens).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Unit { get; set; }
+        public string? Unit { get => _explicitNullValueUnit; set { _explicitNullValueUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unit"); else _explicitNullProperties?.Remove("unit"); } }
+        private string? _explicitNullValueUnit = default!;
 #nullable restore
 #else
-        public string Unit { get; set; }
+        public string Unit { get => _explicitNullValueUnit; set { _explicitNullValueUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unit"); else _explicitNullProperties?.Remove("unit"); } }
+        private string _explicitNullValueUnit = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntry"/> and sets the default values.
@@ -166,7 +224,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntry();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PricingEntry(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -219,6 +277,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>("tiers", Tiers);
             writer.WriteStringValue("type", Type);
             writer.WriteStringValue("unit", Unit);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

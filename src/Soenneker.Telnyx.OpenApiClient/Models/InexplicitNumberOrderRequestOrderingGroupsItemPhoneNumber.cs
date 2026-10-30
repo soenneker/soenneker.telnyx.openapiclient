@@ -12,32 +12,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InexplicitNumberOrderRequestOrderingGroupsItemPhoneNumber : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("contains") is { } nullNodeContains && nullNodeContains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contains = null;
+            if (parseNode.GetChildNode("ends_with") is { } nullNodeEndsWith && nullNodeEndsWith.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndsWith = null;
+            if (parseNode.GetChildNode("starts_with") is { } nullNodeStartsWith && nullNodeStartsWith.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartsWith = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Filter for phone numbers that contain the digits specified</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Contains { get; set; }
+        public string? Contains { get => _explicitNullValueContains; set { _explicitNullValueContains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contains"); else _explicitNullProperties?.Remove("contains"); } }
+        private string? _explicitNullValueContains = default!;
 #nullable restore
 #else
-        public string Contains { get; set; }
+        public string Contains { get => _explicitNullValueContains; set { _explicitNullValueContains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contains"); else _explicitNullProperties?.Remove("contains"); } }
+        private string _explicitNullValueContains = default!;
 #endif
         /// <summary>Filter by the ending digits of the phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndsWith { get; set; }
+        public string? EndsWith { get => _explicitNullValueEndsWith; set { _explicitNullValueEndsWith = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ends_with"); else _explicitNullProperties?.Remove("ends_with"); } }
+        private string? _explicitNullValueEndsWith = default!;
 #nullable restore
 #else
-        public string EndsWith { get; set; }
+        public string EndsWith { get => _explicitNullValueEndsWith; set { _explicitNullValueEndsWith = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ends_with"); else _explicitNullProperties?.Remove("ends_with"); } }
+        private string _explicitNullValueEndsWith = default!;
 #endif
         /// <summary>Filter by the starting digits of the phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StartsWith { get; set; }
+        public string? StartsWith { get => _explicitNullValueStartsWith; set { _explicitNullValueStartsWith = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starts_with"); else _explicitNullProperties?.Remove("starts_with"); } }
+        private string? _explicitNullValueStartsWith = default!;
 #nullable restore
 #else
-        public string StartsWith { get; set; }
+        public string StartsWith { get => _explicitNullValueStartsWith; set { _explicitNullValueStartsWith = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starts_with"); else _explicitNullProperties?.Remove("starts_with"); } }
+        private string _explicitNullValueStartsWith = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItemPhoneNumber"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItemPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItemPhoneNumber();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequestOrderingGroupsItemPhoneNumber(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("contains", Contains);
             writer.WriteStringValue("ends_with", EndsWith);
             writer.WriteStringValue("starts_with", StartsWith);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

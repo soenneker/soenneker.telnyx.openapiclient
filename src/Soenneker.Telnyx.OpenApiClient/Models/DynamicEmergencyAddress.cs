@@ -11,19 +11,40 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DynamicEmergencyAddress : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("administrative_area") is { } nullNodeAdministrativeArea && nullNodeAdministrativeArea.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdministrativeArea = null;
+            if (parseNode.GetChildNode("country_code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("extended_address") is { } nullNodeExtendedAddress && nullNodeExtendedAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtendedAddress = null;
+            if (parseNode.GetChildNode("house_number") is { } nullNodeHouseNumber && nullNodeHouseNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HouseNumber = null;
+            if (parseNode.GetChildNode("house_suffix") is { } nullNodeHouseSuffix && nullNodeHouseSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HouseSuffix = null;
+            if (parseNode.GetChildNode("locality") is { } nullNodeLocality && nullNodeLocality.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Locality = null;
+            if (parseNode.GetChildNode("postal_code") is { } nullNodePostalCode && nullNodePostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostalCode = null;
+            if (parseNode.GetChildNode("street_name") is { } nullNodeStreetName && nullNodeStreetName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreetName = null;
+            if (parseNode.GetChildNode("street_post_directional") is { } nullNodeStreetPostDirectional && nullNodeStreetPostDirectional.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreetPostDirectional = null;
+            if (parseNode.GetChildNode("street_pre_directional") is { } nullNodeStreetPreDirectional && nullNodeStreetPreDirectional.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreetPreDirectional = null;
+            if (parseNode.GetChildNode("street_suffix") is { } nullNodeStreetSuffix && nullNodeStreetSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreetSuffix = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The administrative_area property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AdministrativeArea { get; set; }
+        public string? AdministrativeArea { get => _explicitNullValueAdministrativeArea; set { _explicitNullValueAdministrativeArea = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("administrative_area"); else _explicitNullProperties?.Remove("administrative_area"); } }
+        private string? _explicitNullValueAdministrativeArea = default!;
 #nullable restore
 #else
-        public string AdministrativeArea { get; set; }
+        public string AdministrativeArea { get => _explicitNullValueAdministrativeArea; set { _explicitNullValueAdministrativeArea = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("administrative_area"); else _explicitNullProperties?.Remove("administrative_area"); } }
+        private string _explicitNullValueAdministrativeArea = default!;
 #endif
         /// <summary>The country_code property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddressCountryCode? CountryCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddressCountryCode? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_code"); else _explicitNullProperties?.Remove("country_code"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddressCountryCode? _explicitNullValueCountryCode = default!;
         /// <summary>ISO 8601 formatted date of when the resource was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,26 +56,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The extended_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExtendedAddress { get; set; }
+        public string? ExtendedAddress { get => _explicitNullValueExtendedAddress; set { _explicitNullValueExtendedAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extended_address"); else _explicitNullProperties?.Remove("extended_address"); } }
+        private string? _explicitNullValueExtendedAddress = default!;
 #nullable restore
 #else
-        public string ExtendedAddress { get; set; }
+        public string ExtendedAddress { get => _explicitNullValueExtendedAddress; set { _explicitNullValueExtendedAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extended_address"); else _explicitNullProperties?.Remove("extended_address"); } }
+        private string _explicitNullValueExtendedAddress = default!;
 #endif
         /// <summary>The house_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HouseNumber { get; set; }
+        public string? HouseNumber { get => _explicitNullValueHouseNumber; set { _explicitNullValueHouseNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("house_number"); else _explicitNullProperties?.Remove("house_number"); } }
+        private string? _explicitNullValueHouseNumber = default!;
 #nullable restore
 #else
-        public string HouseNumber { get; set; }
+        public string HouseNumber { get => _explicitNullValueHouseNumber; set { _explicitNullValueHouseNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("house_number"); else _explicitNullProperties?.Remove("house_number"); } }
+        private string _explicitNullValueHouseNumber = default!;
 #endif
         /// <summary>The house_suffix property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HouseSuffix { get; set; }
+        public string? HouseSuffix { get => _explicitNullValueHouseSuffix; set { _explicitNullValueHouseSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("house_suffix"); else _explicitNullProperties?.Remove("house_suffix"); } }
+        private string? _explicitNullValueHouseSuffix = default!;
 #nullable restore
 #else
-        public string HouseSuffix { get; set; }
+        public string HouseSuffix { get => _explicitNullValueHouseSuffix; set { _explicitNullValueHouseSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("house_suffix"); else _explicitNullProperties?.Remove("house_suffix"); } }
+        private string _explicitNullValueHouseSuffix = default!;
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,18 +94,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The locality property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Locality { get; set; }
+        public string? Locality { get => _explicitNullValueLocality; set { _explicitNullValueLocality = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locality"); else _explicitNullProperties?.Remove("locality"); } }
+        private string? _explicitNullValueLocality = default!;
 #nullable restore
 #else
-        public string Locality { get; set; }
+        public string Locality { get => _explicitNullValueLocality; set { _explicitNullValueLocality = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locality"); else _explicitNullProperties?.Remove("locality"); } }
+        private string _explicitNullValueLocality = default!;
 #endif
         /// <summary>The postal_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PostalCode { get; set; }
+        public string? PostalCode { get => _explicitNullValuePostalCode; set { _explicitNullValuePostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postal_code"); else _explicitNullProperties?.Remove("postal_code"); } }
+        private string? _explicitNullValuePostalCode = default!;
 #nullable restore
 #else
-        public string PostalCode { get; set; }
+        public string PostalCode { get => _explicitNullValuePostalCode; set { _explicitNullValuePostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postal_code"); else _explicitNullProperties?.Remove("postal_code"); } }
+        private string _explicitNullValuePostalCode = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,34 +132,42 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The street_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreetName { get; set; }
+        public string? StreetName { get => _explicitNullValueStreetName; set { _explicitNullValueStreetName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_name"); else _explicitNullProperties?.Remove("street_name"); } }
+        private string? _explicitNullValueStreetName = default!;
 #nullable restore
 #else
-        public string StreetName { get; set; }
+        public string StreetName { get => _explicitNullValueStreetName; set { _explicitNullValueStreetName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_name"); else _explicitNullProperties?.Remove("street_name"); } }
+        private string _explicitNullValueStreetName = default!;
 #endif
         /// <summary>The street_post_directional property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreetPostDirectional { get; set; }
+        public string? StreetPostDirectional { get => _explicitNullValueStreetPostDirectional; set { _explicitNullValueStreetPostDirectional = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_post_directional"); else _explicitNullProperties?.Remove("street_post_directional"); } }
+        private string? _explicitNullValueStreetPostDirectional = default!;
 #nullable restore
 #else
-        public string StreetPostDirectional { get; set; }
+        public string StreetPostDirectional { get => _explicitNullValueStreetPostDirectional; set { _explicitNullValueStreetPostDirectional = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_post_directional"); else _explicitNullProperties?.Remove("street_post_directional"); } }
+        private string _explicitNullValueStreetPostDirectional = default!;
 #endif
         /// <summary>The street_pre_directional property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreetPreDirectional { get; set; }
+        public string? StreetPreDirectional { get => _explicitNullValueStreetPreDirectional; set { _explicitNullValueStreetPreDirectional = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_pre_directional"); else _explicitNullProperties?.Remove("street_pre_directional"); } }
+        private string? _explicitNullValueStreetPreDirectional = default!;
 #nullable restore
 #else
-        public string StreetPreDirectional { get; set; }
+        public string StreetPreDirectional { get => _explicitNullValueStreetPreDirectional; set { _explicitNullValueStreetPreDirectional = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_pre_directional"); else _explicitNullProperties?.Remove("street_pre_directional"); } }
+        private string _explicitNullValueStreetPreDirectional = default!;
 #endif
         /// <summary>The street_suffix property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreetSuffix { get; set; }
+        public string? StreetSuffix { get => _explicitNullValueStreetSuffix; set { _explicitNullValueStreetSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_suffix"); else _explicitNullProperties?.Remove("street_suffix"); } }
+        private string? _explicitNullValueStreetSuffix = default!;
 #nullable restore
 #else
-        public string StreetSuffix { get; set; }
+        public string StreetSuffix { get => _explicitNullValueStreetSuffix; set { _explicitNullValueStreetSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_suffix"); else _explicitNullProperties?.Remove("street_suffix"); } }
+        private string _explicitNullValueStreetSuffix = default!;
 #endif
         /// <summary>ISO 8601 formatted date of when the resource was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,7 +192,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -200,6 +239,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("street_post_directional", StreetPostDirectional);
             writer.WriteStringValue("street_pre_directional", StreetPreDirectional);
             writer.WriteStringValue("street_suffix", StreetSuffix);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GenericPayConnectorConfig : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,17 +54,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfig();
             if("basic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault = new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault();
+                
             }
             else if("bearer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GenericPayConnectorConfigBearerAuthentication = new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication();
+                
             }
             else if("none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GenericPayConnectorConfigNoProcessorAuthentication = new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("username") != null && parseNode.GetChildNode("password") != null && (parseNode.GetChildNode("auth_type") == null || (parseNode.GetChildNode("auth_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("basic".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("auth_type") != null && (parseNode.GetChildNode("auth_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("bearer".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("token") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("auth_type") != null && (parseNode.GetChildNode("auth_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("none".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && result.GenericPayConnectorConfigBearerAuthentication == null && result.GenericPayConnectorConfigNoProcessorAuthentication == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault(), parseNode);
+            if (result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && result.GenericPayConnectorConfigBearerAuthentication == null && result.GenericPayConnectorConfigNoProcessorAuthentication == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.GenericPayConnectorConfigBearerAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication(), parseNode);
+            if (result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && result.GenericPayConnectorConfigBearerAuthentication == null && result.GenericPayConnectorConfigNoProcessorAuthentication == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.GenericPayConnectorConfigNoProcessorAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication(), parseNode);
+            if (result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && result.GenericPayConnectorConfigBearerAuthentication == null && result.GenericPayConnectorConfigNoProcessorAuthentication == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && GenericPayConnectorConfigBearerAuthentication == null && GenericPayConnectorConfigNoProcessorAuthentication == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault != null && GenericPayConnectorConfigBearerAuthentication == null && GenericPayConnectorConfigNoProcessorAuthentication == null) { if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault); return; }
+            if (GenericPayConnectorConfigBearerAuthentication != null && GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && GenericPayConnectorConfigNoProcessorAuthentication == null) { if (GenericPayConnectorConfigBearerAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigBearerAuthentication); return; }
+            if (GenericPayConnectorConfigNoProcessorAuthentication != null && GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && GenericPayConnectorConfigBearerAuthentication == null) { if (GenericPayConnectorConfigNoProcessorAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigNoProcessorAuthentication); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault != null)
             {
+                if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault>(null, GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault);
             }
             else if(GenericPayConnectorConfigBearerAuthentication != null)
             {
+                if (GenericPayConnectorConfigBearerAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication>(null, GenericPayConnectorConfigBearerAuthentication);
             }
             else if(GenericPayConnectorConfigNoProcessorAuthentication != null)
             {
+                if (GenericPayConnectorConfigNoProcessorAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication>(null, GenericPayConnectorConfigNoProcessorAuthentication);
             }
         }

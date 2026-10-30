@@ -11,7 +11,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NumbersSlimPhoneNumberDetailed : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("billing_group_id") is { } nullNodeBillingGroupId && nullNodeBillingGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingGroupId = null;
+            if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("customer_reference") is { } nullNodeCustomerReference && nullNodeCustomerReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReference = null;
+            if (parseNode.GetChildNode("emergency_status") is { } nullNodeEmergencyStatus && nullNodeEmergencyStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyStatus = null;
+            if (parseNode.GetChildNode("external_pin") is { } nullNodeExternalPin && nullNodeExternalPin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalPin = null;
+            if (parseNode.GetChildNode("inbound_call_screening") is { } nullNodeInboundCallScreening && nullNodeInboundCallScreening.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallScreening = null;
+        }
+
         /// <summary>ISO 8601 formatted date indicating when the phone number was first activated (transitioned from purchase-pending or port-pending to active). Will be null for numbers that have not yet been activated, or for legacy numbers activated before this field was tracked.</summary>
         public DateTimeOffset? ActivatedAt { get; private set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -19,10 +32,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the billing group associated with the phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BillingGroupId { get; set; }
+        public string? BillingGroupId { get => _explicitNullValueBillingGroupId; set { _explicitNullValueBillingGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_group_id"); else _explicitNullProperties?.Remove("billing_group_id"); } }
+        private string? _explicitNullValueBillingGroupId = default!;
 #nullable restore
 #else
-        public string BillingGroupId { get; set; }
+        public string BillingGroupId { get => _explicitNullValueBillingGroupId; set { _explicitNullValueBillingGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_group_id"); else _explicitNullProperties?.Remove("billing_group_id"); } }
+        private string _explicitNullValueBillingGroupId = default!;
 #endif
         /// <summary>Indicates whether caller ID is enabled for this number.</summary>
         public bool? CallerIdNameEnabled { get; private set; }
@@ -35,10 +50,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the connection associated with the phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>The ISO 3166-1 alpha-2 country code of the phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,10 +76,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A customer reference string for customer look ups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerReference { get; set; }
+        public string? CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        private string? _explicitNullValueCustomerReference = default!;
 #nullable restore
 #else
-        public string CustomerReference { get; set; }
+        public string CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        private string _explicitNullValueCustomerReference = default!;
 #endif
         /// <summary>Identifies the emergency address associated with the phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,14 +94,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates whether emergency services are enabled for this number.</summary>
         public bool? EmergencyEnabled { get; private set; }
         /// <summary>Indicates the status of the provisioning of emergency services for the phone number. This field contains information about activity that may be ongoing for a number where it either is being provisioned or deprovisioned but is not yet enabled/disabled.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedEmergencyStatus? EmergencyStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedEmergencyStatus? EmergencyStatus { get => _explicitNullValueEmergencyStatus; set { _explicitNullValueEmergencyStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_status"); else _explicitNullProperties?.Remove("emergency_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedEmergencyStatus? _explicitNullValueEmergencyStatus = default!;
         /// <summary>If someone attempts to port your phone number away from Telnyx and your phone number has an external PIN set, Telnyx will attempt to verify that you provided the correct external PIN to the winning carrier. Note that not all carriers cooperate with this security mechanism.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalPin { get; set; }
+        public string? ExternalPin { get => _explicitNullValueExternalPin; set { _explicitNullValueExternalPin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_pin"); else _explicitNullProperties?.Remove("external_pin"); } }
+        private string? _explicitNullValueExternalPin = default!;
 #nullable restore
 #else
-        public string ExternalPin { get; set; }
+        public string ExternalPin { get => _explicitNullValueExternalPin; set { _explicitNullValueExternalPin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_pin"); else _explicitNullProperties?.Remove("external_pin"); } }
+        private string _explicitNullValueExternalPin = default!;
 #endif
         /// <summary>Indicates whether HD voice is enabled for this number.</summary>
         public bool? HdVoiceEnabled { get; private set; }
@@ -95,7 +117,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Id { get; private set; }
 #endif
         /// <summary>The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedInboundCallScreening? InboundCallScreening { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedInboundCallScreening? InboundCallScreening { get => _explicitNullValueInboundCallScreening; set { _explicitNullValueInboundCallScreening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_screening"); else _explicitNullProperties?.Remove("inbound_call_screening"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedInboundCallScreening? _explicitNullValueInboundCallScreening = default!;
         /// <summary>The +E.164-formatted phone number associated with this record.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,7 +128,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; private set; }
 #endif
         /// <summary>The phone number&apos;s type.Note: For numbers purchased prior to July 2023 or when fetching a number&apos;s details immediately after a purchase completes, the legacy values `tollfree`, `shortcode` or `longcode` may be returned instead.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedPhoneNumberType? PhoneNumberType { get; private set; }
+#nullable enable
+        public string? PhoneNumberType { get; private set; }
+#nullable restore
         /// <summary>ISO 8601 formatted date indicating when the resource was purchased.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,7 +175,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailed CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailed();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailed(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -178,7 +203,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedInboundCallScreening>(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedPhoneNumberType>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetStringValue(); } },
                 { "purchased_at", n => { PurchasedAt = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedStatus>(); } },
@@ -199,6 +224,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedEmergencyStatus>("emergency_status", EmergencyStatus);
             writer.WriteStringValue("external_pin", ExternalPin);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersSlimPhoneNumberDetailedInboundCallScreening>("inbound_call_screening", InboundCallScreening);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

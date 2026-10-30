@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalConnectionPhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalConnectionPhoneNumber200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalConnectionPhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalConnectionPhoneNumber200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Asynchronously update settings of the phone number associated with the given external connection.
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumber200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumber200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return the details of a phone number associated with the given external connection.

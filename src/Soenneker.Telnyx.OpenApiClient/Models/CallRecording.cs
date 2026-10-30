@@ -12,15 +12,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallRecording : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("inbound_call_recording_channels") is { } nullNodeInboundCallRecordingChannels && nullNodeInboundCallRecordingChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallRecordingChannels = null;
+            if (parseNode.GetChildNode("inbound_call_recording_enabled") is { } nullNodeInboundCallRecordingEnabled && nullNodeInboundCallRecordingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallRecordingEnabled = null;
+            if (parseNode.GetChildNode("inbound_call_recording_format") is { } nullNodeInboundCallRecordingFormat && nullNodeInboundCallRecordingFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallRecordingFormat = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When using &apos;dual&apos; channels, final audio file will be stereo recorded with the first leg on channel A, and the rest on channel B.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingInboundCallRecordingChannels? InboundCallRecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingInboundCallRecordingChannels? InboundCallRecordingChannels { get => _explicitNullValueInboundCallRecordingChannels; set { _explicitNullValueInboundCallRecordingChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_recording_channels"); else _explicitNullProperties?.Remove("inbound_call_recording_channels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingInboundCallRecordingChannels? _explicitNullValueInboundCallRecordingChannels = default!;
         /// <summary>When enabled, any inbound call to this number will be recorded.</summary>
-        public bool? InboundCallRecordingEnabled { get; set; }
+        public bool? InboundCallRecordingEnabled { get => _explicitNullValueInboundCallRecordingEnabled; set { _explicitNullValueInboundCallRecordingEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_recording_enabled"); else _explicitNullProperties?.Remove("inbound_call_recording_enabled"); } }
+        private bool? _explicitNullValueInboundCallRecordingEnabled = default!;
         /// <summary>The audio file format for calls being recorded.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingInboundCallRecordingFormat? InboundCallRecordingFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingInboundCallRecordingFormat? InboundCallRecordingFormat { get => _explicitNullValueInboundCallRecordingFormat; set { _explicitNullValueInboundCallRecordingFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_recording_format"); else _explicitNullProperties?.Remove("inbound_call_recording_format"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingInboundCallRecordingFormat? _explicitNullValueInboundCallRecordingFormat = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording"/> and sets the default values.
         /// </summary>
@@ -37,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingInboundCallRecordingChannels>("inbound_call_recording_channels", InboundCallRecordingChannels);
             writer.WriteBoolValue("inbound_call_recording_enabled", InboundCallRecordingEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecordingInboundCallRecordingFormat>("inbound_call_recording_format", InboundCallRecordingFormat);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

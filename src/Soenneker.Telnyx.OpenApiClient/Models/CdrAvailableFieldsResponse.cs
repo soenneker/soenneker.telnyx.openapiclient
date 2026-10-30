@@ -12,40 +12,59 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CdrAvailableFieldsResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("Billing") is { } nullNodeBilling && nullNodeBilling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Billing = null;
+            if (parseNode.GetChildNode("Interaction Data") is { } nullNodeInteractionData && nullNodeInteractionData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InteractionData = null;
+            if (parseNode.GetChildNode("Number Information") is { } nullNodeNumberInformation && nullNodeNumberInformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberInformation = null;
+            if (parseNode.GetChildNode("Telephony Data") is { } nullNodeTelephonyData && nullNodeTelephonyData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelephonyData = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Cost and billing related information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Billing { get; set; }
+        public List<string>? Billing { get => _explicitNullValueBilling; set { _explicitNullValueBilling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Billing"); else _explicitNullProperties?.Remove("Billing"); } }
+        private List<string>? _explicitNullValueBilling = default!;
 #nullable restore
 #else
-        public List<string> Billing { get; set; }
+        public List<string> Billing { get => _explicitNullValueBilling; set { _explicitNullValueBilling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Billing"); else _explicitNullProperties?.Remove("Billing"); } }
+        private List<string> _explicitNullValueBilling = default!;
 #endif
         /// <summary>Fields related to call interaction and basic call information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? InteractionData { get; set; }
+        public List<string>? InteractionData { get => _explicitNullValueInteractionData; set { _explicitNullValueInteractionData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Interaction Data"); else _explicitNullProperties?.Remove("Interaction Data"); } }
+        private List<string>? _explicitNullValueInteractionData = default!;
 #nullable restore
 #else
-        public List<string> InteractionData { get; set; }
+        public List<string> InteractionData { get => _explicitNullValueInteractionData; set { _explicitNullValueInteractionData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Interaction Data"); else _explicitNullProperties?.Remove("Interaction Data"); } }
+        private List<string> _explicitNullValueInteractionData = default!;
 #endif
         /// <summary>Geographic and routing information for phone numbers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NumberInformation { get; set; }
+        public List<string>? NumberInformation { get => _explicitNullValueNumberInformation; set { _explicitNullValueNumberInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Number Information"); else _explicitNullProperties?.Remove("Number Information"); } }
+        private List<string>? _explicitNullValueNumberInformation = default!;
 #nullable restore
 #else
-        public List<string> NumberInformation { get; set; }
+        public List<string> NumberInformation { get => _explicitNullValueNumberInformation; set { _explicitNullValueNumberInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Number Information"); else _explicitNullProperties?.Remove("Number Information"); } }
+        private List<string> _explicitNullValueNumberInformation = default!;
 #endif
         /// <summary>Technical telephony and call control information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TelephonyData { get; set; }
+        public List<string>? TelephonyData { get => _explicitNullValueTelephonyData; set { _explicitNullValueTelephonyData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Telephony Data"); else _explicitNullProperties?.Remove("Telephony Data"); } }
+        private List<string>? _explicitNullValueTelephonyData = default!;
 #nullable restore
 #else
-        public List<string> TelephonyData { get; set; }
+        public List<string> TelephonyData { get => _explicitNullValueTelephonyData; set { _explicitNullValueTelephonyData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Telephony Data"); else _explicitNullProperties?.Remove("Telephony Data"); } }
+        private List<string> _explicitNullValueTelephonyData = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CdrAvailableFieldsResponse"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CdrAvailableFieldsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CdrAvailableFieldsResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CdrAvailableFieldsResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("Interaction Data", InteractionData);
             writer.WriteCollectionOfPrimitiveValues<string>("Number Information", NumberInformation);
             writer.WriteCollectionOfPrimitiveValues<string>("Telephony Data", TelephonyData);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

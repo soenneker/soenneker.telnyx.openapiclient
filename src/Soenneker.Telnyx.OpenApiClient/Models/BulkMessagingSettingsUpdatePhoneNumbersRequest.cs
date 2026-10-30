@@ -11,26 +11,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BulkMessagingSettingsUpdatePhoneNumbersRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assign_only") is { } nullNodeAssignOnly && nullNodeAssignOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignOnly = null;
+            if (parseNode.GetChildNode("messaging_profile_id") is { } nullNodeMessagingProfileId && nullNodeMessagingProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingProfileId = null;
+            if (parseNode.GetChildNode("numbers") is { } nullNodeNumbers && nullNodeNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Numbers = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, only assign numbers to the profile without changing other settings.</summary>
-        public bool? AssignOnly { get; set; }
+        public bool? AssignOnly { get => _explicitNullValueAssignOnly; set { _explicitNullValueAssignOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assign_only"); else _explicitNullProperties?.Remove("assign_only"); } }
+        private bool? _explicitNullValueAssignOnly = default!;
         /// <summary>Configure the messaging profile these phone numbers are assigned to:* Set this field to `&quot;&quot;` to unassign each number from their respective messaging profile* Set this field to a quoted UUID of a messaging profile to assign these numbers to that messaging profile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MessagingProfileId { get; set; }
+        public string? MessagingProfileId { get => _explicitNullValueMessagingProfileId; set { _explicitNullValueMessagingProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_profile_id"); else _explicitNullProperties?.Remove("messaging_profile_id"); } }
+        private string? _explicitNullValueMessagingProfileId = default!;
 #nullable restore
 #else
-        public string MessagingProfileId { get; set; }
+        public string MessagingProfileId { get => _explicitNullValueMessagingProfileId; set { _explicitNullValueMessagingProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_profile_id"); else _explicitNullProperties?.Remove("messaging_profile_id"); } }
+        private string _explicitNullValueMessagingProfileId = default!;
 #endif
         /// <summary>The list of phone numbers to update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Numbers { get; set; }
+        public List<string>? Numbers { get => _explicitNullValueNumbers; set { _explicitNullValueNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("numbers"); else _explicitNullProperties?.Remove("numbers"); } }
+        private List<string>? _explicitNullValueNumbers = default!;
 #nullable restore
 #else
-        public List<string> Numbers { get; set; }
+        public List<string> Numbers { get => _explicitNullValueNumbers; set { _explicitNullValueNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("numbers"); else _explicitNullProperties?.Remove("numbers"); } }
+        private List<string> _explicitNullValueNumbers = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("assign_only", AssignOnly);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteCollectionOfPrimitiveValues<string>("numbers", Numbers);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

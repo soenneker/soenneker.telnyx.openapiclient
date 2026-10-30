@@ -11,76 +11,111 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MessagingWhatsappInteractiveActionParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("display_text") is { } nullNodeDisplayText && nullNodeDisplayText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayText = null;
+            if (parseNode.GetChildNode("flow_action") is { } nullNodeFlowAction && nullNodeFlowAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowAction = null;
+            if (parseNode.GetChildNode("flow_action_payload") is { } nullNodeFlowActionPayload && nullNodeFlowActionPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowActionPayload = null;
+            if (parseNode.GetChildNode("flow_cta") is { } nullNodeFlowCta && nullNodeFlowCta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowCta = null;
+            if (parseNode.GetChildNode("flow_id") is { } nullNodeFlowId && nullNodeFlowId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowId = null;
+            if (parseNode.GetChildNode("flow_message_version") is { } nullNodeFlowMessageVersion && nullNodeFlowMessageVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowMessageVersion = null;
+            if (parseNode.GetChildNode("flow_name") is { } nullNodeFlowName && nullNodeFlowName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowName = null;
+            if (parseNode.GetChildNode("flow_token") is { } nullNodeFlowToken && nullNodeFlowToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowToken = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>button label text, 20 character maximum</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayText { get; set; }
+        public string? DisplayText { get => _explicitNullValueDisplayText; set { _explicitNullValueDisplayText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_text"); else _explicitNullProperties?.Remove("display_text"); } }
+        private string? _explicitNullValueDisplayText = default!;
 #nullable restore
 #else
-        public string DisplayText { get; set; }
+        public string DisplayText { get => _explicitNullValueDisplayText; set { _explicitNullValueDisplayText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_text"); else _explicitNullProperties?.Remove("display_text"); } }
+        private string _explicitNullValueDisplayText = default!;
 #endif
         /// <summary>how the flow starts. navigate opens the screen in flow_action_payload; data_exchange requests the first screen from the business&apos;s flow endpoint. Defaults to navigate</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction? FlowAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction? FlowAction { get => _explicitNullValueFlowAction; set { _explicitNullValueFlowAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action"); else _explicitNullProperties?.Remove("flow_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction? _explicitNullValueFlowAction = default!;
         /// <summary>optional initial screen and data. When omitted, the flow opens on its first entry screen. Must be omitted when flow_action is data_exchange</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload? FlowActionPayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload? FlowActionPayload { get => _explicitNullValueFlowActionPayload; set { _explicitNullValueFlowActionPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_payload"); else _explicitNullProperties?.Remove("flow_action_payload"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload? _explicitNullValueFlowActionPayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload FlowActionPayload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload FlowActionPayload { get => _explicitNullValueFlowActionPayload; set { _explicitNullValueFlowActionPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_payload"); else _explicitNullProperties?.Remove("flow_action_payload"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload _explicitNullValueFlowActionPayload = default!;
 #endif
         /// <summary>text of the button that opens the flow, 1-20 characters, no emoji. Required for flow messages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowCta { get; set; }
+        public string? FlowCta { get => _explicitNullValueFlowCta; set { _explicitNullValueFlowCta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_cta"); else _explicitNullProperties?.Remove("flow_cta"); } }
+        private string? _explicitNullValueFlowCta = default!;
 #nullable restore
 #else
-        public string FlowCta { get; set; }
+        public string FlowCta { get => _explicitNullValueFlowCta; set { _explicitNullValueFlowCta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_cta"); else _explicitNullProperties?.Remove("flow_cta"); } }
+        private string _explicitNullValueFlowCta = default!;
 #endif
         /// <summary>ID of the flow to open. Provide exactly one of flow_id or flow_name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowId { get; set; }
+        public string? FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
+        private string? _explicitNullValueFlowId = default!;
 #nullable restore
 #else
-        public string FlowId { get; set; }
+        public string FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
+        private string _explicitNullValueFlowId = default!;
 #endif
         /// <summary>flow message version, must be 3. Required for flow messages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowMessageVersion { get; set; }
+        public string? FlowMessageVersion { get => _explicitNullValueFlowMessageVersion; set { _explicitNullValueFlowMessageVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_message_version"); else _explicitNullProperties?.Remove("flow_message_version"); } }
+        private string? _explicitNullValueFlowMessageVersion = default!;
 #nullable restore
 #else
-        public string FlowMessageVersion { get; set; }
+        public string FlowMessageVersion { get => _explicitNullValueFlowMessageVersion; set { _explicitNullValueFlowMessageVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_message_version"); else _explicitNullProperties?.Remove("flow_message_version"); } }
+        private string _explicitNullValueFlowMessageVersion = default!;
 #endif
         /// <summary>name of the flow to open. Provide exactly one of flow_id or flow_name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowName { get; set; }
+        public string? FlowName { get => _explicitNullValueFlowName; set { _explicitNullValueFlowName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_name"); else _explicitNullProperties?.Remove("flow_name"); } }
+        private string? _explicitNullValueFlowName = default!;
 #nullable restore
 #else
-        public string FlowName { get; set; }
+        public string FlowName { get => _explicitNullValueFlowName; set { _explicitNullValueFlowName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_name"); else _explicitNullProperties?.Remove("flow_name"); } }
+        private string _explicitNullValueFlowName = default!;
 #endif
         /// <summary>business-generated identifier for the flow session. Returned in the flow response for correlation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowToken { get; set; }
+        public string? FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
+        private string? _explicitNullValueFlowToken = default!;
 #nullable restore
 #else
-        public string FlowToken { get; set; }
+        public string FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
+        private string _explicitNullValueFlowToken = default!;
 #endif
         /// <summary>use draft to test an unpublished flow. Defaults to published</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode? Mode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode? _explicitNullValueMode = default!;
         /// <summary>button URL to load when tapped by the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParameters"/> and sets the default values.
@@ -97,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -136,6 +171,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("flow_token", FlowToken);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode>("mode", Mode);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

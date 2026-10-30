@@ -11,127 +11,187 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TestRunResultSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("agent_inbound") is { } nullNodeAgentInbound && nullNodeAgentInbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentInbound = null;
+            if (parseNode.GetChildNode("agent_name") is { } nullNodeAgentName && nullNodeAgentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentName = null;
+            if (parseNode.GetChildNode("completed_runs_count") is { } nullNodeCompletedRunsCount && nullNodeCompletedRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedRunsCount = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("failed_runs_count") is { } nullNodeFailedRunsCount && nullNodeFailedRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedRunsCount = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("is_cronjob") is { } nullNodeIsCronjob && nullNodeIsCronjob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsCronjob = null;
+            if (parseNode.GetChildNode("met_expected_outcome_count") is { } nullNodeMetExpectedOutcomeCount && nullNodeMetExpectedOutcomeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetExpectedOutcomeCount = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("run_as_text") is { } nullNodeRunAsText && nullNodeRunAsText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunAsText = null;
+            if (parseNode.GetChildNode("runs") is { } nullNodeRuns && nullNodeRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runs = null;
+            if (parseNode.GetChildNode("run_type") is { } nullNodeRunType && nullNodeRunType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunType = null;
+            if (parseNode.GetChildNode("scenarios") is { } nullNodeScenarios && nullNodeScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scenarios = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("success_rate") is { } nullNodeSuccessRate && nullNodeSuccessRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessRate = null;
+            if (parseNode.GetChildNode("success_runs_count") is { } nullNodeSuccessRunsCount && nullNodeSuccessRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessRunsCount = null;
+            if (parseNode.GetChildNode("total_expected_outcome_count") is { } nullNodeTotalExpectedOutcomeCount && nullNodeTotalExpectedOutcomeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalExpectedOutcomeCount = null;
+            if (parseNode.GetChildNode("total_runs_count") is { } nullNodeTotalRunsCount && nullNodeTotalRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRunsCount = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent property</summary>
-        public int? Agent { get; set; }
+        public int? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private int? _explicitNullValueAgent = default!;
         /// <summary>The agent_inbound property</summary>
-        public bool? AgentInbound { get; set; }
+        public bool? AgentInbound { get => _explicitNullValueAgentInbound; set { _explicitNullValueAgentInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_inbound"); else _explicitNullProperties?.Remove("agent_inbound"); } }
+        private bool? _explicitNullValueAgentInbound = default!;
         /// <summary>The agent_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentName { get; set; }
+        public string? AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
+        private string? _explicitNullValueAgentName = default!;
 #nullable restore
 #else
-        public string AgentName { get; set; }
+        public string AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
+        private string _explicitNullValueAgentName = default!;
 #endif
         /// <summary>The completed_runs_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_completed_runs_count? CompletedRunsCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? CompletedRunsCount { get => _explicitNullValueCompletedRunsCount; set { _explicitNullValueCompletedRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_runs_count"); else _explicitNullProperties?.Remove("completed_runs_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueCompletedRunsCount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_completed_runs_count CompletedRunsCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode CompletedRunsCount { get => _explicitNullValueCompletedRunsCount; set { _explicitNullValueCompletedRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_runs_count"); else _explicitNullProperties?.Remove("completed_runs_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueCompletedRunsCount = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The failed_runs_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_failed_runs_count? FailedRunsCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? FailedRunsCount { get => _explicitNullValueFailedRunsCount; set { _explicitNullValueFailedRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_runs_count"); else _explicitNullProperties?.Remove("failed_runs_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueFailedRunsCount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_failed_runs_count FailedRunsCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode FailedRunsCount { get => _explicitNullValueFailedRunsCount; set { _explicitNullValueFailedRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_runs_count"); else _explicitNullProperties?.Remove("failed_runs_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueFailedRunsCount = default!;
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private int? _explicitNullValueId = default!;
         /// <summary>Whether this batch was started by a scheduled job.</summary>
-        public bool? IsCronjob { get; set; }
+        public bool? IsCronjob { get => _explicitNullValueIsCronjob; set { _explicitNullValueIsCronjob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_cronjob"); else _explicitNullProperties?.Remove("is_cronjob"); } }
+        private bool? _explicitNullValueIsCronjob = default!;
         /// <summary>The met_expected_outcome_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_met_expected_outcome_count? MetExpectedOutcomeCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? MetExpectedOutcomeCount { get => _explicitNullValueMetExpectedOutcomeCount; set { _explicitNullValueMetExpectedOutcomeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("met_expected_outcome_count"); else _explicitNullProperties?.Remove("met_expected_outcome_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueMetExpectedOutcomeCount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_met_expected_outcome_count MetExpectedOutcomeCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode MetExpectedOutcomeCount { get => _explicitNullValueMetExpectedOutcomeCount; set { _explicitNullValueMetExpectedOutcomeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("met_expected_outcome_count"); else _explicitNullProperties?.Remove("met_expected_outcome_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueMetExpectedOutcomeCount = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Whether the batch ran as text chat rather than voice calls.</summary>
-        public bool? RunAsText { get; set; }
+        public bool? RunAsText { get => _explicitNullValueRunAsText; set { _explicitNullValueRunAsText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_as_text"); else _explicitNullProperties?.Remove("run_as_text"); } }
+        private bool? _explicitNullValueRunAsText = default!;
         /// <summary>Run summaries in this batch. Retrieve the batch for detail keyed by run ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem>? Runs { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem>? Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem>? _explicitNullValueRuns = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem> Runs { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem> Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem> _explicitNullValueRuns = default!;
 #endif
         /// <summary>The run_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunType { get; set; }
+        public string? RunType { get => _explicitNullValueRunType; set { _explicitNullValueRunType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_type"); else _explicitNullProperties?.Remove("run_type"); } }
+        private string? _explicitNullValueRunType = default!;
 #nullable restore
 #else
-        public string RunType { get; set; }
+        public string RunType { get => _explicitNullValueRunType; set { _explicitNullValueRunType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_type"); else _explicitNullProperties?.Remove("run_type"); } }
+        private string _explicitNullValueRunType = default!;
 #endif
         /// <summary>The scenarios property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem>? Scenarios { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem>? Scenarios { get => _explicitNullValueScenarios; set { _explicitNullValueScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios"); else _explicitNullProperties?.Remove("scenarios"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem>? _explicitNullValueScenarios = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem> Scenarios { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem> Scenarios { get => _explicitNullValueScenarios; set { _explicitNullValueScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios"); else _explicitNullProperties?.Remove("scenarios"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem> _explicitNullValueScenarios = default!;
 #endif
         /// <summary>Run batch status: running, completed, failed, pending, in_progress, evaluating, in_queue, timeout, cancelled, or scaling_up.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>Share of runs judged successful.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_rate? SuccessRate { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? SuccessRate { get => _explicitNullValueSuccessRate; set { _explicitNullValueSuccessRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_rate"); else _explicitNullProperties?.Remove("success_rate"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueSuccessRate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_rate SuccessRate { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode SuccessRate { get => _explicitNullValueSuccessRate; set { _explicitNullValueSuccessRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_rate"); else _explicitNullProperties?.Remove("success_rate"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueSuccessRate = default!;
 #endif
         /// <summary>The success_runs_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_runs_count? SuccessRunsCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? SuccessRunsCount { get => _explicitNullValueSuccessRunsCount; set { _explicitNullValueSuccessRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_runs_count"); else _explicitNullProperties?.Remove("success_runs_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueSuccessRunsCount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_runs_count SuccessRunsCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode SuccessRunsCount { get => _explicitNullValueSuccessRunsCount; set { _explicitNullValueSuccessRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_runs_count"); else _explicitNullProperties?.Remove("success_runs_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueSuccessRunsCount = default!;
 #endif
         /// <summary>The total_expected_outcome_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_expected_outcome_count? TotalExpectedOutcomeCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? TotalExpectedOutcomeCount { get => _explicitNullValueTotalExpectedOutcomeCount; set { _explicitNullValueTotalExpectedOutcomeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_expected_outcome_count"); else _explicitNullProperties?.Remove("total_expected_outcome_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueTotalExpectedOutcomeCount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_expected_outcome_count TotalExpectedOutcomeCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode TotalExpectedOutcomeCount { get => _explicitNullValueTotalExpectedOutcomeCount; set { _explicitNullValueTotalExpectedOutcomeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_expected_outcome_count"); else _explicitNullProperties?.Remove("total_expected_outcome_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueTotalExpectedOutcomeCount = default!;
 #endif
         /// <summary>The total_runs_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_runs_count? TotalRunsCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? TotalRunsCount { get => _explicitNullValueTotalRunsCount; set { _explicitNullValueTotalRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_runs_count"); else _explicitNullProperties?.Remove("total_runs_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueTotalRunsCount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_runs_count TotalRunsCount { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode TotalRunsCount { get => _explicitNullValueTotalRunsCount; set { _explicitNullValueTotalRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_runs_count"); else _explicitNullProperties?.Remove("total_runs_count"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueTotalRunsCount = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary"/> and sets the default values.
         /// </summary>
@@ -147,7 +207,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -160,22 +220,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "agent", n => { Agent = n.GetIntValue(); } },
                 { "agent_inbound", n => { AgentInbound = n.GetBoolValue(); } },
                 { "agent_name", n => { AgentName = n.GetStringValue(); } },
-                { "completed_runs_count", n => { CompletedRunsCount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_completed_runs_count>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_completed_runs_count.CreateFromDiscriminatorValue); } },
+                { "completed_runs_count", n => { CompletedRunsCount = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "failed_runs_count", n => { FailedRunsCount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_failed_runs_count>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_failed_runs_count.CreateFromDiscriminatorValue); } },
+                { "failed_runs_count", n => { FailedRunsCount = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "is_cronjob", n => { IsCronjob = n.GetBoolValue(); } },
-                { "met_expected_outcome_count", n => { MetExpectedOutcomeCount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_met_expected_outcome_count>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_met_expected_outcome_count.CreateFromDiscriminatorValue); } },
+                { "met_expected_outcome_count", n => { MetExpectedOutcomeCount = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "run_as_text", n => { RunAsText = n.GetBoolValue(); } },
                 { "run_type", n => { RunType = n.GetStringValue(); } },
                 { "runs", n => { Runs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "scenarios", n => { Scenarios = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
-                { "success_rate", n => { SuccessRate = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_rate>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_rate.CreateFromDiscriminatorValue); } },
-                { "success_runs_count", n => { SuccessRunsCount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_runs_count>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_runs_count.CreateFromDiscriminatorValue); } },
-                { "total_expected_outcome_count", n => { TotalExpectedOutcomeCount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_expected_outcome_count>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_expected_outcome_count.CreateFromDiscriminatorValue); } },
-                { "total_runs_count", n => { TotalRunsCount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_runs_count>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_runs_count.CreateFromDiscriminatorValue); } },
+                { "success_rate", n => { SuccessRate = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
+                { "success_runs_count", n => { SuccessRunsCount = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_expected_outcome_count", n => { TotalExpectedOutcomeCount = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_runs_count", n => { TotalRunsCount = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -189,23 +249,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("agent", Agent);
             writer.WriteBoolValue("agent_inbound", AgentInbound);
             writer.WriteStringValue("agent_name", AgentName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_completed_runs_count>("completed_runs_count", CompletedRunsCount);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("completed_runs_count", CompletedRunsCount);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_failed_runs_count>("failed_runs_count", FailedRunsCount);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("failed_runs_count", FailedRunsCount);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("is_cronjob", IsCronjob);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_met_expected_outcome_count>("met_expected_outcome_count", MetExpectedOutcomeCount);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("met_expected_outcome_count", MetExpectedOutcomeCount);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("run_as_text", RunAsText);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryRunsItem>("runs", Runs);
             writer.WriteStringValue("run_type", RunType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummaryScenariosItem>("scenarios", Scenarios);
             writer.WriteStringValue("status", Status);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_rate>("success_rate", SuccessRate);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_runs_count>("success_runs_count", SuccessRunsCount);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_expected_outcome_count>("total_expected_outcome_count", TotalExpectedOutcomeCount);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_runs_count>("total_runs_count", TotalRunsCount);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("success_rate", SuccessRate);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("success_runs_count", SuccessRunsCount);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("total_expected_outcome_count", TotalExpectedOutcomeCount);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("total_runs_count", TotalRunsCount);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -231,13 +292,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_completed_runs_count CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_completed_runs_count();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_completed_runs_count();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -257,6 +322,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {
@@ -291,13 +360,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_failed_runs_count CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_failed_runs_count();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_failed_runs_count();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -317,6 +390,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {
@@ -351,13 +428,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_met_expected_outcome_count CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_met_expected_outcome_count();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_met_expected_outcome_count();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -377,6 +458,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {
@@ -411,13 +496,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_rate CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_rate();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_rate();
-                if(parseNode.GetDoubleValue() is double doubleValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is (global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal) && parseNode.GetDoubleValue() is double doubleValue)
                 {
                     result.Double = doubleValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -437,6 +526,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Double == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Double != null)
                 {
@@ -471,13 +564,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_runs_count CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_runs_count();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_success_runs_count();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -497,6 +594,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {
@@ -531,13 +632,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_expected_outcome_count CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_expected_outcome_count();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_expected_outcome_count();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -557,6 +662,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {
@@ -591,13 +700,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_runs_count CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_runs_count();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultSummary.TestRunResultSummary_total_runs_count();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -617,6 +730,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {

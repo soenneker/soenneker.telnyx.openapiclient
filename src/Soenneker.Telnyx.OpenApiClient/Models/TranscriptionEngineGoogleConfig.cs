@@ -11,43 +11,74 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TranscriptionEngineGoogleConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enable_speaker_diarization") is { } nullNodeEnableSpeakerDiarization && nullNodeEnableSpeakerDiarization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSpeakerDiarization = null;
+            if (parseNode.GetChildNode("hints") is { } nullNodeHints && nullNodeHints.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hints = null;
+            if (parseNode.GetChildNode("interim_results") is { } nullNodeInterimResults && nullNodeInterimResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterimResults = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("max_speaker_count") is { } nullNodeMaxSpeakerCount && nullNodeMaxSpeakerCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSpeakerCount = null;
+            if (parseNode.GetChildNode("min_speaker_count") is { } nullNodeMinSpeakerCount && nullNodeMinSpeakerCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinSpeakerCount = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("profanity_filter") is { } nullNodeProfanityFilter && nullNodeProfanityFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfanityFilter = null;
+            if (parseNode.GetChildNode("speech_context") is { } nullNodeSpeechContext && nullNodeSpeechContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeechContext = null;
+            if (parseNode.GetChildNode("transcription_engine") is { } nullNodeTranscriptionEngine && nullNodeTranscriptionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngine = null;
+            if (parseNode.GetChildNode("use_enhanced") is { } nullNodeUseEnhanced && nullNodeUseEnhanced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseEnhanced = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enables speaker diarization.</summary>
-        public bool? EnableSpeakerDiarization { get; set; }
+        public bool? EnableSpeakerDiarization { get => _explicitNullValueEnableSpeakerDiarization; set { _explicitNullValueEnableSpeakerDiarization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_speaker_diarization"); else _explicitNullProperties?.Remove("enable_speaker_diarization"); } }
+        private bool? _explicitNullValueEnableSpeakerDiarization = default!;
         /// <summary>Hints to improve transcription accuracy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Hints { get; set; }
+        public List<string>? Hints { get => _explicitNullValueHints; set { _explicitNullValueHints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hints"); else _explicitNullProperties?.Remove("hints"); } }
+        private List<string>? _explicitNullValueHints = default!;
 #nullable restore
 #else
-        public List<string> Hints { get; set; }
+        public List<string> Hints { get => _explicitNullValueHints; set { _explicitNullValueHints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hints"); else _explicitNullProperties?.Remove("hints"); } }
+        private List<string> _explicitNullValueHints = default!;
 #endif
         /// <summary>Whether to send also interim results. If set to false, only final results will be sent.</summary>
-        public bool? InterimResults { get; set; }
+        public bool? InterimResults { get => _explicitNullValueInterimResults; set { _explicitNullValueInterimResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interim_results"); else _explicitNullProperties?.Remove("interim_results"); } }
+        private bool? _explicitNullValueInterimResults = default!;
         /// <summary>Language to use for speech recognition</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage? Language { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage? _explicitNullValueLanguage = default!;
         /// <summary>Defines maximum number of speakers in the conversation.</summary>
-        public int? MaxSpeakerCount { get; set; }
+        public int? MaxSpeakerCount { get => _explicitNullValueMaxSpeakerCount; set { _explicitNullValueMaxSpeakerCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_speaker_count"); else _explicitNullProperties?.Remove("max_speaker_count"); } }
+        private int? _explicitNullValueMaxSpeakerCount = default!;
         /// <summary>Defines minimum number of speakers in the conversation.</summary>
-        public int? MinSpeakerCount { get; set; }
+        public int? MinSpeakerCount { get => _explicitNullValueMinSpeakerCount; set { _explicitNullValueMinSpeakerCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_speaker_count"); else _explicitNullProperties?.Remove("min_speaker_count"); } }
+        private int? _explicitNullValueMinSpeakerCount = default!;
         /// <summary>The model to use for transcription.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigModel? Model { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigModel? _explicitNullValueModel = default!;
         /// <summary>Enables profanity_filter.</summary>
-        public bool? ProfanityFilter { get; set; }
+        public bool? ProfanityFilter { get => _explicitNullValueProfanityFilter; set { _explicitNullValueProfanityFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profanity_filter"); else _explicitNullProperties?.Remove("profanity_filter"); } }
+        private bool? _explicitNullValueProfanityFilter = default!;
         /// <summary>Speech context to improve transcription accuracy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>? SpeechContext { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>? SpeechContext { get => _explicitNullValueSpeechContext; set { _explicitNullValueSpeechContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speech_context"); else _explicitNullProperties?.Remove("speech_context"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>? _explicitNullValueSpeechContext = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem> SpeechContext { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem> SpeechContext { get => _explicitNullValueSpeechContext; set { _explicitNullValueSpeechContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speech_context"); else _explicitNullProperties?.Remove("speech_context"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem> _explicitNullValueSpeechContext = default!;
 #endif
         /// <summary>Engine identifier for Google transcription service</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionEngine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionEngine? _explicitNullValueTranscriptionEngine = default!;
         /// <summary>Enables enhanced transcription, this works for models `phone_call` and `video`.</summary>
-        public bool? UseEnhanced { get; set; }
+        public bool? UseEnhanced { get => _explicitNullValueUseEnhanced; set { _explicitNullValueUseEnhanced = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_enhanced"); else _explicitNullProperties?.Remove("use_enhanced"); } }
+        private bool? _explicitNullValueUseEnhanced = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig"/> and sets the default values.
         /// </summary>
@@ -69,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -110,6 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfigSpeechContextItem>("speech_context", SpeechContext);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionEngine>("transcription_engine", TranscriptionEngine);
             writer.WriteBoolValue("use_enhanced", UseEnhanced);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

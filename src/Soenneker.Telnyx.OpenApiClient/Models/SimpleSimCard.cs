@@ -11,7 +11,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SimpleSimCard : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("authorized_imeis") is { } nullNodeAuthorizedImeis && nullNodeAuthorizedImeis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorizedImeis = null;
+            if (parseNode.GetChildNode("sim_card_group_id") is { } nullNodeSimCardGroupId && nullNodeSimCardGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimCardGroupId = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+        }
+
         /// <summary>Indicate whether the SIM card has any pending (in-progress) actions.</summary>
         public bool? ActionsInProgress { get; private set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -19,10 +30,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of IMEIs authorized to use a given SIM card.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AuthorizedImeis { get; set; }
+        public List<string>? AuthorizedImeis { get => _explicitNullValueAuthorizedImeis; set { _explicitNullValueAuthorizedImeis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorized_imeis"); else _explicitNullProperties?.Remove("authorized_imeis"); } }
+        private List<string>? _explicitNullValueAuthorizedImeis = default!;
 #nullable restore
 #else
-        public List<string> AuthorizedImeis { get; set; }
+        public List<string> AuthorizedImeis { get => _explicitNullValueAuthorizedImeis; set { _explicitNullValueAuthorizedImeis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorized_imeis"); else _explicitNullProperties?.Remove("authorized_imeis"); } }
+        private List<string> _explicitNullValueAuthorizedImeis = default!;
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,22 +114,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSimCardResourcesWithInProgressActionsItemProperty> ResourcesWithInProgressActions { get; private set; }
 #endif
         /// <summary>The group SIMCardGroup identification. This attribute can be &lt;code&gt;null&lt;/code&gt; when it&apos;s present in an associated resource.</summary>
-        public Guid? SimCardGroupId { get; set; }
+        public Guid? SimCardGroupId { get => _explicitNullValueSimCardGroupId; set { _explicitNullValueSimCardGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_card_group_id"); else _explicitNullProperties?.Remove("sim_card_group_id"); } }
+        private Guid? _explicitNullValueSimCardGroupId = default!;
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SimCardStatus? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardStatus Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SimCardStatus _explicitNullValueStatus = default!;
 #endif
         /// <summary>Searchable tags associated with the SIM card</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>The type of SIM card</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSimCardType? Type { get; private set; }
@@ -155,7 +173,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSimCard CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSimCard();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSimCard(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -198,6 +216,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("sim_card_group_id", SimCardGroupId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardStatus>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,58 +11,90 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GatherRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("gather_id") is { } nullNodeGatherId && nullNodeGatherId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GatherId = null;
+            if (parseNode.GetChildNode("initial_timeout_millis") is { } nullNodeInitialTimeoutMillis && nullNodeInitialTimeoutMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialTimeoutMillis = null;
+            if (parseNode.GetChildNode("inter_digit_timeout_millis") is { } nullNodeInterDigitTimeoutMillis && nullNodeInterDigitTimeoutMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterDigitTimeoutMillis = null;
+            if (parseNode.GetChildNode("maximum_digits") is { } nullNodeMaximumDigits && nullNodeMaximumDigits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumDigits = null;
+            if (parseNode.GetChildNode("minimum_digits") is { } nullNodeMinimumDigits && nullNodeMinimumDigits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumDigits = null;
+            if (parseNode.GetChildNode("terminating_digit") is { } nullNodeTerminatingDigit && nullNodeTerminatingDigit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TerminatingDigit = null;
+            if (parseNode.GetChildNode("timeout_millis") is { } nullNodeTimeoutMillis && nullNodeTimeoutMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutMillis = null;
+            if (parseNode.GetChildNode("valid_digits") is { } nullNodeValidDigits && nullNodeValidDigits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidDigits = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get; set; }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get; set; }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>An id that will be sent back in the corresponding `call.gather.ended` webhook. Will be randomly generated if not specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GatherId { get; set; }
+        public string? GatherId { get => _explicitNullValueGatherId; set { _explicitNullValueGatherId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gather_id"); else _explicitNullProperties?.Remove("gather_id"); } }
+        private string? _explicitNullValueGatherId = default!;
 #nullable restore
 #else
-        public string GatherId { get; set; }
+        public string GatherId { get => _explicitNullValueGatherId; set { _explicitNullValueGatherId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gather_id"); else _explicitNullProperties?.Remove("gather_id"); } }
+        private string _explicitNullValueGatherId = default!;
 #endif
         /// <summary>The number of milliseconds to wait for the first DTMF.</summary>
-        public int? InitialTimeoutMillis { get; set; }
+        public int? InitialTimeoutMillis { get => _explicitNullValueInitialTimeoutMillis; set { _explicitNullValueInitialTimeoutMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_timeout_millis"); else _explicitNullProperties?.Remove("initial_timeout_millis"); } }
+        private int? _explicitNullValueInitialTimeoutMillis = default!;
         /// <summary>The number of milliseconds to wait for input between digits.</summary>
-        public int? InterDigitTimeoutMillis { get; set; }
+        public int? InterDigitTimeoutMillis { get => _explicitNullValueInterDigitTimeoutMillis; set { _explicitNullValueInterDigitTimeoutMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inter_digit_timeout_millis"); else _explicitNullProperties?.Remove("inter_digit_timeout_millis"); } }
+        private int? _explicitNullValueInterDigitTimeoutMillis = default!;
         /// <summary>The maximum number of digits to fetch. This parameter has a maximum value of 128.</summary>
-        public int? MaximumDigits { get; set; }
+        public int? MaximumDigits { get => _explicitNullValueMaximumDigits; set { _explicitNullValueMaximumDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_digits"); else _explicitNullProperties?.Remove("maximum_digits"); } }
+        private int? _explicitNullValueMaximumDigits = default!;
         /// <summary>The minimum number of digits to fetch. This parameter has a minimum value of 1.</summary>
-        public int? MinimumDigits { get; set; }
+        public int? MinimumDigits { get => _explicitNullValueMinimumDigits; set { _explicitNullValueMinimumDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimum_digits"); else _explicitNullProperties?.Remove("minimum_digits"); } }
+        private int? _explicitNullValueMinimumDigits = default!;
         /// <summary>The digit used to terminate input if fewer than `maximum_digits` digits have been gathered. Set to an empty string to disable the terminating digit entirely, so that a digit such as `#` can be collected as input per `valid_digits`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TerminatingDigit { get; set; }
+        public string? TerminatingDigit { get => _explicitNullValueTerminatingDigit; set { _explicitNullValueTerminatingDigit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terminating_digit"); else _explicitNullProperties?.Remove("terminating_digit"); } }
+        private string? _explicitNullValueTerminatingDigit = default!;
 #nullable restore
 #else
-        public string TerminatingDigit { get; set; }
+        public string TerminatingDigit { get => _explicitNullValueTerminatingDigit; set { _explicitNullValueTerminatingDigit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terminating_digit"); else _explicitNullProperties?.Remove("terminating_digit"); } }
+        private string _explicitNullValueTerminatingDigit = default!;
 #endif
         /// <summary>The number of milliseconds to wait to complete the request.</summary>
-        public int? TimeoutMillis { get; set; }
+        public int? TimeoutMillis { get => _explicitNullValueTimeoutMillis; set { _explicitNullValueTimeoutMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_millis"); else _explicitNullProperties?.Remove("timeout_millis"); } }
+        private int? _explicitNullValueTimeoutMillis = default!;
         /// <summary>A list of all digits accepted as valid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ValidDigits { get; set; }
+        public string? ValidDigits { get => _explicitNullValueValidDigits; set { _explicitNullValueValidDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_digits"); else _explicitNullProperties?.Remove("valid_digits"); } }
+        private string? _explicitNullValueValidDigits = default!;
 #nullable restore
 #else
-        public string ValidDigits { get; set; }
+        public string ValidDigits { get => _explicitNullValueValidDigits; set { _explicitNullValueValidDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_digits"); else _explicitNullProperties?.Remove("valid_digits"); } }
+        private string _explicitNullValueValidDigits = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GatherRequest"/> and sets the default values.
@@ -86,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GatherRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GatherRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GatherRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -125,6 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("terminating_digit", TerminatingDigit);
             writer.WriteIntValue("timeout_millis", TimeoutMillis);
             writer.WriteStringValue("valid_digits", ValidDigits);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

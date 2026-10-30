@@ -11,21 +11,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MobileNetworkOperatorPreferencesResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("mobile_network_operator_id") is { } nullNodeMobileNetworkOperatorId && nullNodeMobileNetworkOperatorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileNetworkOperatorId = null;
+            if (parseNode.GetChildNode("mobile_network_operator_name") is { } nullNodeMobileNetworkOperatorName && nullNodeMobileNetworkOperatorName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileNetworkOperatorName = null;
+            if (parseNode.GetChildNode("priority") is { } nullNodePriority && nullNodePriority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Priority = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The mobile network operator resource identification UUID.</summary>
-        public Guid? MobileNetworkOperatorId { get; set; }
+        public Guid? MobileNetworkOperatorId { get => _explicitNullValueMobileNetworkOperatorId; set { _explicitNullValueMobileNetworkOperatorId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_operator_id"); else _explicitNullProperties?.Remove("mobile_network_operator_id"); } }
+        private Guid? _explicitNullValueMobileNetworkOperatorId = default!;
         /// <summary>The mobile network operator resource name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MobileNetworkOperatorName { get; set; }
+        public string? MobileNetworkOperatorName { get => _explicitNullValueMobileNetworkOperatorName; set { _explicitNullValueMobileNetworkOperatorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_operator_name"); else _explicitNullProperties?.Remove("mobile_network_operator_name"); } }
+        private string? _explicitNullValueMobileNetworkOperatorName = default!;
 #nullable restore
 #else
-        public string MobileNetworkOperatorName { get; set; }
+        public string MobileNetworkOperatorName { get => _explicitNullValueMobileNetworkOperatorName; set { _explicitNullValueMobileNetworkOperatorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_operator_name"); else _explicitNullProperties?.Remove("mobile_network_operator_name"); } }
+        private string _explicitNullValueMobileNetworkOperatorName = default!;
 #endif
         /// <summary>It determines what is the priority of a specific network operator that should be assumed by a SIM card when connecting to a network. The highest priority is 0, the second highest is 1 and so on.</summary>
-        public int? Priority { get; set; }
+        public int? Priority { get => _explicitNullValuePriority; set { _explicitNullValuePriority = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("priority"); else _explicitNullProperties?.Remove("priority"); } }
+        private int? _explicitNullValuePriority = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("mobile_network_operator_id", MobileNetworkOperatorId);
             writer.WriteStringValue("mobile_network_operator_name", MobileNetworkOperatorName);
             writer.WriteIntValue("priority", Priority);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

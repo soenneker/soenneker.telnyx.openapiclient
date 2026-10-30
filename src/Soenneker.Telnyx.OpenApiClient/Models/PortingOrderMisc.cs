@@ -11,21 +11,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PortingOrderMisc : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("new_billing_phone_number") is { } nullNodeNewBillingPhoneNumber && nullNodeNewBillingPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewBillingPhoneNumber = null;
+            if (parseNode.GetChildNode("remaining_numbers_action") is { } nullNodeRemainingNumbersAction && nullNodeRemainingNumbersAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemainingNumbersAction = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>New billing phone number for the remaining numbers. Used in case the current billing phone number is being ported to Telnyx. This will be set on your account with your current service provider and should be one of the numbers remaining on that account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewBillingPhoneNumber { get; set; }
+        public string? NewBillingPhoneNumber { get => _explicitNullValueNewBillingPhoneNumber; set { _explicitNullValueNewBillingPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_billing_phone_number"); else _explicitNullProperties?.Remove("new_billing_phone_number"); } }
+        private string? _explicitNullValueNewBillingPhoneNumber = default!;
 #nullable restore
 #else
-        public string NewBillingPhoneNumber { get; set; }
+        public string NewBillingPhoneNumber { get => _explicitNullValueNewBillingPhoneNumber; set { _explicitNullValueNewBillingPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_billing_phone_number"); else _explicitNullProperties?.Remove("new_billing_phone_number"); } }
+        private string _explicitNullValueNewBillingPhoneNumber = default!;
 #endif
         /// <summary>Remaining numbers can be either kept with their current service provider or disconnected. &apos;new_billing_telephone_number&apos; is required when &apos;remaining_numbers_action&apos; is &apos;keep&apos;.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction? RemainingNumbersAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction? RemainingNumbersAction { get => _explicitNullValueRemainingNumbersAction; set { _explicitNullValueRemainingNumbersAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining_numbers_action"); else _explicitNullProperties?.Remove("remaining_numbers_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction? _explicitNullValueRemainingNumbersAction = default!;
         /// <summary>A port can be either &apos;full&apos; or &apos;partial&apos;. When type is &apos;full&apos; the other attributes should be omitted.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("new_billing_phone_number", NewBillingPhoneNumber);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction>("remaining_numbers_action", RemainingNumbersAction);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

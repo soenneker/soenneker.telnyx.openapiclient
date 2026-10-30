@@ -70,6 +70,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressi
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
                 { "406", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GroupSuppressionListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GroupSuppressionListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -101,6 +103,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_unsubscribe_groups.Item.Suppressi
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
                 { "406", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailBlockResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

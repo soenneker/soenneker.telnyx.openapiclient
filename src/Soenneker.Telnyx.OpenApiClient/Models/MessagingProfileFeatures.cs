@@ -12,13 +12,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagingProfileFeatures : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ai_opt_out_detection_enabled") is { } nullNodeAiOptOutDetectionEnabled && nullNodeAiOptOutDetectionEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiOptOutDetectionEnabled = null;
+            if (parseNode.GetChildNode("auto_chunk_long_messages") is { } nullNodeAutoChunkLongMessages && nullNodeAutoChunkLongMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoChunkLongMessages = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enables AI detection of inbound opt-out messages that do not follow the standard STOP/UNSTOP/HELP opt-out keyword pattern. When enabled, the messaging platform applies an AI model to identify non-standard opt-out requests (e.g. natural-language phrases) and treats them as opt-outs.</summary>
-        public bool? AiOptOutDetectionEnabled { get; set; }
+        public bool? AiOptOutDetectionEnabled { get => _explicitNullValueAiOptOutDetectionEnabled; set { _explicitNullValueAiOptOutDetectionEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_opt_out_detection_enabled"); else _explicitNullProperties?.Remove("ai_opt_out_detection_enabled"); } }
+        private bool? _explicitNullValueAiOptOutDetectionEnabled = default!;
         /// <summary>Enables server-side chunking of outbound SMS. When enabled, an outbound message that exceeds the maximum number of segments allowed for its destination (10 segments by default; some aggregators accept up to 25) is automatically split into multiple child messages, each within the segment limit, and sent sequentially in order. Splitting is encoding-aware: GSM-7 bodies split at 153-character boundaries and UCS-2 bodies at 134-byte (67-character) boundaries. When disabled (the default), messages exceeding the segment limit are rejected with an error.</summary>
-        public bool? AutoChunkLongMessages { get; set; }
+        public bool? AutoChunkLongMessages { get => _explicitNullValueAutoChunkLongMessages; set { _explicitNullValueAutoChunkLongMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_chunk_long_messages"); else _explicitNullProperties?.Remove("auto_chunk_long_messages"); } }
+        private bool? _explicitNullValueAutoChunkLongMessages = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures"/> and sets the default values.
         /// </summary>
@@ -34,7 +45,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,6 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("ai_opt_out_detection_enabled", AiOptOutDetectionEnabled);
             writer.WriteBoolValue("auto_chunk_long_messages", AutoChunkLongMessages);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

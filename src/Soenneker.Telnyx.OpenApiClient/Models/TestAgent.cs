@@ -11,139 +11,206 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TestAgent : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_name") is { } nullNodeAgentName && nullNodeAgentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentName = null;
+            if (parseNode.GetChildNode("assistant_id") is { } nullNodeAssistantId && nullNodeAssistantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssistantId = null;
+            if (parseNode.GetChildNode("auto_update_dropoff_nodes") is { } nullNodeAutoUpdateDropoffNodes && nullNodeAutoUpdateDropoffNodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoUpdateDropoffNodes = null;
+            if (parseNode.GetChildNode("auto_update_topic_nodes") is { } nullNodeAutoUpdateTopicNodes && nullNodeAutoUpdateTopicNodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoUpdateTopicNodes = null;
+            if (parseNode.GetChildNode("chat_assistant_id") is { } nullNodeChatAssistantId && nullNodeChatAssistantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChatAssistantId = null;
+            if (parseNode.GetChildNode("contact_number") is { } nullNodeContactNumber && nullNodeContactNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactNumber = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("enabled_personalities") is { } nullNodeEnabledPersonalities && nullNodeEnabledPersonalities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledPersonalities = null;
+            if (parseNode.GetChildNode("hallucination_metric_kb_files") is { } nullNodeHallucinationMetricKbFiles && nullNodeHallucinationMetricKbFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HallucinationMetricKbFiles = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("inbound") is { } nullNodeInbound && nullNodeInbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inbound = null;
+            if (parseNode.GetChildNode("knowledge_base_files") is { } nullNodeKnowledgeBaseFiles && nullNodeKnowledgeBaseFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnowledgeBaseFiles = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("llm_max_tokens") is { } nullNodeLlmMaxTokens && nullNodeLlmMaxTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmMaxTokens = null;
+            if (parseNode.GetChildNode("llm_model") is { } nullNodeLlmModel && nullNodeLlmModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmModel = null;
+            if (parseNode.GetChildNode("llm_system_prompt") is { } nullNodeLlmSystemPrompt && nullNodeLlmSystemPrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmSystemPrompt = null;
+            if (parseNode.GetChildNode("llm_temperature") is { } nullNodeLlmTemperature && nullNodeLlmTemperature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmTemperature = null;
+            if (parseNode.GetChildNode("outbound_auto_call") is { } nullNodeOutboundAutoCall && nullNodeOutboundAutoCall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundAutoCall = null;
+            if (parseNode.GetChildNode("outbound_numbers") is { } nullNodeOutboundNumbers && nullNodeOutboundNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundNumbers = null;
+            if (parseNode.GetChildNode("sip_auth") is { } nullNodeSipAuth && nullNodeSipAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAuth = null;
+            if (parseNode.GetChildNode("sip_endpoint") is { } nullNodeSipEndpoint && nullNodeSipEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipEndpoint = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Name of the test agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentName { get; set; }
+        public string? AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
+        private string? _explicitNullValueAgentName = default!;
 #nullable restore
 #else
-        public string AgentName { get; set; }
+        public string AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
+        private string _explicitNullValueAgentName = default!;
 #endif
         /// <summary>ID of the Telnyx AI assistant under test.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssistantId { get; set; }
+        public string? AssistantId { get => _explicitNullValueAssistantId; set { _explicitNullValueAssistantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant_id"); else _explicitNullProperties?.Remove("assistant_id"); } }
+        private string? _explicitNullValueAssistantId = default!;
 #nullable restore
 #else
-        public string AssistantId { get; set; }
+        public string AssistantId { get => _explicitNullValueAssistantId; set { _explicitNullValueAssistantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant_id"); else _explicitNullProperties?.Remove("assistant_id"); } }
+        private string _explicitNullValueAssistantId = default!;
 #endif
         /// <summary>The auto_update_dropoff_nodes property</summary>
-        public bool? AutoUpdateDropoffNodes { get; set; }
+        public bool? AutoUpdateDropoffNodes { get => _explicitNullValueAutoUpdateDropoffNodes; set { _explicitNullValueAutoUpdateDropoffNodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_update_dropoff_nodes"); else _explicitNullProperties?.Remove("auto_update_dropoff_nodes"); } }
+        private bool? _explicitNullValueAutoUpdateDropoffNodes = default!;
         /// <summary>The auto_update_topic_nodes property</summary>
-        public bool? AutoUpdateTopicNodes { get; set; }
+        public bool? AutoUpdateTopicNodes { get => _explicitNullValueAutoUpdateTopicNodes; set { _explicitNullValueAutoUpdateTopicNodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_update_topic_nodes"); else _explicitNullProperties?.Remove("auto_update_topic_nodes"); } }
+        private bool? _explicitNullValueAutoUpdateTopicNodes = default!;
         /// <summary>ID of the chat assistant under test, when testing text channels.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChatAssistantId { get; set; }
+        public string? ChatAssistantId { get => _explicitNullValueChatAssistantId; set { _explicitNullValueChatAssistantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chat_assistant_id"); else _explicitNullProperties?.Remove("chat_assistant_id"); } }
+        private string? _explicitNullValueChatAssistantId = default!;
 #nullable restore
 #else
-        public string ChatAssistantId { get; set; }
+        public string ChatAssistantId { get => _explicitNullValueChatAssistantId; set { _explicitNullValueChatAssistantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chat_assistant_id"); else _explicitNullProperties?.Remove("chat_assistant_id"); } }
+        private string _explicitNullValueChatAssistantId = default!;
 #endif
         /// <summary>Contact phone number for the test agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContactNumber { get; set; }
+        public string? ContactNumber { get => _explicitNullValueContactNumber; set { _explicitNullValueContactNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact_number"); else _explicitNullProperties?.Remove("contact_number"); } }
+        private string? _explicitNullValueContactNumber = default!;
 #nullable restore
 #else
-        public string ContactNumber { get; set; }
+        public string ContactNumber { get => _explicitNullValueContactNumber; set { _explicitNullValueContactNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact_number"); else _explicitNullProperties?.Remove("contact_number"); } }
+        private string _explicitNullValueContactNumber = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>IDs of the test personalities enabled for this agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? EnabledPersonalities { get; set; }
+        public List<int?>? EnabledPersonalities { get => _explicitNullValueEnabledPersonalities; set { _explicitNullValueEnabledPersonalities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_personalities"); else _explicitNullProperties?.Remove("enabled_personalities"); } }
+        private List<int?>? _explicitNullValueEnabledPersonalities = default!;
 #nullable restore
 #else
-        public List<int?> EnabledPersonalities { get; set; }
+        public List<int?> EnabledPersonalities { get => _explicitNullValueEnabledPersonalities; set { _explicitNullValueEnabledPersonalities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_personalities"); else _explicitNullProperties?.Remove("enabled_personalities"); } }
+        private List<int?> _explicitNullValueEnabledPersonalities = default!;
 #endif
         /// <summary>The hallucination_metric_kb_files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? HallucinationMetricKbFiles { get; set; }
+        public List<int?>? HallucinationMetricKbFiles { get => _explicitNullValueHallucinationMetricKbFiles; set { _explicitNullValueHallucinationMetricKbFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hallucination_metric_kb_files"); else _explicitNullProperties?.Remove("hallucination_metric_kb_files"); } }
+        private List<int?>? _explicitNullValueHallucinationMetricKbFiles = default!;
 #nullable restore
 #else
-        public List<int?> HallucinationMetricKbFiles { get; set; }
+        public List<int?> HallucinationMetricKbFiles { get => _explicitNullValueHallucinationMetricKbFiles; set { _explicitNullValueHallucinationMetricKbFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hallucination_metric_kb_files"); else _explicitNullProperties?.Remove("hallucination_metric_kb_files"); } }
+        private List<int?> _explicitNullValueHallucinationMetricKbFiles = default!;
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private int? _explicitNullValueId = default!;
         /// <summary>Whether the test agent accepts inbound calls.</summary>
-        public bool? Inbound { get; set; }
+        public bool? Inbound { get => _explicitNullValueInbound; set { _explicitNullValueInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound"); else _explicitNullProperties?.Remove("inbound"); } }
+        private bool? _explicitNullValueInbound = default!;
         /// <summary>Knowledge-base files associated with the test agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? KnowledgeBaseFiles { get; set; }
+        public UntypedNode? KnowledgeBaseFiles { get => _explicitNullValueKnowledgeBaseFiles; set { _explicitNullValueKnowledgeBaseFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_files"); else _explicitNullProperties?.Remove("knowledge_base_files"); } }
+        private UntypedNode? _explicitNullValueKnowledgeBaseFiles = default!;
 #nullable restore
 #else
-        public UntypedNode KnowledgeBaseFiles { get; set; }
+        public UntypedNode KnowledgeBaseFiles { get => _explicitNullValueKnowledgeBaseFiles; set { _explicitNullValueKnowledgeBaseFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base_files"); else _explicitNullProperties?.Remove("knowledge_base_files"); } }
+        private UntypedNode _explicitNullValueKnowledgeBaseFiles = default!;
 #endif
         /// <summary>ISO language code the test agent converses in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Language { get; set; }
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string? _explicitNullValueLanguage = default!;
 #nullable restore
 #else
-        public string Language { get; set; }
+        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string _explicitNullValueLanguage = default!;
 #endif
         /// <summary>The llm_max_tokens property</summary>
-        public int? LlmMaxTokens { get; set; }
+        public int? LlmMaxTokens { get => _explicitNullValueLlmMaxTokens; set { _explicitNullValueLlmMaxTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_max_tokens"); else _explicitNullProperties?.Remove("llm_max_tokens"); } }
+        private int? _explicitNullValueLlmMaxTokens = default!;
         /// <summary>Model used to drive the test agent&apos;s side of the conversation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmModel { get; set; }
+        public string? LlmModel { get => _explicitNullValueLlmModel; set { _explicitNullValueLlmModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_model"); else _explicitNullProperties?.Remove("llm_model"); } }
+        private string? _explicitNullValueLlmModel = default!;
 #nullable restore
 #else
-        public string LlmModel { get; set; }
+        public string LlmModel { get => _explicitNullValueLlmModel; set { _explicitNullValueLlmModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_model"); else _explicitNullProperties?.Remove("llm_model"); } }
+        private string _explicitNullValueLlmModel = default!;
 #endif
         /// <summary>The llm_system_prompt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmSystemPrompt { get; set; }
+        public string? LlmSystemPrompt { get => _explicitNullValueLlmSystemPrompt; set { _explicitNullValueLlmSystemPrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_system_prompt"); else _explicitNullProperties?.Remove("llm_system_prompt"); } }
+        private string? _explicitNullValueLlmSystemPrompt = default!;
 #nullable restore
 #else
-        public string LlmSystemPrompt { get; set; }
+        public string LlmSystemPrompt { get => _explicitNullValueLlmSystemPrompt; set { _explicitNullValueLlmSystemPrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_system_prompt"); else _explicitNullProperties?.Remove("llm_system_prompt"); } }
+        private string _explicitNullValueLlmSystemPrompt = default!;
 #endif
         /// <summary>The llm_temperature property</summary>
-        public double? LlmTemperature { get; set; }
+        public double? LlmTemperature { get => _explicitNullValueLlmTemperature; set { _explicitNullValueLlmTemperature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_temperature"); else _explicitNullProperties?.Remove("llm_temperature"); } }
+        private double? _explicitNullValueLlmTemperature = default!;
         /// <summary>The outbound_auto_call property</summary>
-        public bool? OutboundAutoCall { get; set; }
+        public bool? OutboundAutoCall { get => _explicitNullValueOutboundAutoCall; set { _explicitNullValueOutboundAutoCall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_auto_call"); else _explicitNullProperties?.Remove("outbound_auto_call"); } }
+        private bool? _explicitNullValueOutboundAutoCall = default!;
         /// <summary>Outbound numbers associated with the test agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? OutboundNumbers { get; set; }
+        public UntypedNode? OutboundNumbers { get => _explicitNullValueOutboundNumbers; set { _explicitNullValueOutboundNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_numbers"); else _explicitNullProperties?.Remove("outbound_numbers"); } }
+        private UntypedNode? _explicitNullValueOutboundNumbers = default!;
 #nullable restore
 #else
-        public UntypedNode OutboundNumbers { get; set; }
+        public UntypedNode OutboundNumbers { get => _explicitNullValueOutboundNumbers; set { _explicitNullValueOutboundNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_numbers"); else _explicitNullProperties?.Remove("outbound_numbers"); } }
+        private UntypedNode _explicitNullValueOutboundNumbers = default!;
 #endif
         /// <summary>The sip_auth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty? SipAuth { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty? SipAuth { get => _explicitNullValueSipAuth; set { _explicitNullValueSipAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth"); else _explicitNullProperties?.Remove("sip_auth"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty? _explicitNullValueSipAuth = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty SipAuth { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty SipAuth { get => _explicitNullValueSipAuth; set { _explicitNullValueSipAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth"); else _explicitNullProperties?.Remove("sip_auth"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty _explicitNullValueSipAuth = default!;
 #endif
         /// <summary>The sip_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SipEndpoint { get; set; }
+        public string? SipEndpoint { get => _explicitNullValueSipEndpoint; set { _explicitNullValueSipEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_endpoint"); else _explicitNullProperties?.Remove("sip_endpoint"); } }
+        private string? _explicitNullValueSipEndpoint = default!;
 #nullable restore
 #else
-        public string SipEndpoint { get; set; }
+        public string SipEndpoint { get => _explicitNullValueSipEndpoint; set { _explicitNullValueSipEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_endpoint"); else _explicitNullProperties?.Remove("sip_endpoint"); } }
+        private string _explicitNullValueSipEndpoint = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TestAgent"/> and sets the default values.
         /// </summary>
@@ -159,7 +226,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TestAgent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TestAgent();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TestAgent(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -224,6 +291,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestAgentSipAuthProperty>("sip_auth", SipAuth);
             writer.WriteStringValue("sip_endpoint", SipEndpoint);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

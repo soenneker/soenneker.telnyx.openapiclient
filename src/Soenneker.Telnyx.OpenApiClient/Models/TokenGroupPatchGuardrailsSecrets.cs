@@ -11,11 +11,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TokenGroupPatchGuardrailsSecrets : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+            if (parseNode.GetChildNode("response") is { } nullNodeResponse && nullNodeResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Response = null;
+        }
+
         /// <summary>The prompt property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsPrompt? Prompt { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsPrompt? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsPrompt? _explicitNullValuePrompt = default!;
         /// <summary>The response property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsResponse? Response { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsResponse? Response { get => _explicitNullValueResponse; set { _explicitNullValueResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response"); else _explicitNullProperties?.Remove("response"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsResponse? _explicitNullValueResponse = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -24,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecrets CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecrets();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecrets(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsPrompt>("prompt", Prompt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsResponse>("response", Response);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchGuardrailsSecretsResponse>("response", Response);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

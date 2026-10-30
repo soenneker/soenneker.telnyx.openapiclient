@@ -12,43 +12,64 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AwsProviderParams : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("language_code") is { } nullNodeLanguageCode && nullNodeLanguageCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LanguageCode = null;
+            if (parseNode.GetChildNode("lexicon_names") is { } nullNodeLexiconNames && nullNodeLexiconNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexiconNames = null;
+            if (parseNode.GetChildNode("output_format") is { } nullNodeOutputFormat && nullNodeOutputFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputFormat = null;
+            if (parseNode.GetChildNode("sample_rate") is { } nullNodeSampleRate && nullNodeSampleRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SampleRate = null;
+            if (parseNode.GetChildNode("text_type") is { } nullNodeTextType && nullNodeTextType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Language code (e.g. `en-US`, `es-ES`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LanguageCode { get; set; }
+        public string? LanguageCode { get => _explicitNullValueLanguageCode; set { _explicitNullValueLanguageCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_code"); else _explicitNullProperties?.Remove("language_code"); } }
+        private string? _explicitNullValueLanguageCode = default!;
 #nullable restore
 #else
-        public string LanguageCode { get; set; }
+        public string LanguageCode { get => _explicitNullValueLanguageCode; set { _explicitNullValueLanguageCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_code"); else _explicitNullProperties?.Remove("language_code"); } }
+        private string _explicitNullValueLanguageCode = default!;
 #endif
         /// <summary>List of lexicon names to apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? LexiconNames { get; set; }
+        public List<string>? LexiconNames { get => _explicitNullValueLexiconNames; set { _explicitNullValueLexiconNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexicon_names"); else _explicitNullProperties?.Remove("lexicon_names"); } }
+        private List<string>? _explicitNullValueLexiconNames = default!;
 #nullable restore
 #else
-        public List<string> LexiconNames { get; set; }
+        public List<string> LexiconNames { get => _explicitNullValueLexiconNames; set { _explicitNullValueLexiconNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexicon_names"); else _explicitNullProperties?.Remove("lexicon_names"); } }
+        private List<string> _explicitNullValueLexiconNames = default!;
 #endif
         /// <summary>Audio output format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OutputFormat { get; set; }
+        public string? OutputFormat { get => _explicitNullValueOutputFormat; set { _explicitNullValueOutputFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_format"); else _explicitNullProperties?.Remove("output_format"); } }
+        private string? _explicitNullValueOutputFormat = default!;
 #nullable restore
 #else
-        public string OutputFormat { get; set; }
+        public string OutputFormat { get => _explicitNullValueOutputFormat; set { _explicitNullValueOutputFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_format"); else _explicitNullProperties?.Remove("output_format"); } }
+        private string _explicitNullValueOutputFormat = default!;
 #endif
         /// <summary>Audio sample rate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SampleRate { get; set; }
+        public string? SampleRate { get => _explicitNullValueSampleRate; set { _explicitNullValueSampleRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample_rate"); else _explicitNullProperties?.Remove("sample_rate"); } }
+        private string? _explicitNullValueSampleRate = default!;
 #nullable restore
 #else
-        public string SampleRate { get; set; }
+        public string SampleRate { get => _explicitNullValueSampleRate; set { _explicitNullValueSampleRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample_rate"); else _explicitNullProperties?.Remove("sample_rate"); } }
+        private string _explicitNullValueSampleRate = default!;
 #endif
         /// <summary>Input text type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParamsTextType? TextType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParamsTextType? TextType { get => _explicitNullValueTextType; set { _explicitNullValueTextType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_type"); else _explicitNullProperties?.Remove("text_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParamsTextType? _explicitNullValueTextType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams"/> and sets the default values.
         /// </summary>
@@ -64,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("output_format", OutputFormat);
             writer.WriteStringValue("sample_rate", SampleRate);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParamsTextType>("text_type", TextType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

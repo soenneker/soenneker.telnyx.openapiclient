@@ -12,80 +12,119 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DirUpdateRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("authorizer_email") is { } nullNodeAuthorizerEmail && nullNodeAuthorizerEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorizerEmail = null;
+            if (parseNode.GetChildNode("authorizer_name") is { } nullNodeAuthorizerName && nullNodeAuthorizerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorizerName = null;
+            if (parseNode.GetChildNode("bpo_authorizations") is { } nullNodeBpoAuthorizations && nullNodeBpoAuthorizations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BpoAuthorizations = null;
+            if (parseNode.GetChildNode("call_reasons") is { } nullNodeCallReasons && nullNodeCallReasons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallReasons = null;
+            if (parseNode.GetChildNode("certify_brand_is_accurate") is { } nullNodeCertifyBrandIsAccurate && nullNodeCertifyBrandIsAccurate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertifyBrandIsAccurate = null;
+            if (parseNode.GetChildNode("certify_ip_ownership") is { } nullNodeCertifyIpOwnership && nullNodeCertifyIpOwnership.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertifyIpOwnership = null;
+            if (parseNode.GetChildNode("certify_no_shaft_content") is { } nullNodeCertifyNoShaftContent && nullNodeCertifyNoShaftContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertifyNoShaftContent = null;
+            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("documents") is { } nullNodeDocuments && nullNodeDocuments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Documents = null;
+            if (parseNode.GetChildNode("logo_url") is { } nullNodeLogoUrl && nullNodeLogoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoUrl = null;
+            if (parseNode.GetChildNode("reselling") is { } nullNodeReselling && nullNodeReselling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reselling = null;
+            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Contact email of the authorizer. Telnyx may send verification or infringement notices here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthorizerEmail { get; set; }
+        public string? AuthorizerEmail { get => _explicitNullValueAuthorizerEmail; set { _explicitNullValueAuthorizerEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorizer_email"); else _explicitNullProperties?.Remove("authorizer_email"); } }
+        private string? _explicitNullValueAuthorizerEmail = default!;
 #nullable restore
 #else
-        public string AuthorizerEmail { get; set; }
+        public string AuthorizerEmail { get => _explicitNullValueAuthorizerEmail; set { _explicitNullValueAuthorizerEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorizer_email"); else _explicitNullProperties?.Remove("authorizer_email"); } }
+        private string _explicitNullValueAuthorizerEmail = default!;
 #endif
         /// <summary>Name of the person at your enterprise authorizing this DIR. Must be a real individual.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthorizerName { get; set; }
+        public string? AuthorizerName { get => _explicitNullValueAuthorizerName; set { _explicitNullValueAuthorizerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorizer_name"); else _explicitNullProperties?.Remove("authorizer_name"); } }
+        private string? _explicitNullValueAuthorizerName = default!;
 #nullable restore
 #else
-        public string AuthorizerName { get; set; }
+        public string AuthorizerName { get => _explicitNullValueAuthorizerName; set { _explicitNullValueAuthorizerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorizer_name"); else _explicitNullProperties?.Remove("authorizer_name"); } }
+        private string _explicitNullValueAuthorizerName = default!;
 #endif
         /// <summary>Optional. Replace this DIR&apos;s authorized BPO (Business Process Outsourcer) accounts with these, each with its signed Letter of Authorization. The supplied list replaces the current one: a BPO left out has its authorization removed, and a new BPO (or a changed Letter of Authorization) is created `pending` admin review. Send an empty list to clear all authorizations; omit the field to leave them unchanged. Editing this list does not re-vet the DIR. Maximum 10.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput>? BpoAuthorizations { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput>? BpoAuthorizations { get => _explicitNullValueBpoAuthorizations; set { _explicitNullValueBpoAuthorizations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bpo_authorizations"); else _explicitNullProperties?.Remove("bpo_authorizations"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput>? _explicitNullValueBpoAuthorizations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput> BpoAuthorizations { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput> BpoAuthorizations { get => _explicitNullValueBpoAuthorizations; set { _explicitNullValueBpoAuthorizations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bpo_authorizations"); else _explicitNullProperties?.Remove("bpo_authorizations"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput> _explicitNullValueBpoAuthorizations = default!;
 #endif
         /// <summary>1–10 reasons your business calls customers. Validate phrasing against `POST /call_reasons/validate`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CallReasons { get; set; }
+        public List<string>? CallReasons { get => _explicitNullValueCallReasons; set { _explicitNullValueCallReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_reasons"); else _explicitNullProperties?.Remove("call_reasons"); } }
+        private List<string>? _explicitNullValueCallReasons = default!;
 #nullable restore
 #else
-        public List<string> CallReasons { get; set; }
+        public List<string> CallReasons { get => _explicitNullValueCallReasons; set { _explicitNullValueCallReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_reasons"); else _explicitNullProperties?.Remove("call_reasons"); } }
+        private List<string> _explicitNullValueCallReasons = default!;
 #endif
         /// <summary>Certification that the DIR information is accurate. Must be `true` for the DIR to be submitted for vetting.</summary>
-        public bool? CertifyBrandIsAccurate { get; set; }
+        public bool? CertifyBrandIsAccurate { get => _explicitNullValueCertifyBrandIsAccurate; set { _explicitNullValueCertifyBrandIsAccurate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certify_brand_is_accurate"); else _explicitNullProperties?.Remove("certify_brand_is_accurate"); } }
+        private bool? _explicitNullValueCertifyBrandIsAccurate = default!;
         /// <summary>Certification of ownership of any logos/trademarks shown. Must be `true` for the DIR to be submitted for vetting.</summary>
-        public bool? CertifyIpOwnership { get; set; }
+        public bool? CertifyIpOwnership { get => _explicitNullValueCertifyIpOwnership; set { _explicitNullValueCertifyIpOwnership = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certify_ip_ownership"); else _explicitNullProperties?.Remove("certify_ip_ownership"); } }
+        private bool? _explicitNullValueCertifyIpOwnership = default!;
         /// <summary>Certification that this DIR is not used for SHAFT content (Sex, Hate, Alcohol, Firearms, Tobacco) where prohibited. Must be `true` for the DIR to be submitted for vetting.</summary>
-        public bool? CertifyNoShaftContent { get; set; }
+        public bool? CertifyNoShaftContent { get => _explicitNullValueCertifyNoShaftContent; set { _explicitNullValueCertifyNoShaftContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certify_no_shaft_content"); else _explicitNullProperties?.Remove("certify_no_shaft_content"); } }
+        private bool? _explicitNullValueCertifyNoShaftContent = default!;
         /// <summary>Name shown to call recipients. 1–35 characters, no emoji, not whitespace-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>Additional supporting documents to attach. Append-only: existing documents are never removed or replaced, and an empty or omitted list is a no-op. Each `document_id` may appear at most once on a DIR.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? Documents { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? Documents { get => _explicitNullValueDocuments; set { _explicitNullValueDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents"); else _explicitNullProperties?.Remove("documents"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? _explicitNullValueDocuments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> Documents { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> Documents { get => _explicitNullValueDocuments; set { _explicitNullValueDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents"); else _explicitNullProperties?.Remove("documents"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> _explicitNullValueDocuments = default!;
 #endif
         /// <summary>Publicly accessible HTTPS URL (max 128 chars) to a 256x256 BMP logo (max 1 MB).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoUrl { get; set; }
+        public string? LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_url"); else _explicitNullProperties?.Remove("logo_url"); } }
+        private string? _explicitNullValueLogoUrl = default!;
 #nullable restore
 #else
-        public string LogoUrl { get; set; }
+        public string LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_url"); else _explicitNullProperties?.Remove("logo_url"); } }
+        private string _explicitNullValueLogoUrl = default!;
 #endif
         /// <summary>Set to true if your organization places calls on behalf of other enterprises (BPO/reseller). Updating this triggers re-vetting on next submit.</summary>
-        public bool? Reselling { get; set; }
+        public bool? Reselling { get => _explicitNullValueReselling; set { _explicitNullValueReselling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reselling"); else _explicitNullProperties?.Remove("reselling"); } }
+        private bool? _explicitNullValueReselling = default!;
         /// <summary>Optional `https://` URL that receives webhook notifications when this DIR&apos;s compliance review completes. Send `null` to clear. Changing only this field on a `verified` DIR does not re-vet it. Maximum 2048 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DirUpdateRequest"/> and sets the default values.
@@ -102,7 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DirUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DirUpdateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DirUpdateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -145,6 +184,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("logo_url", LogoUrl);
             writer.WriteBoolValue("reselling", Reselling);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

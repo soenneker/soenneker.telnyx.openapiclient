@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListLoaConfigurations200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListLoaConfigurations200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListLoaConfigurations200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListLoaConfigurations200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new LOA configuration with your company details and branding for use when generating LOA documents for porting orders.
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateLoaConfiguration201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateLoaConfiguration201Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateLoaConfiguration201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateLoaConfiguration201Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a paginated list of your LOA (Letter of Authorization) configurations. LOA configurations customize the company details and branding used on generated LOA documents.

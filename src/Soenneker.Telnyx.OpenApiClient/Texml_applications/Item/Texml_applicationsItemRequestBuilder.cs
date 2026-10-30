@@ -59,6 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteTexmlApplication200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteTexmlApplication200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -88,6 +90,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetTexmlApplication200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetTexmlApplication200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -123,6 +127,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications.Item
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplication200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplication200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

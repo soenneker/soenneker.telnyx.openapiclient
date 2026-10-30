@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageApiUsage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageApiUsage200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageApiUsage200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageApiUsage200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the detail on API usage on a bucket of a particular time period, group by method category.

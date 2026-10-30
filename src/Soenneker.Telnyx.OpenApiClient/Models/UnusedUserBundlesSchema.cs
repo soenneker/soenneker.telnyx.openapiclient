@@ -11,24 +11,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UnusedUserBundlesSchema : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("billing_bundle") is { } nullNodeBillingBundle && nullNodeBillingBundle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingBundle = null;
+            if (parseNode.GetChildNode("user_bundle_ids") is { } nullNodeUserBundleIds && nullNodeUserBundleIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserBundleIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The billing_bundle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary? BillingBundle { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary? BillingBundle { get => _explicitNullValueBillingBundle; set { _explicitNullValueBillingBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_bundle"); else _explicitNullProperties?.Remove("billing_bundle"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary? _explicitNullValueBillingBundle = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary BillingBundle { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary BillingBundle { get => _explicitNullValueBillingBundle; set { _explicitNullValueBillingBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_bundle"); else _explicitNullProperties?.Remove("billing_bundle"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary _explicitNullValueBillingBundle = default!;
 #endif
         /// <summary>List of user bundle IDs for given bundle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? UserBundleIds { get; set; }
+        public List<Guid?>? UserBundleIds { get => _explicitNullValueUserBundleIds; set { _explicitNullValueUserBundleIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_bundle_ids"); else _explicitNullProperties?.Remove("user_bundle_ids"); } }
+        private List<Guid?>? _explicitNullValueUserBundleIds = default!;
 #nullable restore
 #else
-        public List<Guid?> UserBundleIds { get; set; }
+        public List<Guid?> UserBundleIds { get => _explicitNullValueUserBundleIds; set { _explicitNullValueUserBundleIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_bundle_ids"); else _explicitNullProperties?.Remove("user_bundle_ids"); } }
+        private List<Guid?> _explicitNullValueUserBundleIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnusedUserBundlesSchema"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UnusedUserBundlesSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UnusedUserBundlesSchema();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UnusedUserBundlesSchema(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary>("billing_bundle", BillingBundle);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("user_bundle_ids", UserBundleIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

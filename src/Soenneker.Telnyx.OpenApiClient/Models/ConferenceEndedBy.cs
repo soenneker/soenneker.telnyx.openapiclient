@@ -12,24 +12,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConferenceEndedBy : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_control_id") is { } nullNodeCallControlId && nullNodeCallControlId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlId = null;
+            if (parseNode.GetChildNode("call_session_id") is { } nullNodeCallSessionId && nullNodeCallSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSessionId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Call Control ID which ended the conference</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallControlId { get; set; }
+        public string? CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
+        private string? _explicitNullValueCallControlId = default!;
 #nullable restore
 #else
-        public string CallControlId { get; set; }
+        public string CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
+        private string _explicitNullValueCallControlId = default!;
 #endif
         /// <summary>Call Session ID which ended the conference</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSessionId { get; set; }
+        public string? CallSessionId { get => _explicitNullValueCallSessionId; set { _explicitNullValueCallSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_session_id"); else _explicitNullProperties?.Remove("call_session_id"); } }
+        private string? _explicitNullValueCallSessionId = default!;
 #nullable restore
 #else
-        public string CallSessionId { get; set; }
+        public string CallSessionId { get => _explicitNullValueCallSessionId; set { _explicitNullValueCallSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_session_id"); else _explicitNullProperties?.Remove("call_session_id"); } }
+        private string _explicitNullValueCallSessionId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("call_session_id", CallSessionId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

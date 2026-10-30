@@ -12,22 +12,38 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SoundModifications : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("octaves") is { } nullNodeOctaves && nullNodeOctaves.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Octaves = null;
+            if (parseNode.GetChildNode("pitch") is { } nullNodePitch && nullNodePitch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pitch = null;
+            if (parseNode.GetChildNode("semitone") is { } nullNodeSemitone && nullNodeSemitone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Semitone = null;
+            if (parseNode.GetChildNode("track") is { } nullNodeTrack && nullNodeTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Track = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Adjust the pitch in octaves, values should be between -1 and 1, default 0</summary>
-        public float? Octaves { get; set; }
+        public float? Octaves { get => _explicitNullValueOctaves; set { _explicitNullValueOctaves = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("octaves"); else _explicitNullProperties?.Remove("octaves"); } }
+        private float? _explicitNullValueOctaves = default!;
         /// <summary>Set the pitch directly, value should be &gt; 0, default 1 (lower = lower tone)</summary>
-        public float? Pitch { get; set; }
+        public float? Pitch { get => _explicitNullValuePitch; set { _explicitNullValuePitch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pitch"); else _explicitNullProperties?.Remove("pitch"); } }
+        private float? _explicitNullValuePitch = default!;
         /// <summary>Adjust the pitch in semitones, values should be between -14 and 14, default 0</summary>
-        public float? Semitone { get; set; }
+        public float? Semitone { get => _explicitNullValueSemitone; set { _explicitNullValueSemitone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("semitone"); else _explicitNullProperties?.Remove("semitone"); } }
+        private float? _explicitNullValueSemitone = default!;
         /// <summary>The track to which the sound modifications will be applied. Accepted values are `inbound` or `outbound`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Track { get; set; }
+        public string? Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
+        private string? _explicitNullValueTrack = default!;
 #nullable restore
 #else
-        public string Track { get; set; }
+        public string Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
+        private string _explicitNullValueTrack = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications"/> and sets the default values.
@@ -45,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteFloatValue("pitch", Pitch);
             writer.WriteFloatValue("semitone", Semitone);
             writer.WriteStringValue("track", Track);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

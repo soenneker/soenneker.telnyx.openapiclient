@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.Stop
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StopMigration200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StopMigration200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StopMigration200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StopMigration200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Stops the specified in-progress storage migration and returns the updated migration.

@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutRequest200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutRequest200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutRequest200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPortoutRequest200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the portout requests according to filters. Carrier Port Out API available. Please contact porting@telnyx.com.

@@ -12,37 +12,62 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpendLimitEvaluation : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account_blocked") is { } nullNodeAccountBlocked && nullNodeAccountBlocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountBlocked = null;
+            if (parseNode.GetChildNode("blocked_now") is { } nullNodeBlockedNow && nullNodeBlockedNow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedNow = null;
+            if (parseNode.GetChildNode("evaluation_deferred") is { } nullNodeEvaluationDeferred && nullNodeEvaluationDeferred.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvaluationDeferred = null;
+            if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("released") is { } nullNodeReleased && nullNodeReleased.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Released = null;
+            if (parseNode.GetChildNode("spend_usd") is { } nullNodeSpendUsd && nullNodeSpendUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendUsd = null;
+            if (parseNode.GetChildNode("still_blocked_other_period") is { } nullNodeStillBlockedOtherPeriod && nullNodeStillBlockedOtherPeriod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StillBlockedOtherPeriod = null;
+            if (parseNode.GetChildNode("still_over_limit") is { } nullNodeStillOverLimit && nullNodeStillOverLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StillOverLimit = null;
+        }
+
         /// <summary>API key writes only: the account itself remains blocked for the product under a total limit. Absent for total limit writes.</summary>
-        public bool? AccountBlocked { get; set; }
+        public bool? AccountBlocked { get => _explicitNullValueAccountBlocked; set { _explicitNullValueAccountBlocked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_blocked"); else _explicitNullProperties?.Remove("account_blocked"); } }
+        private bool? _explicitNullValueAccountBlocked = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The change blocked the product: the spend was already above the new limit.</summary>
-        public bool? BlockedNow { get; set; }
+        public bool? BlockedNow { get => _explicitNullValueBlockedNow; set { _explicitNullValueBlockedNow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_now"); else _explicitNullProperties?.Remove("blocked_now"); } }
+        private bool? _explicitNullValueBlockedNow = default!;
         /// <summary>The spend could not be checked now. The change is saved and applied within a few minutes.</summary>
-        public bool? EvaluationDeferred { get; set; }
+        public bool? EvaluationDeferred { get => _explicitNullValueEvaluationDeferred; set { _explicitNullValueEvaluationDeferred = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation_deferred"); else _explicitNullProperties?.Remove("evaluation_deferred"); } }
+        private bool? _explicitNullValueEvaluationDeferred = default!;
         /// <summary>Additional information about the result, when there is any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Note { get; set; }
+        public string? Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
+        private string? _explicitNullValueNote = default!;
 #nullable restore
 #else
-        public string Note { get; set; }
+        public string Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
+        private string _explicitNullValueNote = default!;
 #endif
         /// <summary>The change lifted a block of this period.</summary>
-        public bool? Released { get; set; }
+        public bool? Released { get => _explicitNullValueReleased; set { _explicitNullValueReleased = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("released"); else _explicitNullProperties?.Remove("released"); } }
+        private bool? _explicitNullValueReleased = default!;
         /// <summary>Spend in USD used for the check, as a decimal string. `null` when the spend was not checked.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpendUsd { get; set; }
+        public string? SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        private string? _explicitNullValueSpendUsd = default!;
 #nullable restore
 #else
-        public string SpendUsd { get; set; }
+        public string SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        private string _explicitNullValueSpendUsd = default!;
 #endif
         /// <summary>The other period has an active block, so the product stays blocked whatever this period&apos;s result. For an API key write, the API key&apos;s limit in the other period.</summary>
-        public bool? StillBlockedOtherPeriod { get; set; }
+        public bool? StillBlockedOtherPeriod { get => _explicitNullValueStillBlockedOtherPeriod; set { _explicitNullValueStillBlockedOtherPeriod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("still_blocked_other_period"); else _explicitNullProperties?.Remove("still_blocked_other_period"); } }
+        private bool? _explicitNullValueStillBlockedOtherPeriod = default!;
         /// <summary>A block of this period remains because the spend is still above the new limit.</summary>
-        public bool? StillOverLimit { get; set; }
+        public bool? StillOverLimit { get => _explicitNullValueStillOverLimit; set { _explicitNullValueStillOverLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("still_over_limit"); else _explicitNullProperties?.Remove("still_over_limit"); } }
+        private bool? _explicitNullValueStillOverLimit = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation"/> and sets the default values.
         /// </summary>
@@ -58,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("spend_usd", SpendUsd);
             writer.WriteBoolValue("still_blocked_other_period", StillBlockedOtherPeriod);
             writer.WriteBoolValue("still_over_limit", StillOverLimit);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

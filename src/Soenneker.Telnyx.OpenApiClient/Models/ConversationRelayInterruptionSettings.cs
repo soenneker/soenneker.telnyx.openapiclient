@@ -12,17 +12,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationRelayInterruptionSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enable") is { } nullNodeEnable && nullNodeEnable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enable = null;
+            if (parseNode.GetChildNode("interruptible") is { } nullNodeInterruptible && nullNodeInterruptible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interruptible = null;
+            if (parseNode.GetChildNode("interruptible_greeting") is { } nullNodeInterruptibleGreeting && nullNodeInterruptibleGreeting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptibleGreeting = null;
+            if (parseNode.GetChildNode("welcome_greeting_interruptible") is { } nullNodeWelcomeGreetingInterruptible && nullNodeWelcomeGreetingInterruptible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WelcomeGreetingInterruptible = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Legacy boolean form. `true` is equivalent to `interruptible=any`; `false` is equivalent to `interruptible=none`.</summary>
-        public bool? Enable { get; set; }
+        public bool? Enable { get => _explicitNullValueEnable; set { _explicitNullValueEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable"); else _explicitNullProperties?.Remove("enable"); } }
+        private bool? _explicitNullValueEnable = default!;
         /// <summary>Controls when caller input can interrupt assistant speech. `any` allows speech or DTMF interruptions; `none` disables interruptions; `speech` allows speech only; `dtmf` allows DTMF only.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? Interruptible { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? Interruptible { get => _explicitNullValueInterruptible; set { _explicitNullValueInterruptible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruptible"); else _explicitNullProperties?.Remove("interruptible"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? _explicitNullValueInterruptible = default!;
         /// <summary>Controls when caller input can interrupt assistant speech. `any` allows speech or DTMF interruptions; `none` disables interruptions; `speech` allows speech only; `dtmf` allows DTMF only.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? InterruptibleGreeting { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? InterruptibleGreeting { get => _explicitNullValueInterruptibleGreeting; set { _explicitNullValueInterruptibleGreeting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruptible_greeting"); else _explicitNullProperties?.Remove("interruptible_greeting"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? _explicitNullValueInterruptibleGreeting = default!;
         /// <summary>Controls when caller input can interrupt assistant speech. `any` allows speech or DTMF interruptions; `none` disables interruptions; `speech` allows speech only; `dtmf` allows DTMF only.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? WelcomeGreetingInterruptible { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? WelcomeGreetingInterruptible { get => _explicitNullValueWelcomeGreetingInterruptible; set { _explicitNullValueWelcomeGreetingInterruptible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("welcome_greeting_interruptible"); else _explicitNullProperties?.Remove("welcome_greeting_interruptible"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? _explicitNullValueWelcomeGreetingInterruptible = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptionSettings"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptionSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptionSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptionSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>("interruptible", Interruptible);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>("interruptible_greeting", InterruptibleGreeting);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>("welcome_greeting_interruptible", WelcomeGreetingInterruptible);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

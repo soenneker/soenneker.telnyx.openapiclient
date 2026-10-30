@@ -11,16 +11,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MigrationSourceParams : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bucket_name") is { } nullNodeBucketName && nullNodeBucketName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BucketName = null;
+            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("provider_auth") is { } nullNodeProviderAuth && nullNodeProviderAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderAuth = null;
+            if (parseNode.GetChildNode("source_region") is { } nullNodeSourceRegion && nullNodeSourceRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceRegion = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Bucket name to migrate the data from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BucketName { get; set; }
+        public string? BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
+        private string? _explicitNullValueBucketName = default!;
 #nullable restore
 #else
-        public string BucketName { get; set; }
+        public string BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
+        private string _explicitNullValueBucketName = default!;
 #endif
         /// <summary>Unique identifier for the data migration source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,22 +44,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Id { get; private set; }
 #endif
         /// <summary>Cloud provider from which to migrate data. Use &apos;telnyx&apos; if you want to migrate data from one Telnyx bucket to another.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider? _explicitNullValueProvider = default!;
         /// <summary>The provider_auth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth? ProviderAuth { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth? ProviderAuth { get => _explicitNullValueProviderAuth; set { _explicitNullValueProviderAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_auth"); else _explicitNullProperties?.Remove("provider_auth"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth? _explicitNullValueProviderAuth = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth ProviderAuth { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth ProviderAuth { get => _explicitNullValueProviderAuth; set { _explicitNullValueProviderAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_auth"); else _explicitNullProperties?.Remove("provider_auth"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth _explicitNullValueProviderAuth = default!;
 #endif
         /// <summary>For intra-Telnyx buckets migration, specify the source bucket region in this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceRegion { get; set; }
+        public string? SourceRegion { get => _explicitNullValueSourceRegion; set { _explicitNullValueSourceRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_region"); else _explicitNullProperties?.Remove("source_region"); } }
+        private string? _explicitNullValueSourceRegion = default!;
 #nullable restore
 #else
-        public string SourceRegion { get; set; }
+        public string SourceRegion { get => _explicitNullValueSourceRegion; set { _explicitNullValueSourceRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_region"); else _explicitNullProperties?.Remove("source_region"); } }
+        private string _explicitNullValueSourceRegion = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams"/> and sets the default values.
@@ -63,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,6 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider>("provider", Provider);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth>("provider_auth", ProviderAuth);
             writer.WriteStringValue("source_region", SourceRegion);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

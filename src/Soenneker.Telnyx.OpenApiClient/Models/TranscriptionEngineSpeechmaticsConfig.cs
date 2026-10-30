@@ -11,17 +11,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TranscriptionEngineSpeechmaticsConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("interim_results") is { } nullNodeInterimResults && nullNodeInterimResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterimResults = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("transcription_engine") is { } nullNodeTranscriptionEngine && nullNodeTranscriptionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngine = null;
+            if (parseNode.GetChildNode("transcription_model") is { } nullNodeTranscriptionModel && nullNodeTranscriptionModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionModel = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to send also interim results. If set to false, only final results will be sent.</summary>
-        public bool? InterimResults { get; set; }
+        public bool? InterimResults { get => _explicitNullValueInterimResults; set { _explicitNullValueInterimResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interim_results"); else _explicitNullProperties?.Remove("interim_results"); } }
+        private bool? _explicitNullValueInterimResults = default!;
         /// <summary>Language to use for speech recognition. Accepted values depend on the selected `transcription_model`. `speechmatics/standard` supports: `en`, `ba`, `eu`, `gl`, `ga`, `mt`, `mn`, `sw`, `ug`, `cy`, `ar_en`, `cmn_en`, `en_ms`, `en_ta`, `tl`, `es-bilingual-en`, `cmn_en_ms_ta`. `speechmatics/linden-1` (preview) supports the same languages as Speechmatics Realtime: `ar`, `ar_en`, `ba`, `be`, `bg`, `bn`, `ca`, `cmn`, `cmn_en`, `cmn_en_ms_ta`, `cs`, `cy`, `da`, `de`, `el`, `en`, `en_ms`, `en_ta`, `eo`, `es`, `es-bilingual-en`, `et`, `eu`, `fa`, `fi`, `fr`, `ga`, `gl`, `he`, `hi`, `hr`, `hu`, `ia`, `id`, `it`, `ja`, `ko`, `lt`, `lv`, `mn`, `mr`, `ms`, `mt`, `nl`, `no`, `pl`, `pt`, `ro`, `ru`, `sk`, `sl`, `sv`, `sw`, `ta`, `th`, `tl`, `tr`, `ug`, `uk`, `ur`, `vi`, `yue`, plus the spelling and script variants `en-US`, `en-GB`, `en-AU`, `cmn-Hans`, and `cmn-Hant` (`en` alone uses the default spelling). A value outside the selected model&apos;s list is rejected. For `speechmatics/standard`, unset, blank, `auto`, `auto_beta`, or `multi` defaults to `en`; for `speechmatics/linden-1`, only an unset language defaults to `en`, and `auto`, `auto_beta`, or `multi` is rejected.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage? Language { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage? _explicitNullValueLanguage = default!;
         /// <summary>Engine identifier for Speechmatics transcription service</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionEngine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionEngine? _explicitNullValueTranscriptionEngine = default!;
         /// <summary>The model to use for transcription. `speechmatics/linden-1` is a preview, vendor-hosted model with its own language support (see `language`).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel? TranscriptionModel { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel? TranscriptionModel { get => _explicitNullValueTranscriptionModel; set { _explicitNullValueTranscriptionModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_model"); else _explicitNullProperties?.Remove("transcription_model"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel? _explicitNullValueTranscriptionModel = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionLanguage>("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeechmaticsTranscriptionEngine>("transcription_engine", TranscriptionEngine);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSpeechmaticsConfigTranscriptionModel>("transcription_model", TranscriptionModel);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

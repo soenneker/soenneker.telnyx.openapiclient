@@ -55,6 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Session_analysis.Metadata.Item
             {
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.SessionAnalysisErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.SessionAnalysisErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeMetadataResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

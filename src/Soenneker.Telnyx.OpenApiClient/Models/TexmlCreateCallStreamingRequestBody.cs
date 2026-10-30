@@ -11,40 +11,64 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TexmlCreateCallStreamingRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("BidirectionalCodec") is { } nullNodeBidirectionalCodec && nullNodeBidirectionalCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BidirectionalCodec = null;
+            if (parseNode.GetChildNode("BidirectionalMode") is { } nullNodeBidirectionalMode && nullNodeBidirectionalMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BidirectionalMode = null;
+            if (parseNode.GetChildNode("Name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("StatusCallback") is { } nullNodeStatusCallback && nullNodeStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallback = null;
+            if (parseNode.GetChildNode("StatusCallbackMethod") is { } nullNodeStatusCallbackMethod && nullNodeStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackMethod = null;
+            if (parseNode.GetChildNode("Track") is { } nullNodeTrack && nullNodeTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Track = null;
+            if (parseNode.GetChildNode("Url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec? BidirectionalCodec { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec? BidirectionalCodec { get => _explicitNullValueBidirectionalCodec; set { _explicitNullValueBidirectionalCodec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("BidirectionalCodec"); else _explicitNullProperties?.Remove("BidirectionalCodec"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec? _explicitNullValueBidirectionalCodec = default!;
         /// <summary>Configures method of bidirectional streaming (mp3, rtp).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode? BidirectionalMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode? BidirectionalMode { get => _explicitNullValueBidirectionalMode; set { _explicitNullValueBidirectionalMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("BidirectionalMode"); else _explicitNullProperties?.Remove("BidirectionalMode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode? _explicitNullValueBidirectionalMode = default!;
         /// <summary>The user specified name of Stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Name"); else _explicitNullProperties?.Remove("Name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Name"); else _explicitNullProperties?.Remove("Name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Url where status callbacks will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusCallback { get; set; }
+        public string? StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
+        private string? _explicitNullValueStatusCallback = default!;
 #nullable restore
 #else
-        public string StatusCallback { get; set; }
+        public string StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
+        private string _explicitNullValueStatusCallback = default!;
 #endif
         /// <summary>HTTP method used to send status callbacks.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? StatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? StatusCallbackMethod { get => _explicitNullValueStatusCallbackMethod; set { _explicitNullValueStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackMethod"); else _explicitNullProperties?.Remove("StatusCallbackMethod"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? _explicitNullValueStatusCallbackMethod = default!;
         /// <summary>Tracks to be included in the stream</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack? Track { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack? Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Track"); else _explicitNullProperties?.Remove("Track"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack? _explicitNullValueTrack = default!;
         /// <summary>The destination WebSocket address where the stream is going to be delivered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingRequestBody"/> and sets the default values.
@@ -61,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingRequestBody();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingRequestBody(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,6 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack>("Track", Track);
             writer.WriteStringValue("Url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

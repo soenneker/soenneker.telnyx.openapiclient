@@ -11,18 +11,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class FaxApplicationOutbound : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("channel_limit") is { } nullNodeChannelLimit && nullNodeChannelLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelLimit = null;
+            if (parseNode.GetChildNode("outbound_voice_profile_id") is { } nullNodeOutboundVoiceProfileId && nullNodeOutboundVoiceProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundVoiceProfileId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When set, this will limit the number of concurrent outbound calls to phone numbers associated with this connection.</summary>
-        public int? ChannelLimit { get; set; }
+        public int? ChannelLimit { get => _explicitNullValueChannelLimit; set { _explicitNullValueChannelLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_limit"); else _explicitNullProperties?.Remove("channel_limit"); } }
+        private int? _explicitNullValueChannelLimit = default!;
         /// <summary>Identifies the associated outbound voice profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OutboundVoiceProfileId { get; set; }
+        public string? OutboundVoiceProfileId { get => _explicitNullValueOutboundVoiceProfileId; set { _explicitNullValueOutboundVoiceProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_voice_profile_id"); else _explicitNullProperties?.Remove("outbound_voice_profile_id"); } }
+        private string? _explicitNullValueOutboundVoiceProfileId = default!;
 #nullable restore
 #else
-        public string OutboundVoiceProfileId { get; set; }
+        public string OutboundVoiceProfileId { get => _explicitNullValueOutboundVoiceProfileId; set { _explicitNullValueOutboundVoiceProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_voice_profile_id"); else _explicitNullProperties?.Remove("outbound_voice_profile_id"); } }
+        private string _explicitNullValueOutboundVoiceProfileId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteStringValue("outbound_voice_profile_id", OutboundVoiceProfileId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

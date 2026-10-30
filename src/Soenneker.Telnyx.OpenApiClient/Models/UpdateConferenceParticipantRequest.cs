@@ -11,15 +11,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UpdateConferenceParticipantRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("beep_enabled") is { } nullNodeBeepEnabled && nullNodeBeepEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepEnabled = null;
+            if (parseNode.GetChildNode("end_conference_on_exit") is { } nullNodeEndConferenceOnExit && nullNodeEndConferenceOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndConferenceOnExit = null;
+            if (parseNode.GetChildNode("soft_end_conference_on_exit") is { } nullNodeSoftEndConferenceOnExit && nullNodeSoftEndConferenceOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SoftEndConferenceOnExit = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether entry/exit beeps are enabled for this participant.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequestBeepEnabled? BeepEnabled { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequestBeepEnabled? BeepEnabled { get => _explicitNullValueBeepEnabled; set { _explicitNullValueBeepEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_enabled"); else _explicitNullProperties?.Remove("beep_enabled"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequestBeepEnabled? _explicitNullValueBeepEnabled = default!;
         /// <summary>Whether the conference should end when this participant exits.</summary>
-        public bool? EndConferenceOnExit { get; set; }
+        public bool? EndConferenceOnExit { get => _explicitNullValueEndConferenceOnExit; set { _explicitNullValueEndConferenceOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_conference_on_exit"); else _explicitNullProperties?.Remove("end_conference_on_exit"); } }
+        private bool? _explicitNullValueEndConferenceOnExit = default!;
         /// <summary>Whether the conference should soft-end when this participant exits. A soft end will stop new participants from joining but allow existing participants to remain.</summary>
-        public bool? SoftEndConferenceOnExit { get; set; }
+        public bool? SoftEndConferenceOnExit { get => _explicitNullValueSoftEndConferenceOnExit; set { _explicitNullValueSoftEndConferenceOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("soft_end_conference_on_exit"); else _explicitNullProperties?.Remove("soft_end_conference_on_exit"); } }
+        private bool? _explicitNullValueSoftEndConferenceOnExit = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest"/> and sets the default values.
         /// </summary>
@@ -35,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequestBeepEnabled>("beep_enabled", BeepEnabled);
             writer.WriteBoolValue("end_conference_on_exit", EndConferenceOnExit);
             writer.WriteBoolValue("soft_end_conference_on_exit", SoftEndConferenceOnExit);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

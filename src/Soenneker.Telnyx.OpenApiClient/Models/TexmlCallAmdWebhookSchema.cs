@@ -12,50 +12,74 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TexmlCallAmdWebhookSchema : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
+            if (parseNode.GetChildNode("AnsweredBy") is { } nullNodeAnsweredBy && nullNodeAnsweredBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnsweredBy = null;
+            if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
+            if (parseNode.GetChildNode("CallSidLegacy") is { } nullNodeCallSidLegacy && nullNodeCallSidLegacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidLegacy = null;
+            if (parseNode.GetChildNode("ConnectionId") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("MachineDetectionDuration") is { } nullNodeMachineDetectionDuration && nullNodeMachineDetectionDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineDetectionDuration = null;
+        }
+
         /// <summary>The unique identifier of the account (user_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountSid { get; set; }
+        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        private string? _explicitNullValueAccountSid = default!;
 #nullable restore
 #else
-        public string AccountSid { get; set; }
+        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        private string _explicitNullValueAccountSid = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The result of the answering machine detection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallAmdWebhookSchemaAnsweredBy? AnsweredBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallAmdWebhookSchemaAnsweredBy? AnsweredBy { get => _explicitNullValueAnsweredBy; set { _explicitNullValueAnsweredBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AnsweredBy"); else _explicitNullProperties?.Remove("AnsweredBy"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallAmdWebhookSchemaAnsweredBy? _explicitNullValueAnsweredBy = default!;
         /// <summary>The unique identifier of the call (call_control_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSid { get; set; }
+        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        private string? _explicitNullValueCallSid = default!;
 #nullable restore
 #else
-        public string CallSid { get; set; }
+        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        private string _explicitNullValueCallSid = default!;
 #endif
         /// <summary>Legacy call identifier, same as CallSid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSidLegacy { get; set; }
+        public string? CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        private string? _explicitNullValueCallSidLegacy = default!;
 #nullable restore
 #else
-        public string CallSidLegacy { get; set; }
+        public string CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        private string _explicitNullValueCallSidLegacy = default!;
 #endif
         /// <summary>The unique identifier of the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConnectionId"); else _explicitNullProperties?.Remove("ConnectionId"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConnectionId"); else _explicitNullProperties?.Remove("ConnectionId"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>The duration of the machine detection in milliseconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MachineDetectionDuration { get; set; }
+        public string? MachineDetectionDuration { get => _explicitNullValueMachineDetectionDuration; set { _explicitNullValueMachineDetectionDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionDuration"); else _explicitNullProperties?.Remove("MachineDetectionDuration"); } }
+        private string? _explicitNullValueMachineDetectionDuration = default!;
 #nullable restore
 #else
-        public string MachineDetectionDuration { get; set; }
+        public string MachineDetectionDuration { get => _explicitNullValueMachineDetectionDuration; set { _explicitNullValueMachineDetectionDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MachineDetectionDuration"); else _explicitNullProperties?.Remove("MachineDetectionDuration"); } }
+        private string _explicitNullValueMachineDetectionDuration = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallAmdWebhookSchema"/> and sets the default values.
@@ -72,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallAmdWebhookSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallAmdWebhookSchema();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallAmdWebhookSchema(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,6 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("CallSidLegacy", CallSidLegacy);
             writer.WriteStringValue("ConnectionId", ConnectionId);
             writer.WriteStringValue("MachineDetectionDuration", MachineDetectionDuration);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -13,104 +13,152 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpendLimit : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("block") is { } nullNodeBlock && nullNodeBlock.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Block = null;
+            if (parseNode.GetChildNode("blocked") is { } nullNodeBlocked && nullNodeBlocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocked = null;
+            if (parseNode.GetChildNode("credential_id") is { } nullNodeCredentialId && nullNodeCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialId = null;
+            if (parseNode.GetChildNode("credential_limits") is { } nullNodeCredentialLimits && nullNodeCredentialLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialLimits = null;
+            if (parseNode.GetChildNode("effective_limit_usd") is { } nullNodeEffectiveLimitUsd && nullNodeEffectiveLimitUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveLimitUsd = null;
+            if (parseNode.GetChildNode("evaluation") is { } nullNodeEvaluation && nullNodeEvaluation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Evaluation = null;
+            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+            if (parseNode.GetChildNode("period") is { } nullNodePeriod && nullNodePeriod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Period = null;
+            if (parseNode.GetChildNode("period_end") is { } nullNodePeriodEnd && nullNodePeriodEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodEnd = null;
+            if (parseNode.GetChildNode("period_start") is { } nullNodePeriodStart && nullNodePeriodStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodStart = null;
+            if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
+            if (parseNode.GetChildNode("product_name") is { } nullNodeProductName && nullNodeProductName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductName = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("spend_error") is { } nullNodeSpendError && nullNodeSpendError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendError = null;
+            if (parseNode.GetChildNode("spend_usd") is { } nullNodeSpendUsd && nullNodeSpendUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendUsd = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The active block of the period. `null` when the period is not blocked.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock? Block { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock? Block { get => _explicitNullValueBlock; set { _explicitNullValueBlock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block"); else _explicitNullProperties?.Remove("block"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock? _explicitNullValueBlock = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock Block { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock Block { get => _explicitNullValueBlock; set { _explicitNullValueBlock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block"); else _explicitNullProperties?.Remove("block"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock _explicitNullValueBlock = default!;
 #endif
         /// <summary>The product is blocked for the whole account in this period (total limit). An API key&apos;s own block appears only in `credential_limits`. Always `false` in write responses; list the limits to read the block state.</summary>
-        public bool? Blocked { get; set; }
+        public bool? Blocked { get => _explicitNullValueBlocked; set { _explicitNullValueBlocked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked"); else _explicitNullProperties?.Remove("blocked"); } }
+        private bool? _explicitNullValueBlocked = default!;
         /// <summary>In write responses, the API key the write was about; `null` for the total limit. Always `null` in list entries, which describe the total limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CredentialId { get; set; }
+        public string? CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_id"); else _explicitNullProperties?.Remove("credential_id"); } }
+        private string? _explicitNullValueCredentialId = default!;
 #nullable restore
 #else
-        public string CredentialId { get; set; }
+        public string CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_id"); else _explicitNullProperties?.Remove("credential_id"); } }
+        private string _explicitNullValueCredentialId = default!;
 #endif
         /// <summary>List responses only. One item per API key limit of the product and period, sorted by `credential_id`, plus every API key that is still blocked. `[]` when there are none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit>? CredentialLimits { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit>? CredentialLimits { get => _explicitNullValueCredentialLimits; set { _explicitNullValueCredentialLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_limits"); else _explicitNullProperties?.Remove("credential_limits"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit>? _explicitNullValueCredentialLimits = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit> CredentialLimits { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit> CredentialLimits { get => _explicitNullValueCredentialLimits; set { _explicitNullValueCredentialLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_limits"); else _explicitNullProperties?.Remove("credential_limits"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit> _explicitNullValueCredentialLimits = default!;
 #endif
         /// <summary>The limit in USD that is enforced, as a decimal string. `null` means unlimited.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EffectiveLimitUsd { get; set; }
+        public string? EffectiveLimitUsd { get => _explicitNullValueEffectiveLimitUsd; set { _explicitNullValueEffectiveLimitUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_limit_usd"); else _explicitNullProperties?.Remove("effective_limit_usd"); } }
+        private string? _explicitNullValueEffectiveLimitUsd = default!;
 #nullable restore
 #else
-        public string EffectiveLimitUsd { get; set; }
+        public string EffectiveLimitUsd { get => _explicitNullValueEffectiveLimitUsd; set { _explicitNullValueEffectiveLimitUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_limit_usd"); else _explicitNullProperties?.Remove("effective_limit_usd"); } }
+        private string _explicitNullValueEffectiveLimitUsd = default!;
 #endif
         /// <summary>What a create, update or delete did to the period at once. Only present in write responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation? Evaluation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation? Evaluation { get => _explicitNullValueEvaluation; set { _explicitNullValueEvaluation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation"); else _explicitNullProperties?.Remove("evaluation"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation? _explicitNullValueEvaluation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation Evaluation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation Evaluation { get => _explicitNullValueEvaluation; set { _explicitNullValueEvaluation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evaluation"); else _explicitNullProperties?.Remove("evaluation"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitEvaluation _explicitNullValueEvaluation = default!;
 #endif
         /// <summary>The limit set on the account for the product and period, whoever set it. `null` when none is set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit? Limit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit? _explicitNullValueLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit Limit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitLimit _explicitNullValueLimit = default!;
 #endif
         /// <summary>`daily` is the current UTC day; `monthly` is the current UTC calendar month.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitPeriod? Period { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitPeriod? Period { get => _explicitNullValuePeriod; set { _explicitNullValuePeriod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period"); else _explicitNullProperties?.Remove("period"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitPeriod? _explicitNullValuePeriod = default!;
         /// <summary>Exclusive end of the current period, a UTC date.</summary>
-        public Date? PeriodEnd { get; set; }
+        public Date? PeriodEnd { get => _explicitNullValuePeriodEnd; set { _explicitNullValuePeriodEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_end"); else _explicitNullProperties?.Remove("period_end"); } }
+        private Date? _explicitNullValuePeriodEnd = default!;
         /// <summary>First UTC day of the current period.</summary>
-        public Date? PeriodStart { get; set; }
+        public Date? PeriodStart { get => _explicitNullValuePeriodStart; set { _explicitNullValuePeriodStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_start"); else _explicitNullProperties?.Remove("period_start"); } }
+        private Date? _explicitNullValuePeriodStart = default!;
         /// <summary>Product the entry applies to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Product { get; set; }
+        public string? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private string? _explicitNullValueProduct = default!;
 #nullable restore
 #else
-        public string Product { get; set; }
+        public string Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private string _explicitNullValueProduct = default!;
 #endif
         /// <summary>Display name of the product.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProductName { get; set; }
+        public string? ProductName { get => _explicitNullValueProductName; set { _explicitNullValueProductName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_name"); else _explicitNullProperties?.Remove("product_name"); } }
+        private string? _explicitNullValueProductName = default!;
 #nullable restore
 #else
-        public string ProductName { get; set; }
+        public string ProductName { get => _explicitNullValueProductName; set { _explicitNullValueProductName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_name"); else _explicitNullProperties?.Remove("product_name"); } }
+        private string _explicitNullValueProductName = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get; set; }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get; set; }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>Set when `spend_usd` is `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpendError { get; set; }
+        public string? SpendError { get => _explicitNullValueSpendError; set { _explicitNullValueSpendError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_error"); else _explicitNullProperties?.Remove("spend_error"); } }
+        private string? _explicitNullValueSpendError = default!;
 #nullable restore
 #else
-        public string SpendError { get; set; }
+        public string SpendError { get => _explicitNullValueSpendError; set { _explicitNullValueSpendError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_error"); else _explicitNullProperties?.Remove("spend_error"); } }
+        private string _explicitNullValueSpendError = default!;
 #endif
         /// <summary>Spend in USD so far in the period, as a decimal string. It can lag actual usage by about a minute. `null` when it could not be read.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpendUsd { get; set; }
+        public string? SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        private string? _explicitNullValueSpendUsd = default!;
 #nullable restore
 #else
-        public string SpendUsd { get; set; }
+        public string SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        private string _explicitNullValueSpendUsd = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimit"/> and sets the default values.
@@ -127,7 +175,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -176,6 +224,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("spend_error", SpendError);
             writer.WriteStringValue("spend_usd", SpendUsd);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

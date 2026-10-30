@@ -2725,32 +2725,7 @@
                       "format": "date-time"
                     },
                     {
-                      "title": "DateRangeFilter",
-                      "type": "object",
-                      "properties": {
-                        "gt": {
-                          "type": "string",
-                          "description": "Filter for creation date-time greater than",
-                          "format": "date-time"
-                        },
-                        "lt": {
-                          "type": "string",
-                          "description": "Filter for creation date-time less than",
-                          "format": "date-time"
-                        },
-                        "gte": {
-                          "type": "string",
-                          "description": "Filter for creation date-time greater than or equal to",
-                          "format": "date-time"
-                        },
-                        "lte": {
-                          "type": "string",
-                          "description": "Filter for creation date-time less than or equal to",
-                          "format": "date-time"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Date range filtering operations"
+                      "$ref": "#/components/schemas/CreatedAtOneOf2"
                     }
                   ]
                 }
@@ -3112,24 +3087,7 @@
                       "description": "Filter by exact CIDR block match"
                     },
                     {
-                      "title": "CidrBlockPatternFilter",
-                      "type": "object",
-                      "properties": {
-                        "startswith": {
-                          "type": "string",
-                          "description": "Filter CIDR blocks starting with the specified string"
-                        },
-                        "endswith": {
-                          "type": "string",
-                          "description": "Filter CIDR blocks ending with the specified string"
-                        },
-                        "contains": {
-                          "type": "string",
-                          "description": "Filter CIDR blocks containing the specified string"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "CIDR block pattern matching operations"
+                      "$ref": "#/components/schemas/CidrBlockOneOf2"
                     }
                   ]
                 },
@@ -3141,32 +3099,7 @@
                       "format": "date-time"
                     },
                     {
-                      "title": "DateRangeFilter",
-                      "type": "object",
-                      "properties": {
-                        "gt": {
-                          "type": "string",
-                          "description": "Filter for creation date-time greater than",
-                          "format": "date-time"
-                        },
-                        "lt": {
-                          "type": "string",
-                          "description": "Filter for creation date-time less than",
-                          "format": "date-time"
-                        },
-                        "gte": {
-                          "type": "string",
-                          "description": "Filter for creation date-time greater than or equal to",
-                          "format": "date-time"
-                        },
-                        "lte": {
-                          "type": "string",
-                          "description": "Filter for creation date-time less than or equal to",
-                          "format": "date-time"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Date range filtering operations"
+                      "$ref": "#/components/schemas/CreatedAtOneOf2Branch"
                     }
                   ]
                 }
@@ -4105,7 +4038,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateAnthropicMessage200ResponseSchema"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "example": {
                   "id": "msg_01B8b1f2a3c9d4e5f6a",
@@ -4124,10 +4058,17 @@
                     "input_tokens": 24,
                     "output_tokens": 18
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateAnthropicMessage200ResponseSchema"
                 }
               },
               "text/event-stream": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateAnthropicMessage200EventStreamResponseSchema"
                 }
               }
@@ -4245,7 +4186,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateNewAssistantPublicAssistantsPost422Response"
+                  "$ref": "#/components/schemas/CreateNewAssistantPublicAssistantsPost422ResponseError"
                 }
               }
             }
@@ -4415,7 +4356,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ImportAssistantsPublicAssistantsImportPost422Response"
+                  "$ref": "#/components/schemas/ImportAssistantsPublicAssistantsImportPost422ResponseError"
                 }
               }
             }
@@ -4628,7 +4569,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateAssistantTestPublicAssistantsTestsPost422Response"
+                  "$ref": "#/components/schemas/CreateAssistantTestPublicAssistantsTestsPost422ResponseError"
                 }
               }
             }
@@ -4846,7 +4787,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TriggerTestSuiteRunsPublicAssistantsTestsTestSuitesSuiteNameRunsPost422Response"
+                  "$ref": "#/components/schemas/TriggerTestSuiteRunsPublicAssistantsTestsTestSuitesSuiteNameRunsPost422ResponseError"
                 }
               }
             }
@@ -5179,7 +5120,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TriggerTestRunPublicAssistantsTestsTestIdRunsPost422Response"
+                  "$ref": "#/components/schemas/TriggerTestRunPublicAssistantsTestsTestIdRunsPost422ResponseError"
                 }
               }
             }
@@ -5715,7 +5656,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateCanaryDeployAssistantsAssistantIdCanaryDeploysPost422Response"
+                  "$ref": "#/components/schemas/CreateCanaryDeployAssistantsAssistantIdCanaryDeploysPost422ResponseError"
                 }
               }
             }
@@ -5988,7 +5929,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AssistantSmsChatAssistantsAssistantIdChatSmsPost422Response"
+                  "$ref": "#/components/schemas/AssistantSmsChatAssistantsAssistantIdChatSmsPost422ResponseError"
                 }
               }
             }
@@ -6232,7 +6173,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CloneAssistantPublicAssistantsAssistantIdClonePost422Response"
+                  "$ref": "#/components/schemas/CloneAssistantPublicAssistantsAssistantIdClonePost422ResponseError"
                 }
               }
             }
@@ -6663,7 +6604,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateScheduledEvent422Response"
+                  "$ref": "#/components/schemas/CreateScheduledEvent422ResponseError"
                 }
               }
             }
@@ -9476,7 +9417,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateNewConversationPublicConversationsPost422Response"
+                  "$ref": "#/components/schemas/CreateNewConversationPublicConversationsPost422ResponseError"
                 }
               }
             }
@@ -9773,7 +9714,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateInsightGroup422Response"
+                  "$ref": "#/components/schemas/CreateInsightGroup422ResponseError"
                 }
               }
             }
@@ -10272,7 +10213,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateInsight422Response"
+                  "$ref": "#/components/schemas/CreateInsight422ResponseError"
                 }
               }
             }
@@ -10814,7 +10755,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddNewMessage422Response"
+                  "$ref": "#/components/schemas/AddNewMessage422ResponseError"
                 },
                 "example": {
                   "detail": [
@@ -11053,7 +10994,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostEmbedding422Response"
+                  "$ref": "#/components/schemas/PostEmbedding422ResponseError"
                 }
               }
             }
@@ -11364,7 +11305,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostEmbeddingUrl422Response"
+                  "$ref": "#/components/schemas/PostEmbeddingUrl422ResponseError"
                 }
               }
             }
@@ -12204,7 +12145,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateMcpServer422Response"
+                  "$ref": "#/components/schemas/CreateMcpServer422ResponseError"
                 }
               }
             }
@@ -17957,7 +17898,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostSummary422Response"
+                  "$ref": "#/components/schemas/PostSummary422ResponseError"
                 }
               }
             }
@@ -22521,11 +22462,19 @@
             "content": {
               "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ExportEvaluatorScenarios200OpenxmlformatsOfficedocumentSpreadsheetmlSheetResponseSchema"
                 }
               },
               "text/csv": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ExportEvaluatorScenarios200CsvResponseSchema"
                 }
               }
@@ -24139,7 +24088,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateToolPost422Response"
+                  "$ref": "#/components/schemas/CreateToolPost422ResponseError"
                 }
               }
             }
@@ -26484,6 +26433,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/ExecuteBrowserActionSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ExecuteBrowserAction200Response"
                 }
               }
@@ -26494,6 +26446,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/ExecuteBrowserActionSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ExecuteBrowserAction202Response"
                 }
               }
@@ -29905,11 +29860,19 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/MonthlyChargesBreakdownResponse"
                 }
               },
               "text/csv": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/GetMonthlyChargesBreakdown200CsvResponseSchema"
                 }
               }
@@ -50458,15 +50421,7 @@
                       "description": "Filter by exact Global IP ID"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "in": {
-                          "type": "string",
-                          "description": "Filter by Global IP ID(s) separated by commas"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Filtering operations"
+                      "$ref": "#/components/schemas/GlobalIpIdOneOf2"
                     }
                   ]
                 },
@@ -50477,15 +50432,7 @@
                       "description": "Filter by exact Global IP Assignment ID"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "in": {
-                          "type": "string",
-                          "description": "Filter by Global IP Assignment ID(s) separated by commas"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Filtering operations"
+                      "$ref": "#/components/schemas/GlobalIpAssignmentIdOneOf2"
                     }
                   ]
                 }
@@ -50616,15 +50563,7 @@
                       "description": "Filter by exact Global IP Assignment ID"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "in": {
-                          "type": "string",
-                          "description": "Filter by Global IP Assignment ID(s) separated by commas"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Filtering operations"
+                      "$ref": "#/components/schemas/GlobalIpAssignmentIdOneOf2Branch"
                     }
                   ]
                 },
@@ -50635,15 +50574,7 @@
                       "description": "Filter by exact Global IP ID"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "in": {
-                          "type": "string",
-                          "description": "Filter by Global IP ID(s) separated by commas"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Filtering operations"
+                      "$ref": "#/components/schemas/GlobalIpIdOneOf2Branch"
                     }
                   ]
                 }
@@ -50836,15 +50767,7 @@
                       "description": "Filter by exact Global IP Assignment ID"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "in": {
-                          "type": "string",
-                          "description": "Filter by Global IP Assignment ID(s) separated by commas"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Filtering operations"
+                      "$ref": "#/components/schemas/GlobalIpAssignmentIdOneOf2Branch2"
                     }
                   ]
                 },
@@ -50855,15 +50778,7 @@
                       "description": "Filter by exact Global IP ID"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "in": {
-                          "type": "string",
-                          "description": "Filter by Global IP ID(s) separated by commas"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Filtering operations"
+                      "$ref": "#/components/schemas/GlobalIpIdOneOf2Branch2"
                     }
                   ]
                 }
@@ -51108,15 +51023,7 @@
                       "description": "Filter by exact Global IP ID"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "in": {
-                          "type": "string",
-                          "description": "Filter by Global IP ID(s) separated by commas"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Filtering operations"
+                      "$ref": "#/components/schemas/GlobalIpIdOneOf2Branch3"
                     }
                   ]
                 }
@@ -51203,15 +51110,7 @@
                       "description": "Filter by exact Global IP ID"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "in": {
-                          "type": "string",
-                          "description": "Filter by Global IP ID(s) separated by commas"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Filtering operations"
+                      "$ref": "#/components/schemas/GlobalIpIdOneOf2Branch4"
                     }
                   ]
                 }
@@ -56779,7 +56678,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TokenKeyCreatedResponse"
+                  "$ref": "#/components/schemas/CreateTokenKeysSuccessResponse"
                 },
                 "example": {
                   "data": {
@@ -56807,6 +56706,9 @@
                     "max_parallel_requests": 5,
                     "provisioning": "ready"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/TokenKeyCreatedResponse"
                 }
               }
             }
@@ -56853,7 +56755,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TokenKeyResponse"
+                  "$ref": "#/components/schemas/CreateTokenKeysSuccessResponse"
                 },
                 "example": {
                   "data": {
@@ -56880,6 +56782,9 @@
                     "max_parallel_requests": 5,
                     "provisioning": "ready"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/TokenKeyResponse"
                 }
               }
             }
@@ -57770,7 +57675,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateMachinePaymentAccountCredit403Response"
+                  "$ref": "#/components/schemas/CreateMachinePaymentAccountCredit403ResponseError"
                 },
                 "examples": {
                   "machine-payments-disabled": {
@@ -58667,6 +58572,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/CreateMeetingSessionSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/MeetingSessionResponse"
                 }
               }
@@ -58677,6 +58585,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/CreateMeetingSessionSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateMeetingSessionResponse"
                 }
               }
@@ -63533,15 +63444,7 @@
                       "$ref": "#/components/schemas/AvailableService"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "contains": {
-                          "description": "Filter by available services containing the specified service",
-                          "$ref": "#/components/schemas/AvailableService"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Available service filtering operations"
+                      "$ref": "#/components/schemas/AvailableServicesOneOf2"
                     }
                   ]
                 }
@@ -65103,6 +65006,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/CreateNotificationSettingSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateNotificationSetting200Response"
                 }
               }
@@ -65113,6 +65019,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/CreateNotificationSettingSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateNotificationSetting201Response"
                 }
               }
@@ -65159,6 +65068,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/DeleteNotificationSettingSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/DeleteNotificationSetting200Response"
                 }
               }
@@ -65169,6 +65081,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/DeleteNotificationSettingSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/DeleteNotificationSetting201Response"
                 }
               }
@@ -67994,6 +67909,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/OperatorConnectRefreshSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/OperatorConnectRefresh200Response"
                 }
               }
@@ -68004,6 +67922,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/OperatorConnectRefreshSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/OperatorConnectRefresh202Response"
                 }
               }
@@ -68097,7 +68018,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersGroupsReportResponse"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "example": {
                   "data": [
@@ -68131,13 +68053,20 @@
                       "groups": []
                     }
                   ]
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/UsersGroupsReportResponse"
                 }
               },
               "text/csv": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetOrganizationUsersGroupsReport200CsvResponseSchema"
+                  "type": "string",
+                  "format": "binary"
                 },
-                "example": "id,email,user_status,created_at,last_sign_in_at,groups\n6a09cdc3-8948-47f0-aa62-74ac943d6c58,user@example.com,enabled,2018-02-02T22:25:27.521Z,2018-02-02T22:25:27.521Z,\u0022Engineering, Sales\u0022"
+                "example": "id,email,user_status,created_at,last_sign_in_at,groups\n6a09cdc3-8948-47f0-aa62-74ac943d6c58,user@example.com,enabled,2018-02-02T22:25:27.521Z,2018-02-02T22:25:27.521Z,\u0022Engineering, Sales\u0022",
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/GetOrganizationUsersGroupsReport200CsvResponseSchema"
+                }
               }
             }
           },
@@ -71159,6 +71088,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/EnablePhoneNumberEmergencySuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/EnablePhoneNumberEmergency200Response"
                 }
               }
@@ -71169,6 +71101,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/EnablePhoneNumberEmergencySuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/EnablePhoneNumberEmergency202Response"
                 }
               }
@@ -74224,11 +74159,19 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ListPortingPhoneNumbers200Response"
                 }
               },
               "text/csv": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ListPortingPhoneNumbers200CsvResponseSchema"
                 }
               }
@@ -91697,20 +91640,32 @@
             "content": {
               "audio/mpeg": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/GenerateSpeech200MpegResponseSchema"
                 }
               },
               "audio/pcm": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/GenerateSpeech200PcmResponseSchema"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Base64AudioResponse"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "example": {
                   "base64_audio": "string"
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/Base64AudioResponse"
                 }
               }
             }
@@ -93459,11 +93414,19 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/UsageReportsResponse"
                 }
               },
               "text/csv": {
                 "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/GetUsageReports200CsvResponseSchema"
                 }
               }
@@ -96487,15 +96450,7 @@
                       "description": "Filter by exact available bandwidth match"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "contains": {
-                          "type": "integer",
-                          "description": "Filter by available bandwidth containing the specified value"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Available bandwidth filtering operations"
+                      "$ref": "#/components/schemas/AvailableBandwidthOneOf2"
                     }
                   ]
                 }
@@ -96731,15 +96686,7 @@
                       "description": "Filter by exact available bandwidth match"
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "contains": {
-                          "type": "integer",
-                          "description": "Filter by available bandwidth containing the specified value"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "description": "Available bandwidth filtering operations"
+                      "$ref": "#/components/schemas/AvailableBandwidthOneOf2Branch"
                     }
                   ]
                 }
@@ -107052,20 +106999,40 @@
       "AvatarSettings": {
         "title": "AvatarSettings",
         "required": [
-          "provider"
+          "provider",
+          "avatar_id",
+          "background_id",
+          "model"
         ],
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/TelnyxAvatarSettings"
-          }
-        ],
+        "type": "object",
         "properties": {
           "provider": {
-            "type": "string"
+            "$ref": "#/components/schemas/TelnyxAvatarSettingsProvider"
+          },
+          "avatar_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$",
+            "type": "string",
+            "description": "Stable identifier returned by the Avatars API. Discover available stock IDs with GET /v2/ai/avatars and filter[avatar_type]=stock rather than maintaining a fixed list. Custom avatar IDs use the \u0060avatar_\u0060 prefix and must belong to the authenticated organization. The service validates that the selected avatar is available.",
+            "example": "avatar_0123456789abcdef0123456789abcdef"
+          },
+          "background_id": {
+            "$ref": "#/components/schemas/TelnyxAvatarSettingsBackgroundId"
+          },
+          "model": {
+            "$ref": "#/components/schemas/Foxtrot1Model"
           }
         },
+        "additionalProperties": false,
         "description": "**Beta:** Saved Telnyx avatar configuration returned for this assistant.",
-        "discriminator": {
+        "example": {
+          "provider": "telnyx",
+          "avatar_id": "elena",
+          "background_id": "office",
+          "model": "foxtrot-1"
+        },
+        "x-client-original-discriminator": {
           "propertyName": "provider",
           "mapping": {
             "telnyx": "#/components/schemas/TelnyxAvatarSettings"
@@ -107075,20 +107042,40 @@
       "AvatarSettingsRequest": {
         "title": "AvatarSettingsRequest",
         "required": [
-          "provider"
+          "provider",
+          "avatar_id",
+          "background_id",
+          "model"
         ],
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/TelnyxAvatarSettings"
-          }
-        ],
+        "type": "object",
         "properties": {
           "provider": {
-            "type": "string"
+            "$ref": "#/components/schemas/TelnyxAvatarSettingsProvider"
+          },
+          "avatar_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$",
+            "type": "string",
+            "description": "Stable identifier returned by the Avatars API. Discover available stock IDs with GET /v2/ai/avatars and filter[avatar_type]=stock rather than maintaining a fixed list. Custom avatar IDs use the \u0060avatar_\u0060 prefix and must belong to the authenticated organization. The service validates that the selected avatar is available.",
+            "example": "avatar_0123456789abcdef0123456789abcdef"
+          },
+          "background_id": {
+            "$ref": "#/components/schemas/TelnyxAvatarSettingsBackgroundId"
+          },
+          "model": {
+            "$ref": "#/components/schemas/Foxtrot1Model"
           }
         },
+        "additionalProperties": false,
         "description": "**Beta:** Telnyx avatar configuration accepted when creating or updating an assistant. Set \u0060provider\u0060 to \u0060telnyx\u0060.",
-        "discriminator": {
+        "example": {
+          "provider": "telnyx",
+          "avatar_id": "elena",
+          "background_id": "office",
+          "model": "foxtrot-1"
+        },
+        "x-client-original-discriminator": {
           "propertyName": "provider",
           "mapping": {
             "telnyx": "#/components/schemas/TelnyxAvatarSettings"
@@ -125713,9 +125700,6 @@
         "example": "2023-08-11T19:12:11Z"
       },
       "DecisionModelAnswer": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/DecisionModelChoiceAnswer"
@@ -125727,13 +125711,8 @@
             "$ref": "#/components/schemas/DecisionModelScoreAnswer"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "An answer whose type matches its question.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "choice": "#/components/schemas/DecisionModelChoiceAnswer",
@@ -125929,9 +125908,6 @@
         "description": "Relative scores normalized across the supplied options, summing approximately to 1. These are not calibrated probabilities of correctness."
       },
       "DecisionModelQuestion": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/DecisionModelChoiceQuestion"
@@ -125943,13 +125919,8 @@
             "$ref": "#/components/schemas/DecisionModelScoreQuestion"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "A choice, yes/no, or ordered-score question.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "choice": "#/components/schemas/DecisionModelChoiceQuestion",
@@ -127705,9 +127676,6 @@
         "description": "A soft-deleted assistant in the Recently Deleted list: the full assistant configuration plus deletion metadata."
       },
       "DetailRecord": {
-        "required": [
-          "record_type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -127739,13 +127707,8 @@
             "$ref": "#/components/schemas/MediaStorageDetailRecord"
           }
         ],
-        "properties": {
-          "record_type": {
-            "type": "string"
-          }
-        },
         "description": "An object following one of the schemas published in https://developers.telnyx.com/docs/api/v2/detail-records",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "record_type",
           "mapping": {
             "MessageDetailRecord": "#/components/schemas/MessageDetailRecord",
@@ -134364,9 +134327,6 @@
       },
       "Expression": {
         "title": "Expression",
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ComparisonExpression"
@@ -134390,13 +134350,8 @@
             "$ref": "#/components/schemas/BooleanLiteralExpression"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "A node in a deterministic expression AST. Exactly one variant is selected by the \u0060type\u0060 discriminator. Terminal variants (\u0060number_literal\u0060, \u0060string_literal\u0060, \u0060bool_literal\u0060, \u0060variable\u0060) bottom out the recursion; \u0060arithmetic\u0060, \u0060bool_op\u0060, and \u0060comparison\u0060 nest further sub-expressions.\n\nExtracted into a single named schema so the recursive union is defined once (was previously inlined at every operand site).",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "arithmetic": "#/components/schemas/ArithmeticExpression",
@@ -154978,36 +154933,27 @@
         }
       },
       "PortingEvent": {
-        "required": [
-          "event_type"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/PortingEventDeletedPayload"
+            "$ref": "#/components/schemas/PortingEventOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PortingEventMessagingChangedPayload"
+            "$ref": "#/components/schemas/PortingEventOneOf2"
           },
           {
-            "$ref": "#/components/schemas/PortingEventStatusChangedEvent"
+            "$ref": "#/components/schemas/PortingEventOneOf3"
           },
           {
-            "$ref": "#/components/schemas/PortingEventNewCommentEvent"
+            "$ref": "#/components/schemas/PortingEventOneOf4"
           },
           {
-            "$ref": "#/components/schemas/PortingEventSplitEvent"
+            "$ref": "#/components/schemas/PortingEventOneOf5"
           },
           {
-            "$ref": "#/components/schemas/PortingEventWithoutWebhook"
+            "$ref": "#/components/schemas/PortingEventOneOf6"
           }
         ],
-        "properties": {
-          "event_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "event_type",
           "mapping": {
             "porting_order.deleted": "#/components/schemas/PortingEventDeletedPayload",
@@ -156650,27 +156596,18 @@
         }
       },
       "PortoutEvent": {
-        "required": [
-          "event_type"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/WebhookPortoutStatusChanged"
+            "$ref": "#/components/schemas/PortoutEventOneOf1"
           },
           {
-            "$ref": "#/components/schemas/WebhookPortoutNewComment"
+            "$ref": "#/components/schemas/PortoutEventOneOf2"
           },
           {
-            "$ref": "#/components/schemas/WebhookPortoutFocDateChanged"
+            "$ref": "#/components/schemas/PortoutEventOneOf3"
           }
         ],
-        "properties": {
-          "event_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "event_type",
           "mapping": {
             "portout.status_changed": "#/components/schemas/WebhookPortoutStatusChanged",
@@ -157357,9 +157294,6 @@
         "description": "A pronunciation dictionary record."
       },
       "PronunciationDictItem": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/PronunciationDictAliasItem"
@@ -157368,13 +157302,8 @@
             "$ref": "#/components/schemas/PronunciationDictPhonemeItem"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "A single pronunciation dictionary item. Use type \u0027alias\u0027 to replace matched text with a spoken alias, or type \u0027phoneme\u0027 to specify exact pronunciation using IPA notation.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "alias": "#/components/schemas/PronunciationDictAliasItem",
@@ -168005,9 +167934,6 @@
         }
       },
       "SttServerEvent": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/TranscriptFrame"
@@ -168016,13 +167942,8 @@
             "$ref": "#/components/schemas/SttErrorFrame"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "Union of all server-to-client WebSocket events for STT streaming.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "transcript": "#/components/schemas/TranscriptFrame",
@@ -168442,9 +168363,6 @@
         }
       },
       "SummaryLine": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ComparativeLine"
@@ -168453,12 +168371,7 @@
             "$ref": "#/components/schemas/SimpleLine"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "ComparativeLine": "#/components/schemas/ComparativeLine",
@@ -177790,9 +177703,6 @@
         }
       },
       "TranscriptionEngineDeepgramConfig": {
-        "required": [
-          "transcription_model"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/DeepgramNova2Config"
@@ -177813,12 +177723,7 @@
             "$ref": "#/components/schemas/DeepgramFluxMultiConfig"
           }
         ],
-        "properties": {
-          "transcription_model": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "transcription_model",
           "mapping": {
             "deepgram/nova-2": "#/components/schemas/DeepgramNova2Config",
@@ -179888,27 +179793,19 @@
         "description": "Request model for triggering test suite runs.\n\nOptional request body for the trigger test suite runs endpoint."
       },
       "TtsServerEvent": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/AudioChunkFrame"
+            "$ref": "#/components/schemas/TtsServerEventOneOf1"
           },
           {
-            "$ref": "#/components/schemas/FinalFrame"
+            "$ref": "#/components/schemas/TtsServerEventOneOf2"
           },
           {
-            "$ref": "#/components/schemas/ErrorFrame"
+            "$ref": "#/components/schemas/TtsServerEventOneOf3"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "Union of all server-to-client WebSocket events for TTS streaming.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "audio_chunk": "#/components/schemas/AudioChunkFrame",
@@ -188299,24 +188196,16 @@
         "description": "Paginated list of voice clones."
       },
       "VoiceCloneRequest": {
-        "required": [
-          "provider"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/TelnyxDesignClone"
+            "$ref": "#/components/schemas/VoiceCloneRequestOneOf1"
           },
           {
             "$ref": "#/components/schemas/MinimaxDesignClone"
           }
         ],
-        "properties": {
-          "provider": {
-            "type": "string"
-          }
-        },
         "description": "Request body for creating a voice clone from an existing voice design.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "provider",
           "mapping": {
             "telnyx": "#/components/schemas/TelnyxDesignClone",
@@ -202965,9 +202854,6 @@
         }
       },
       "AiAssistantAddMessagesRequestMessagesItem": {
-        "required": [
-          "role"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/UserMessage"
@@ -202985,12 +202871,7 @@
             "$ref": "#/components/schemas/DeveloperMessage"
           }
         ],
-        "properties": {
-          "role": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "role",
           "mapping": {
             "user": "#/components/schemas/UserMessage",
@@ -203002,9 +202883,6 @@
         }
       },
       "AiAssistantStartRequestMessageHistoryItem": {
-        "required": [
-          "role"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/UserMessage"
@@ -203022,12 +202900,7 @@
             "$ref": "#/components/schemas/DeveloperMessage"
           }
         ],
-        "properties": {
-          "role": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "role",
           "mapping": {
             "user": "#/components/schemas/UserMessage",
@@ -203303,9 +203176,6 @@
         }
       },
       "AssistantToolsItem": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/BookAppointmentTool"
@@ -203326,12 +203196,7 @@
             "$ref": "#/components/schemas/CallControlRetrievalTool"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "book_appointment": "#/components/schemas/BookAppointmentTool",
@@ -203731,9 +203596,6 @@
         "description": "Optional. When provided the rendered PDF embeds the signature image, printed name, and signed-at date. When absent the PDF is returned unsigned so the customer can sign externally and upload it via the Documents API."
       },
       "CallAssistantRequestToolsItem": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/BookAppointmentTool"
@@ -203754,12 +203616,7 @@
             "$ref": "#/components/schemas/CallControlRetrievalTool"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "book_appointment": "#/components/schemas/BookAppointmentTool",
@@ -203878,9 +203735,6 @@
         ]
       },
       "ConferenceSpeakRequestVoiceSettings": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
@@ -203910,13 +203764,8 @@
             "$ref": "#/components/schemas/SonioxVoiceSettings"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The settings associated with the voice selected",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
@@ -203943,26 +203792,18 @@
         "description": "Connection limits that apply to the user. Contains a single global_limit when a global connection limit applies, or per-type limits (standard_limit, texml_limit and uac_limit) when the user has per-type connection count capabilities."
       },
       "ConversationFlowNodesItem": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/FlowNode"
+            "$ref": "#/components/schemas/ConversationFlowNodesItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/ToolNode"
+            "$ref": "#/components/schemas/ConversationFlowNodesItemOneOf2"
           },
           {
-            "$ref": "#/components/schemas/SpeakNode"
+            "$ref": "#/components/schemas/ConversationFlowNodesItemOneOf3"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "prompt": "#/components/schemas/FlowNode",
@@ -203972,26 +203813,18 @@
         }
       },
       "ConversationFlowReqNodesItem": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/FlowNodeReq"
+            "$ref": "#/components/schemas/ConversationFlowReqNodesItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/ToolNodeReq"
+            "$ref": "#/components/schemas/ConversationFlowReqNodesItemOneOf2"
           },
           {
-            "$ref": "#/components/schemas/SpeakNodeReq"
+            "$ref": "#/components/schemas/ConversationFlowReqNodesItemOneOf3"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "prompt": "#/components/schemas/FlowNodeReq",
@@ -204020,9 +203853,6 @@
         ]
       },
       "ConversationRelayEmbeddedConfigVoiceSettings": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
@@ -204052,13 +203882,8 @@
             "$ref": "#/components/schemas/SonioxVoiceSettings"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The settings associated with the voice selected",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
@@ -204074,9 +203899,6 @@
         }
       },
       "ConversationRelayLanguageVoiceSettings": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
@@ -204106,13 +203928,8 @@
             "$ref": "#/components/schemas/SonioxVoiceSettings"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The settings associated with the voice selected",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
@@ -204128,9 +203945,6 @@
         }
       },
       "ConversationRelayStartRequestVoiceSettings": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
@@ -204160,13 +203974,8 @@
             "$ref": "#/components/schemas/SonioxVoiceSettings"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The settings associated with the voice selected",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
@@ -204649,9 +204458,6 @@
         ]
       },
       "CustomStorageConfigurationConfiguration": {
-        "required": [
-          "backend"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/GcsConfigurationData"
@@ -204666,12 +204472,7 @@
             "$ref": "#/components/schemas/AzureConfigurationData"
           }
         ],
-        "properties": {
-          "backend": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "backend",
           "mapping": {
             "gcs": "#/components/schemas/GcsConfigurationData",
@@ -205095,9 +204896,6 @@
       },
       "FlowEdgeCondition": {
         "title": "Condition",
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/LlmCondition"
@@ -205109,13 +204907,8 @@
             "$ref": "#/components/schemas/DefaultCondition"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "Condition that gates the transition. Discriminated by \u0060type\u0060: \u0060llm\u0060, \u0060expression\u0060.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "expression": "#/components/schemas/ExpressionCondition",
@@ -205126,9 +204919,6 @@
       },
       "FlowEdgeTarget": {
         "title": "Target",
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/NodeTarget"
@@ -205137,13 +204927,8 @@
             "$ref": "#/components/schemas/AssistantTarget"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "Destination of the transition. Discriminated by \u0060type\u0060: \u0060node\u0060 (jump to another node in this flow) or \u0060assistant\u0060 (hand off to a different assistant).",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "assistant": "#/components/schemas/AssistantTarget",
@@ -205586,9 +205371,6 @@
         }
       },
       "GatherUsingAiRequestVoiceSettings": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
@@ -205612,13 +205394,8 @@
             "$ref": "#/components/schemas/SonioxVoiceSettings"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The settings associated with the voice selected",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
@@ -205632,9 +205409,6 @@
         }
       },
       "GatherUsingSpeakRequestVoiceSettings": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
@@ -205664,13 +205438,8 @@
             "$ref": "#/components/schemas/SonioxVoiceSettings"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The settings associated with the voice selected",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
@@ -206925,9 +206694,6 @@
         "description": "What was stored, in the shape it was sent: an ingested JSON body as JSON, a string body or a remembered fact as a string. A session ingested before formats were recorded is returned as the text it was stored as."
       },
       "SpeakRequestVoiceSettings": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
@@ -206957,13 +206723,8 @@
             "$ref": "#/components/schemas/SonioxVoiceSettings"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The settings associated with the voice selected",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
@@ -287597,6 +287358,1923 @@
             }
           ]
         }
+      },
+      "CustomerReferenceOneOf2": {
+        "type": "object",
+        "properties": {
+          "eq": {
+            "type": "string",
+            "description": "Exact match for customer_reference."
+          },
+          "contains": {
+            "type": "string",
+            "description": "Partial match for customer_reference. Matching is not case-sensitive."
+          }
+        }
+      },
+      "PortingEventOneOf1": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "porting_order.deleted"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "porting_order.deleted",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "porting_order.deleted",
+                  "name": "PortingOrderDeleted"
+                }
+              ]
+            }
+          },
+          "porting_order_id": {
+            "type": "string",
+            "description": "Identifies the porting order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortingEventDeletedPayloadAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/PortingEventDeletedPayloadPayloadStatus"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/PortingEventDeletedPayloadPayload"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "PortingEventOneOf2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "porting_order.messaging_changed"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "porting_order.messaging_changed",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "porting_order.messaging_changed",
+                  "name": "PortingOrderMessagingChanged"
+                }
+              ]
+            }
+          },
+          "porting_order_id": {
+            "type": "string",
+            "description": "Identifies the porting order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortingEventMessagingChangedPayloadAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/PortingEventMessagingChangedPayloadPayloadStatus"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/PortingEventMessagingChangedPayloadPayload"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "porting_event"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "PortingEventOneOf3": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "porting_order.status_changed"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "porting_order.status_changed",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "porting_order.status_changed",
+                  "name": "PortingOrderStatusChanged"
+                }
+              ]
+            }
+          },
+          "porting_order_id": {
+            "type": "string",
+            "description": "Identifies the porting order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortingEventStatusChangedEventAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/PortingEventStatusChangedEventPayloadStatus"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/PortingEventStatusChangedEventPayload"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "porting_event"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "PortingEventOneOf4": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "porting_order.new_comment"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "porting_order.new_comment",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "porting_order.new_comment",
+                  "name": "PortingOrderNewComment"
+                }
+              ]
+            }
+          },
+          "porting_order_id": {
+            "type": "string",
+            "description": "Identifies the porting order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortingEventNewCommentEventAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/PortingEventNewCommentEventPayloadStatus"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/PortingEventNewCommentEventPayload"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "porting_event"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "PortingEventOneOf5": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "porting_order.split"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "porting_order.split",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "porting_order.split",
+                  "name": "PortingOrderSplit"
+                }
+              ]
+            }
+          },
+          "porting_order_id": {
+            "type": "string",
+            "description": "Identifies the porting order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortingEventSplitEventAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/PortingEventSplitEventPayloadStatus"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/PortingEventSplitEventPayload"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "porting_event"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "PortingEventOneOf6": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "porting_order.loa_updated",
+              "porting_order.sharing_token_expired"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "porting_order.loa_updated",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "porting_order.loa_updated",
+                  "name": "PortingOrderLoaUpdated"
+                },
+                {
+                  "value": "porting_order.sharing_token_expired",
+                  "name": "PortingOrderSharingTokenExpired"
+                }
+              ]
+            }
+          },
+          "porting_order_id": {
+            "type": "string",
+            "description": "Identifies the porting order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortingEventWithoutWebhookAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/PortingEventWithoutWebhookPayloadStatus"
+          },
+          "payload": {
+            "type": "null"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "porting_event"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "PortoutEventOneOf1": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "portout.status_changed",
+              "portout.foc_date_changed",
+              "portout.new_comment"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "portout.status_changed",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "portout.status_changed",
+                  "name": "PortoutStatusChanged"
+                },
+                {
+                  "value": "portout.foc_date_changed",
+                  "name": "PortoutFocDateChanged"
+                },
+                {
+                  "value": "portout.new_comment",
+                  "name": "PortoutNewComment"
+                }
+              ]
+            }
+          },
+          "portout_id": {
+            "type": "string",
+            "description": "Identifies the port-out order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPortoutStatusChangedAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/WebhookPortoutStatusChangedPayloadStatus"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookPortoutStatusChangedPayload"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "portout_event"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "PortoutEventOneOf2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "portout.status_changed",
+              "portout.foc_date_changed",
+              "portout.new_comment"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "portout.status_changed",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "portout.status_changed",
+                  "name": "PortoutStatusChanged"
+                },
+                {
+                  "value": "portout.foc_date_changed",
+                  "name": "PortoutFocDateChanged"
+                },
+                {
+                  "value": "portout.new_comment",
+                  "name": "PortoutNewComment"
+                }
+              ]
+            }
+          },
+          "portout_id": {
+            "type": "string",
+            "description": "Identifies the port-out order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPortoutNewCommentAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/WebhookPortoutNewCommentPayloadStatus"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookPortoutNewCommentPayload"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "portout_event"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "PortoutEventOneOf3": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the event.",
+            "format": "uuid",
+            "example": "eef3340b-8903-4466-b445-89b697315a3a"
+          },
+          "event_type": {
+            "enum": [
+              "portout.status_changed",
+              "portout.foc_date_changed",
+              "portout.new_comment"
+            ],
+            "type": "string",
+            "description": "Identifies the event type",
+            "example": "portout.status_changed",
+            "x-ms-enum": {
+              "name": "EventType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "portout.status_changed",
+                  "name": "PortoutStatusChanged"
+                },
+                {
+                  "value": "portout.foc_date_changed",
+                  "name": "PortoutFocDateChanged"
+                },
+                {
+                  "value": "portout.new_comment",
+                  "name": "PortoutNewComment"
+                }
+              ]
+            }
+          },
+          "portout_id": {
+            "type": "string",
+            "description": "Identifies the port-out order associated with the event.",
+            "format": "uuid",
+            "example": "9471c873-e3eb-4ca1-957d-f9a451334d52"
+          },
+          "available_notification_methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPortoutFocDateChangedAvailableNotificationMethodsItem"
+            },
+            "description": "Indicates the notification methods used."
+          },
+          "payload_status": {
+            "$ref": "#/components/schemas/WebhookPortoutFocDateChangedPayloadStatus"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookPortoutFocDateChangedPayload"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "portout_event"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "example": "2021-03-19T10:07:15.527000Z"
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "TtsServerEventOneOf1": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": null,
+            "enum": [
+              "audio_chunk"
+            ],
+            "type": "string",
+            "description": "Frame type identifier.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "audio_chunk",
+                  "name": "AudioChunk"
+                }
+              ]
+            }
+          },
+          "audio": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Base64-encoded audio data. May be \u0060null\u0060 for providers that use \u0060drop_concatenated_audio\u0060 mode (Telnyx, Minimax, Resemble) \u2014 in that case only streamed chunks carry audio."
+          },
+          "text": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The text segment that this audio chunk corresponds to."
+          },
+          "isFinal": {
+            "type": "boolean",
+            "description": "Always \u0060false\u0060 for audio chunk frames."
+          },
+          "cached": {
+            "type": "boolean",
+            "description": "Whether this audio was served from cache."
+          },
+          "timeToFirstAudioFrameMs": {
+            "type": "integer",
+            "description": "Milliseconds from the start-of-speech request to the first audio frame. Only present on the first audio chunk of a synthesis request."
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "TtsServerEventOneOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": null,
+            "enum": [
+              "final"
+            ],
+            "type": "string",
+            "description": "Frame type identifier.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "final",
+                  "name": "Final"
+                }
+              ]
+            }
+          },
+          "audio": {
+            "type": "null",
+            "description": "Always \u0060null\u0060 for the final frame."
+          },
+          "text": {
+            "type": "string",
+            "description": "Empty string."
+          },
+          "isFinal": {
+            "const": null,
+            "type": "boolean",
+            "description": "Always \u0060true\u0060.",
+            "default": true
+          },
+          "timeToFirstAudioFrameMs": {
+            "type": "integer",
+            "description": "Present if this was the first response frame."
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "TtsServerEventOneOf3": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": null,
+            "enum": [
+              "error"
+            ],
+            "type": "string",
+            "description": "Frame type identifier.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "error",
+                  "name": "Error"
+                }
+              ]
+            }
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong."
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "VoiceCloneRequestOneOf1": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Name for the voice clone."
+          },
+          "voice_design_id": {
+            "type": "string",
+            "description": "UUID of the source voice design to clone.",
+            "format": "uuid"
+          },
+          "language": {
+            "type": "string",
+            "description": "ISO 639-1 language code for the clone. Supports the combined Telnyx language set."
+          },
+          "gender": {
+            "$ref": "#/components/schemas/TelnyxDesignCloneGender"
+          },
+          "provider": {
+            "enum": [
+              "telnyx",
+              "Telnyx"
+            ],
+            "type": "string",
+            "description": "Voice synthesis provider. Defaults to \u0060telnyx\u0060.",
+            "x-ms-enum": {
+              "name": "Provider",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "telnyx",
+                  "name": "Telnyx1"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "voice_design_id",
+          "language",
+          "gender",
+          "provider"
+        ]
+      },
+      "ConversationFlowNodesItemOneOf1": {
+        "type": "object",
+        "properties": {
+          "external_llm": {
+            "$ref": "#/components/schemas/ExternalLlm"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Caller-supplied unique identifier for this node within the flow."
+          },
+          "instructions": {
+            "title": "Instructions",
+            "type": "string",
+            "description": "Prompt that drives the LLM while this node is active. Required."
+          },
+          "instructions_mode": {
+            "$ref": "#/components/schemas/FlowNodeInstructionsMode"
+          },
+          "llm_api_key_ref": {
+            "title": "Llm Api Key Ref",
+            "type": "string",
+            "description": "Override for \u0060Assistant.llm_api_key_ref\u0060 while this node is active. Part of the LLM bundle \u2014 see \u0060model\u0060 for cascade semantics."
+          },
+          "model": {
+            "title": "Model",
+            "type": "string",
+            "description": "Override for \u0060Assistant.model\u0060 while this node is active. Part of the LLM bundle (\u0060model\u0060 \u002B \u0060llm_api_key_ref\u0060 \u002B \u0060external_llm\u0060): when any of the three is set on the node, all three are taken from the node and the assistant-level LLM identity is not consulted. When none of the three is set, the assistant\u0027s bundle cascades unchanged."
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "Optional human-readable label, displayed in authoring UIs."
+          },
+          "position": {
+            "description": "Optional canvas coordinates used by authoring UIs to lay out the graph. Ignored by the runtime; round-trips so frontends can persist graph layout across reloads.",
+            "$ref": "#/components/schemas/NodePosition"
+          },
+          "shared_tool_ids": {
+            "title": "Shared Tool Ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IDs of shared (org-level) tools available at this node. Knowledge bases are attached the same way \u2014 via a shared retrieval tool. Tools not listed here are not callable while this node is active."
+          },
+          "tools": {
+            "title": "Tools",
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AssistantToolsItemComposed"
+              },
+              "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
+            },
+            "description": "Full tool definitions for this node, resolved from \u0060shared_tool_ids\u0060 server-side. Populated on responses so clients can render the flow without a follow-up fetch per shared tool. Ignored on input \u2014 set \u0060shared_tool_ids\u0060 to configure a node\u0027s tools."
+          },
+          "tools_mode": {
+            "$ref": "#/components/schemas/FlowNodeToolsMode"
+          },
+          "transcription": {
+            "description": "Per-node transcription override (response form).",
+            "$ref": "#/components/schemas/TranscriptionSettings"
+          },
+          "type": {
+            "const": null,
+            "title": "Type",
+            "enum": [
+              "prompt"
+            ],
+            "type": "string",
+            "description": "Node kind discriminator. \u0060prompt\u0060 is an LLM-driven step.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "prompt",
+                  "name": "Prompt"
+                }
+              ]
+            }
+          },
+          "voice_settings": {
+            "$ref": "#/components/schemas/InferenceEmbeddingVoiceSettings"
+          }
+        },
+        "required": [
+          "id",
+          "instructions",
+          "type"
+        ]
+      },
+      "ConversationFlowNodesItemOneOf2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Caller-supplied unique identifier for this node within the flow."
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "Optional human-readable label, displayed in authoring UIs."
+          },
+          "position": {
+            "description": "Optional canvas coordinates used by authoring UIs to lay out the graph. Ignored by the runtime; round-trips so frontends can persist graph layout across reloads.",
+            "$ref": "#/components/schemas/NodePosition"
+          },
+          "shared_tool_id": {
+            "title": "Shared Tool Id",
+            "type": "string",
+            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060llm\u0060 / \u0060expression\u0060 edges route the flow on the tool\u0027s outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write."
+          },
+          "tool": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssistantToolsItemComposed"
+            },
+            "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
+          },
+          "type": {
+            "const": null,
+            "title": "Type",
+            "enum": [
+              "tool"
+            ],
+            "type": "string",
+            "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "tool",
+                  "name": "Tool"
+                }
+              ]
+            }
+          },
+          "message": {
+            "title": "Message",
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Optional message delivered to the user verbatim immediately before the tool executes \u2014 an announcement such as \u0027One moment while I look that up.\u0027 No LLM turn and no customer turn: the message is spoken/sent, then the tool runs, in the same deterministic step. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables (unresolved \u2192 empty string); the tool\u0027s own result is not yet available when the message is rendered. Omit for a silent tool step.",
+            "example": "One moment while I process your payment."
+          }
+        },
+        "required": [
+          "id",
+          "shared_tool_id",
+          "type"
+        ]
+      },
+      "ConversationFlowNodesItemOneOf3": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": null,
+            "title": "Type",
+            "enum": [
+              "speak"
+            ],
+            "type": "string",
+            "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "speak",
+                  "name": "Speak"
+                }
+              ]
+            }
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Caller-supplied unique identifier for this node within the flow."
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "Optional human-readable label, displayed in authoring UIs."
+          },
+          "message": {
+            "title": "Message",
+            "type": "string",
+            "description": "Message delivered to the user verbatim when the flow reaches this node. No LLM turn \u2014 the text is spoken/sent exactly as written. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables; an unresolved placeholder renders as an empty string. After delivering, the flow routes via the node\u0027s outgoing \u0060llm\u0060 / \u0060expression\u0060 edges (commonly a single unconditional edge)."
+          },
+          "position": {
+            "description": "Optional canvas coordinates used by authoring UIs to lay out the graph. Ignored by the runtime; round-trips so frontends can persist graph layout across reloads.",
+            "$ref": "#/components/schemas/NodePosition"
+          }
+        },
+        "required": [
+          "id",
+          "message",
+          "type"
+        ]
+      },
+      "ConversationFlowReqNodesItemOneOf1": {
+        "type": "object",
+        "properties": {
+          "external_llm": {
+            "$ref": "#/components/schemas/ExternalLlmReq"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Caller-supplied unique identifier for this node within the flow.",
+            "example": "n_intake"
+          },
+          "instructions": {
+            "title": "Instructions",
+            "type": "string",
+            "description": "Prompt that drives the LLM while this node is active. Required.",
+            "example": "Greet the caller and ask what they\u0027re calling about."
+          },
+          "instructions_mode": {
+            "$ref": "#/components/schemas/FlowNodeReqInstructionsMode"
+          },
+          "llm_api_key_ref": {
+            "title": "Llm Api Key Ref",
+            "type": "string",
+            "description": "Override for \u0060Assistant.llm_api_key_ref\u0060 while this node is active. Part of the LLM bundle \u2014 see \u0060model\u0060 for cascade semantics.",
+            "example": "my-key-ref"
+          },
+          "model": {
+            "title": "Model",
+            "type": "string",
+            "description": "Override for \u0060Assistant.model\u0060 while this node is active. Part of the LLM bundle (\u0060model\u0060 \u002B \u0060llm_api_key_ref\u0060 \u002B \u0060external_llm\u0060): when any of the three is set on the node, all three are taken from the node and the assistant-level LLM identity is not consulted. When none of the three is set, the assistant\u0027s bundle cascades unchanged.",
+            "example": "moonshotai/Kimi-K2.6"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "Optional human-readable label, displayed in authoring UIs.",
+            "example": "Intake"
+          },
+          "position": {
+            "description": "Optional canvas coordinates used by authoring UIs to lay out the graph. Ignored by the runtime; round-trips so frontends can persist graph layout across reloads.",
+            "example": {
+              "x": 120,
+              "y": 80
+            },
+            "$ref": "#/components/schemas/NodePosition"
+          },
+          "shared_tool_ids": {
+            "title": "Shared Tool Ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IDs of shared (org-level) tools available at this node. Knowledge bases are attached the same way \u2014 via a shared retrieval tool. Tools not listed here are not callable while this node is active.",
+            "example": [
+              "tool-faq-kb",
+              "tool-billing-lookup"
+            ]
+          },
+          "tools_mode": {
+            "$ref": "#/components/schemas/FlowNodeReqToolsMode"
+          },
+          "transcription": {
+            "description": "Per-node transcription override (model/language/region). Unset fields cascade from the assistant-level transcription. A node that sets \u0060model\u0060, \u0060fallback_models\u0060, or \u0060challenger\u0060 doesn\u0027t inherit the assistant\u0027s \u0060fallback_models\u0060 or \u0060challenger\u0060; it uses only the ones it sets. Otherwise it inherits them, and they must fit the model and language the node runs; a change they no longer fit is rejected.",
+            "$ref": "#/components/schemas/TranscriptionSettings"
+          },
+          "type": {
+            "const": null,
+            "title": "Type",
+            "enum": [
+              "prompt"
+            ],
+            "type": "string",
+            "description": "Node kind discriminator. \u0060prompt\u0060 (default) is an LLM-driven step; \u0060tool\u0060 is a standalone tool execution and \u0060speak\u0060 a scripted message (see \u0060ToolNodeReq\u0060 / \u0060SpeakNodeReq\u0060).",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "prompt",
+                  "name": "Prompt"
+                }
+              ]
+            }
+          },
+          "voice_settings": {
+            "$ref": "#/components/schemas/InferenceEmbeddingVoiceSettings"
+          }
+        },
+        "required": [
+          "id",
+          "instructions",
+          "type"
+        ]
+      },
+      "ConversationFlowReqNodesItemOneOf2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Caller-supplied unique identifier for this node within the flow.",
+            "example": "n_charge"
+          },
+          "message": {
+            "title": "Message",
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Optional message delivered to the user verbatim immediately before the tool executes \u2014 an announcement such as \u0027One moment while I look that up.\u0027 No LLM turn and no customer turn: the message is spoken/sent, then the tool runs, in the same deterministic step. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables (unresolved \u2192 empty string); the tool\u0027s own result is not yet available when the message is rendered. Omit for a silent tool step.",
+            "example": "One moment while I process your payment."
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "Optional human-readable label, displayed in authoring UIs.",
+            "example": "Charge card"
+          },
+          "position": {
+            "description": "Optional canvas coordinates used by authoring UIs to lay out the graph. Ignored by the runtime; round-trips so frontends can persist graph layout across reloads.",
+            "example": {
+              "x": 300,
+              "y": 200
+            },
+            "$ref": "#/components/schemas/NodePosition"
+          },
+          "shared_tool_id": {
+            "title": "Shared Tool Id",
+            "type": "string",
+            "description": "ID of the single shared (org-level) tool this node executes. When the flow reaches this node the tool runs as a deliberate step (no LLM turn); its outgoing \u0060llm\u0060 / \u0060expression\u0060 edges route the flow on the tool\u0027s outcome. Arguments are filled from the conversation\u0027s dynamic variables by name \u2014 a dynamic variable whose name matches one of the tool\u0027s parameters supplies that argument. Cross-validated against the org\u0027s shared tools on write.",
+            "example": "tool-charge-card"
+          },
+          "type": {
+            "const": null,
+            "title": "Type",
+            "enum": [
+              "tool"
+            ],
+            "type": "string",
+            "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "tool",
+                  "name": "Tool"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "shared_tool_id",
+          "type"
+        ]
+      },
+      "ConversationFlowReqNodesItemOneOf3": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": null,
+            "title": "Type",
+            "enum": [
+              "speak"
+            ],
+            "type": "string",
+            "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "speak",
+                  "name": "Speak"
+                }
+              ]
+            }
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Caller-supplied unique identifier for this node within the flow.",
+            "example": "n_greeting"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "description": "Optional human-readable label, displayed in authoring UIs.",
+            "example": "Greeting"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string",
+            "description": "Message delivered to the user verbatim when the flow reaches this node. No LLM turn \u2014 the text is spoken/sent exactly as written. \u0060{{variable}}\u0060 placeholders are interpolated from the conversation\u0027s dynamic variables; an unresolved placeholder renders as an empty string. After delivering, the flow routes via the node\u0027s outgoing \u0060llm\u0060 / \u0060expression\u0060 edges (commonly a single unconditional edge).",
+            "example": "Thanks for calling, {{caller_name}}. Connecting you now."
+          },
+          "position": {
+            "description": "Optional canvas coordinates used by authoring UIs to lay out the graph. Ignored by the runtime; round-trips so frontends can persist graph layout across reloads.",
+            "example": {
+              "x": 60,
+              "y": 80
+            },
+            "$ref": "#/components/schemas/NodePosition"
+          }
+        },
+        "required": [
+          "id",
+          "message",
+          "type"
+        ]
+      },
+      "CreatedAtOneOf2": {
+        "title": "DateRangeFilter",
+        "type": "object",
+        "properties": {
+          "gt": {
+            "type": "string",
+            "description": "Filter for creation date-time greater than",
+            "format": "date-time"
+          },
+          "lt": {
+            "type": "string",
+            "description": "Filter for creation date-time less than",
+            "format": "date-time"
+          },
+          "gte": {
+            "type": "string",
+            "description": "Filter for creation date-time greater than or equal to",
+            "format": "date-time"
+          },
+          "lte": {
+            "type": "string",
+            "description": "Filter for creation date-time less than or equal to",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Date range filtering operations"
+      },
+      "CidrBlockOneOf2": {
+        "title": "CidrBlockPatternFilter",
+        "type": "object",
+        "properties": {
+          "startswith": {
+            "type": "string",
+            "description": "Filter CIDR blocks starting with the specified string"
+          },
+          "endswith": {
+            "type": "string",
+            "description": "Filter CIDR blocks ending with the specified string"
+          },
+          "contains": {
+            "type": "string",
+            "description": "Filter CIDR blocks containing the specified string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "CIDR block pattern matching operations"
+      },
+      "CreatedAtOneOf2Branch": {
+        "title": "DateRangeFilter",
+        "type": "object",
+        "properties": {
+          "gt": {
+            "type": "string",
+            "description": "Filter for creation date-time greater than",
+            "format": "date-time"
+          },
+          "lt": {
+            "type": "string",
+            "description": "Filter for creation date-time less than",
+            "format": "date-time"
+          },
+          "gte": {
+            "type": "string",
+            "description": "Filter for creation date-time greater than or equal to",
+            "format": "date-time"
+          },
+          "lte": {
+            "type": "string",
+            "description": "Filter for creation date-time less than or equal to",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Date range filtering operations"
+      },
+      "GlobalIpIdOneOf2": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "description": "Filter by Global IP ID(s) separated by commas"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Filtering operations"
+      },
+      "GlobalIpAssignmentIdOneOf2": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "description": "Filter by Global IP Assignment ID(s) separated by commas"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Filtering operations"
+      },
+      "GlobalIpAssignmentIdOneOf2Branch": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "description": "Filter by Global IP Assignment ID(s) separated by commas"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Filtering operations"
+      },
+      "GlobalIpIdOneOf2Branch": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "description": "Filter by Global IP ID(s) separated by commas"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Filtering operations"
+      },
+      "GlobalIpAssignmentIdOneOf2Branch2": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "description": "Filter by Global IP Assignment ID(s) separated by commas"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Filtering operations"
+      },
+      "GlobalIpIdOneOf2Branch2": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "description": "Filter by Global IP ID(s) separated by commas"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Filtering operations"
+      },
+      "GlobalIpIdOneOf2Branch3": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "description": "Filter by Global IP ID(s) separated by commas"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Filtering operations"
+      },
+      "GlobalIpIdOneOf2Branch4": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "description": "Filter by Global IP ID(s) separated by commas"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Filtering operations"
+      },
+      "AvailableServicesOneOf2": {
+        "type": "object",
+        "properties": {
+          "contains": {
+            "description": "Filter by available services containing the specified service",
+            "$ref": "#/components/schemas/AvailableService"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Available service filtering operations"
+      },
+      "AvailableBandwidthOneOf2": {
+        "type": "object",
+        "properties": {
+          "contains": {
+            "type": "integer",
+            "description": "Filter by available bandwidth containing the specified value"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Available bandwidth filtering operations"
+      },
+      "AvailableBandwidthOneOf2Branch": {
+        "type": "object",
+        "properties": {
+          "contains": {
+            "type": "integer",
+            "description": "Filter by available bandwidth containing the specified value"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Available bandwidth filtering operations"
+      },
+      "CreateNewAssistantPublicAssistantsPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateNewAssistantPublicAssistantsPost422Response"
+        }
+      },
+      "ImportAssistantsPublicAssistantsImportPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/ImportAssistantsPublicAssistantsImportPost422Response"
+        }
+      },
+      "CreateAssistantTestPublicAssistantsTestsPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateAssistantTestPublicAssistantsTestsPost422Response"
+        }
+      },
+      "TriggerTestSuiteRunsPublicAssistantsTestsTestSuitesSuiteNameRunsPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/TriggerTestSuiteRunsPublicAssistantsTestsTestSuitesSuiteNameRunsPost422Response"
+        }
+      },
+      "TriggerTestRunPublicAssistantsTestsTestIdRunsPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/TriggerTestRunPublicAssistantsTestsTestIdRunsPost422Response"
+        }
+      },
+      "CreateCanaryDeployAssistantsAssistantIdCanaryDeploysPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateCanaryDeployAssistantsAssistantIdCanaryDeploysPost422Response"
+        }
+      },
+      "AssistantSmsChatAssistantsAssistantIdChatSmsPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/AssistantSmsChatAssistantsAssistantIdChatSmsPost422Response"
+        }
+      },
+      "CloneAssistantPublicAssistantsAssistantIdClonePost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CloneAssistantPublicAssistantsAssistantIdClonePost422Response"
+        }
+      },
+      "CreateScheduledEvent422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateScheduledEvent422Response"
+        }
+      },
+      "CreateNewConversationPublicConversationsPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateNewConversationPublicConversationsPost422Response"
+        }
+      },
+      "CreateInsightGroup422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateInsightGroup422Response"
+        }
+      },
+      "CreateInsight422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateInsight422Response"
+        }
+      },
+      "AddNewMessage422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/AddNewMessage422Response"
+        }
+      },
+      "PostEmbedding422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/PostEmbedding422Response"
+        }
+      },
+      "PostEmbeddingUrl422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/PostEmbeddingUrl422Response"
+        }
+      },
+      "CreateMcpServer422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateMcpServer422Response"
+        }
+      },
+      "PostSummary422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/PostSummary422Response"
+        }
+      },
+      "CreateToolPost422ResponseError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InferenceEmbeddingErrorObject"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateToolPost422Response"
+        }
+      },
+      "CreateMachinePaymentAccountCredit403ResponseError": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MachinePaymentsErrorResponseErrorsItem"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "Always false for a failure response."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable reason the request failed."
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional machine-readable reasons for the failure."
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateMachinePaymentAccountCredit403Response"
+        }
+      },
+      "ExecuteBrowserActionSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ExecuteBrowserAction200Response"
+          },
+          {
+            "$ref": "#/components/schemas/ExecuteBrowserAction202Response"
+          }
+        ]
+      },
+      "CreateTokenKeysSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/TokenKeyCreatedResponse"
+          },
+          {
+            "$ref": "#/components/schemas/TokenKeyResponse"
+          }
+        ]
+      },
+      "CreateMeetingSessionSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/MeetingSessionResponse"
+          },
+          {
+            "$ref": "#/components/schemas/CreateMeetingSessionResponse"
+          }
+        ]
+      },
+      "CreateNotificationSettingSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CreateNotificationSetting200Response"
+          },
+          {
+            "$ref": "#/components/schemas/CreateNotificationSetting201Response"
+          }
+        ]
+      },
+      "DeleteNotificationSettingSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/DeleteNotificationSetting200Response"
+          },
+          {
+            "$ref": "#/components/schemas/DeleteNotificationSetting201Response"
+          }
+        ]
+      },
+      "OperatorConnectRefreshSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OperatorConnectRefresh200Response"
+          },
+          {
+            "$ref": "#/components/schemas/OperatorConnectRefresh202Response"
+          }
+        ]
+      },
+      "EnablePhoneNumberEmergencySuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/EnablePhoneNumberEmergency200Response"
+          },
+          {
+            "$ref": "#/components/schemas/EnablePhoneNumberEmergency202Response"
+          }
+        ]
       }
     },
     "responses": {
@@ -294059,17 +295737,7 @@
                   "description": "If present, addresses with \u003Ccode\u003Ecustomer_reference\u003C/code\u003E containing the given value will be returned. Matching is not case-sensitive."
                 },
                 {
-                  "type": "object",
-                  "properties": {
-                    "eq": {
-                      "type": "string",
-                      "description": "Exact match for customer_reference."
-                    },
-                    "contains": {
-                      "type": "string",
-                      "description": "Partial match for customer_reference. Matching is not case-sensitive."
-                    }
-                  }
+                  "$ref": "#/components/schemas/CustomerReferenceOneOf2"
                 }
               ]
             },

@@ -11,64 +11,97 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateScheduledEventRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_settings") is { } nullNodeCallSettings && nullNodeCallSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSettings = null;
+            if (parseNode.GetChildNode("conversation_metadata") is { } nullNodeConversationMetadata && nullNodeConversationMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationMetadata = null;
+            if (parseNode.GetChildNode("dynamic_variables") is { } nullNodeDynamicVariables && nullNodeDynamicVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DynamicVariables = null;
+            if (parseNode.GetChildNode("max_retries_client_errors") is { } nullNodeMaxRetriesClientErrors && nullNodeMaxRetriesClientErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRetriesClientErrors = null;
+            if (parseNode.GetChildNode("retry_interval_secs") is { } nullNodeRetryIntervalSecs && nullNodeRetryIntervalSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryIntervalSecs = null;
+            if (parseNode.GetChildNode("scheduled_at_fixed_datetime") is { } nullNodeScheduledAtFixedDatetime && nullNodeScheduledAtFixedDatetime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduledAtFixedDatetime = null;
+            if (parseNode.GetChildNode("telnyx_agent_target") is { } nullNodeTelnyxAgentTarget && nullNodeTelnyxAgentTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelnyxAgentTarget = null;
+            if (parseNode.GetChildNode("telnyx_conversation_channel") is { } nullNodeTelnyxConversationChannel && nullNodeTelnyxConversationChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelnyxConversationChannel = null;
+            if (parseNode.GetChildNode("telnyx_end_user_target") is { } nullNodeTelnyxEndUserTarget && nullNodeTelnyxEndUserTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelnyxEndUserTarget = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Per-call telephony overrides applied when a scheduled phone-call eventdispatches. Phone-call events only. New per-call dispatch options should beadded here rather than as top-level event fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings? CallSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings? CallSettings { get => _explicitNullValueCallSettings; set { _explicitNullValueCallSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_settings"); else _explicitNullProperties?.Remove("call_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings? _explicitNullValueCallSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings CallSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings CallSettings { get => _explicitNullValueCallSettings; set { _explicitNullValueCallSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_settings"); else _explicitNullProperties?.Remove("call_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings _explicitNullValueCallSettings = default!;
 #endif
         /// <summary>Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestConversationMetadataProperty? ConversationMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestConversationMetadataProperty? ConversationMetadata { get => _explicitNullValueConversationMetadata; set { _explicitNullValueConversationMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_metadata"); else _explicitNullProperties?.Remove("conversation_metadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestConversationMetadataProperty? _explicitNullValueConversationMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestConversationMetadataProperty ConversationMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestConversationMetadataProperty ConversationMetadata { get => _explicitNullValueConversationMetadata; set { _explicitNullValueConversationMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_metadata"); else _explicitNullProperties?.Remove("conversation_metadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestConversationMetadataProperty _explicitNullValueConversationMetadata = default!;
 #endif
         /// <summary>A map of dynamic variable names to values. These variables can be referenced in the assistant&apos;s instructions and messages using {{variable_name}} syntax.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestDynamicVariablesProperty? DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestDynamicVariablesProperty? DynamicVariables { get => _explicitNullValueDynamicVariables; set { _explicitNullValueDynamicVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_variables"); else _explicitNullProperties?.Remove("dynamic_variables"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestDynamicVariablesProperty? _explicitNullValueDynamicVariables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestDynamicVariablesProperty DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestDynamicVariablesProperty DynamicVariables { get => _explicitNullValueDynamicVariables; set { _explicitNullValueDynamicVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_variables"); else _explicitNullProperties?.Remove("dynamic_variables"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequestDynamicVariablesProperty _explicitNullValueDynamicVariables = default!;
 #endif
         /// <summary>Configure number of retries on client errors: busy, no-answer, failed, canceled (caller hung up before the callee answered)</summary>
-        public int? MaxRetriesClientErrors { get; set; }
+        public int? MaxRetriesClientErrors { get => _explicitNullValueMaxRetriesClientErrors; set { _explicitNullValueMaxRetriesClientErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_retries_client_errors"); else _explicitNullProperties?.Remove("max_retries_client_errors"); } }
+        private int? _explicitNullValueMaxRetriesClientErrors = default!;
         /// <summary>The retry_interval_secs property</summary>
-        public int? RetryIntervalSecs { get; set; }
+        public int? RetryIntervalSecs { get => _explicitNullValueRetryIntervalSecs; set { _explicitNullValueRetryIntervalSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry_interval_secs"); else _explicitNullProperties?.Remove("retry_interval_secs"); } }
+        private int? _explicitNullValueRetryIntervalSecs = default!;
         /// <summary>The datetime at which the event should be scheduled. Formatted as ISO 8601.</summary>
-        public DateTimeOffset? ScheduledAtFixedDatetime { get; set; }
+        public DateTimeOffset? ScheduledAtFixedDatetime { get => _explicitNullValueScheduledAtFixedDatetime; set { _explicitNullValueScheduledAtFixedDatetime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_at_fixed_datetime"); else _explicitNullProperties?.Remove("scheduled_at_fixed_datetime"); } }
+        private DateTimeOffset? _explicitNullValueScheduledAtFixedDatetime = default!;
         /// <summary>The phone number, SIP URI, to schedule the call or text from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelnyxAgentTarget { get; set; }
+        public string? TelnyxAgentTarget { get => _explicitNullValueTelnyxAgentTarget; set { _explicitNullValueTelnyxAgentTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_agent_target"); else _explicitNullProperties?.Remove("telnyx_agent_target"); } }
+        private string? _explicitNullValueTelnyxAgentTarget = default!;
 #nullable restore
 #else
-        public string TelnyxAgentTarget { get; set; }
+        public string TelnyxAgentTarget { get => _explicitNullValueTelnyxAgentTarget; set { _explicitNullValueTelnyxAgentTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_agent_target"); else _explicitNullProperties?.Remove("telnyx_agent_target"); } }
+        private string _explicitNullValueTelnyxAgentTarget = default!;
 #endif
         /// <summary>The telnyx_conversation_channel property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? TelnyxConversationChannel { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? TelnyxConversationChannel { get => _explicitNullValueTelnyxConversationChannel; set { _explicitNullValueTelnyxConversationChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_conversation_channel"); else _explicitNullProperties?.Remove("telnyx_conversation_channel"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? _explicitNullValueTelnyxConversationChannel = default!;
         /// <summary>The phone number, SIP URI, to schedule the call or text to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelnyxEndUserTarget { get; set; }
+        public string? TelnyxEndUserTarget { get => _explicitNullValueTelnyxEndUserTarget; set { _explicitNullValueTelnyxEndUserTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_end_user_target"); else _explicitNullProperties?.Remove("telnyx_end_user_target"); } }
+        private string? _explicitNullValueTelnyxEndUserTarget = default!;
 #nullable restore
 #else
-        public string TelnyxEndUserTarget { get; set; }
+        public string TelnyxEndUserTarget { get => _explicitNullValueTelnyxEndUserTarget; set { _explicitNullValueTelnyxEndUserTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_end_user_target"); else _explicitNullProperties?.Remove("telnyx_end_user_target"); } }
+        private string _explicitNullValueTelnyxEndUserTarget = default!;
 #endif
         /// <summary>Required for sms scheduled events. The text to be sent to the end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get; set; }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get; set; }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string _explicitNullValueText = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest"/> and sets the default values.
@@ -86,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -125,6 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("telnyx_end_user_target", TelnyxEndUserTarget);
             writer.WriteStringValue("text", Text);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

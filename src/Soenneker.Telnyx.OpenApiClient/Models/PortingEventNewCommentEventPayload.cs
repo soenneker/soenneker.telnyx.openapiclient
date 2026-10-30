@@ -12,26 +12,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PortingEventNewCommentEventPayload : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("comment") is { } nullNodeComment && nullNodeComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comment = null;
+            if (parseNode.GetChildNode("porting_order_id") is { } nullNodePortingOrderId && nullNodePortingOrderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortingOrderId = null;
+            if (parseNode.GetChildNode("support_key") is { } nullNodeSupportKey && nullNodeSupportKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportKey = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The comment that was added to the porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment? Comment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment? Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment? _explicitNullValueComment = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment Comment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment _explicitNullValueComment = default!;
 #endif
         /// <summary>Identifies the porting order that the comment was added to.</summary>
-        public Guid? PortingOrderId { get; set; }
+        public Guid? PortingOrderId { get => _explicitNullValuePortingOrderId; set { _explicitNullValuePortingOrderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("porting_order_id"); else _explicitNullProperties?.Remove("porting_order_id"); } }
+        private Guid? _explicitNullValuePortingOrderId = default!;
         /// <summary>Identifies the support key associated with the porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SupportKey { get; set; }
+        public string? SupportKey { get => _explicitNullValueSupportKey; set { _explicitNullValueSupportKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("support_key"); else _explicitNullProperties?.Remove("support_key"); } }
+        private string? _explicitNullValueSupportKey = default!;
 #nullable restore
 #else
-        public string SupportKey { get; set; }
+        public string SupportKey { get => _explicitNullValueSupportKey; set { _explicitNullValueSupportKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("support_key"); else _explicitNullProperties?.Remove("support_key"); } }
+        private string _explicitNullValueSupportKey = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayload"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayload();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayload(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventNewCommentEventPayloadComment>("comment", Comment);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteStringValue("support_key", SupportKey);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -70,6 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.PhoneNumberAssignmentByProfi
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,91 +11,145 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BridgeRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_control_id") is { } nullNodeCallControlId && nullNodeCallControlId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlId = null;
+            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("hold_after_unbridge") is { } nullNodeHoldAfterUnbridge && nullNodeHoldAfterUnbridge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldAfterUnbridge = null;
+            if (parseNode.GetChildNode("mute_dtmf") is { } nullNodeMuteDtmf && nullNodeMuteDtmf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MuteDtmf = null;
+            if (parseNode.GetChildNode("park_after_unbridge") is { } nullNodeParkAfterUnbridge && nullNodeParkAfterUnbridge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParkAfterUnbridge = null;
+            if (parseNode.GetChildNode("play_ringtone") is { } nullNodePlayRingtone && nullNodePlayRingtone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlayRingtone = null;
+            if (parseNode.GetChildNode("prevent_double_bridge") is { } nullNodePreventDoubleBridge && nullNodePreventDoubleBridge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreventDoubleBridge = null;
+            if (parseNode.GetChildNode("queue") is { } nullNodeQueue && nullNodeQueue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queue = null;
+            if (parseNode.GetChildNode("record") is { } nullNodeRecord && nullNodeRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Record = null;
+            if (parseNode.GetChildNode("record_channels") is { } nullNodeRecordChannels && nullNodeRecordChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordChannels = null;
+            if (parseNode.GetChildNode("record_custom_file_name") is { } nullNodeRecordCustomFileName && nullNodeRecordCustomFileName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordCustomFileName = null;
+            if (parseNode.GetChildNode("record_format") is { } nullNodeRecordFormat && nullNodeRecordFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordFormat = null;
+            if (parseNode.GetChildNode("record_max_length") is { } nullNodeRecordMaxLength && nullNodeRecordMaxLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordMaxLength = null;
+            if (parseNode.GetChildNode("record_timeout_secs") is { } nullNodeRecordTimeoutSecs && nullNodeRecordTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTimeoutSecs = null;
+            if (parseNode.GetChildNode("record_track") is { } nullNodeRecordTrack && nullNodeRecordTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTrack = null;
+            if (parseNode.GetChildNode("record_trim") is { } nullNodeRecordTrim && nullNodeRecordTrim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTrim = null;
+            if (parseNode.GetChildNode("ringtone") is { } nullNodeRingtone && nullNodeRingtone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ringtone = null;
+            if (parseNode.GetChildNode("video_room_context") is { } nullNodeVideoRoomContext && nullNodeVideoRoomContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VideoRoomContext = null;
+            if (parseNode.GetChildNode("video_room_id") is { } nullNodeVideoRoomId && nullNodeVideoRoomId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VideoRoomId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Call Control ID of the call you want to bridge with, can&apos;t be used together with queue parameter or video_room_id parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallControlId { get; set; }
+        public string? CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
+        private string? _explicitNullValueCallControlId = default!;
 #nullable restore
 #else
-        public string CallControlId { get; set; }
+        public string CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
+        private string _explicitNullValueCallControlId = default!;
 #endif
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get; set; }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get; set; }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>Specifies behavior after the bridge ends. If set to `true`, the current leg will be put on hold after unbridge instead of being hung up.</summary>
-        public bool? HoldAfterUnbridge { get; set; }
+        public bool? HoldAfterUnbridge { get => _explicitNullValueHoldAfterUnbridge; set { _explicitNullValueHoldAfterUnbridge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_after_unbridge"); else _explicitNullProperties?.Remove("hold_after_unbridge"); } }
+        private bool? _explicitNullValueHoldAfterUnbridge = default!;
         /// <summary>When enabled, DTMF tones are not passed to the call participant. The webhooks containing the DTMF information will be sent.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestMuteDtmf? MuteDtmf { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestMuteDtmf? MuteDtmf { get => _explicitNullValueMuteDtmf; set { _explicitNullValueMuteDtmf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mute_dtmf"); else _explicitNullProperties?.Remove("mute_dtmf"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestMuteDtmf? _explicitNullValueMuteDtmf = default!;
         /// <summary>Specifies behavior after the bridge ends (i.e. the opposite leg either hangs up or is transferred). If supplied with the value `self`, the current leg will be parked after unbridge. If not set, the default behavior is to hang up the leg.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParkAfterUnbridge { get; set; }
+        public string? ParkAfterUnbridge { get => _explicitNullValueParkAfterUnbridge; set { _explicitNullValueParkAfterUnbridge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("park_after_unbridge"); else _explicitNullProperties?.Remove("park_after_unbridge"); } }
+        private string? _explicitNullValueParkAfterUnbridge = default!;
 #nullable restore
 #else
-        public string ParkAfterUnbridge { get; set; }
+        public string ParkAfterUnbridge { get => _explicitNullValueParkAfterUnbridge; set { _explicitNullValueParkAfterUnbridge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("park_after_unbridge"); else _explicitNullProperties?.Remove("park_after_unbridge"); } }
+        private string _explicitNullValueParkAfterUnbridge = default!;
 #endif
         /// <summary>Specifies whether to play a ringtone if the call you want to bridge with has not yet been answered.</summary>
-        public bool? PlayRingtone { get; set; }
+        public bool? PlayRingtone { get => _explicitNullValuePlayRingtone; set { _explicitNullValuePlayRingtone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("play_ringtone"); else _explicitNullProperties?.Remove("play_ringtone"); } }
+        private bool? _explicitNullValuePlayRingtone = default!;
         /// <summary>When set to `true`, it prevents bridging if the target call is already bridged to another call. Disabled by default.</summary>
-        public bool? PreventDoubleBridge { get; set; }
+        public bool? PreventDoubleBridge { get => _explicitNullValuePreventDoubleBridge; set { _explicitNullValuePreventDoubleBridge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prevent_double_bridge"); else _explicitNullProperties?.Remove("prevent_double_bridge"); } }
+        private bool? _explicitNullValuePreventDoubleBridge = default!;
         /// <summary>The name of the queue you want to bridge with, can&apos;t be used together with call_control_id parameter or video_room_id parameter. Bridging with a queue means bridging with the first call in the queue. The call will always be removed from the queue regardless of whether bridging succeeds. Returns an error when the queue is empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Queue { get; set; }
+        public string? Queue { get => _explicitNullValueQueue; set { _explicitNullValueQueue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queue"); else _explicitNullProperties?.Remove("queue"); } }
+        private string? _explicitNullValueQueue = default!;
 #nullable restore
 #else
-        public string Queue { get; set; }
+        public string Queue { get => _explicitNullValueQueue; set { _explicitNullValueQueue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queue"); else _explicitNullProperties?.Remove("queue"); } }
+        private string _explicitNullValueQueue = default!;
 #endif
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord? Record { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord? Record { get => _explicitNullValueRecord; set { _explicitNullValueRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record"); else _explicitNullProperties?.Remove("record"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord? _explicitNullValueRecord = default!;
         /// <summary>Defines which channel should be recorded (&apos;single&apos; or &apos;dual&apos;) when `record` is specified.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordChannels? RecordChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordChannels? RecordChannels { get => _explicitNullValueRecordChannels; set { _explicitNullValueRecordChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_channels"); else _explicitNullProperties?.Remove("record_channels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordChannels? _explicitNullValueRecordChannels = default!;
         /// <summary>The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordCustomFileName { get; set; }
+        public string? RecordCustomFileName { get => _explicitNullValueRecordCustomFileName; set { _explicitNullValueRecordCustomFileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_custom_file_name"); else _explicitNullProperties?.Remove("record_custom_file_name"); } }
+        private string? _explicitNullValueRecordCustomFileName = default!;
 #nullable restore
 #else
-        public string RecordCustomFileName { get; set; }
+        public string RecordCustomFileName { get => _explicitNullValueRecordCustomFileName; set { _explicitNullValueRecordCustomFileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_custom_file_name"); else _explicitNullProperties?.Remove("record_custom_file_name"); } }
+        private string _explicitNullValueRecordCustomFileName = default!;
 #endif
         /// <summary>Defines the format of the recording (&apos;wav&apos; or &apos;mp3&apos;) when `record` is specified.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordFormat? RecordFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordFormat? RecordFormat { get => _explicitNullValueRecordFormat; set { _explicitNullValueRecordFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_format"); else _explicitNullProperties?.Remove("record_format"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordFormat? _explicitNullValueRecordFormat = default!;
         /// <summary>Defines the maximum length for the recording in seconds when `record` is specified. The minimum value is 0. The maximum value is 43200. The default value is 0 (infinite).</summary>
-        public int? RecordMaxLength { get; set; }
+        public int? RecordMaxLength { get => _explicitNullValueRecordMaxLength; set { _explicitNullValueRecordMaxLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_max_length"); else _explicitNullProperties?.Remove("record_max_length"); } }
+        private int? _explicitNullValueRecordMaxLength = default!;
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected when `record` is specified. The timer only starts when the speech is detected. Please note that call transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite).</summary>
-        public int? RecordTimeoutSecs { get; set; }
+        public int? RecordTimeoutSecs { get => _explicitNullValueRecordTimeoutSecs; set { _explicitNullValueRecordTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_timeout_secs"); else _explicitNullProperties?.Remove("record_timeout_secs"); } }
+        private int? _explicitNullValueRecordTimeoutSecs = default!;
         /// <summary>The audio track to be recorded. Can be either `both`, `inbound` or `outbound`. If only single track is specified (`inbound`, `outbound`), `channels` configuration is ignored and it will be recorded as mono (single channel).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordTrack? RecordTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordTrack? RecordTrack { get => _explicitNullValueRecordTrack; set { _explicitNullValueRecordTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_track"); else _explicitNullProperties?.Remove("record_track"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRecordTrack? _explicitNullValueRecordTrack = default!;
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim? RecordTrim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim? RecordTrim { get => _explicitNullValueRecordTrim; set { _explicitNullValueRecordTrim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_trim"); else _explicitNullProperties?.Remove("record_trim"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim? _explicitNullValueRecordTrim = default!;
         /// <summary>Specifies which country ringtone to play when `play_ringtone` is set to `true`. If not set, the US ringtone will be played.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRingtone? Ringtone { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRingtone? Ringtone { get => _explicitNullValueRingtone; set { _explicitNullValueRingtone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ringtone"); else _explicitNullProperties?.Remove("ringtone"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRingtone? _explicitNullValueRingtone = default!;
         /// <summary>The additional parameter that will be passed to the video conference. It is a text field and the user can decide how to use it. For example, you can set the participant name or pass JSON text. It can be used only with video_room_id parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VideoRoomContext { get; set; }
+        public string? VideoRoomContext { get => _explicitNullValueVideoRoomContext; set { _explicitNullValueVideoRoomContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video_room_context"); else _explicitNullProperties?.Remove("video_room_context"); } }
+        private string? _explicitNullValueVideoRoomContext = default!;
 #nullable restore
 #else
-        public string VideoRoomContext { get; set; }
+        public string VideoRoomContext { get => _explicitNullValueVideoRoomContext; set { _explicitNullValueVideoRoomContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video_room_context"); else _explicitNullProperties?.Remove("video_room_context"); } }
+        private string _explicitNullValueVideoRoomContext = default!;
 #endif
         /// <summary>The ID of the video room you want to bridge with, can&apos;t be used together with call_control_id parameter or queue parameter.</summary>
-        public Guid? VideoRoomId { get; set; }
+        public Guid? VideoRoomId { get => _explicitNullValueVideoRoomId; set { _explicitNullValueVideoRoomId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video_room_id"); else _explicitNullProperties?.Remove("video_room_id"); } }
+        private Guid? _explicitNullValueVideoRoomId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest"/> and sets the default values.
         /// </summary>
@@ -115,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -174,6 +228,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequestRingtone>("ringtone", Ringtone);
             writer.WriteStringValue("video_room_context", VideoRoomContext);
             writer.WriteGuidValue("video_room_id", VideoRoomId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

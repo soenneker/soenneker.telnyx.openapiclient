@@ -11,157 +11,242 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AnswerRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assistant") is { } nullNodeAssistant && nullNodeAssistant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assistant = null;
+            if (parseNode.GetChildNode("billing_group_id") is { } nullNodeBillingGroupId && nullNodeBillingGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingGroupId = null;
+            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("conversation_relay_config") is { } nullNodeConversationRelayConfig && nullNodeConversationRelayConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationRelayConfig = null;
+            if (parseNode.GetChildNode("custom_headers") is { } nullNodeCustomHeaders && nullNodeCustomHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomHeaders = null;
+            if (parseNode.GetChildNode("deepfake_detection") is { } nullNodeDeepfakeDetection && nullNodeDeepfakeDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeepfakeDetection = null;
+            if (parseNode.GetChildNode("preferred_codecs") is { } nullNodePreferredCodecs && nullNodePreferredCodecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredCodecs = null;
+            if (parseNode.GetChildNode("record") is { } nullNodeRecord && nullNodeRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Record = null;
+            if (parseNode.GetChildNode("record_channels") is { } nullNodeRecordChannels && nullNodeRecordChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordChannels = null;
+            if (parseNode.GetChildNode("record_custom_file_name") is { } nullNodeRecordCustomFileName && nullNodeRecordCustomFileName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordCustomFileName = null;
+            if (parseNode.GetChildNode("record_format") is { } nullNodeRecordFormat && nullNodeRecordFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordFormat = null;
+            if (parseNode.GetChildNode("record_max_length") is { } nullNodeRecordMaxLength && nullNodeRecordMaxLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordMaxLength = null;
+            if (parseNode.GetChildNode("record_timeout_secs") is { } nullNodeRecordTimeoutSecs && nullNodeRecordTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTimeoutSecs = null;
+            if (parseNode.GetChildNode("record_track") is { } nullNodeRecordTrack && nullNodeRecordTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTrack = null;
+            if (parseNode.GetChildNode("record_trim") is { } nullNodeRecordTrim && nullNodeRecordTrim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTrim = null;
+            if (parseNode.GetChildNode("send_silence_when_idle") is { } nullNodeSendSilenceWhenIdle && nullNodeSendSilenceWhenIdle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendSilenceWhenIdle = null;
+            if (parseNode.GetChildNode("sip_headers") is { } nullNodeSipHeaders && nullNodeSipHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipHeaders = null;
+            if (parseNode.GetChildNode("sound_modifications") is { } nullNodeSoundModifications && nullNodeSoundModifications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SoundModifications = null;
+            if (parseNode.GetChildNode("stream_bidirectional_codec") is { } nullNodeStreamBidirectionalCodec && nullNodeStreamBidirectionalCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalCodec = null;
+            if (parseNode.GetChildNode("stream_bidirectional_mode") is { } nullNodeStreamBidirectionalMode && nullNodeStreamBidirectionalMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalMode = null;
+            if (parseNode.GetChildNode("stream_bidirectional_target_legs") is { } nullNodeStreamBidirectionalTargetLegs && nullNodeStreamBidirectionalTargetLegs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalTargetLegs = null;
+            if (parseNode.GetChildNode("stream_codec") is { } nullNodeStreamCodec && nullNodeStreamCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamCodec = null;
+            if (parseNode.GetChildNode("stream_track") is { } nullNodeStreamTrack && nullNodeStreamTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamTrack = null;
+            if (parseNode.GetChildNode("stream_url") is { } nullNodeStreamUrl && nullNodeStreamUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamUrl = null;
+            if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
+            if (parseNode.GetChildNode("transcription_config") is { } nullNodeTranscriptionConfig && nullNodeTranscriptionConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionConfig = null;
+            if (parseNode.GetChildNode("webhook_retries_policies") is { } nullNodeWebhookRetriesPolicies && nullNodeWebhookRetriesPolicies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookRetriesPolicies = null;
+            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+            if (parseNode.GetChildNode("webhook_url_method") is { } nullNodeWebhookUrlMethod && nullNodeWebhookUrlMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrlMethod = null;
+            if (parseNode.GetChildNode("webhook_urls") is { } nullNodeWebhookUrls && nullNodeWebhookUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrls = null;
+            if (parseNode.GetChildNode("webhook_urls_method") is { } nullNodeWebhookUrlsMethod && nullNodeWebhookUrlsMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrlsMethod = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>AI Assistant configuration and per-call overrides. All fields except `id` are optional. Omitted assistant fields use the stored configuration. Supplied `voice_settings` and `transcription` objects replace their stored objects rather than merging individual settings; include every setting you want to retain. `dynamic_variables` are merged, with request values taking precedence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest? Assistant { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest? Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest? _explicitNullValueAssistant = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest Assistant { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest _explicitNullValueAssistant = default!;
 #endif
         /// <summary>Use this field to set the Billing Group ID for the call. Must be a valid and existing Billing Group ID.</summary>
-        public Guid? BillingGroupId { get; set; }
+        public Guid? BillingGroupId { get => _explicitNullValueBillingGroupId; set { _explicitNullValueBillingGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_group_id"); else _explicitNullProperties?.Remove("billing_group_id"); } }
+        private Guid? _explicitNullValueBillingGroupId = default!;
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get; set; }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get; set; }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>Starts a Conversation Relay session automatically when the answered/dialed call is answered. This embedded shape is supported on `answer` and `dial`. It uses public field names (`url`, `dtmf_detection`, `greeting`, `voice`, `language`, etc.) and maps them to the underlying Conversation Relay action. `client_state`, `tts_language`, and `transcription_language` inside this object are ignored; use the parent command&apos;s `client_state` and `command_id` fields instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig? ConversationRelayConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig? ConversationRelayConfig { get => _explicitNullValueConversationRelayConfig; set { _explicitNullValueConversationRelayConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_relay_config"); else _explicitNullProperties?.Remove("conversation_relay_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig? _explicitNullValueConversationRelayConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig ConversationRelayConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig ConversationRelayConfig { get => _explicitNullValueConversationRelayConfig; set { _explicitNullValueConversationRelayConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_relay_config"); else _explicitNullProperties?.Remove("conversation_relay_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig _explicitNullValueConversationRelayConfig = default!;
 #endif
         /// <summary>Custom headers to be added to the SIP INVITE response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>? CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>? CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_headers"); else _explicitNullProperties?.Remove("custom_headers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>? _explicitNullValueCustomHeaders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader> CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader> CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_headers"); else _explicitNullProperties?.Remove("custom_headers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader> _explicitNullValueCustomHeaders = default!;
 #endif
         /// <summary>Enables deepfake detection on the call. When enabled, audio from the remote party is streamed to a detection service that analyzes whether the voice is AI-generated. Results are delivered via the `call.deepfake_detection.result` webhook.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection? DeepfakeDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection? DeepfakeDetection { get => _explicitNullValueDeepfakeDetection; set { _explicitNullValueDeepfakeDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deepfake_detection"); else _explicitNullProperties?.Remove("deepfake_detection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection? _explicitNullValueDeepfakeDetection = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection DeepfakeDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection DeepfakeDetection { get => _explicitNullValueDeepfakeDetection; set { _explicitNullValueDeepfakeDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deepfake_detection"); else _explicitNullProperties?.Remove("deepfake_detection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection _explicitNullValueDeepfakeDetection = default!;
 #endif
         /// <summary>The list of comma-separated codecs in a preferred order for the forked media to be received.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs? PreferredCodecs { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs? PreferredCodecs { get => _explicitNullValuePreferredCodecs; set { _explicitNullValuePreferredCodecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred_codecs"); else _explicitNullProperties?.Remove("preferred_codecs"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs? _explicitNullValuePreferredCodecs = default!;
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord? Record { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord? Record { get => _explicitNullValueRecord; set { _explicitNullValueRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record"); else _explicitNullProperties?.Remove("record"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord? _explicitNullValueRecord = default!;
         /// <summary>Defines which channel should be recorded (&apos;single&apos; or &apos;dual&apos;) when `record` is specified.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordChannels? RecordChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordChannels? RecordChannels { get => _explicitNullValueRecordChannels; set { _explicitNullValueRecordChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_channels"); else _explicitNullProperties?.Remove("record_channels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordChannels? _explicitNullValueRecordChannels = default!;
         /// <summary>The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordCustomFileName { get; set; }
+        public string? RecordCustomFileName { get => _explicitNullValueRecordCustomFileName; set { _explicitNullValueRecordCustomFileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_custom_file_name"); else _explicitNullProperties?.Remove("record_custom_file_name"); } }
+        private string? _explicitNullValueRecordCustomFileName = default!;
 #nullable restore
 #else
-        public string RecordCustomFileName { get; set; }
+        public string RecordCustomFileName { get => _explicitNullValueRecordCustomFileName; set { _explicitNullValueRecordCustomFileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_custom_file_name"); else _explicitNullProperties?.Remove("record_custom_file_name"); } }
+        private string _explicitNullValueRecordCustomFileName = default!;
 #endif
         /// <summary>Defines the format of the recording (&apos;wav&apos; or &apos;mp3&apos;) when `record` is specified.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordFormat? RecordFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordFormat? RecordFormat { get => _explicitNullValueRecordFormat; set { _explicitNullValueRecordFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_format"); else _explicitNullProperties?.Remove("record_format"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordFormat? _explicitNullValueRecordFormat = default!;
         /// <summary>Defines the maximum length for the recording in seconds when `record` is specified. The minimum value is 0. The maximum value is 43200. The default value is 0 (infinite).</summary>
-        public int? RecordMaxLength { get; set; }
+        public int? RecordMaxLength { get => _explicitNullValueRecordMaxLength; set { _explicitNullValueRecordMaxLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_max_length"); else _explicitNullProperties?.Remove("record_max_length"); } }
+        private int? _explicitNullValueRecordMaxLength = default!;
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected when `record` is specified. The timer only starts when the speech is detected. Please note that call transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite).</summary>
-        public int? RecordTimeoutSecs { get; set; }
+        public int? RecordTimeoutSecs { get => _explicitNullValueRecordTimeoutSecs; set { _explicitNullValueRecordTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_timeout_secs"); else _explicitNullProperties?.Remove("record_timeout_secs"); } }
+        private int? _explicitNullValueRecordTimeoutSecs = default!;
         /// <summary>The audio track to be recorded. Can be either `both`, `inbound` or `outbound`. If only single track is specified (`inbound`, `outbound`), `channels` configuration is ignored and it will be recorded as mono (single channel).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrack? RecordTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrack? RecordTrack { get => _explicitNullValueRecordTrack; set { _explicitNullValueRecordTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_track"); else _explicitNullProperties?.Remove("record_track"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrack? _explicitNullValueRecordTrack = default!;
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim? RecordTrim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim? RecordTrim { get => _explicitNullValueRecordTrim; set { _explicitNullValueRecordTrim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_trim"); else _explicitNullProperties?.Remove("record_trim"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim? _explicitNullValueRecordTrim = default!;
         /// <summary>Generate silence RTP packets when no transmission available.</summary>
-        public bool? SendSilenceWhenIdle { get; set; }
+        public bool? SendSilenceWhenIdle { get => _explicitNullValueSendSilenceWhenIdle; set { _explicitNullValueSendSilenceWhenIdle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_silence_when_idle"); else _explicitNullProperties?.Remove("send_silence_when_idle"); } }
+        private bool? _explicitNullValueSendSilenceWhenIdle = default!;
         /// <summary>SIP headers to be added to the SIP INVITE response. Currently only User-to-User header is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>? SipHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>? SipHeaders { get => _explicitNullValueSipHeaders; set { _explicitNullValueSipHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_headers"); else _explicitNullProperties?.Remove("sip_headers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>? _explicitNullValueSipHeaders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader> SipHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader> SipHeaders { get => _explicitNullValueSipHeaders; set { _explicitNullValueSipHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_headers"); else _explicitNullProperties?.Remove("sip_headers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader> _explicitNullValueSipHeaders = default!;
 #endif
         /// <summary>Use this field to modify sound effects, for example adjust the pitch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications? SoundModifications { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications? SoundModifications { get => _explicitNullValueSoundModifications; set { _explicitNullValueSoundModifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sound_modifications"); else _explicitNullProperties?.Remove("sound_modifications"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications? _explicitNullValueSoundModifications = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications SoundModifications { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications SoundModifications { get => _explicitNullValueSoundModifications; set { _explicitNullValueSoundModifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sound_modifications"); else _explicitNullProperties?.Remove("sound_modifications"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications _explicitNullValueSoundModifications = default!;
 #endif
         /// <summary>Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec? StreamBidirectionalCodec { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec? StreamBidirectionalCodec { get => _explicitNullValueStreamBidirectionalCodec; set { _explicitNullValueStreamBidirectionalCodec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_bidirectional_codec"); else _explicitNullProperties?.Remove("stream_bidirectional_codec"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec? _explicitNullValueStreamBidirectionalCodec = default!;
         /// <summary>Configures method of bidirectional streaming (mp3, rtp).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode? StreamBidirectionalMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode? StreamBidirectionalMode { get => _explicitNullValueStreamBidirectionalMode; set { _explicitNullValueStreamBidirectionalMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_bidirectional_mode"); else _explicitNullProperties?.Remove("stream_bidirectional_mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode? _explicitNullValueStreamBidirectionalMode = default!;
         /// <summary>Specifies which call legs should receive the bidirectional stream audio.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? StreamBidirectionalTargetLegs { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? StreamBidirectionalTargetLegs { get => _explicitNullValueStreamBidirectionalTargetLegs; set { _explicitNullValueStreamBidirectionalTargetLegs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_bidirectional_target_legs"); else _explicitNullProperties?.Remove("stream_bidirectional_target_legs"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? _explicitNullValueStreamBidirectionalTargetLegs = default!;
         /// <summary>Specifies the codec to be used for the streamed audio. When set to &apos;default&apos; or when transcoding is not possible, the codec from the call will be used.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec? StreamCodec { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec? StreamCodec { get => _explicitNullValueStreamCodec; set { _explicitNullValueStreamCodec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_codec"); else _explicitNullProperties?.Remove("stream_codec"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec? _explicitNullValueStreamCodec = default!;
         /// <summary>Specifies which track should be streamed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestStreamTrack? StreamTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestStreamTrack? StreamTrack { get => _explicitNullValueStreamTrack; set { _explicitNullValueStreamTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_track"); else _explicitNullProperties?.Remove("stream_track"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestStreamTrack? _explicitNullValueStreamTrack = default!;
         /// <summary>The destination WebSocket address where the stream is going to be delivered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamUrl { get; set; }
+        public string? StreamUrl { get => _explicitNullValueStreamUrl; set { _explicitNullValueStreamUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_url"); else _explicitNullProperties?.Remove("stream_url"); } }
+        private string? _explicitNullValueStreamUrl = default!;
 #nullable restore
 #else
-        public string StreamUrl { get; set; }
+        public string StreamUrl { get => _explicitNullValueStreamUrl; set { _explicitNullValueStreamUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_url"); else _explicitNullProperties?.Remove("stream_url"); } }
+        private string _explicitNullValueStreamUrl = default!;
 #endif
         /// <summary>Enable standalone call transcription upon call answer. The default value is false. Configure this feature with `transcription_config`. To configure speech recognition for an AI assistant, use `assistant.transcription` instead.</summary>
-        public bool? Transcription { get; set; }
+        public bool? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        private bool? _explicitNullValueTranscription = default!;
         /// <summary>The transcription_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest? TranscriptionConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest? TranscriptionConfig { get => _explicitNullValueTranscriptionConfig; set { _explicitNullValueTranscriptionConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_config"); else _explicitNullProperties?.Remove("transcription_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest? _explicitNullValueTranscriptionConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest TranscriptionConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest TranscriptionConfig { get => _explicitNullValueTranscriptionConfig; set { _explicitNullValueTranscriptionConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_config"); else _explicitNullProperties?.Remove("transcription_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest _explicitNullValueTranscriptionConfig = default!;
 #endif
         /// <summary>A map of event types to retry policies. Each retry policy contains an array of `retries_ms` specifying the delays between retry attempts in milliseconds. Maximum 5 retries, total delay cannot exceed 60 seconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookRetriesPoliciesProperty? WebhookRetriesPolicies { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookRetriesPoliciesProperty? WebhookRetriesPolicies { get => _explicitNullValueWebhookRetriesPolicies; set { _explicitNullValueWebhookRetriesPolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_retries_policies"); else _explicitNullProperties?.Remove("webhook_retries_policies"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookRetriesPoliciesProperty? _explicitNullValueWebhookRetriesPolicies = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookRetriesPoliciesProperty WebhookRetriesPolicies { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookRetriesPoliciesProperty WebhookRetriesPolicies { get => _explicitNullValueWebhookRetriesPolicies; set { _explicitNullValueWebhookRetriesPolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_retries_policies"); else _explicitNullProperties?.Remove("webhook_retries_policies"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookRetriesPoliciesProperty _explicitNullValueWebhookRetriesPolicies = default!;
 #endif
         /// <summary>Use this field to override the URL for which Telnyx will send subsequent webhooks to for this call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>HTTP request type used for `webhook_url`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlMethod? WebhookUrlMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlMethod? WebhookUrlMethod { get => _explicitNullValueWebhookUrlMethod; set { _explicitNullValueWebhookUrlMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url_method"); else _explicitNullProperties?.Remove("webhook_url_method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlMethod? _explicitNullValueWebhookUrlMethod = default!;
         /// <summary>A map of event types to arrays of webhook URLs. When an event of the specified type occurs, the webhook URLs associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsProperty? WebhookUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsProperty? WebhookUrls { get => _explicitNullValueWebhookUrls; set { _explicitNullValueWebhookUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_urls"); else _explicitNullProperties?.Remove("webhook_urls"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsProperty? _explicitNullValueWebhookUrls = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsProperty WebhookUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsProperty WebhookUrls { get => _explicitNullValueWebhookUrls; set { _explicitNullValueWebhookUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_urls"); else _explicitNullProperties?.Remove("webhook_urls"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsProperty _explicitNullValueWebhookUrls = default!;
 #endif
         /// <summary>HTTP request method to invoke `webhook_urls`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsMethod? WebhookUrlsMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsMethod? WebhookUrlsMethod { get => _explicitNullValueWebhookUrlsMethod; set { _explicitNullValueWebhookUrlsMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_urls_method"); else _explicitNullProperties?.Remove("webhook_urls_method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsMethod? _explicitNullValueWebhookUrlsMethod = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest"/> and sets the default values.
         /// </summary>
@@ -181,7 +266,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -264,6 +349,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlMethod>("webhook_url_method", WebhookUrlMethod);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsProperty>("webhook_urls", WebhookUrls);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestWebhookUrlsMethod>("webhook_urls_method", WebhookUrlsMethod);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

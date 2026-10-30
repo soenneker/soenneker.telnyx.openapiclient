@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindAddresses200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindAddresses200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FindAddresses200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FindAddresses200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new address on your account from the provided details, for use with services that require a physical address such as emergency calling and regulatory compliance.By default, the new record is validated for emergency use at creation time. If the address fails validation, no record is created and the request is rejected with a 422 response; the `errors` array includes a suggested value for each offending field when one is available.Set `validate_address` to `false` to skip validation at creation, for example when the address was already validated with the Validate an address action. The record is then created without emergency validation: if it is not valid it will not be able to be used for emergency services (such as a phone number&apos;s emergency address), and because address records cannot be updated, a new record has to be created to correct it.
@@ -92,6 +92,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAddress200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateAddress200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

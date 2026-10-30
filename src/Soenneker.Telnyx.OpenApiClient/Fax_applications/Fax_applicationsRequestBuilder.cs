@@ -68,6 +68,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.ProgrammableFaxErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetAllFaxApplicationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetAllFaxApplicationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -95,6 +97,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplication201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplication201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

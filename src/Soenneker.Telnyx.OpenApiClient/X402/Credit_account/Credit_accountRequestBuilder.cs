@@ -79,6 +79,8 @@ namespace Soenneker.Telnyx.OpenApiClient.X402.Credit_account
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponse.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionsErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.X402SettlementErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.X402TransactionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

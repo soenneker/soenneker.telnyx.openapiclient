@@ -12,25 +12,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NoiseSuppressionEngineConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attenuation_limit") is { } nullNodeAttenuationLimit && nullNodeAttenuationLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttenuationLimit = null;
+            if (parseNode.GetChildNode("enhancement_level") is { } nullNodeEnhancementLevel && nullNodeEnhancementLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnhancementLevel = null;
+            if (parseNode.GetChildNode("family") is { } nullNodeFamily && nullNodeFamily.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Family = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("suppression_level") is { } nullNodeSuppressionLevel && nullNodeSuppressionLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuppressionLevel = null;
+            if (parseNode.GetChildNode("voice_gain") is { } nullNodeVoiceGain && nullNodeVoiceGain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceGain = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attenuation limit for noise suppression (0-100). Only applicable for DeepFilterNet.</summary>
-        public int? AttenuationLimit { get; set; }
+        public int? AttenuationLimit { get => _explicitNullValueAttenuationLimit; set { _explicitNullValueAttenuationLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attenuation_limit"); else _explicitNullProperties?.Remove("attenuation_limit"); } }
+        private int? _explicitNullValueAttenuationLimit = default!;
         /// <summary>Enhancement intensity (0.0-1.0). Only applicable for AiCoustics.</summary>
-        public double? EnhancementLevel { get; set; }
+        public double? EnhancementLevel { get => _explicitNullValueEnhancementLevel; set { _explicitNullValueEnhancementLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enhancement_level"); else _explicitNullProperties?.Remove("enhancement_level"); } }
+        private double? _explicitNullValueEnhancementLevel = default!;
         /// <summary>AiCoustics model family. &apos;sparrow&apos; optimized for human-to-human calls, &apos;quail&apos; optimized for Voice AI/STT. Only applicable for AiCoustics.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigFamily? Family { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigFamily? Family { get => _explicitNullValueFamily; set { _explicitNullValueFamily = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("family"); else _explicitNullProperties?.Remove("family"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigFamily? _explicitNullValueFamily = default!;
         /// <summary>Processing mode. Only applicable for DeepFilterNet.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigMode? Mode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigMode? _explicitNullValueMode = default!;
         /// <summary>The Krisp model to use. Only applicable for Krisp.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigModel? Model { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigModel? _explicitNullValueModel = default!;
         /// <summary>AiCoustics model size. &apos;s&apos; and &apos;l&apos; work with both families. &apos;xs&apos; and &apos;xxs&apos; are sparrow-only. &apos;vf_l&apos; and &apos;vf_1_1_l&apos; are quail-only. Only applicable for AiCoustics.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigSize? Size { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigSize? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigSize? _explicitNullValueSize = default!;
         /// <summary>Suppression level (0.0-100.0). Only applicable for Krisp.</summary>
-        public double? SuppressionLevel { get; set; }
+        public double? SuppressionLevel { get => _explicitNullValueSuppressionLevel; set { _explicitNullValueSuppressionLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suppression_level"); else _explicitNullProperties?.Remove("suppression_level"); } }
+        private double? _explicitNullValueSuppressionLevel = default!;
         /// <summary>Voice gain multiplier (0.1-4.0). Only applicable for AiCoustics.</summary>
-        public double? VoiceGain { get; set; }
+        public double? VoiceGain { get => _explicitNullValueVoiceGain; set { _explicitNullValueVoiceGain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_gain"); else _explicitNullProperties?.Remove("voice_gain"); } }
+        private double? _explicitNullValueVoiceGain = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig"/> and sets the default values.
         /// </summary>
@@ -47,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfigSize>("size", Size);
             writer.WriteDoubleValue("suppression_level", SuppressionLevel);
             writer.WriteDoubleValue("voice_gain", VoiceGain);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

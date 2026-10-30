@@ -11,15 +11,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MobilePhoneNumberCallRecording : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("inbound_call_recording_channels") is { } nullNodeInboundCallRecordingChannels && nullNodeInboundCallRecordingChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallRecordingChannels = null;
+            if (parseNode.GetChildNode("inbound_call_recording_enabled") is { } nullNodeInboundCallRecordingEnabled && nullNodeInboundCallRecordingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallRecordingEnabled = null;
+            if (parseNode.GetChildNode("inbound_call_recording_format") is { } nullNodeInboundCallRecordingFormat && nullNodeInboundCallRecordingFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallRecordingFormat = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The inbound_call_recording_channels property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecordingInboundCallRecordingChannels? InboundCallRecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecordingInboundCallRecordingChannels? InboundCallRecordingChannels { get => _explicitNullValueInboundCallRecordingChannels; set { _explicitNullValueInboundCallRecordingChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_recording_channels"); else _explicitNullProperties?.Remove("inbound_call_recording_channels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecordingInboundCallRecordingChannels? _explicitNullValueInboundCallRecordingChannels = default!;
         /// <summary>The inbound_call_recording_enabled property</summary>
-        public bool? InboundCallRecordingEnabled { get; set; }
+        public bool? InboundCallRecordingEnabled { get => _explicitNullValueInboundCallRecordingEnabled; set { _explicitNullValueInboundCallRecordingEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_recording_enabled"); else _explicitNullProperties?.Remove("inbound_call_recording_enabled"); } }
+        private bool? _explicitNullValueInboundCallRecordingEnabled = default!;
         /// <summary>The inbound_call_recording_format property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecordingInboundCallRecordingFormat? InboundCallRecordingFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecordingInboundCallRecordingFormat? InboundCallRecordingFormat { get => _explicitNullValueInboundCallRecordingFormat; set { _explicitNullValueInboundCallRecordingFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_recording_format"); else _explicitNullProperties?.Remove("inbound_call_recording_format"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecordingInboundCallRecordingFormat? _explicitNullValueInboundCallRecordingFormat = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecording"/> and sets the default values.
         /// </summary>
@@ -35,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecording CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecording();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecording(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecordingInboundCallRecordingChannels>("inbound_call_recording_channels", InboundCallRecordingChannels);
             writer.WriteBoolValue("inbound_call_recording_enabled", InboundCallRecordingEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberCallRecordingInboundCallRecordingFormat>("inbound_call_recording_format", InboundCallRecordingFormat);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

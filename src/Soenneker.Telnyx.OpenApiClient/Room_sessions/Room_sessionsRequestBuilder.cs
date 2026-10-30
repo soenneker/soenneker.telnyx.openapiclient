@@ -66,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.VideoGenericErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRoomSessions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

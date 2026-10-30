@@ -11,15 +11,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PrivacySettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("data_retention") is { } nullNodeDataRetention && nullNodeDataRetention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataRetention = null;
+            if (parseNode.GetChildNode("in_transit_data_locality") is { } nullNodeInTransitDataLocality && nullNodeInTransitDataLocality.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InTransitDataLocality = null;
+            if (parseNode.GetChildNode("pii_redaction") is { } nullNodePiiRedaction && nullNodePiiRedaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PiiRedaction = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, conversation history and insights will be stored. If false, they will not be stored. This in‑tool toggle governs solely the retention of conversation history and insights via the AI assistant. It has no effect on any separate recording, transcription, or storage configuration that you have set at the account, number, or application level. All such external settings remain in force regardless of your selection here.</summary>
-        public bool? DataRetention { get; set; }
+        public bool? DataRetention { get => _explicitNullValueDataRetention; set { _explicitNullValueDataRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_retention"); else _explicitNullProperties?.Remove("data_retention"); } }
+        private bool? _explicitNullValueDataRetention = default!;
         /// <summary>Requires this assistant&apos;s conversations to be processed inside your organization&apos;s data-locality region, rather than only stored there, on every channel: for web chat, every model call of a turn; for voice, the call&apos;s model calls and the Telnyx-hosted speech services it uses; for SMS and WhatsApp, the model calls of each turn (how messages travel through carriers is not covered). Covered processing that cannot be handled in region fails rather than being served elsewhere. Enabling it requires a data-locality region with in-region inference (USA, EU, AUS, UAE; see [Inference regions](https://developers.telnyx.com/docs/inference/models/regions)), Telnyx-hosted models for the assistant, its fallback, and any conversation-flow node that overrides the model, and, when `insight_settings.model` is set, an insight model available in that region; the request is rejected otherwise. A voice call fails when it starts if its STT model or TTS voice is not self-hosted by Telnyx, if the assistant uses a speech-to-speech model, or if the call&apos;s media is anchored outside the region. Once enabled, send web chat requests and WebSocket or WebRTC conversations to your region&apos;s API hostname: one entering the platform in another region is refused rather than forwarded, because forwarding it would already have moved the content across the border. See [Data residency](https://developers.telnyx.com/docs/inference/data-residency#in-region-processing-for-ai-assistants). Defaults to false.</summary>
-        public bool? InTransitDataLocality { get; set; }
+        public bool? InTransitDataLocality { get => _explicitNullValueInTransitDataLocality; set { _explicitNullValueInTransitDataLocality = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_transit_data_locality"); else _explicitNullProperties?.Remove("in_transit_data_locality"); } }
+        private bool? _explicitNullValueInTransitDataLocality = default!;
         /// <summary>Controls redaction of personally identifiable information (PII) from the conversation history that is stored for this assistant. `disabled` (default) stores content as-is. `redact` replaces detected PII with `&lt;PII:type/&gt;` placeholders (e.g. `&lt;PII:name/&gt;`, `&lt;PII:phone/&gt;`) as the stored copies are written: message content (user, assistant, and tool-result messages) and tool-call arguments are redacted when written to conversation history, so the stored transcript, its read-back via the history API, and any insights generated from the stored messages contain the placeholders instead of the PII; response bodies returned by webhook tools are redacted too, as stored in the webhook logs — a per-conversation record separate from the transcript. In the Mission Control Portal this field appears as a &quot;PII Redaction&quot; on/off toggle, where Enabled corresponds to `redact`. Redaction runs when the stored copy is written, after the LLM has generated its reply: the live conversation is not redacted, the assistant&apos;s tools keep receiving the full (unredacted) values during the call, and the LLM still sees full content in its context window. Call recordings (including any recording layout configured under telephony settings) and the payloads of messages/webhooks delivered during the call are never redacted by this setting. The set of detected PII types (names, street addresses, phone numbers, email addresses, government identifiers like SSN and driver&apos;s license numbers, credit card and bank account numbers, IP addresses, dates of birth, and other identifiers unique to a person) is fixed by Telnyx and cannot be configured or extended per assistant. Assistants with `redact` cannot be used for SMS/WhatsApp messaging (that combination is rejected with a 400 error); voice and web chat are unaffected.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettingsPiiRedaction? PiiRedaction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettingsPiiRedaction? PiiRedaction { get => _explicitNullValuePiiRedaction; set { _explicitNullValuePiiRedaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pii_redaction"); else _explicitNullProperties?.Remove("pii_redaction"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettingsPiiRedaction? _explicitNullValuePiiRedaction = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("data_retention", DataRetention);
             writer.WriteBoolValue("in_transit_data_locality", InTransitDataLocality);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettingsPiiRedaction>("pii_redaction", PiiRedaction);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

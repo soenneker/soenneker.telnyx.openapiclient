@@ -11,55 +11,83 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BotSignupRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bot_challenge_answer") is { } nullNodeBotChallengeAnswer && nullNodeBotChallengeAnswer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BotChallengeAnswer = null;
+            if (parseNode.GetChildNode("bot_challenge_nonce") is { } nullNodeBotChallengeNonce && nullNodeBotChallengeNonce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BotChallengeNonce = null;
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("privacy_policy_url") is { } nullNodePrivacyPolicyUrl && nullNodePrivacyPolicyUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivacyPolicyUrl = null;
+            if (parseNode.GetChildNode("terms_and_conditions_eu_url") is { } nullNodeTermsAndConditionsEuUrl && nullNodeTermsAndConditionsEuUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TermsAndConditionsEuUrl = null;
+            if (parseNode.GetChildNode("terms_and_conditions_url") is { } nullNodeTermsAndConditionsUrl && nullNodeTermsAndConditionsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TermsAndConditionsUrl = null;
+            if (parseNode.GetChildNode("terms_of_service") is { } nullNodeTermsOfService && nullNodeTermsOfService.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TermsOfService = null;
+            if (parseNode.GetChildNode("terms_of_service_eu") is { } nullNodeTermsOfServiceEu && nullNodeTermsOfServiceEu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TermsOfServiceEu = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Answer to the issued bot challenge.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BotChallengeAnswer { get; set; }
+        public string? BotChallengeAnswer { get => _explicitNullValueBotChallengeAnswer; set { _explicitNullValueBotChallengeAnswer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_challenge_answer"); else _explicitNullProperties?.Remove("bot_challenge_answer"); } }
+        private string? _explicitNullValueBotChallengeAnswer = default!;
 #nullable restore
 #else
-        public string BotChallengeAnswer { get; set; }
+        public string BotChallengeAnswer { get => _explicitNullValueBotChallengeAnswer; set { _explicitNullValueBotChallengeAnswer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_challenge_answer"); else _explicitNullProperties?.Remove("bot_challenge_answer"); } }
+        private string _explicitNullValueBotChallengeAnswer = default!;
 #endif
         /// <summary>Nonce from a previously issued bot challenge.</summary>
-        public Guid? BotChallengeNonce { get; set; }
+        public Guid? BotChallengeNonce { get => _explicitNullValueBotChallengeNonce; set { _explicitNullValueBotChallengeNonce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_challenge_nonce"); else _explicitNullProperties?.Remove("bot_challenge_nonce"); } }
+        private Guid? _explicitNullValueBotChallengeNonce = default!;
         /// <summary>Email address for the new account. The magic link is sent here. May only be omitted when placeholder-email registration is enabled server-side.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>Must exactly match the privacy-policy URL returned by the challenge endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrivacyPolicyUrl { get; set; }
+        public string? PrivacyPolicyUrl { get => _explicitNullValuePrivacyPolicyUrl; set { _explicitNullValuePrivacyPolicyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("privacy_policy_url"); else _explicitNullProperties?.Remove("privacy_policy_url"); } }
+        private string? _explicitNullValuePrivacyPolicyUrl = default!;
 #nullable restore
 #else
-        public string PrivacyPolicyUrl { get; set; }
+        public string PrivacyPolicyUrl { get => _explicitNullValuePrivacyPolicyUrl; set { _explicitNullValuePrivacyPolicyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("privacy_policy_url"); else _explicitNullProperties?.Remove("privacy_policy_url"); } }
+        private string _explicitNullValuePrivacyPolicyUrl = default!;
 #endif
         /// <summary>EU terms-and-conditions URL. Required when EU consent enforcement is enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TermsAndConditionsEuUrl { get; set; }
+        public string? TermsAndConditionsEuUrl { get => _explicitNullValueTermsAndConditionsEuUrl; set { _explicitNullValueTermsAndConditionsEuUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terms_and_conditions_eu_url"); else _explicitNullProperties?.Remove("terms_and_conditions_eu_url"); } }
+        private string? _explicitNullValueTermsAndConditionsEuUrl = default!;
 #nullable restore
 #else
-        public string TermsAndConditionsEuUrl { get; set; }
+        public string TermsAndConditionsEuUrl { get => _explicitNullValueTermsAndConditionsEuUrl; set { _explicitNullValueTermsAndConditionsEuUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terms_and_conditions_eu_url"); else _explicitNullProperties?.Remove("terms_and_conditions_eu_url"); } }
+        private string _explicitNullValueTermsAndConditionsEuUrl = default!;
 #endif
         /// <summary>Must exactly match the terms-and-conditions URL returned by the challenge endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TermsAndConditionsUrl { get; set; }
+        public string? TermsAndConditionsUrl { get => _explicitNullValueTermsAndConditionsUrl; set { _explicitNullValueTermsAndConditionsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terms_and_conditions_url"); else _explicitNullProperties?.Remove("terms_and_conditions_url"); } }
+        private string? _explicitNullValueTermsAndConditionsUrl = default!;
 #nullable restore
 #else
-        public string TermsAndConditionsUrl { get; set; }
+        public string TermsAndConditionsUrl { get => _explicitNullValueTermsAndConditionsUrl; set { _explicitNullValueTermsAndConditionsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terms_and_conditions_url"); else _explicitNullProperties?.Remove("terms_and_conditions_url"); } }
+        private string _explicitNullValueTermsAndConditionsUrl = default!;
 #endif
         /// <summary>Must be true to accept the terms of service.</summary>
-        public bool? TermsOfService { get; set; }
+        public bool? TermsOfService { get => _explicitNullValueTermsOfService; set { _explicitNullValueTermsOfService = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terms_of_service"); else _explicitNullProperties?.Remove("terms_of_service"); } }
+        private bool? _explicitNullValueTermsOfService = default!;
         /// <summary>EU terms-of-service acceptance. Required when EU consent enforcement is enabled.</summary>
-        public bool? TermsOfServiceEu { get; set; }
+        public bool? TermsOfServiceEu { get => _explicitNullValueTermsOfServiceEu; set { _explicitNullValueTermsOfServiceEu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terms_of_service_eu"); else _explicitNullProperties?.Remove("terms_of_service_eu"); } }
+        private bool? _explicitNullValueTermsOfServiceEu = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BotSignupRequest"/> and sets the default values.
         /// </summary>
@@ -75,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.BotSignupRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.BotSignupRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.BotSignupRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -110,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("terms_and_conditions_url", TermsAndConditionsUrl);
             writer.WriteBoolValue("terms_of_service", TermsOfService);
             writer.WriteBoolValue("terms_of_service_eu", TermsOfServiceEu);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

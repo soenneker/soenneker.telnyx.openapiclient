@@ -11,37 +11,38 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// **Beta:** Telnyx avatar configuration accepted when creating or updating an assistant. Set `provider` to `telnyx`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AvatarSettingsRequest : IAdditionalDataHolder, IParsable
-    {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+    public partial class AvatarSettingsRequest : IParsable
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("avatar_id") is { } nullNodeAvatarId && nullNodeAvatarId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvatarId = null;
+            if (parseNode.GetChildNode("background_id") is { } nullNodeBackgroundId && nullNodeBackgroundId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackgroundId = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+        }
+
         /// <summary>Stable identifier returned by the Avatars API. Discover available stock IDs with GET /v2/ai/avatars and filter[avatar_type]=stock rather than maintaining a fixed list. Custom avatar IDs use the `avatar_` prefix and must belong to the authenticated organization. The service validates that the selected avatar is available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AvatarId { get; set; }
+        public string? AvatarId { get => _explicitNullValueAvatarId; set { _explicitNullValueAvatarId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_id"); else _explicitNullProperties?.Remove("avatar_id"); } }
+        private string? _explicitNullValueAvatarId = default!;
 #nullable restore
 #else
-        public string AvatarId { get; set; }
+        public string AvatarId { get => _explicitNullValueAvatarId; set { _explicitNullValueAvatarId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_id"); else _explicitNullProperties?.Remove("avatar_id"); } }
+        private string _explicitNullValueAvatarId = default!;
 #endif
         /// <summary>The background to render.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId? BackgroundId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId? BackgroundId { get => _explicitNullValueBackgroundId; set { _explicitNullValueBackgroundId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_id"); else _explicitNullProperties?.Remove("background_id"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId? _explicitNullValueBackgroundId = default!;
         /// <summary>Required avatar model identifier, separate from `avatar_id`. The supported value is `foxtrot-1`. Omission, null, and unsupported model identifiers are rejected.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model? Model { get; set; }
-        /// <summary>The provider property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Provider { get; set; }
-#nullable restore
-#else
-        public string Provider { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest"/> and sets the default values.
-        /// </summary>
-        public AvatarSettingsRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model? _explicitNullValueModel = default!;
+        /// <summary>Selects the Telnyx open-source avatar provider.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsProvider? _explicitNullValueProvider = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -50,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "avatar_id", n => { AvatarId = n.GetStringValue(); } },
                 { "background_id", n => { BackgroundId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId>(); } },
                 { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model>(); } },
-                { "provider", n => { Provider = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsProvider>(); } },
             };
         }
         /// <summary>
@@ -76,8 +77,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("avatar_id", AvatarId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsBackgroundId>("background_id", BackgroundId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Foxtrot1Model>("model", Model);
-            writer.WriteStringValue("provider", Provider);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAvatarSettingsProvider>("provider", Provider);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

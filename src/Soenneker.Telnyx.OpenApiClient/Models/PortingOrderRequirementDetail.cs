@@ -11,42 +11,63 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PortingOrderRequirementDetail : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("field_type") is { } nullNodeFieldType && nullNodeFieldType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldType = null;
+            if (parseNode.GetChildNode("field_value") is { } nullNodeFieldValue && nullNodeFieldValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldValue = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("requirement_status") is { } nullNodeRequirementStatus && nullNodeRequirementStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementStatus = null;
+            if (parseNode.GetChildNode("requirement_type") is { } nullNodeRequirementType && nullNodeRequirementType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Type of value expected on field_value field</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailFieldType? FieldType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailFieldType? FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailFieldType? _explicitNullValueFieldType = default!;
         /// <summary>Identifies the document that satisfies this requirement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FieldValue { get; set; }
+        public string? FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_value"); else _explicitNullProperties?.Remove("field_value"); } }
+        private string? _explicitNullValueFieldValue = default!;
 #nullable restore
 #else
-        public string FieldValue { get; set; }
+        public string FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_value"); else _explicitNullProperties?.Remove("field_value"); } }
+        private string _explicitNullValueFieldValue = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get; set; }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get; set; }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>Status of the requirement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequirementStatus { get; set; }
+        public string? RequirementStatus { get => _explicitNullValueRequirementStatus; set { _explicitNullValueRequirementStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_status"); else _explicitNullProperties?.Remove("requirement_status"); } }
+        private string? _explicitNullValueRequirementStatus = default!;
 #nullable restore
 #else
-        public string RequirementStatus { get; set; }
+        public string RequirementStatus { get => _explicitNullValueRequirementStatus; set { _explicitNullValueRequirementStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_status"); else _explicitNullProperties?.Remove("requirement_status"); } }
+        private string _explicitNullValueRequirementStatus = default!;
 #endif
         /// <summary>Identifies the requirement type that meets this requirement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType? RequirementType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType? RequirementType { get => _explicitNullValueRequirementType; set { _explicitNullValueRequirementType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type"); else _explicitNullProperties?.Remove("requirement_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType? _explicitNullValueRequirementType = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType RequirementType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType RequirementType { get => _explicitNullValueRequirementType; set { _explicitNullValueRequirementType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type"); else _explicitNullProperties?.Remove("requirement_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType _explicitNullValueRequirementType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("requirement_status", RequirementStatus);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType>("requirement_type", RequirementType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

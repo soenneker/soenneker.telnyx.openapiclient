@@ -11,106 +11,161 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OutboundVoiceProfile : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("billing_group_id") is { } nullNodeBillingGroupId && nullNodeBillingGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingGroupId = null;
+            if (parseNode.GetChildNode("calling_window") is { } nullNodeCallingWindow && nullNodeCallingWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallingWindow = null;
+            if (parseNode.GetChildNode("call_recording") is { } nullNodeCallRecording && nullNodeCallRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallRecording = null;
+            if (parseNode.GetChildNode("concurrent_call_limit") is { } nullNodeConcurrentCallLimit && nullNodeConcurrentCallLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConcurrentCallLimit = null;
+            if (parseNode.GetChildNode("connections_count") is { } nullNodeConnectionsCount && nullNodeConnectionsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionsCount = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("daily_spend_limit") is { } nullNodeDailySpendLimit && nullNodeDailySpendLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySpendLimit = null;
+            if (parseNode.GetChildNode("daily_spend_limit_enabled") is { } nullNodeDailySpendLimitEnabled && nullNodeDailySpendLimitEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySpendLimitEnabled = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("max_destination_rate") is { } nullNodeMaxDestinationRate && nullNodeMaxDestinationRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxDestinationRate = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("service_plan") is { } nullNodeServicePlan && nullNodeServicePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServicePlan = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("traffic_type") is { } nullNodeTrafficType && nullNodeTrafficType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrafficType = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("usage_payment_method") is { } nullNodeUsagePaymentMethod && nullNodeUsagePaymentMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsagePaymentMethod = null;
+            if (parseNode.GetChildNode("whitelisted_destinations") is { } nullNodeWhitelistedDestinations && nullNodeWhitelistedDestinations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WhitelistedDestinations = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).</summary>
-        public Guid? BillingGroupId { get; set; }
+        public Guid? BillingGroupId { get => _explicitNullValueBillingGroupId; set { _explicitNullValueBillingGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_group_id"); else _explicitNullProperties?.Remove("billing_group_id"); } }
+        private Guid? _explicitNullValueBillingGroupId = default!;
         /// <summary>Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileCallingWindow? CallingWindow { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileCallingWindow? CallingWindow { get => _explicitNullValueCallingWindow; set { _explicitNullValueCallingWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calling_window"); else _explicitNullProperties?.Remove("calling_window"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileCallingWindow? _explicitNullValueCallingWindow = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileCallingWindow CallingWindow { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileCallingWindow CallingWindow { get => _explicitNullValueCallingWindow; set { _explicitNullValueCallingWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calling_window"); else _explicitNullProperties?.Remove("calling_window"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfileCallingWindow _explicitNullValueCallingWindow = default!;
 #endif
         /// <summary>The call_recording property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording? CallRecording { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording? CallRecording { get => _explicitNullValueCallRecording; set { _explicitNullValueCallRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording"); else _explicitNullProperties?.Remove("call_recording"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording? _explicitNullValueCallRecording = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording CallRecording { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording CallRecording { get => _explicitNullValueCallRecording; set { _explicitNullValueCallRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording"); else _explicitNullProperties?.Remove("call_recording"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording _explicitNullValueCallRecording = default!;
 #endif
         /// <summary>Must be no more than your global concurrent call limit. Null means no limit.</summary>
-        public int? ConcurrentCallLimit { get; set; }
+        public int? ConcurrentCallLimit { get => _explicitNullValueConcurrentCallLimit; set { _explicitNullValueConcurrentCallLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrent_call_limit"); else _explicitNullProperties?.Remove("concurrent_call_limit"); } }
+        private int? _explicitNullValueConcurrentCallLimit = default!;
         /// <summary>Amount of connections associated with this outbound voice profile.</summary>
-        public int? ConnectionsCount { get; set; }
+        public int? ConnectionsCount { get => _explicitNullValueConnectionsCount; set { _explicitNullValueConnectionsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connections_count"); else _explicitNullProperties?.Remove("connections_count"); } }
+        private int? _explicitNullValueConnectionsCount = default!;
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; set; }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get; set; }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>The maximum amount of usage charges, in USD, you want Telnyx to allow on this outbound voice profile in a day before disallowing new calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DailySpendLimit { get; set; }
+        public string? DailySpendLimit { get => _explicitNullValueDailySpendLimit; set { _explicitNullValueDailySpendLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit"); else _explicitNullProperties?.Remove("daily_spend_limit"); } }
+        private string? _explicitNullValueDailySpendLimit = default!;
 #nullable restore
 #else
-        public string DailySpendLimit { get; set; }
+        public string DailySpendLimit { get => _explicitNullValueDailySpendLimit; set { _explicitNullValueDailySpendLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit"); else _explicitNullProperties?.Remove("daily_spend_limit"); } }
+        private string _explicitNullValueDailySpendLimit = default!;
 #endif
         /// <summary>Specifies whether to enforce the daily_spend_limit on this outbound voice profile.</summary>
-        public bool? DailySpendLimitEnabled { get; set; }
+        public bool? DailySpendLimitEnabled { get => _explicitNullValueDailySpendLimitEnabled; set { _explicitNullValueDailySpendLimitEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit_enabled"); else _explicitNullProperties?.Remove("daily_spend_limit_enabled"); } }
+        private bool? _explicitNullValueDailySpendLimitEnabled = default!;
         /// <summary>Specifies whether the outbound voice profile can be used. Disabled profiles will result in outbound calls being blocked for the associated Connections.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>Identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Maximum rate (price per minute) for a Destination to be allowed when making outbound calls.</summary>
-        public double? MaxDestinationRate { get; set; }
+        public double? MaxDestinationRate { get => _explicitNullValueMaxDestinationRate; set { _explicitNullValueMaxDestinationRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_destination_rate"); else _explicitNullProperties?.Remove("max_destination_rate"); } }
+        private double? _explicitNullValueMaxDestinationRate = default!;
         /// <summary>A user-supplied name to help with organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get; set; }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get; set; }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>Indicates the coverage of the termination regions.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan? ServicePlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan? ServicePlan { get => _explicitNullValueServicePlan; set { _explicitNullValueServicePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_plan"); else _explicitNullProperties?.Remove("service_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan? _explicitNullValueServicePlan = default!;
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>Specifies the type of traffic allowed in this profile.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType? TrafficType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType? TrafficType { get => _explicitNullValueTrafficType; set { _explicitNullValueTrafficType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("traffic_type"); else _explicitNullProperties?.Remove("traffic_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType? _explicitNullValueTrafficType = default!;
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get; set; }
+        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private string? _explicitNullValueUpdatedAt = default!;
 #nullable restore
 #else
-        public string UpdatedAt { get; set; }
+        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private string _explicitNullValueUpdatedAt = default!;
 #endif
         /// <summary>Setting for how costs for outbound profile are calculated.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod? UsagePaymentMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod? UsagePaymentMethod { get => _explicitNullValueUsagePaymentMethod; set { _explicitNullValueUsagePaymentMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_payment_method"); else _explicitNullProperties?.Remove("usage_payment_method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod? _explicitNullValueUsagePaymentMethod = default!;
         /// <summary>The list of destinations you want to be able to call using this outbound voice profile formatted in alpha2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? WhitelistedDestinations { get; set; }
+        public List<string>? WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
+        private List<string>? _explicitNullValueWhitelistedDestinations = default!;
 #nullable restore
 #else
-        public List<string> WhitelistedDestinations { get; set; }
+        public List<string> WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
+        private List<string> _explicitNullValueWhitelistedDestinations = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfile"/> and sets the default values.
@@ -129,7 +184,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfile();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfile(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -186,6 +241,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod>("usage_payment_method", UsagePaymentMethod);
             writer.WriteCollectionOfPrimitiveValues<string>("whitelisted_destinations", WhitelistedDestinations);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

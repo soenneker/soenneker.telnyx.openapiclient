@@ -59,6 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.PhoneNumberAssignmentByProfi
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssignmentTaskStatusResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssignmentTaskStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

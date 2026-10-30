@@ -11,23 +11,39 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ManagedAccountsGlobalOutboundChannels : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allocatable_global_outbound_channels") is { } nullNodeAllocatableGlobalOutboundChannels && nullNodeAllocatableGlobalOutboundChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllocatableGlobalOutboundChannels = null;
+            if (parseNode.GetChildNode("managed_account_allow_custom_pricing") is { } nullNodeManagedAccountAllowCustomPricing && nullNodeManagedAccountAllowCustomPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAccountAllowCustomPricing = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("total_global_channels_allocated") is { } nullNodeTotalGlobalChannelsAllocated && nullNodeTotalGlobalChannelsAllocated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalGlobalChannelsAllocated = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total amount of allocatable global outbound channels available to the authenticated manager. Will be 0 if the feature is not enabled for their account.</summary>
-        public int? AllocatableGlobalOutboundChannels { get; set; }
+        public int? AllocatableGlobalOutboundChannels { get => _explicitNullValueAllocatableGlobalOutboundChannels; set { _explicitNullValueAllocatableGlobalOutboundChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allocatable_global_outbound_channels"); else _explicitNullProperties?.Remove("allocatable_global_outbound_channels"); } }
+        private int? _explicitNullValueAllocatableGlobalOutboundChannels = default!;
         /// <summary>Boolean value that indicates if the managed account is able to have custom pricing set for it or not. If false, uses the pricing of the manager account. Defaults to false. This value may be changed, but there may be time lag between when the value is changed and pricing changes take effect.</summary>
-        public bool? ManagedAccountAllowCustomPricing { get; set; }
+        public bool? ManagedAccountAllowCustomPricing { get => _explicitNullValueManagedAccountAllowCustomPricing; set { _explicitNullValueManagedAccountAllowCustomPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_account_allow_custom_pricing"); else _explicitNullProperties?.Remove("managed_account_allow_custom_pricing"); } }
+        private bool? _explicitNullValueManagedAccountAllowCustomPricing = default!;
         /// <summary>The type of the data contained in this record.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get; set; }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get; set; }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>The total number of allocatable global outbound channels currently allocated across all managed accounts for the authenticated user. This includes any amount of channels allocated by default at managed account creation time. Will be 0 if the feature is not enabled for their account.</summary>
-        public int? TotalGlobalChannelsAllocated { get; set; }
+        public int? TotalGlobalChannelsAllocated { get => _explicitNullValueTotalGlobalChannelsAllocated; set { _explicitNullValueTotalGlobalChannelsAllocated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_global_channels_allocated"); else _explicitNullProperties?.Remove("total_global_channels_allocated"); } }
+        private int? _explicitNullValueTotalGlobalChannelsAllocated = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountsGlobalOutboundChannels"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountsGlobalOutboundChannels CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountsGlobalOutboundChannels();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ManagedAccountsGlobalOutboundChannels(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("managed_account_allow_custom_pricing", ManagedAccountAllowCustomPricing);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteIntValue("total_global_channels_allocated", TotalGlobalChannelsAllocated);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

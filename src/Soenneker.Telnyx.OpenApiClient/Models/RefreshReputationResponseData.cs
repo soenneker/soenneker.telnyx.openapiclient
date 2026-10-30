@@ -11,23 +11,39 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RefreshReputationResponseData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
+            if (parseNode.GetChildNode("total_failed") is { } nullNodeTotalFailed && nullNodeTotalFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalFailed = null;
+            if (parseNode.GetChildNode("total_requested") is { } nullNodeTotalRequested && nullNodeTotalRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRequested = null;
+            if (parseNode.GetChildNode("total_successful") is { } nullNodeTotalSuccessful && nullNodeTotalSuccessful.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSuccessful = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Per-number outcome of the refresh.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem>? Results { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem>? _explicitNullValueResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem> Results { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem> _explicitNullValueResults = default!;
 #endif
         /// <summary>The total_failed property</summary>
-        public int? TotalFailed { get; set; }
+        public int? TotalFailed { get => _explicitNullValueTotalFailed; set { _explicitNullValueTotalFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_failed"); else _explicitNullProperties?.Remove("total_failed"); } }
+        private int? _explicitNullValueTotalFailed = default!;
         /// <summary>The total_requested property</summary>
-        public int? TotalRequested { get; set; }
+        public int? TotalRequested { get => _explicitNullValueTotalRequested; set { _explicitNullValueTotalRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_requested"); else _explicitNullProperties?.Remove("total_requested"); } }
+        private int? _explicitNullValueTotalRequested = default!;
         /// <summary>The total_successful property</summary>
-        public int? TotalSuccessful { get; set; }
+        public int? TotalSuccessful { get => _explicitNullValueTotalSuccessful; set { _explicitNullValueTotalSuccessful = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_successful"); else _explicitNullProperties?.Remove("total_successful"); } }
+        private int? _explicitNullValueTotalSuccessful = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseData"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("total_failed", TotalFailed);
             writer.WriteIntValue("total_requested", TotalRequested);
             writer.WriteIntValue("total_successful", TotalSuccessful);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

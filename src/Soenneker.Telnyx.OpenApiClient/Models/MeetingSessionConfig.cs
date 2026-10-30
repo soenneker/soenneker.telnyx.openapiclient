@@ -11,34 +11,54 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MeetingSessionConfig : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("barge_in") is { } nullNodeBargeIn && nullNodeBargeIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BargeIn = null;
+            if (parseNode.GetChildNode("chat_on_enter") is { } nullNodeChatOnEnter && nullNodeChatOnEnter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChatOnEnter = null;
+            if (parseNode.GetChildNode("speak_on_enter") is { } nullNodeSpeakOnEnter && nullNodeSpeakOnEnter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeakOnEnter = null;
+            if (parseNode.GetChildNode("summarize_on_end") is { } nullNodeSummarizeOnEnd && nullNodeSummarizeOnEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SummarizeOnEnd = null;
+            if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+        }
+
         /// <summary>When enabled, a human participant `speech_on` event interrupts and stops the current bot audio; it does not bypass admission or initiate speech. Assistant sessions reject `barge_in: true`.</summary>
-        public bool? BargeIn { get; set; }
+        public bool? BargeIn { get => _explicitNullValueBargeIn; set { _explicitNullValueBargeIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("barge_in"); else _explicitNullProperties?.Remove("barge_in"); } }
+        private bool? _explicitNullValueBargeIn = default!;
         /// <summary>The message posted to chat on join, or null when unset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChatOnEnter { get; set; }
+        public string? ChatOnEnter { get => _explicitNullValueChatOnEnter; set { _explicitNullValueChatOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chat_on_enter"); else _explicitNullProperties?.Remove("chat_on_enter"); } }
+        private string? _explicitNullValueChatOnEnter = default!;
 #nullable restore
 #else
-        public string ChatOnEnter { get; set; }
+        public string ChatOnEnter { get => _explicitNullValueChatOnEnter; set { _explicitNullValueChatOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chat_on_enter"); else _explicitNullProperties?.Remove("chat_on_enter"); } }
+        private string _explicitNullValueChatOnEnter = default!;
 #endif
         /// <summary>Text spoken on meeting entry, or null if not set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpeakOnEnter { get; set; }
+        public string? SpeakOnEnter { get => _explicitNullValueSpeakOnEnter; set { _explicitNullValueSpeakOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speak_on_enter"); else _explicitNullProperties?.Remove("speak_on_enter"); } }
+        private string? _explicitNullValueSpeakOnEnter = default!;
 #nullable restore
 #else
-        public string SpeakOnEnter { get; set; }
+        public string SpeakOnEnter { get => _explicitNullValueSpeakOnEnter; set { _explicitNullValueSpeakOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speak_on_enter"); else _explicitNullProperties?.Remove("speak_on_enter"); } }
+        private string _explicitNullValueSpeakOnEnter = default!;
 #endif
         /// <summary>Whether a summary artifact is generated on session end.</summary>
-        public bool? SummarizeOnEnd { get; set; }
+        public bool? SummarizeOnEnd { get => _explicitNullValueSummarizeOnEnd; set { _explicitNullValueSummarizeOnEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summarize_on_end"); else _explicitNullProperties?.Remove("summarize_on_end"); } }
+        private bool? _explicitNullValueSummarizeOnEnd = default!;
         /// <summary>Configured voice identifier, or null if not set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Voice { get; set; }
+        public string? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private string? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public string Voice { get; set; }
+        public string Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private string _explicitNullValueVoice = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,7 +96,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("chat_on_enter", ChatOnEnter);
             writer.WriteStringValue("speak_on_enter", SpeakOnEnter);
             writer.WriteBoolValue("summarize_on_end", SummarizeOnEnd);
-            writer.WriteStringValue("voice", Voice);
+            writer.WriteStringValue("voice", Voice);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

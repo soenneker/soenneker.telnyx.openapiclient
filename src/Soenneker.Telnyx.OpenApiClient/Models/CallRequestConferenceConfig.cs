@@ -12,60 +12,99 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallRequestConferenceConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("beep_enabled") is { } nullNodeBeepEnabled && nullNodeBeepEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepEnabled = null;
+            if (parseNode.GetChildNode("conference_name") is { } nullNodeConferenceName && nullNodeConferenceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceName = null;
+            if (parseNode.GetChildNode("early_media") is { } nullNodeEarlyMedia && nullNodeEarlyMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EarlyMedia = null;
+            if (parseNode.GetChildNode("end_conference_on_exit") is { } nullNodeEndConferenceOnExit && nullNodeEndConferenceOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndConferenceOnExit = null;
+            if (parseNode.GetChildNode("hold") is { } nullNodeHold && nullNodeHold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hold = null;
+            if (parseNode.GetChildNode("hold_audio_url") is { } nullNodeHoldAudioUrl && nullNodeHoldAudioUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldAudioUrl = null;
+            if (parseNode.GetChildNode("hold_media_name") is { } nullNodeHoldMediaName && nullNodeHoldMediaName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldMediaName = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("mute") is { } nullNodeMute && nullNodeMute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mute = null;
+            if (parseNode.GetChildNode("soft_end_conference_on_exit") is { } nullNodeSoftEndConferenceOnExit && nullNodeSoftEndConferenceOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SoftEndConferenceOnExit = null;
+            if (parseNode.GetChildNode("start_conference_on_create") is { } nullNodeStartConferenceOnCreate && nullNodeStartConferenceOnCreate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartConferenceOnCreate = null;
+            if (parseNode.GetChildNode("start_conference_on_enter") is { } nullNodeStartConferenceOnEnter && nullNodeStartConferenceOnEnter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartConferenceOnEnter = null;
+            if (parseNode.GetChildNode("supervisor_role") is { } nullNodeSupervisorRole && nullNodeSupervisorRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupervisorRole = null;
+            if (parseNode.GetChildNode("whisper_call_control_ids") is { } nullNodeWhisperCallControlIds && nullNodeWhisperCallControlIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WhisperCallControlIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether a beep sound should be played when the participant joins and/or leaves the conference. Can be used to override the conference-level setting.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfigBeepEnabled? BeepEnabled { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfigBeepEnabled? BeepEnabled { get => _explicitNullValueBeepEnabled; set { _explicitNullValueBeepEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_enabled"); else _explicitNullProperties?.Remove("beep_enabled"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfigBeepEnabled? _explicitNullValueBeepEnabled = default!;
         /// <summary>Conference name to be joined</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConferenceName { get; set; }
+        public string? ConferenceName { get => _explicitNullValueConferenceName; set { _explicitNullValueConferenceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conference_name"); else _explicitNullProperties?.Remove("conference_name"); } }
+        private string? _explicitNullValueConferenceName = default!;
 #nullable restore
 #else
-        public string ConferenceName { get; set; }
+        public string ConferenceName { get => _explicitNullValueConferenceName; set { _explicitNullValueConferenceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conference_name"); else _explicitNullProperties?.Remove("conference_name"); } }
+        private string _explicitNullValueConferenceName = default!;
 #endif
         /// <summary>Controls the moment when dialled call is joined into conference. If set to `true` user will be joined as soon as media is available (ringback). If `false` user will be joined when call is answered. Defaults to `true`</summary>
-        public bool? EarlyMedia { get; set; }
+        public bool? EarlyMedia { get => _explicitNullValueEarlyMedia; set { _explicitNullValueEarlyMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("early_media"); else _explicitNullProperties?.Remove("early_media"); } }
+        private bool? _explicitNullValueEarlyMedia = default!;
         /// <summary>Whether the conference should end and all remaining participants be hung up after the participant leaves the conference. Defaults to &quot;false&quot;.</summary>
-        public bool? EndConferenceOnExit { get; set; }
+        public bool? EndConferenceOnExit { get => _explicitNullValueEndConferenceOnExit; set { _explicitNullValueEndConferenceOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_conference_on_exit"); else _explicitNullProperties?.Remove("end_conference_on_exit"); } }
+        private bool? _explicitNullValueEndConferenceOnExit = default!;
         /// <summary>Whether the participant should be put on hold immediately after joining the conference. Defaults to &quot;false&quot;.</summary>
-        public bool? Hold { get; set; }
+        public bool? Hold { get => _explicitNullValueHold; set { _explicitNullValueHold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold"); else _explicitNullProperties?.Remove("hold"); } }
+        private bool? _explicitNullValueHold = default!;
         /// <summary>The URL of a file to be played to the participant when they are put on hold after joining the conference. hold_media_name and hold_audio_url cannot be used together in one request. Takes effect only when &quot;start_conference_on_create&quot; is set to &quot;false&quot;. This property takes effect only if &quot;hold&quot; is set to &quot;true&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HoldAudioUrl { get; set; }
+        public string? HoldAudioUrl { get => _explicitNullValueHoldAudioUrl; set { _explicitNullValueHoldAudioUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_audio_url"); else _explicitNullProperties?.Remove("hold_audio_url"); } }
+        private string? _explicitNullValueHoldAudioUrl = default!;
 #nullable restore
 #else
-        public string HoldAudioUrl { get; set; }
+        public string HoldAudioUrl { get => _explicitNullValueHoldAudioUrl; set { _explicitNullValueHoldAudioUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_audio_url"); else _explicitNullProperties?.Remove("hold_audio_url"); } }
+        private string _explicitNullValueHoldAudioUrl = default!;
 #endif
         /// <summary>The media_name of a file to be played to the participant when they are put on hold after joining the conference. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file. Takes effect only when &quot;start_conference_on_create&quot; is set to &quot;false&quot;. This property takes effect only if &quot;hold&quot; is set to &quot;true&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HoldMediaName { get; set; }
+        public string? HoldMediaName { get => _explicitNullValueHoldMediaName; set { _explicitNullValueHoldMediaName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_media_name"); else _explicitNullProperties?.Remove("hold_media_name"); } }
+        private string? _explicitNullValueHoldMediaName = default!;
 #nullable restore
 #else
-        public string HoldMediaName { get; set; }
+        public string HoldMediaName { get => _explicitNullValueHoldMediaName; set { _explicitNullValueHoldMediaName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_media_name"); else _explicitNullProperties?.Remove("hold_media_name"); } }
+        private string _explicitNullValueHoldMediaName = default!;
 #endif
         /// <summary>Conference ID to be joined</summary>
-        public Guid? Id { get; set; }
+        public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private Guid? _explicitNullValueId = default!;
         /// <summary>Whether the participant should be muted immediately after joining the conference. Defaults to &quot;false&quot;.</summary>
-        public bool? Mute { get; set; }
+        public bool? Mute { get => _explicitNullValueMute; set { _explicitNullValueMute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mute"); else _explicitNullProperties?.Remove("mute"); } }
+        private bool? _explicitNullValueMute = default!;
         /// <summary>Whether the conference should end after the participant leaves the conference. NOTE this doesn&apos;t hang up the other participants. Defaults to &quot;false&quot;.</summary>
-        public bool? SoftEndConferenceOnExit { get; set; }
+        public bool? SoftEndConferenceOnExit { get => _explicitNullValueSoftEndConferenceOnExit; set { _explicitNullValueSoftEndConferenceOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("soft_end_conference_on_exit"); else _explicitNullProperties?.Remove("soft_end_conference_on_exit"); } }
+        private bool? _explicitNullValueSoftEndConferenceOnExit = default!;
         /// <summary>Whether the conference should be started on creation. If the conference isn&apos;t started all participants that join are automatically put on hold. Defaults to &quot;true&quot;.</summary>
-        public bool? StartConferenceOnCreate { get; set; }
+        public bool? StartConferenceOnCreate { get => _explicitNullValueStartConferenceOnCreate; set { _explicitNullValueStartConferenceOnCreate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_conference_on_create"); else _explicitNullProperties?.Remove("start_conference_on_create"); } }
+        private bool? _explicitNullValueStartConferenceOnCreate = default!;
         /// <summary>Whether the conference should be started after the participant joins the conference. Defaults to &quot;false&quot;.</summary>
-        public bool? StartConferenceOnEnter { get; set; }
+        public bool? StartConferenceOnEnter { get => _explicitNullValueStartConferenceOnEnter; set { _explicitNullValueStartConferenceOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_conference_on_enter"); else _explicitNullProperties?.Remove("start_conference_on_enter"); } }
+        private bool? _explicitNullValueStartConferenceOnEnter = default!;
         /// <summary>Sets the joining participant as a supervisor for the conference. A conference can have multiple supervisors. &quot;barge&quot; means the supervisor enters the conference as a normal participant. This is the same as &quot;none&quot;. &quot;monitor&quot; means the supervisor is muted but can hear all participants. &quot;whisper&quot; means that only the specified &quot;whisper_call_control_ids&quot; can hear the supervisor. Defaults to &quot;none&quot;.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfigSupervisorRole? SupervisorRole { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfigSupervisorRole? SupervisorRole { get => _explicitNullValueSupervisorRole; set { _explicitNullValueSupervisorRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supervisor_role"); else _explicitNullProperties?.Remove("supervisor_role"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfigSupervisorRole? _explicitNullValueSupervisorRole = default!;
         /// <summary>Array of unique call_control_ids the joining supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? WhisperCallControlIds { get; set; }
+        public List<string>? WhisperCallControlIds { get => _explicitNullValueWhisperCallControlIds; set { _explicitNullValueWhisperCallControlIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whisper_call_control_ids"); else _explicitNullProperties?.Remove("whisper_call_control_ids"); } }
+        private List<string>? _explicitNullValueWhisperCallControlIds = default!;
 #nullable restore
 #else
-        public List<string> WhisperCallControlIds { get; set; }
+        public List<string> WhisperCallControlIds { get => _explicitNullValueWhisperCallControlIds; set { _explicitNullValueWhisperCallControlIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whisper_call_control_ids"); else _explicitNullProperties?.Remove("whisper_call_control_ids"); } }
+        private List<string> _explicitNullValueWhisperCallControlIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig"/> and sets the default values.
@@ -83,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -130,6 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("start_conference_on_enter", StartConferenceOnEnter);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfigSupervisorRole>("supervisor_role", SupervisorRole);
             writer.WriteCollectionOfPrimitiveValues<string>("whisper_call_control_ids", WhisperCallControlIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

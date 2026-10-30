@@ -74,6 +74,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Email.Ip_pools.Item.Ips
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorEnvelope.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PoolMembershipResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PoolMembershipResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

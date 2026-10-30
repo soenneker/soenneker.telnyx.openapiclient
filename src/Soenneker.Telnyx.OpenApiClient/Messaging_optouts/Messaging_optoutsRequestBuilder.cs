@@ -55,6 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,80 +11,114 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WhatsappInteractiveAction : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("button") is { } nullNodeButton && nullNodeButton.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Button = null;
+            if (parseNode.GetChildNode("buttons") is { } nullNodeButtons && nullNodeButtons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Buttons = null;
+            if (parseNode.GetChildNode("cards") is { } nullNodeCards && nullNodeCards.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cards = null;
+            if (parseNode.GetChildNode("catalog_id") is { } nullNodeCatalogId && nullNodeCatalogId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CatalogId = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
+            if (parseNode.GetChildNode("product_retailer_id") is { } nullNodeProductRetailerId && nullNodeProductRetailerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductRetailerId = null;
+            if (parseNode.GetChildNode("sections") is { } nullNodeSections && nullNodeSections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sections = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The button property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Button { get; set; }
+        public string? Button { get => _explicitNullValueButton; set { _explicitNullValueButton = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button"); else _explicitNullProperties?.Remove("button"); } }
+        private string? _explicitNullValueButton = default!;
 #nullable restore
 #else
-        public string Button { get; set; }
+        public string Button { get => _explicitNullValueButton; set { _explicitNullValueButton = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button"); else _explicitNullProperties?.Remove("button"); } }
+        private string _explicitNullValueButton = default!;
 #endif
         /// <summary>The buttons property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem>? Buttons { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem>? Buttons { get => _explicitNullValueButtons; set { _explicitNullValueButtons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("buttons"); else _explicitNullProperties?.Remove("buttons"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem>? _explicitNullValueButtons = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem> Buttons { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem> Buttons { get => _explicitNullValueButtons; set { _explicitNullValueButtons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("buttons"); else _explicitNullProperties?.Remove("buttons"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionButtonsItem> _explicitNullValueButtons = default!;
 #endif
         /// <summary>The cards property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem>? Cards { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem>? Cards { get => _explicitNullValueCards; set { _explicitNullValueCards = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cards"); else _explicitNullProperties?.Remove("cards"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem>? _explicitNullValueCards = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem> Cards { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem> Cards { get => _explicitNullValueCards; set { _explicitNullValueCards = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cards"); else _explicitNullProperties?.Remove("cards"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionCardsItem> _explicitNullValueCards = default!;
 #endif
         /// <summary>The catalog_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CatalogId { get; set; }
+        public string? CatalogId { get => _explicitNullValueCatalogId; set { _explicitNullValueCatalogId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("catalog_id"); else _explicitNullProperties?.Remove("catalog_id"); } }
+        private string? _explicitNullValueCatalogId = default!;
 #nullable restore
 #else
-        public string CatalogId { get; set; }
+        public string CatalogId { get => _explicitNullValueCatalogId; set { _explicitNullValueCatalogId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("catalog_id"); else _explicitNullProperties?.Remove("catalog_id"); } }
+        private string _explicitNullValueCatalogId = default!;
 #endif
         /// <summary>The mode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mode { get; set; }
+        public string? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private string? _explicitNullValueMode = default!;
 #nullable restore
 #else
-        public string Mode { get; set; }
+        public string Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private string _explicitNullValueMode = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters? Parameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters? _explicitNullValueParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters Parameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters _explicitNullValueParameters = default!;
 #endif
         /// <summary>The product_retailer_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProductRetailerId { get; set; }
+        public string? ProductRetailerId { get => _explicitNullValueProductRetailerId; set { _explicitNullValueProductRetailerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_retailer_id"); else _explicitNullProperties?.Remove("product_retailer_id"); } }
+        private string? _explicitNullValueProductRetailerId = default!;
 #nullable restore
 #else
-        public string ProductRetailerId { get; set; }
+        public string ProductRetailerId { get => _explicitNullValueProductRetailerId; set { _explicitNullValueProductRetailerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_retailer_id"); else _explicitNullProperties?.Remove("product_retailer_id"); } }
+        private string _explicitNullValueProductRetailerId = default!;
 #endif
         /// <summary>The sections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem>? Sections { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem>? Sections { get => _explicitNullValueSections; set { _explicitNullValueSections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sections"); else _explicitNullProperties?.Remove("sections"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem>? _explicitNullValueSections = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem> Sections { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem> Sections { get => _explicitNullValueSections; set { _explicitNullValueSections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sections"); else _explicitNullProperties?.Remove("sections"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem> _explicitNullValueSections = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction"/> and sets the default values.
@@ -101,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -138,6 +172,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionParameters>("parameters", Parameters);
             writer.WriteStringValue("product_retailer_id", ProductRetailerId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveActionSectionsItem>("sections", Sections);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

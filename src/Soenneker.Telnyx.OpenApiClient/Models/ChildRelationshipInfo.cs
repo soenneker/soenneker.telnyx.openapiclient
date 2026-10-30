@@ -11,60 +11,89 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ChildRelationshipInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("child_event") is { } nullNodeChildEvent && nullNodeChildEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildEvent = null;
+            if (parseNode.GetChildNode("child_product") is { } nullNodeChildProduct && nullNodeChildProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildProduct = null;
+            if (parseNode.GetChildNode("child_record_type") is { } nullNodeChildRecordType && nullNodeChildRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildRecordType = null;
+            if (parseNode.GetChildNode("cost_rollup") is { } nullNodeCostRollup && nullNodeCostRollup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CostRollup = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("relationship_type") is { } nullNodeRelationshipType && nullNodeRelationshipType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationshipType = null;
+            if (parseNode.GetChildNode("traversal_enabled") is { } nullNodeTraversalEnabled && nullNodeTraversalEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TraversalEnabled = null;
+            if (parseNode.GetChildNode("via") is { } nullNodeVia && nullNodeVia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Via = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The child_event property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChildEvent { get; set; }
+        public string? ChildEvent { get => _explicitNullValueChildEvent; set { _explicitNullValueChildEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_event"); else _explicitNullProperties?.Remove("child_event"); } }
+        private string? _explicitNullValueChildEvent = default!;
 #nullable restore
 #else
-        public string ChildEvent { get; set; }
+        public string ChildEvent { get => _explicitNullValueChildEvent; set { _explicitNullValueChildEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_event"); else _explicitNullProperties?.Remove("child_event"); } }
+        private string _explicitNullValueChildEvent = default!;
 #endif
         /// <summary>The child_product property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChildProduct { get; set; }
+        public string? ChildProduct { get => _explicitNullValueChildProduct; set { _explicitNullValueChildProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_product"); else _explicitNullProperties?.Remove("child_product"); } }
+        private string? _explicitNullValueChildProduct = default!;
 #nullable restore
 #else
-        public string ChildProduct { get; set; }
+        public string ChildProduct { get => _explicitNullValueChildProduct; set { _explicitNullValueChildProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_product"); else _explicitNullProperties?.Remove("child_product"); } }
+        private string _explicitNullValueChildProduct = default!;
 #endif
         /// <summary>The child_record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChildRecordType { get; set; }
+        public string? ChildRecordType { get => _explicitNullValueChildRecordType; set { _explicitNullValueChildRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_record_type"); else _explicitNullProperties?.Remove("child_record_type"); } }
+        private string? _explicitNullValueChildRecordType = default!;
 #nullable restore
 #else
-        public string ChildRecordType { get; set; }
+        public string ChildRecordType { get => _explicitNullValueChildRecordType; set { _explicitNullValueChildRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_record_type"); else _explicitNullProperties?.Remove("child_record_type"); } }
+        private string _explicitNullValueChildRecordType = default!;
 #endif
         /// <summary>The cost_rollup property</summary>
-        public bool? CostRollup { get; set; }
+        public bool? CostRollup { get => _explicitNullValueCostRollup; set { _explicitNullValueCostRollup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_rollup"); else _explicitNullProperties?.Remove("cost_rollup"); } }
+        private bool? _explicitNullValueCostRollup = default!;
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The relationship_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelationshipType { get; set; }
+        public string? RelationshipType { get => _explicitNullValueRelationshipType; set { _explicitNullValueRelationshipType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship_type"); else _explicitNullProperties?.Remove("relationship_type"); } }
+        private string? _explicitNullValueRelationshipType = default!;
 #nullable restore
 #else
-        public string RelationshipType { get; set; }
+        public string RelationshipType { get => _explicitNullValueRelationshipType; set { _explicitNullValueRelationshipType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship_type"); else _explicitNullProperties?.Remove("relationship_type"); } }
+        private string _explicitNullValueRelationshipType = default!;
 #endif
         /// <summary>The traversal_enabled property</summary>
-        public bool? TraversalEnabled { get; set; }
+        public bool? TraversalEnabled { get => _explicitNullValueTraversalEnabled; set { _explicitNullValueTraversalEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("traversal_enabled"); else _explicitNullProperties?.Remove("traversal_enabled"); } }
+        private bool? _explicitNullValueTraversalEnabled = default!;
         /// <summary>The via property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataFieldMapping? Via { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataFieldMapping? Via { get => _explicitNullValueVia; set { _explicitNullValueVia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("via"); else _explicitNullProperties?.Remove("via"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MetadataFieldMapping? _explicitNullValueVia = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataFieldMapping Via { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataFieldMapping Via { get => _explicitNullValueVia; set { _explicitNullValueVia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("via"); else _explicitNullProperties?.Remove("via"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MetadataFieldMapping _explicitNullValueVia = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChildRelationshipInfo"/> and sets the default values.
@@ -81,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ChildRelationshipInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ChildRelationshipInfo();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ChildRelationshipInfo(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,6 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("relationship_type", RelationshipType);
             writer.WriteBoolValue("traversal_enabled", TraversalEnabled);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataFieldMapping>("via", Via);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

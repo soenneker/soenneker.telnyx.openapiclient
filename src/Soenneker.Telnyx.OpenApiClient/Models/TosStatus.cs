@@ -12,33 +12,54 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TosStatus : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agreed_at") is { } nullNodeAgreedAt && nullNodeAgreedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgreedAt = null;
+            if (parseNode.GetChildNode("agreed_version") is { } nullNodeAgreedVersion && nullNodeAgreedVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgreedVersion = null;
+            if (parseNode.GetChildNode("agreement_required") is { } nullNodeAgreementRequired && nullNodeAgreementRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgreementRequired = null;
+            if (parseNode.GetChildNode("current_terms_version") is { } nullNodeCurrentTermsVersion && nullNodeCurrentTermsVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentTermsVersion = null;
+            if (parseNode.GetChildNode("has_agreed") is { } nullNodeHasAgreed && nullNodeHasAgreed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasAgreed = null;
+            if (parseNode.GetChildNode("product_type") is { } nullNodeProductType && nullNodeProductType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When you accepted the terms, or null if you have not.</summary>
-        public DateTimeOffset? AgreedAt { get; set; }
+        public DateTimeOffset? AgreedAt { get => _explicitNullValueAgreedAt; set { _explicitNullValueAgreedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agreed_at"); else _explicitNullProperties?.Remove("agreed_at"); } }
+        private DateTimeOffset? _explicitNullValueAgreedAt = default!;
         /// <summary>Version the user previously agreed to (may be older than `current_terms_version`). `null` if the user has never agreed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgreedVersion { get; set; }
+        public string? AgreedVersion { get => _explicitNullValueAgreedVersion; set { _explicitNullValueAgreedVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agreed_version"); else _explicitNullProperties?.Remove("agreed_version"); } }
+        private string? _explicitNullValueAgreedVersion = default!;
 #nullable restore
 #else
-        public string AgreedVersion { get; set; }
+        public string AgreedVersion { get => _explicitNullValueAgreedVersion; set { _explicitNullValueAgreedVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agreed_version"); else _explicitNullProperties?.Remove("agreed_version"); } }
+        private string _explicitNullValueAgreedVersion = default!;
 #endif
         /// <summary>`true` when the user must agree to the latest version before using the product. Equivalent to `!has_agreed`.</summary>
-        public bool? AgreementRequired { get; set; }
+        public bool? AgreementRequired { get => _explicitNullValueAgreementRequired; set { _explicitNullValueAgreementRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agreement_required"); else _explicitNullProperties?.Remove("agreement_required"); } }
+        private bool? _explicitNullValueAgreementRequired = default!;
         /// <summary>Latest published version of the ToS for this product.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentTermsVersion { get; set; }
+        public string? CurrentTermsVersion { get => _explicitNullValueCurrentTermsVersion; set { _explicitNullValueCurrentTermsVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_terms_version"); else _explicitNullProperties?.Remove("current_terms_version"); } }
+        private string? _explicitNullValueCurrentTermsVersion = default!;
 #nullable restore
 #else
-        public string CurrentTermsVersion { get; set; }
+        public string CurrentTermsVersion { get => _explicitNullValueCurrentTermsVersion; set { _explicitNullValueCurrentTermsVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_terms_version"); else _explicitNullProperties?.Remove("current_terms_version"); } }
+        private string _explicitNullValueCurrentTermsVersion = default!;
 #endif
         /// <summary>`true` if the user has agreed to the latest version.</summary>
-        public bool? HasAgreed { get; set; }
+        public bool? HasAgreed { get => _explicitNullValueHasAgreed; set { _explicitNullValueHasAgreed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_agreed"); else _explicitNullProperties?.Remove("has_agreed"); } }
+        private bool? _explicitNullValueHasAgreed = default!;
         /// <summary>Telnyx product the Terms of Service apply to.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType? ProductType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType? ProductType { get => _explicitNullValueProductType; set { _explicitNullValueProductType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_type"); else _explicitNullProperties?.Remove("product_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType? _explicitNullValueProductType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TosStatus"/> and sets the default values.
         /// </summary>
@@ -54,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TosStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TosStatus();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TosStatus(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,6 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("current_terms_version", CurrentTermsVersion);
             writer.WriteBoolValue("has_agreed", HasAgreed);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType>("product_type", ProductType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

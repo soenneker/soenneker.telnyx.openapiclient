@@ -11,24 +11,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UpdatePartnerCampaignRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("webhookFailoverURL") is { } nullNodeWebhookFailoverURL && nullNodeWebhookFailoverURL.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookFailoverURL = null;
+            if (parseNode.GetChildNode("webhookURL") is { } nullNodeWebhookURL && nullNodeWebhookURL.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookURL = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Webhook failover to which campaign status updates are sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookFailoverURL { get; set; }
+        public string? WebhookFailoverURL { get => _explicitNullValueWebhookFailoverURL; set { _explicitNullValueWebhookFailoverURL = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhookFailoverURL"); else _explicitNullProperties?.Remove("webhookFailoverURL"); } }
+        private string? _explicitNullValueWebhookFailoverURL = default!;
 #nullable restore
 #else
-        public string WebhookFailoverURL { get; set; }
+        public string WebhookFailoverURL { get => _explicitNullValueWebhookFailoverURL; set { _explicitNullValueWebhookFailoverURL = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhookFailoverURL"); else _explicitNullProperties?.Remove("webhookFailoverURL"); } }
+        private string _explicitNullValueWebhookFailoverURL = default!;
 #endif
         /// <summary>Webhook to which campaign status updates are sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookURL { get; set; }
+        public string? WebhookURL { get => _explicitNullValueWebhookURL; set { _explicitNullValueWebhookURL = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhookURL"); else _explicitNullProperties?.Remove("webhookURL"); } }
+        private string? _explicitNullValueWebhookURL = default!;
 #nullable restore
 #else
-        public string WebhookURL { get; set; }
+        public string WebhookURL { get => _explicitNullValueWebhookURL; set { _explicitNullValueWebhookURL = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhookURL"); else _explicitNullProperties?.Remove("webhookURL"); } }
+        private string _explicitNullValueWebhookURL = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePartnerCampaignRequest"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePartnerCampaignRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePartnerCampaignRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePartnerCampaignRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("webhookFailoverURL", WebhookFailoverURL);
             writer.WriteStringValue("webhookURL", WebhookURL);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

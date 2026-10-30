@@ -12,15 +12,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TranscriptionEndpointingPlan : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("on_no_punctuation_seconds") is { } nullNodeOnNoPunctuationSeconds && nullNodeOnNoPunctuationSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnNoPunctuationSeconds = null;
+            if (parseNode.GetChildNode("on_number_seconds") is { } nullNodeOnNumberSeconds && nullNodeOnNumberSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnNumberSeconds = null;
+            if (parseNode.GetChildNode("on_punctuation_seconds") is { } nullNodeOnPunctuationSeconds && nullNodeOnPunctuationSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnPunctuationSeconds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Seconds to wait after the transcript ends without punctuation.</summary>
-        public float? OnNoPunctuationSeconds { get; set; }
+        public float? OnNoPunctuationSeconds { get => _explicitNullValueOnNoPunctuationSeconds; set { _explicitNullValueOnNoPunctuationSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_no_punctuation_seconds"); else _explicitNullProperties?.Remove("on_no_punctuation_seconds"); } }
+        private float? _explicitNullValueOnNoPunctuationSeconds = default!;
         /// <summary>Seconds to wait after the transcript ends with a number.</summary>
-        public float? OnNumberSeconds { get; set; }
+        public float? OnNumberSeconds { get => _explicitNullValueOnNumberSeconds; set { _explicitNullValueOnNumberSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_number_seconds"); else _explicitNullProperties?.Remove("on_number_seconds"); } }
+        private float? _explicitNullValueOnNumberSeconds = default!;
         /// <summary>Seconds to wait after the transcript ends with punctuation.</summary>
-        public float? OnPunctuationSeconds { get; set; }
+        public float? OnPunctuationSeconds { get => _explicitNullValueOnPunctuationSeconds; set { _explicitNullValueOnPunctuationSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_punctuation_seconds"); else _explicitNullProperties?.Remove("on_punctuation_seconds"); } }
+        private float? _explicitNullValueOnPunctuationSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan"/> and sets the default values.
         /// </summary>
@@ -39,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteFloatValue("on_no_punctuation_seconds", OnNoPunctuationSeconds);
             writer.WriteFloatValue("on_number_seconds", OnNumberSeconds);
             writer.WriteFloatValue("on_punctuation_seconds", OnPunctuationSeconds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

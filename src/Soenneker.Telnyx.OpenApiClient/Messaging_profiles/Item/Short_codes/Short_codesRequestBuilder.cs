@@ -53,6 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingProfileShortCodesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMessagingProfileShortCodesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,78 +11,115 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MobilePhoneNumberUpdate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("caller_id_name_enabled") is { } nullNodeCallerIdNameEnabled && nullNodeCallerIdNameEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerIdNameEnabled = null;
+            if (parseNode.GetChildNode("call_forwarding") is { } nullNodeCallForwarding && nullNodeCallForwarding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallForwarding = null;
+            if (parseNode.GetChildNode("call_recording") is { } nullNodeCallRecording && nullNodeCallRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallRecording = null;
+            if (parseNode.GetChildNode("cnam_listing") is { } nullNodeCnamListing && nullNodeCnamListing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CnamListing = null;
+            if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("customer_reference") is { } nullNodeCustomerReference && nullNodeCustomerReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReference = null;
+            if (parseNode.GetChildNode("inbound") is { } nullNodeInbound && nullNodeInbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inbound = null;
+            if (parseNode.GetChildNode("inbound_call_screening") is { } nullNodeInboundCallScreening && nullNodeInboundCallScreening.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallScreening = null;
+            if (parseNode.GetChildNode("noise_suppression") is { } nullNodeNoiseSuppression && nullNodeNoiseSuppression.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseSuppression = null;
+            if (parseNode.GetChildNode("outbound") is { } nullNodeOutbound && nullNodeOutbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outbound = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The caller_id_name_enabled property</summary>
-        public bool? CallerIdNameEnabled { get; set; }
+        public bool? CallerIdNameEnabled { get => _explicitNullValueCallerIdNameEnabled; set { _explicitNullValueCallerIdNameEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_id_name_enabled"); else _explicitNullProperties?.Remove("caller_id_name_enabled"); } }
+        private bool? _explicitNullValueCallerIdNameEnabled = default!;
         /// <summary>The call_forwarding property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallForwarding? CallForwarding { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallForwarding? CallForwarding { get => _explicitNullValueCallForwarding; set { _explicitNullValueCallForwarding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_forwarding"); else _explicitNullProperties?.Remove("call_forwarding"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallForwarding? _explicitNullValueCallForwarding = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallForwarding CallForwarding { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallForwarding CallForwarding { get => _explicitNullValueCallForwarding; set { _explicitNullValueCallForwarding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_forwarding"); else _explicitNullProperties?.Remove("call_forwarding"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallForwarding _explicitNullValueCallForwarding = default!;
 #endif
         /// <summary>The call_recording property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording? CallRecording { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording? CallRecording { get => _explicitNullValueCallRecording; set { _explicitNullValueCallRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording"); else _explicitNullProperties?.Remove("call_recording"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording? _explicitNullValueCallRecording = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording CallRecording { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording CallRecording { get => _explicitNullValueCallRecording; set { _explicitNullValueCallRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording"); else _explicitNullProperties?.Remove("call_recording"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCallRecording _explicitNullValueCallRecording = default!;
 #endif
         /// <summary>The cnam_listing property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCnamListing? CnamListing { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCnamListing? CnamListing { get => _explicitNullValueCnamListing; set { _explicitNullValueCnamListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing"); else _explicitNullProperties?.Remove("cnam_listing"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCnamListing? _explicitNullValueCnamListing = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCnamListing CnamListing { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCnamListing CnamListing { get => _explicitNullValueCnamListing; set { _explicitNullValueCnamListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing"); else _explicitNullProperties?.Remove("cnam_listing"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateCnamListing _explicitNullValueCnamListing = default!;
 #endif
         /// <summary>The connection_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>The customer_reference property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerReference { get; set; }
+        public string? CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        private string? _explicitNullValueCustomerReference = default!;
 #nullable restore
 #else
-        public string CustomerReference { get; set; }
+        public string CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        private string _explicitNullValueCustomerReference = default!;
 #endif
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound? Inbound { get => _explicitNullValueInbound; set { _explicitNullValueInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound"); else _explicitNullProperties?.Remove("inbound"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound? _explicitNullValueInbound = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound Inbound { get => _explicitNullValueInbound; set { _explicitNullValueInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound"); else _explicitNullProperties?.Remove("inbound"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInbound _explicitNullValueInbound = default!;
 #endif
         /// <summary>The inbound_call_screening property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInboundCallScreening? InboundCallScreening { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInboundCallScreening? InboundCallScreening { get => _explicitNullValueInboundCallScreening; set { _explicitNullValueInboundCallScreening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_screening"); else _explicitNullProperties?.Remove("inbound_call_screening"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateInboundCallScreening? _explicitNullValueInboundCallScreening = default!;
         /// <summary>The noise_suppression property</summary>
-        public bool? NoiseSuppression { get; set; }
+        public bool? NoiseSuppression { get => _explicitNullValueNoiseSuppression; set { _explicitNullValueNoiseSuppression = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_suppression"); else _explicitNullProperties?.Remove("noise_suppression"); } }
+        private bool? _explicitNullValueNoiseSuppression = default!;
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound? Outbound { get => _explicitNullValueOutbound; set { _explicitNullValueOutbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound"); else _explicitNullProperties?.Remove("outbound"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound? _explicitNullValueOutbound = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound Outbound { get => _explicitNullValueOutbound; set { _explicitNullValueOutbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound"); else _explicitNullProperties?.Remove("outbound"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound _explicitNullValueOutbound = default!;
 #endif
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdate"/> and sets the default values.
@@ -99,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -140,6 +177,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberUpdateOutbound>("outbound", Outbound);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

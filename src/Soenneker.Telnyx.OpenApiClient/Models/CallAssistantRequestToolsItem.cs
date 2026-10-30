@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallAssistantRequestToolsItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,33 +74,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestToolsItem();
-            if("book_appointment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("BookAppointmentTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BookAppointmentTool = new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool();
+                
             }
-            else if("retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("CallControlRetrievalTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CallControlRetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool();
+                
             }
-            else if("check_availability".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("CheckAvailabilityTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CheckAvailabilityTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool();
+                
             }
-            else if("hangup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("HangupTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.HangupTool = new global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool();
+                
             }
-            else if("transfer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("TransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.TransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool();
+                
             }
-            else if("webhook".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("WebhookTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("book_appointment".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("book_appointment") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("check_availability".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("check_availability") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("webhook".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("webhook") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("hangup".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("hangup") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("transfer".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("transfer") != null))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("retrieval".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("retrieval") != null))();
+            if (result.BookAppointmentTool == null && result.CallControlRetrievalTool == null && result.CheckAvailabilityTool == null && result.HangupTool == null && result.TransferTool == null && result.WebhookTool == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.BookAppointmentTool = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool(), parseNode);
+            if (result.BookAppointmentTool == null && result.CallControlRetrievalTool == null && result.CheckAvailabilityTool == null && result.HangupTool == null && result.TransferTool == null && result.WebhookTool == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.CheckAvailabilityTool = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool(), parseNode);
+            if (result.BookAppointmentTool == null && result.CallControlRetrievalTool == null && result.CheckAvailabilityTool == null && result.HangupTool == null && result.TransferTool == null && result.WebhookTool == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.WebhookTool = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool(), parseNode);
+            if (result.BookAppointmentTool == null && result.CallControlRetrievalTool == null && result.CheckAvailabilityTool == null && result.HangupTool == null && result.TransferTool == null && result.WebhookTool == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5) result.HangupTool = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool(), parseNode);
+            if (result.BookAppointmentTool == null && result.CallControlRetrievalTool == null && result.CheckAvailabilityTool == null && result.HangupTool == null && result.TransferTool == null && result.WebhookTool == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5) result.TransferTool = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool(), parseNode);
+            if (result.BookAppointmentTool == null && result.CallControlRetrievalTool == null && result.CheckAvailabilityTool == null && result.HangupTool == null && result.TransferTool == null && result.WebhookTool == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.CallControlRetrievalTool = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool(), parseNode);
+            if (result.BookAppointmentTool == null && result.CallControlRetrievalTool == null && result.CheckAvailabilityTool == null && result.HangupTool == null && result.TransferTool == null && result.WebhookTool == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -135,29 +155,44 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (BookAppointmentTool == null && CallControlRetrievalTool == null && CheckAvailabilityTool == null && HangupTool == null && TransferTool == null && WebhookTool == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (BookAppointmentTool != null && CallControlRetrievalTool == null && CheckAvailabilityTool == null && HangupTool == null && TransferTool == null && WebhookTool == null) { if (BookAppointmentTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BookAppointmentTool); return; }
+            if (CallControlRetrievalTool != null && BookAppointmentTool == null && CheckAvailabilityTool == null && HangupTool == null && TransferTool == null && WebhookTool == null) { if (CallControlRetrievalTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CallControlRetrievalTool); return; }
+            if (CheckAvailabilityTool != null && BookAppointmentTool == null && CallControlRetrievalTool == null && HangupTool == null && TransferTool == null && WebhookTool == null) { if (CheckAvailabilityTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CheckAvailabilityTool); return; }
+            if (HangupTool != null && BookAppointmentTool == null && CallControlRetrievalTool == null && CheckAvailabilityTool == null && TransferTool == null && WebhookTool == null) { if (HangupTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, HangupTool); return; }
+            if (TransferTool != null && BookAppointmentTool == null && CallControlRetrievalTool == null && CheckAvailabilityTool == null && HangupTool == null && WebhookTool == null) { if (TransferTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TransferTool); return; }
+            if (WebhookTool != null && BookAppointmentTool == null && CallControlRetrievalTool == null && CheckAvailabilityTool == null && HangupTool == null && TransferTool == null) { if (WebhookTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WebhookTool); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(BookAppointmentTool != null)
             {
+                if (BookAppointmentTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool>(null, BookAppointmentTool);
             }
             else if(CallControlRetrievalTool != null)
             {
+                if (CallControlRetrievalTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlRetrievalTool>(null, CallControlRetrievalTool);
             }
             else if(CheckAvailabilityTool != null)
             {
+                if (CheckAvailabilityTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool>(null, CheckAvailabilityTool);
             }
             else if(HangupTool != null)
             {
+                if (HangupTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool>(null, HangupTool);
             }
             else if(TransferTool != null)
             {
+                if (TransferTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool>(null, TransferTool);
             }
             else if(WebhookTool != null)
             {
+                if (WebhookTool is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool>(null, WebhookTool);
             }
         }

@@ -11,16 +11,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MarkCommentRead200ResponseData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("comment_record_id") is { } nullNodeCommentRecordId && nullNodeCommentRecordId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommentRecordId = null;
+            if (parseNode.GetChildNode("comment_record_type") is { } nullNodeCommentRecordType && nullNodeCommentRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommentRecordType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get; set; }
+        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public string Body { get; set; }
+        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string _explicitNullValueBody = default!;
 #endif
         /// <summary>The commenter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,9 +45,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The commenter_type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommenterType? CommenterType { get; private set; }
         /// <summary>The comment_record_id property</summary>
-        public Guid? CommentRecordId { get; set; }
+        public Guid? CommentRecordId { get => _explicitNullValueCommentRecordId; set { _explicitNullValueCommentRecordId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment_record_id"); else _explicitNullProperties?.Remove("comment_record_id"); } }
+        private Guid? _explicitNullValueCommentRecordId = default!;
         /// <summary>The comment_record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType? CommentRecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType? CommentRecordType { get => _explicitNullValueCommentRecordType; set { _explicitNullValueCommentRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment_record_type"); else _explicitNullProperties?.Remove("comment_record_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType? _explicitNullValueCommentRecordType = default!;
         /// <summary>An ISO 8901 datetime string denoting when the comment was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The id property</summary>
@@ -59,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MarkCommentRead200ResponseData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,6 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("body", Body);
             writer.WriteGuidValue("comment_record_id", CommentRecordId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentCommentRecordType>("comment_record_type", CommentRecordType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

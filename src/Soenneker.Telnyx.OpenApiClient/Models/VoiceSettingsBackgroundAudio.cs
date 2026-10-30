@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceSettingsBackgroundAudio : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,17 +54,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio();
             if("predefined_media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VoiceSettingsBackgroundAudioOneOf1 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1();
+                
             }
             else if("media_url".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VoiceSettingsBackgroundAudioOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2();
+                
             }
             else if("media_name".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VoiceSettingsBackgroundAudioOneOf3 = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("predefined_media".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("value") != null && (parseNode.GetChildNode("value")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("silence".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "office".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("media_url".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("value") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("media_name".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("value") != null))();
+            if (result.VoiceSettingsBackgroundAudioOneOf1 == null && result.VoiceSettingsBackgroundAudioOneOf2 == null && result.VoiceSettingsBackgroundAudioOneOf3 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.VoiceSettingsBackgroundAudioOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1(), parseNode);
+            if (result.VoiceSettingsBackgroundAudioOneOf1 == null && result.VoiceSettingsBackgroundAudioOneOf2 == null && result.VoiceSettingsBackgroundAudioOneOf3 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.VoiceSettingsBackgroundAudioOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2(), parseNode);
+            if (result.VoiceSettingsBackgroundAudioOneOf1 == null && result.VoiceSettingsBackgroundAudioOneOf2 == null && result.VoiceSettingsBackgroundAudioOneOf3 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.VoiceSettingsBackgroundAudioOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3(), parseNode);
+            if (result.VoiceSettingsBackgroundAudioOneOf1 == null && result.VoiceSettingsBackgroundAudioOneOf2 == null && result.VoiceSettingsBackgroundAudioOneOf3 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (VoiceSettingsBackgroundAudioOneOf1 == null && VoiceSettingsBackgroundAudioOneOf2 == null && VoiceSettingsBackgroundAudioOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (VoiceSettingsBackgroundAudioOneOf1 != null && VoiceSettingsBackgroundAudioOneOf2 == null && VoiceSettingsBackgroundAudioOneOf3 == null) { if (VoiceSettingsBackgroundAudioOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VoiceSettingsBackgroundAudioOneOf1); return; }
+            if (VoiceSettingsBackgroundAudioOneOf2 != null && VoiceSettingsBackgroundAudioOneOf1 == null && VoiceSettingsBackgroundAudioOneOf3 == null) { if (VoiceSettingsBackgroundAudioOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VoiceSettingsBackgroundAudioOneOf2); return; }
+            if (VoiceSettingsBackgroundAudioOneOf3 != null && VoiceSettingsBackgroundAudioOneOf1 == null && VoiceSettingsBackgroundAudioOneOf2 == null) { if (VoiceSettingsBackgroundAudioOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VoiceSettingsBackgroundAudioOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(VoiceSettingsBackgroundAudioOneOf1 != null)
             {
+                if (VoiceSettingsBackgroundAudioOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf1>(null, VoiceSettingsBackgroundAudioOneOf1);
             }
             else if(VoiceSettingsBackgroundAudioOneOf2 != null)
             {
+                if (VoiceSettingsBackgroundAudioOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf2>(null, VoiceSettingsBackgroundAudioOneOf2);
             }
             else if(VoiceSettingsBackgroundAudioOneOf3 != null)
             {
+                if (VoiceSettingsBackgroundAudioOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioOneOf3>(null, VoiceSettingsBackgroundAudioOneOf3);
             }
         }

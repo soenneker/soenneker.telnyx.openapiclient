@@ -86,6 +86,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Llm_token_gateway.Token_groups
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -131,6 +133,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Llm_token_gateway.Token_groups
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

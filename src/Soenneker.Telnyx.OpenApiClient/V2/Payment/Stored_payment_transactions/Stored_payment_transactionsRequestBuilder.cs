@@ -59,6 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Payment.Stored_payment_transactions
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionsErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionsErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

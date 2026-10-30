@@ -12,17 +12,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateMeetingSessionRequest : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bot_name") is { } nullNodeBotName && nullNodeBotName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BotName = null;
+            if (parseNode.GetChildNode("join_at") is { } nullNodeJoinAt && nullNodeJoinAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JoinAt = null;
+        }
+
         /// <summary>Updated display name for the bot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BotName { get; set; }
+        public string? BotName { get => _explicitNullValueBotName; set { _explicitNullValueBotName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_name"); else _explicitNullProperties?.Remove("bot_name"); } }
+        private string? _explicitNullValueBotName = default!;
 #nullable restore
 #else
-        public string BotName { get; set; }
+        public string BotName { get => _explicitNullValueBotName; set { _explicitNullValueBotName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_name"); else _explicitNullProperties?.Remove("bot_name"); } }
+        private string _explicitNullValueBotName = default!;
 #endif
         /// <summary>ISO-8601 timestamp for the bot to join. May be updated to reschedule.</summary>
-        public DateTimeOffset? JoinAt { get; set; }
+        public DateTimeOffset? JoinAt { get => _explicitNullValueJoinAt; set { _explicitNullValueJoinAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("join_at"); else _explicitNullProperties?.Remove("join_at"); } }
+        private DateTimeOffset? _explicitNullValueJoinAt = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -31,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMeetingSessionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMeetingSessionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMeetingSessionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +65,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("bot_name", BotName);
-            writer.WriteDateTimeOffsetValue("join_at", JoinAt);
+            writer.WriteDateTimeOffsetValue("join_at", JoinAt);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,40 +11,61 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TailscaleSubnetRouterCreate : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("advertised_routes") is { } nullNodeAdvertisedRoutes && nullNodeAdvertisedRoutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvertisedRoutes = null;
+            if (parseNode.GetChildNode("auth_key") is { } nullNodeAuthKey && nullNodeAuthKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthKey = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("network_id") is { } nullNodeNetworkId && nullNodeNetworkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkId = null;
+            if (parseNode.GetChildNode("region_code") is { } nullNodeRegionCode && nullNodeRegionCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionCode = null;
+        }
+
         /// <summary>IPv4 subnets of the Network that the router advertises to the tailnet. Each entry is a canonical CIDR that the Network routes. Default, loopback, link-local, multicast, and Tailscale (`100.64.0.0/10`) ranges are rejected. So are ranges that overlap the router&apos;s own, `172.27.254.0/24` and `198.18.0.0/20`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AdvertisedRoutes { get; set; }
+        public List<string>? AdvertisedRoutes { get => _explicitNullValueAdvertisedRoutes; set { _explicitNullValueAdvertisedRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advertised_routes"); else _explicitNullProperties?.Remove("advertised_routes"); } }
+        private List<string>? _explicitNullValueAdvertisedRoutes = default!;
 #nullable restore
 #else
-        public List<string> AdvertisedRoutes { get; set; }
+        public List<string> AdvertisedRoutes { get => _explicitNullValueAdvertisedRoutes; set { _explicitNullValueAdvertisedRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advertised_routes"); else _explicitNullProperties?.Remove("advertised_routes"); } }
+        private List<string> _explicitNullValueAdvertisedRoutes = default!;
 #endif
         /// <summary>A Tailscale auth key that enrolls the router in the user&apos;s tailnet: reusable, pre-approved, tagged, and not ephemeral. Telnyx stores it encrypted until enrollment succeeds, then discards it. It is never returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthKey { get; set; }
+        public string? AuthKey { get => _explicitNullValueAuthKey; set { _explicitNullValueAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_key"); else _explicitNullProperties?.Remove("auth_key"); } }
+        private string? _explicitNullValueAuthKey = default!;
 #nullable restore
 #else
-        public string AuthKey { get; set; }
+        public string AuthKey { get => _explicitNullValueAuthKey; set { _explicitNullValueAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_key"); else _explicitNullProperties?.Remove("auth_key"); } }
+        private string _explicitNullValueAuthKey = default!;
 #endif
         /// <summary>A user specified name for the router.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The id of the Network to attach the router to.</summary>
-        public Guid? NetworkId { get; set; }
+        public Guid? NetworkId { get => _explicitNullValueNetworkId; set { _explicitNullValueNetworkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_id"); else _explicitNullProperties?.Remove("network_id"); } }
+        private Guid? _explicitNullValueNetworkId = default!;
         /// <summary>The code of the region to create the router in. `GET /network_coverage` lists the regions whose `available_services` include `tailscale_subnet_router`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionCode { get; set; }
+        public string? RegionCode { get => _explicitNullValueRegionCode; set { _explicitNullValueRegionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_code"); else _explicitNullProperties?.Remove("region_code"); } }
+        private string? _explicitNullValueRegionCode = default!;
 #nullable restore
 #else
-        public string RegionCode { get; set; }
+        public string RegionCode { get => _explicitNullValueRegionCode; set { _explicitNullValueRegionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_code"); else _explicitNullProperties?.Remove("region_code"); } }
+        private string _explicitNullValueRegionCode = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -54,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TailscaleSubnetRouterCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TailscaleSubnetRouterCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TailscaleSubnetRouterCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,7 +103,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("auth_key", AuthKey);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("network_id", NetworkId);
-            writer.WriteStringValue("region_code", RegionCode);
+            writer.WriteStringValue("region_code", RegionCode);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

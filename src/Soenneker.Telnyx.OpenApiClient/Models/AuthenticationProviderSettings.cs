@@ -12,92 +12,133 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthenticationProviderSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assertion_consumer_service_url") is { } nullNodeAssertionConsumerServiceUrl && nullNodeAssertionConsumerServiceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssertionConsumerServiceUrl = null;
+            if (parseNode.GetChildNode("idp_attribute_names") is { } nullNodeIdpAttributeNames && nullNodeIdpAttributeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpAttributeNames = null;
+            if (parseNode.GetChildNode("idp_cert_fingerprint") is { } nullNodeIdpCertFingerprint && nullNodeIdpCertFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpCertFingerprint = null;
+            if (parseNode.GetChildNode("idp_cert_fingerprint_algorithm") is { } nullNodeIdpCertFingerprintAlgorithm && nullNodeIdpCertFingerprintAlgorithm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpCertFingerprintAlgorithm = null;
+            if (parseNode.GetChildNode("idp_certificate") is { } nullNodeIdpCertificate && nullNodeIdpCertificate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpCertificate = null;
+            if (parseNode.GetChildNode("idp_entity_id") is { } nullNodeIdpEntityId && nullNodeIdpEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpEntityId = null;
+            if (parseNode.GetChildNode("idp_slo_target_url") is { } nullNodeIdpSloTargetUrl && nullNodeIdpSloTargetUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpSloTargetUrl = null;
+            if (parseNode.GetChildNode("idp_sso_target_url") is { } nullNodeIdpSsoTargetUrl && nullNodeIdpSsoTargetUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpSsoTargetUrl = null;
+            if (parseNode.GetChildNode("name_identifier_format") is { } nullNodeNameIdentifierFormat && nullNodeNameIdentifierFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameIdentifierFormat = null;
+            if (parseNode.GetChildNode("provision_groups") is { } nullNodeProvisionGroups && nullNodeProvisionGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProvisionGroups = null;
+            if (parseNode.GetChildNode("service_provider_entity_id") is { } nullNodeServiceProviderEntityId && nullNodeServiceProviderEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceProviderEntityId = null;
+            if (parseNode.GetChildNode("service_provider_login_url") is { } nullNodeServiceProviderLoginUrl && nullNodeServiceProviderLoginUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceProviderLoginUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Assertion Consumer Service URL for the service provider (Telnyx).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssertionConsumerServiceUrl { get; set; }
+        public string? AssertionConsumerServiceUrl { get => _explicitNullValueAssertionConsumerServiceUrl; set { _explicitNullValueAssertionConsumerServiceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assertion_consumer_service_url"); else _explicitNullProperties?.Remove("assertion_consumer_service_url"); } }
+        private string? _explicitNullValueAssertionConsumerServiceUrl = default!;
 #nullable restore
 #else
-        public string AssertionConsumerServiceUrl { get; set; }
+        public string AssertionConsumerServiceUrl { get => _explicitNullValueAssertionConsumerServiceUrl; set { _explicitNullValueAssertionConsumerServiceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assertion_consumer_service_url"); else _explicitNullProperties?.Remove("assertion_consumer_service_url"); } }
+        private string _explicitNullValueAssertionConsumerServiceUrl = default!;
 #endif
         /// <summary>Mapping of SAML attribute names used by the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty? IdpAttributeNames { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty? IdpAttributeNames { get => _explicitNullValueIdpAttributeNames; set { _explicitNullValueIdpAttributeNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_attribute_names"); else _explicitNullProperties?.Remove("idp_attribute_names"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty? _explicitNullValueIdpAttributeNames = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty IdpAttributeNames { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty IdpAttributeNames { get => _explicitNullValueIdpAttributeNames; set { _explicitNullValueIdpAttributeNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_attribute_names"); else _explicitNullProperties?.Remove("idp_attribute_names"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpAttributeNamesProperty _explicitNullValueIdpAttributeNames = default!;
 #endif
         /// <summary>The certificate fingerprint for the identity provider (IdP)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpCertFingerprint { get; set; }
+        public string? IdpCertFingerprint { get => _explicitNullValueIdpCertFingerprint; set { _explicitNullValueIdpCertFingerprint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint"); else _explicitNullProperties?.Remove("idp_cert_fingerprint"); } }
+        private string? _explicitNullValueIdpCertFingerprint = default!;
 #nullable restore
 #else
-        public string IdpCertFingerprint { get; set; }
+        public string IdpCertFingerprint { get => _explicitNullValueIdpCertFingerprint; set { _explicitNullValueIdpCertFingerprint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint"); else _explicitNullProperties?.Remove("idp_cert_fingerprint"); } }
+        private string _explicitNullValueIdpCertFingerprint = default!;
 #endif
         /// <summary>The algorithm used to generate the identity provider&apos;s (IdP) certificate fingerprint</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpCertFingerprintAlgorithm? IdpCertFingerprintAlgorithm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpCertFingerprintAlgorithm? IdpCertFingerprintAlgorithm { get => _explicitNullValueIdpCertFingerprintAlgorithm; set { _explicitNullValueIdpCertFingerprintAlgorithm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint_algorithm"); else _explicitNullProperties?.Remove("idp_cert_fingerprint_algorithm"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettingsIdpCertFingerprintAlgorithm? _explicitNullValueIdpCertFingerprintAlgorithm = default!;
         /// <summary>The full X.509 certificate for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpCertificate { get; set; }
+        public string? IdpCertificate { get => _explicitNullValueIdpCertificate; set { _explicitNullValueIdpCertificate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_certificate"); else _explicitNullProperties?.Remove("idp_certificate"); } }
+        private string? _explicitNullValueIdpCertificate = default!;
 #nullable restore
 #else
-        public string IdpCertificate { get; set; }
+        public string IdpCertificate { get => _explicitNullValueIdpCertificate; set { _explicitNullValueIdpCertificate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_certificate"); else _explicitNullProperties?.Remove("idp_certificate"); } }
+        private string _explicitNullValueIdpCertificate = default!;
 #endif
         /// <summary>The Entity ID for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpEntityId { get; set; }
+        public string? IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
+        private string? _explicitNullValueIdpEntityId = default!;
 #nullable restore
 #else
-        public string IdpEntityId { get; set; }
+        public string IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
+        private string _explicitNullValueIdpEntityId = default!;
 #endif
         /// <summary>The Single Logout (SLO) target URL for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpSloTargetUrl { get; set; }
+        public string? IdpSloTargetUrl { get => _explicitNullValueIdpSloTargetUrl; set { _explicitNullValueIdpSloTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_slo_target_url"); else _explicitNullProperties?.Remove("idp_slo_target_url"); } }
+        private string? _explicitNullValueIdpSloTargetUrl = default!;
 #nullable restore
 #else
-        public string IdpSloTargetUrl { get; set; }
+        public string IdpSloTargetUrl { get => _explicitNullValueIdpSloTargetUrl; set { _explicitNullValueIdpSloTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_slo_target_url"); else _explicitNullProperties?.Remove("idp_slo_target_url"); } }
+        private string _explicitNullValueIdpSloTargetUrl = default!;
 #endif
         /// <summary>The SSO target url for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpSsoTargetUrl { get; set; }
+        public string? IdpSsoTargetUrl { get => _explicitNullValueIdpSsoTargetUrl; set { _explicitNullValueIdpSsoTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_sso_target_url"); else _explicitNullProperties?.Remove("idp_sso_target_url"); } }
+        private string? _explicitNullValueIdpSsoTargetUrl = default!;
 #nullable restore
 #else
-        public string IdpSsoTargetUrl { get; set; }
+        public string IdpSsoTargetUrl { get => _explicitNullValueIdpSsoTargetUrl; set { _explicitNullValueIdpSsoTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_sso_target_url"); else _explicitNullProperties?.Remove("idp_sso_target_url"); } }
+        private string _explicitNullValueIdpSsoTargetUrl = default!;
 #endif
         /// <summary>The name identifier format associated with the authentication provider. This must be the same for both the Identity Provider (IdP) and the service provider (Telnyx).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NameIdentifierFormat { get; set; }
+        public string? NameIdentifierFormat { get => _explicitNullValueNameIdentifierFormat; set { _explicitNullValueNameIdentifierFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name_identifier_format"); else _explicitNullProperties?.Remove("name_identifier_format"); } }
+        private string? _explicitNullValueNameIdentifierFormat = default!;
 #nullable restore
 #else
-        public string NameIdentifierFormat { get; set; }
+        public string NameIdentifierFormat { get => _explicitNullValueNameIdentifierFormat; set { _explicitNullValueNameIdentifierFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name_identifier_format"); else _explicitNullProperties?.Remove("name_identifier_format"); } }
+        private string _explicitNullValueNameIdentifierFormat = default!;
 #endif
         /// <summary>Whether group provisioning is enabled for this authentication provider.</summary>
-        public bool? ProvisionGroups { get; set; }
+        public bool? ProvisionGroups { get => _explicitNullValueProvisionGroups; set { _explicitNullValueProvisionGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provision_groups"); else _explicitNullProperties?.Remove("provision_groups"); } }
+        private bool? _explicitNullValueProvisionGroups = default!;
         /// <summary>The Entity ID for the service provider (Telnyx).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServiceProviderEntityId { get; set; }
+        public string? ServiceProviderEntityId { get => _explicitNullValueServiceProviderEntityId; set { _explicitNullValueServiceProviderEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_provider_entity_id"); else _explicitNullProperties?.Remove("service_provider_entity_id"); } }
+        private string? _explicitNullValueServiceProviderEntityId = default!;
 #nullable restore
 #else
-        public string ServiceProviderEntityId { get; set; }
+        public string ServiceProviderEntityId { get => _explicitNullValueServiceProviderEntityId; set { _explicitNullValueServiceProviderEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_provider_entity_id"); else _explicitNullProperties?.Remove("service_provider_entity_id"); } }
+        private string _explicitNullValueServiceProviderEntityId = default!;
 #endif
         /// <summary>The login URL for the service provider (Telnyx). Users navigate to this URL to initiate SSO login.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServiceProviderLoginUrl { get; set; }
+        public string? ServiceProviderLoginUrl { get => _explicitNullValueServiceProviderLoginUrl; set { _explicitNullValueServiceProviderLoginUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_provider_login_url"); else _explicitNullProperties?.Remove("service_provider_login_url"); } }
+        private string? _explicitNullValueServiceProviderLoginUrl = default!;
 #nullable restore
 #else
-        public string ServiceProviderLoginUrl { get; set; }
+        public string ServiceProviderLoginUrl { get => _explicitNullValueServiceProviderLoginUrl; set { _explicitNullValueServiceProviderLoginUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_provider_login_url"); else _explicitNullProperties?.Remove("service_provider_login_url"); } }
+        private string _explicitNullValueServiceProviderLoginUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings"/> and sets the default values.
@@ -114,7 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -157,6 +198,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("provision_groups", ProvisionGroups);
             writer.WriteStringValue("service_provider_entity_id", ServiceProviderEntityId);
             writer.WriteStringValue("service_provider_login_url", ServiceProviderLoginUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

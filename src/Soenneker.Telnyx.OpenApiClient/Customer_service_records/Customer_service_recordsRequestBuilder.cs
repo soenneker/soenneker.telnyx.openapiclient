@@ -78,6 +78,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordForbiddenErrorResponseResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordUnprocessableEntityErrorResponseResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.UnexpectedErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListCustomerServiceRecords200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListCustomerServiceRecords200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -109,6 +111,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordForbiddenErrorResponseResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordUnprocessableEntityErrorResponseResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.UnexpectedErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

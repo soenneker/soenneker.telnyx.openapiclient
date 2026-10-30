@@ -12,30 +12,49 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WhatsappPhoneResponseSyncProgress : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("contacts_status") is { } nullNodeContactsStatus && nullNodeContactsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactsStatus = null;
+            if (parseNode.GetChildNode("history_chunk_order") is { } nullNodeHistoryChunkOrder && nullNodeHistoryChunkOrder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryChunkOrder = null;
+            if (parseNode.GetChildNode("history_phase") is { } nullNodeHistoryPhase && nullNodeHistoryPhase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryPhase = null;
+            if (parseNode.GetChildNode("history_progress") is { } nullNodeHistoryProgress && nullNodeHistoryProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryProgress = null;
+            if (parseNode.GetChildNode("history_status") is { } nullNodeHistoryStatus && nullNodeHistoryStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryStatus = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The contacts_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContactsStatus { get; set; }
+        public string? ContactsStatus { get => _explicitNullValueContactsStatus; set { _explicitNullValueContactsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts_status"); else _explicitNullProperties?.Remove("contacts_status"); } }
+        private string? _explicitNullValueContactsStatus = default!;
 #nullable restore
 #else
-        public string ContactsStatus { get; set; }
+        public string ContactsStatus { get => _explicitNullValueContactsStatus; set { _explicitNullValueContactsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts_status"); else _explicitNullProperties?.Remove("contacts_status"); } }
+        private string _explicitNullValueContactsStatus = default!;
 #endif
         /// <summary>The history_chunk_order property</summary>
-        public int? HistoryChunkOrder { get; set; }
+        public int? HistoryChunkOrder { get => _explicitNullValueHistoryChunkOrder; set { _explicitNullValueHistoryChunkOrder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_chunk_order"); else _explicitNullProperties?.Remove("history_chunk_order"); } }
+        private int? _explicitNullValueHistoryChunkOrder = default!;
         /// <summary>The history_phase property</summary>
-        public int? HistoryPhase { get; set; }
+        public int? HistoryPhase { get => _explicitNullValueHistoryPhase; set { _explicitNullValueHistoryPhase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_phase"); else _explicitNullProperties?.Remove("history_phase"); } }
+        private int? _explicitNullValueHistoryPhase = default!;
         /// <summary>The history_progress property</summary>
-        public int? HistoryProgress { get; set; }
+        public int? HistoryProgress { get => _explicitNullValueHistoryProgress; set { _explicitNullValueHistoryProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_progress"); else _explicitNullProperties?.Remove("history_progress"); } }
+        private int? _explicitNullValueHistoryProgress = default!;
         /// <summary>The history_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HistoryStatus { get; set; }
+        public string? HistoryStatus { get => _explicitNullValueHistoryStatus; set { _explicitNullValueHistoryStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_status"); else _explicitNullProperties?.Remove("history_status"); } }
+        private string? _explicitNullValueHistoryStatus = default!;
 #nullable restore
 #else
-        public string HistoryStatus { get; set; }
+        public string HistoryStatus { get => _explicitNullValueHistoryStatus; set { _explicitNullValueHistoryStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_status"); else _explicitNullProperties?.Remove("history_status"); } }
+        private string _explicitNullValueHistoryStatus = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress"/> and sets the default values.
@@ -52,7 +71,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseSyncProgress(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,6 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("history_phase", HistoryPhase);
             writer.WriteIntValue("history_progress", HistoryProgress);
             writer.WriteStringValue("history_status", HistoryStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

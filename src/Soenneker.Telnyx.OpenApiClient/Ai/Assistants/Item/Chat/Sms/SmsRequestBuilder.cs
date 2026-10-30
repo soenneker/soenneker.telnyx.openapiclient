@@ -43,6 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.Sms
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 413 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatAssistantsAssistantIdChatSmsPost422ResponseError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,7 +61,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.Sms
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "413", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatAssistantsAssistantIdChatSmsPost422ResponseError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

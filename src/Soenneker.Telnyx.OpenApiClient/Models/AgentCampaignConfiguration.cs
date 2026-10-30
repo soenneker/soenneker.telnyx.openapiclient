@@ -11,54 +11,79 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentCampaignConfiguration : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("additional_information") is { } nullNodeAdditionalInformation && nullNodeAdditionalInformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalInformation = null;
+            if (parseNode.GetChildNode("agent_overview") is { } nullNodeAgentOverview && nullNodeAgentOverview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentOverview = null;
+            if (parseNode.GetChildNode("company_overview") is { } nullNodeCompanyOverview && nullNodeCompanyOverview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanyOverview = null;
+            if (parseNode.GetChildNode("consent_settings") is { } nullNodeConsentSettings && nullNodeConsentSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsentSettings = null;
+            if (parseNode.GetChildNode("interactions") is { } nullNodeInteractions && nullNodeInteractions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interactions = null;
+            if (parseNode.GetChildNode("message_examples") is { } nullNodeMessageExamples && nullNodeMessageExamples.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageExamples = null;
+        }
+
         /// <summary>The additional_information property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AdditionalInformation { get; set; }
+        public string? AdditionalInformation { get => _explicitNullValueAdditionalInformation; set { _explicitNullValueAdditionalInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_information"); else _explicitNullProperties?.Remove("additional_information"); } }
+        private string? _explicitNullValueAdditionalInformation = default!;
 #nullable restore
 #else
-        public string AdditionalInformation { get; set; }
+        public string AdditionalInformation { get => _explicitNullValueAdditionalInformation; set { _explicitNullValueAdditionalInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_information"); else _explicitNullProperties?.Remove("additional_information"); } }
+        private string _explicitNullValueAdditionalInformation = default!;
 #endif
         /// <summary>The agent_overview property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentOverview { get; set; }
+        public string? AgentOverview { get => _explicitNullValueAgentOverview; set { _explicitNullValueAgentOverview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_overview"); else _explicitNullProperties?.Remove("agent_overview"); } }
+        private string? _explicitNullValueAgentOverview = default!;
 #nullable restore
 #else
-        public string AgentOverview { get; set; }
+        public string AgentOverview { get => _explicitNullValueAgentOverview; set { _explicitNullValueAgentOverview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_overview"); else _explicitNullProperties?.Remove("agent_overview"); } }
+        private string _explicitNullValueAgentOverview = default!;
 #endif
         /// <summary>The company_overview property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CompanyOverview { get; set; }
+        public string? CompanyOverview { get => _explicitNullValueCompanyOverview; set { _explicitNullValueCompanyOverview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_overview"); else _explicitNullProperties?.Remove("company_overview"); } }
+        private string? _explicitNullValueCompanyOverview = default!;
 #nullable restore
 #else
-        public string CompanyOverview { get; set; }
+        public string CompanyOverview { get => _explicitNullValueCompanyOverview; set { _explicitNullValueCompanyOverview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_overview"); else _explicitNullProperties?.Remove("company_overview"); } }
+        private string _explicitNullValueCompanyOverview = default!;
 #endif
         /// <summary>The consent_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentConsentConfiguration? ConsentSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentConsentConfiguration? ConsentSettings { get => _explicitNullValueConsentSettings; set { _explicitNullValueConsentSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consent_settings"); else _explicitNullProperties?.Remove("consent_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentConsentConfiguration? _explicitNullValueConsentSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentConsentConfiguration ConsentSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentConsentConfiguration ConsentSettings { get => _explicitNullValueConsentSettings; set { _explicitNullValueConsentSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consent_settings"); else _explicitNullProperties?.Remove("consent_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentConsentConfiguration _explicitNullValueConsentSettings = default!;
 #endif
         /// <summary>The interactions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInteraction>? Interactions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInteraction>? Interactions { get => _explicitNullValueInteractions; set { _explicitNullValueInteractions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interactions"); else _explicitNullProperties?.Remove("interactions"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInteraction>? _explicitNullValueInteractions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInteraction> Interactions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInteraction> Interactions { get => _explicitNullValueInteractions; set { _explicitNullValueInteractions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interactions"); else _explicitNullProperties?.Remove("interactions"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInteraction> _explicitNullValueInteractions = default!;
 #endif
         /// <summary>The message_examples property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? MessageExamples { get; set; }
+        public List<string>? MessageExamples { get => _explicitNullValueMessageExamples; set { _explicitNullValueMessageExamples = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_examples"); else _explicitNullProperties?.Remove("message_examples"); } }
+        private List<string>? _explicitNullValueMessageExamples = default!;
 #nullable restore
 #else
-        public List<string> MessageExamples { get; set; }
+        public List<string> MessageExamples { get => _explicitNullValueMessageExamples; set { _explicitNullValueMessageExamples = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_examples"); else _explicitNullProperties?.Remove("message_examples"); } }
+        private List<string> _explicitNullValueMessageExamples = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,7 +123,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("company_overview", CompanyOverview);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentConsentConfiguration>("consent_settings", ConsentSettings);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AgentInteraction>("interactions", Interactions);
-            writer.WriteCollectionOfPrimitiveValues<string>("message_examples", MessageExamples);
+            writer.WriteCollectionOfPrimitiveValues<string>("message_examples", MessageExamples);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

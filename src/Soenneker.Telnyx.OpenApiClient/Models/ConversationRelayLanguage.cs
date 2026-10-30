@@ -12,66 +12,96 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationRelayLanguage : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("speech_model") is { } nullNodeSpeechModel && nullNodeSpeechModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeechModel = null;
+            if (parseNode.GetChildNode("transcription_engine") is { } nullNodeTranscriptionEngine && nullNodeTranscriptionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngine = null;
+            if (parseNode.GetChildNode("transcription_engine_config") is { } nullNodeTranscriptionEngineConfig && nullNodeTranscriptionEngineConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngineConfig = null;
+            if (parseNode.GetChildNode("transcription_provider") is { } nullNodeTranscriptionProvider && nullNodeTranscriptionProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionProvider = null;
+            if (parseNode.GetChildNode("tts_provider") is { } nullNodeTtsProvider && nullNodeTtsProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TtsProvider = null;
+            if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+            if (parseNode.GetChildNode("voice_settings") is { } nullNodeVoiceSettings && nullNodeVoiceSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSettings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>BCP 47 language tag for this language configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Language { get; set; }
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string? _explicitNullValueLanguage = default!;
 #nullable restore
 #else
-        public string Language { get; set; }
+        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string _explicitNullValueLanguage = default!;
 #endif
         /// <summary>Conversation Relay speech model. Prefer `transcription_engine_config.transcription_model` when configuring speech-to-text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpeechModel { get; set; }
+        public string? SpeechModel { get => _explicitNullValueSpeechModel; set { _explicitNullValueSpeechModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speech_model"); else _explicitNullProperties?.Remove("speech_model"); } }
+        private string? _explicitNullValueSpeechModel = default!;
 #nullable restore
 #else
-        public string SpeechModel { get; set; }
+        public string SpeechModel { get => _explicitNullValueSpeechModel; set { _explicitNullValueSpeechModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speech_model"); else _explicitNullProperties?.Remove("speech_model"); } }
+        private string _explicitNullValueSpeechModel = default!;
 #endif
         /// <summary>Engine to use for speech recognition. Legacy values `A` - `Google`, `B` - `Telnyx` are supported for backward compatibility. When provided in a Conversation Relay language entry, Telnyx derives `transcription_provider` and `speech_model` for that language.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageTranscriptionEngine? _explicitNullValueTranscriptionEngine = default!;
         /// <summary>Engine-specific transcription settings for Conversation Relay. This accepts the same provider-specific options used by the Call Transcription Start command, such as `transcription_model`, without requiring the engine discriminator to be repeated inside this object. With Deepgram Flux (`deepgram/flux`), `interim_results`, `eot_threshold` and `eager_eot_threshold` control the interim prompts and the `eagerEndOfTurn` and `turnResumed` frames sent to your WebSocket server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig? TranscriptionEngineConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig? TranscriptionEngineConfig { get => _explicitNullValueTranscriptionEngineConfig; set { _explicitNullValueTranscriptionEngineConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine_config"); else _explicitNullProperties?.Remove("transcription_engine_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig? _explicitNullValueTranscriptionEngineConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig TranscriptionEngineConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig TranscriptionEngineConfig { get => _explicitNullValueTranscriptionEngineConfig; set { _explicitNullValueTranscriptionEngineConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine_config"); else _explicitNullProperties?.Remove("transcription_engine_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig _explicitNullValueTranscriptionEngineConfig = default!;
 #endif
         /// <summary>Conversation Relay transcription provider name. Prefer `transcription_engine` when configuring speech-to-text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TranscriptionProvider { get; set; }
+        public string? TranscriptionProvider { get => _explicitNullValueTranscriptionProvider; set { _explicitNullValueTranscriptionProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_provider"); else _explicitNullProperties?.Remove("transcription_provider"); } }
+        private string? _explicitNullValueTranscriptionProvider = default!;
 #nullable restore
 #else
-        public string TranscriptionProvider { get; set; }
+        public string TranscriptionProvider { get => _explicitNullValueTranscriptionProvider; set { _explicitNullValueTranscriptionProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_provider"); else _explicitNullProperties?.Remove("transcription_provider"); } }
+        private string _explicitNullValueTranscriptionProvider = default!;
 #endif
         /// <summary>Text-to-speech provider for this language. If omitted and `voice` is provided, Telnyx derives the provider from the voice identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TtsProvider { get; set; }
+        public string? TtsProvider { get => _explicitNullValueTtsProvider; set { _explicitNullValueTtsProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tts_provider"); else _explicitNullProperties?.Remove("tts_provider"); } }
+        private string? _explicitNullValueTtsProvider = default!;
 #nullable restore
 #else
-        public string TtsProvider { get; set; }
+        public string TtsProvider { get => _explicitNullValueTtsProvider; set { _explicitNullValueTtsProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tts_provider"); else _explicitNullProperties?.Remove("tts_provider"); } }
+        private string _explicitNullValueTtsProvider = default!;
 #endif
         /// <summary>Voice identifier for this language.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Voice { get; set; }
+        public string? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private string? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public string Voice { get; set; }
+        public string Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private string _explicitNullValueVoice = default!;
 #endif
         /// <summary>The settings associated with the voice selected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageVoiceSettings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageVoiceSettings? VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageVoiceSettings? _explicitNullValueVoiceSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageVoiceSettings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageVoiceSettings VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageVoiceSettings _explicitNullValueVoiceSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage"/> and sets the default values.
@@ -88,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -123,6 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("tts_provider", TtsProvider);
             writer.WriteStringValue("voice", Voice);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguageVoiceSettings>("voice_settings", VoiceSettings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

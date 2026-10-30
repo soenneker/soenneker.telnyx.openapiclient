@@ -11,102 +11,148 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WebhookToolParams : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("async") is { } nullNodeAsync && nullNodeAsync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Async = null;
+            if (parseNode.GetChildNode("async_timeout_ms") is { } nullNodeAsyncTimeoutMs && nullNodeAsyncTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AsyncTimeoutMs = null;
+            if (parseNode.GetChildNode("body_parameters") is { } nullNodeBodyParameters && nullNodeBodyParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BodyParameters = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("headers") is { } nullNodeHeaders && nullNodeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headers = null;
+            if (parseNode.GetChildNode("messages") is { } nullNodeMessages && nullNodeMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Messages = null;
+            if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("path_parameters") is { } nullNodePathParameters && nullNodePathParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathParameters = null;
+            if (parseNode.GetChildNode("preset_body_fields") is { } nullNodePresetBodyFields && nullNodePresetBodyFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PresetBodyFields = null;
+            if (parseNode.GetChildNode("preset_query_params") is { } nullNodePresetQueryParams && nullNodePresetQueryParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PresetQueryParams = null;
+            if (parseNode.GetChildNode("query_parameters") is { } nullNodeQueryParameters && nullNodeQueryParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryParameters = null;
+            if (parseNode.GetChildNode("store_fields_as_variables") is { } nullNodeStoreFieldsAsVariables && nullNodeStoreFieldsAsVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StoreFieldsAsVariables = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If async, the assistant will move forward without waiting for your server to respond.</summary>
-        public bool? Async { get; set; }
+        public bool? Async { get => _explicitNullValueAsync; set { _explicitNullValueAsync = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("async"); else _explicitNullProperties?.Remove("async"); } }
+        private bool? _explicitNullValueAsync = default!;
         /// <summary>Maximum time in milliseconds that the conversation worker waits for an async webhook response before returning &quot;Submitted&quot; to the LLM. If unset, the platform default (currently 300ms) is used.</summary>
-        public int? AsyncTimeoutMs { get; set; }
+        public int? AsyncTimeoutMs { get => _explicitNullValueAsyncTimeoutMs; set { _explicitNullValueAsyncTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("async_timeout_ms"); else _explicitNullProperties?.Remove("async_timeout_ms"); } }
+        private int? _explicitNullValueAsyncTimeoutMs = default!;
         /// <summary>The body parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the body of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters? BodyParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters? BodyParameters { get => _explicitNullValueBodyParameters; set { _explicitNullValueBodyParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body_parameters"); else _explicitNullProperties?.Remove("body_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters? _explicitNullValueBodyParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters BodyParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters BodyParameters { get => _explicitNullValueBodyParameters; set { _explicitNullValueBodyParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body_parameters"); else _explicitNullProperties?.Remove("body_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters _explicitNullValueBodyParameters = default!;
 #endif
         /// <summary>The description of the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The headers to be sent to the external tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsHeadersItem>? Headers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsHeadersItem>? Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsHeadersItem>? _explicitNullValueHeaders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsHeadersItem> Headers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsHeadersItem> Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsHeadersItem> _explicitNullValueHeaders = default!;
 #endif
         /// <summary>Filler messages spoken while a synchronous webhook request is in progress. `request_start` messages are spoken immediately when the request begins. `request_response_delayed` messages are spoken after `timing_ms` has elapsed only if the webhook response is still pending. Filler messages are not used for asynchronous webhooks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem>? Messages { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem>? Messages { get => _explicitNullValueMessages; set { _explicitNullValueMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messages"); else _explicitNullProperties?.Remove("messages"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem>? _explicitNullValueMessages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem> Messages { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem> Messages { get => _explicitNullValueMessages; set { _explicitNullValueMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messages"); else _explicitNullProperties?.Remove("messages"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem> _explicitNullValueMessages = default!;
 #endif
         /// <summary>The HTTP method to be used when calling the external tool.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMethod? Method { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMethod? _explicitNullValueMethod = default!;
         /// <summary>The name of the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The path parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the path of the request if the URL contains a placeholder for a value. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters? PathParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters? PathParameters { get => _explicitNullValuePathParameters; set { _explicitNullValuePathParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path_parameters"); else _explicitNullProperties?.Remove("path_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters? _explicitNullValuePathParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters PathParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters PathParameters { get => _explicitNullValuePathParameters; set { _explicitNullValuePathParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path_parameters"); else _explicitNullProperties?.Remove("path_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters _explicitNullValuePathParameters = default!;
 #endif
         /// <summary>Body fields supplied by the assistant configuration rather than by the model. They are never advertised in the tool definition, so the LLM can neither see nor set them, and they take precedence over a `body_parameters` value of the same name. Values support mustache templating, so they can hold dynamic variables (`{{customer_id}}`) and integration secrets (`{{#integration_secret}}my-secret{{/integration_secret}}`). Not sent on `GET` requests, which carry no body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetBodyFieldsProperty? PresetBodyFields { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetBodyFieldsProperty? PresetBodyFields { get => _explicitNullValuePresetBodyFields; set { _explicitNullValuePresetBodyFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset_body_fields"); else _explicitNullProperties?.Remove("preset_body_fields"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetBodyFieldsProperty? _explicitNullValuePresetBodyFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetBodyFieldsProperty PresetBodyFields { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetBodyFieldsProperty PresetBodyFields { get => _explicitNullValuePresetBodyFields; set { _explicitNullValuePresetBodyFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset_body_fields"); else _explicitNullProperties?.Remove("preset_body_fields"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetBodyFieldsProperty _explicitNullValuePresetBodyFields = default!;
 #endif
         /// <summary>Query string parameters supplied by the assistant configuration rather than by the model. They are never advertised in the tool definition, so the LLM can neither see nor set them, and they take precedence over a `query_parameters` value of the same name. Values support mustache templating, so they can hold dynamic variables (`{{telnyx_end_user_target}}`) and integration secrets (`{{#integration_secret}}my-secret{{/integration_secret}}`). Unlike values templated directly into the `url`, these are percent-encoded, so a value such as `+15551234567` survives the round trip.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetQueryParamsProperty? PresetQueryParams { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetQueryParamsProperty? PresetQueryParams { get => _explicitNullValuePresetQueryParams; set { _explicitNullValuePresetQueryParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset_query_params"); else _explicitNullProperties?.Remove("preset_query_params"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetQueryParamsProperty? _explicitNullValuePresetQueryParams = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetQueryParamsProperty PresetQueryParams { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetQueryParamsProperty PresetQueryParams { get => _explicitNullValuePresetQueryParams; set { _explicitNullValuePresetQueryParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset_query_params"); else _explicitNullProperties?.Remove("preset_query_params"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPresetQueryParamsProperty _explicitNullValuePresetQueryParams = default!;
 #endif
         /// <summary>The query parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the query of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters? QueryParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters? QueryParameters { get => _explicitNullValueQueryParameters; set { _explicitNullValueQueryParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parameters"); else _explicitNullProperties?.Remove("query_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters? _explicitNullValueQueryParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters QueryParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters QueryParameters { get => _explicitNullValueQueryParameters; set { _explicitNullValueQueryParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parameters"); else _explicitNullProperties?.Remove("query_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters _explicitNullValueQueryParameters = default!;
 #endif
         /// <summary>A list of mappings that extract values from the webhook response and store them as dynamic variables. Each mapping specifies a dynamic variable name and a dot-notation path to the value in the response body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsStoreFieldsAsVariablesItem>? StoreFieldsAsVariables { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsStoreFieldsAsVariablesItem>? StoreFieldsAsVariables { get => _explicitNullValueStoreFieldsAsVariables; set { _explicitNullValueStoreFieldsAsVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("store_fields_as_variables"); else _explicitNullProperties?.Remove("store_fields_as_variables"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsStoreFieldsAsVariablesItem>? _explicitNullValueStoreFieldsAsVariables = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsStoreFieldsAsVariablesItem> StoreFieldsAsVariables { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsStoreFieldsAsVariablesItem> StoreFieldsAsVariables { get => _explicitNullValueStoreFieldsAsVariables; set { _explicitNullValueStoreFieldsAsVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("store_fields_as_variables"); else _explicitNullProperties?.Remove("store_fields_as_variables"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsStoreFieldsAsVariablesItem> _explicitNullValueStoreFieldsAsVariables = default!;
 #endif
         /// <summary>The URL of the external tool to be called. This URL is going to be used by the assistant. The URL can be templated like: `https://example.com/api/v1/{id}`, where `{id}` is a placeholder for a value that will be provided by the assistant if `path_parameters` are provided with the `id` attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams"/> and sets the default values.
@@ -124,7 +170,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -171,6 +217,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters>("query_parameters", QueryParameters);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsStoreFieldsAsVariablesItem>("store_fields_as_variables", StoreFieldsAsVariables);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

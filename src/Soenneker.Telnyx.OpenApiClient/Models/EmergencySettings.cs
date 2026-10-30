@@ -12,21 +12,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmergencySettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("emergency_address_id") is { } nullNodeEmergencyAddressId && nullNodeEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyAddressId = null;
+            if (parseNode.GetChildNode("emergency_enabled") is { } nullNodeEmergencyEnabled && nullNodeEmergencyEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyEnabled = null;
+            if (parseNode.GetChildNode("emergency_status") is { } nullNodeEmergencyStatus && nullNodeEmergencyStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyStatus = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identifies the address to be used with emergency services.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmergencyAddressId { get; set; }
+        public string? EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
+        private string? _explicitNullValueEmergencyAddressId = default!;
 #nullable restore
 #else
-        public string EmergencyAddressId { get; set; }
+        public string EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
+        private string _explicitNullValueEmergencyAddressId = default!;
 #endif
         /// <summary>Allows you to enable or disable emergency services on the phone number. In order to enable emergency services, you must also set an emergency_address_id.</summary>
-        public bool? EmergencyEnabled { get; set; }
+        public bool? EmergencyEnabled { get => _explicitNullValueEmergencyEnabled; set { _explicitNullValueEmergencyEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_enabled"); else _explicitNullProperties?.Remove("emergency_enabled"); } }
+        private bool? _explicitNullValueEmergencyEnabled = default!;
         /// <summary>Represents the state of the number regarding emergency activation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus? EmergencyStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus? EmergencyStatus { get => _explicitNullValueEmergencyStatus; set { _explicitNullValueEmergencyStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_status"); else _explicitNullProperties?.Remove("emergency_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus? _explicitNullValueEmergencyStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings"/> and sets the default values.
         /// </summary>
@@ -43,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("emergency_address_id", EmergencyAddressId);
             writer.WriteBoolValue("emergency_enabled", EmergencyEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus>("emergency_status", EmergencyStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

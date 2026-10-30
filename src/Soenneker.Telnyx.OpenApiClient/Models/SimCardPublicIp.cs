@@ -11,7 +11,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SimCardPublicIp : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("sim_card_id") is { } nullNodeSimCardId && nullNodeSimCardId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimCardId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
@@ -47,7 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RegionCode { get; private set; }
 #endif
         /// <summary>The sim_card_id property</summary>
-        public Guid? SimCardId { get; set; }
+        public Guid? SimCardId { get => _explicitNullValueSimCardId; set { _explicitNullValueSimCardId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_card_id"); else _explicitNullProperties?.Remove("sim_card_id"); } }
+        private Guid? _explicitNullValueSimCardId = default!;
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Ipv4Type? Type { get; private set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
@@ -73,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SimCardPublicIp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SimCardPublicIp();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SimCardPublicIp(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,6 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("sim_card_id", SimCardId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Actions.Activate
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ActivatePortingOrder202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ActivatePortingOrder202Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ActivatePortingOrder202Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ActivatePortingOrder202Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Activate each number in a porting order asynchronously. This operation is limited to US FastPort orders only.

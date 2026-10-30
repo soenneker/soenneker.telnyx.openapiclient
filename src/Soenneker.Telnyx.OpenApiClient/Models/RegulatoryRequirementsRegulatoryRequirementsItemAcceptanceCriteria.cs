@@ -11,72 +11,103 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RegulatoryRequirementsRegulatoryRequirementsItemAcceptanceCriteria : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acceptable_characters") is { } nullNodeAcceptableCharacters && nullNodeAcceptableCharacters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptableCharacters = null;
+            if (parseNode.GetChildNode("acceptable_values") is { } nullNodeAcceptableValues && nullNodeAcceptableValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptableValues = null;
+            if (parseNode.GetChildNode("case_sensitive") is { } nullNodeCaseSensitive && nullNodeCaseSensitive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseSensitive = null;
+            if (parseNode.GetChildNode("locality_limit") is { } nullNodeLocalityLimit && nullNodeLocalityLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalityLimit = null;
+            if (parseNode.GetChildNode("max_length") is { } nullNodeMaxLength && nullNodeMaxLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxLength = null;
+            if (parseNode.GetChildNode("min_length") is { } nullNodeMinLength && nullNodeMinLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinLength = null;
+            if (parseNode.GetChildNode("regex") is { } nullNodeRegex && nullNodeRegex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Regex = null;
+            if (parseNode.GetChildNode("time_limit") is { } nullNodeTimeLimit && nullNodeTimeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeLimit = null;
+        }
+
         /// <summary>The acceptable_characters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcceptableCharacters { get; set; }
+        public string? AcceptableCharacters { get => _explicitNullValueAcceptableCharacters; set { _explicitNullValueAcceptableCharacters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptable_characters"); else _explicitNullProperties?.Remove("acceptable_characters"); } }
+        private string? _explicitNullValueAcceptableCharacters = default!;
 #nullable restore
 #else
-        public string AcceptableCharacters { get; set; }
+        public string AcceptableCharacters { get => _explicitNullValueAcceptableCharacters; set { _explicitNullValueAcceptableCharacters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptable_characters"); else _explicitNullProperties?.Remove("acceptable_characters"); } }
+        private string _explicitNullValueAcceptableCharacters = default!;
 #endif
         /// <summary>The acceptable_values property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AcceptableValues { get; set; }
+        public List<string>? AcceptableValues { get => _explicitNullValueAcceptableValues; set { _explicitNullValueAcceptableValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptable_values"); else _explicitNullProperties?.Remove("acceptable_values"); } }
+        private List<string>? _explicitNullValueAcceptableValues = default!;
 #nullable restore
 #else
-        public List<string> AcceptableValues { get; set; }
+        public List<string> AcceptableValues { get => _explicitNullValueAcceptableValues; set { _explicitNullValueAcceptableValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptable_values"); else _explicitNullProperties?.Remove("acceptable_values"); } }
+        private List<string> _explicitNullValueAcceptableValues = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The case_sensitive property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CaseSensitive { get; set; }
+        public string? CaseSensitive { get => _explicitNullValueCaseSensitive; set { _explicitNullValueCaseSensitive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case_sensitive"); else _explicitNullProperties?.Remove("case_sensitive"); } }
+        private string? _explicitNullValueCaseSensitive = default!;
 #nullable restore
 #else
-        public string CaseSensitive { get; set; }
+        public string CaseSensitive { get => _explicitNullValueCaseSensitive; set { _explicitNullValueCaseSensitive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case_sensitive"); else _explicitNullProperties?.Remove("case_sensitive"); } }
+        private string _explicitNullValueCaseSensitive = default!;
 #endif
         /// <summary>The locality_limit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocalityLimit { get; set; }
+        public string? LocalityLimit { get => _explicitNullValueLocalityLimit; set { _explicitNullValueLocalityLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locality_limit"); else _explicitNullProperties?.Remove("locality_limit"); } }
+        private string? _explicitNullValueLocalityLimit = default!;
 #nullable restore
 #else
-        public string LocalityLimit { get; set; }
+        public string LocalityLimit { get => _explicitNullValueLocalityLimit; set { _explicitNullValueLocalityLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locality_limit"); else _explicitNullProperties?.Remove("locality_limit"); } }
+        private string _explicitNullValueLocalityLimit = default!;
 #endif
         /// <summary>The max_length property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxLength { get; set; }
+        public string? MaxLength { get => _explicitNullValueMaxLength; set { _explicitNullValueMaxLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_length"); else _explicitNullProperties?.Remove("max_length"); } }
+        private string? _explicitNullValueMaxLength = default!;
 #nullable restore
 #else
-        public string MaxLength { get; set; }
+        public string MaxLength { get => _explicitNullValueMaxLength; set { _explicitNullValueMaxLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_length"); else _explicitNullProperties?.Remove("max_length"); } }
+        private string _explicitNullValueMaxLength = default!;
 #endif
         /// <summary>The min_length property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MinLength { get; set; }
+        public string? MinLength { get => _explicitNullValueMinLength; set { _explicitNullValueMinLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_length"); else _explicitNullProperties?.Remove("min_length"); } }
+        private string? _explicitNullValueMinLength = default!;
 #nullable restore
 #else
-        public string MinLength { get; set; }
+        public string MinLength { get => _explicitNullValueMinLength; set { _explicitNullValueMinLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_length"); else _explicitNullProperties?.Remove("min_length"); } }
+        private string _explicitNullValueMinLength = default!;
 #endif
         /// <summary>The regex property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Regex { get; set; }
+        public string? Regex { get => _explicitNullValueRegex; set { _explicitNullValueRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regex"); else _explicitNullProperties?.Remove("regex"); } }
+        private string? _explicitNullValueRegex = default!;
 #nullable restore
 #else
-        public string Regex { get; set; }
+        public string Regex { get => _explicitNullValueRegex; set { _explicitNullValueRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regex"); else _explicitNullProperties?.Remove("regex"); } }
+        private string _explicitNullValueRegex = default!;
 #endif
         /// <summary>The time_limit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimeLimit { get; set; }
+        public string? TimeLimit { get => _explicitNullValueTimeLimit; set { _explicitNullValueTimeLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_limit"); else _explicitNullProperties?.Remove("time_limit"); } }
+        private string? _explicitNullValueTimeLimit = default!;
 #nullable restore
 #else
-        public string TimeLimit { get; set; }
+        public string TimeLimit { get => _explicitNullValueTimeLimit; set { _explicitNullValueTimeLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_limit"); else _explicitNullProperties?.Remove("time_limit"); } }
+        private string _explicitNullValueTimeLimit = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItemAcceptanceCriteria"/> and sets the default values.
@@ -93,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItemAcceptanceCriteria CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItemAcceptanceCriteria();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItemAcceptanceCriteria(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,6 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("min_length", MinLength);
             writer.WriteStringValue("regex", Regex);
             writer.WriteStringValue("time_limit", TimeLimit);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

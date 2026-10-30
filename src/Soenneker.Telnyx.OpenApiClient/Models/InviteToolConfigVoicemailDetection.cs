@@ -12,18 +12,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InviteToolConfigVoicemailDetection : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("detection_mode") is { } nullNodeDetectionMode && nullNodeDetectionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DetectionMode = null;
+            if (parseNode.GetChildNode("on_voicemail_detected") is { } nullNodeOnVoicemailDetected && nullNodeOnVoicemailDetected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnVoicemailDetected = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The AMD detection mode to use. &apos;premium&apos; enables premium answering machine detection. &apos;disabled&apos; turns off AMD detection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionDetectionMode? DetectionMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionDetectionMode? DetectionMode { get => _explicitNullValueDetectionMode; set { _explicitNullValueDetectionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detection_mode"); else _explicitNullProperties?.Remove("detection_mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionDetectionMode? _explicitNullValueDetectionMode = default!;
         /// <summary>Action to take when voicemail is detected on the invited call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected? OnVoicemailDetected { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected? OnVoicemailDetected { get => _explicitNullValueOnVoicemailDetected; set { _explicitNullValueOnVoicemailDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_voicemail_detected"); else _explicitNullProperties?.Remove("on_voicemail_detected"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected? _explicitNullValueOnVoicemailDetected = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected OnVoicemailDetected { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected OnVoicemailDetected { get => _explicitNullValueOnVoicemailDetected; set { _explicitNullValueOnVoicemailDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_voicemail_detected"); else _explicitNullProperties?.Remove("on_voicemail_detected"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected _explicitNullValueOnVoicemailDetected = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionDetectionMode>("detection_mode", DetectionMode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetectionOnVoicemailDetected>("on_voicemail_detected", OnVoicemailDetected);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

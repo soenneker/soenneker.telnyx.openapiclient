@@ -53,6 +53,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPublicErrorResponseEa8F2Ad863.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPublicExternalWdrGetDetailResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPublicExternalWdrGetDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

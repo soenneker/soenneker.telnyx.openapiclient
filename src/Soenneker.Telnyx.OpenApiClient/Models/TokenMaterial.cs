@@ -12,32 +12,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TokenMaterial : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("kid") is { } nullNodeKid && nullNodeKid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kid = null;
+            if (parseNode.GetChildNode("signing_secret") is { } nullNodeSigningSecret && nullNodeSigningSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningSecret = null;
+            if (parseNode.GetChildNode("tel_token") is { } nullNodeTelToken && nullNodeTelToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelToken = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identifies the Telnyx signing key the `signing_secret` was derived with. Goes in the token header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Kid { get; set; }
+        public string? Kid { get => _explicitNullValueKid; set { _explicitNullValueKid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kid"); else _explicitNullProperties?.Remove("kid"); } }
+        private string? _explicitNullValueKid = default!;
 #nullable restore
 #else
-        public string Kid { get; set; }
+        public string Kid { get => _explicitNullValueKid; set { _explicitNullValueKid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kid"); else _explicitNullProperties?.Remove("kid"); } }
+        private string _explicitNullValueKid = default!;
 #endif
         /// <summary>The HMAC-SHA256 key the token is signed with, base64url without padding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SigningSecret { get; set; }
+        public string? SigningSecret { get => _explicitNullValueSigningSecret; set { _explicitNullValueSigningSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret"); else _explicitNullProperties?.Remove("signing_secret"); } }
+        private string? _explicitNullValueSigningSecret = default!;
 #nullable restore
 #else
-        public string SigningSecret { get; set; }
+        public string SigningSecret { get => _explicitNullValueSigningSecret; set { _explicitNullValueSigningSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret"); else _explicitNullProperties?.Remove("signing_secret"); } }
+        private string _explicitNullValueSigningSecret = default!;
 #endif
         /// <summary>Opaque value Telnyx uses to resolve the credential. Carried in the token&apos;s `tel_token` claim as is.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelToken { get; set; }
+        public string? TelToken { get => _explicitNullValueTelToken; set { _explicitNullValueTelToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tel_token"); else _explicitNullProperties?.Remove("tel_token"); } }
+        private string? _explicitNullValueTelToken = default!;
 #nullable restore
 #else
-        public string TelToken { get; set; }
+        public string TelToken { get => _explicitNullValueTelToken; set { _explicitNullValueTelToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tel_token"); else _explicitNullProperties?.Remove("tel_token"); } }
+        private string _explicitNullValueTelToken = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TokenMaterial(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("kid", Kid);
             writer.WriteStringValue("signing_secret", SigningSecret);
             writer.WriteStringValue("tel_token", TelToken);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

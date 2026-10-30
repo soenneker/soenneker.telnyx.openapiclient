@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionsCountLimits : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsGlobalConnectionLimit"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimits();
             if("ConnectionsCountLimitsGlobalConnectionLimit".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ConnectionsCountLimitsGlobalConnectionLimit = new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsGlobalConnectionLimit();
+                
             }
             else if("ConnectionsCountLimitsPerTypeConnectionLimits".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ConnectionsCountLimitsPerTypeConnectionLimits = new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsPerTypeConnectionLimits();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("global_limit") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("standard_limit") != null && parseNode.GetChildNode("texml_limit") != null && parseNode.GetChildNode("uac_limit") != null))();
+            if (result.ConnectionsCountLimitsGlobalConnectionLimit == null && result.ConnectionsCountLimitsPerTypeConnectionLimits == null && matchesUnionBranch0 && !matchesUnionBranch1) result.ConnectionsCountLimitsGlobalConnectionLimit = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsGlobalConnectionLimit(), parseNode);
+            if (result.ConnectionsCountLimitsGlobalConnectionLimit == null && result.ConnectionsCountLimitsPerTypeConnectionLimits == null && matchesUnionBranch1 && !matchesUnionBranch0) result.ConnectionsCountLimitsPerTypeConnectionLimits = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsPerTypeConnectionLimits(), parseNode);
+            if (result.ConnectionsCountLimitsGlobalConnectionLimit == null && result.ConnectionsCountLimitsPerTypeConnectionLimits == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ConnectionsCountLimitsGlobalConnectionLimit == null && ConnectionsCountLimitsPerTypeConnectionLimits == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ConnectionsCountLimitsGlobalConnectionLimit != null && ConnectionsCountLimitsPerTypeConnectionLimits == null) { if (ConnectionsCountLimitsGlobalConnectionLimit is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConnectionsCountLimitsGlobalConnectionLimit); return; }
+            if (ConnectionsCountLimitsPerTypeConnectionLimits != null && ConnectionsCountLimitsGlobalConnectionLimit == null) { if (ConnectionsCountLimitsPerTypeConnectionLimits is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConnectionsCountLimitsPerTypeConnectionLimits); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ConnectionsCountLimitsGlobalConnectionLimit != null)
             {
+                if (ConnectionsCountLimitsGlobalConnectionLimit is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsGlobalConnectionLimit>(null, ConnectionsCountLimitsGlobalConnectionLimit);
             }
             else if(ConnectionsCountLimitsPerTypeConnectionLimits != null)
             {
+                if (ConnectionsCountLimitsPerTypeConnectionLimits is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsPerTypeConnectionLimits>(null, ConnectionsCountLimitsPerTypeConnectionLimits);
             }
         }

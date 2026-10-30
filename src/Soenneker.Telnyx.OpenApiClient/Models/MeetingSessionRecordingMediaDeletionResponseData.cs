@@ -11,21 +11,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MeetingSessionRecordingMediaDeletionResponseData : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("deletion_status") is { } nullNodeDeletionStatus && nullNodeDeletionStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletionStatus = null;
+            if (parseNode.GetChildNode("meeting_session_id") is { } nullNodeMeetingSessionId && nullNodeMeetingSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MeetingSessionId = null;
+            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+        }
+
         /// <summary>The deletion_status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataDeletionStatus? DeletionStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataDeletionStatus? DeletionStatus { get => _explicitNullValueDeletionStatus; set { _explicitNullValueDeletionStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deletion_status"); else _explicitNullProperties?.Remove("deletion_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataDeletionStatus? _explicitNullValueDeletionStatus = default!;
         /// <summary>The account-scoped Meeting Session identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MeetingSessionId { get; set; }
+        public string? MeetingSessionId { get => _explicitNullValueMeetingSessionId; set { _explicitNullValueMeetingSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meeting_session_id"); else _explicitNullProperties?.Remove("meeting_session_id"); } }
+        private string? _explicitNullValueMeetingSessionId = default!;
 #nullable restore
 #else
-        public string MeetingSessionId { get; set; }
+        public string MeetingSessionId { get => _explicitNullValueMeetingSessionId; set { _explicitNullValueMeetingSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meeting_session_id"); else _explicitNullProperties?.Remove("meeting_session_id"); } }
+        private string _explicitNullValueMeetingSessionId = default!;
 #endif
         /// <summary>The provider property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataProvider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataProvider? _explicitNullValueProvider = default!;
         /// <summary>The scope property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope? Scope { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope? _explicitNullValueScope = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -34,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +76,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataDeletionStatus>("deletion_status", DeletionStatus);
             writer.WriteStringValue("meeting_session_id", MeetingSessionId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingMediaDeletionResponseDataProvider>("provider", Provider);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope>("scope", Scope);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ProviderRecordingMediaScope>("scope", Scope);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

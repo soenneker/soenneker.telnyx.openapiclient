@@ -12,11 +12,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnterpriseEmailVerificationStatus : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("email_verified") is { } nullNodeEmailVerified && nullNodeEmailVerified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailVerified = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the enterprise account&apos;s contact email has been confirmed.</summary>
-        public bool? EmailVerified { get; set; }
+        public bool? EmailVerified { get => _explicitNullValueEmailVerified; set { _explicitNullValueEmailVerified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_verified"); else _explicitNullProperties?.Remove("email_verified"); } }
+        private bool? _explicitNullValueEmailVerified = default!;
         /// <summary>When the code just sent stops being accepted. Present on a send response; null on a confirm response.</summary>
         public DateTimeOffset? ExpiresAt { get; private set; }
         /// <summary>Always `email_verification`.</summary>
@@ -24,7 +34,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>How many more codes may be requested for this enterprise account today. Present on a send response; null on a confirm response.</summary>
         public int? SendsRemainingToday { get; private set; }
         /// <summary>`sent` after a code is emailed; `verified` after a successful confirm.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseEmailVerificationStatusStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseEmailVerificationStatusStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseEmailVerificationStatusStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseEmailVerificationStatus"/> and sets the default values.
         /// </summary>
@@ -40,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseEmailVerificationStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseEmailVerificationStatus();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseEmailVerificationStatus(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("email_verified", EmailVerified);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseEmailVerificationStatusStatus>("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

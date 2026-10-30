@@ -57,6 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Dir.Item.Bpo_loa
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }

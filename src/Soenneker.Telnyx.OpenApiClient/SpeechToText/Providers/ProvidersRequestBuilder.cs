@@ -55,6 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.SpeechToTextErrors.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.SpeechToTextErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SttProvidersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SttProvidersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

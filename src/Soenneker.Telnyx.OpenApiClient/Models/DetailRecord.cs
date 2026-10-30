@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DetailRecord : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,37 +82,54 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("record_type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecord();
             if("AmdDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AmdDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord();
+                
             }
             else if("ConferenceDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ConferenceDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord();
+                
             }
             else if("ConferenceParticipantDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ConferenceParticipantDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord();
+                
             }
             else if("MediaStorageDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MediaStorageDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord();
+                
             }
             else if("MessageDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MessageDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord();
+                
             }
             else if("SimCardUsageDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SimCardUsageDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord();
+                
             }
             else if("VerifyDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VerifyDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("record_type") != null && (parseNode.GetChildNode("direction") == null || (parseNode.GetChildNode("direction")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag1 && ("inbound".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal) || "outbound".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal)))) && (parseNode.GetChildNode("message_type") == null || (parseNode.GetChildNode("message_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("SMS".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "MMS".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "RCS".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal)))) && (parseNode.GetChildNode("status") == null || (parseNode.GetChildNode("status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag3 && ("gw_timeout".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "delivered".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "dlr_unconfirmed".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "dlr_timeout".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "received".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "gw_reject".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "failed".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("record_type") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("record_type") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("record_type") != null && (parseNode.GetChildNode("feature") == null || (parseNode.GetChildNode("feature")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag1 && ("PREMIUM".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("record_type") != null && (parseNode.GetChildNode("verify_channel_type") == null || (parseNode.GetChildNode("verify_channel_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag1 && ("sms".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal) || "psd2".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal) || "call".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal) || "flashcall".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("record_type") != null))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("record_type") != null))();
+            if (result.AmdDetailRecord == null && result.ConferenceDetailRecord == null && result.ConferenceParticipantDetailRecord == null && result.MediaStorageDetailRecord == null && result.MessageDetailRecord == null && result.SimCardUsageDetailRecord == null && result.VerifyDetailRecord == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.MessageDetailRecord = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord(), parseNode);
+            if (result.AmdDetailRecord == null && result.ConferenceDetailRecord == null && result.ConferenceParticipantDetailRecord == null && result.MediaStorageDetailRecord == null && result.MessageDetailRecord == null && result.SimCardUsageDetailRecord == null && result.VerifyDetailRecord == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.ConferenceDetailRecord = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord(), parseNode);
+            if (result.AmdDetailRecord == null && result.ConferenceDetailRecord == null && result.ConferenceParticipantDetailRecord == null && result.MediaStorageDetailRecord == null && result.MessageDetailRecord == null && result.SimCardUsageDetailRecord == null && result.VerifyDetailRecord == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.ConferenceParticipantDetailRecord = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord(), parseNode);
+            if (result.AmdDetailRecord == null && result.ConferenceDetailRecord == null && result.ConferenceParticipantDetailRecord == null && result.MediaStorageDetailRecord == null && result.MessageDetailRecord == null && result.SimCardUsageDetailRecord == null && result.VerifyDetailRecord == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.AmdDetailRecord = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord(), parseNode);
+            if (result.AmdDetailRecord == null && result.ConferenceDetailRecord == null && result.ConferenceParticipantDetailRecord == null && result.MediaStorageDetailRecord == null && result.MessageDetailRecord == null && result.SimCardUsageDetailRecord == null && result.VerifyDetailRecord == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6) result.VerifyDetailRecord = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord(), parseNode);
+            if (result.AmdDetailRecord == null && result.ConferenceDetailRecord == null && result.ConferenceParticipantDetailRecord == null && result.MediaStorageDetailRecord == null && result.MessageDetailRecord == null && result.SimCardUsageDetailRecord == null && result.VerifyDetailRecord == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6) result.SimCardUsageDetailRecord = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord(), parseNode);
+            if (result.AmdDetailRecord == null && result.ConferenceDetailRecord == null && result.ConferenceParticipantDetailRecord == null && result.MediaStorageDetailRecord == null && result.MessageDetailRecord == null && result.SimCardUsageDetailRecord == null && result.VerifyDetailRecord == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.MediaStorageDetailRecord = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord(), parseNode);
+            if (result.AmdDetailRecord == null && result.ConferenceDetailRecord == null && result.ConferenceParticipantDetailRecord == null && result.MediaStorageDetailRecord == null && result.MessageDetailRecord == null && result.SimCardUsageDetailRecord == null && result.VerifyDetailRecord == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -151,33 +173,50 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AmdDetailRecord == null && ConferenceDetailRecord == null && ConferenceParticipantDetailRecord == null && MediaStorageDetailRecord == null && MessageDetailRecord == null && SimCardUsageDetailRecord == null && VerifyDetailRecord == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AmdDetailRecord != null && ConferenceDetailRecord == null && ConferenceParticipantDetailRecord == null && MediaStorageDetailRecord == null && MessageDetailRecord == null && SimCardUsageDetailRecord == null && VerifyDetailRecord == null) { if (AmdDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AmdDetailRecord); return; }
+            if (ConferenceDetailRecord != null && AmdDetailRecord == null && ConferenceParticipantDetailRecord == null && MediaStorageDetailRecord == null && MessageDetailRecord == null && SimCardUsageDetailRecord == null && VerifyDetailRecord == null) { if (ConferenceDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConferenceDetailRecord); return; }
+            if (ConferenceParticipantDetailRecord != null && AmdDetailRecord == null && ConferenceDetailRecord == null && MediaStorageDetailRecord == null && MessageDetailRecord == null && SimCardUsageDetailRecord == null && VerifyDetailRecord == null) { if (ConferenceParticipantDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConferenceParticipantDetailRecord); return; }
+            if (MediaStorageDetailRecord != null && AmdDetailRecord == null && ConferenceDetailRecord == null && ConferenceParticipantDetailRecord == null && MessageDetailRecord == null && SimCardUsageDetailRecord == null && VerifyDetailRecord == null) { if (MediaStorageDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MediaStorageDetailRecord); return; }
+            if (MessageDetailRecord != null && AmdDetailRecord == null && ConferenceDetailRecord == null && ConferenceParticipantDetailRecord == null && MediaStorageDetailRecord == null && SimCardUsageDetailRecord == null && VerifyDetailRecord == null) { if (MessageDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MessageDetailRecord); return; }
+            if (SimCardUsageDetailRecord != null && AmdDetailRecord == null && ConferenceDetailRecord == null && ConferenceParticipantDetailRecord == null && MediaStorageDetailRecord == null && MessageDetailRecord == null && VerifyDetailRecord == null) { if (SimCardUsageDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SimCardUsageDetailRecord); return; }
+            if (VerifyDetailRecord != null && AmdDetailRecord == null && ConferenceDetailRecord == null && ConferenceParticipantDetailRecord == null && MediaStorageDetailRecord == null && MessageDetailRecord == null && SimCardUsageDetailRecord == null) { if (VerifyDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VerifyDetailRecord); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AmdDetailRecord != null)
             {
+                if (AmdDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord>(null, AmdDetailRecord);
             }
             else if(ConferenceDetailRecord != null)
             {
+                if (ConferenceDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord>(null, ConferenceDetailRecord);
             }
             else if(ConferenceParticipantDetailRecord != null)
             {
+                if (ConferenceParticipantDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord>(null, ConferenceParticipantDetailRecord);
             }
             else if(MediaStorageDetailRecord != null)
             {
+                if (MediaStorageDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord>(null, MediaStorageDetailRecord);
             }
             else if(MessageDetailRecord != null)
             {
+                if (MessageDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord>(null, MessageDetailRecord);
             }
             else if(SimCardUsageDetailRecord != null)
             {
+                if (SimCardUsageDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord>(null, SimCardUsageDetailRecord);
             }
             else if(VerifyDetailRecord != null)
             {
+                if (VerifyDetailRecord is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord>(null, VerifyDetailRecord);
             }
         }

@@ -11,43 +11,76 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TokenKeyCreate : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_models") is { } nullNodeAllowedModels && nullNodeAllowedModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedModels = null;
+            if (parseNode.GetChildNode("blocked") is { } nullNodeBlocked && nullNodeBlocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocked = null;
+            if (parseNode.GetChildNode("budget_duration") is { } nullNodeBudgetDuration && nullNodeBudgetDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetDuration = null;
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("max_budget") is { } nullNodeMaxBudget && nullNodeMaxBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBudget = null;
+            if (parseNode.GetChildNode("max_parallel_requests") is { } nullNodeMaxParallelRequests && nullNodeMaxParallelRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxParallelRequests = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("required_end_user_id") is { } nullNodeRequiredEndUserId && nullNodeRequiredEndUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredEndUserId = null;
+            if (parseNode.GetChildNode("rpm_limit") is { } nullNodeRpmLimit && nullNodeRpmLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RpmLimit = null;
+            if (parseNode.GetChildNode("token_group_id") is { } nullNodeTokenGroupId && nullNodeTokenGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenGroupId = null;
+            if (parseNode.GetChildNode("token_user_id") is { } nullNodeTokenUserId && nullNodeTokenUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUserId = null;
+            if (parseNode.GetChildNode("tpm_limit") is { } nullNodeTpmLimit && nullNodeTpmLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TpmLimit = null;
+        }
+
         /// <summary>The allowed_models property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedModels { get; set; }
+        public List<string>? AllowedModels { get => _explicitNullValueAllowedModels; set { _explicitNullValueAllowedModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_models"); else _explicitNullProperties?.Remove("allowed_models"); } }
+        private List<string>? _explicitNullValueAllowedModels = default!;
 #nullable restore
 #else
-        public List<string> AllowedModels { get; set; }
+        public List<string> AllowedModels { get => _explicitNullValueAllowedModels; set { _explicitNullValueAllowedModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_models"); else _explicitNullProperties?.Remove("allowed_models"); } }
+        private List<string> _explicitNullValueAllowedModels = default!;
 #endif
         /// <summary>The blocked property</summary>
-        public bool? Blocked { get; set; }
+        public bool? Blocked { get => _explicitNullValueBlocked; set { _explicitNullValueBlocked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked"); else _explicitNullProperties?.Remove("blocked"); } }
+        private bool? _explicitNullValueBlocked = default!;
         /// <summary>The budget_duration property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration? BudgetDuration { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration? BudgetDuration { get => _explicitNullValueBudgetDuration; set { _explicitNullValueBudgetDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_duration"); else _explicitNullProperties?.Remove("budget_duration"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration? _explicitNullValueBudgetDuration = default!;
         /// <summary>The expires_at property</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>Omitted or null defaults to the maximum (1000 USD) (on a blocked key, null is kept until the key is unblocked); a value below the minimum (0.000001 USD) or above the maximum is rejected with 400 limit_out_of_range; a malformed value (negative, wrong type or precision) is 400 invalid_request. Block the key (blocked: true) to deny it; blocking is always accepted. The default budget is lifetime unless budget_duration is set. Budgets and spend are an enforcement guard computed at one flat placeholder rate for every Telnyx-hosted model (rate_version telnyx-reference-v1: 5 USD per million input and 15 USD per million output tokens), not the customer&apos;s bill; Telnyx Inference usage is billed separately at the model&apos;s actual price.</summary>
-        public double? MaxBudget { get; set; }
+        public double? MaxBudget { get => _explicitNullValueMaxBudget; set { _explicitNullValueMaxBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_budget"); else _explicitNullProperties?.Remove("max_budget"); } }
+        private double? _explicitNullValueMaxBudget = default!;
         /// <summary>Optional maximum concurrent reserved/dispatched cache misses across replicas. Null means no concurrency cap. Cache hits do not consume slots; unknown usage retains its budget hold without a slot.</summary>
-        public int? MaxParallelRequests { get; set; }
+        public int? MaxParallelRequests { get => _explicitNullValueMaxParallelRequests; set { _explicitNullValueMaxParallelRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_parallel_requests"); else _explicitNullProperties?.Remove("max_parallel_requests"); } }
+        private int? _explicitNullValueMaxParallelRequests = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Require a nonempty caller-asserted end-user ID; not proof of identity.</summary>
-        public bool? RequiredEndUserId { get; set; }
+        public bool? RequiredEndUserId { get => _explicitNullValueRequiredEndUserId; set { _explicitNullValueRequiredEndUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_end_user_id"); else _explicitNullProperties?.Remove("required_end_user_id"); } }
+        private bool? _explicitNullValueRequiredEndUserId = default!;
         /// <summary>Omitted or null defaults to the maximum (6000) (on a blocked key, null is kept until the key is unblocked); a value below the minimum (1) or above the maximum is rejected with 400 limit_out_of_range; a malformed value (negative, wrong type or precision) is 400 invalid_request. Block the key (blocked: true) to deny it; blocking is always accepted.</summary>
-        public int? RpmLimit { get; set; }
+        public int? RpmLimit { get => _explicitNullValueRpmLimit; set { _explicitNullValueRpmLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rpm_limit"); else _explicitNullProperties?.Remove("rpm_limit"); } }
+        private int? _explicitNullValueRpmLimit = default!;
         /// <summary>The token_group_id property</summary>
-        public Guid? TokenGroupId { get; set; }
+        public Guid? TokenGroupId { get => _explicitNullValueTokenGroupId; set { _explicitNullValueTokenGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_group_id"); else _explicitNullProperties?.Remove("token_group_id"); } }
+        private Guid? _explicitNullValueTokenGroupId = default!;
         /// <summary>The token_user_id property</summary>
-        public Guid? TokenUserId { get; set; }
+        public Guid? TokenUserId { get => _explicitNullValueTokenUserId; set { _explicitNullValueTokenUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_user_id"); else _explicitNullProperties?.Remove("token_user_id"); } }
+        private Guid? _explicitNullValueTokenUserId = default!;
         /// <summary>Omitted or null defaults to the maximum (10000000) (on a blocked key, null is kept until the key is unblocked); a value below the minimum (1) or above the maximum is rejected with 400 limit_out_of_range; a malformed value (negative, wrong type or precision) is 400 invalid_request. Block the key (blocked: true) to deny it; blocking is always accepted.</summary>
-        public int? TpmLimit { get; set; }
+        public int? TpmLimit { get => _explicitNullValueTpmLimit; set { _explicitNullValueTpmLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tpm_limit"); else _explicitNullProperties?.Remove("tpm_limit"); } }
+        private int? _explicitNullValueTpmLimit = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyCreate"/> and sets the default values.
         /// </summary>
@@ -63,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,7 +138,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("rpm_limit", RpmLimit);
             writer.WriteGuidValue("token_group_id", TokenGroupId);
             writer.WriteGuidValue("token_user_id", TokenUserId);
-            writer.WriteIntValue("tpm_limit", TpmLimit);
+            writer.WriteIntValue("tpm_limit", TpmLimit);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

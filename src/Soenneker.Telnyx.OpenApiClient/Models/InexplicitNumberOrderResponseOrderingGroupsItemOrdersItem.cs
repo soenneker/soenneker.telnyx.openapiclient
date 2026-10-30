@@ -11,18 +11,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InexplicitNumberOrderResponseOrderingGroupsItemOrdersItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("number_order_id") is { } nullNodeNumberOrderId && nullNodeNumberOrderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOrderId = null;
+            if (parseNode.GetChildNode("sub_number_order_ids") is { } nullNodeSubNumberOrderIds && nullNodeSubNumberOrderIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubNumberOrderIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ID of the main number order</summary>
-        public Guid? NumberOrderId { get; set; }
+        public Guid? NumberOrderId { get => _explicitNullValueNumberOrderId; set { _explicitNullValueNumberOrderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_order_id"); else _explicitNullProperties?.Remove("number_order_id"); } }
+        private Guid? _explicitNullValueNumberOrderId = default!;
         /// <summary>Array of sub number order IDs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? SubNumberOrderIds { get; set; }
+        public List<Guid?>? SubNumberOrderIds { get => _explicitNullValueSubNumberOrderIds; set { _explicitNullValueSubNumberOrderIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_number_order_ids"); else _explicitNullProperties?.Remove("sub_number_order_ids"); } }
+        private List<Guid?>? _explicitNullValueSubNumberOrderIds = default!;
 #nullable restore
 #else
-        public List<Guid?> SubNumberOrderIds { get; set; }
+        public List<Guid?> SubNumberOrderIds { get => _explicitNullValueSubNumberOrderIds; set { _explicitNullValueSubNumberOrderIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_number_order_ids"); else _explicitNullProperties?.Remove("sub_number_order_ids"); } }
+        private List<Guid?> _explicitNullValueSubNumberOrderIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItemOrdersItem"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItemOrdersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItemOrdersItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponseOrderingGroupsItemOrdersItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("number_order_id", NumberOrderId);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("sub_number_order_ids", SubNumberOrderIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

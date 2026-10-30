@@ -86,13 +86,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Llm_token_gateway.Token_keys
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyList>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create gateway token key within the authenticated Telnyx account. Foreign and unknown resource IDs return the same 404 response. The token secret is returned only on the original create response. A replay returns metadata without the secret. Provisioning is advisory; ready is not a guarantee of inference availability.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateTokenKeysSuccessResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -109,11 +111,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Llm_token_gateway.Token_keys
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTokenKeysSuccessResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTokenKeysSuccessResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -131,8 +133,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Llm_token_gateway.Token_keys
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TokenKeyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTokenKeysSuccessResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateTokenKeysSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List gateway token keys within the authenticated Telnyx account. Foreign and unknown resource IDs return the same 404 response.

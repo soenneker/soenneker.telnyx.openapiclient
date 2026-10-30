@@ -11,30 +11,49 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AutoRechargePrefRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("invoice_enabled") is { } nullNodeInvoiceEnabled && nullNodeInvoiceEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvoiceEnabled = null;
+            if (parseNode.GetChildNode("preference") is { } nullNodePreference && nullNodePreference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Preference = null;
+            if (parseNode.GetChildNode("recharge_amount") is { } nullNodeRechargeAmount && nullNodeRechargeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RechargeAmount = null;
+            if (parseNode.GetChildNode("threshold_amount") is { } nullNodeThresholdAmount && nullNodeThresholdAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThresholdAmount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether auto recharge is enabled.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>The invoice_enabled property</summary>
-        public bool? InvoiceEnabled { get; set; }
+        public bool? InvoiceEnabled { get => _explicitNullValueInvoiceEnabled; set { _explicitNullValueInvoiceEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invoice_enabled"); else _explicitNullProperties?.Remove("invoice_enabled"); } }
+        private bool? _explicitNullValueInvoiceEnabled = default!;
         /// <summary>The payment preference for auto recharge.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequestPreference? Preference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequestPreference? Preference { get => _explicitNullValuePreference; set { _explicitNullValuePreference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preference"); else _explicitNullProperties?.Remove("preference"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequestPreference? _explicitNullValuePreference = default!;
         /// <summary>The amount to recharge the account, the actual recharge amount will be the amount necessary to reach the threshold amount plus the recharge amount.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RechargeAmount { get; set; }
+        public string? RechargeAmount { get => _explicitNullValueRechargeAmount; set { _explicitNullValueRechargeAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recharge_amount"); else _explicitNullProperties?.Remove("recharge_amount"); } }
+        private string? _explicitNullValueRechargeAmount = default!;
 #nullable restore
 #else
-        public string RechargeAmount { get; set; }
+        public string RechargeAmount { get => _explicitNullValueRechargeAmount; set { _explicitNullValueRechargeAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recharge_amount"); else _explicitNullProperties?.Remove("recharge_amount"); } }
+        private string _explicitNullValueRechargeAmount = default!;
 #endif
         /// <summary>The threshold amount at which the account will be recharged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ThresholdAmount { get; set; }
+        public string? ThresholdAmount { get => _explicitNullValueThresholdAmount; set { _explicitNullValueThresholdAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_amount"); else _explicitNullProperties?.Remove("threshold_amount"); } }
+        private string? _explicitNullValueThresholdAmount = default!;
 #nullable restore
 #else
-        public string ThresholdAmount { get; set; }
+        public string ThresholdAmount { get => _explicitNullValueThresholdAmount; set { _explicitNullValueThresholdAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_amount"); else _explicitNullProperties?.Remove("threshold_amount"); } }
+        private string _explicitNullValueThresholdAmount = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequest"/> and sets the default values.
@@ -51,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,6 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutoRechargePrefRequestPreference>("preference", Preference);
             writer.WriteStringValue("recharge_amount", RechargeAmount);
             writer.WriteStringValue("threshold_amount", ThresholdAmount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

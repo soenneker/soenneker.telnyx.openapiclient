@@ -60,6 +60,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones.Item
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -89,6 +91,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

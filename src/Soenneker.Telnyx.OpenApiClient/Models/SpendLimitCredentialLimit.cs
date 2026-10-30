@@ -12,52 +12,78 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpendLimitCredentialLimit : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("block") is { } nullNodeBlock && nullNodeBlock.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Block = null;
+            if (parseNode.GetChildNode("blocked") is { } nullNodeBlocked && nullNodeBlocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocked = null;
+            if (parseNode.GetChildNode("credential_id") is { } nullNodeCredentialId && nullNodeCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialId = null;
+            if (parseNode.GetChildNode("exceeds_total") is { } nullNodeExceedsTotal && nullNodeExceedsTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExceedsTotal = null;
+            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+            if (parseNode.GetChildNode("spend_error") is { } nullNodeSpendError && nullNodeSpendError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendError = null;
+            if (parseNode.GetChildNode("spend_usd") is { } nullNodeSpendUsd && nullNodeSpendUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendUsd = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The active block of the period. `null` when the period is not blocked.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock? Block { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock? Block { get => _explicitNullValueBlock; set { _explicitNullValueBlock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block"); else _explicitNullProperties?.Remove("block"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock? _explicitNullValueBlock = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock Block { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock Block { get => _explicitNullValueBlock; set { _explicitNullValueBlock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block"); else _explicitNullProperties?.Remove("block"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock _explicitNullValueBlock = default!;
 #endif
         /// <summary>This API key is blocked for the period.</summary>
-        public bool? Blocked { get; set; }
+        public bool? Blocked { get => _explicitNullValueBlocked; set { _explicitNullValueBlocked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked"); else _explicitNullProperties?.Remove("blocked"); } }
+        private bool? _explicitNullValueBlocked = default!;
         /// <summary>Identifier of the API key as recorded on usage. Never the key&apos;s secret.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CredentialId { get; set; }
+        public string? CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_id"); else _explicitNullProperties?.Remove("credential_id"); } }
+        private string? _explicitNullValueCredentialId = default!;
 #nullable restore
 #else
-        public string CredentialId { get; set; }
+        public string CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_id"); else _explicitNullProperties?.Remove("credential_id"); } }
+        private string _explicitNullValueCredentialId = default!;
 #endif
         /// <summary>The API key&apos;s limit is above the period&apos;s total limit. Only a change by Telnyx support can cause it; the total limit still applies to the whole account. Lower the API key limit or raise the total.</summary>
-        public bool? ExceedsTotal { get; set; }
+        public bool? ExceedsTotal { get => _explicitNullValueExceedsTotal; set { _explicitNullValueExceedsTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exceeds_total"); else _explicitNullProperties?.Remove("exceeds_total"); } }
+        private bool? _explicitNullValueExceedsTotal = default!;
         /// <summary>The limit of one API key. It always has an amount. `null` for an API key that is still blocked after its limit was removed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue? Limit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue? _explicitNullValueLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue Limit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue _explicitNullValueLimit = default!;
 #endif
         /// <summary>Set when `spend_usd` is `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpendError { get; set; }
+        public string? SpendError { get => _explicitNullValueSpendError; set { _explicitNullValueSpendError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_error"); else _explicitNullProperties?.Remove("spend_error"); } }
+        private string? _explicitNullValueSpendError = default!;
 #nullable restore
 #else
-        public string SpendError { get; set; }
+        public string SpendError { get => _explicitNullValueSpendError; set { _explicitNullValueSpendError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_error"); else _explicitNullProperties?.Remove("spend_error"); } }
+        private string _explicitNullValueSpendError = default!;
 #endif
         /// <summary>Spend in USD in the period made with exactly this API key, as a decimal string. Usage without an API key identifier, or with another one, counts only toward the total. `null` when it could not be read.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpendUsd { get; set; }
+        public string? SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        private string? _explicitNullValueSpendUsd = default!;
 #nullable restore
 #else
-        public string SpendUsd { get; set; }
+        public string SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        private string _explicitNullValueSpendUsd = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit"/> and sets the default values.
@@ -74,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,6 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitCredentialLimitValue>("limit", Limit);
             writer.WriteStringValue("spend_error", SpendError);
             writer.WriteStringValue("spend_usd", SpendUsd);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

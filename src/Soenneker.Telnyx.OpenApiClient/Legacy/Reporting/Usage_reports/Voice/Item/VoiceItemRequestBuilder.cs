@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.It
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CdrDeleteUsageReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CdrDeleteUsageReportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CdrDeleteUsageReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CdrDeleteUsageReportResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a single CDR (Call Detail Record) usage report by its identifier, including its parameters and current status.
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Voice.It
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportByIdResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CdrGetUsageReportByIdResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a specific V2 legacy usage CDR report request by ID

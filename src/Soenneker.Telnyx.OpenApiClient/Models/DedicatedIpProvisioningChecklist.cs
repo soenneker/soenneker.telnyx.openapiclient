@@ -12,17 +12,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DedicatedIpProvisioningChecklist : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("forward_confirmed") is { } nullNodeForwardConfirmed && nullNodeForwardConfirmed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardConfirmed = null;
+            if (parseNode.GetChildNode("ptr_authored") is { } nullNodePtrAuthored && nullNodePtrAuthored.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrAuthored = null;
+            if (parseNode.GetChildNode("ptr_merged") is { } nullNodePtrMerged && nullNodePtrMerged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrMerged = null;
+            if (parseNode.GetChildNode("ptr_requested") is { } nullNodePtrRequested && nullNodePtrRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrRequested = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The forward_confirmed property</summary>
-        public bool? ForwardConfirmed { get; set; }
+        public bool? ForwardConfirmed { get => _explicitNullValueForwardConfirmed; set { _explicitNullValueForwardConfirmed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forward_confirmed"); else _explicitNullProperties?.Remove("forward_confirmed"); } }
+        private bool? _explicitNullValueForwardConfirmed = default!;
         /// <summary>The ptr_authored property</summary>
-        public bool? PtrAuthored { get; set; }
+        public bool? PtrAuthored { get => _explicitNullValuePtrAuthored; set { _explicitNullValuePtrAuthored = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_authored"); else _explicitNullProperties?.Remove("ptr_authored"); } }
+        private bool? _explicitNullValuePtrAuthored = default!;
         /// <summary>The ptr_merged property</summary>
-        public bool? PtrMerged { get; set; }
+        public bool? PtrMerged { get => _explicitNullValuePtrMerged; set { _explicitNullValuePtrMerged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_merged"); else _explicitNullProperties?.Remove("ptr_merged"); } }
+        private bool? _explicitNullValuePtrMerged = default!;
         /// <summary>The ptr_requested property</summary>
-        public bool? PtrRequested { get; set; }
+        public bool? PtrRequested { get => _explicitNullValuePtrRequested; set { _explicitNullValuePtrRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_requested"); else _explicitNullProperties?.Remove("ptr_requested"); } }
+        private bool? _explicitNullValuePtrRequested = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("ptr_authored", PtrAuthored);
             writer.WriteBoolValue("ptr_merged", PtrMerged);
             writer.WriteBoolValue("ptr_requested", PtrRequested);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

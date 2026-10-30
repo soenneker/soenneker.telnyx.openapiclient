@@ -11,52 +11,83 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NewParticipantResource : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account_sid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
+            if (parseNode.GetChildNode("call_sid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
+            if (parseNode.GetChildNode("coaching") is { } nullNodeCoaching && nullNodeCoaching.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Coaching = null;
+            if (parseNode.GetChildNode("coaching_call_sid") is { } nullNodeCoachingCallSid && nullNodeCoachingCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoachingCallSid = null;
+            if (parseNode.GetChildNode("conference_sid") is { } nullNodeConferenceSid && nullNodeConferenceSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceSid = null;
+            if (parseNode.GetChildNode("end_conference_on_exit") is { } nullNodeEndConferenceOnExit && nullNodeEndConferenceOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndConferenceOnExit = null;
+            if (parseNode.GetChildNode("hold") is { } nullNodeHold && nullNodeHold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hold = null;
+            if (parseNode.GetChildNode("muted") is { } nullNodeMuted && nullNodeMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Muted = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
+        }
+
         /// <summary>The id of the account the resource belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountSid { get; set; }
+        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_sid"); else _explicitNullProperties?.Remove("account_sid"); } }
+        private string? _explicitNullValueAccountSid = default!;
 #nullable restore
 #else
-        public string AccountSid { get; set; }
+        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_sid"); else _explicitNullProperties?.Remove("account_sid"); } }
+        private string _explicitNullValueAccountSid = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The identifier of this participant&apos;s call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSid { get; set; }
+        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_sid"); else _explicitNullProperties?.Remove("call_sid"); } }
+        private string? _explicitNullValueCallSid = default!;
 #nullable restore
 #else
-        public string CallSid { get; set; }
+        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_sid"); else _explicitNullProperties?.Remove("call_sid"); } }
+        private string _explicitNullValueCallSid = default!;
 #endif
         /// <summary>Whether the participant is coaching another call.</summary>
-        public bool? Coaching { get; set; }
+        public bool? Coaching { get => _explicitNullValueCoaching; set { _explicitNullValueCoaching = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coaching"); else _explicitNullProperties?.Remove("coaching"); } }
+        private bool? _explicitNullValueCoaching = default!;
         /// <summary>The identifier of the coached participant&apos;s call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CoachingCallSid { get; set; }
+        public string? CoachingCallSid { get => _explicitNullValueCoachingCallSid; set { _explicitNullValueCoachingCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coaching_call_sid"); else _explicitNullProperties?.Remove("coaching_call_sid"); } }
+        private string? _explicitNullValueCoachingCallSid = default!;
 #nullable restore
 #else
-        public string CoachingCallSid { get; set; }
+        public string CoachingCallSid { get => _explicitNullValueCoachingCallSid; set { _explicitNullValueCoachingCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coaching_call_sid"); else _explicitNullProperties?.Remove("coaching_call_sid"); } }
+        private string _explicitNullValueCoachingCallSid = default!;
 #endif
         /// <summary>The unique identifier for the conference.</summary>
-        public Guid? ConferenceSid { get; set; }
+        public Guid? ConferenceSid { get => _explicitNullValueConferenceSid; set { _explicitNullValueConferenceSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conference_sid"); else _explicitNullProperties?.Remove("conference_sid"); } }
+        private Guid? _explicitNullValueConferenceSid = default!;
         /// <summary>Whether the conference ends when the participant leaves.</summary>
-        public bool? EndConferenceOnExit { get; set; }
+        public bool? EndConferenceOnExit { get => _explicitNullValueEndConferenceOnExit; set { _explicitNullValueEndConferenceOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_conference_on_exit"); else _explicitNullProperties?.Remove("end_conference_on_exit"); } }
+        private bool? _explicitNullValueEndConferenceOnExit = default!;
         /// <summary>Whether the participant is on hold.</summary>
-        public bool? Hold { get; set; }
+        public bool? Hold { get => _explicitNullValueHold; set { _explicitNullValueHold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold"); else _explicitNullProperties?.Remove("hold"); } }
+        private bool? _explicitNullValueHold = default!;
         /// <summary>Whether the participant is muted.</summary>
-        public bool? Muted { get; set; }
+        public bool? Muted { get => _explicitNullValueMuted; set { _explicitNullValueMuted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted"); else _explicitNullProperties?.Remove("muted"); } }
+        private bool? _explicitNullValueMuted = default!;
         /// <summary>The status of the participant&apos;s call in the conference.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResourceStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResourceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResourceStatus? _explicitNullValueStatus = default!;
         /// <summary>The relative URI for this participant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uri { get; set; }
+        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string? _explicitNullValueUri = default!;
 #nullable restore
 #else
-        public string Uri { get; set; }
+        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string _explicitNullValueUri = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResource"/> and sets the default values.
@@ -73,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResource();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResource(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,6 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("muted", Muted);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NewParticipantResourceStatus>("status", Status);
             writer.WriteStringValue("uri", Uri);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

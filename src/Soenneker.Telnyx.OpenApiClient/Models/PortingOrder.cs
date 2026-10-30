@@ -11,42 +11,74 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PortingOrder : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activation_settings") is { } nullNodeActivationSettings && nullNodeActivationSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationSettings = null;
+            if (parseNode.GetChildNode("additional_steps") is { } nullNodeAdditionalSteps && nullNodeAdditionalSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalSteps = null;
+            if (parseNode.GetChildNode("customer_group_reference") is { } nullNodeCustomerGroupReference && nullNodeCustomerGroupReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerGroupReference = null;
+            if (parseNode.GetChildNode("customer_reference") is { } nullNodeCustomerReference && nullNodeCustomerReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReference = null;
+            if (parseNode.GetChildNode("documents") is { } nullNodeDocuments && nullNodeDocuments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Documents = null;
+            if (parseNode.GetChildNode("end_user") is { } nullNodeEndUser && nullNodeEndUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndUser = null;
+            if (parseNode.GetChildNode("messaging") is { } nullNodeMessaging && nullNodeMessaging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Messaging = null;
+            if (parseNode.GetChildNode("misc") is { } nullNodeMisc && nullNodeMisc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Misc = null;
+            if (parseNode.GetChildNode("phone_number_configuration") is { } nullNodePhoneNumberConfiguration && nullNodePhoneNumberConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberConfiguration = null;
+            if (parseNode.GetChildNode("phone_numbers") is { } nullNodePhoneNumbers && nullNodePhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbers = null;
+            if (parseNode.GetChildNode("phone_number_type") is { } nullNodePhoneNumberType && nullNodePhoneNumberType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberType = null;
+            if (parseNode.GetChildNode("requirements") is { } nullNodeRequirements && nullNodeRequirements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Requirements = null;
+            if (parseNode.GetChildNode("requirements_met") is { } nullNodeRequirementsMet && nullNodeRequirementsMet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementsMet = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("user_feedback") is { } nullNodeUserFeedback && nullNodeUserFeedback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserFeedback = null;
+            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+        }
+
         /// <summary>The activation_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings? ActivationSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings? ActivationSettings { get => _explicitNullValueActivationSettings; set { _explicitNullValueActivationSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_settings"); else _explicitNullProperties?.Remove("activation_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings? _explicitNullValueActivationSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings ActivationSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings ActivationSettings { get => _explicitNullValueActivationSettings; set { _explicitNullValueActivationSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_settings"); else _explicitNullProperties?.Remove("activation_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings _explicitNullValueActivationSettings = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>For specific porting orders, we may require additional steps to be taken before submitting the porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem?>? AdditionalSteps { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem?>? AdditionalSteps { get => _explicitNullValueAdditionalSteps; set { _explicitNullValueAdditionalSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_steps"); else _explicitNullProperties?.Remove("additional_steps"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem?>? _explicitNullValueAdditionalSteps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem?> AdditionalSteps { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem?> AdditionalSteps { get => _explicitNullValueAdditionalSteps; set { _explicitNullValueAdditionalSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_steps"); else _explicitNullProperties?.Remove("additional_steps"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderAdditionalStepsItem?> _explicitNullValueAdditionalSteps = default!;
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A customer-specified group reference for customer bookkeeping purposes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerGroupReference { get; set; }
+        public string? CustomerGroupReference { get => _explicitNullValueCustomerGroupReference; set { _explicitNullValueCustomerGroupReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_group_reference"); else _explicitNullProperties?.Remove("customer_group_reference"); } }
+        private string? _explicitNullValueCustomerGroupReference = default!;
 #nullable restore
 #else
-        public string CustomerGroupReference { get; set; }
+        public string CustomerGroupReference { get => _explicitNullValueCustomerGroupReference; set { _explicitNullValueCustomerGroupReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_group_reference"); else _explicitNullProperties?.Remove("customer_group_reference"); } }
+        private string _explicitNullValueCustomerGroupReference = default!;
 #endif
         /// <summary>A customer-specified reference number for customer bookkeeping purposes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerReference { get; set; }
+        public string? CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        private string? _explicitNullValueCustomerReference = default!;
 #nullable restore
 #else
-        public string CustomerReference { get; set; }
+        public string CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        private string _explicitNullValueCustomerReference = default!;
 #endif
         /// <summary>A description of the porting order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,36 +91,44 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Can be specified directly or via the `requirement_group_id` parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments? Documents { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments? Documents { get => _explicitNullValueDocuments; set { _explicitNullValueDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents"); else _explicitNullProperties?.Remove("documents"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments? _explicitNullValueDocuments = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments Documents { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments Documents { get => _explicitNullValueDocuments; set { _explicitNullValueDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents"); else _explicitNullProperties?.Remove("documents"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments _explicitNullValueDocuments = default!;
 #endif
         /// <summary>The end_user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser? EndUser { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser? EndUser { get => _explicitNullValueEndUser; set { _explicitNullValueEndUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_user"); else _explicitNullProperties?.Remove("end_user"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser? _explicitNullValueEndUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser EndUser { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser EndUser { get => _explicitNullValueEndUser; set { _explicitNullValueEndUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_user"); else _explicitNullProperties?.Remove("end_user"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser _explicitNullValueEndUser = default!;
 #endif
         /// <summary>Uniquely identifies this porting order</summary>
         public Guid? Id { get; private set; }
         /// <summary>Information about messaging porting process.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging? Messaging { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging? Messaging { get => _explicitNullValueMessaging; set { _explicitNullValueMessaging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging"); else _explicitNullProperties?.Remove("messaging"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging? _explicitNullValueMessaging = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging Messaging { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging Messaging { get => _explicitNullValueMessaging; set { _explicitNullValueMessaging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging"); else _explicitNullProperties?.Remove("messaging"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging _explicitNullValueMessaging = default!;
 #endif
         /// <summary>The misc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc? Misc { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc? Misc { get => _explicitNullValueMisc; set { _explicitNullValueMisc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("misc"); else _explicitNullProperties?.Remove("misc"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc? _explicitNullValueMisc = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc Misc { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc Misc { get => _explicitNullValueMisc; set { _explicitNullValueMisc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("misc"); else _explicitNullProperties?.Remove("misc"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc _explicitNullValueMisc = default!;
 #endif
         /// <summary>Identifies the old service provider</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,21 +149,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phone_number_configuration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration? PhoneNumberConfiguration { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration? PhoneNumberConfiguration { get => _explicitNullValuePhoneNumberConfiguration; set { _explicitNullValuePhoneNumberConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_configuration"); else _explicitNullProperties?.Remove("phone_number_configuration"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration? _explicitNullValuePhoneNumberConfiguration = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration PhoneNumberConfiguration { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration PhoneNumberConfiguration { get => _explicitNullValuePhoneNumberConfiguration; set { _explicitNullValuePhoneNumberConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_configuration"); else _explicitNullProperties?.Remove("phone_number_configuration"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration _explicitNullValuePhoneNumberConfiguration = default!;
 #endif
         /// <summary>List of phone numbers associated with this porting order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber>? PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers"); else _explicitNullProperties?.Remove("phone_numbers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber>? _explicitNullValuePhoneNumbers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber> PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers"); else _explicitNullProperties?.Remove("phone_numbers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber> _explicitNullValuePhoneNumbers = default!;
 #endif
         /// <summary>The type of the phone number</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberType? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberType? PhoneNumberType { get => _explicitNullValuePhoneNumberType; set { _explicitNullValuePhoneNumberType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_type"); else _explicitNullProperties?.Remove("phone_number_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberType? _explicitNullValuePhoneNumberType = default!;
         /// <summary>Count of phone numbers associated with this porting order</summary>
         public int? PortingPhoneNumbersCount { get; private set; }
         /// <summary>Identifies the type of the resource.</summary>
@@ -137,20 +182,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of documentation requirements for porting numbers. Can be set directly or via the `requirement_group_id` parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement>? Requirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement>? Requirements { get => _explicitNullValueRequirements; set { _explicitNullValueRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirements"); else _explicitNullProperties?.Remove("requirements"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement>? _explicitNullValueRequirements = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement> Requirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement> Requirements { get => _explicitNullValueRequirements; set { _explicitNullValueRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirements"); else _explicitNullProperties?.Remove("requirements"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement> _explicitNullValueRequirements = default!;
 #endif
         /// <summary>Is true when the required documentation is met</summary>
-        public bool? RequirementsMet { get; set; }
+        public bool? RequirementsMet { get => _explicitNullValueRequirementsMet; set { _explicitNullValueRequirementsMet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirements_met"); else _explicitNullProperties?.Remove("requirements_met"); } }
+        private bool? _explicitNullValueRequirementsMet = default!;
         /// <summary>Porting order status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus _explicitNullValueStatus = default!;
 #endif
         /// <summary>A key to reference this porting order when contacting Telnyx customer support. This information is not available in draft porting orders.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -165,20 +215,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The user_feedback property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderUserFeedback? UserFeedback { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderUserFeedback? UserFeedback { get => _explicitNullValueUserFeedback; set { _explicitNullValueUserFeedback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_feedback"); else _explicitNullProperties?.Remove("user_feedback"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderUserFeedback? _explicitNullValueUserFeedback = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderUserFeedback UserFeedback { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderUserFeedback UserFeedback { get => _explicitNullValueUserFeedback; set { _explicitNullValueUserFeedback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_feedback"); else _explicitNullProperties?.Remove("user_feedback"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderUserFeedback _explicitNullValueUserFeedback = default!;
 #endif
         /// <summary>Identifies the user (or organization) who requested the porting order</summary>
-        public Guid? UserId { get; set; }
+        public Guid? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private Guid? _explicitNullValueUserId = default!;
         /// <summary>The webhook_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder"/> and sets the default values.
@@ -195,7 +250,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -257,6 +312,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderUserFeedback>("user_feedback", UserFeedback);
             writer.WriteGuidValue("user_id", UserId);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

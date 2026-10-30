@@ -11,51 +11,77 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TranscriptionEngineDeepgramConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("hints") is { } nullNodeHints && nullNodeHints.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hints = null;
+            if (parseNode.GetChildNode("interim_results") is { } nullNodeInterimResults && nullNodeInterimResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterimResults = null;
+            if (parseNode.GetChildNode("keyterms") is { } nullNodeKeyterms && nullNodeKeyterms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Keyterms = null;
+            if (parseNode.GetChildNode("keywords_boosting") is { } nullNodeKeywordsBoosting && nullNodeKeywordsBoosting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeywordsBoosting = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("smart_format") is { } nullNodeSmartFormat && nullNodeSmartFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SmartFormat = null;
+            if (parseNode.GetChildNode("transcription_engine") is { } nullNodeTranscriptionEngine && nullNodeTranscriptionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngine = null;
+            if (parseNode.GetChildNode("transcription_model") is { } nullNodeTranscriptionModel && nullNodeTranscriptionModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionModel = null;
+            if (parseNode.GetChildNode("utterance_end_ms") is { } nullNodeUtteranceEndMs && nullNodeUtteranceEndMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtteranceEndMs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Nova-2 keyword biasing without intensifiers. Up to 100 terms to bias recognition toward. For weighted biasing, use `keywords_boosting` instead. Supported on Nova-2 models only (`deepgram/nova-2`, `deepgram/nova-2-medical`, `deepgram/nova-2-phonecall`); use `keyterms` on Nova-3 and Flux.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Hints { get; set; }
+        public List<string>? Hints { get => _explicitNullValueHints; set { _explicitNullValueHints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hints"); else _explicitNullProperties?.Remove("hints"); } }
+        private List<string>? _explicitNullValueHints = default!;
 #nullable restore
 #else
-        public List<string> Hints { get; set; }
+        public List<string> Hints { get => _explicitNullValueHints; set { _explicitNullValueHints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hints"); else _explicitNullProperties?.Remove("hints"); } }
+        private List<string> _explicitNullValueHints = default!;
 #endif
         /// <summary>Whether to send also interim results. If set to false, only final results will be sent.</summary>
-        public bool? InterimResults { get; set; }
+        public bool? InterimResults { get => _explicitNullValueInterimResults; set { _explicitNullValueInterimResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interim_results"); else _explicitNullProperties?.Remove("interim_results"); } }
+        private bool? _explicitNullValueInterimResults = default!;
         /// <summary>Keyterm prompting. Up to 100 domain-specific terms or brand names to bias recognition toward. Supported on Nova-3 and Flux models (`deepgram/nova-3`, `deepgram/nova-3-medical`, `deepgram/flux`, `deepgram/flux-multi`); use `hints` on Nova-2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Keyterms { get; set; }
+        public List<string>? Keyterms { get => _explicitNullValueKeyterms; set { _explicitNullValueKeyterms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyterms"); else _explicitNullProperties?.Remove("keyterms"); } }
+        private List<string>? _explicitNullValueKeyterms = default!;
 #nullable restore
 #else
-        public List<string> Keyterms { get; set; }
+        public List<string> Keyterms { get => _explicitNullValueKeyterms; set { _explicitNullValueKeyterms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyterms"); else _explicitNullProperties?.Remove("keyterms"); } }
+        private List<string> _explicitNullValueKeyterms = default!;
 #endif
         /// <summary>Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{&quot;snuffleupagus&quot;: 5, &quot;systrom&quot;: 2, &quot;krieger&quot;: 1}`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty? KeywordsBoosting { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty? KeywordsBoosting { get => _explicitNullValueKeywordsBoosting; set { _explicitNullValueKeywordsBoosting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keywords_boosting"); else _explicitNullProperties?.Remove("keywords_boosting"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty? _explicitNullValueKeywordsBoosting = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty KeywordsBoosting { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty KeywordsBoosting { get => _explicitNullValueKeywordsBoosting; set { _explicitNullValueKeywordsBoosting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keywords_boosting"); else _explicitNullProperties?.Remove("keywords_boosting"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty _explicitNullValueKeywordsBoosting = default!;
 #endif
         /// <summary>Language to use for speech recognition with nova-2 model</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage? Language { get; set; }
-        /// <summary>Enable Deepgram&apos;s smart formatting (capitalization, punctuation, and digit normalization). Note: Telnyx defaults this to `true`, overriding Deepgram&apos;s underlying default of `false` — omit the field to get a smart-formatted transcript, or set it to `false` to receive the raw lowercase transcript without punctuation.</summary>
-        public bool? SmartFormat { get; set; }
-        /// <summary>The transcription_engine property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine? TranscriptionEngine { get; set; }
-        /// <summary>The transcription_model property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TranscriptionModel { get; set; }
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string? _explicitNullValueLanguage = default!;
 #nullable restore
-#else
-        public string TranscriptionModel { get; set; }
-#endif
+        /// <summary>Enable Deepgram&apos;s smart formatting (capitalization, punctuation, and digit normalization). Note: Telnyx defaults this to `true`, overriding Deepgram&apos;s underlying default of `false` — omit the field to get a smart-formatted transcript, or set it to `false` to receive the raw lowercase transcript without punctuation.</summary>
+        public bool? SmartFormat { get => _explicitNullValueSmartFormat; set { _explicitNullValueSmartFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("smart_format"); else _explicitNullProperties?.Remove("smart_format"); } }
+        private bool? _explicitNullValueSmartFormat = default!;
+        /// <summary>The transcription_engine property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine? _explicitNullValueTranscriptionEngine = default!;
+        /// <summary>The transcription_model property</summary>
+#nullable enable
+        public string? TranscriptionModel { get => _explicitNullValueTranscriptionModel; set { _explicitNullValueTranscriptionModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_model"); else _explicitNullProperties?.Remove("transcription_model"); } }
+        private string? _explicitNullValueTranscriptionModel = default!;
+#nullable restore
         /// <summary>Number of milliseconds of silence to consider an utterance ended. Ranges from 0 to 5000 ms.</summary>
-        public int? UtteranceEndMs { get; set; }
+        public int? UtteranceEndMs { get => _explicitNullValueUtteranceEndMs; set { _explicitNullValueUtteranceEndMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utterance_end_ms"); else _explicitNullProperties?.Remove("utterance_end_ms"); } }
+        private int? _explicitNullValueUtteranceEndMs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/> and sets the default values.
         /// </summary>
@@ -74,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "interim_results", n => { InterimResults = n.GetBoolValue(); } },
                 { "keyterms", n => { Keyterms = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "keywords_boosting", n => { KeywordsBoosting = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty.CreateFromDiscriminatorValue); } },
-                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
                 { "smart_format", n => { SmartFormat = n.GetBoolValue(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine>(); } },
                 { "transcription_model", n => { TranscriptionModel = n.GetStringValue(); } },
@@ -106,11 +132,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("interim_results", InterimResults);
             writer.WriteCollectionOfPrimitiveValues<string>("keyterms", Keyterms);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2ConfigKeywordsBoostingProperty>("keywords_boosting", KeywordsBoosting);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>("language", Language);
+            writer.WriteStringValue("language", Language);
             writer.WriteBoolValue("smart_format", SmartFormat);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramTranscriptionEngine>("transcription_engine", TranscriptionEngine);
             writer.WriteStringValue("transcription_model", TranscriptionModel);
             writer.WriteIntValue("utterance_end_ms", UtteranceEndMs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -42,6 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.MachinePayments.AccountCredit
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentUpstreamError">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentsErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMachinePaymentAccountCredit403ResponseError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentUpstreamError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentsErrorResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentsErrorResponse">When receiving a 422 status code</exception>
@@ -61,10 +62,13 @@ namespace Soenneker.Telnyx.OpenApiClient.MachinePayments.AccountCredit
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentUpstreamError.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentsErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.CreateMachinePaymentAccountCredit403ResponseError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentUpstreamError.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentsErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentsErrorResponse.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,18 +11,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateRequirementVersionRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("effective_start_at") is { } nullNodeEffectiveStartAt && nullNodeEffectiveStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveStartAt = null;
+            if (parseNode.GetChildNode("requirement_type_ids") is { } nullNodeRequirementTypeIds && nullNodeRequirementTypeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementTypeIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the new version should become active. Must be a future date-time.</summary>
-        public DateTimeOffset? EffectiveStartAt { get; set; }
+        public DateTimeOffset? EffectiveStartAt { get => _explicitNullValueEffectiveStartAt; set { _explicitNullValueEffectiveStartAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_start_at"); else _explicitNullProperties?.Remove("effective_start_at"); } }
+        private DateTimeOffset? _explicitNullValueEffectiveStartAt = default!;
         /// <summary>List of requirement type UUIDs that apply to the new version. Replaces the existing requirement types for the new version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? RequirementTypeIds { get; set; }
+        public List<Guid?>? RequirementTypeIds { get => _explicitNullValueRequirementTypeIds; set { _explicitNullValueRequirementTypeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_ids"); else _explicitNullProperties?.Remove("requirement_type_ids"); } }
+        private List<Guid?>? _explicitNullValueRequirementTypeIds = default!;
 #nullable restore
 #else
-        public List<Guid?> RequirementTypeIds { get; set; }
+        public List<Guid?> RequirementTypeIds { get => _explicitNullValueRequirementTypeIds; set { _explicitNullValueRequirementTypeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_ids"); else _explicitNullProperties?.Remove("requirement_type_ids"); } }
+        private List<Guid?> _explicitNullValueRequirementTypeIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateRequirementVersionRequest"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateRequirementVersionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateRequirementVersionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CreateRequirementVersionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("effective_start_at", EffectiveStartAt);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("requirement_type_ids", RequirementTypeIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,56 +11,86 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DirInfringementUpdateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_reasons") is { } nullNodeCallReasons && nullNodeCallReasons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallReasons = null;
+            if (parseNode.GetChildNode("certify_brand_is_accurate") is { } nullNodeCertifyBrandIsAccurate && nullNodeCertifyBrandIsAccurate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertifyBrandIsAccurate = null;
+            if (parseNode.GetChildNode("certify_ip_ownership") is { } nullNodeCertifyIpOwnership && nullNodeCertifyIpOwnership.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertifyIpOwnership = null;
+            if (parseNode.GetChildNode("certify_no_infringement") is { } nullNodeCertifyNoInfringement && nullNodeCertifyNoInfringement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertifyNoInfringement = null;
+            if (parseNode.GetChildNode("certify_no_shaft_content") is { } nullNodeCertifyNoShaftContent && nullNodeCertifyNoShaftContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertifyNoShaftContent = null;
+            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("documents") is { } nullNodeDocuments && nullNodeDocuments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Documents = null;
+            if (parseNode.GetChildNode("infringement_resolution_notes") is { } nullNodeInfringementResolutionNotes && nullNodeInfringementResolutionNotes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InfringementResolutionNotes = null;
+            if (parseNode.GetChildNode("logo_url") is { } nullNodeLogoUrl && nullNodeLogoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The call_reasons property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CallReasons { get; set; }
+        public List<string>? CallReasons { get => _explicitNullValueCallReasons; set { _explicitNullValueCallReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_reasons"); else _explicitNullProperties?.Remove("call_reasons"); } }
+        private List<string>? _explicitNullValueCallReasons = default!;
 #nullable restore
 #else
-        public List<string> CallReasons { get; set; }
+        public List<string> CallReasons { get => _explicitNullValueCallReasons; set { _explicitNullValueCallReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_reasons"); else _explicitNullProperties?.Remove("call_reasons"); } }
+        private List<string> _explicitNullValueCallReasons = default!;
 #endif
         /// <summary>Must be `true`.</summary>
-        public bool? CertifyBrandIsAccurate { get; set; }
+        public bool? CertifyBrandIsAccurate { get => _explicitNullValueCertifyBrandIsAccurate; set { _explicitNullValueCertifyBrandIsAccurate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certify_brand_is_accurate"); else _explicitNullProperties?.Remove("certify_brand_is_accurate"); } }
+        private bool? _explicitNullValueCertifyBrandIsAccurate = default!;
         /// <summary>Must be `true`.</summary>
-        public bool? CertifyIpOwnership { get; set; }
+        public bool? CertifyIpOwnership { get => _explicitNullValueCertifyIpOwnership; set { _explicitNullValueCertifyIpOwnership = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certify_ip_ownership"); else _explicitNullProperties?.Remove("certify_ip_ownership"); } }
+        private bool? _explicitNullValueCertifyIpOwnership = default!;
         /// <summary>Check to certify that the brand no longer infringes anyone else&apos;s trademark or intellectual property.</summary>
-        public bool? CertifyNoInfringement { get; set; }
+        public bool? CertifyNoInfringement { get => _explicitNullValueCertifyNoInfringement; set { _explicitNullValueCertifyNoInfringement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certify_no_infringement"); else _explicitNullProperties?.Remove("certify_no_infringement"); } }
+        private bool? _explicitNullValueCertifyNoInfringement = default!;
         /// <summary>Must be `true`.</summary>
-        public bool? CertifyNoShaftContent { get; set; }
+        public bool? CertifyNoShaftContent { get => _explicitNullValueCertifyNoShaftContent; set { _explicitNullValueCertifyNoShaftContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certify_no_shaft_content"); else _explicitNullProperties?.Remove("certify_no_shaft_content"); } }
+        private bool? _explicitNullValueCertifyNoShaftContent = default!;
         /// <summary>The business name shown to call recipients, 1 to 35 characters, no emoji, not blank.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>Append-only supporting documents to attach while resolving the claim (e.g. authorization or licensing proof).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? Documents { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? Documents { get => _explicitNullValueDocuments; set { _explicitNullValueDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents"); else _explicitNullProperties?.Remove("documents"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? _explicitNullValueDocuments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> Documents { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> Documents { get => _explicitNullValueDocuments; set { _explicitNullValueDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents"); else _explicitNullProperties?.Remove("documents"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> _explicitNullValueDocuments = default!;
 #endif
         /// <summary>Explanation of how the infringement concern was addressed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InfringementResolutionNotes { get; set; }
+        public string? InfringementResolutionNotes { get => _explicitNullValueInfringementResolutionNotes; set { _explicitNullValueInfringementResolutionNotes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("infringement_resolution_notes"); else _explicitNullProperties?.Remove("infringement_resolution_notes"); } }
+        private string? _explicitNullValueInfringementResolutionNotes = default!;
 #nullable restore
 #else
-        public string InfringementResolutionNotes { get; set; }
+        public string InfringementResolutionNotes { get => _explicitNullValueInfringementResolutionNotes; set { _explicitNullValueInfringementResolutionNotes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("infringement_resolution_notes"); else _explicitNullProperties?.Remove("infringement_resolution_notes"); } }
+        private string _explicitNullValueInfringementResolutionNotes = default!;
 #endif
         /// <summary>Publicly accessible HTTPS URL (max 128 chars) to a 256x256 BMP logo (max 1 MB).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoUrl { get; set; }
+        public string? LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_url"); else _explicitNullProperties?.Remove("logo_url"); } }
+        private string? _explicitNullValueLogoUrl = default!;
 #nullable restore
 #else
-        public string LogoUrl { get; set; }
+        public string LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_url"); else _explicitNullProperties?.Remove("logo_url"); } }
+        private string _explicitNullValueLogoUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DirInfringementUpdateRequest"/> and sets the default values.
@@ -77,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DirInfringementUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DirInfringementUpdateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DirInfringementUpdateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,6 +144,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Document>("documents", Documents);
             writer.WriteStringValue("infringement_resolution_notes", InfringementResolutionNotes);
             writer.WriteStringValue("logo_url", LogoUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

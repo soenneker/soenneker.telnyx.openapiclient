@@ -11,21 +11,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class FaxApplicationInbound : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("channel_limit") is { } nullNodeChannelLimit && nullNodeChannelLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelLimit = null;
+            if (parseNode.GetChildNode("sip_subdomain") is { } nullNodeSipSubdomain && nullNodeSipSubdomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipSubdomain = null;
+            if (parseNode.GetChildNode("sip_subdomain_receive_settings") is { } nullNodeSipSubdomainReceiveSettings && nullNodeSipSubdomainReceiveSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipSubdomainReceiveSettings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When set, this will limit the number of concurrent inbound calls to phone numbers associated with this connection.</summary>
-        public int? ChannelLimit { get; set; }
+        public int? ChannelLimit { get => _explicitNullValueChannelLimit; set { _explicitNullValueChannelLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_limit"); else _explicitNullProperties?.Remove("channel_limit"); } }
+        private int? _explicitNullValueChannelLimit = default!;
         /// <summary>Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain &quot;example.sip.telnyx.com&quot; can be called from any SIP endpoint by using the SIP URI &quot;sip:@example.sip.telnyx.com&quot; where the user part can be any alphanumeric value. TLS signaling is supported. SRTP media encryption requires TLS transport.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SipSubdomain { get; set; }
+        public string? SipSubdomain { get => _explicitNullValueSipSubdomain; set { _explicitNullValueSipSubdomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_subdomain"); else _explicitNullProperties?.Remove("sip_subdomain"); } }
+        private string? _explicitNullValueSipSubdomain = default!;
 #nullable restore
 #else
-        public string SipSubdomain { get; set; }
+        public string SipSubdomain { get => _explicitNullValueSipSubdomain; set { _explicitNullValueSipSubdomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_subdomain"); else _explicitNullProperties?.Remove("sip_subdomain"); } }
+        private string _explicitNullValueSipSubdomain = default!;
 #endif
         /// <summary>This option can be enabled to receive calls from: &quot;Anyone&quot; (any SIP endpoint in the public Internet) or &quot;Only my connections&quot; (any connection assigned to the same Telnyx user).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInboundSipSubdomainReceiveSettings? SipSubdomainReceiveSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInboundSipSubdomainReceiveSettings? SipSubdomainReceiveSettings { get => _explicitNullValueSipSubdomainReceiveSettings; set { _explicitNullValueSipSubdomainReceiveSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_subdomain_receive_settings"); else _explicitNullProperties?.Remove("sip_subdomain_receive_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInboundSipSubdomainReceiveSettings? _explicitNullValueSipSubdomainReceiveSettings = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteStringValue("sip_subdomain", SipSubdomain);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInboundSipSubdomainReceiveSettings>("sip_subdomain_receive_settings", SipSubdomainReceiveSettings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

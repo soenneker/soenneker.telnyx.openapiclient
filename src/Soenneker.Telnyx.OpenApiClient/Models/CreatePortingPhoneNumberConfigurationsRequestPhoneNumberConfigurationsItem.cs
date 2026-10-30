@@ -11,13 +11,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("porting_phone_number_id") is { } nullNodePortingPhoneNumberId && nullNodePortingPhoneNumberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortingPhoneNumberId = null;
+            if (parseNode.GetChildNode("user_bundle_id") is { } nullNodeUserBundleId && nullNodeUserBundleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserBundleId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identifies the porting phone number to be configured.</summary>
-        public Guid? PortingPhoneNumberId { get; set; }
+        public Guid? PortingPhoneNumberId { get => _explicitNullValuePortingPhoneNumberId; set { _explicitNullValuePortingPhoneNumberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("porting_phone_number_id"); else _explicitNullProperties?.Remove("porting_phone_number_id"); } }
+        private Guid? _explicitNullValuePortingPhoneNumberId = default!;
         /// <summary>Identifies the user bundle to be associated with the porting phone number.</summary>
-        public Guid? UserBundleId { get; set; }
+        public Guid? UserBundleId { get => _explicitNullValueUserBundleId; set { _explicitNullValueUserBundleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_bundle_id"); else _explicitNullProperties?.Remove("user_bundle_id"); } }
+        private Guid? _explicitNullValueUserBundleId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem"/> and sets the default values.
         /// </summary>
@@ -33,7 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,6 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("porting_phone_number_id", PortingPhoneNumberId);
             writer.WriteGuidValue("user_bundle_id", UserBundleId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

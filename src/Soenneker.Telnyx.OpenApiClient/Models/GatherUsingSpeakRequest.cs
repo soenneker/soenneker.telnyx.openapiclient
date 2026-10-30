@@ -11,88 +11,135 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GatherUsingSpeakRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("inter_digit_timeout_millis") is { } nullNodeInterDigitTimeoutMillis && nullNodeInterDigitTimeoutMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterDigitTimeoutMillis = null;
+            if (parseNode.GetChildNode("invalid_payload") is { } nullNodeInvalidPayload && nullNodeInvalidPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidPayload = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("maximum_digits") is { } nullNodeMaximumDigits && nullNodeMaximumDigits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumDigits = null;
+            if (parseNode.GetChildNode("maximum_tries") is { } nullNodeMaximumTries && nullNodeMaximumTries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumTries = null;
+            if (parseNode.GetChildNode("minimum_digits") is { } nullNodeMinimumDigits && nullNodeMinimumDigits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumDigits = null;
+            if (parseNode.GetChildNode("payload") is { } nullNodePayload && nullNodePayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payload = null;
+            if (parseNode.GetChildNode("payload_type") is { } nullNodePayloadType && nullNodePayloadType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayloadType = null;
+            if (parseNode.GetChildNode("service_level") is { } nullNodeServiceLevel && nullNodeServiceLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceLevel = null;
+            if (parseNode.GetChildNode("terminating_digit") is { } nullNodeTerminatingDigit && nullNodeTerminatingDigit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TerminatingDigit = null;
+            if (parseNode.GetChildNode("timeout_millis") is { } nullNodeTimeoutMillis && nullNodeTimeoutMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutMillis = null;
+            if (parseNode.GetChildNode("valid_digits") is { } nullNodeValidDigits && nullNodeValidDigits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidDigits = null;
+            if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+            if (parseNode.GetChildNode("voice_settings") is { } nullNodeVoiceSettings && nullNodeVoiceSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSettings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get; set; }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get; set; }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>The number of milliseconds to wait for input between digits.</summary>
-        public int? InterDigitTimeoutMillis { get; set; }
+        public int? InterDigitTimeoutMillis { get => _explicitNullValueInterDigitTimeoutMillis; set { _explicitNullValueInterDigitTimeoutMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inter_digit_timeout_millis"); else _explicitNullProperties?.Remove("inter_digit_timeout_millis"); } }
+        private int? _explicitNullValueInterDigitTimeoutMillis = default!;
         /// <summary>The text or SSML to be converted into speech when digits don&apos;t match the `valid_digits` parameter or the number of digits is not between `min` and `max`. There is a 3,000 character limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InvalidPayload { get; set; }
+        public string? InvalidPayload { get => _explicitNullValueInvalidPayload; set { _explicitNullValueInvalidPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_payload"); else _explicitNullProperties?.Remove("invalid_payload"); } }
+        private string? _explicitNullValueInvalidPayload = default!;
 #nullable restore
 #else
-        public string InvalidPayload { get; set; }
+        public string InvalidPayload { get => _explicitNullValueInvalidPayload; set { _explicitNullValueInvalidPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_payload"); else _explicitNullProperties?.Remove("invalid_payload"); } }
+        private string _explicitNullValueInvalidPayload = default!;
 #endif
         /// <summary>The language you want spoken. This parameter is ignored when a `Polly.*` voice is specified.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestLanguage? Language { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestLanguage? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestLanguage? _explicitNullValueLanguage = default!;
         /// <summary>The maximum number of digits to fetch. This parameter has a maximum value of 128.</summary>
-        public int? MaximumDigits { get; set; }
+        public int? MaximumDigits { get => _explicitNullValueMaximumDigits; set { _explicitNullValueMaximumDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_digits"); else _explicitNullProperties?.Remove("maximum_digits"); } }
+        private int? _explicitNullValueMaximumDigits = default!;
         /// <summary>The maximum number of times that a file should be played back if there is no input from the user on the call.</summary>
-        public int? MaximumTries { get; set; }
+        public int? MaximumTries { get => _explicitNullValueMaximumTries; set { _explicitNullValueMaximumTries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_tries"); else _explicitNullProperties?.Remove("maximum_tries"); } }
+        private int? _explicitNullValueMaximumTries = default!;
         /// <summary>The minimum number of digits to fetch. This parameter has a minimum value of 1.</summary>
-        public int? MinimumDigits { get; set; }
+        public int? MinimumDigits { get => _explicitNullValueMinimumDigits; set { _explicitNullValueMinimumDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimum_digits"); else _explicitNullProperties?.Remove("minimum_digits"); } }
+        private int? _explicitNullValueMinimumDigits = default!;
         /// <summary>The text or SSML to be converted into speech. There is a 3,000 character limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Payload { get; set; }
+        public string? Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        private string? _explicitNullValuePayload = default!;
 #nullable restore
 #else
-        public string Payload { get; set; }
+        public string Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        private string _explicitNullValuePayload = default!;
 #endif
         /// <summary>The type of the provided payload. The payload can either be plain text, or Speech Synthesis Markup Language (SSML).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestPayloadType? PayloadType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestPayloadType? PayloadType { get => _explicitNullValuePayloadType; set { _explicitNullValuePayloadType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload_type"); else _explicitNullProperties?.Remove("payload_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestPayloadType? _explicitNullValuePayloadType = default!;
         /// <summary>This parameter impacts speech quality, language options and payload types. When using `basic`, only the `en-US` language and payload type `text` are allowed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestServiceLevel? ServiceLevel { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestServiceLevel? ServiceLevel { get => _explicitNullValueServiceLevel; set { _explicitNullValueServiceLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_level"); else _explicitNullProperties?.Remove("service_level"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestServiceLevel? _explicitNullValueServiceLevel = default!;
         /// <summary>The digit used to terminate input if fewer than `maximum_digits` digits have been gathered. Set to an empty string to disable the terminating digit entirely, so that a digit such as `#` can be collected as input per `valid_digits`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TerminatingDigit { get; set; }
+        public string? TerminatingDigit { get => _explicitNullValueTerminatingDigit; set { _explicitNullValueTerminatingDigit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terminating_digit"); else _explicitNullProperties?.Remove("terminating_digit"); } }
+        private string? _explicitNullValueTerminatingDigit = default!;
 #nullable restore
 #else
-        public string TerminatingDigit { get; set; }
+        public string TerminatingDigit { get => _explicitNullValueTerminatingDigit; set { _explicitNullValueTerminatingDigit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terminating_digit"); else _explicitNullProperties?.Remove("terminating_digit"); } }
+        private string _explicitNullValueTerminatingDigit = default!;
 #endif
         /// <summary>The number of milliseconds to wait for a DTMF response after speak ends before a replaying the sound file.</summary>
-        public int? TimeoutMillis { get; set; }
+        public int? TimeoutMillis { get => _explicitNullValueTimeoutMillis; set { _explicitNullValueTimeoutMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_millis"); else _explicitNullProperties?.Remove("timeout_millis"); } }
+        private int? _explicitNullValueTimeoutMillis = default!;
         /// <summary>A list of all digits accepted as valid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ValidDigits { get; set; }
+        public string? ValidDigits { get => _explicitNullValueValidDigits; set { _explicitNullValueValidDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_digits"); else _explicitNullProperties?.Remove("valid_digits"); } }
+        private string? _explicitNullValueValidDigits = default!;
 #nullable restore
 #else
-        public string ValidDigits { get; set; }
+        public string ValidDigits { get => _explicitNullValueValidDigits; set { _explicitNullValueValidDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_digits"); else _explicitNullProperties?.Remove("valid_digits"); } }
+        private string _explicitNullValueValidDigits = default!;
 #endif
         /// <summary>Specifies the voice used in speech synthesis.- Define voices using the format `&lt;Provider&gt;.&lt;Model&gt;.&lt;VoiceId&gt;`. Specifying only the provider will give default values for voice_id and model_id. **Supported Providers:**- **AWS:** Use `AWS.Polly.&lt;VoiceId&gt;` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.- **Azure:** Use `Azure.&lt;VoiceId&gt;` (e.g., `Azure.en-CA-ClaraNeural`, `Azure.en-US-BrianMultilingualNeural`, `Azure.en-US-Ava:DragonHDLatestNeural`). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use `voice_settings` to configure custom deployments, regions, or API keys.- **ElevenLabs:** Use `ElevenLabs.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `&quot;voice_settings&quot;: {&quot;api_key_ref&quot;: &quot;&lt;secret_identifier&gt;&quot;}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).- **Telnyx:** Use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;` (e.g., `Telnyx.KokoroTTS.af`). Use `voice_settings` to configure voice_speed and other synthesis parameters. `Bayan` provides Arabic (multiple dialects) and English voices (e.g., `Telnyx.Bayan.Ahmed`, `Telnyx.Bayan.Amanda`). `Sukhan` provides Urdu voices (e.g., `Telnyx.Sukhan.urdu-professor`); `voice_speed` is not supported.- **Minimax:** Use `Minimax.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Use `voice_settings` to configure speed, volume, pitch, and language_boost.- **Resemble:** Use `Resemble.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Resemble.Turbo.Aaron_en-US`). Supported models: `Pro`, `Turbo`, `Urdu`. `&lt;VoiceId&gt;` is a stock voice name or the ID of a Resemble voice clone. Use `voice_settings` to configure precision, sample_rate, and format.- **Inworld:** Use `Inworld.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Inworld.Mini.Loretta`, `Inworld.Max.Oliver`, `Inworld.TTS2.Loretta`). Supported models: `Mini`, `Max`, `TTS2`. Use `voice_settings` to configure `delivery_mode` (`STABLE`, `BALANCED`, `CREATIVE`), supported by `TTS2` only.- **Fish Audio:** Use `FishAudio.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `FishAudio.s2.1-pro.&lt;reference_id&gt;`). Supported models: `s2.1-pro`, `s2-pro`, `s1`. `VoiceId` is a Fish Voice-Library reference ID.- **Soniox:** Use `Soniox.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Soniox.tts-rt-v2.Emma`). Supported model: `tts-rt-v2`. Browse the catalog via the [Voices API](https://developers.telnyx.com/api-reference/text-to-speech-commands/list-available-voices). Every voice speaks all supported languages; set `language` to the two-letter ISO 639-1 code of the text, for example `it`. SSML is not supported. Use `voice_settings` to configure `speed` (0.7 to 1.3) and `reduce_silence`.- **xAI:** Use `xAI.&lt;VoiceId&gt;` (e.g., `xAI.eve`). Available voices: `eve`, `ara`, `rex`, `sal`, `leo`.- **Humain:** Use `Humain.&lt;VoiceId&gt;` (e.g., `Humain.sara-ar`). Available voices: `sara-en`, `abdulaziz-en`, `sara-ar`, `abdulaziz-ar`, `nourah-ar`, `abdullah-ar`. Native Arabic (Saudi dialect) and English voices only — no `ModelId` segment.For service_level basic, you may define the gender of the speaker (male or female).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Voice { get; set; }
+        public string? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private string? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public string Voice { get; set; }
+        public string Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private string _explicitNullValueVoice = default!;
 #endif
         /// <summary>The settings associated with the voice selected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestVoiceSettings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestVoiceSettings? VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestVoiceSettings? _explicitNullValueVoiceSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestVoiceSettings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestVoiceSettings VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestVoiceSettings _explicitNullValueVoiceSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequest"/> and sets the default values.
@@ -116,7 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -167,6 +214,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("valid_digits", ValidDigits);
             writer.WriteStringValue("voice", Voice);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequestVoiceSettings>("voice_settings", VoiceSettings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

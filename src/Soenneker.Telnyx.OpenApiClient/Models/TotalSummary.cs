@@ -11,64 +11,92 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TotalSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("credits") is { } nullNodeCredits && nullNodeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credits = null;
+            if (parseNode.GetChildNode("existing_mrc") is { } nullNodeExistingMrc && nullNodeExistingMrc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistingMrc = null;
+            if (parseNode.GetChildNode("grand_total") is { } nullNodeGrandTotal && nullNodeGrandTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrandTotal = null;
+            if (parseNode.GetChildNode("ledger_adjustments") is { } nullNodeLedgerAdjustments && nullNodeLedgerAdjustments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LedgerAdjustments = null;
+            if (parseNode.GetChildNode("new_mrc") is { } nullNodeNewMrc && nullNodeNewMrc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewMrc = null;
+            if (parseNode.GetChildNode("new_otc") is { } nullNodeNewOtc && nullNodeNewOtc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewOtc = null;
+            if (parseNode.GetChildNode("other") is { } nullNodeOther && nullNodeOther.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Other = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Total credits as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Credits { get; set; }
+        public string? Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
+        private string? _explicitNullValueCredits = default!;
 #nullable restore
 #else
-        public string Credits { get; set; }
+        public string Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
+        private string _explicitNullValueCredits = default!;
 #endif
         /// <summary>Total existing monthly recurring charges as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExistingMrc { get; set; }
+        public string? ExistingMrc { get => _explicitNullValueExistingMrc; set { _explicitNullValueExistingMrc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_mrc"); else _explicitNullProperties?.Remove("existing_mrc"); } }
+        private string? _explicitNullValueExistingMrc = default!;
 #nullable restore
 #else
-        public string ExistingMrc { get; set; }
+        public string ExistingMrc { get => _explicitNullValueExistingMrc; set { _explicitNullValueExistingMrc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_mrc"); else _explicitNullProperties?.Remove("existing_mrc"); } }
+        private string _explicitNullValueExistingMrc = default!;
 #endif
         /// <summary>Grand total of all charges as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GrandTotal { get; set; }
+        public string? GrandTotal { get => _explicitNullValueGrandTotal; set { _explicitNullValueGrandTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grand_total"); else _explicitNullProperties?.Remove("grand_total"); } }
+        private string? _explicitNullValueGrandTotal = default!;
 #nullable restore
 #else
-        public string GrandTotal { get; set; }
+        public string GrandTotal { get => _explicitNullValueGrandTotal; set { _explicitNullValueGrandTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grand_total"); else _explicitNullProperties?.Remove("grand_total"); } }
+        private string _explicitNullValueGrandTotal = default!;
 #endif
         /// <summary>Ledger adjustments as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LedgerAdjustments { get; set; }
+        public string? LedgerAdjustments { get => _explicitNullValueLedgerAdjustments; set { _explicitNullValueLedgerAdjustments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ledger_adjustments"); else _explicitNullProperties?.Remove("ledger_adjustments"); } }
+        private string? _explicitNullValueLedgerAdjustments = default!;
 #nullable restore
 #else
-        public string LedgerAdjustments { get; set; }
+        public string LedgerAdjustments { get => _explicitNullValueLedgerAdjustments; set { _explicitNullValueLedgerAdjustments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ledger_adjustments"); else _explicitNullProperties?.Remove("ledger_adjustments"); } }
+        private string _explicitNullValueLedgerAdjustments = default!;
 #endif
         /// <summary>Total new monthly recurring charges as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewMrc { get; set; }
+        public string? NewMrc { get => _explicitNullValueNewMrc; set { _explicitNullValueNewMrc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_mrc"); else _explicitNullProperties?.Remove("new_mrc"); } }
+        private string? _explicitNullValueNewMrc = default!;
 #nullable restore
 #else
-        public string NewMrc { get; set; }
+        public string NewMrc { get => _explicitNullValueNewMrc; set { _explicitNullValueNewMrc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_mrc"); else _explicitNullProperties?.Remove("new_mrc"); } }
+        private string _explicitNullValueNewMrc = default!;
 #endif
         /// <summary>Total new one-time charges as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewOtc { get; set; }
+        public string? NewOtc { get => _explicitNullValueNewOtc; set { _explicitNullValueNewOtc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_otc"); else _explicitNullProperties?.Remove("new_otc"); } }
+        private string? _explicitNullValueNewOtc = default!;
 #nullable restore
 #else
-        public string NewOtc { get; set; }
+        public string NewOtc { get => _explicitNullValueNewOtc; set { _explicitNullValueNewOtc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_otc"); else _explicitNullProperties?.Remove("new_otc"); } }
+        private string _explicitNullValueNewOtc = default!;
 #endif
         /// <summary>Other charges as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Other { get; set; }
+        public string? Other { get => _explicitNullValueOther; set { _explicitNullValueOther = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("other"); else _explicitNullProperties?.Remove("other"); } }
+        private string? _explicitNullValueOther = default!;
 #nullable restore
 #else
-        public string Other { get; set; }
+        public string Other { get => _explicitNullValueOther; set { _explicitNullValueOther = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("other"); else _explicitNullProperties?.Remove("other"); } }
+        private string _explicitNullValueOther = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TotalSummary"/> and sets the default values.
@@ -85,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TotalSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TotalSummary();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TotalSummary(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -118,6 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("new_mrc", NewMrc);
             writer.WriteStringValue("new_otc", NewOtc);
             writer.WriteStringValue("other", Other);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -57,6 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_blocks.Export
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
                 { "406", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorList.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }

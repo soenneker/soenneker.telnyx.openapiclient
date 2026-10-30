@@ -53,6 +53,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy_reporting.Usage_reports.Speech_t
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.StandardErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SttUsageReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SttUsageReportResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

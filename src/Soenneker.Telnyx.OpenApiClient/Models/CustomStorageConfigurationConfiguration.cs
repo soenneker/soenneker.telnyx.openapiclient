@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomStorageConfigurationConfiguration : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,25 +58,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfigurationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("backend")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfigurationConfiguration();
-            if("azure".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("AzureConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AzureConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData();
+                
             }
-            else if("gcs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GcsConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GcsConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.GcsConfigurationData();
+                
             }
-            else if("s3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("S3ConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.S3ConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData();
+                
             }
-            else if("s3-generic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("S3GenericConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.S3GenericConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("backend") != null && (parseNode.GetChildNode("backend")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("gcs".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("backend") != null && (parseNode.GetChildNode("backend")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("s3".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("bucket") != null && parseNode.GetChildNode("region") != null && parseNode.GetChildNode("aws_access_key_id") != null && parseNode.GetChildNode("aws_secret_access_key") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("backend") != null && (parseNode.GetChildNode("backend")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("s3-generic".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("bucket") != null && parseNode.GetChildNode("region") != null && parseNode.GetChildNode("endpoint") != null && parseNode.GetChildNode("aws_access_key_id") != null && parseNode.GetChildNode("aws_secret_access_key") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("backend") != null && (parseNode.GetChildNode("backend")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("azure".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.AzureConfigurationData == null && result.GcsConfigurationData == null && result.S3ConfigurationData == null && result.S3GenericConfigurationData == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.GcsConfigurationData = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GcsConfigurationData(), parseNode);
+            if (result.AzureConfigurationData == null && result.GcsConfigurationData == null && result.S3ConfigurationData == null && result.S3GenericConfigurationData == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.S3ConfigurationData = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData(), parseNode);
+            if (result.AzureConfigurationData == null && result.GcsConfigurationData == null && result.S3ConfigurationData == null && result.S3GenericConfigurationData == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.S3GenericConfigurationData = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData(), parseNode);
+            if (result.AzureConfigurationData == null && result.GcsConfigurationData == null && result.S3ConfigurationData == null && result.S3GenericConfigurationData == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.AzureConfigurationData = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData(), parseNode);
+            if (result.AzureConfigurationData == null && result.GcsConfigurationData == null && result.S3ConfigurationData == null && result.S3GenericConfigurationData == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AzureConfigurationData == null && GcsConfigurationData == null && S3ConfigurationData == null && S3GenericConfigurationData == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AzureConfigurationData != null && GcsConfigurationData == null && S3ConfigurationData == null && S3GenericConfigurationData == null) { if (AzureConfigurationData is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AzureConfigurationData); return; }
+            if (GcsConfigurationData != null && AzureConfigurationData == null && S3ConfigurationData == null && S3GenericConfigurationData == null) { if (GcsConfigurationData is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GcsConfigurationData); return; }
+            if (S3ConfigurationData != null && AzureConfigurationData == null && GcsConfigurationData == null && S3GenericConfigurationData == null) { if (S3ConfigurationData is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, S3ConfigurationData); return; }
+            if (S3GenericConfigurationData != null && AzureConfigurationData == null && GcsConfigurationData == null && S3ConfigurationData == null) { if (S3GenericConfigurationData is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, S3GenericConfigurationData); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AzureConfigurationData != null)
             {
+                if (AzureConfigurationData is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData>(null, AzureConfigurationData);
             }
             else if(GcsConfigurationData != null)
             {
+                if (GcsConfigurationData is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GcsConfigurationData>(null, GcsConfigurationData);
             }
             else if(S3ConfigurationData != null)
             {
+                if (S3ConfigurationData is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData>(null, S3ConfigurationData);
             }
             else if(S3GenericConfigurationData != null)
             {
+                if (S3GenericConfigurationData is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3GenericConfigurationData>(null, S3GenericConfigurationData);
             }
         }

@@ -11,99 +11,141 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NumberLookupRecord : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("caller_identity") is { } nullNodeCallerIdentity && nullNodeCallerIdentity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerIdentity = null;
+            if (parseNode.GetChildNode("caller_name") is { } nullNodeCallerName && nullNodeCallerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerName = null;
+            if (parseNode.GetChildNode("carrier") is { } nullNodeCarrier && nullNodeCarrier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Carrier = null;
+            if (parseNode.GetChildNode("country_code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("enhanced_caller_name") is { } nullNodeEnhancedCallerName && nullNodeEnhancedCallerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnhancedCallerName = null;
+            if (parseNode.GetChildNode("fraud") is { } nullNodeFraud && nullNodeFraud.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fraud = null;
+            if (parseNode.GetChildNode("national_format") is { } nullNodeNationalFormat && nullNodeNationalFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NationalFormat = null;
+            if (parseNode.GetChildNode("nnid_override") is { } nullNodeNnidOverride && nullNodeNnidOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NnidOverride = null;
+            if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("portability") is { } nullNodePortability && nullNodePortability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Portability = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("valid_number") is { } nullNodeValidNumber && nullNodeValidNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidNumber = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identity information for the phone number&apos;s owner, including name and postal address. Populated when `type=caller-identity` is requested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity? CallerIdentity { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity? CallerIdentity { get => _explicitNullValueCallerIdentity; set { _explicitNullValueCallerIdentity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_identity"); else _explicitNullProperties?.Remove("caller_identity"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity? _explicitNullValueCallerIdentity = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity CallerIdentity { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity CallerIdentity { get => _explicitNullValueCallerIdentity; set { _explicitNullValueCallerIdentity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_identity"); else _explicitNullProperties?.Remove("caller_identity"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity _explicitNullValueCallerIdentity = default!;
 #endif
         /// <summary>The caller_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerName? CallerName { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerName? CallerName { get => _explicitNullValueCallerName; set { _explicitNullValueCallerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_name"); else _explicitNullProperties?.Remove("caller_name"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallerName? _explicitNullValueCallerName = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerName CallerName { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerName CallerName { get => _explicitNullValueCallerName; set { _explicitNullValueCallerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_name"); else _explicitNullProperties?.Remove("caller_name"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallerName _explicitNullValueCallerName = default!;
 #endif
         /// <summary>The carrier property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Carrier? Carrier { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Carrier? Carrier { get => _explicitNullValueCarrier; set { _explicitNullValueCarrier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carrier"); else _explicitNullProperties?.Remove("carrier"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Carrier? _explicitNullValueCarrier = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Carrier Carrier { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Carrier Carrier { get => _explicitNullValueCarrier; set { _explicitNullValueCarrier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carrier"); else _explicitNullProperties?.Remove("carrier"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Carrier _explicitNullValueCarrier = default!;
 #endif
         /// <summary>Region code that matches the specific country calling code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CountryCode { get; set; }
+        public string? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_code"); else _explicitNullProperties?.Remove("country_code"); } }
+        private string? _explicitNullValueCountryCode = default!;
 #nullable restore
 #else
-        public string CountryCode { get; set; }
+        public string CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_code"); else _explicitNullProperties?.Remove("country_code"); } }
+        private string _explicitNullValueCountryCode = default!;
 #endif
         /// <summary>Enhanced caller name for the phone number&apos;s owner. Populated when `type=enhanced-caller-name` is requested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName? EnhancedCallerName { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName? EnhancedCallerName { get => _explicitNullValueEnhancedCallerName; set { _explicitNullValueEnhancedCallerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enhanced_caller_name"); else _explicitNullProperties?.Remove("enhanced_caller_name"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName? _explicitNullValueEnhancedCallerName = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName EnhancedCallerName { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName EnhancedCallerName { get => _explicitNullValueEnhancedCallerName; set { _explicitNullValueEnhancedCallerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enhanced_caller_name"); else _explicitNullProperties?.Remove("enhanced_caller_name"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EnhancedCallerName _explicitNullValueEnhancedCallerName = default!;
 #endif
         /// <summary>Unused</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Fraud { get; set; }
+        public string? Fraud { get => _explicitNullValueFraud; set { _explicitNullValueFraud = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fraud"); else _explicitNullProperties?.Remove("fraud"); } }
+        private string? _explicitNullValueFraud = default!;
 #nullable restore
 #else
-        public string Fraud { get; set; }
+        public string Fraud { get => _explicitNullValueFraud; set { _explicitNullValueFraud = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fraud"); else _explicitNullProperties?.Remove("fraud"); } }
+        private string _explicitNullValueFraud = default!;
 #endif
         /// <summary>Hyphen-separated national number, preceded by the national destination code (NDC), with a 0 prefix, if an NDC is found</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NationalFormat { get; set; }
+        public string? NationalFormat { get => _explicitNullValueNationalFormat; set { _explicitNullValueNationalFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("national_format"); else _explicitNullProperties?.Remove("national_format"); } }
+        private string? _explicitNullValueNationalFormat = default!;
 #nullable restore
 #else
-        public string NationalFormat { get; set; }
+        public string NationalFormat { get => _explicitNullValueNationalFormat; set { _explicitNullValueNationalFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("national_format"); else _explicitNullProperties?.Remove("national_format"); } }
+        private string _explicitNullValueNationalFormat = default!;
 #endif
         /// <summary>Network number ID (NNID) override for the phone number, when one applies (available only to accounts enabled for NNID); otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride? NnidOverride { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride? NnidOverride { get => _explicitNullValueNnidOverride; set { _explicitNullValueNnidOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nnid_override"); else _explicitNullProperties?.Remove("nnid_override"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride? _explicitNullValueNnidOverride = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride NnidOverride { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride NnidOverride { get => _explicitNullValueNnidOverride; set { _explicitNullValueNnidOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nnid_override"); else _explicitNullProperties?.Remove("nnid_override"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecordNnidOverride _explicitNullValueNnidOverride = default!;
 #endif
         /// <summary>E164-formatted phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get; set; }
+        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private string? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private string _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>The portability property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Portability? Portability { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Portability? Portability { get => _explicitNullValuePortability; set { _explicitNullValuePortability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("portability"); else _explicitNullProperties?.Remove("portability"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Portability? _explicitNullValuePortability = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Portability Portability { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Portability Portability { get => _explicitNullValuePortability; set { _explicitNullValuePortability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("portability"); else _explicitNullProperties?.Remove("portability"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Portability _explicitNullValuePortability = default!;
 #endif
         /// <summary>Identifies the type of record</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get; set; }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get; set; }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>Indicates whether the phone number is valid.</summary>
-        public bool? ValidNumber { get; set; }
+        public bool? ValidNumber { get => _explicitNullValueValidNumber; set { _explicitNullValueValidNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_number"); else _explicitNullProperties?.Remove("valid_number"); } }
+        private bool? _explicitNullValueValidNumber = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord"/> and sets the default values.
         /// </summary>
@@ -119,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -162,6 +204,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Portability>("portability", Portability);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteBoolValue("valid_number", ValidNumber);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

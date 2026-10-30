@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobilePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobilePhoneNumber200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobilePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobilePhoneNumber200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the settings of a specific mobile phone number.
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobilePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobilePhoneNumber200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobilePhoneNumber200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobilePhoneNumber200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the details of a specific mobile phone number.

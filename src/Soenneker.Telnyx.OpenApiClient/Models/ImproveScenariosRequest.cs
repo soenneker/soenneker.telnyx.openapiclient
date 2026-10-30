@@ -11,80 +11,119 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ImproveScenariosRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_id") is { } nullNodeAgentId && nullNodeAgentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentId = null;
+            if (parseNode.GetChildNode("agent_resolution_response") is { } nullNodeAgentResolutionResponse && nullNodeAgentResolutionResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentResolutionResponse = null;
+            if (parseNode.GetChildNode("apply_changes") is { } nullNodeApplyChanges && nullNodeApplyChanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplyChanges = null;
+            if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
+            if (parseNode.GetChildNode("knowledge_base") is { } nullNodeKnowledgeBase && nullNodeKnowledgeBase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnowledgeBase = null;
+            if (parseNode.GetChildNode("num_scenarios") is { } nullNodeNumScenarios && nullNodeNumScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumScenarios = null;
+            if (parseNode.GetChildNode("pending_tool_calls") is { } nullNodePendingToolCalls && nullNodePendingToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingToolCalls = null;
+            if (parseNode.GetChildNode("scenarios") is { } nullNodeScenarios && nullNodeScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scenarios = null;
+            if (parseNode.GetChildNode("scenarios_needing_agent") is { } nullNodeScenariosNeedingAgent && nullNodeScenariosNeedingAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenariosNeedingAgent = null;
+            if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
+            if (parseNode.GetChildNode("updated_scenarios") is { } nullNodeUpdatedScenarios && nullNodeUpdatedScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedScenarios = null;
+            if (parseNode.GetChildNode("user_message") is { } nullNodeUserMessage && nullNodeUserMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserMessage = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_id property</summary>
-        public int? AgentId { get; set; }
+        public int? AgentId { get => _explicitNullValueAgentId; set { _explicitNullValueAgentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_id"); else _explicitNullProperties?.Remove("agent_id"); } }
+        private int? _explicitNullValueAgentId = default!;
         /// <summary>The agent_resolution_response property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentResolutionResponse { get; set; }
+        public string? AgentResolutionResponse { get => _explicitNullValueAgentResolutionResponse; set { _explicitNullValueAgentResolutionResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_resolution_response"); else _explicitNullProperties?.Remove("agent_resolution_response"); } }
+        private string? _explicitNullValueAgentResolutionResponse = default!;
 #nullable restore
 #else
-        public string AgentResolutionResponse { get; set; }
+        public string AgentResolutionResponse { get => _explicitNullValueAgentResolutionResponse; set { _explicitNullValueAgentResolutionResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_resolution_response"); else _explicitNullProperties?.Remove("agent_resolution_response"); } }
+        private string _explicitNullValueAgentResolutionResponse = default!;
 #endif
         /// <summary>The apply_changes property</summary>
-        public bool? ApplyChanges { get; set; }
+        public bool? ApplyChanges { get => _explicitNullValueApplyChanges; set { _explicitNullValueApplyChanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apply_changes"); else _explicitNullProperties?.Remove("apply_changes"); } }
+        private bool? _explicitNullValueApplyChanges = default!;
         /// <summary>The context property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestContextItem>? Context { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestContextItem>? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestContextItem>? _explicitNullValueContext = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestContextItem> Context { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestContextItem> Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestContextItem> _explicitNullValueContext = default!;
 #endif
         /// <summary>The knowledge_base property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? KnowledgeBase { get; set; }
+        public List<int?>? KnowledgeBase { get => _explicitNullValueKnowledgeBase; set { _explicitNullValueKnowledgeBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base"); else _explicitNullProperties?.Remove("knowledge_base"); } }
+        private List<int?>? _explicitNullValueKnowledgeBase = default!;
 #nullable restore
 #else
-        public List<int?> KnowledgeBase { get; set; }
+        public List<int?> KnowledgeBase { get => _explicitNullValueKnowledgeBase; set { _explicitNullValueKnowledgeBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("knowledge_base"); else _explicitNullProperties?.Remove("knowledge_base"); } }
+        private List<int?> _explicitNullValueKnowledgeBase = default!;
 #endif
         /// <summary>The num_scenarios property</summary>
-        public int? NumScenarios { get; set; }
+        public int? NumScenarios { get => _explicitNullValueNumScenarios; set { _explicitNullValueNumScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_scenarios"); else _explicitNullProperties?.Remove("num_scenarios"); } }
+        private int? _explicitNullValueNumScenarios = default!;
         /// <summary>The pending_tool_calls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty>? PendingToolCalls { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty>? PendingToolCalls { get => _explicitNullValuePendingToolCalls; set { _explicitNullValuePendingToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_tool_calls"); else _explicitNullProperties?.Remove("pending_tool_calls"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty>? _explicitNullValuePendingToolCalls = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty> PendingToolCalls { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty> PendingToolCalls { get => _explicitNullValuePendingToolCalls; set { _explicitNullValuePendingToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_tool_calls"); else _explicitNullProperties?.Remove("pending_tool_calls"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty> _explicitNullValuePendingToolCalls = default!;
 #endif
         /// <summary>Scenario IDs to improve, or the literal string &apos;all&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest.ImproveScenariosRequest_scenarios? Scenarios { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Scenarios { get => _explicitNullValueScenarios; set { _explicitNullValueScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios"); else _explicitNullProperties?.Remove("scenarios"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueScenarios = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest.ImproveScenariosRequest_scenarios Scenarios { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Scenarios { get => _explicitNullValueScenarios; set { _explicitNullValueScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios"); else _explicitNullProperties?.Remove("scenarios"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueScenarios = default!;
 #endif
         /// <summary>The scenarios_needing_agent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? ScenariosNeedingAgent { get; set; }
+        public List<int?>? ScenariosNeedingAgent { get => _explicitNullValueScenariosNeedingAgent; set { _explicitNullValueScenariosNeedingAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios_needing_agent"); else _explicitNullProperties?.Remove("scenarios_needing_agent"); } }
+        private List<int?>? _explicitNullValueScenariosNeedingAgent = default!;
 #nullable restore
 #else
-        public List<int?> ScenariosNeedingAgent { get; set; }
+        public List<int?> ScenariosNeedingAgent { get => _explicitNullValueScenariosNeedingAgent; set { _explicitNullValueScenariosNeedingAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios_needing_agent"); else _explicitNullProperties?.Remove("scenarios_needing_agent"); } }
+        private List<int?> _explicitNullValueScenariosNeedingAgent = default!;
 #endif
         /// <summary>The session_id property</summary>
-        public int? SessionId { get; set; }
+        public int? SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private int? _explicitNullValueSessionId = default!;
         /// <summary>The updated_scenarios property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty>? UpdatedScenarios { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty>? UpdatedScenarios { get => _explicitNullValueUpdatedScenarios; set { _explicitNullValueUpdatedScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_scenarios"); else _explicitNullProperties?.Remove("updated_scenarios"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty>? _explicitNullValueUpdatedScenarios = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty> UpdatedScenarios { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty> UpdatedScenarios { get => _explicitNullValueUpdatedScenarios; set { _explicitNullValueUpdatedScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_scenarios"); else _explicitNullProperties?.Remove("updated_scenarios"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty> _explicitNullValueUpdatedScenarios = default!;
 #endif
         /// <summary>What the assistant should improve about the selected scenarios.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserMessage { get; set; }
+        public string? UserMessage { get => _explicitNullValueUserMessage; set { _explicitNullValueUserMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message"); else _explicitNullProperties?.Remove("user_message"); } }
+        private string? _explicitNullValueUserMessage = default!;
 #nullable restore
 #else
-        public string UserMessage { get; set; }
+        public string UserMessage { get => _explicitNullValueUserMessage; set { _explicitNullValueUserMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message"); else _explicitNullProperties?.Remove("user_message"); } }
+        private string _explicitNullValueUserMessage = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest"/> and sets the default values.
@@ -101,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -118,7 +157,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "knowledge_base", n => { KnowledgeBase = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "num_scenarios", n => { NumScenarios = n.GetIntValue(); } },
                 { "pending_tool_calls", n => { PendingToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "scenarios", n => { Scenarios = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest.ImproveScenariosRequest_scenarios>(global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest.ImproveScenariosRequest_scenarios.CreateFromDiscriminatorValue); } },
+                { "scenarios", n => { Scenarios = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "scenarios_needing_agent", n => { ScenariosNeedingAgent = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "session_id", n => { SessionId = n.GetIntValue(); } },
                 { "updated_scenarios", n => { UpdatedScenarios = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -139,11 +178,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("knowledge_base", KnowledgeBase);
             writer.WriteIntValue("num_scenarios", NumScenarios);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestPendingToolCallsItemProperty>("pending_tool_calls", PendingToolCalls);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest.ImproveScenariosRequest_scenarios>("scenarios", Scenarios);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("scenarios", Scenarios);
             writer.WriteCollectionOfPrimitiveValues<int?>("scenarios_needing_agent", ScenariosNeedingAgent);
             writer.WriteIntValue("session_id", SessionId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequestUpdatedScenariosItemProperty>("updated_scenarios", UpdatedScenarios);
             writer.WriteStringValue("user_message", UserMessage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -175,9 +215,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest.ImproveScenariosRequest_scenarios CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest.ImproveScenariosRequest_scenarios();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosRequest.ImproveScenariosRequest_scenarios();
-                if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -204,6 +248,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ImproveScenariosRequestScenariosMember1 == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(String != null)
                 {

@@ -12,72 +12,103 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RcsAction : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("create_calendar_event_action") is { } nullNodeCreateCalendarEventAction && nullNodeCreateCalendarEventAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateCalendarEventAction = null;
+            if (parseNode.GetChildNode("dial_action") is { } nullNodeDialAction && nullNodeDialAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DialAction = null;
+            if (parseNode.GetChildNode("fallback_url") is { } nullNodeFallbackUrl && nullNodeFallbackUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackUrl = null;
+            if (parseNode.GetChildNode("open_url_action") is { } nullNodeOpenUrlAction && nullNodeOpenUrlAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenUrlAction = null;
+            if (parseNode.GetChildNode("postback_data") is { } nullNodePostbackData && nullNodePostbackData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostbackData = null;
+            if (parseNode.GetChildNode("share_location_action") is { } nullNodeShareLocationAction && nullNodeShareLocationAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShareLocationAction = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("view_location_action") is { } nullNodeViewLocationAction && nullNodeViewLocationAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViewLocationAction = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Opens the user&apos;s default calendar app and starts the new calendar event flow with the agent-specified event data pre-filled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCreateCalendarEventAction? CreateCalendarEventAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCreateCalendarEventAction? CreateCalendarEventAction { get => _explicitNullValueCreateCalendarEventAction; set { _explicitNullValueCreateCalendarEventAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("create_calendar_event_action"); else _explicitNullProperties?.Remove("create_calendar_event_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsCreateCalendarEventAction? _explicitNullValueCreateCalendarEventAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCreateCalendarEventAction CreateCalendarEventAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCreateCalendarEventAction CreateCalendarEventAction { get => _explicitNullValueCreateCalendarEventAction; set { _explicitNullValueCreateCalendarEventAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("create_calendar_event_action"); else _explicitNullProperties?.Remove("create_calendar_event_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsCreateCalendarEventAction _explicitNullValueCreateCalendarEventAction = default!;
 #endif
         /// <summary>Opens the user&apos;s default dialer app with the agent-specified phone number filled in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsDialAction? DialAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsDialAction? DialAction { get => _explicitNullValueDialAction; set { _explicitNullValueDialAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dial_action"); else _explicitNullProperties?.Remove("dial_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsDialAction? _explicitNullValueDialAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsDialAction DialAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsDialAction DialAction { get => _explicitNullValueDialAction; set { _explicitNullValueDialAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dial_action"); else _explicitNullProperties?.Remove("dial_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsDialAction _explicitNullValueDialAction = default!;
 #endif
         /// <summary>Fallback URL to use if a client doesn&apos;t support a suggested action. Fallback URLs open in new browser windows. Maximum 2048 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FallbackUrl { get; set; }
+        public string? FallbackUrl { get => _explicitNullValueFallbackUrl; set { _explicitNullValueFallbackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_url"); else _explicitNullProperties?.Remove("fallback_url"); } }
+        private string? _explicitNullValueFallbackUrl = default!;
 #nullable restore
 #else
-        public string FallbackUrl { get; set; }
+        public string FallbackUrl { get => _explicitNullValueFallbackUrl; set { _explicitNullValueFallbackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_url"); else _explicitNullProperties?.Remove("fallback_url"); } }
+        private string _explicitNullValueFallbackUrl = default!;
 #endif
         /// <summary>Opens the user&apos;s default web browser app to the specified URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsOpenUrlAction? OpenUrlAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsOpenUrlAction? OpenUrlAction { get => _explicitNullValueOpenUrlAction; set { _explicitNullValueOpenUrlAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_url_action"); else _explicitNullProperties?.Remove("open_url_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsOpenUrlAction? _explicitNullValueOpenUrlAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsOpenUrlAction OpenUrlAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsOpenUrlAction OpenUrlAction { get => _explicitNullValueOpenUrlAction; set { _explicitNullValueOpenUrlAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_url_action"); else _explicitNullProperties?.Remove("open_url_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsOpenUrlAction _explicitNullValueOpenUrlAction = default!;
 #endif
         /// <summary>Payload (base64 encoded) that will be sent to the agent in the user event that results when the user taps the suggested action. Maximum 2048 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PostbackData { get; set; }
+        public string? PostbackData { get => _explicitNullValuePostbackData; set { _explicitNullValuePostbackData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postback_data"); else _explicitNullProperties?.Remove("postback_data"); } }
+        private string? _explicitNullValuePostbackData = default!;
 #nullable restore
 #else
-        public string PostbackData { get; set; }
+        public string PostbackData { get => _explicitNullValuePostbackData; set { _explicitNullValuePostbackData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postback_data"); else _explicitNullProperties?.Remove("postback_data"); } }
+        private string _explicitNullValuePostbackData = default!;
 #endif
         /// <summary>Opens the RCS app&apos;s location chooser so the user can pick a location to send back to the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsActionShareLocationAction? ShareLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsActionShareLocationAction? ShareLocationAction { get => _explicitNullValueShareLocationAction; set { _explicitNullValueShareLocationAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_location_action"); else _explicitNullProperties?.Remove("share_location_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsActionShareLocationAction? _explicitNullValueShareLocationAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsActionShareLocationAction ShareLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsActionShareLocationAction ShareLocationAction { get => _explicitNullValueShareLocationAction; set { _explicitNullValueShareLocationAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_location_action"); else _explicitNullProperties?.Remove("share_location_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsActionShareLocationAction _explicitNullValueShareLocationAction = default!;
 #endif
         /// <summary>Text that is shown in the suggested action. Maximum 25 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get; set; }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get; set; }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string _explicitNullValueText = default!;
 #endif
         /// <summary>Opens the user&apos;s default map app and selects the agent-specified location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsViewLocationAction? ViewLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsViewLocationAction? ViewLocationAction { get => _explicitNullValueViewLocationAction; set { _explicitNullValueViewLocationAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_location_action"); else _explicitNullProperties?.Remove("view_location_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsViewLocationAction? _explicitNullValueViewLocationAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsViewLocationAction ViewLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsViewLocationAction ViewLocationAction { get => _explicitNullValueViewLocationAction; set { _explicitNullValueViewLocationAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_location_action"); else _explicitNullProperties?.Remove("view_location_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsViewLocationAction _explicitNullValueViewLocationAction = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsAction"/> and sets the default values.
@@ -94,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RcsAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RcsAction();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RcsAction(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,6 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsActionShareLocationAction>("share_location_action", ShareLocationAction);
             writer.WriteStringValue("text", Text);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsViewLocationAction>("view_location_action", ViewLocationAction);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

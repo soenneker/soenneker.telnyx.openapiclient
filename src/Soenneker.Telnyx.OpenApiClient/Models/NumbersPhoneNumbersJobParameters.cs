@@ -12,94 +12,137 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NumbersPhoneNumbersJobParameters : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("add_tags") is { } nullNodeAddTags && nullNodeAddTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddTags = null;
+            if (parseNode.GetChildNode("billing_group_id") is { } nullNodeBillingGroupId && nullNodeBillingGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingGroupId = null;
+            if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("customer_reference") is { } nullNodeCustomerReference && nullNodeCustomerReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReference = null;
+            if (parseNode.GetChildNode("deletion_lock_enabled") is { } nullNodeDeletionLockEnabled && nullNodeDeletionLockEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletionLockEnabled = null;
+            if (parseNode.GetChildNode("emergency_address_id") is { } nullNodeEmergencyAddressId && nullNodeEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyAddressId = null;
+            if (parseNode.GetChildNode("emergency_enabled") is { } nullNodeEmergencyEnabled && nullNodeEmergencyEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyEnabled = null;
+            if (parseNode.GetChildNode("external_pin") is { } nullNodeExternalPin && nullNodeExternalPin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalPin = null;
+            if (parseNode.GetChildNode("hd_voice_enabled") is { } nullNodeHdVoiceEnabled && nullNodeHdVoiceEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HdVoiceEnabled = null;
+            if (parseNode.GetChildNode("phone_numbers") is { } nullNodePhoneNumbers && nullNodePhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbers = null;
+            if (parseNode.GetChildNode("remove_tags") is { } nullNodeRemoveTags && nullNodeRemoveTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoveTags = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Saved add_tags for an update_phone_numbers job. Values reflect creation-time normalization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AddTags { get; set; }
+        public List<string>? AddTags { get => _explicitNullValueAddTags; set { _explicitNullValueAddTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_tags"); else _explicitNullProperties?.Remove("add_tags"); } }
+        private List<string>? _explicitNullValueAddTags = default!;
 #nullable restore
 #else
-        public List<string> AddTags { get; set; }
+        public List<string> AddTags { get => _explicitNullValueAddTags; set { _explicitNullValueAddTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_tags"); else _explicitNullProperties?.Remove("add_tags"); } }
+        private List<string> _explicitNullValueAddTags = default!;
 #endif
         /// <summary>Saved billing_group_id supplied for an update_phone_numbers job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BillingGroupId { get; set; }
+        public string? BillingGroupId { get => _explicitNullValueBillingGroupId; set { _explicitNullValueBillingGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_group_id"); else _explicitNullProperties?.Remove("billing_group_id"); } }
+        private string? _explicitNullValueBillingGroupId = default!;
 #nullable restore
 #else
-        public string BillingGroupId { get; set; }
+        public string BillingGroupId { get => _explicitNullValueBillingGroupId; set { _explicitNullValueBillingGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_group_id"); else _explicitNullProperties?.Remove("billing_group_id"); } }
+        private string _explicitNullValueBillingGroupId = default!;
 #endif
         /// <summary>Saved connection_id supplied for an update_phone_numbers job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>Saved customer_reference supplied for an update_phone_numbers job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerReference { get; set; }
+        public string? CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        private string? _explicitNullValueCustomerReference = default!;
 #nullable restore
 #else
-        public string CustomerReference { get; set; }
+        public string CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        private string _explicitNullValueCustomerReference = default!;
 #endif
         /// <summary>Saved deletion_lock_enabled supplied for an update_phone_numbers job.</summary>
-        public bool? DeletionLockEnabled { get; set; }
+        public bool? DeletionLockEnabled { get => _explicitNullValueDeletionLockEnabled; set { _explicitNullValueDeletionLockEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deletion_lock_enabled"); else _explicitNullProperties?.Remove("deletion_lock_enabled"); } }
+        private bool? _explicitNullValueDeletionLockEnabled = default!;
         /// <summary>Saved emergency address identifier for an update_emergency_settings job. An explicitly supplied null is preserved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmergencyAddressId { get; set; }
+        public string? EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
+        private string? _explicitNullValueEmergencyAddressId = default!;
 #nullable restore
 #else
-        public string EmergencyAddressId { get; set; }
+        public string EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
+        private string _explicitNullValueEmergencyAddressId = default!;
 #endif
         /// <summary>Saved emergency-services setting for an update_emergency_settings job.</summary>
-        public bool? EmergencyEnabled { get; set; }
+        public bool? EmergencyEnabled { get => _explicitNullValueEmergencyEnabled; set { _explicitNullValueEmergencyEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_enabled"); else _explicitNullProperties?.Remove("emergency_enabled"); } }
+        private bool? _explicitNullValueEmergencyEnabled = default!;
         /// <summary>Saved external_pin supplied for an update_phone_numbers job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalPin { get; set; }
+        public string? ExternalPin { get => _explicitNullValueExternalPin; set { _explicitNullValueExternalPin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_pin"); else _explicitNullProperties?.Remove("external_pin"); } }
+        private string? _explicitNullValueExternalPin = default!;
 #nullable restore
 #else
-        public string ExternalPin { get; set; }
+        public string ExternalPin { get => _explicitNullValueExternalPin; set { _explicitNullValueExternalPin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_pin"); else _explicitNullProperties?.Remove("external_pin"); } }
+        private string _explicitNullValueExternalPin = default!;
 #endif
         /// <summary>Saved hd_voice_enabled supplied for an update_phone_numbers job.</summary>
-        public bool? HdVoiceEnabled { get; set; }
+        public bool? HdVoiceEnabled { get => _explicitNullValueHdVoiceEnabled; set { _explicitNullValueHdVoiceEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hd_voice_enabled"); else _explicitNullProperties?.Remove("hd_voice_enabled"); } }
+        private bool? _explicitNullValueHdVoiceEnabled = default!;
         /// <summary>Saved target phone numbers in E.164 format and/or identifiers. Jobs created using filters contain the resolved identifiers, not the original filter expression. Stored identifier types are preserved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? PhoneNumbers { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers"); else _explicitNullProperties?.Remove("phone_numbers"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValuePhoneNumbers = default!;
 #nullable restore
 #else
-        public List<int?> PhoneNumbers { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers"); else _explicitNullProperties?.Remove("phone_numbers"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValuePhoneNumbers = default!;
 #endif
         /// <summary>Saved remove_tags for an update_phone_numbers job. Values reflect creation-time normalization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RemoveTags { get; set; }
+        public List<string>? RemoveTags { get => _explicitNullValueRemoveTags; set { _explicitNullValueRemoveTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remove_tags"); else _explicitNullProperties?.Remove("remove_tags"); } }
+        private List<string>? _explicitNullValueRemoveTags = default!;
 #nullable restore
 #else
-        public List<string> RemoveTags { get; set; }
+        public List<string> RemoveTags { get => _explicitNullValueRemoveTags; set { _explicitNullValueRemoveTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remove_tags"); else _explicitNullProperties?.Remove("remove_tags"); } }
+        private List<string> _explicitNullValueRemoveTags = default!;
 #endif
         /// <summary>Saved tags for an update_phone_numbers job. Values reflect creation-time normalization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>Saved voice settings for an update_phone_numbers job, using the public field names and nesting. Only settings present at creation are returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice? Voice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice Voice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice _explicitNullValueVoice = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParameters"/> and sets the default values.
@@ -116,7 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -135,7 +178,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
                 { "external_pin", n => { ExternalPin = n.GetStringValue(); } },
                 { "hd_voice_enabled", n => { HdVoiceEnabled = n.GetBoolValue(); } },
-                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "remove_tags", n => { RemoveTags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice>(global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice.CreateFromDiscriminatorValue); } },
@@ -157,10 +200,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("emergency_enabled", EmergencyEnabled);
             writer.WriteStringValue("external_pin", ExternalPin);
             writer.WriteBoolValue("hd_voice_enabled", HdVoiceEnabled);
-            writer.WriteCollectionOfPrimitiveValues<int?>("phone_numbers", PhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("phone_numbers", PhoneNumbers);
             writer.WriteCollectionOfPrimitiveValues<string>("remove_tags", RemoveTags);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoice>("voice", Voice);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,35 +12,68 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionsCountCounts : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_control_applications") is { } nullNodeCallControlApplications && nullNodeCallControlApplications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlApplications = null;
+            if (parseNode.GetChildNode("credential_connections") is { } nullNodeCredentialConnections && nullNodeCredentialConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialConnections = null;
+            if (parseNode.GetChildNode("external_connections") is { } nullNodeExternalConnections && nullNodeExternalConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalConnections = null;
+            if (parseNode.GetChildNode("fax_connections") is { } nullNodeFaxConnections && nullNodeFaxConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FaxConnections = null;
+            if (parseNode.GetChildNode("fqdn_connections") is { } nullNodeFqdnConnections && nullNodeFqdnConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FqdnConnections = null;
+            if (parseNode.GetChildNode("ip_connections") is { } nullNodeIpConnections && nullNodeIpConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpConnections = null;
+            if (parseNode.GetChildNode("microsoft_teams_sbc_connections") is { } nullNodeMicrosoftTeamsSbcConnections && nullNodeMicrosoftTeamsSbcConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MicrosoftTeamsSbcConnections = null;
+            if (parseNode.GetChildNode("mobile_voice_connections") is { } nullNodeMobileVoiceConnections && nullNodeMobileVoiceConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileVoiceConnections = null;
+            if (parseNode.GetChildNode("operator_connect_connections") is { } nullNodeOperatorConnectConnections && nullNodeOperatorConnectConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OperatorConnectConnections = null;
+            if (parseNode.GetChildNode("texml_applications") is { } nullNodeTexmlApplications && nullNodeTexmlApplications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TexmlApplications = null;
+            if (parseNode.GetChildNode("third_party_provider_connections") is { } nullNodeThirdPartyProviderConnections && nullNodeThirdPartyProviderConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThirdPartyProviderConnections = null;
+            if (parseNode.GetChildNode("uac_connections") is { } nullNodeUacConnections && nullNodeUacConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UacConnections = null;
+            if (parseNode.GetChildNode("zoom_sbc_connections") is { } nullNodeZoomSbcConnections && nullNodeZoomSbcConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ZoomSbcConnections = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of Call Control applications.</summary>
-        public int? CallControlApplications { get; set; }
+        public int? CallControlApplications { get => _explicitNullValueCallControlApplications; set { _explicitNullValueCallControlApplications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_applications"); else _explicitNullProperties?.Remove("call_control_applications"); } }
+        private int? _explicitNullValueCallControlApplications = default!;
         /// <summary>Number of credential connections.</summary>
-        public int? CredentialConnections { get; set; }
+        public int? CredentialConnections { get => _explicitNullValueCredentialConnections; set { _explicitNullValueCredentialConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_connections"); else _explicitNullProperties?.Remove("credential_connections"); } }
+        private int? _explicitNullValueCredentialConnections = default!;
         /// <summary>Number of external connections.</summary>
-        public int? ExternalConnections { get; set; }
+        public int? ExternalConnections { get => _explicitNullValueExternalConnections; set { _explicitNullValueExternalConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_connections"); else _explicitNullProperties?.Remove("external_connections"); } }
+        private int? _explicitNullValueExternalConnections = default!;
         /// <summary>Number of Fax applications.</summary>
-        public int? FaxConnections { get; set; }
+        public int? FaxConnections { get => _explicitNullValueFaxConnections; set { _explicitNullValueFaxConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fax_connections"); else _explicitNullProperties?.Remove("fax_connections"); } }
+        private int? _explicitNullValueFaxConnections = default!;
         /// <summary>Number of FQDN connections.</summary>
-        public int? FqdnConnections { get; set; }
+        public int? FqdnConnections { get => _explicitNullValueFqdnConnections; set { _explicitNullValueFqdnConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fqdn_connections"); else _explicitNullProperties?.Remove("fqdn_connections"); } }
+        private int? _explicitNullValueFqdnConnections = default!;
         /// <summary>Number of IP connections.</summary>
-        public int? IpConnections { get; set; }
+        public int? IpConnections { get => _explicitNullValueIpConnections; set { _explicitNullValueIpConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_connections"); else _explicitNullProperties?.Remove("ip_connections"); } }
+        private int? _explicitNullValueIpConnections = default!;
         /// <summary>Number of Microsoft Teams SBC (direct routing) connections.</summary>
-        public int? MicrosoftTeamsSbcConnections { get; set; }
+        public int? MicrosoftTeamsSbcConnections { get => _explicitNullValueMicrosoftTeamsSbcConnections; set { _explicitNullValueMicrosoftTeamsSbcConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_teams_sbc_connections"); else _explicitNullProperties?.Remove("microsoft_teams_sbc_connections"); } }
+        private int? _explicitNullValueMicrosoftTeamsSbcConnections = default!;
         /// <summary>Number of mobile voice (IMS) connections.</summary>
-        public int? MobileVoiceConnections { get; set; }
+        public int? MobileVoiceConnections { get => _explicitNullValueMobileVoiceConnections; set { _explicitNullValueMobileVoiceConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_voice_connections"); else _explicitNullProperties?.Remove("mobile_voice_connections"); } }
+        private int? _explicitNullValueMobileVoiceConnections = default!;
         /// <summary>Number of Microsoft Operator Connect connections.</summary>
-        public int? OperatorConnectConnections { get; set; }
+        public int? OperatorConnectConnections { get => _explicitNullValueOperatorConnectConnections; set { _explicitNullValueOperatorConnectConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operator_connect_connections"); else _explicitNullProperties?.Remove("operator_connect_connections"); } }
+        private int? _explicitNullValueOperatorConnectConnections = default!;
         /// <summary>Number of TeXML applications.</summary>
-        public int? TexmlApplications { get; set; }
+        public int? TexmlApplications { get => _explicitNullValueTexmlApplications; set { _explicitNullValueTexmlApplications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("texml_applications"); else _explicitNullProperties?.Remove("texml_applications"); } }
+        private int? _explicitNullValueTexmlApplications = default!;
         /// <summary>Number of third-party provider connections.</summary>
-        public int? ThirdPartyProviderConnections { get; set; }
+        public int? ThirdPartyProviderConnections { get => _explicitNullValueThirdPartyProviderConnections; set { _explicitNullValueThirdPartyProviderConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("third_party_provider_connections"); else _explicitNullProperties?.Remove("third_party_provider_connections"); } }
+        private int? _explicitNullValueThirdPartyProviderConnections = default!;
         /// <summary>Number of UAC connections.</summary>
-        public int? UacConnections { get; set; }
+        public int? UacConnections { get => _explicitNullValueUacConnections; set { _explicitNullValueUacConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uac_connections"); else _explicitNullProperties?.Remove("uac_connections"); } }
+        private int? _explicitNullValueUacConnections = default!;
         /// <summary>Number of Zoom SBC connections.</summary>
-        public int? ZoomSbcConnections { get; set; }
+        public int? ZoomSbcConnections { get => _explicitNullValueZoomSbcConnections; set { _explicitNullValueZoomSbcConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("zoom_sbc_connections"); else _explicitNullProperties?.Remove("zoom_sbc_connections"); } }
+        private int? _explicitNullValueZoomSbcConnections = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountCounts"/> and sets the default values.
         /// </summary>
@@ -56,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountCounts CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountCounts();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountCounts(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,6 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("third_party_provider_connections", ThirdPartyProviderConnections);
             writer.WriteIntValue("uac_connections", UacConnections);
             writer.WriteIntValue("zoom_sbc_connections", ZoomSbcConnections);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

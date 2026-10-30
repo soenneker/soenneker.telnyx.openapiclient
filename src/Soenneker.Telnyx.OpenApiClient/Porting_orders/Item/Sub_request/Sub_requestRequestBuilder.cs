@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Sub_request
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPortingOrderSubRequest200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPortingOrderSubRequest200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetPortingOrderSubRequest200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetPortingOrderSubRequest200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the associated V1 sub_request_id and port_request_id

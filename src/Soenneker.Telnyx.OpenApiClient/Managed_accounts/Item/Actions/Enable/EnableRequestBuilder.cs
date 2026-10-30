@@ -55,6 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.Enable
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.UnprocessableManagedAccountEntityResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnableManagedAccount200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnableManagedAccount200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

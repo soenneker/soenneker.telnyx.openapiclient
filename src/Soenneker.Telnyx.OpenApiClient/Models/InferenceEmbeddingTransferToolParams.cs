@@ -11,82 +11,118 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InferenceEmbeddingTransferToolParams : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bridge_beep") is { } nullNodeBridgeBeep && nullNodeBridgeBeep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BridgeBeep = null;
+            if (parseNode.GetChildNode("custom_headers") is { } nullNodeCustomHeaders && nullNodeCustomHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomHeaders = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("diversion") is { } nullNodeDiversion && nullNodeDiversion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Diversion = null;
+            if (parseNode.GetChildNode("from") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("targets") is { } nullNodeTargets && nullNodeTargets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Targets = null;
+            if (parseNode.GetChildNode("voicemail_detection") is { } nullNodeVoicemailDetection && nullNodeVoicemailDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoicemailDetection = null;
+            if (parseNode.GetChildNode("warm_message_delay_ms") is { } nullNodeWarmMessageDelayMs && nullNodeWarmMessageDelayMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarmMessageDelayMs = null;
+            if (parseNode.GetChildNode("warm_transfer_acceptance") is { } nullNodeWarmTransferAcceptance && nullNodeWarmTransferAcceptance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarmTransferAcceptance = null;
+            if (parseNode.GetChildNode("warm_transfer_instructions") is { } nullNodeWarmTransferInstructions && nullNodeWarmTransferInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarmTransferInstructions = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Plays a short beep once the transfer completes and the calls are bridged, so the transfer destination knows the caller is now on the line. The warm transfer message plays before the bridge; this marks the moment the caller actually joins. Works with and without `warm_transfer_acceptance`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep? BridgeBeep { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep? BridgeBeep { get => _explicitNullValueBridgeBeep; set { _explicitNullValueBridgeBeep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bridge_beep"); else _explicitNullProperties?.Remove("bridge_beep"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep? _explicitNullValueBridgeBeep = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep BridgeBeep { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep BridgeBeep { get => _explicitNullValueBridgeBeep; set { _explicitNullValueBridgeBeep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bridge_beep"); else _explicitNullProperties?.Remove("bridge_beep"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep _explicitNullValueBridgeBeep = default!;
 #endif
         /// <summary>Custom headers to be added to the SIP INVITE for the transfer command.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem>? CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem>? CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_headers"); else _explicitNullProperties?.Remove("custom_headers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem>? _explicitNullValueCustomHeaders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem> CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem> CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_headers"); else _explicitNullProperties?.Remove("custom_headers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsCustomHeadersItem> _explicitNullValueCustomHeaders = default!;
 #endif
         /// <summary>A description of the transfer tool. By default, Telnyx generates this automatically based on the configured targets. Typically only set when importing an assistant from another provider that allowed a custom description; in that case the provided value is preserved. Most users should leave this empty and let Telnyx manage it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The number the inbound call was received on, forwarded so an unverified non-Telnyx `from` can be used as the caller id -- typically to transfer out as the original caller by pairing `from: &quot;{{telnyx_end_user_target}}&quot;` with `diversion: &quot;{{telnyx_agent_target}}&quot;`. The caller id is only accepted while that number is still on an active inbound call to this `diversion` number, and the `diversion` number must be one you own or have verified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Diversion { get; set; }
+        public string? Diversion { get => _explicitNullValueDiversion; set { _explicitNullValueDiversion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("diversion"); else _explicitNullProperties?.Remove("diversion"); } }
+        private string? _explicitNullValueDiversion = default!;
 #nullable restore
 #else
-        public string Diversion { get; set; }
+        public string Diversion { get => _explicitNullValueDiversion; set { _explicitNullValueDiversion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("diversion"); else _explicitNullProperties?.Remove("diversion"); } }
+        private string _explicitNullValueDiversion = default!;
 #endif
         /// <summary>Number or SIP URI placing the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? From { get; set; }
+        public string? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private string? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public string From { get; set; }
+        public string From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private string _explicitNullValueFrom = default!;
 #endif
         /// <summary>The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to. This can also be a dynamic variable string like `{{ targets }}` where `targets` is returned by the dynamic variables webhook and resolves to an array of target objects at runtime.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets? Targets { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets? Targets { get => _explicitNullValueTargets; set { _explicitNullValueTargets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targets"); else _explicitNullProperties?.Remove("targets"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets? _explicitNullValueTargets = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets Targets { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets Targets { get => _explicitNullValueTargets; set { _explicitNullValueTargets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targets"); else _explicitNullProperties?.Remove("targets"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsTargets _explicitNullValueTargets = default!;
 #endif
         /// <summary>Configuration for voicemail detection (AMD - Answering Machine Detection) on the transferred call. Allows the assistant to detect when a voicemail system answers the transferred call and take appropriate action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection? VoicemailDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection? VoicemailDetection { get => _explicitNullValueVoicemailDetection; set { _explicitNullValueVoicemailDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voicemail_detection"); else _explicitNullProperties?.Remove("voicemail_detection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection? _explicitNullValueVoicemailDetection = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection VoicemailDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection VoicemailDetection { get => _explicitNullValueVoicemailDetection; set { _explicitNullValueVoicemailDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voicemail_detection"); else _explicitNullProperties?.Remove("voicemail_detection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection _explicitNullValueVoicemailDetection = default!;
 #endif
         /// <summary>Optional delay in milliseconds before playing the warm message audio when the transferred call is answered. When set, the audio_url is not included in the dial command; instead, playback starts after the specified delay. When not set, existing behavior (audio_url in dial) is preserved.</summary>
-        public int? WarmMessageDelayMs { get; set; }
+        public int? WarmMessageDelayMs { get => _explicitNullValueWarmMessageDelayMs; set { _explicitNullValueWarmMessageDelayMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warm_message_delay_ms"); else _explicitNullProperties?.Remove("warm_message_delay_ms"); } }
+        private int? _explicitNullValueWarmMessageDelayMs = default!;
         /// <summary>Requires the transfer destination to accept the call before the caller is bridged. When enabled, the assistant speaks privately with the destination after they answer — delivering the warm transfer message and asking whether they take the call — while the caller keeps hearing ringback. The assistant then finalizes the transfer with the built-in `complete_transfer` tool: an accept bridges the calls, a decline hangs up the destination and returns the assistant to the caller with the reason the destination gave. Requires either `warm_transfer_instructions` or a `message` on every target, otherwise the assistant fails to save. Only available for calls started with `ai_assistant_start`; single-caller conversations only (a conference or additional invited participants fall back to a regular warm transfer).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance? WarmTransferAcceptance { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance? WarmTransferAcceptance { get => _explicitNullValueWarmTransferAcceptance; set { _explicitNullValueWarmTransferAcceptance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warm_transfer_acceptance"); else _explicitNullProperties?.Remove("warm_transfer_acceptance"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance? _explicitNullValueWarmTransferAcceptance = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance WarmTransferAcceptance { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance WarmTransferAcceptance { get => _explicitNullValueWarmTransferAcceptance; set { _explicitNullValueWarmTransferAcceptance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warm_transfer_acceptance"); else _explicitNullProperties?.Remove("warm_transfer_acceptance"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance _explicitNullValueWarmTransferAcceptance = default!;
 #endif
         /// <summary>Natural language instructions for your agent for how to provide context for the transfer recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WarmTransferInstructions { get; set; }
+        public string? WarmTransferInstructions { get => _explicitNullValueWarmTransferInstructions; set { _explicitNullValueWarmTransferInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warm_transfer_instructions"); else _explicitNullProperties?.Remove("warm_transfer_instructions"); } }
+        private string? _explicitNullValueWarmTransferInstructions = default!;
 #nullable restore
 #else
-        public string WarmTransferInstructions { get; set; }
+        public string WarmTransferInstructions { get => _explicitNullValueWarmTransferInstructions; set { _explicitNullValueWarmTransferInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warm_transfer_instructions"); else _explicitNullProperties?.Remove("warm_transfer_instructions"); } }
+        private string _explicitNullValueWarmTransferInstructions = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams"/> and sets the default values.
@@ -103,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -142,6 +178,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("warm_message_delay_ms", WarmMessageDelayMs);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptance>("warm_transfer_acceptance", WarmTransferAcceptance);
             writer.WriteStringValue("warm_transfer_instructions", WarmTransferInstructions);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

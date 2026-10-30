@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.M
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteDetailReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteDetailReportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteDetailReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteDetailReportResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a specific MDR detailed report request by ID
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch_detail_records.M
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetDetailReportByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetDetailReportByIdResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetDetailReportByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetDetailReportByIdResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a specific MDR detailed report request by ID

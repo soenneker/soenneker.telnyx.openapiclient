@@ -11,42 +11,63 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DialogflowConnection : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("conversation_profile_id") is { } nullNodeConversationProfileId && nullNodeConversationProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationProfileId = null;
+            if (parseNode.GetChildNode("dialogflow_api") is { } nullNodeDialogflowApi && nullNodeDialogflowApi.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DialogflowApi = null;
+            if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("service_account") is { } nullNodeServiceAccount && nullNodeServiceAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id of a configured conversation profile on your Dialogflow account. (If you use Dialogflow CX, this param is required)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConversationProfileId { get; set; }
+        public string? ConversationProfileId { get => _explicitNullValueConversationProfileId; set { _explicitNullValueConversationProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_profile_id"); else _explicitNullProperties?.Remove("conversation_profile_id"); } }
+        private string? _explicitNullValueConversationProfileId = default!;
 #nullable restore
 #else
-        public string ConversationProfileId { get; set; }
+        public string ConversationProfileId { get => _explicitNullValueConversationProfileId; set { _explicitNullValueConversationProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_profile_id"); else _explicitNullProperties?.Remove("conversation_profile_id"); } }
+        private string _explicitNullValueConversationProfileId = default!;
 #endif
         /// <summary>Determine which Dialogflow will be used.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionDialogflowApi? DialogflowApi { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionDialogflowApi? DialogflowApi { get => _explicitNullValueDialogflowApi; set { _explicitNullValueDialogflowApi = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialogflow_api"); else _explicitNullProperties?.Remove("dialogflow_api"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionDialogflowApi? _explicitNullValueDialogflowApi = default!;
         /// <summary>Which Dialogflow environment will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Environment { get; set; }
+        public string? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public string Environment { get; set; }
+        public string Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>The region of your agent is. (If you use Dialogflow CX, this param is required)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Location { get; set; }
+        public string? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private string? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public string Location { get; set; }
+        public string Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private string _explicitNullValueLocation = default!;
 #endif
         /// <summary>The JSON map to connect your Dialoglow account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty? ServiceAccount { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty? ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty? _explicitNullValueServiceAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty ServiceAccount { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty _explicitNullValueServiceAccount = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("environment", Environment);
             writer.WriteStringValue("location", Location);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionServiceAccountProperty>("service_account", ServiceAccount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

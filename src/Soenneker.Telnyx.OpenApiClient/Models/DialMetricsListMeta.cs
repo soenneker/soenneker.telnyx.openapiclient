@@ -11,33 +11,56 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DialMetricsListMeta : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cursors") is { } nullNodeCursors && nullNodeCursors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cursors = null;
+            if (parseNode.GetChildNode("end_time") is { } nullNodeEndTime && nullNodeEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndTime = null;
+            if (parseNode.GetChildNode("granularity") is { } nullNodeGranularity && nullNodeGranularity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Granularity = null;
+            if (parseNode.GetChildNode("next") is { } nullNodeNext && nullNodeNext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Next = null;
+            if (parseNode.GetChildNode("sort") is { } nullNodeSort && nullNodeSort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sort = null;
+            if (parseNode.GetChildNode("start_time") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Empty on the last page. When `page[after]` matched no records, the page is empty and `after` and `before` both echo the given cursor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaCursors? Cursors { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaCursors? Cursors { get => _explicitNullValueCursors; set { _explicitNullValueCursors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cursors"); else _explicitNullProperties?.Remove("cursors"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaCursors? _explicitNullValueCursors = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaCursors Cursors { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaCursors Cursors { get => _explicitNullValueCursors; set { _explicitNullValueCursors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cursors"); else _explicitNullProperties?.Remove("cursors"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaCursors _explicitNullValueCursors = default!;
 #endif
         /// <summary>Echo of the requested `end_time`.</summary>
-        public DateTimeOffset? EndTime { get; set; }
+        public DateTimeOffset? EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_time"); else _explicitNullProperties?.Remove("end_time"); } }
+        private DateTimeOffset? _explicitNullValueEndTime = default!;
         /// <summary>Echo of the requested granularity.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaGranularity? Granularity { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaGranularity? Granularity { get => _explicitNullValueGranularity; set { _explicitNullValueGranularity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("granularity"); else _explicitNullProperties?.Remove("granularity"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaGranularity? _explicitNullValueGranularity = default!;
         /// <summary>Path to the next page, repeating this request&apos;s parameters. Absent on the last page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Next { get; set; }
+        public string? Next { get => _explicitNullValueNext; set { _explicitNullValueNext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next"); else _explicitNullProperties?.Remove("next"); } }
+        private string? _explicitNullValueNext = default!;
 #nullable restore
 #else
-        public string Next { get; set; }
+        public string Next { get => _explicitNullValueNext; set { _explicitNullValueNext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next"); else _explicitNullProperties?.Remove("next"); } }
+        private string _explicitNullValueNext = default!;
 #endif
         /// <summary>Echo of the applied sort order.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaSort? Sort { get; set; }
+#nullable enable
+        public string? Sort { get => _explicitNullValueSort; set { _explicitNullValueSort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort"); else _explicitNullProperties?.Remove("sort"); } }
+        private string? _explicitNullValueSort = default!;
+#nullable restore
         /// <summary>Start of the range actually used: the requested `start_time`, or the start of the retention window when the requested value is older.</summary>
-        public DateTimeOffset? StartTime { get; set; }
+        public DateTimeOffset? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_time"); else _explicitNullProperties?.Remove("start_time"); } }
+        private DateTimeOffset? _explicitNullValueStartTime = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMeta"/> and sets the default values.
         /// </summary>
@@ -53,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMeta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMeta();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMeta(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
                 { "granularity", n => { Granularity = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaGranularity>(); } },
                 { "next", n => { Next = n.GetStringValue(); } },
-                { "sort", n => { Sort = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaSort>(); } },
+                { "sort", n => { Sort = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -82,8 +105,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaGranularity>("granularity", Granularity);
             writer.WriteStringValue("next", Next);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricsListMetaSort>("sort", Sort);
+            writer.WriteStringValue("sort", Sort);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

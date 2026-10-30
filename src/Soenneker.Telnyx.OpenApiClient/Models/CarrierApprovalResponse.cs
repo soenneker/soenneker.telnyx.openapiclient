@@ -11,33 +11,56 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CarrierApprovalResponse : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("approval_id") is { } nullNodeApprovalId && nullNodeApprovalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovalId = null;
+            if (parseNode.GetChildNode("approved_at") is { } nullNodeApprovedAt && nullNodeApprovedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovedAt = null;
+            if (parseNode.GetChildNode("carrier") is { } nullNodeCarrier && nullNodeCarrier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Carrier = null;
+            if (parseNode.GetChildNode("rejected_reason") is { } nullNodeRejectedReason && nullNodeRejectedReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RejectedReason = null;
+            if (parseNode.GetChildNode("scope_type") is { } nullNodeScopeType && nullNodeScopeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopeType = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("submitted_at") is { } nullNodeSubmittedAt && nullNodeSubmittedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmittedAt = null;
+        }
+
         /// <summary>The approval_id property</summary>
-        public Guid? ApprovalId { get; set; }
+        public Guid? ApprovalId { get => _explicitNullValueApprovalId; set { _explicitNullValueApprovalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approval_id"); else _explicitNullProperties?.Remove("approval_id"); } }
+        private Guid? _explicitNullValueApprovalId = default!;
         /// <summary>The approved_at property</summary>
-        public DateTimeOffset? ApprovedAt { get; set; }
+        public DateTimeOffset? ApprovedAt { get => _explicitNullValueApprovedAt; set { _explicitNullValueApprovedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approved_at"); else _explicitNullProperties?.Remove("approved_at"); } }
+        private DateTimeOffset? _explicitNullValueApprovedAt = default!;
         /// <summary>The carrier property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Carrier { get; set; }
+        public string? Carrier { get => _explicitNullValueCarrier; set { _explicitNullValueCarrier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carrier"); else _explicitNullProperties?.Remove("carrier"); } }
+        private string? _explicitNullValueCarrier = default!;
 #nullable restore
 #else
-        public string Carrier { get; set; }
+        public string Carrier { get => _explicitNullValueCarrier; set { _explicitNullValueCarrier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carrier"); else _explicitNullProperties?.Remove("carrier"); } }
+        private string _explicitNullValueCarrier = default!;
 #endif
         /// <summary>The rejected_reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RejectedReason { get; set; }
+        public string? RejectedReason { get => _explicitNullValueRejectedReason; set { _explicitNullValueRejectedReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejected_reason"); else _explicitNullProperties?.Remove("rejected_reason"); } }
+        private string? _explicitNullValueRejectedReason = default!;
 #nullable restore
 #else
-        public string RejectedReason { get; set; }
+        public string RejectedReason { get => _explicitNullValueRejectedReason; set { _explicitNullValueRejectedReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejected_reason"); else _explicitNullProperties?.Remove("rejected_reason"); } }
+        private string _explicitNullValueRejectedReason = default!;
 #endif
         /// <summary>The scope_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalScope? ScopeType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalScope? ScopeType { get => _explicitNullValueScopeType; set { _explicitNullValueScopeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_type"); else _explicitNullProperties?.Remove("scope_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalScope? _explicitNullValueScopeType = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalStatus? _explicitNullValueStatus = default!;
         /// <summary>The submitted_at property</summary>
-        public DateTimeOffset? SubmittedAt { get; set; }
+        public DateTimeOffset? SubmittedAt { get => _explicitNullValueSubmittedAt; set { _explicitNullValueSubmittedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitted_at"); else _explicitNullProperties?.Remove("submitted_at"); } }
+        private DateTimeOffset? _explicitNullValueSubmittedAt = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -46,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +101,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("rejected_reason", RejectedReason);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalScope>("scope_type", ScopeType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalStatus>("status", Status);
-            writer.WriteDateTimeOffsetValue("submitted_at", SubmittedAt);
+            writer.WriteDateTimeOffsetValue("submitted_at", SubmittedAt);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PaginatedScheduledEventListDataItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,9 +43,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventListDataItem();
-            result.ScheduledPhoneCallEventResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse();
-            result.ScheduledSmsEventResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse();
-            return result;
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("telnyx_conversation_channel") != null && (parseNode.GetChildNode("telnyx_conversation_channel")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("phone_call".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "sms_chat".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("telnyx_end_user_target") != null && parseNode.GetChildNode("telnyx_agent_target") != null && parseNode.GetChildNode("scheduled_at_fixed_datetime") != null && parseNode.GetChildNode("assistant_id") != null && (parseNode.GetChildNode("status") == null || (parseNode.GetChildNode("status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag6 && ("pending".Equals(optionalTag6.GetValue(), global::System.StringComparison.Ordinal) || "in_progress".Equals(optionalTag6.GetValue(), global::System.StringComparison.Ordinal) || "completed".Equals(optionalTag6.GetValue(), global::System.StringComparison.Ordinal) || "failed".Equals(optionalTag6.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("telnyx_conversation_channel") != null && (parseNode.GetChildNode("telnyx_conversation_channel")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("phone_call".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "sms_chat".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("telnyx_end_user_target") != null && parseNode.GetChildNode("telnyx_agent_target") != null && parseNode.GetChildNode("scheduled_at_fixed_datetime") != null && parseNode.GetChildNode("assistant_id") != null && parseNode.GetChildNode("text") != null && (parseNode.GetChildNode("status") == null || (parseNode.GetChildNode("status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag7 && ("pending".Equals(optionalTag7.GetValue(), global::System.StringComparison.Ordinal) || "in_progress".Equals(optionalTag7.GetValue(), global::System.StringComparison.Ordinal) || "completed".Equals(optionalTag7.GetValue(), global::System.StringComparison.Ordinal) || "failed".Equals(optionalTag7.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.ScheduledPhoneCallEventResponse == null && result.ScheduledSmsEventResponse == null && matchesUnionBranch0 && !matchesUnionBranch1) result.ScheduledPhoneCallEventResponse = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse(), parseNode);
+            if (result.ScheduledPhoneCallEventResponse == null && result.ScheduledSmsEventResponse == null && matchesUnionBranch1 && !matchesUnionBranch0) result.ScheduledSmsEventResponse = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse(), parseNode);
+            if (result.ScheduledPhoneCallEventResponse == null && result.ScheduledSmsEventResponse == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +72,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ScheduledPhoneCallEventResponse == null && ScheduledSmsEventResponse == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ScheduledPhoneCallEventResponse != null && ScheduledSmsEventResponse == null) { if (ScheduledPhoneCallEventResponse is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ScheduledPhoneCallEventResponse); return; }
+            if (ScheduledSmsEventResponse != null && ScheduledPhoneCallEventResponse == null) { if (ScheduledSmsEventResponse is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ScheduledSmsEventResponse); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse>(null, ScheduledPhoneCallEventResponse, ScheduledSmsEventResponse);
         }

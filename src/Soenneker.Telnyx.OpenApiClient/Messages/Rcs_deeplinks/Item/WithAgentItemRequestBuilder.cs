@@ -53,6 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Rcs_deeplinks.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RcsDeeplinkResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RcsDeeplinkResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteOutboundVoiceProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteOutboundVoiceProfile200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteOutboundVoiceProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteOutboundVoiceProfile200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the details of an existing outbound voice profile.
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetOutboundVoiceProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetOutboundVoiceProfile200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetOutboundVoiceProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetOutboundVoiceProfile200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates an existing outbound voice profile.
@@ -91,6 +91,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfilesErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundVoiceProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundVoiceProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -12,24 +12,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BrandLoaRenderRequestSignature : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("image_base64") is { } nullNodeImageBase64 && nullNodeImageBase64.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageBase64 = null;
+            if (parseNode.GetChildNode("signer_name") is { } nullNodeSignerName && nullNodeSignerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignerName = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>PNG image, base64-encoded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImageBase64 { get; set; }
+        public string? ImageBase64 { get => _explicitNullValueImageBase64; set { _explicitNullValueImageBase64 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_base64"); else _explicitNullProperties?.Remove("image_base64"); } }
+        private string? _explicitNullValueImageBase64 = default!;
 #nullable restore
 #else
-        public string ImageBase64 { get; set; }
+        public string ImageBase64 { get => _explicitNullValueImageBase64; set { _explicitNullValueImageBase64 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_base64"); else _explicitNullProperties?.Remove("image_base64"); } }
+        private string _explicitNullValueImageBase64 = default!;
 #endif
         /// <summary>Optional. When absent the rendered PDF falls back to the enterprise contact&apos;s legal name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SignerName { get; set; }
+        public string? SignerName { get => _explicitNullValueSignerName; set { _explicitNullValueSignerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signer_name"); else _explicitNullProperties?.Remove("signer_name"); } }
+        private string? _explicitNullValueSignerName = default!;
 #nullable restore
 #else
-        public string SignerName { get; set; }
+        public string SignerName { get => _explicitNullValueSignerName; set { _explicitNullValueSignerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signer_name"); else _explicitNullProperties?.Remove("signer_name"); } }
+        private string _explicitNullValueSignerName = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandLoaRenderRequestSignature"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.BrandLoaRenderRequestSignature CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.BrandLoaRenderRequestSignature();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.BrandLoaRenderRequestSignature(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("image_base64", ImageBase64);
             writer.WriteStringValue("signer_name", SignerName);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

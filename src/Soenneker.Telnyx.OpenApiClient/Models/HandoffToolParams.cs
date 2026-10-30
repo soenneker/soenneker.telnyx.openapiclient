@@ -11,19 +11,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class HandoffToolParams : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ai_assistants") is { } nullNodeAiAssistants && nullNodeAiAssistants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiAssistants = null;
+            if (parseNode.GetChildNode("voice_mode") is { } nullNodeVoiceMode && nullNodeVoiceMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceMode = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of possible assistants that can receive a handoff.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>? AiAssistants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>? AiAssistants { get => _explicitNullValueAiAssistants; set { _explicitNullValueAiAssistants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistants"); else _explicitNullProperties?.Remove("ai_assistants"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>? _explicitNullValueAiAssistants = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem> AiAssistants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem> AiAssistants { get => _explicitNullValueAiAssistants; set { _explicitNullValueAiAssistants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistants"); else _explicitNullProperties?.Remove("ai_assistants"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem> _explicitNullValueAiAssistants = default!;
 #endif
         /// <summary>With the unified voice mode all assistants share the same voice, making the handoff transparent to the user. With the distinct voice mode all assistants retain their voice configuration, providing the experience of a conference call with a team of assistants.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode? VoiceMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode? VoiceMode { get => _explicitNullValueVoiceMode; set { _explicitNullValueVoiceMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_mode"); else _explicitNullProperties?.Remove("voice_mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode? _explicitNullValueVoiceMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>("ai_assistants", AiAssistants);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode>("voice_mode", VoiceMode);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

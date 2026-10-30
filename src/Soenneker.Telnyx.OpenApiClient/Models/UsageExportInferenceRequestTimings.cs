@@ -11,17 +11,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UsageExportInferenceRequestTimings : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("admitted_at") is { } nullNodeAdmittedAt && nullNodeAdmittedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdmittedAt = null;
+            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("first_attempt_at") is { } nullNodeFirstAttemptAt && nullNodeFirstAttemptAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstAttemptAt = null;
+            if (parseNode.GetChildNode("gateway_duration_ms") is { } nullNodeGatewayDurationMs && nullNodeGatewayDurationMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GatewayDurationMs = null;
+            if (parseNode.GetChildNode("settled_at") is { } nullNodeSettledAt && nullNodeSettledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SettledAt = null;
+        }
+
         /// <summary>The admitted_at property</summary>
-        public DateTimeOffset? AdmittedAt { get; set; }
+        public DateTimeOffset? AdmittedAt { get => _explicitNullValueAdmittedAt; set { _explicitNullValueAdmittedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("admitted_at"); else _explicitNullProperties?.Remove("admitted_at"); } }
+        private DateTimeOffset? _explicitNullValueAdmittedAt = default!;
         /// <summary>The completed_at property</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>The first_attempt_at property</summary>
-        public DateTimeOffset? FirstAttemptAt { get; set; }
+        public DateTimeOffset? FirstAttemptAt { get => _explicitNullValueFirstAttemptAt; set { _explicitNullValueFirstAttemptAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_attempt_at"); else _explicitNullProperties?.Remove("first_attempt_at"); } }
+        private DateTimeOffset? _explicitNullValueFirstAttemptAt = default!;
         /// <summary>completed_at - admitted_at as recorded by the ledger; not time to first token.</summary>
-        public int? GatewayDurationMs { get; set; }
+        public int? GatewayDurationMs { get => _explicitNullValueGatewayDurationMs; set { _explicitNullValueGatewayDurationMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gateway_duration_ms"); else _explicitNullProperties?.Remove("gateway_duration_ms"); } }
+        private int? _explicitNullValueGatewayDurationMs = default!;
         /// <summary>The settled_at property</summary>
-        public DateTimeOffset? SettledAt { get; set; }
+        public DateTimeOffset? SettledAt { get => _explicitNullValueSettledAt; set { _explicitNullValueSettledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settled_at"); else _explicitNullProperties?.Remove("settled_at"); } }
+        private DateTimeOffset? _explicitNullValueSettledAt = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +75,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteDateTimeOffsetValue("first_attempt_at", FirstAttemptAt);
             writer.WriteIntValue("gateway_duration_ms", GatewayDurationMs);
-            writer.WriteDateTimeOffsetValue("settled_at", SettledAt);
+            writer.WriteDateTimeOffsetValue("settled_at", SettledAt);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

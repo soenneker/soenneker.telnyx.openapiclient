@@ -8,34 +8,39 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNode"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationFlowNodesItem : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode? FlowNode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf1? ConversationFlowNodesItemOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode FlowNode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf1 ConversationFlowNodesItemOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNode"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNode? SpeakNode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf2? ConversationFlowNodesItemOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNode SpeakNode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf2 ConversationFlowNodesItemOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode? ToolNode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf3? ConversationFlowNodesItemOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode ToolNode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf3 ConversationFlowNodesItemOneOf3 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,21 +50,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItem();
-            if("prompt".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ConversationFlowNodesItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.FlowNode = new global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode();
+                
             }
-            else if("speak".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ConversationFlowNodesItemOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SpeakNode = new global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNode();
+                
             }
-            else if("tool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ConversationFlowNodesItemOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ToolNode = new global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("instructions") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("prompt".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("instructions_mode") == null || (parseNode.GetChildNode("instructions_mode")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag4 && ("replace".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "append".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal)))) && (parseNode.GetChildNode("tools_mode") == null || (parseNode.GetChildNode("tools_mode")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag5 && ("replace".Equals(optionalTag5.GetValue(), global::System.StringComparison.Ordinal) || "append".Equals(optionalTag5.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("shared_tool_id") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("tool".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("message") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("speak".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.ConversationFlowNodesItemOneOf1 == null && result.ConversationFlowNodesItemOneOf2 == null && result.ConversationFlowNodesItemOneOf3 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.ConversationFlowNodesItemOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf1(), parseNode);
+            if (result.ConversationFlowNodesItemOneOf1 == null && result.ConversationFlowNodesItemOneOf2 == null && result.ConversationFlowNodesItemOneOf3 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.ConversationFlowNodesItemOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf2(), parseNode);
+            if (result.ConversationFlowNodesItemOneOf1 == null && result.ConversationFlowNodesItemOneOf2 == null && result.ConversationFlowNodesItemOneOf3 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.ConversationFlowNodesItemOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf3(), parseNode);
+            if (result.ConversationFlowNodesItemOneOf1 == null && result.ConversationFlowNodesItemOneOf2 == null && result.ConversationFlowNodesItemOneOf3 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,17 +81,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(FlowNode != null)
+            if(ConversationFlowNodesItemOneOf1 != null)
             {
-                return FlowNode.GetFieldDeserializers();
+                return ConversationFlowNodesItemOneOf1.GetFieldDeserializers();
             }
-            else if(SpeakNode != null)
+            else if(ConversationFlowNodesItemOneOf2 != null)
             {
-                return SpeakNode.GetFieldDeserializers();
+                return ConversationFlowNodesItemOneOf2.GetFieldDeserializers();
             }
-            else if(ToolNode != null)
+            else if(ConversationFlowNodesItemOneOf3 != null)
             {
-                return ToolNode.GetFieldDeserializers();
+                return ConversationFlowNodesItemOneOf3.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -87,18 +101,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ConversationFlowNodesItemOneOf1 == null && ConversationFlowNodesItemOneOf2 == null && ConversationFlowNodesItemOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ConversationFlowNodesItemOneOf1 != null && ConversationFlowNodesItemOneOf2 == null && ConversationFlowNodesItemOneOf3 == null) { if (ConversationFlowNodesItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConversationFlowNodesItemOneOf1); return; }
+            if (ConversationFlowNodesItemOneOf2 != null && ConversationFlowNodesItemOneOf1 == null && ConversationFlowNodesItemOneOf3 == null) { if (ConversationFlowNodesItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConversationFlowNodesItemOneOf2); return; }
+            if (ConversationFlowNodesItemOneOf3 != null && ConversationFlowNodesItemOneOf1 == null && ConversationFlowNodesItemOneOf2 == null) { if (ConversationFlowNodesItemOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConversationFlowNodesItemOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(FlowNode != null)
+            if(ConversationFlowNodesItemOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FlowNode>(null, FlowNode);
+                if (ConversationFlowNodesItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf1>(null, ConversationFlowNodesItemOneOf1);
             }
-            else if(SpeakNode != null)
+            else if(ConversationFlowNodesItemOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakNode>(null, SpeakNode);
+                if (ConversationFlowNodesItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf2>(null, ConversationFlowNodesItemOneOf2);
             }
-            else if(ToolNode != null)
+            else if(ConversationFlowNodesItemOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolNode>(null, ToolNode);
+                if (ConversationFlowNodesItemOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf3>(null, ConversationFlowNodesItemOneOf3);
             }
         }
     }

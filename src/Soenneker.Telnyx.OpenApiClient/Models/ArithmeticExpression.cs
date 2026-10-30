@@ -12,29 +12,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ArithmeticExpression : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("left") is { } nullNodeLeft && nullNodeLeft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Left = null;
+            if (parseNode.GetChildNode("op") is { } nullNodeOp && nullNodeOp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Op = null;
+            if (parseNode.GetChildNode("right") is { } nullNodeRight && nullNodeRight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Right = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A node in a deterministic expression AST. Exactly one variant is selected by the `type` discriminator. Terminal variants (`number_literal`, `string_literal`, `bool_literal`, `variable`) bottom out the recursion; `arithmetic`, `bool_op`, and `comparison` nest further sub-expressions.Extracted into a single named schema so the recursive union is defined once (was previously inlined at every operand site).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Expression? Left { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Expression? Left { get => _explicitNullValueLeft; set { _explicitNullValueLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("left"); else _explicitNullProperties?.Remove("left"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Expression? _explicitNullValueLeft = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Expression Left { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Expression Left { get => _explicitNullValueLeft; set { _explicitNullValueLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("left"); else _explicitNullProperties?.Remove("left"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Expression _explicitNullValueLeft = default!;
 #endif
         /// <summary>Arithmetic operator applied to `left` and `right`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpressionOp? Op { get; set; }
+#nullable enable
+        public string? Op { get => _explicitNullValueOp; set { _explicitNullValueOp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("op"); else _explicitNullProperties?.Remove("op"); } }
+        private string? _explicitNullValueOp = default!;
+#nullable restore
         /// <summary>A node in a deterministic expression AST. Exactly one variant is selected by the `type` discriminator. Terminal variants (`number_literal`, `string_literal`, `bool_literal`, `variable`) bottom out the recursion; `arithmetic`, `bool_op`, and `comparison` nest further sub-expressions.Extracted into a single named schema so the recursive union is defined once (was previously inlined at every operand site).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Expression? Right { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Expression? Right { get => _explicitNullValueRight; set { _explicitNullValueRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("right"); else _explicitNullProperties?.Remove("right"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Expression? _explicitNullValueRight = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Expression Right { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Expression Right { get => _explicitNullValueRight; set { _explicitNullValueRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("right"); else _explicitNullProperties?.Remove("right"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.Expression _explicitNullValueRight = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression"/> and sets the default values.
         /// </summary>
@@ -50,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpression(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "left", n => { Left = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue); } },
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpressionOp>(); } },
+                { "op", n => { Op = n.GetStringValue(); } },
                 { "right", n => { Right = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>(global::Soenneker.Telnyx.OpenApiClient.Models.Expression.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticType>(); } },
             };
@@ -74,9 +93,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("left", Left);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticExpressionOp>("op", Op);
+            writer.WriteStringValue("op", Op);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Expression>("right", Right);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArithmeticType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

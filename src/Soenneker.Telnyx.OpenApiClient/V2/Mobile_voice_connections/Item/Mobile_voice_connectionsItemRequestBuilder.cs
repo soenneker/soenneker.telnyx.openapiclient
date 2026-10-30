@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteMobileVoiceConnection200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the details of a specific mobile voice connection.
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RetrieveMobileVoiceConnection200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the settings of a specific mobile voice connection.
@@ -91,6 +91,8 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobileVoiceConnection409Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobileVoiceConnection200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMobileVoiceConnection200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

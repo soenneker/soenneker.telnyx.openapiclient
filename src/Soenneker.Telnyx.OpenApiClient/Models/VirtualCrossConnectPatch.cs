@@ -11,33 +11,54 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class VirtualCrossConnectPatch : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("primary_cloud_ip") is { } nullNodePrimaryCloudIp && nullNodePrimaryCloudIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryCloudIp = null;
+            if (parseNode.GetChildNode("primary_enabled") is { } nullNodePrimaryEnabled && nullNodePrimaryEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryEnabled = null;
+            if (parseNode.GetChildNode("primary_routing_announcement") is { } nullNodePrimaryRoutingAnnouncement && nullNodePrimaryRoutingAnnouncement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryRoutingAnnouncement = null;
+            if (parseNode.GetChildNode("secondary_cloud_ip") is { } nullNodeSecondaryCloudIp && nullNodeSecondaryCloudIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryCloudIp = null;
+            if (parseNode.GetChildNode("secondary_enabled") is { } nullNodeSecondaryEnabled && nullNodeSecondaryEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryEnabled = null;
+            if (parseNode.GetChildNode("secondary_routing_announcement") is { } nullNodeSecondaryRoutingAnnouncement && nullNodeSecondaryRoutingAnnouncement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryRoutingAnnouncement = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value can not be patched once the VXC has bene provisioned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryCloudIp { get; set; }
+        public string? PrimaryCloudIp { get => _explicitNullValuePrimaryCloudIp; set { _explicitNullValuePrimaryCloudIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_cloud_ip"); else _explicitNullProperties?.Remove("primary_cloud_ip"); } }
+        private string? _explicitNullValuePrimaryCloudIp = default!;
 #nullable restore
 #else
-        public string PrimaryCloudIp { get; set; }
+        public string PrimaryCloudIp { get => _explicitNullValuePrimaryCloudIp; set { _explicitNullValuePrimaryCloudIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_cloud_ip"); else _explicitNullProperties?.Remove("primary_cloud_ip"); } }
+        private string _explicitNullValuePrimaryCloudIp = default!;
 #endif
         /// <summary>Indicates whether the primary circuit is enabled. Setting this to `false` will disable the circuit.</summary>
-        public bool? PrimaryEnabled { get; set; }
+        public bool? PrimaryEnabled { get => _explicitNullValuePrimaryEnabled; set { _explicitNullValuePrimaryEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_enabled"); else _explicitNullProperties?.Remove("primary_enabled"); } }
+        private bool? _explicitNullValuePrimaryEnabled = default!;
         /// <summary>Whether the primary BGP route is being announced.</summary>
-        public bool? PrimaryRoutingAnnouncement { get; set; }
+        public bool? PrimaryRoutingAnnouncement { get => _explicitNullValuePrimaryRoutingAnnouncement; set { _explicitNullValuePrimaryRoutingAnnouncement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_routing_announcement"); else _explicitNullProperties?.Remove("primary_routing_announcement"); } }
+        private bool? _explicitNullValuePrimaryRoutingAnnouncement = default!;
         /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value can not be patched once the VXC has bene provisioned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecondaryCloudIp { get; set; }
+        public string? SecondaryCloudIp { get => _explicitNullValueSecondaryCloudIp; set { _explicitNullValueSecondaryCloudIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_cloud_ip"); else _explicitNullProperties?.Remove("secondary_cloud_ip"); } }
+        private string? _explicitNullValueSecondaryCloudIp = default!;
 #nullable restore
 #else
-        public string SecondaryCloudIp { get; set; }
+        public string SecondaryCloudIp { get => _explicitNullValueSecondaryCloudIp; set { _explicitNullValueSecondaryCloudIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_cloud_ip"); else _explicitNullProperties?.Remove("secondary_cloud_ip"); } }
+        private string _explicitNullValueSecondaryCloudIp = default!;
 #endif
         /// <summary>Indicates whether the secondary circuit is enabled. Setting this to `false` will disable the circuit.</summary>
-        public bool? SecondaryEnabled { get; set; }
+        public bool? SecondaryEnabled { get => _explicitNullValueSecondaryEnabled; set { _explicitNullValueSecondaryEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_enabled"); else _explicitNullProperties?.Remove("secondary_enabled"); } }
+        private bool? _explicitNullValueSecondaryEnabled = default!;
         /// <summary>Whether the secondary BGP route is being announced.</summary>
-        public bool? SecondaryRoutingAnnouncement { get; set; }
+        public bool? SecondaryRoutingAnnouncement { get => _explicitNullValueSecondaryRoutingAnnouncement; set { _explicitNullValueSecondaryRoutingAnnouncement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_routing_announcement"); else _explicitNullProperties?.Remove("secondary_routing_announcement"); } }
+        private bool? _explicitNullValueSecondaryRoutingAnnouncement = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectPatch"/> and sets the default values.
         /// </summary>
@@ -53,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectPatch CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectPatch();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectPatch(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("secondary_cloud_ip", SecondaryCloudIp);
             writer.WriteBoolValue("secondary_enabled", SecondaryEnabled);
             writer.WriteBoolValue("secondary_routing_announcement", SecondaryRoutingAnnouncement);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

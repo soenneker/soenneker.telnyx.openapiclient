@@ -12,40 +12,59 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NumberReputationErrorMeta : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pending_check_codes") is { } nullNodePendingCheckCodes && nullNodePendingCheckCodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingCheckCodes = null;
+            if (parseNode.GetChildNode("pending_check_ids") is { } nullNodePendingCheckIds && nullNodePendingCheckIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingCheckIds = null;
+            if (parseNode.GetChildNode("pending_check_labels") is { } nullNodePendingCheckLabels && nullNodePendingCheckLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingCheckLabels = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Codes of the pending vetting checks (e.g. `loa_signature_valid`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PendingCheckCodes { get; set; }
+        public List<string>? PendingCheckCodes { get => _explicitNullValuePendingCheckCodes; set { _explicitNullValuePendingCheckCodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_check_codes"); else _explicitNullProperties?.Remove("pending_check_codes"); } }
+        private List<string>? _explicitNullValuePendingCheckCodes = default!;
 #nullable restore
 #else
-        public List<string> PendingCheckCodes { get; set; }
+        public List<string> PendingCheckCodes { get => _explicitNullValuePendingCheckCodes; set { _explicitNullValuePendingCheckCodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_check_codes"); else _explicitNullProperties?.Remove("pending_check_codes"); } }
+        private List<string> _explicitNullValuePendingCheckCodes = default!;
 #endif
         /// <summary>Set on `422 vetting_checks_incomplete` responses from `/admin/dir/{id}/approve` and `/admin/phone-number-batches/approve`. Lists the still-pending vetting check ids.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? PendingCheckIds { get; set; }
+        public List<Guid?>? PendingCheckIds { get => _explicitNullValuePendingCheckIds; set { _explicitNullValuePendingCheckIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_check_ids"); else _explicitNullProperties?.Remove("pending_check_ids"); } }
+        private List<Guid?>? _explicitNullValuePendingCheckIds = default!;
 #nullable restore
 #else
-        public List<Guid?> PendingCheckIds { get; set; }
+        public List<Guid?> PendingCheckIds { get => _explicitNullValuePendingCheckIds; set { _explicitNullValuePendingCheckIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_check_ids"); else _explicitNullProperties?.Remove("pending_check_ids"); } }
+        private List<Guid?> _explicitNullValuePendingCheckIds = default!;
 #endif
         /// <summary>Human-readable labels of the pending vetting checks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PendingCheckLabels { get; set; }
+        public List<string>? PendingCheckLabels { get => _explicitNullValuePendingCheckLabels; set { _explicitNullValuePendingCheckLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_check_labels"); else _explicitNullProperties?.Remove("pending_check_labels"); } }
+        private List<string>? _explicitNullValuePendingCheckLabels = default!;
 #nullable restore
 #else
-        public List<string> PendingCheckLabels { get; set; }
+        public List<string> PendingCheckLabels { get => _explicitNullValuePendingCheckLabels; set { _explicitNullValuePendingCheckLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_check_labels"); else _explicitNullProperties?.Remove("pending_check_labels"); } }
+        private List<string> _explicitNullValuePendingCheckLabels = default!;
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrorMeta"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrorMeta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrorMeta();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrorMeta(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<Guid?>("pending_check_ids", PendingCheckIds);
             writer.WriteCollectionOfPrimitiveValues<string>("pending_check_labels", PendingCheckLabels);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

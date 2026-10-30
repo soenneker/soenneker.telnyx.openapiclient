@@ -11,92 +11,138 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CountryCoverage : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("code") is { } nullNodeCode && nullNodeCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Code = null;
+            if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
+            if (parseNode.GetChildNode("international_sms") is { } nullNodeInternationalSms && nullNodeInternationalSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InternationalSms = null;
+            if (parseNode.GetChildNode("inventory_coverage") is { } nullNodeInventoryCoverage && nullNodeInventoryCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InventoryCoverage = null;
+            if (parseNode.GetChildNode("local") is { } nullNodeLocal && nullNodeLocal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Local = null;
+            if (parseNode.GetChildNode("mobile") is { } nullNodeMobile && nullNodeMobile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mobile = null;
+            if (parseNode.GetChildNode("national") is { } nullNodeNational && nullNodeNational.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) National = null;
+            if (parseNode.GetChildNode("numbers") is { } nullNodeNumbers && nullNodeNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Numbers = null;
+            if (parseNode.GetChildNode("p2p") is { } nullNodeP2p && nullNodeP2p.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P2p = null;
+            if (parseNode.GetChildNode("phone_number_type") is { } nullNodePhoneNumberType && nullNodePhoneNumberType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberType = null;
+            if (parseNode.GetChildNode("quickship") is { } nullNodeQuickship && nullNodeQuickship.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quickship = null;
+            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("reservable") is { } nullNodeReservable && nullNodeReservable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reservable = null;
+            if (parseNode.GetChildNode("shared_cost") is { } nullNodeSharedCost && nullNodeSharedCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedCost = null;
+            if (parseNode.GetChildNode("toll_free") is { } nullNodeTollFree && nullNodeTollFree.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TollFree = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Country ISO code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Code { get; set; }
+        public string? Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }
+        private string? _explicitNullValueCode = default!;
 #nullable restore
 #else
-        public string Code { get; set; }
+        public string Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }
+        private string _explicitNullValueCode = default!;
 #endif
         /// <summary>Set of features supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Features { get; set; }
+        public List<string>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        private List<string>? _explicitNullValueFeatures = default!;
 #nullable restore
 #else
-        public List<string> Features { get; set; }
+        public List<string> Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        private List<string> _explicitNullValueFeatures = default!;
 #endif
         /// <summary>The international_sms property</summary>
-        public bool? InternationalSms { get; set; }
+        public bool? InternationalSms { get => _explicitNullValueInternationalSms; set { _explicitNullValueInternationalSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("international_sms"); else _explicitNullProperties?.Remove("international_sms"); } }
+        private bool? _explicitNullValueInternationalSms = default!;
         /// <summary>Indicates whether country can be queried with inventory coverage endpoint</summary>
-        public bool? InventoryCoverage { get; set; }
+        public bool? InventoryCoverage { get => _explicitNullValueInventoryCoverage; set { _explicitNullValueInventoryCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inventory_coverage"); else _explicitNullProperties?.Remove("inventory_coverage"); } }
+        private bool? _explicitNullValueInventoryCoverage = default!;
         /// <summary>The local property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal? Local { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal? Local { get => _explicitNullValueLocal; set { _explicitNullValueLocal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local"); else _explicitNullProperties?.Remove("local"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal? _explicitNullValueLocal = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal Local { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal Local { get => _explicitNullValueLocal; set { _explicitNullValueLocal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local"); else _explicitNullProperties?.Remove("local"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal _explicitNullValueLocal = default!;
 #endif
         /// <summary>The mobile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageMobileProperty? Mobile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageMobileProperty? Mobile { get => _explicitNullValueMobile; set { _explicitNullValueMobile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile"); else _explicitNullProperties?.Remove("mobile"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageMobileProperty? _explicitNullValueMobile = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageMobileProperty Mobile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageMobileProperty Mobile { get => _explicitNullValueMobile; set { _explicitNullValueMobile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile"); else _explicitNullProperties?.Remove("mobile"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageMobileProperty _explicitNullValueMobile = default!;
 #endif
         /// <summary>The national property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageNationalProperty? National { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageNationalProperty? National { get => _explicitNullValueNational; set { _explicitNullValueNational = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("national"); else _explicitNullProperties?.Remove("national"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageNationalProperty? _explicitNullValueNational = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageNationalProperty National { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageNationalProperty National { get => _explicitNullValueNational; set { _explicitNullValueNational = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("national"); else _explicitNullProperties?.Remove("national"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageNationalProperty _explicitNullValueNational = default!;
 #endif
         /// <summary>The numbers property</summary>
-        public bool? Numbers { get; set; }
+        public bool? Numbers { get => _explicitNullValueNumbers; set { _explicitNullValueNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("numbers"); else _explicitNullProperties?.Remove("numbers"); } }
+        private bool? _explicitNullValueNumbers = default!;
         /// <summary>The p2p property</summary>
-        public bool? P2p { get; set; }
+        public bool? P2p { get => _explicitNullValueP2p; set { _explicitNullValueP2p = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p2p"); else _explicitNullProperties?.Remove("p2p"); } }
+        private bool? _explicitNullValueP2p = default!;
         /// <summary>Phone number type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PhoneNumberType { get; set; }
+        public List<string>? PhoneNumberType { get => _explicitNullValuePhoneNumberType; set { _explicitNullValuePhoneNumberType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_type"); else _explicitNullProperties?.Remove("phone_number_type"); } }
+        private List<string>? _explicitNullValuePhoneNumberType = default!;
 #nullable restore
 #else
-        public List<string> PhoneNumberType { get; set; }
+        public List<string> PhoneNumberType { get => _explicitNullValuePhoneNumberType; set { _explicitNullValuePhoneNumberType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_type"); else _explicitNullProperties?.Remove("phone_number_type"); } }
+        private List<string> _explicitNullValuePhoneNumberType = default!;
 #endif
         /// <summary>Supports quickship</summary>
-        public bool? Quickship { get; set; }
+        public bool? Quickship { get => _explicitNullValueQuickship; set { _explicitNullValueQuickship = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quickship"); else _explicitNullProperties?.Remove("quickship"); } }
+        private bool? _explicitNullValueQuickship = default!;
         /// <summary>Geographic region (e.g., AMER, EMEA, APAC)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get; set; }
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public string Region { get; set; }
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>Supports reservable</summary>
-        public bool? Reservable { get; set; }
+        public bool? Reservable { get => _explicitNullValueReservable; set { _explicitNullValueReservable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservable"); else _explicitNullProperties?.Remove("reservable"); } }
+        private bool? _explicitNullValueReservable = default!;
         /// <summary>The shared_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageSharedCostProperty? SharedCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageSharedCostProperty? SharedCost { get => _explicitNullValueSharedCost; set { _explicitNullValueSharedCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_cost"); else _explicitNullProperties?.Remove("shared_cost"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageSharedCostProperty? _explicitNullValueSharedCost = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageSharedCostProperty SharedCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageSharedCostProperty SharedCost { get => _explicitNullValueSharedCost; set { _explicitNullValueSharedCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_cost"); else _explicitNullProperties?.Remove("shared_cost"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageSharedCostProperty _explicitNullValueSharedCost = default!;
 #endif
         /// <summary>The toll_free property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree? TollFree { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree? TollFree { get => _explicitNullValueTollFree; set { _explicitNullValueTollFree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toll_free"); else _explicitNullProperties?.Remove("toll_free"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree? _explicitNullValueTollFree = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree TollFree { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree TollFree { get => _explicitNullValueTollFree; set { _explicitNullValueTollFree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toll_free"); else _explicitNullProperties?.Remove("toll_free"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree _explicitNullValueTollFree = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage"/> and sets the default values.
@@ -113,7 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -162,6 +208,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("reservable", Reservable);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageSharedCostProperty>("shared_cost", SharedCost);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree>("toll_free", TollFree);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

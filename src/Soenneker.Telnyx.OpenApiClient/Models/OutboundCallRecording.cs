@@ -11,23 +11,39 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OutboundCallRecording : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_recording_caller_phone_numbers") is { } nullNodeCallRecordingCallerPhoneNumbers && nullNodeCallRecordingCallerPhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallRecordingCallerPhoneNumbers = null;
+            if (parseNode.GetChildNode("call_recording_channels") is { } nullNodeCallRecordingChannels && nullNodeCallRecordingChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallRecordingChannels = null;
+            if (parseNode.GetChildNode("call_recording_format") is { } nullNodeCallRecordingFormat && nullNodeCallRecordingFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallRecordingFormat = null;
+            if (parseNode.GetChildNode("call_recording_type") is { } nullNodeCallRecordingType && nullNodeCallRecordingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallRecordingType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When call_recording_type is &apos;by_caller_phone_number&apos;, only outbound calls using one of these numbers will be recorded. Numbers must be specified in E164 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CallRecordingCallerPhoneNumbers { get; set; }
+        public List<string>? CallRecordingCallerPhoneNumbers { get => _explicitNullValueCallRecordingCallerPhoneNumbers; set { _explicitNullValueCallRecordingCallerPhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording_caller_phone_numbers"); else _explicitNullProperties?.Remove("call_recording_caller_phone_numbers"); } }
+        private List<string>? _explicitNullValueCallRecordingCallerPhoneNumbers = default!;
 #nullable restore
 #else
-        public List<string> CallRecordingCallerPhoneNumbers { get; set; }
+        public List<string> CallRecordingCallerPhoneNumbers { get => _explicitNullValueCallRecordingCallerPhoneNumbers; set { _explicitNullValueCallRecordingCallerPhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording_caller_phone_numbers"); else _explicitNullProperties?.Remove("call_recording_caller_phone_numbers"); } }
+        private List<string> _explicitNullValueCallRecordingCallerPhoneNumbers = default!;
 #endif
         /// <summary>When using &apos;dual&apos; channels, the final audio file will be a stereo recording with the first leg on channel A, and the rest on channel B.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingChannels? CallRecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingChannels? CallRecordingChannels { get => _explicitNullValueCallRecordingChannels; set { _explicitNullValueCallRecordingChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording_channels"); else _explicitNullProperties?.Remove("call_recording_channels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingChannels? _explicitNullValueCallRecordingChannels = default!;
         /// <summary>The audio file format for calls being recorded.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingFormat? CallRecordingFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingFormat? CallRecordingFormat { get => _explicitNullValueCallRecordingFormat; set { _explicitNullValueCallRecordingFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording_format"); else _explicitNullProperties?.Remove("call_recording_format"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingFormat? _explicitNullValueCallRecordingFormat = default!;
         /// <summary>Specifies which calls are recorded.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingType? CallRecordingType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingType? CallRecordingType { get => _explicitNullValueCallRecordingType; set { _explicitNullValueCallRecordingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording_type"); else _explicitNullProperties?.Remove("call_recording_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingType? _explicitNullValueCallRecordingType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingChannels>("call_recording_channels", CallRecordingChannels);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingFormat>("call_recording_format", CallRecordingFormat);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingType>("call_recording_type", CallRecordingType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

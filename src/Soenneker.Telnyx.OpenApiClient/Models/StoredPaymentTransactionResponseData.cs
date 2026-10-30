@@ -11,43 +11,69 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class StoredPaymentTransactionResponseData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amount_cents") is { } nullNodeAmountCents && nullNodeAmountCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmountCents = null;
+            if (parseNode.GetChildNode("amount_currency") is { } nullNodeAmountCurrency && nullNodeAmountCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmountCurrency = null;
+            if (parseNode.GetChildNode("auto_recharge") is { } nullNodeAutoRecharge && nullNodeAutoRecharge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoRecharge = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("processor_status") is { } nullNodeProcessorStatus && nullNodeProcessorStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessorStatus = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("transaction_processing_type") is { } nullNodeTransactionProcessingType && nullNodeTransactionProcessingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionProcessingType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amount_cents property</summary>
-        public int? AmountCents { get; set; }
+        public int? AmountCents { get => _explicitNullValueAmountCents; set { _explicitNullValueAmountCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount_cents"); else _explicitNullProperties?.Remove("amount_cents"); } }
+        private int? _explicitNullValueAmountCents = default!;
         /// <summary>The amount_currency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AmountCurrency { get; set; }
+        public string? AmountCurrency { get => _explicitNullValueAmountCurrency; set { _explicitNullValueAmountCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount_currency"); else _explicitNullProperties?.Remove("amount_currency"); } }
+        private string? _explicitNullValueAmountCurrency = default!;
 #nullable restore
 #else
-        public string AmountCurrency { get; set; }
+        public string AmountCurrency { get => _explicitNullValueAmountCurrency; set { _explicitNullValueAmountCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount_currency"); else _explicitNullProperties?.Remove("amount_currency"); } }
+        private string _explicitNullValueAmountCurrency = default!;
 #endif
         /// <summary>The auto_recharge property</summary>
-        public bool? AutoRecharge { get; set; }
+        public bool? AutoRecharge { get => _explicitNullValueAutoRecharge; set { _explicitNullValueAutoRecharge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_recharge"); else _explicitNullProperties?.Remove("auto_recharge"); } }
+        private bool? _explicitNullValueAutoRecharge = default!;
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The processor_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProcessorStatus { get; set; }
+        public string? ProcessorStatus { get => _explicitNullValueProcessorStatus; set { _explicitNullValueProcessorStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processor_status"); else _explicitNullProperties?.Remove("processor_status"); } }
+        private string? _explicitNullValueProcessorStatus = default!;
 #nullable restore
 #else
-        public string ProcessorStatus { get; set; }
+        public string ProcessorStatus { get => _explicitNullValueProcessorStatus; set { _explicitNullValueProcessorStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processor_status"); else _explicitNullProperties?.Remove("processor_status"); } }
+        private string _explicitNullValueProcessorStatus = default!;
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransactionRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransactionRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TransactionRecordType? _explicitNullValueRecordType = default!;
         /// <summary>The transaction_processing_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionProcessingType? TransactionProcessingType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionProcessingType? TransactionProcessingType { get => _explicitNullValueTransactionProcessingType; set { _explicitNullValueTransactionProcessingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_processing_type"); else _explicitNullProperties?.Remove("transaction_processing_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionProcessingType? _explicitNullValueTransactionProcessingType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseData"/> and sets the default values.
         /// </summary>
@@ -63,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionResponseData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("processor_status", ProcessorStatus);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransactionRecordType>("record_type", RecordType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StoredPaymentTransactionProcessingType>("transaction_processing_type", TransactionProcessingType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

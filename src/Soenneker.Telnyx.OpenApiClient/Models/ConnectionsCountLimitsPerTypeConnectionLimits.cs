@@ -11,13 +11,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConnectionsCountLimitsPerTypeConnectionLimits : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("standard_limit") is { } nullNodeStandardLimit && nullNodeStandardLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StandardLimit = null;
+            if (parseNode.GetChildNode("texml_limit") is { } nullNodeTexmlLimit && nullNodeTexmlLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TexmlLimit = null;
+            if (parseNode.GetChildNode("uac_limit") is { } nullNodeUacLimit && nullNodeUacLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UacLimit = null;
+        }
+
         /// <summary>Maximum number of standard connections allowed, when per-type limits apply.</summary>
-        public int? StandardLimit { get; set; }
+        public int? StandardLimit { get => _explicitNullValueStandardLimit; set { _explicitNullValueStandardLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("standard_limit"); else _explicitNullProperties?.Remove("standard_limit"); } }
+        private int? _explicitNullValueStandardLimit = default!;
         /// <summary>Maximum number of TeXML applications allowed, when per-type limits apply.</summary>
-        public int? TexmlLimit { get; set; }
+        public int? TexmlLimit { get => _explicitNullValueTexmlLimit; set { _explicitNullValueTexmlLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("texml_limit"); else _explicitNullProperties?.Remove("texml_limit"); } }
+        private int? _explicitNullValueTexmlLimit = default!;
         /// <summary>Maximum number of UAC connections allowed, when per-type limits apply.</summary>
-        public int? UacLimit { get; set; }
+        public int? UacLimit { get => _explicitNullValueUacLimit; set { _explicitNullValueUacLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uac_limit"); else _explicitNullProperties?.Remove("uac_limit"); } }
+        private int? _explicitNullValueUacLimit = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -26,7 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsPerTypeConnectionLimits CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsPerTypeConnectionLimits();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionsCountLimitsPerTypeConnectionLimits(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +63,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("standard_limit", StandardLimit);
             writer.WriteIntValue("texml_limit", TexmlLimit);
-            writer.WriteIntValue("uac_limit", UacLimit);
+            writer.WriteIntValue("uac_limit", UacLimit);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

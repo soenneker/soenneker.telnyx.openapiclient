@@ -12,46 +12,71 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Filter : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("billing_group") is { } nullNodeBillingGroup && nullNodeBillingGroup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingGroup = null;
+            if (parseNode.GetChildNode("cld") is { } nullNodeCld && nullNodeCld.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cld = null;
+            if (parseNode.GetChildNode("cld_filter") is { } nullNodeCldFilter && nullNodeCldFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CldFilter = null;
+            if (parseNode.GetChildNode("cli") is { } nullNodeCli && nullNodeCli.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cli = null;
+            if (parseNode.GetChildNode("cli_filter") is { } nullNodeCliFilter && nullNodeCliFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CliFilter = null;
+            if (parseNode.GetChildNode("filter_type") is { } nullNodeFilterType && nullNodeFilterType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilterType = null;
+            if (parseNode.GetChildNode("tags_list") is { } nullNodeTagsList && nullNodeTagsList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagsList = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Billing group UUID to filter by</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BillingGroup { get; set; }
+        public string? BillingGroup { get => _explicitNullValueBillingGroup; set { _explicitNullValueBillingGroup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_group"); else _explicitNullProperties?.Remove("billing_group"); } }
+        private string? _explicitNullValueBillingGroup = default!;
 #nullable restore
 #else
-        public string BillingGroup { get; set; }
+        public string BillingGroup { get => _explicitNullValueBillingGroup; set { _explicitNullValueBillingGroup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_group"); else _explicitNullProperties?.Remove("billing_group"); } }
+        private string _explicitNullValueBillingGroup = default!;
 #endif
         /// <summary>Called line identification (destination number)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cld { get; set; }
+        public string? Cld { get => _explicitNullValueCld; set { _explicitNullValueCld = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cld"); else _explicitNullProperties?.Remove("cld"); } }
+        private string? _explicitNullValueCld = default!;
 #nullable restore
 #else
-        public string Cld { get; set; }
+        public string Cld { get => _explicitNullValueCld; set { _explicitNullValueCld = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cld"); else _explicitNullProperties?.Remove("cld"); } }
+        private string _explicitNullValueCld = default!;
 #endif
         /// <summary>Filter type for CLD matching</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterCldFilter? CldFilter { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterCldFilter? CldFilter { get => _explicitNullValueCldFilter; set { _explicitNullValueCldFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cld_filter"); else _explicitNullProperties?.Remove("cld_filter"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.FilterCldFilter? _explicitNullValueCldFilter = default!;
         /// <summary>Calling line identification (caller ID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cli { get; set; }
+        public string? Cli { get => _explicitNullValueCli; set { _explicitNullValueCli = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cli"); else _explicitNullProperties?.Remove("cli"); } }
+        private string? _explicitNullValueCli = default!;
 #nullable restore
 #else
-        public string Cli { get; set; }
+        public string Cli { get => _explicitNullValueCli; set { _explicitNullValueCli = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cli"); else _explicitNullProperties?.Remove("cli"); } }
+        private string _explicitNullValueCli = default!;
 #endif
         /// <summary>Filter type for CLI matching</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterCliFilter? CliFilter { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterCliFilter? CliFilter { get => _explicitNullValueCliFilter; set { _explicitNullValueCliFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cli_filter"); else _explicitNullProperties?.Remove("cli_filter"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.FilterCliFilter? _explicitNullValueCliFilter = default!;
         /// <summary>Logical operator for combining filters</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterFilterType? FilterType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FilterFilterType? FilterType { get => _explicitNullValueFilterType; set { _explicitNullValueFilterType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter_type"); else _explicitNullProperties?.Remove("filter_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.FilterFilterType? _explicitNullValueFilterType = default!;
         /// <summary>Tag name to filter by</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TagsList { get; set; }
+        public string? TagsList { get => _explicitNullValueTagsList; set { _explicitNullValueTagsList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags_list"); else _explicitNullProperties?.Remove("tags_list"); } }
+        private string? _explicitNullValueTagsList = default!;
 #nullable restore
 #else
-        public string TagsList { get; set; }
+        public string TagsList { get => _explicitNullValueTagsList; set { _explicitNullValueTagsList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags_list"); else _explicitNullProperties?.Remove("tags_list"); } }
+        private string _explicitNullValueTagsList = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Filter"/> and sets the default values.
@@ -68,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.Filter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.Filter();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.Filter(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,6 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FilterCliFilter>("cli_filter", CliFilter);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FilterFilterType>("filter_type", FilterType);
             writer.WriteStringValue("tags_list", TagsList);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

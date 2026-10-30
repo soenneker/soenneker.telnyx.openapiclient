@@ -12,24 +12,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WhatsappTemplateHeaderComponentExample : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("header_handle") is { } nullNodeHeaderHandle && nullNodeHeaderHandle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeaderHandle = null;
+            if (parseNode.GetChildNode("header_text") is { } nullNodeHeaderText && nullNodeHeaderText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeaderText = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Media handle for IMAGE, VIDEO, or DOCUMENT headers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? HeaderHandle { get; set; }
+        public List<string>? HeaderHandle { get => _explicitNullValueHeaderHandle; set { _explicitNullValueHeaderHandle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_handle"); else _explicitNullProperties?.Remove("header_handle"); } }
+        private List<string>? _explicitNullValueHeaderHandle = default!;
 #nullable restore
 #else
-        public List<string> HeaderHandle { get; set; }
+        public List<string> HeaderHandle { get => _explicitNullValueHeaderHandle; set { _explicitNullValueHeaderHandle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_handle"); else _explicitNullProperties?.Remove("header_handle"); } }
+        private List<string> _explicitNullValueHeaderHandle = default!;
 #endif
         /// <summary>Sample values for text header variables.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? HeaderText { get; set; }
+        public List<string>? HeaderText { get => _explicitNullValueHeaderText; set { _explicitNullValueHeaderText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_text"); else _explicitNullProperties?.Remove("header_text"); } }
+        private List<string>? _explicitNullValueHeaderText = default!;
 #nullable restore
 #else
-        public List<string> HeaderText { get; set; }
+        public List<string> HeaderText { get => _explicitNullValueHeaderText; set { _explicitNullValueHeaderText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_text"); else _explicitNullProperties?.Remove("header_text"); } }
+        private List<string> _explicitNullValueHeaderText = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentExample"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentExample CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentExample();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponentExample(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("header_handle", HeaderHandle);
             writer.WriteCollectionOfPrimitiveValues<string>("header_text", HeaderText);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,86 +12,136 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DedicatedIp : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("billing") is { } nullNodeBilling && nullNodeBilling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Billing = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("dns_confirmed_at") is { } nullNodeDnsConfirmedAt && nullNodeDnsConfirmedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DnsConfirmedAt = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("ip_address") is { } nullNodeIpAddress && nullNodeIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAddress = null;
+            if (parseNode.GetChildNode("ip_version") is { } nullNodeIpVersion && nullNodeIpVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpVersion = null;
+            if (parseNode.GetChildNode("pool_id") is { } nullNodePoolId && nullNodePoolId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PoolId = null;
+            if (parseNode.GetChildNode("provisioning") is { } nullNodeProvisioning && nullNodeProvisioning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provisioning = null;
+            if (parseNode.GetChildNode("provisioning_status") is { } nullNodeProvisioningStatus && nullNodeProvisioningStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProvisioningStatus = null;
+            if (parseNode.GetChildNode("ptr_hostname") is { } nullNodePtrHostname && nullNodePtrHostname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrHostname = null;
+            if (parseNode.GetChildNode("quarantine_until") is { } nullNodeQuarantineUntil && nullNodeQuarantineUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuarantineUntil = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("released_at") is { } nullNodeReleasedAt && nullNodeReleasedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReleasedAt = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("suspension_reason") is { } nullNodeSuspensionReason && nullNodeSuspensionReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuspensionReason = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("warmup") is { } nullNodeWarmup && nullNodeWarmup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warmup = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Monthly recurring charge (MRC) state for the IP&apos;s current allocation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpBilling? Billing { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpBilling? Billing { get => _explicitNullValueBilling; set { _explicitNullValueBilling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing"); else _explicitNullProperties?.Remove("billing"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpBilling? _explicitNullValueBilling = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpBilling Billing { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpBilling Billing { get => _explicitNullValueBilling; set { _explicitNullValueBilling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing"); else _explicitNullProperties?.Remove("billing"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpBilling _explicitNullValueBilling = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>When the PTR hostname was forward-confirmed (PTR → hostname → A record → this IP). The IP carries mail only while this is set.</summary>
-        public DateTimeOffset? DnsConfirmedAt { get; set; }
+        public DateTimeOffset? DnsConfirmedAt { get => _explicitNullValueDnsConfirmedAt; set { _explicitNullValueDnsConfirmedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_confirmed_at"); else _explicitNullProperties?.Remove("dns_confirmed_at"); } }
+        private DateTimeOffset? _explicitNullValueDnsConfirmedAt = default!;
         /// <summary>The id property</summary>
-        public Guid? Id { get; set; }
+        public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private Guid? _explicitNullValueId = default!;
         /// <summary>The allocated IPv4/IPv6 address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IpAddress { get; set; }
+        public string? IpAddress { get => _explicitNullValueIpAddress; set { _explicitNullValueIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_address"); else _explicitNullProperties?.Remove("ip_address"); } }
+        private string? _explicitNullValueIpAddress = default!;
 #nullable restore
 #else
-        public string IpAddress { get; set; }
+        public string IpAddress { get => _explicitNullValueIpAddress; set { _explicitNullValueIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_address"); else _explicitNullProperties?.Remove("ip_address"); } }
+        private string _explicitNullValueIpAddress = default!;
 #endif
         /// <summary>The ip_version property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpIpVersion? IpVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpIpVersion? IpVersion { get => _explicitNullValueIpVersion; set { _explicitNullValueIpVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_version"); else _explicitNullProperties?.Remove("ip_version"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpIpVersion? _explicitNullValueIpVersion = default!;
         /// <summary>The pool_id property</summary>
-        public Guid? PoolId { get; set; }
+        public Guid? PoolId { get => _explicitNullValuePoolId; set { _explicitNullValuePoolId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool_id"); else _explicitNullProperties?.Remove("pool_id"); } }
+        private Guid? _explicitNullValuePoolId = default!;
         /// <summary>Read-only status of the Telnyx-managed PTR record. No customer action is required to complete it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning? Provisioning { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning? Provisioning { get => _explicitNullValueProvisioning; set { _explicitNullValueProvisioning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioning"); else _explicitNullProperties?.Remove("provisioning"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning? _explicitNullValueProvisioning = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning Provisioning { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning Provisioning { get => _explicitNullValueProvisioning; set { _explicitNullValueProvisioning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioning"); else _explicitNullProperties?.Remove("provisioning"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning _explicitNullValueProvisioning = default!;
 #endif
         /// <summary>Same value as `provisioning.dns_status`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningStatus? ProvisioningStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningStatus? ProvisioningStatus { get => _explicitNullValueProvisioningStatus; set { _explicitNullValueProvisioningStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioning_status"); else _explicitNullProperties?.Remove("provisioning_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningStatus? _explicitNullValueProvisioningStatus = default!;
         /// <summary>Telnyx-managed reverse DNS (PTR) hostname of the IP, in the form `mta-&lt;a-b-c-d&gt;.msgtelnyx.com`. Also used as the EHLO hostname when sending from the IP. Managed by Telnyx and cannot be changed through the API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PtrHostname { get; set; }
+        public string? PtrHostname { get => _explicitNullValuePtrHostname; set { _explicitNullValuePtrHostname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_hostname"); else _explicitNullProperties?.Remove("ptr_hostname"); } }
+        private string? _explicitNullValuePtrHostname = default!;
 #nullable restore
 #else
-        public string PtrHostname { get; set; }
+        public string PtrHostname { get => _explicitNullValuePtrHostname; set { _explicitNullValuePtrHostname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_hostname"); else _explicitNullProperties?.Remove("ptr_hostname"); } }
+        private string _explicitNullValuePtrHostname = default!;
 #endif
         /// <summary>Set on release to 30 days after `released_at`. The address is not returned to stock before this time.</summary>
-        public DateTimeOffset? QuarantineUntil { get; set; }
+        public DateTimeOffset? QuarantineUntil { get => _explicitNullValueQuarantineUntil; set { _explicitNullValueQuarantineUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quarantine_until"); else _explicitNullProperties?.Remove("quarantine_until"); } }
+        private DateTimeOffset? _explicitNullValueQuarantineUntil = default!;
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpRecordType? _explicitNullValueRecordType = default!;
         /// <summary>Region label of the allocated IP (for example, `ewr-nj1`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get; set; }
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public string Region { get; set; }
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>When the IP was released. Null until release.</summary>
-        public DateTimeOffset? ReleasedAt { get; set; }
+        public DateTimeOffset? ReleasedAt { get => _explicitNullValueReleasedAt; set { _explicitNullValueReleasedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("released_at"); else _explicitNullProperties?.Remove("released_at"); } }
+        private DateTimeOffset? _explicitNullValueReleasedAt = default!;
         /// <summary>Lifecycle status. `provisioning`: purchased and billed, carries no mail until `start_warmup`. `warming_up`: warm-up ramp in progress. `active`: ramp complete. `suspended`: suspended by Telnyx; carries no mail and is still billed. `released`: returned to Telnyx; carries no mail.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpStatus? _explicitNullValueStatus = default!;
         /// <summary>Reason Telnyx recorded when suspending the IP. Null unless `status` is `suspended`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SuspensionReason { get; set; }
+        public string? SuspensionReason { get => _explicitNullValueSuspensionReason; set { _explicitNullValueSuspensionReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suspension_reason"); else _explicitNullProperties?.Remove("suspension_reason"); } }
+        private string? _explicitNullValueSuspensionReason = default!;
 #nullable restore
 #else
-        public string SuspensionReason { get; set; }
+        public string SuspensionReason { get => _explicitNullValueSuspensionReason; set { _explicitNullValueSuspensionReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suspension_reason"); else _explicitNullProperties?.Remove("suspension_reason"); } }
+        private string _explicitNullValueSuspensionReason = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>Warmup ramp state for a dedicated IP.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpWarmup? Warmup { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpWarmup? Warmup { get => _explicitNullValueWarmup; set { _explicitNullValueWarmup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup"); else _explicitNullProperties?.Remove("warmup"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpWarmup? _explicitNullValueWarmup = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpWarmup Warmup { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpWarmup Warmup { get => _explicitNullValueWarmup; set { _explicitNullValueWarmup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup"); else _explicitNullProperties?.Remove("warmup"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpWarmup _explicitNullValueWarmup = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIp"/> and sets the default values.
@@ -108,7 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIp();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIp(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -163,6 +213,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("suspension_reason", SuspensionReason);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpWarmup>("warmup", Warmup);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

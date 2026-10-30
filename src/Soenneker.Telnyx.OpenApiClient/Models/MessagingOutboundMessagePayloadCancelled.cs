@@ -11,162 +11,243 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MessagingOutboundMessagePayloadCancelled : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cc") is { } nullNodeCc && nullNodeCc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cc = null;
+            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("cost") is { } nullNodeCost && nullNodeCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cost = null;
+            if (parseNode.GetChildNode("cost_breakdown") is { } nullNodeCostBreakdown && nullNodeCostBreakdown.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CostBreakdown = null;
+            if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
+            if (parseNode.GetChildNode("encoding") is { } nullNodeEncoding && nullNodeEncoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Encoding = null;
+            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("from") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("media") is { } nullNodeMedia && nullNodeMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Media = null;
+            if (parseNode.GetChildNode("messaging_profile_id") is { } nullNodeMessagingProfileId && nullNodeMessagingProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingProfileId = null;
+            if (parseNode.GetChildNode("num_chars") is { } nullNodeNumChars && nullNodeNumChars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumChars = null;
+            if (parseNode.GetChildNode("organization_id") is { } nullNodeOrganizationId && nullNodeOrganizationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationId = null;
+            if (parseNode.GetChildNode("parts") is { } nullNodeParts && nullNodeParts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parts = null;
+            if (parseNode.GetChildNode("received_at") is { } nullNodeReceivedAt && nullNodeReceivedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReceivedAt = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("sent_at") is { } nullNodeSentAt && nullNodeSentAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentAt = null;
+            if (parseNode.GetChildNode("smart_encoding_applied") is { } nullNodeSmartEncodingApplied && nullNodeSmartEncodingApplied.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SmartEncodingApplied = null;
+            if (parseNode.GetChildNode("subject") is { } nullNodeSubject && nullNodeSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subject = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("tcr_campaign_billable") is { } nullNodeTcrCampaignBillable && nullNodeTcrCampaignBillable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TcrCampaignBillable = null;
+            if (parseNode.GetChildNode("tcr_campaign_id") is { } nullNodeTcrCampaignId && nullNodeTcrCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TcrCampaignId = null;
+            if (parseNode.GetChildNode("tcr_campaign_registered") is { } nullNodeTcrCampaignRegistered && nullNodeTcrCampaignRegistered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TcrCampaignRegistered = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("to") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("valid_until") is { } nullNodeValidUntil && nullNodeValidUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidUntil = null;
+            if (parseNode.GetChildNode("webhook_failover_url") is { } nullNodeWebhookFailoverUrl && nullNodeWebhookFailoverUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookFailoverUrl = null;
+            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCcItem>? Cc { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCcItem>? Cc { get => _explicitNullValueCc; set { _explicitNullValueCc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc"); else _explicitNullProperties?.Remove("cc"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCcItem>? _explicitNullValueCc = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCcItem> Cc { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCcItem> Cc { get => _explicitNullValueCc; set { _explicitNullValueCc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc"); else _explicitNullProperties?.Remove("cc"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCcItem> _explicitNullValueCc = default!;
 #endif
         /// <summary>ISO 8601 formatted date indicating when the message was finalized.</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>The cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCost? Cost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCost? Cost { get => _explicitNullValueCost; set { _explicitNullValueCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost"); else _explicitNullProperties?.Remove("cost"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCost? _explicitNullValueCost = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCost Cost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCost Cost { get => _explicitNullValueCost; set { _explicitNullValueCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost"); else _explicitNullProperties?.Remove("cost"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCost _explicitNullValueCost = default!;
 #endif
         /// <summary>Detailed breakdown of the message cost components.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCostBreakdown? CostBreakdown { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCostBreakdown? CostBreakdown { get => _explicitNullValueCostBreakdown; set { _explicitNullValueCostBreakdown = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_breakdown"); else _explicitNullProperties?.Remove("cost_breakdown"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCostBreakdown? _explicitNullValueCostBreakdown = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCostBreakdown CostBreakdown { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCostBreakdown CostBreakdown { get => _explicitNullValueCostBreakdown; set { _explicitNullValueCostBreakdown = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_breakdown"); else _explicitNullProperties?.Remove("cost_breakdown"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledCostBreakdown _explicitNullValueCostBreakdown = default!;
 #endif
         /// <summary>The direction of the message. Inbound messages are sent to you whereas outbound messages are sent from you.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundDirection? Direction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundDirection? Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundDirection? _explicitNullValueDirection = default!;
         /// <summary>Encoding scheme used for the message body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Encoding { get; set; }
+        public string? Encoding { get => _explicitNullValueEncoding; set { _explicitNullValueEncoding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encoding"); else _explicitNullProperties?.Remove("encoding"); } }
+        private string? _explicitNullValueEncoding = default!;
 #nullable restore
 #else
-        public string Encoding { get; set; }
+        public string Encoding { get => _explicitNullValueEncoding; set { _explicitNullValueEncoding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encoding"); else _explicitNullProperties?.Remove("encoding"); } }
+        private string _explicitNullValueEncoding = default!;
 #endif
         /// <summary>These errors may point at addressees when referring to unsuccessful/unconfirmed delivery statuses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B>? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError0B38E7044B> _explicitNullValueErrors = default!;
 #endif
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledFrom? From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledFrom? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledFrom? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledFrom From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledFrom From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledFrom _explicitNullValueFrom = default!;
 #endif
         /// <summary>Identifies the type of resource.</summary>
-        public Guid? Id { get; set; }
+        public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private Guid? _explicitNullValueId = default!;
         /// <summary>The media property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledMediaItem>? Media { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledMediaItem>? Media { get => _explicitNullValueMedia; set { _explicitNullValueMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media"); else _explicitNullProperties?.Remove("media"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledMediaItem>? _explicitNullValueMedia = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledMediaItem> Media { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledMediaItem> Media { get => _explicitNullValueMedia; set { _explicitNullValueMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media"); else _explicitNullProperties?.Remove("media"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledMediaItem> _explicitNullValueMedia = default!;
 #endif
         /// <summary>Unique identifier for a messaging profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MessagingProfileId { get; set; }
+        public string? MessagingProfileId { get => _explicitNullValueMessagingProfileId; set { _explicitNullValueMessagingProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_profile_id"); else _explicitNullProperties?.Remove("messaging_profile_id"); } }
+        private string? _explicitNullValueMessagingProfileId = default!;
 #nullable restore
 #else
-        public string MessagingProfileId { get; set; }
+        public string MessagingProfileId { get => _explicitNullValueMessagingProfileId; set { _explicitNullValueMessagingProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_profile_id"); else _explicitNullProperties?.Remove("messaging_profile_id"); } }
+        private string _explicitNullValueMessagingProfileId = default!;
 #endif
         /// <summary>The number of characters in the message text</summary>
-        public int? NumChars { get; set; }
+        public int? NumChars { get => _explicitNullValueNumChars; set { _explicitNullValueNumChars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_chars"); else _explicitNullProperties?.Remove("num_chars"); } }
+        private int? _explicitNullValueNumChars = default!;
         /// <summary>The id of the organization the messaging profile belongs to.</summary>
-        public Guid? OrganizationId { get; set; }
+        public Guid? OrganizationId { get => _explicitNullValueOrganizationId; set { _explicitNullValueOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_id"); else _explicitNullProperties?.Remove("organization_id"); } }
+        private Guid? _explicitNullValueOrganizationId = default!;
         /// <summary>Number of parts into which the message&apos;s body must be split.</summary>
-        public int? Parts { get; set; }
+        public int? Parts { get => _explicitNullValueParts; set { _explicitNullValueParts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parts"); else _explicitNullProperties?.Remove("parts"); } }
+        private int? _explicitNullValueParts = default!;
         /// <summary>ISO 8601 formatted date indicating when the message request was received.</summary>
-        public DateTimeOffset? ReceivedAt { get; set; }
+        public DateTimeOffset? ReceivedAt { get => _explicitNullValueReceivedAt; set { _explicitNullValueReceivedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received_at"); else _explicitNullProperties?.Remove("received_at"); } }
+        private DateTimeOffset? _explicitNullValueReceivedAt = default!;
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessageRecordType? _explicitNullValueRecordType = default!;
         /// <summary>ISO 8601 formatted date indicating when the message was sent.</summary>
-        public DateTimeOffset? SentAt { get; set; }
+        public DateTimeOffset? SentAt { get => _explicitNullValueSentAt; set { _explicitNullValueSentAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sent_at"); else _explicitNullProperties?.Remove("sent_at"); } }
+        private DateTimeOffset? _explicitNullValueSentAt = default!;
         /// <summary>Indicates whether smart encoding was applied to this message. When `true`, one or more Unicode characters were automatically replaced with GSM-7 equivalents to reduce segment count and cost. The original message text is preserved in webhooks.</summary>
-        public bool? SmartEncodingApplied { get; set; }
+        public bool? SmartEncodingApplied { get => _explicitNullValueSmartEncodingApplied; set { _explicitNullValueSmartEncodingApplied = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("smart_encoding_applied"); else _explicitNullProperties?.Remove("smart_encoding_applied"); } }
+        private bool? _explicitNullValueSmartEncodingApplied = default!;
         /// <summary>Subject of multimedia message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subject { get; set; }
+        public string? Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        private string? _explicitNullValueSubject = default!;
 #nullable restore
 #else
-        public string Subject { get; set; }
+        public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        private string _explicitNullValueSubject = default!;
 #endif
         /// <summary>Tags associated with the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>Indicates whether the TCR campaign is billable.</summary>
-        public bool? TcrCampaignBillable { get; set; }
+        public bool? TcrCampaignBillable { get => _explicitNullValueTcrCampaignBillable; set { _explicitNullValueTcrCampaignBillable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcr_campaign_billable"); else _explicitNullProperties?.Remove("tcr_campaign_billable"); } }
+        private bool? _explicitNullValueTcrCampaignBillable = default!;
         /// <summary>The Campaign Registry (TCR) campaign ID associated with the message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TcrCampaignId { get; set; }
+        public string? TcrCampaignId { get => _explicitNullValueTcrCampaignId; set { _explicitNullValueTcrCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcr_campaign_id"); else _explicitNullProperties?.Remove("tcr_campaign_id"); } }
+        private string? _explicitNullValueTcrCampaignId = default!;
 #nullable restore
 #else
-        public string TcrCampaignId { get; set; }
+        public string TcrCampaignId { get => _explicitNullValueTcrCampaignId; set { _explicitNullValueTcrCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcr_campaign_id"); else _explicitNullProperties?.Remove("tcr_campaign_id"); } }
+        private string _explicitNullValueTcrCampaignId = default!;
 #endif
         /// <summary>The registration status of the TCR campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TcrCampaignRegistered { get; set; }
+        public string? TcrCampaignRegistered { get => _explicitNullValueTcrCampaignRegistered; set { _explicitNullValueTcrCampaignRegistered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcr_campaign_registered"); else _explicitNullProperties?.Remove("tcr_campaign_registered"); } }
+        private string? _explicitNullValueTcrCampaignRegistered = default!;
 #nullable restore
 #else
-        public string TcrCampaignRegistered { get; set; }
+        public string TcrCampaignRegistered { get => _explicitNullValueTcrCampaignRegistered; set { _explicitNullValueTcrCampaignRegistered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcr_campaign_registered"); else _explicitNullProperties?.Remove("tcr_campaign_registered"); } }
+        private string _explicitNullValueTcrCampaignRegistered = default!;
 #endif
         /// <summary>Message body (i.e., content) as a non-empty string.**Required for SMS**</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get; set; }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get; set; }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string _explicitNullValueText = default!;
 #endif
         /// <summary>The to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledToItem>? To { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledToItem>? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledToItem>? _explicitNullValueTo = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledToItem> To { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledToItem> To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledToItem> _explicitNullValueTo = default!;
 #endif
         /// <summary>The type of message.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelledType? _explicitNullValueType = default!;
         /// <summary>Message must be out of the queue by this time or else it will be discarded and marked as &apos;sending_failed&apos;. Once the message moves out of the queue, this field will be nulled</summary>
-        public DateTimeOffset? ValidUntil { get; set; }
+        public DateTimeOffset? ValidUntil { get => _explicitNullValueValidUntil; set { _explicitNullValueValidUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_until"); else _explicitNullProperties?.Remove("valid_until"); } }
+        private DateTimeOffset? _explicitNullValueValidUntil = default!;
         /// <summary>The failover URL where webhooks related to this message will be sent if sending to the primary URL fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookFailoverUrl { get; set; }
+        public string? WebhookFailoverUrl { get => _explicitNullValueWebhookFailoverUrl; set { _explicitNullValueWebhookFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_failover_url"); else _explicitNullProperties?.Remove("webhook_failover_url"); } }
+        private string? _explicitNullValueWebhookFailoverUrl = default!;
 #nullable restore
 #else
-        public string WebhookFailoverUrl { get; set; }
+        public string WebhookFailoverUrl { get => _explicitNullValueWebhookFailoverUrl; set { _explicitNullValueWebhookFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_failover_url"); else _explicitNullProperties?.Remove("webhook_failover_url"); } }
+        private string _explicitNullValueWebhookFailoverUrl = default!;
 #endif
         /// <summary>The URL where webhooks related to this message will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled"/> and sets the default values.
@@ -183,7 +264,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingOutboundMessagePayloadCancelled(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -260,6 +341,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("valid_until", ValidUntil);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

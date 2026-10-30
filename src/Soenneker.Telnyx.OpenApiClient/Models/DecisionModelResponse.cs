@@ -12,24 +12,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DecisionModelResponse : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("answers") is { } nullNodeAnswers && nullNodeAnswers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Answers = null;
+            if (parseNode.GetChildNode("usage") is { } nullNodeUsage && nullNodeUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Usage = null;
+        }
+
         /// <summary>Answers keyed by exactly the question IDs in the request. Each answer type matches its question.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty? Answers { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty? Answers { get => _explicitNullValueAnswers; set { _explicitNullValueAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answers"); else _explicitNullProperties?.Remove("answers"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty? _explicitNullValueAnswers = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty Answers { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty Answers { get => _explicitNullValueAnswers; set { _explicitNullValueAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answers"); else _explicitNullProperties?.Remove("answers"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty _explicitNullValueAnswers = default!;
 #endif
         /// <summary>Public model alias used to evaluate the request. Returns telnyx/decision-flash when model was omitted. The underlying model is managed by Telnyx.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseModel? Model { get; private set; }
         /// <summary>Token usage for the completed evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage? Usage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage? _explicitNullValueUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage Usage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage _explicitNullValueUsage = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,7 +75,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponseAnswersProperty>("answers", Answers);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage>("usage", Usage);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelUsage>("usage", Usage);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

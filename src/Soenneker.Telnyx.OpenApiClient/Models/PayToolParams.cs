@@ -11,80 +11,119 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PayToolParams : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connector_name") is { } nullNodeConnectorName && nullNodeConnectorName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectorName = null;
+            if (parseNode.GetChildNode("connector_parameters") is { } nullNodeConnectorParameters && nullNodeConnectorParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectorParameters = null;
+            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("inter_digit_timeout_millis") is { } nullNodeInterDigitTimeoutMillis && nullNodeInterDigitTimeoutMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterDigitTimeoutMillis = null;
+            if (parseNode.GetChildNode("max_attempts") is { } nullNodeMaxAttempts && nullNodeMaxAttempts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAttempts = null;
+            if (parseNode.GetChildNode("min_postal_code_length") is { } nullNodeMinPostalCodeLength && nullNodeMinPostalCodeLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinPostalCodeLength = null;
+            if (parseNode.GetChildNode("payment_method") is { } nullNodePaymentMethod && nullNodePaymentMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethod = null;
+            if (parseNode.GetChildNode("postal_code") is { } nullNodePostalCode && nullNodePostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostalCode = null;
+            if (parseNode.GetChildNode("prompts") is { } nullNodePrompts && nullNodePrompts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompts = null;
+            if (parseNode.GetChildNode("timeout_millis") is { } nullNodeTimeoutMillis && nullNodeTimeoutMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutMillis = null;
+            if (parseNode.GetChildNode("valid_card_types") is { } nullNodeValidCardTypes && nullNodeValidCardTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidCardTypes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the pay connector configured in the Telnyx API. Must reference an existing pay connector for this organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectorName { get; set; }
+        public string? ConnectorName { get => _explicitNullValueConnectorName; set { _explicitNullValueConnectorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connector_name"); else _explicitNullProperties?.Remove("connector_name"); } }
+        private string? _explicitNullValueConnectorName = default!;
 #nullable restore
 #else
-        public string ConnectorName { get; set; }
+        public string ConnectorName { get => _explicitNullValueConnectorName; set { _explicitNullValueConnectorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connector_name"); else _explicitNullProperties?.Remove("connector_name"); } }
+        private string _explicitNullValueConnectorName = default!;
 #endif
         /// <summary>Custom key/value parameters forwarded to the pay connector as `parameters` in the processor request. String values may use `{{dynamic_variable}}` templating, resolved per call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty? ConnectorParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty? ConnectorParameters { get => _explicitNullValueConnectorParameters; set { _explicitNullValueConnectorParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connector_parameters"); else _explicitNullProperties?.Remove("connector_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty? _explicitNullValueConnectorParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty ConnectorParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty ConnectorParameters { get => _explicitNullValueConnectorParameters; set { _explicitNullValueConnectorParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connector_parameters"); else _explicitNullProperties?.Remove("connector_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsConnectorParametersProperty _explicitNullValueConnectorParameters = default!;
 #endif
         /// <summary>Default currency for payments processed by this tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Currency { get; set; }
+        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string? _explicitNullValueCurrency = default!;
 #nullable restore
 #else
-        public string Currency { get; set; }
+        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string _explicitNullValueCurrency = default!;
 #endif
         /// <summary>Description of the pay tool shown to the assistant so it knows when to call the tool. Not sent to the payment connector — the per-call `description` argument the assistant passes is what reaches the processor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Time in milliseconds to wait between consecutive DTMF digits. Omitted means the platform default (5000) applies.</summary>
-        public int? InterDigitTimeoutMillis { get; set; }
+        public int? InterDigitTimeoutMillis { get => _explicitNullValueInterDigitTimeoutMillis; set { _explicitNullValueInterDigitTimeoutMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inter_digit_timeout_millis"); else _explicitNullProperties?.Remove("inter_digit_timeout_millis"); } }
+        private int? _explicitNullValueInterDigitTimeoutMillis = default!;
         /// <summary>Maximum number of attempts for each payment collection step. Omitted means the platform default (3) applies.</summary>
-        public int? MaxAttempts { get; set; }
+        public int? MaxAttempts { get => _explicitNullValueMaxAttempts; set { _explicitNullValueMaxAttempts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_attempts"); else _explicitNullProperties?.Remove("max_attempts"); } }
+        private int? _explicitNullValueMaxAttempts = default!;
         /// <summary>Minimum number of digits the caller must enter when collecting a credit-card billing postal code. Applies only when `postal_code` prompts the caller. Omitted means the platform default (1) applies. The maximum number of digits collected is the greater of 10 and this value. This does not validate the length of a postal code supplied directly in `postal_code`.</summary>
-        public int? MinPostalCodeLength { get; set; }
+        public int? MinPostalCodeLength { get => _explicitNullValueMinPostalCodeLength; set { _explicitNullValueMinPostalCodeLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_postal_code_length"); else _explicitNullProperties?.Remove("min_postal_code_length"); } }
+        private int? _explicitNullValueMinPostalCodeLength = default!;
         /// <summary>Default payment method for payments processed by this tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentMethod { get; set; }
+        public string? PaymentMethod { get => _explicitNullValuePaymentMethod; set { _explicitNullValuePaymentMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method"); else _explicitNullProperties?.Remove("payment_method"); } }
+        private string? _explicitNullValuePaymentMethod = default!;
 #nullable restore
 #else
-        public string PaymentMethod { get; set; }
+        public string PaymentMethod { get => _explicitNullValuePaymentMethod; set { _explicitNullValuePaymentMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method"); else _explicitNullProperties?.Remove("payment_method"); } }
+        private string _explicitNullValuePaymentMethod = default!;
 #endif
         /// <summary>Controls billing postal code collection for credit-card payments. Set to `false` to skip the postal code prompt without supplying a postal code to the payment connector (non-US cards, e.g. Irish Eircodes). Set to `true` to prompt the caller. Supply a non-empty string, such as `&quot;90210&quot;`, to use that postal code without prompting. This option does not affect ACH debit payments or payments using an existing token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode? PostalCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode? PostalCode { get => _explicitNullValuePostalCode; set { _explicitNullValuePostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postal_code"); else _explicitNullProperties?.Remove("postal_code"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode? _explicitNullValuePostalCode = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode PostalCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode PostalCode { get => _explicitNullValuePostalCode; set { _explicitNullValuePostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postal_code"); else _explicitNullProperties?.Remove("postal_code"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPostalCode _explicitNullValuePostalCode = default!;
 #endif
         /// <summary>Custom text-to-speech prompts keyed by payment collection step. The AI assistant merges its own card-number prompt into this map, matching on the same step keys.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts? Prompts { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts? Prompts { get => _explicitNullValuePrompts; set { _explicitNullValuePrompts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompts"); else _explicitNullProperties?.Remove("prompts"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts? _explicitNullValuePrompts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts Prompts { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts Prompts { get => _explicitNullValuePrompts; set { _explicitNullValuePrompts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompts"); else _explicitNullProperties?.Remove("prompts"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts _explicitNullValuePrompts = default!;
 #endif
         /// <summary>Time in milliseconds to wait for DTMF input for each collection step. Omitted means the platform default (5000) applies. Increase this for slower entry, e.g. a 16-digit card number.</summary>
-        public int? TimeoutMillis { get; set; }
+        public int? TimeoutMillis { get => _explicitNullValueTimeoutMillis; set { _explicitNullValueTimeoutMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_millis"); else _explicitNullProperties?.Remove("timeout_millis"); } }
+        private int? _explicitNullValueTimeoutMillis = default!;
         /// <summary>Restricts accepted card numbers to the listed card types. When the caller enters a card number that does not match one of the listed types, Pay treats the input as invalid and re-prompts for the card number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem?>? ValidCardTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem?>? ValidCardTypes { get => _explicitNullValueValidCardTypes; set { _explicitNullValueValidCardTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_card_types"); else _explicitNullProperties?.Remove("valid_card_types"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem?>? _explicitNullValueValidCardTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem?> ValidCardTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem?> ValidCardTypes { get => _explicitNullValueValidCardTypes; set { _explicitNullValueValidCardTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_card_types"); else _explicitNullProperties?.Remove("valid_card_types"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem?> _explicitNullValueValidCardTypes = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams"/> and sets the default values.
@@ -103,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -146,6 +185,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPrompts>("prompts", Prompts);
             writer.WriteIntValue("timeout_millis", TimeoutMillis);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsValidCardTypesItem>("valid_card_types", ValidCardTypes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

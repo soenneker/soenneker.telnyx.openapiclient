@@ -12,29 +12,51 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReputationData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connection_score") is { } nullNodeConnectionScore && nullNodeConnectionScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionScore = null;
+            if (parseNode.GetChildNode("engagement_score") is { } nullNodeEngagementScore && nullNodeEngagementScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EngagementScore = null;
+            if (parseNode.GetChildNode("last_refreshed_at") is { } nullNodeLastRefreshedAt && nullNodeLastRefreshedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRefreshedAt = null;
+            if (parseNode.GetChildNode("maturity_score") is { } nullNodeMaturityScore && nullNodeMaturityScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaturityScore = null;
+            if (parseNode.GetChildNode("sentiment_score") is { } nullNodeSentimentScore && nullNodeSentimentScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentimentScore = null;
+            if (parseNode.GetChildNode("spam_category") is { } nullNodeSpamCategory && nullNodeSpamCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamCategory = null;
+            if (parseNode.GetChildNode("spam_risk") is { } nullNodeSpamRisk && nullNodeSpamRisk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamRisk = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connection_score property</summary>
-        public int? ConnectionScore { get; set; }
+        public int? ConnectionScore { get => _explicitNullValueConnectionScore; set { _explicitNullValueConnectionScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_score"); else _explicitNullProperties?.Remove("connection_score"); } }
+        private int? _explicitNullValueConnectionScore = default!;
         /// <summary>The engagement_score property</summary>
-        public int? EngagementScore { get; set; }
+        public int? EngagementScore { get => _explicitNullValueEngagementScore; set { _explicitNullValueEngagementScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engagement_score"); else _explicitNullProperties?.Remove("engagement_score"); } }
+        private int? _explicitNullValueEngagementScore = default!;
         /// <summary>The last_refreshed_at property</summary>
-        public DateTimeOffset? LastRefreshedAt { get; set; }
+        public DateTimeOffset? LastRefreshedAt { get => _explicitNullValueLastRefreshedAt; set { _explicitNullValueLastRefreshedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refreshed_at"); else _explicitNullProperties?.Remove("last_refreshed_at"); } }
+        private DateTimeOffset? _explicitNullValueLastRefreshedAt = default!;
         /// <summary>The maturity_score property</summary>
-        public int? MaturityScore { get; set; }
+        public int? MaturityScore { get => _explicitNullValueMaturityScore; set { _explicitNullValueMaturityScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maturity_score"); else _explicitNullProperties?.Remove("maturity_score"); } }
+        private int? _explicitNullValueMaturityScore = default!;
         /// <summary>The sentiment_score property</summary>
-        public int? SentimentScore { get; set; }
+        public int? SentimentScore { get => _explicitNullValueSentimentScore; set { _explicitNullValueSentimentScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentiment_score"); else _explicitNullProperties?.Remove("sentiment_score"); } }
+        private int? _explicitNullValueSentimentScore = default!;
         /// <summary>Category label from the reputation feed when the number is flagged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpamCategory { get; set; }
+        public string? SpamCategory { get => _explicitNullValueSpamCategory; set { _explicitNullValueSpamCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_category"); else _explicitNullProperties?.Remove("spam_category"); } }
+        private string? _explicitNullValueSpamCategory = default!;
 #nullable restore
 #else
-        public string SpamCategory { get; set; }
+        public string SpamCategory { get => _explicitNullValueSpamCategory; set { _explicitNullValueSpamCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_category"); else _explicitNullProperties?.Remove("spam_category"); } }
+        private string _explicitNullValueSpamCategory = default!;
 #endif
         /// <summary>Overall spam-risk classification.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk? SpamRisk { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk? SpamRisk { get => _explicitNullValueSpamRisk; set { _explicitNullValueSpamRisk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_risk"); else _explicitNullProperties?.Remove("spam_risk"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk? _explicitNullValueSpamRisk = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData"/> and sets the default values.
         /// </summary>
@@ -50,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("sentiment_score", SentimentScore);
             writer.WriteStringValue("spam_category", SpamCategory);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk>("spam_risk", SpamRisk);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

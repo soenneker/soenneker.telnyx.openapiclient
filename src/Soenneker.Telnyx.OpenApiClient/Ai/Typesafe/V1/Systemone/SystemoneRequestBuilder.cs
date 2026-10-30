@@ -69,6 +69,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Typesafe.V1.Systemone
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelError.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelError.CreateFromDiscriminatorValue },
                 { "529", global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DecisionModelResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

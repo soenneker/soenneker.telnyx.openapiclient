@@ -12,24 +12,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagingInboundMessagePayloadBodyEdit : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("original_message_id") is { } nullNodeOriginalMessageId && nullNodeOriginalMessageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginalMessageId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Replacement WhatsApp message content. Its shape depends on the message type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEditMessageProperty? Message { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEditMessageProperty? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEditMessageProperty? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEditMessageProperty Message { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEditMessageProperty Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEditMessageProperty _explicitNullValueMessage = default!;
 #endif
         /// <summary>Telnyx message ID when a mapping exists, otherwise the original Meta WhatsApp message ID. Treat this value as opaque.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OriginalMessageId { get; set; }
+        public string? OriginalMessageId { get => _explicitNullValueOriginalMessageId; set { _explicitNullValueOriginalMessageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_message_id"); else _explicitNullProperties?.Remove("original_message_id"); } }
+        private string? _explicitNullValueOriginalMessageId = default!;
 #nullable restore
 #else
-        public string OriginalMessageId { get; set; }
+        public string OriginalMessageId { get => _explicitNullValueOriginalMessageId; set { _explicitNullValueOriginalMessageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_message_id"); else _explicitNullProperties?.Remove("original_message_id"); } }
+        private string _explicitNullValueOriginalMessageId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEditMessageProperty>("message", Message);
             writer.WriteStringValue("original_message_id", OriginalMessageId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

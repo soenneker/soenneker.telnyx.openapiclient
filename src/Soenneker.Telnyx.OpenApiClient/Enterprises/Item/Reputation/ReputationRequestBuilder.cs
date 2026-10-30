@@ -92,6 +92,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -117,6 +119,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -146,6 +150,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises.Item.Reputation
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationPublicWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

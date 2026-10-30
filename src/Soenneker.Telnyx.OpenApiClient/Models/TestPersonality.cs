@@ -11,121 +11,180 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TestPersonality : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accent") is { } nullNodeAccent && nullNodeAccent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accent = null;
+            if (parseNode.GetChildNode("background_noise") is { } nullNodeBackgroundNoise && nullNodeBackgroundNoise.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackgroundNoise = null;
+            if (parseNode.GetChildNode("background_sound_volume") is { } nullNodeBackgroundSoundVolume && nullNodeBackgroundSoundVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackgroundSoundVolume = null;
+            if (parseNode.GetChildNode("effective_voice_volume") is { } nullNodeEffectiveVoiceVolume && nullNodeEffectiveVoiceVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveVoiceVolume = null;
+            if (parseNode.GetChildNode("end_call_enabled") is { } nullNodeEndCallEnabled && nullNodeEndCallEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndCallEnabled = null;
+            if (parseNode.GetChildNode("forked_from") is { } nullNodeForkedFrom && nullNodeForkedFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkedFrom = null;
+            if (parseNode.GetChildNode("generation_config") is { } nullNodeGenerationConfig && nullNodeGenerationConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenerationConfig = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("interruption_level") is { } nullNodeInterruptionLevel && nullNodeInterruptionLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptionLevel = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("message_plan") is { } nullNodeMessagePlan && nullNodeMessagePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagePlan = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("network_simulation") is { } nullNodeNetworkSimulation && nullNodeNetworkSimulation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkSimulation = null;
+            if (parseNode.GetChildNode("organization") is { } nullNodeOrganization && nullNodeOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organization = null;
+            if (parseNode.GetChildNode("project") is { } nullNodeProject && nullNodeProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Project = null;
+            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+            if (parseNode.GetChildNode("speed") is { } nullNodeSpeed && nullNodeSpeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Speed = null;
+            if (parseNode.GetChildNode("start_speaking_plan") is { } nullNodeStartSpeakingPlan && nullNodeStartSpeakingPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartSpeakingPlan = null;
+            if (parseNode.GetChildNode("stop_speaking_plan") is { } nullNodeStopSpeakingPlan && nullNodeStopSpeakingPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StopSpeakingPlan = null;
+            if (parseNode.GetChildNode("voice_volume") is { } nullNodeVoiceVolume && nullNodeVoiceVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceVolume = null;
+        }
+
         /// <summary>The accent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Accent { get; set; }
+        public string? Accent { get => _explicitNullValueAccent; set { _explicitNullValueAccent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accent"); else _explicitNullProperties?.Remove("accent"); } }
+        private string? _explicitNullValueAccent = default!;
 #nullable restore
 #else
-        public string Accent { get; set; }
+        public string Accent { get => _explicitNullValueAccent; set { _explicitNullValueAccent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accent"); else _explicitNullProperties?.Remove("accent"); } }
+        private string _explicitNullValueAccent = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The background_noise property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BackgroundNoise { get; set; }
+        public string? BackgroundNoise { get => _explicitNullValueBackgroundNoise; set { _explicitNullValueBackgroundNoise = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_noise"); else _explicitNullProperties?.Remove("background_noise"); } }
+        private string? _explicitNullValueBackgroundNoise = default!;
 #nullable restore
 #else
-        public string BackgroundNoise { get; set; }
+        public string BackgroundNoise { get => _explicitNullValueBackgroundNoise; set { _explicitNullValueBackgroundNoise = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_noise"); else _explicitNullProperties?.Remove("background_noise"); } }
+        private string _explicitNullValueBackgroundNoise = default!;
 #endif
         /// <summary>The background_sound_volume property</summary>
-        public double? BackgroundSoundVolume { get; set; }
+        public double? BackgroundSoundVolume { get => _explicitNullValueBackgroundSoundVolume; set { _explicitNullValueBackgroundSoundVolume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_sound_volume"); else _explicitNullProperties?.Remove("background_sound_volume"); } }
+        private double? _explicitNullValueBackgroundSoundVolume = default!;
         /// <summary>The effective_voice_volume property</summary>
-        public double? EffectiveVoiceVolume { get; set; }
+        public double? EffectiveVoiceVolume { get => _explicitNullValueEffectiveVoiceVolume; set { _explicitNullValueEffectiveVoiceVolume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_voice_volume"); else _explicitNullProperties?.Remove("effective_voice_volume"); } }
+        private double? _explicitNullValueEffectiveVoiceVolume = default!;
         /// <summary>The end_call_enabled property</summary>
-        public bool? EndCallEnabled { get; set; }
+        public bool? EndCallEnabled { get => _explicitNullValueEndCallEnabled; set { _explicitNullValueEndCallEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_call_enabled"); else _explicitNullProperties?.Remove("end_call_enabled"); } }
+        private bool? _explicitNullValueEndCallEnabled = default!;
         /// <summary>ID of the personality this one was forked from.</summary>
-        public int? ForkedFrom { get; set; }
+        public int? ForkedFrom { get => _explicitNullValueForkedFrom; set { _explicitNullValueForkedFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forked_from"); else _explicitNullProperties?.Remove("forked_from"); } }
+        private int? _explicitNullValueForkedFrom = default!;
         /// <summary>The generation_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityGenerationConfigProperty? GenerationConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityGenerationConfigProperty? GenerationConfig { get => _explicitNullValueGenerationConfig; set { _explicitNullValueGenerationConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generation_config"); else _explicitNullProperties?.Remove("generation_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityGenerationConfigProperty? _explicitNullValueGenerationConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityGenerationConfigProperty GenerationConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityGenerationConfigProperty GenerationConfig { get => _explicitNullValueGenerationConfig; set { _explicitNullValueGenerationConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generation_config"); else _explicitNullProperties?.Remove("generation_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityGenerationConfigProperty _explicitNullValueGenerationConfig = default!;
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private int? _explicitNullValueId = default!;
         /// <summary>How aggressively the personality interrupts the assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InterruptionLevel { get; set; }
+        public string? InterruptionLevel { get => _explicitNullValueInterruptionLevel; set { _explicitNullValueInterruptionLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruption_level"); else _explicitNullProperties?.Remove("interruption_level"); } }
+        private string? _explicitNullValueInterruptionLevel = default!;
 #nullable restore
 #else
-        public string InterruptionLevel { get; set; }
+        public string InterruptionLevel { get => _explicitNullValueInterruptionLevel; set { _explicitNullValueInterruptionLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruption_level"); else _explicitNullProperties?.Remove("interruption_level"); } }
+        private string _explicitNullValueInterruptionLevel = default!;
 #endif
         /// <summary>ISO language code the simulated caller speaks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Language { get; set; }
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string? _explicitNullValueLanguage = default!;
 #nullable restore
 #else
-        public string Language { get; set; }
+        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string _explicitNullValueLanguage = default!;
 #endif
         /// <summary>Idle-timeout plan for messages during a call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityMessagePlanProperty? MessagePlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityMessagePlanProperty? MessagePlan { get => _explicitNullValueMessagePlan; set { _explicitNullValueMessagePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_plan"); else _explicitNullProperties?.Remove("message_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityMessagePlanProperty? _explicitNullValueMessagePlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityMessagePlanProperty MessagePlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityMessagePlanProperty MessagePlan { get => _explicitNullValueMessagePlan; set { _explicitNullValueMessagePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_plan"); else _explicitNullProperties?.Remove("message_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityMessagePlanProperty _explicitNullValueMessagePlan = default!;
 #endif
         /// <summary>Display name of the personality.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The network_simulation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityNetworkSimulationProperty? NetworkSimulation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityNetworkSimulationProperty? NetworkSimulation { get => _explicitNullValueNetworkSimulation; set { _explicitNullValueNetworkSimulation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_simulation"); else _explicitNullProperties?.Remove("network_simulation"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityNetworkSimulationProperty? _explicitNullValueNetworkSimulation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityNetworkSimulationProperty NetworkSimulation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityNetworkSimulationProperty NetworkSimulation { get => _explicitNullValueNetworkSimulation; set { _explicitNullValueNetworkSimulation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_simulation"); else _explicitNullProperties?.Remove("network_simulation"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityNetworkSimulationProperty _explicitNullValueNetworkSimulation = default!;
 #endif
         /// <summary>The organization property</summary>
-        public int? Organization { get; set; }
+        public int? Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        private int? _explicitNullValueOrganization = default!;
         /// <summary>The project property</summary>
-        public int? Project { get; set; }
+        public int? Project { get => _explicitNullValueProject; set { _explicitNullValueProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project"); else _explicitNullProperties?.Remove("project"); } }
+        private int? _explicitNullValueProject = default!;
         /// <summary>Instructions the simulated caller follows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prompt { get; set; }
+        public string? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string? _explicitNullValuePrompt = default!;
 #nullable restore
 #else
-        public string Prompt { get; set; }
+        public string Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string _explicitNullValuePrompt = default!;
 #endif
         /// <summary>The speed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality.TestPersonality_speed? Speed { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Speed { get => _explicitNullValueSpeed; set { _explicitNullValueSpeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speed"); else _explicitNullProperties?.Remove("speed"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueSpeed = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality.TestPersonality_speed Speed { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Speed { get => _explicitNullValueSpeed; set { _explicitNullValueSpeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speed"); else _explicitNullProperties?.Remove("speed"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueSpeed = default!;
 #endif
         /// <summary>The start_speaking_plan property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan? StartSpeakingPlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan? StartSpeakingPlan { get => _explicitNullValueStartSpeakingPlan; set { _explicitNullValueStartSpeakingPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_speaking_plan"); else _explicitNullProperties?.Remove("start_speaking_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan? _explicitNullValueStartSpeakingPlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan StartSpeakingPlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan StartSpeakingPlan { get => _explicitNullValueStartSpeakingPlan; set { _explicitNullValueStartSpeakingPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_speaking_plan"); else _explicitNullProperties?.Remove("start_speaking_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan _explicitNullValueStartSpeakingPlan = default!;
 #endif
         /// <summary>The stop_speaking_plan property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty? StopSpeakingPlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty? StopSpeakingPlan { get => _explicitNullValueStopSpeakingPlan; set { _explicitNullValueStopSpeakingPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop_speaking_plan"); else _explicitNullProperties?.Remove("stop_speaking_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty? _explicitNullValueStopSpeakingPlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty StopSpeakingPlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty StopSpeakingPlan { get => _explicitNullValueStopSpeakingPlan; set { _explicitNullValueStopSpeakingPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop_speaking_plan"); else _explicitNullProperties?.Remove("stop_speaking_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty _explicitNullValueStopSpeakingPlan = default!;
 #endif
         /// <summary>The voice_volume property</summary>
-        public double? VoiceVolume { get; set; }
+        public double? VoiceVolume { get => _explicitNullValueVoiceVolume; set { _explicitNullValueVoiceVolume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_volume"); else _explicitNullProperties?.Remove("voice_volume"); } }
+        private double? _explicitNullValueVoiceVolume = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality"/> and sets the default values.
         /// </summary>
@@ -141,7 +200,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -167,7 +226,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "organization", n => { Organization = n.GetIntValue(); } },
                 { "project", n => { Project = n.GetIntValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "speed", n => { Speed = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality.TestPersonality_speed>(global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality.TestPersonality_speed.CreateFromDiscriminatorValue); } },
+                { "speed", n => { Speed = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "start_speaking_plan", n => { StartSpeakingPlan = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan>(global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan.CreateFromDiscriminatorValue); } },
                 { "stop_speaking_plan", n => { StopSpeakingPlan = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty.CreateFromDiscriminatorValue); } },
                 { "voice_volume", n => { VoiceVolume = n.GetDoubleValue(); } },
@@ -196,10 +255,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("organization", Organization);
             writer.WriteIntValue("project", Project);
             writer.WriteStringValue("prompt", Prompt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality.TestPersonality_speed>("speed", Speed);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("speed", Speed);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStartSpeakingPlan>("start_speaking_plan", StartSpeakingPlan);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonalityStopSpeakingPlanProperty>("stop_speaking_plan", StopSpeakingPlan);
             writer.WriteDoubleValue("voice_volume", VoiceVolume);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -233,13 +293,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality.TestPersonality_speed CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality.TestPersonality_speed();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TestPersonality.TestPersonality_speed();
-                if(parseNode.GetDoubleValue() is double doubleValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is (global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal) && parseNode.GetDoubleValue() is double doubleValue)
                 {
                     result.Double = doubleValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -266,6 +330,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Double == null && String == null && TestPersonalitySpeedMember1 == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Double != null)
                 {

@@ -55,6 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Carrier_approvals
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CarrierApprovalResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

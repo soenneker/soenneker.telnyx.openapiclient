@@ -53,6 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite.Item.I
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RcsTestNumberInviteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RcsTestNumberInviteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

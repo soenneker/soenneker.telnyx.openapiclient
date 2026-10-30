@@ -12,31 +12,60 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("after_greeting_silence_millis") is { } nullNodeAfterGreetingSilenceMillis && nullNodeAfterGreetingSilenceMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AfterGreetingSilenceMillis = null;
+            if (parseNode.GetChildNode("between_words_silence_millis") is { } nullNodeBetweenWordsSilenceMillis && nullNodeBetweenWordsSilenceMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BetweenWordsSilenceMillis = null;
+            if (parseNode.GetChildNode("greeting_duration_millis") is { } nullNodeGreetingDurationMillis && nullNodeGreetingDurationMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GreetingDurationMillis = null;
+            if (parseNode.GetChildNode("greeting_silence_duration_millis") is { } nullNodeGreetingSilenceDurationMillis && nullNodeGreetingSilenceDurationMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GreetingSilenceDurationMillis = null;
+            if (parseNode.GetChildNode("greeting_total_analysis_time_millis") is { } nullNodeGreetingTotalAnalysisTimeMillis && nullNodeGreetingTotalAnalysisTimeMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GreetingTotalAnalysisTimeMillis = null;
+            if (parseNode.GetChildNode("initial_silence_millis") is { } nullNodeInitialSilenceMillis && nullNodeInitialSilenceMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialSilenceMillis = null;
+            if (parseNode.GetChildNode("maximum_number_of_words") is { } nullNodeMaximumNumberOfWords && nullNodeMaximumNumberOfWords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumNumberOfWords = null;
+            if (parseNode.GetChildNode("maximum_word_length_millis") is { } nullNodeMaximumWordLengthMillis && nullNodeMaximumWordLengthMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumWordLengthMillis = null;
+            if (parseNode.GetChildNode("min_word_length_millis") is { } nullNodeMinWordLengthMillis && nullNodeMinWordLengthMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinWordLengthMillis = null;
+            if (parseNode.GetChildNode("silence_threshold") is { } nullNodeSilenceThreshold && nullNodeSilenceThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SilenceThreshold = null;
+            if (parseNode.GetChildNode("total_analysis_time_millis") is { } nullNodeTotalAnalysisTimeMillis && nullNodeTotalAnalysisTimeMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalAnalysisTimeMillis = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Duration of silence after greeting detection before finalizing the result.</summary>
-        public int? AfterGreetingSilenceMillis { get; set; }
+        public int? AfterGreetingSilenceMillis { get => _explicitNullValueAfterGreetingSilenceMillis; set { _explicitNullValueAfterGreetingSilenceMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("after_greeting_silence_millis"); else _explicitNullProperties?.Remove("after_greeting_silence_millis"); } }
+        private int? _explicitNullValueAfterGreetingSilenceMillis = default!;
         /// <summary>Maximum silence duration between words during greeting.</summary>
-        public int? BetweenWordsSilenceMillis { get; set; }
+        public int? BetweenWordsSilenceMillis { get => _explicitNullValueBetweenWordsSilenceMillis; set { _explicitNullValueBetweenWordsSilenceMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("between_words_silence_millis"); else _explicitNullProperties?.Remove("between_words_silence_millis"); } }
+        private int? _explicitNullValueBetweenWordsSilenceMillis = default!;
         /// <summary>Expected duration of greeting speech.</summary>
-        public int? GreetingDurationMillis { get; set; }
+        public int? GreetingDurationMillis { get => _explicitNullValueGreetingDurationMillis; set { _explicitNullValueGreetingDurationMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting_duration_millis"); else _explicitNullProperties?.Remove("greeting_duration_millis"); } }
+        private int? _explicitNullValueGreetingDurationMillis = default!;
         /// <summary>Duration of silence after the greeting to wait before considering the greeting complete.</summary>
-        public int? GreetingSilenceDurationMillis { get; set; }
+        public int? GreetingSilenceDurationMillis { get => _explicitNullValueGreetingSilenceDurationMillis; set { _explicitNullValueGreetingSilenceDurationMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting_silence_duration_millis"); else _explicitNullProperties?.Remove("greeting_silence_duration_millis"); } }
+        private int? _explicitNullValueGreetingSilenceDurationMillis = default!;
         /// <summary>Maximum time to spend analyzing the greeting.</summary>
-        public int? GreetingTotalAnalysisTimeMillis { get; set; }
+        public int? GreetingTotalAnalysisTimeMillis { get => _explicitNullValueGreetingTotalAnalysisTimeMillis; set { _explicitNullValueGreetingTotalAnalysisTimeMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting_total_analysis_time_millis"); else _explicitNullProperties?.Remove("greeting_total_analysis_time_millis"); } }
+        private int? _explicitNullValueGreetingTotalAnalysisTimeMillis = default!;
         /// <summary>Maximum silence duration at the start of the call before speech.</summary>
-        public int? InitialSilenceMillis { get; set; }
+        public int? InitialSilenceMillis { get => _explicitNullValueInitialSilenceMillis; set { _explicitNullValueInitialSilenceMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_silence_millis"); else _explicitNullProperties?.Remove("initial_silence_millis"); } }
+        private int? _explicitNullValueInitialSilenceMillis = default!;
         /// <summary>Maximum number of words expected in a human greeting.</summary>
-        public int? MaximumNumberOfWords { get; set; }
+        public int? MaximumNumberOfWords { get => _explicitNullValueMaximumNumberOfWords; set { _explicitNullValueMaximumNumberOfWords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_number_of_words"); else _explicitNullProperties?.Remove("maximum_number_of_words"); } }
+        private int? _explicitNullValueMaximumNumberOfWords = default!;
         /// <summary>Maximum duration of a single word.</summary>
-        public int? MaximumWordLengthMillis { get; set; }
+        public int? MaximumWordLengthMillis { get => _explicitNullValueMaximumWordLengthMillis; set { _explicitNullValueMaximumWordLengthMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_word_length_millis"); else _explicitNullProperties?.Remove("maximum_word_length_millis"); } }
+        private int? _explicitNullValueMaximumWordLengthMillis = default!;
         /// <summary>Minimum duration for audio to be considered a word.</summary>
-        public int? MinWordLengthMillis { get; set; }
+        public int? MinWordLengthMillis { get => _explicitNullValueMinWordLengthMillis; set { _explicitNullValueMinWordLengthMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_word_length_millis"); else _explicitNullProperties?.Remove("min_word_length_millis"); } }
+        private int? _explicitNullValueMinWordLengthMillis = default!;
         /// <summary>Audio level threshold for silence detection.</summary>
-        public int? SilenceThreshold { get; set; }
+        public int? SilenceThreshold { get => _explicitNullValueSilenceThreshold; set { _explicitNullValueSilenceThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("silence_threshold"); else _explicitNullProperties?.Remove("silence_threshold"); } }
+        private int? _explicitNullValueSilenceThreshold = default!;
         /// <summary>Total time allowed for AMD analysis.</summary>
-        public int? TotalAnalysisTimeMillis { get; set; }
+        public int? TotalAnalysisTimeMillis { get => _explicitNullValueTotalAnalysisTimeMillis; set { _explicitNullValueTotalAnalysisTimeMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_analysis_time_millis"); else _explicitNullProperties?.Remove("total_analysis_time_millis"); } }
+        private int? _explicitNullValueTotalAnalysisTimeMillis = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig"/> and sets the default values.
         /// </summary>
@@ -52,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("min_word_length_millis", MinWordLengthMillis);
             writer.WriteIntValue("silence_threshold", SilenceThreshold);
             writer.WriteIntValue("total_analysis_time_millis", TotalAnalysisTimeMillis);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

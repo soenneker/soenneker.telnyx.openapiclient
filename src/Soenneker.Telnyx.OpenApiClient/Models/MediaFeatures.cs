@@ -12,15 +12,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MediaFeatures : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accept_any_rtp_packets_enabled") is { } nullNodeAcceptAnyRtpPacketsEnabled && nullNodeAcceptAnyRtpPacketsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptAnyRtpPacketsEnabled = null;
+            if (parseNode.GetChildNode("rtp_auto_adjust_enabled") is { } nullNodeRtpAutoAdjustEnabled && nullNodeRtpAutoAdjustEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RtpAutoAdjustEnabled = null;
+            if (parseNode.GetChildNode("t38_fax_gateway_enabled") is { } nullNodeT38FaxGatewayEnabled && nullNodeT38FaxGatewayEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) T38FaxGatewayEnabled = null;
+        }
+
         /// <summary>When enabled, Telnyx will accept RTP packets from any customer-side IP address and port, not just those to which Telnyx is sending RTP.</summary>
-        public bool? AcceptAnyRtpPacketsEnabled { get; set; }
+        public bool? AcceptAnyRtpPacketsEnabled { get => _explicitNullValueAcceptAnyRtpPacketsEnabled; set { _explicitNullValueAcceptAnyRtpPacketsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accept_any_rtp_packets_enabled"); else _explicitNullProperties?.Remove("accept_any_rtp_packets_enabled"); } }
+        private bool? _explicitNullValueAcceptAnyRtpPacketsEnabled = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When RTP Auto-Adjust is enabled, the destination RTP address port will be automatically changed to match the source of the incoming RTP packets.</summary>
-        public bool? RtpAutoAdjustEnabled { get; set; }
+        public bool? RtpAutoAdjustEnabled { get => _explicitNullValueRtpAutoAdjustEnabled; set { _explicitNullValueRtpAutoAdjustEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rtp_auto_adjust_enabled"); else _explicitNullProperties?.Remove("rtp_auto_adjust_enabled"); } }
+        private bool? _explicitNullValueRtpAutoAdjustEnabled = default!;
         /// <summary>Controls whether Telnyx will accept a T.38 re-INVITE for this phone number. Note that Telnyx will not send a T.38 re-INVITE; this option only controls whether one will be accepted.</summary>
-        public bool? T38FaxGatewayEnabled { get; set; }
+        public bool? T38FaxGatewayEnabled { get => _explicitNullValueT38FaxGatewayEnabled; set { _explicitNullValueT38FaxGatewayEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("t38_fax_gateway_enabled"); else _explicitNullProperties?.Remove("t38_fax_gateway_enabled"); } }
+        private bool? _explicitNullValueT38FaxGatewayEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures"/> and sets the default values.
         /// </summary>
@@ -39,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("accept_any_rtp_packets_enabled", AcceptAnyRtpPacketsEnabled);
             writer.WriteBoolValue("rtp_auto_adjust_enabled", RtpAutoAdjustEnabled);
             writer.WriteBoolValue("t38_fax_gateway_enabled", T38FaxGatewayEnabled);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

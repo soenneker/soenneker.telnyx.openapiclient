@@ -12,13 +12,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SimCardGroupActionSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("private_wireless_gateway_id") is { } nullNodePrivateWirelessGatewayId && nullNodePrivateWirelessGatewayId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateWirelessGatewayId = null;
+            if (parseNode.GetChildNode("wireless_blocklist_id") is { } nullNodeWirelessBlocklistId && nullNodeWirelessBlocklistId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WirelessBlocklistId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The identification of the related Private Wireless Gateway resource.</summary>
-        public Guid? PrivateWirelessGatewayId { get; set; }
+        public Guid? PrivateWirelessGatewayId { get => _explicitNullValuePrivateWirelessGatewayId; set { _explicitNullValuePrivateWirelessGatewayId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_wireless_gateway_id"); else _explicitNullProperties?.Remove("private_wireless_gateway_id"); } }
+        private Guid? _explicitNullValuePrivateWirelessGatewayId = default!;
         /// <summary>The identification of the related Wireless Blocklist resource.</summary>
-        public Guid? WirelessBlocklistId { get; set; }
+        public Guid? WirelessBlocklistId { get => _explicitNullValueWirelessBlocklistId; set { _explicitNullValueWirelessBlocklistId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireless_blocklist_id"); else _explicitNullProperties?.Remove("wireless_blocklist_id"); } }
+        private Guid? _explicitNullValueWirelessBlocklistId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SimCardGroupActionSettings"/> and sets the default values.
         /// </summary>
@@ -34,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SimCardGroupActionSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SimCardGroupActionSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SimCardGroupActionSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,6 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("private_wireless_gateway_id", PrivateWirelessGatewayId);
             writer.WriteGuidValue("wireless_blocklist_id", WirelessBlocklistId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

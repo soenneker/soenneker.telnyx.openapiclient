@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Browser_sessions.Item.Actions
         /// <summary>
         /// Executes a browser action on the session. Returns 200 if completed within wait_seconds, 202 if still in-flight.Action types: navigate, observe, click, fill, select, press, scroll, wait_for, screenshot, batch.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserAction200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserActionSuccessResponse"/></returns>
         /// <param name="body">Discriminated union on type. Variants are strict: unknown fields are rejected with 400. Reusing an idempotency_key with an identical request replays the original resource; with a different request it returns 409 idempotency_conflict.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,11 +60,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Browser_sessions.Item.Actions
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserAction200Response?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ActionRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Browser_sessions.Item.Actions.ActionsRequestBuilder.ActionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserActionSuccessResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ActionRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Browser_sessions.Item.Actions.ActionsRequestBuilder.ActionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserAction200Response> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ActionRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Browser_sessions.Item.Actions.ActionsRequestBuilder.ActionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserActionSuccessResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ActionRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Browser_sessions.Item.Actions.ActionsRequestBuilder.ActionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -76,8 +76,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Browser_sessions.Item.Actions
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserAction200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserAction200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserActionSuccessResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ExecuteBrowserActionSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Executes a browser action on the session. Returns 200 if completed within wait_seconds, 202 if still in-flight.Action types: navigate, observe, click, fill, select, press, scroll, wait_for, screenshot, batch.

@@ -55,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Campaign.Item.Osr_attributes
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CampaignsHttpValidationError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcErrors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetCampaignOsrAttributes2200ResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetCampaignOsrAttributes2200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

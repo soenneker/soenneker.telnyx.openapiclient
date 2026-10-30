@@ -11,43 +11,64 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GlobalIpLatencyMetric : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("global_ip") is { } nullNodeGlobalIp && nullNodeGlobalIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIp = null;
+            if (parseNode.GetChildNode("mean_latency") is { } nullNodeMeanLatency && nullNodeMeanLatency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MeanLatency = null;
+            if (parseNode.GetChildNode("percentile_latency") is { } nullNodePercentileLatency && nullNodePercentileLatency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PercentileLatency = null;
+            if (parseNode.GetChildNode("prober_location") is { } nullNodeProberLocation && nullNodeProberLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProberLocation = null;
+            if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The global_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricGlobalIp? GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricGlobalIp? GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricGlobalIp? _explicitNullValueGlobalIp = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricGlobalIp GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricGlobalIp GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricGlobalIp _explicitNullValueGlobalIp = default!;
 #endif
         /// <summary>The mean_latency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricMeanLatency? MeanLatency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricMeanLatency? MeanLatency { get => _explicitNullValueMeanLatency; set { _explicitNullValueMeanLatency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mean_latency"); else _explicitNullProperties?.Remove("mean_latency"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricMeanLatency? _explicitNullValueMeanLatency = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricMeanLatency MeanLatency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricMeanLatency MeanLatency { get => _explicitNullValueMeanLatency; set { _explicitNullValueMeanLatency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mean_latency"); else _explicitNullProperties?.Remove("mean_latency"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricMeanLatency _explicitNullValueMeanLatency = default!;
 #endif
         /// <summary>The percentile_latency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricPercentileLatency? PercentileLatency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricPercentileLatency? PercentileLatency { get => _explicitNullValuePercentileLatency; set { _explicitNullValuePercentileLatency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percentile_latency"); else _explicitNullProperties?.Remove("percentile_latency"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricPercentileLatency? _explicitNullValuePercentileLatency = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricPercentileLatency PercentileLatency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricPercentileLatency PercentileLatency { get => _explicitNullValuePercentileLatency; set { _explicitNullValuePercentileLatency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percentile_latency"); else _explicitNullProperties?.Remove("percentile_latency"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricPercentileLatency _explicitNullValuePercentileLatency = default!;
 #endif
         /// <summary>The prober_location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricProberLocation? ProberLocation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricProberLocation? ProberLocation { get => _explicitNullValueProberLocation; set { _explicitNullValueProberLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prober_location"); else _explicitNullProperties?.Remove("prober_location"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricProberLocation? _explicitNullValueProberLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricProberLocation ProberLocation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricProberLocation ProberLocation { get => _explicitNullValueProberLocation; set { _explicitNullValueProberLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prober_location"); else _explicitNullProperties?.Remove("prober_location"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricProberLocation _explicitNullValueProberLocation = default!;
 #endif
         /// <summary>The timestamp of the metric.</summary>
-        public DateTimeOffset? Timestamp { get; set; }
+        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        private DateTimeOffset? _explicitNullValueTimestamp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric"/> and sets the default values.
         /// </summary>
@@ -63,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricPercentileLatency>("percentile_latency", PercentileLatency);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetricProberLocation>("prober_location", ProberLocation);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

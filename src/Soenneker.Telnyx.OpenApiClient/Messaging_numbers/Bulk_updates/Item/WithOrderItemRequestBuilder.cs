@@ -53,6 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers.Bulk_updates.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetBulkUpdateMessagingSettingsOnPhoneNumbersStatus200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetBulkUpdateMessagingSettingsOnPhoneNumbersStatus200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

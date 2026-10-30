@@ -11,61 +11,105 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class StartRecordingRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("channels") is { } nullNodeChannels && nullNodeChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Channels = null;
+            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("custom_file_name") is { } nullNodeCustomFileName && nullNodeCustomFileName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomFileName = null;
+            if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
+            if (parseNode.GetChildNode("max_length") is { } nullNodeMaxLength && nullNodeMaxLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxLength = null;
+            if (parseNode.GetChildNode("play_beep") is { } nullNodePlayBeep && nullNodePlayBeep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlayBeep = null;
+            if (parseNode.GetChildNode("recording_track") is { } nullNodeRecordingTrack && nullNodeRecordingTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingTrack = null;
+            if (parseNode.GetChildNode("timeout_secs") is { } nullNodeTimeoutSecs && nullNodeTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutSecs = null;
+            if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
+            if (parseNode.GetChildNode("transcription_engine") is { } nullNodeTranscriptionEngine && nullNodeTranscriptionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngine = null;
+            if (parseNode.GetChildNode("transcription_language") is { } nullNodeTranscriptionLanguage && nullNodeTranscriptionLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionLanguage = null;
+            if (parseNode.GetChildNode("transcription_max_speaker_count") is { } nullNodeTranscriptionMaxSpeakerCount && nullNodeTranscriptionMaxSpeakerCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionMaxSpeakerCount = null;
+            if (parseNode.GetChildNode("transcription_min_speaker_count") is { } nullNodeTranscriptionMinSpeakerCount && nullNodeTranscriptionMinSpeakerCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionMinSpeakerCount = null;
+            if (parseNode.GetChildNode("transcription_profanity_filter") is { } nullNodeTranscriptionProfanityFilter && nullNodeTranscriptionProfanityFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionProfanityFilter = null;
+            if (parseNode.GetChildNode("transcription_speaker_diarization") is { } nullNodeTranscriptionSpeakerDiarization && nullNodeTranscriptionSpeakerDiarization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionSpeakerDiarization = null;
+            if (parseNode.GetChildNode("trim") is { } nullNodeTrim && nullNodeTrim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trim = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When `dual`, final audio file will be stereo recorded with the first leg on channel A, and the rest on channel B.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestChannels? Channels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestChannels? Channels { get => _explicitNullValueChannels; set { _explicitNullValueChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channels"); else _explicitNullProperties?.Remove("channels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestChannels? _explicitNullValueChannels = default!;
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get; set; }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get; set; }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomFileName { get; set; }
+        public string? CustomFileName { get => _explicitNullValueCustomFileName; set { _explicitNullValueCustomFileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_file_name"); else _explicitNullProperties?.Remove("custom_file_name"); } }
+        private string? _explicitNullValueCustomFileName = default!;
 #nullable restore
 #else
-        public string CustomFileName { get; set; }
+        public string CustomFileName { get => _explicitNullValueCustomFileName; set { _explicitNullValueCustomFileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_file_name"); else _explicitNullProperties?.Remove("custom_file_name"); } }
+        private string _explicitNullValueCustomFileName = default!;
 #endif
         /// <summary>The audio file format used when storing the call recording. Can be either `mp3` or `wav`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestFormat? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestFormat? Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestFormat? _explicitNullValueFormat = default!;
         /// <summary>Defines the maximum length for the recording in seconds. The minimum value is 0. The maximum value is 14400. The default value is 0 (infinite)</summary>
-        public int? MaxLength { get; set; }
+        public int? MaxLength { get => _explicitNullValueMaxLength; set { _explicitNullValueMaxLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_length"); else _explicitNullProperties?.Remove("max_length"); } }
+        private int? _explicitNullValueMaxLength = default!;
         /// <summary>If enabled, a beep sound will be played at the start of a recording.</summary>
-        public bool? PlayBeep { get; set; }
+        public bool? PlayBeep { get => _explicitNullValuePlayBeep; set { _explicitNullValuePlayBeep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("play_beep"); else _explicitNullProperties?.Remove("play_beep"); } }
+        private bool? _explicitNullValuePlayBeep = default!;
         /// <summary>The audio track to be recorded. Can be either `both`, `inbound` or `outbound`. If only single track is specified (`inbound`, `outbound`), `channels` configuration is ignored and it will be recorded as mono (single channel).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack? RecordingTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack? RecordingTrack { get => _explicitNullValueRecordingTrack; set { _explicitNullValueRecordingTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_track"); else _explicitNullProperties?.Remove("recording_track"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack? _explicitNullValueRecordingTrack = default!;
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected. The timer only starts when the speech is detected. Please note that call transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite)</summary>
-        public int? TimeoutSecs { get; set; }
+        public int? TimeoutSecs { get => _explicitNullValueTimeoutSecs; set { _explicitNullValueTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_secs"); else _explicitNullProperties?.Remove("timeout_secs"); } }
+        private int? _explicitNullValueTimeoutSecs = default!;
         /// <summary>Enable post recording transcription. The default value is false.</summary>
-        public bool? Transcription { get; set; }
+        public bool? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        private bool? _explicitNullValueTranscription = default!;
         /// <summary>Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`, `deepgram/nova-3` - `Deepgram Nova-3`. Note: `deepgram/nova-3` supports only `en` and `en-{Region}` languages.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine? _explicitNullValueTranscriptionEngine = default!;
         /// <summary>Language code for transcription. Note: Not all languages are supported by all transcription engines (google, telnyx, deepgram). See engine-specific documentation for supported values.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionLanguage? TranscriptionLanguage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionLanguage? TranscriptionLanguage { get => _explicitNullValueTranscriptionLanguage; set { _explicitNullValueTranscriptionLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_language"); else _explicitNullProperties?.Remove("transcription_language"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionLanguage? _explicitNullValueTranscriptionLanguage = default!;
         /// <summary>Defines maximum number of speakers in the conversation. Applies to `google` engine only.</summary>
-        public int? TranscriptionMaxSpeakerCount { get; set; }
+        public int? TranscriptionMaxSpeakerCount { get => _explicitNullValueTranscriptionMaxSpeakerCount; set { _explicitNullValueTranscriptionMaxSpeakerCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_max_speaker_count"); else _explicitNullProperties?.Remove("transcription_max_speaker_count"); } }
+        private int? _explicitNullValueTranscriptionMaxSpeakerCount = default!;
         /// <summary>Defines minimum number of speakers in the conversation. Applies to `google` engine only.</summary>
-        public int? TranscriptionMinSpeakerCount { get; set; }
+        public int? TranscriptionMinSpeakerCount { get => _explicitNullValueTranscriptionMinSpeakerCount; set { _explicitNullValueTranscriptionMinSpeakerCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_min_speaker_count"); else _explicitNullProperties?.Remove("transcription_min_speaker_count"); } }
+        private int? _explicitNullValueTranscriptionMinSpeakerCount = default!;
         /// <summary>Enables profanity_filter. Applies to `google` engine only.</summary>
-        public bool? TranscriptionProfanityFilter { get; set; }
+        public bool? TranscriptionProfanityFilter { get => _explicitNullValueTranscriptionProfanityFilter; set { _explicitNullValueTranscriptionProfanityFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_profanity_filter"); else _explicitNullProperties?.Remove("transcription_profanity_filter"); } }
+        private bool? _explicitNullValueTranscriptionProfanityFilter = default!;
         /// <summary>Enables speaker diarization. Applies to `google` engine only.</summary>
-        public bool? TranscriptionSpeakerDiarization { get; set; }
+        public bool? TranscriptionSpeakerDiarization { get => _explicitNullValueTranscriptionSpeakerDiarization; set { _explicitNullValueTranscriptionSpeakerDiarization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_speaker_diarization"); else _explicitNullProperties?.Remove("transcription_speaker_diarization"); } }
+        private bool? _explicitNullValueTranscriptionSpeakerDiarization = default!;
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim? Trim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim? Trim { get => _explicitNullValueTrim; set { _explicitNullValueTrim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trim"); else _explicitNullProperties?.Remove("trim"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim? _explicitNullValueTrim = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest"/> and sets the default values.
         /// </summary>
@@ -88,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -141,6 +185,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("transcription_profanity_filter", TranscriptionProfanityFilter);
             writer.WriteBoolValue("transcription_speaker_diarization", TranscriptionSpeakerDiarization);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim>("trim", Trim);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

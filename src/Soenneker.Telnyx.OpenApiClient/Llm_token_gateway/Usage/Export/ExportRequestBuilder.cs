@@ -73,6 +73,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Llm_token_gateway.Usage.Export
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayError.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Telnyx.OpenApiClient.Models.AiGatewayResourcesError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportPage>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

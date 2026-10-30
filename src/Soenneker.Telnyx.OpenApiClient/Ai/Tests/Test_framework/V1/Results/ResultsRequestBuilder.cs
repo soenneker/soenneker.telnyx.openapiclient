@@ -76,6 +76,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Tests.Test_framework.V1.Results
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.AiTestsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Telnyx.OpenApiClient.Models.AiTestsErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.AiTestsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

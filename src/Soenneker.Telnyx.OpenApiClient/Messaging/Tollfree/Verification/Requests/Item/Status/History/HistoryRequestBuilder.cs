@@ -53,6 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Tollfree.Verification.Request
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationErrors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedVerificationStatusHistoryEntry>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedVerificationStatusHistoryEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

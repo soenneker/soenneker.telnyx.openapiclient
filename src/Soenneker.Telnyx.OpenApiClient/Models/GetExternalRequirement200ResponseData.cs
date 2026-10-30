@@ -11,26 +11,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetExternalRequirement200ResponseData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("fields_required") is { } nullNodeFieldsRequired && nullNodeFieldsRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldsRequired = null;
+            if (parseNode.GetChildNode("regulatory_requirement_id") is { } nullNodeRegulatoryRequirementId && nullNodeRegulatoryRequirementId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulatoryRequirementId = null;
+            if (parseNode.GetChildNode("requirement_action") is { } nullNodeRequirementAction && nullNodeRequirementAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementAction = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fields the end user must provide to fulfill this requirement.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataFieldsRequiredItem>? FieldsRequired { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataFieldsRequiredItem>? FieldsRequired { get => _explicitNullValueFieldsRequired; set { _explicitNullValueFieldsRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields_required"); else _explicitNullProperties?.Remove("fields_required"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataFieldsRequiredItem>? _explicitNullValueFieldsRequired = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataFieldsRequiredItem> FieldsRequired { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataFieldsRequiredItem> FieldsRequired { get => _explicitNullValueFieldsRequired; set { _explicitNullValueFieldsRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields_required"); else _explicitNullProperties?.Remove("fields_required"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataFieldsRequiredItem> _explicitNullValueFieldsRequired = default!;
 #endif
         /// <summary>The regulatory_requirement_id property</summary>
-        public Guid? RegulatoryRequirementId { get; set; }
+        public Guid? RegulatoryRequirementId { get => _explicitNullValueRegulatoryRequirementId; set { _explicitNullValueRegulatoryRequirementId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirement_id"); else _explicitNullProperties?.Remove("regulatory_requirement_id"); } }
+        private Guid? _explicitNullValueRegulatoryRequirementId = default!;
         /// <summary>The requirement_action property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataRequirementAction? RequirementAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataRequirementAction? RequirementAction { get => _explicitNullValueRequirementAction; set { _explicitNullValueRequirementAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_action"); else _explicitNullProperties?.Remove("requirement_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataRequirementAction? _explicitNullValueRequirementAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataRequirementAction RequirementAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataRequirementAction RequirementAction { get => _explicitNullValueRequirementAction; set { _explicitNullValueRequirementAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_action"); else _explicitNullProperties?.Remove("requirement_action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataRequirementAction _explicitNullValueRequirementAction = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseData"/> and sets the default values.
@@ -47,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataFieldsRequiredItem>("fields_required", FieldsRequired);
             writer.WriteGuidValue("regulatory_requirement_id", RegulatoryRequirementId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalRequirement200ResponseDataRequirementAction>("requirement_action", RequirementAction);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

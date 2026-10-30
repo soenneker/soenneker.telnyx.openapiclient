@@ -11,35 +11,58 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TexmlCreateCallRecordingRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("PlayBeep") is { } nullNodePlayBeep && nullNodePlayBeep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlayBeep = null;
+            if (parseNode.GetChildNode("RecordingChannels") is { } nullNodeRecordingChannels && nullNodeRecordingChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingChannels = null;
+            if (parseNode.GetChildNode("RecordingStatusCallback") is { } nullNodeRecordingStatusCallback && nullNodeRecordingStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStatusCallback = null;
+            if (parseNode.GetChildNode("RecordingStatusCallbackEvent") is { } nullNodeRecordingStatusCallbackEvent && nullNodeRecordingStatusCallbackEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStatusCallbackEvent = null;
+            if (parseNode.GetChildNode("RecordingStatusCallbackMethod") is { } nullNodeRecordingStatusCallbackMethod && nullNodeRecordingStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStatusCallbackMethod = null;
+            if (parseNode.GetChildNode("RecordingTrack") is { } nullNodeRecordingTrack && nullNodeRecordingTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingTrack = null;
+            if (parseNode.GetChildNode("SendRecordingUrl") is { } nullNodeSendRecordingUrl && nullNodeSendRecordingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendRecordingUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to play a beep when recording is started.</summary>
-        public bool? PlayBeep { get; set; }
+        public bool? PlayBeep { get => _explicitNullValuePlayBeep; set { _explicitNullValuePlayBeep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("PlayBeep"); else _explicitNullProperties?.Remove("PlayBeep"); } }
+        private bool? _explicitNullValuePlayBeep = default!;
         /// <summary>When `dual`, final audio file has the first leg on channel A, and the rest on channel B. `single` mixes both tracks into a single channel.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels? RecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels? RecordingChannels { get => _explicitNullValueRecordingChannels; set { _explicitNullValueRecordingChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingChannels"); else _explicitNullProperties?.Remove("RecordingChannels"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels? _explicitNullValueRecordingChannels = default!;
         /// <summary>Url where status callbacks will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordingStatusCallback { get; set; }
+        public string? RecordingStatusCallback { get => _explicitNullValueRecordingStatusCallback; set { _explicitNullValueRecordingStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallback"); else _explicitNullProperties?.Remove("RecordingStatusCallback"); } }
+        private string? _explicitNullValueRecordingStatusCallback = default!;
 #nullable restore
 #else
-        public string RecordingStatusCallback { get; set; }
+        public string RecordingStatusCallback { get => _explicitNullValueRecordingStatusCallback; set { _explicitNullValueRecordingStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallback"); else _explicitNullProperties?.Remove("RecordingStatusCallback"); } }
+        private string _explicitNullValueRecordingStatusCallback = default!;
 #endif
         /// <summary>The changes to the recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordingStatusCallbackEvent { get; set; }
+        public string? RecordingStatusCallbackEvent { get => _explicitNullValueRecordingStatusCallbackEvent; set { _explicitNullValueRecordingStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallbackEvent"); else _explicitNullProperties?.Remove("RecordingStatusCallbackEvent"); } }
+        private string? _explicitNullValueRecordingStatusCallbackEvent = default!;
 #nullable restore
 #else
-        public string RecordingStatusCallbackEvent { get; set; }
+        public string RecordingStatusCallbackEvent { get => _explicitNullValueRecordingStatusCallbackEvent; set { _explicitNullValueRecordingStatusCallbackEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallbackEvent"); else _explicitNullProperties?.Remove("RecordingStatusCallbackEvent"); } }
+        private string _explicitNullValueRecordingStatusCallbackEvent = default!;
 #endif
         /// <summary>HTTP method used to send status callbacks.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? RecordingStatusCallbackMethod { get => _explicitNullValueRecordingStatusCallbackMethod; set { _explicitNullValueRecordingStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatusCallbackMethod"); else _explicitNullProperties?.Remove("RecordingStatusCallbackMethod"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? _explicitNullValueRecordingStatusCallbackMethod = default!;
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack? RecordingTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack? RecordingTrack { get => _explicitNullValueRecordingTrack; set { _explicitNullValueRecordingTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingTrack"); else _explicitNullProperties?.Remove("RecordingTrack"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack? _explicitNullValueRecordingTrack = default!;
         /// <summary>Whether to send RecordingUrl in webhooks.</summary>
-        public bool? SendRecordingUrl { get; set; }
+        public bool? SendRecordingUrl { get => _explicitNullValueSendRecordingUrl; set { _explicitNullValueSendRecordingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SendRecordingUrl"); else _explicitNullProperties?.Remove("SendRecordingUrl"); } }
+        private bool? _explicitNullValueSendRecordingUrl = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody"/> and sets the default values.
         /// </summary>
@@ -57,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,6 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>("RecordingTrack", RecordingTrack);
             writer.WriteBoolValue("SendRecordingUrl", SendRecordingUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,29 +11,51 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NumberReputationNumberRemovedEventDataPayload : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enterprise_id") is { } nullNodeEnterpriseId && nullNodeEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnterpriseId = null;
+            if (parseNode.GetChildNode("ownership_status") is { } nullNodeOwnershipStatus && nullNodeOwnershipStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnershipStatus = null;
+            if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("removal_reason") is { } nullNodeRemovalReason && nullNodeRemovalReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovalReason = null;
+            if (parseNode.GetChildNode("removed_at") is { } nullNodeRemovedAt && nullNodeRemovedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedAt = null;
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The enterprise_id property</summary>
-        public Guid? EnterpriseId { get; set; }
+        public Guid? EnterpriseId { get => _explicitNullValueEnterpriseId; set { _explicitNullValueEnterpriseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_id"); else _explicitNullProperties?.Remove("enterprise_id"); } }
+        private Guid? _explicitNullValueEnterpriseId = default!;
         /// <summary>The ownership_status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RemovedOwnershipStatus? OwnershipStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RemovedOwnershipStatus? OwnershipStatus { get => _explicitNullValueOwnershipStatus; set { _explicitNullValueOwnershipStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ownership_status"); else _explicitNullProperties?.Remove("ownership_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RemovedOwnershipStatus? _explicitNullValueOwnershipStatus = default!;
         /// <summary>The phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get; set; }
+        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private string? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private string _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberRecordType? _explicitNullValueRecordType = default!;
         /// <summary>`ported_away`: you confirmed you no longer own it after a carrier change. `unconfirmed_ownership`: the confirmation deadline passed. `reassigned`: the number was reported as permanently disconnected. `customer_reported`: you reported that you no longer own it. Removing a number yourself with `DELETE` sends no event.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationNumberRemovedEventDataPayloadRemovalReason? RemovalReason { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationNumberRemovedEventDataPayloadRemovalReason? RemovalReason { get => _explicitNullValueRemovalReason; set { _explicitNullValueRemovalReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removal_reason"); else _explicitNullProperties?.Remove("removal_reason"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationNumberRemovedEventDataPayloadRemovalReason? _explicitNullValueRemovalReason = default!;
         /// <summary>The removed_at property</summary>
-        public DateTimeOffset? RemovedAt { get; set; }
+        public DateTimeOffset? RemovedAt { get => _explicitNullValueRemovedAt; set { _explicitNullValueRemovedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed_at"); else _explicitNullProperties?.Remove("removed_at"); } }
+        private DateTimeOffset? _explicitNullValueRemovedAt = default!;
         /// <summary>Where the phone number is hosted. `telnyx`: in your Telnyx inventory. `external`: a number you own that is hosted with another provider.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? _explicitNullValueSource = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationNumberRemovedEventDataPayload"/> and sets the default values.
         /// </summary>
@@ -49,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationNumberRemovedEventDataPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationNumberRemovedEventDataPayload();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationNumberRemovedEventDataPayload(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberReputationNumberRemovedEventDataPayloadRemovalReason>("removal_reason", RemovalReason);
             writer.WriteDateTimeOffsetValue("removed_at", RemovedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource>("source", Source);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

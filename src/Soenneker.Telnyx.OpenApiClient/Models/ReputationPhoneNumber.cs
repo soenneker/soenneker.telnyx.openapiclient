@@ -11,49 +11,77 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReputationPhoneNumber : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("confirm_by") is { } nullNodeConfirmBy && nullNodeConfirmBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmBy = null;
+            if (parseNode.GetChildNode("enterprise_id") is { } nullNodeEnterpriseId && nullNodeEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnterpriseId = null;
+            if (parseNode.GetChildNode("flag_reason") is { } nullNodeFlagReason && nullNodeFlagReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlagReason = null;
+            if (parseNode.GetChildNode("ownership_status") is { } nullNodeOwnershipStatus && nullNodeOwnershipStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnershipStatus = null;
+            if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("removal_reason") is { } nullNodeRemovalReason && nullNodeRemovalReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovalReason = null;
+            if (parseNode.GetChildNode("removed_at") is { } nullNodeRemovedAt && nullNodeRemovedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedAt = null;
+            if (parseNode.GetChildNode("reputation_data") is { } nullNodeReputationData && nullNodeReputationData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReputationData = null;
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Deadline to confirm you still own the number. Set only while `ownership_status` is `pending_confirmation`.</summary>
-        public DateTimeOffset? ConfirmBy { get; set; }
+        public DateTimeOffset? ConfirmBy { get => _explicitNullValueConfirmBy; set { _explicitNullValueConfirmBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirm_by"); else _explicitNullProperties?.Remove("confirm_by"); } }
+        private DateTimeOffset? _explicitNullValueConfirmBy = default!;
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The enterprise_id property</summary>
-        public Guid? EnterpriseId { get; set; }
+        public Guid? EnterpriseId { get => _explicitNullValueEnterpriseId; set { _explicitNullValueEnterpriseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_id"); else _explicitNullProperties?.Remove("enterprise_id"); } }
+        private Guid? _explicitNullValueEnterpriseId = default!;
         /// <summary>Why the number&apos;s ownership was flagged. `carrier_changed` when an ownership check found the number with a different carrier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlagReason { get; set; }
+        public string? FlagReason { get => _explicitNullValueFlagReason; set { _explicitNullValueFlagReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flag_reason"); else _explicitNullProperties?.Remove("flag_reason"); } }
+        private string? _explicitNullValueFlagReason = default!;
 #nullable restore
 #else
-        public string FlagReason { get; set; }
+        public string FlagReason { get => _explicitNullValueFlagReason; set { _explicitNullValueFlagReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flag_reason"); else _explicitNullProperties?.Remove("flag_reason"); } }
+        private string _explicitNullValueFlagReason = default!;
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
         /// <summary>Result of ongoing ownership checks. `verified`: the number is with the carrier on record. `pending_confirmation`: the number&apos;s carrier changed, or a periodic ownership re-verification is due; confirm you still own it before `confirm_by`. `flagged`: a periodic re-verification went unanswered; the number stays monitored and is not removed, but confirm ownership (`POST .../ownership_confirm`) to return it to `verified`. `removed`: the number is no longer monitored; returned by `POST .../ownership_confirm` with `still_own: false`, and when listing numbers with `filter[ownership_status]=removed`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus? OwnershipStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus? OwnershipStatus { get => _explicitNullValueOwnershipStatus; set { _explicitNullValueOwnershipStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ownership_status"); else _explicitNullProperties?.Remove("ownership_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationOwnershipStatus? _explicitNullValueOwnershipStatus = default!;
         /// <summary>E.164 with leading `+`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get; set; }
+        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private string? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private string _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>Why the number was removed. Set only for removed numbers.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReason? RemovalReason { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReason? RemovalReason { get => _explicitNullValueRemovalReason; set { _explicitNullValueRemovalReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removal_reason"); else _explicitNullProperties?.Remove("removal_reason"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReason? _explicitNullValueRemovalReason = default!;
         /// <summary>When the number was removed. Set only for removed numbers.</summary>
-        public DateTimeOffset? RemovedAt { get; set; }
+        public DateTimeOffset? RemovedAt { get => _explicitNullValueRemovedAt; set { _explicitNullValueRemovedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed_at"); else _explicitNullProperties?.Remove("removed_at"); } }
+        private DateTimeOffset? _explicitNullValueRemovedAt = default!;
         /// <summary>`null` until the first refresh has been collected for this number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData? ReputationData { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData? ReputationData { get => _explicitNullValueReputationData; set { _explicitNullValueReputationData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reputation_data"); else _explicitNullProperties?.Remove("reputation_data"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData? _explicitNullValueReputationData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData ReputationData { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData ReputationData { get => _explicitNullValueReputationData; set { _explicitNullValueReputationData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reputation_data"); else _explicitNullProperties?.Remove("reputation_data"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData _explicitNullValueReputationData = default!;
 #endif
         /// <summary>Where the phone number is hosted. `telnyx`: in your Telnyx inventory. `external`: a number you own that is hosted with another provider.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? _explicitNullValueSource = default!;
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
@@ -71,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumber();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumber(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,6 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("removed_at", RemovedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData>("reputation_data", ReputationData);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource>("source", Source);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

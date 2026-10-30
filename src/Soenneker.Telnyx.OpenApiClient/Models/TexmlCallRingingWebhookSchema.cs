@@ -12,124 +12,182 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TexmlCallRingingWebhookSchema : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
+            if (parseNode.GetChildNode("CallbackSource") is { } nullNodeCallbackSource && nullNodeCallbackSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallbackSource = null;
+            if (parseNode.GetChildNode("CallDuration") is { } nullNodeCallDuration && nullNodeCallDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallDuration = null;
+            if (parseNode.GetChildNode("CallerId") is { } nullNodeCallerId && nullNodeCallerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerId = null;
+            if (parseNode.GetChildNode("CallInitiatedAt") is { } nullNodeCallInitiatedAt && nullNodeCallInitiatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallInitiatedAt = null;
+            if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
+            if (parseNode.GetChildNode("CallSidLegacy") is { } nullNodeCallSidLegacy && nullNodeCallSidLegacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidLegacy = null;
+            if (parseNode.GetChildNode("CallStatus") is { } nullNodeCallStatus && nullNodeCallStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallStatus = null;
+            if (parseNode.GetChildNode("ConnectionId") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("ErrorCode") is { } nullNodeErrorCode && nullNodeErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCode = null;
+            if (parseNode.GetChildNode("ErrorMessage") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
+            if (parseNode.GetChildNode("From") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("ParentCallSid") is { } nullNodeParentCallSid && nullNodeParentCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentCallSid = null;
+            if (parseNode.GetChildNode("ParentCallSidLegacy") is { } nullNodeParentCallSidLegacy && nullNodeParentCallSidLegacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentCallSidLegacy = null;
+            if (parseNode.GetChildNode("SequenceNumber") is { } nullNodeSequenceNumber && nullNodeSequenceNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SequenceNumber = null;
+            if (parseNode.GetChildNode("ShakenStirAttestation") is { } nullNodeShakenStirAttestation && nullNodeShakenStirAttestation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShakenStirAttestation = null;
+            if (parseNode.GetChildNode("ShakenStirValidated") is { } nullNodeShakenStirValidated && nullNodeShakenStirValidated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShakenStirValidated = null;
+            if (parseNode.GetChildNode("Timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("To") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
+        }
+
         /// <summary>The unique identifier of the account (user_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountSid { get; set; }
+        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        private string? _explicitNullValueAccountSid = default!;
 #nullable restore
 #else
-        public string AccountSid { get; set; }
+        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        private string _explicitNullValueAccountSid = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The source of the callback.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallProgressEventsCallbackSource? CallbackSource { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallProgressEventsCallbackSource? CallbackSource { get => _explicitNullValueCallbackSource; set { _explicitNullValueCallbackSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallbackSource"); else _explicitNullProperties?.Remove("CallbackSource"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallProgressEventsCallbackSource? _explicitNullValueCallbackSource = default!;
         /// <summary>The duration of the call in seconds (conditional, only present if start_time and end_time are available).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallDuration { get; set; }
+        public string? CallDuration { get => _explicitNullValueCallDuration; set { _explicitNullValueCallDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallDuration"); else _explicitNullProperties?.Remove("CallDuration"); } }
+        private string? _explicitNullValueCallDuration = default!;
 #nullable restore
 #else
-        public string CallDuration { get; set; }
+        public string CallDuration { get => _explicitNullValueCallDuration; set { _explicitNullValueCallDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallDuration"); else _explicitNullProperties?.Remove("CallDuration"); } }
+        private string _explicitNullValueCallDuration = default!;
 #endif
         /// <summary>The display name of the caller.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallerId { get; set; }
+        public string? CallerId { get => _explicitNullValueCallerId; set { _explicitNullValueCallerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallerId"); else _explicitNullProperties?.Remove("CallerId"); } }
+        private string? _explicitNullValueCallerId = default!;
 #nullable restore
 #else
-        public string CallerId { get; set; }
+        public string CallerId { get => _explicitNullValueCallerId; set { _explicitNullValueCallerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallerId"); else _explicitNullProperties?.Remove("CallerId"); } }
+        private string _explicitNullValueCallerId = default!;
 #endif
         /// <summary>The timestamp when the call was initiated.</summary>
-        public DateTimeOffset? CallInitiatedAt { get; set; }
+        public DateTimeOffset? CallInitiatedAt { get => _explicitNullValueCallInitiatedAt; set { _explicitNullValueCallInitiatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallInitiatedAt"); else _explicitNullProperties?.Remove("CallInitiatedAt"); } }
+        private DateTimeOffset? _explicitNullValueCallInitiatedAt = default!;
         /// <summary>The unique identifier of the call (call_control_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSid { get; set; }
+        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        private string? _explicitNullValueCallSid = default!;
 #nullable restore
 #else
-        public string CallSid { get; set; }
+        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        private string _explicitNullValueCallSid = default!;
 #endif
         /// <summary>Legacy call identifier, same as CallSid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSidLegacy { get; set; }
+        public string? CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        private string? _explicitNullValueCallSidLegacy = default!;
 #nullable restore
 #else
-        public string CallSidLegacy { get; set; }
+        public string CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        private string _explicitNullValueCallSidLegacy = default!;
 #endif
         /// <summary>The status of the call.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RingingCallStatus? CallStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RingingCallStatus? CallStatus { get => _explicitNullValueCallStatus; set { _explicitNullValueCallStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallStatus"); else _explicitNullProperties?.Remove("CallStatus"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RingingCallStatus? _explicitNullValueCallStatus = default!;
         /// <summary>The unique identifier of the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConnectionId"); else _explicitNullProperties?.Remove("ConnectionId"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConnectionId"); else _explicitNullProperties?.Remove("ConnectionId"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>Error code if an error occurred (conditional).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorCode { get; set; }
+        public string? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ErrorCode"); else _explicitNullProperties?.Remove("ErrorCode"); } }
+        private string? _explicitNullValueErrorCode = default!;
 #nullable restore
 #else
-        public string ErrorCode { get; set; }
+        public string ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ErrorCode"); else _explicitNullProperties?.Remove("ErrorCode"); } }
+        private string _explicitNullValueErrorCode = default!;
 #endif
         /// <summary>Error message if an error occurred (conditional).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorMessage { get; set; }
+        public string? ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ErrorMessage"); else _explicitNullProperties?.Remove("ErrorMessage"); } }
+        private string? _explicitNullValueErrorMessage = default!;
 #nullable restore
 #else
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ErrorMessage"); else _explicitNullProperties?.Remove("ErrorMessage"); } }
+        private string _explicitNullValueErrorMessage = default!;
 #endif
         /// <summary>The phone number or SIP address of the caller.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? From { get; set; }
+        public string? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("From"); else _explicitNullProperties?.Remove("From"); } }
+        private string? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public string From { get; set; }
+        public string From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("From"); else _explicitNullProperties?.Remove("From"); } }
+        private string _explicitNullValueFrom = default!;
 #endif
         /// <summary>The unique identifier of the parent call that initiated this outbound call (conditional, only present for outbound calls initiated via Dial).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentCallSid { get; set; }
+        public string? ParentCallSid { get => _explicitNullValueParentCallSid; set { _explicitNullValueParentCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ParentCallSid"); else _explicitNullProperties?.Remove("ParentCallSid"); } }
+        private string? _explicitNullValueParentCallSid = default!;
 #nullable restore
 #else
-        public string ParentCallSid { get; set; }
+        public string ParentCallSid { get => _explicitNullValueParentCallSid; set { _explicitNullValueParentCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ParentCallSid"); else _explicitNullProperties?.Remove("ParentCallSid"); } }
+        private string _explicitNullValueParentCallSid = default!;
 #endif
         /// <summary>Legacy parent call identifier, same as ParentCallSid (conditional, only present for outbound calls initiated via Dial).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentCallSidLegacy { get; set; }
+        public string? ParentCallSidLegacy { get => _explicitNullValueParentCallSidLegacy; set { _explicitNullValueParentCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ParentCallSidLegacy"); else _explicitNullProperties?.Remove("ParentCallSidLegacy"); } }
+        private string? _explicitNullValueParentCallSidLegacy = default!;
 #nullable restore
 #else
-        public string ParentCallSidLegacy { get; set; }
+        public string ParentCallSidLegacy { get => _explicitNullValueParentCallSidLegacy; set { _explicitNullValueParentCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ParentCallSidLegacy"); else _explicitNullProperties?.Remove("ParentCallSidLegacy"); } }
+        private string _explicitNullValueParentCallSidLegacy = default!;
 #endif
         /// <summary>The sequence number of the event.</summary>
-        public int? SequenceNumber { get; set; }
+        public int? SequenceNumber { get => _explicitNullValueSequenceNumber; set { _explicitNullValueSequenceNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SequenceNumber"); else _explicitNullProperties?.Remove("SequenceNumber"); } }
+        private int? _explicitNullValueSequenceNumber = default!;
         /// <summary>SHAKEN/STIR attestation level (conditional, only present if shaken_stir_data is available).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ShakenStirAttestation { get; set; }
+        public string? ShakenStirAttestation { get => _explicitNullValueShakenStirAttestation; set { _explicitNullValueShakenStirAttestation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ShakenStirAttestation"); else _explicitNullProperties?.Remove("ShakenStirAttestation"); } }
+        private string? _explicitNullValueShakenStirAttestation = default!;
 #nullable restore
 #else
-        public string ShakenStirAttestation { get; set; }
+        public string ShakenStirAttestation { get => _explicitNullValueShakenStirAttestation; set { _explicitNullValueShakenStirAttestation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ShakenStirAttestation"); else _explicitNullProperties?.Remove("ShakenStirAttestation"); } }
+        private string _explicitNullValueShakenStirAttestation = default!;
 #endif
         /// <summary>Whether SHAKEN/STIR validation passed (conditional, only present if shaken_stir_data is available).</summary>
-        public bool? ShakenStirValidated { get; set; }
+        public bool? ShakenStirValidated { get => _explicitNullValueShakenStirValidated; set { _explicitNullValueShakenStirValidated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ShakenStirValidated"); else _explicitNullProperties?.Remove("ShakenStirValidated"); } }
+        private bool? _explicitNullValueShakenStirValidated = default!;
         /// <summary>The UTC timestamp when the webhook was generated.</summary>
-        public DateTimeOffset? Timestamp { get; set; }
+        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Timestamp"); else _explicitNullProperties?.Remove("Timestamp"); } }
+        private DateTimeOffset? _explicitNullValueTimestamp = default!;
         /// <summary>The phone number or SIP address that was called.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? To { get; set; }
+        public string? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("To"); else _explicitNullProperties?.Remove("To"); } }
+        private string? _explicitNullValueTo = default!;
 #nullable restore
 #else
-        public string To { get; set; }
+        public string To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("To"); else _explicitNullProperties?.Remove("To"); } }
+        private string _explicitNullValueTo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallRingingWebhookSchema"/> and sets the default values.
@@ -146,7 +204,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallRingingWebhookSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallRingingWebhookSchema();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallRingingWebhookSchema(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -203,6 +261,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("ShakenStirValidated", ShakenStirValidated);
             writer.WriteDateTimeOffsetValue("Timestamp", Timestamp);
             writer.WriteStringValue("To", To);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

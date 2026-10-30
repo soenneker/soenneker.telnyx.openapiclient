@@ -11,18 +11,33 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PortingAssociatedPhoneNumber : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("country_code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("phone_number_range") is { } nullNodePhoneNumberRange && nullNodePhoneNumberRange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberRange = null;
+            if (parseNode.GetChildNode("phone_number_type") is { } nullNodePhoneNumberType && nullNodePhoneNumberType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberType = null;
+            if (parseNode.GetChildNode("porting_order_id") is { } nullNodePortingOrderId && nullNodePortingOrderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortingOrderId = null;
+        }
+
         /// <summary>Specifies the action to take with this phone number during partial porting.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberAction? Action { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberAction? _explicitNullValueAction = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the country code for this associated phone number. It is a two-letter ISO 3166-1 alpha-2 country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CountryCode { get; set; }
+        public string? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_code"); else _explicitNullProperties?.Remove("country_code"); } }
+        private string? _explicitNullValueCountryCode = default!;
 #nullable restore
 #else
-        public string CountryCode { get; set; }
+        public string CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_code"); else _explicitNullProperties?.Remove("country_code"); } }
+        private string _explicitNullValueCountryCode = default!;
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
@@ -31,15 +46,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Specifies the phone number range for this associated phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange? PhoneNumberRange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange? PhoneNumberRange { get => _explicitNullValuePhoneNumberRange; set { _explicitNullValuePhoneNumberRange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_range"); else _explicitNullProperties?.Remove("phone_number_range"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange? _explicitNullValuePhoneNumberRange = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange PhoneNumberRange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange PhoneNumberRange { get => _explicitNullValuePhoneNumberRange; set { _explicitNullValuePhoneNumberRange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_range"); else _explicitNullProperties?.Remove("phone_number_range"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange _explicitNullValuePhoneNumberRange = default!;
 #endif
         /// <summary>Specifies the phone number type for this associated phone number.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberType? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberType? PhoneNumberType { get => _explicitNullValuePhoneNumberType; set { _explicitNullValuePhoneNumberType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_type"); else _explicitNullProperties?.Remove("phone_number_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberType? _explicitNullValuePhoneNumberType = default!;
         /// <summary>Identifies the porting order associated with this phone number.</summary>
-        public Guid? PortingOrderId { get; set; }
+        public Guid? PortingOrderId { get => _explicitNullValuePortingOrderId; set { _explicitNullValuePortingOrderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("porting_order_id"); else _explicitNullProperties?.Remove("porting_order_id"); } }
+        private Guid? _explicitNullValuePortingOrderId = default!;
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumber(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberRange>("phone_number_range", PhoneNumberRange);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAssociatedPhoneNumberPhoneNumberType>("phone_number_type", PhoneNumberType);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

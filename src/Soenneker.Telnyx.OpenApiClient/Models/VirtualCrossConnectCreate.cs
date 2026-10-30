@@ -11,22 +11,49 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class VirtualCrossConnectCreate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bandwidth_mbps") is { } nullNodeBandwidthMbps && nullNodeBandwidthMbps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BandwidthMbps = null;
+            if (parseNode.GetChildNode("bgp_asn") is { } nullNodeBgpAsn && nullNodeBgpAsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BgpAsn = null;
+            if (parseNode.GetChildNode("cloud_provider") is { } nullNodeCloudProvider && nullNodeCloudProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloudProvider = null;
+            if (parseNode.GetChildNode("cloud_provider_region") is { } nullNodeCloudProviderRegion && nullNodeCloudProviderRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloudProviderRegion = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("network_id") is { } nullNodeNetworkId && nullNodeNetworkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkId = null;
+            if (parseNode.GetChildNode("primary_bgp_key") is { } nullNodePrimaryBgpKey && nullNodePrimaryBgpKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryBgpKey = null;
+            if (parseNode.GetChildNode("primary_cloud_account_id") is { } nullNodePrimaryCloudAccountId && nullNodePrimaryCloudAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryCloudAccountId = null;
+            if (parseNode.GetChildNode("primary_cloud_ip") is { } nullNodePrimaryCloudIp && nullNodePrimaryCloudIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryCloudIp = null;
+            if (parseNode.GetChildNode("primary_telnyx_ip") is { } nullNodePrimaryTelnyxIp && nullNodePrimaryTelnyxIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryTelnyxIp = null;
+            if (parseNode.GetChildNode("region_code") is { } nullNodeRegionCode && nullNodeRegionCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionCode = null;
+            if (parseNode.GetChildNode("secondary_bgp_key") is { } nullNodeSecondaryBgpKey && nullNodeSecondaryBgpKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryBgpKey = null;
+            if (parseNode.GetChildNode("secondary_cloud_account_id") is { } nullNodeSecondaryCloudAccountId && nullNodeSecondaryCloudAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryCloudAccountId = null;
+            if (parseNode.GetChildNode("secondary_cloud_ip") is { } nullNodeSecondaryCloudIp && nullNodeSecondaryCloudIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryCloudIp = null;
+            if (parseNode.GetChildNode("secondary_telnyx_ip") is { } nullNodeSecondaryTelnyxIp && nullNodeSecondaryTelnyxIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryTelnyxIp = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The desired throughput in Megabits per Second (Mbps) for your Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;The available bandwidths can be found using the /virtual_cross_connect_regions endpoint.</summary>
-        public double? BandwidthMbps { get; set; }
+        public double? BandwidthMbps { get => _explicitNullValueBandwidthMbps; set { _explicitNullValueBandwidthMbps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bandwidth_mbps"); else _explicitNullProperties?.Remove("bandwidth_mbps"); } }
+        private double? _explicitNullValueBandwidthMbps = default!;
         /// <summary>The Border Gateway Protocol (BGP) Autonomous System Number (ASN). If null, value will be assigned by Telnyx.</summary>
-        public double? BgpAsn { get; set; }
+        public double? BgpAsn { get => _explicitNullValueBgpAsn; set { _explicitNullValueBgpAsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bgp_asn"); else _explicitNullProperties?.Remove("bgp_asn"); } }
+        private double? _explicitNullValueBgpAsn = default!;
         /// <summary>The Virtual Private Cloud with which you would like to establish a cross connect.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCloudProvider? CloudProvider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCloudProvider? CloudProvider { get => _explicitNullValueCloudProvider; set { _explicitNullValueCloudProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider"); else _explicitNullProperties?.Remove("cloud_provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCloudProvider? _explicitNullValueCloudProvider = default!;
         /// <summary>The region where your Virtual Private Cloud hosts are located.&lt;br /&gt;&lt;br /&gt;The available regions can be found using the /virtual_cross_connect_regions endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CloudProviderRegion { get; set; }
+        public string? CloudProviderRegion { get => _explicitNullValueCloudProviderRegion; set { _explicitNullValueCloudProviderRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider_region"); else _explicitNullProperties?.Remove("cloud_provider_region"); } }
+        private string? _explicitNullValueCloudProviderRegion = default!;
 #nullable restore
 #else
-        public string CloudProviderRegion { get; set; }
+        public string CloudProviderRegion { get => _explicitNullValueCloudProviderRegion; set { _explicitNullValueCloudProviderRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider_region"); else _explicitNullProperties?.Remove("cloud_provider_region"); } }
+        private string _explicitNullValueCloudProviderRegion = default!;
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,46 +68,57 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A user specified name for the interface.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The id of the network associated with the interface.</summary>
-        public Guid? NetworkId { get; set; }
+        public Guid? NetworkId { get => _explicitNullValueNetworkId; set { _explicitNullValueNetworkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_id"); else _explicitNullProperties?.Remove("network_id"); } }
+        private Guid? _explicitNullValueNetworkId = default!;
         /// <summary>The authentication key for BGP peer configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryBgpKey { get; set; }
+        public string? PrimaryBgpKey { get => _explicitNullValuePrimaryBgpKey; set { _explicitNullValuePrimaryBgpKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_bgp_key"); else _explicitNullProperties?.Remove("primary_bgp_key"); } }
+        private string? _explicitNullValuePrimaryBgpKey = default!;
 #nullable restore
 #else
-        public string PrimaryBgpKey { get; set; }
+        public string PrimaryBgpKey { get => _explicitNullValuePrimaryBgpKey; set { _explicitNullValuePrimaryBgpKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_bgp_key"); else _explicitNullProperties?.Remove("primary_bgp_key"); } }
+        private string _explicitNullValuePrimaryBgpKey = default!;
 #endif
         /// <summary>The identifier for your Virtual Private Cloud. The number will be different based upon your Cloud provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryCloudAccountId { get; set; }
+        public string? PrimaryCloudAccountId { get => _explicitNullValuePrimaryCloudAccountId; set { _explicitNullValuePrimaryCloudAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_cloud_account_id"); else _explicitNullProperties?.Remove("primary_cloud_account_id"); } }
+        private string? _explicitNullValuePrimaryCloudAccountId = default!;
 #nullable restore
 #else
-        public string PrimaryCloudAccountId { get; set; }
+        public string PrimaryCloudAccountId { get => _explicitNullValuePrimaryCloudAccountId; set { _explicitNullValuePrimaryCloudAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_cloud_account_id"); else _explicitNullProperties?.Remove("primary_cloud_account_id"); } }
+        private string _explicitNullValuePrimaryCloudAccountId = default!;
 #endif
         /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryCloudIp { get; set; }
+        public string? PrimaryCloudIp { get => _explicitNullValuePrimaryCloudIp; set { _explicitNullValuePrimaryCloudIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_cloud_ip"); else _explicitNullProperties?.Remove("primary_cloud_ip"); } }
+        private string? _explicitNullValuePrimaryCloudIp = default!;
 #nullable restore
 #else
-        public string PrimaryCloudIp { get; set; }
+        public string PrimaryCloudIp { get => _explicitNullValuePrimaryCloudIp; set { _explicitNullValuePrimaryCloudIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_cloud_ip"); else _explicitNullProperties?.Remove("primary_cloud_ip"); } }
+        private string _explicitNullValuePrimaryCloudIp = default!;
 #endif
         /// <summary>Indicates whether the primary circuit is enabled. Setting this to `false` will disable the circuit.</summary>
         public bool? PrimaryEnabled { get; private set; }
         /// <summary>The IP address assigned to the Telnyx side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryTelnyxIp { get; set; }
+        public string? PrimaryTelnyxIp { get => _explicitNullValuePrimaryTelnyxIp; set { _explicitNullValuePrimaryTelnyxIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_telnyx_ip"); else _explicitNullProperties?.Remove("primary_telnyx_ip"); } }
+        private string? _explicitNullValuePrimaryTelnyxIp = default!;
 #nullable restore
 #else
-        public string PrimaryTelnyxIp { get; set; }
+        public string PrimaryTelnyxIp { get => _explicitNullValuePrimaryTelnyxIp; set { _explicitNullValuePrimaryTelnyxIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_telnyx_ip"); else _explicitNullProperties?.Remove("primary_telnyx_ip"); } }
+        private string _explicitNullValuePrimaryTelnyxIp = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,44 +131,54 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The region the interface should be deployed to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionCode { get; set; }
+        public string? RegionCode { get => _explicitNullValueRegionCode; set { _explicitNullValueRegionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_code"); else _explicitNullProperties?.Remove("region_code"); } }
+        private string? _explicitNullValueRegionCode = default!;
 #nullable restore
 #else
-        public string RegionCode { get; set; }
+        public string RegionCode { get => _explicitNullValueRegionCode; set { _explicitNullValueRegionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_code"); else _explicitNullProperties?.Remove("region_code"); } }
+        private string _explicitNullValueRegionCode = default!;
 #endif
         /// <summary>The authentication key for BGP peer configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecondaryBgpKey { get; set; }
+        public string? SecondaryBgpKey { get => _explicitNullValueSecondaryBgpKey; set { _explicitNullValueSecondaryBgpKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_bgp_key"); else _explicitNullProperties?.Remove("secondary_bgp_key"); } }
+        private string? _explicitNullValueSecondaryBgpKey = default!;
 #nullable restore
 #else
-        public string SecondaryBgpKey { get; set; }
+        public string SecondaryBgpKey { get => _explicitNullValueSecondaryBgpKey; set { _explicitNullValueSecondaryBgpKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_bgp_key"); else _explicitNullProperties?.Remove("secondary_bgp_key"); } }
+        private string _explicitNullValueSecondaryBgpKey = default!;
 #endif
         /// <summary>The identifier for your Virtual Private Cloud. The number will be different based upon your Cloud provider.&lt;br /&gt;&lt;br /&gt;This attribute is only necessary for GCE.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecondaryCloudAccountId { get; set; }
+        public string? SecondaryCloudAccountId { get => _explicitNullValueSecondaryCloudAccountId; set { _explicitNullValueSecondaryCloudAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_cloud_account_id"); else _explicitNullProperties?.Remove("secondary_cloud_account_id"); } }
+        private string? _explicitNullValueSecondaryCloudAccountId = default!;
 #nullable restore
 #else
-        public string SecondaryCloudAccountId { get; set; }
+        public string SecondaryCloudAccountId { get => _explicitNullValueSecondaryCloudAccountId; set { _explicitNullValueSecondaryCloudAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_cloud_account_id"); else _explicitNullProperties?.Remove("secondary_cloud_account_id"); } }
+        private string _explicitNullValueSecondaryCloudAccountId = default!;
 #endif
         /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecondaryCloudIp { get; set; }
+        public string? SecondaryCloudIp { get => _explicitNullValueSecondaryCloudIp; set { _explicitNullValueSecondaryCloudIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_cloud_ip"); else _explicitNullProperties?.Remove("secondary_cloud_ip"); } }
+        private string? _explicitNullValueSecondaryCloudIp = default!;
 #nullable restore
 #else
-        public string SecondaryCloudIp { get; set; }
+        public string SecondaryCloudIp { get => _explicitNullValueSecondaryCloudIp; set { _explicitNullValueSecondaryCloudIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_cloud_ip"); else _explicitNullProperties?.Remove("secondary_cloud_ip"); } }
+        private string _explicitNullValueSecondaryCloudIp = default!;
 #endif
         /// <summary>Indicates whether the secondary circuit is enabled. Setting this to `false` will disable the circuit.</summary>
         public bool? SecondaryEnabled { get; private set; }
         /// <summary>The IP address assigned to the Telnyx side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecondaryTelnyxIp { get; set; }
+        public string? SecondaryTelnyxIp { get => _explicitNullValueSecondaryTelnyxIp; set { _explicitNullValueSecondaryTelnyxIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_telnyx_ip"); else _explicitNullProperties?.Remove("secondary_telnyx_ip"); } }
+        private string? _explicitNullValueSecondaryTelnyxIp = default!;
 #nullable restore
 #else
-        public string SecondaryTelnyxIp { get; set; }
+        public string SecondaryTelnyxIp { get => _explicitNullValueSecondaryTelnyxIp; set { _explicitNullValueSecondaryTelnyxIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_telnyx_ip"); else _explicitNullProperties?.Remove("secondary_telnyx_ip"); } }
+        private string _explicitNullValueSecondaryTelnyxIp = default!;
 #endif
         /// <summary>The current status of the interface deployment.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? Status { get; private set; }
@@ -157,7 +205,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -213,6 +261,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("secondary_cloud_account_id", SecondaryCloudAccountId);
             writer.WriteStringValue("secondary_cloud_ip", SecondaryCloudIp);
             writer.WriteStringValue("secondary_telnyx_ip", SecondaryTelnyxIp);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

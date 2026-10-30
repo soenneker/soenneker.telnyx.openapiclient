@@ -11,19 +11,33 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TokenGroupGuardrailsDlp : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("profiles") is { } nullNodeProfiles && nullNodeProfiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Profiles = null;
+            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+            if (parseNode.GetChildNode("response") is { } nullNodeResponse && nullNodeResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Response = null;
+        }
+
         /// <summary>The profiles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpProfilesItem?>? Profiles { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpProfilesItem?>? Profiles { get => _explicitNullValueProfiles; set { _explicitNullValueProfiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profiles"); else _explicitNullProperties?.Remove("profiles"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpProfilesItem?>? _explicitNullValueProfiles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpProfilesItem?> Profiles { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpProfilesItem?> Profiles { get => _explicitNullValueProfiles; set { _explicitNullValueProfiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profiles"); else _explicitNullProperties?.Remove("profiles"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpProfilesItem?> _explicitNullValueProfiles = default!;
 #endif
         /// <summary>The prompt property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpPrompt? Prompt { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpPrompt? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpPrompt? _explicitNullValuePrompt = default!;
         /// <summary>The response property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpResponse? Response { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpResponse? Response { get => _explicitNullValueResponse; set { _explicitNullValueResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response"); else _explicitNullProperties?.Remove("response"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpResponse? _explicitNullValueResponse = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlp();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlp(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +70,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpProfilesItem>("profiles", Profiles);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpPrompt>("prompt", Prompt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpResponse>("response", Response);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupGuardrailsDlpResponse>("response", Response);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

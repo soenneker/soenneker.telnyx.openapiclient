@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_out
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListAllocatableGlobalOutboundChannels200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListAllocatableGlobalOutboundChannels200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListAllocatableGlobalOutboundChannels200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListAllocatableGlobalOutboundChannels200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Display information about allocatable global outbound channels for the current user. Only usable by account managers.

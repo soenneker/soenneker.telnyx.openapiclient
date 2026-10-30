@@ -11,66 +11,109 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TranscriptionSettingsConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
+            if (parseNode.GetChildNode("eager_eot_threshold") is { } nullNodeEagerEotThreshold && nullNodeEagerEotThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EagerEotThreshold = null;
+            if (parseNode.GetChildNode("enable_endpoint_detection") is { } nullNodeEnableEndpointDetection && nullNodeEnableEndpointDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableEndpointDetection = null;
+            if (parseNode.GetChildNode("end_of_turn_confidence_threshold") is { } nullNodeEndOfTurnConfidenceThreshold && nullNodeEndOfTurnConfidenceThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndOfTurnConfidenceThreshold = null;
+            if (parseNode.GetChildNode("eot_threshold") is { } nullNodeEotThreshold && nullNodeEotThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EotThreshold = null;
+            if (parseNode.GetChildNode("eot_timeout_ms") is { } nullNodeEotTimeoutMs && nullNodeEotTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EotTimeoutMs = null;
+            if (parseNode.GetChildNode("interim_results") is { } nullNodeInterimResults && nullNodeInterimResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterimResults = null;
+            if (parseNode.GetChildNode("keyterm") is { } nullNodeKeyterm && nullNodeKeyterm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Keyterm = null;
+            if (parseNode.GetChildNode("language_hints") is { } nullNodeLanguageHints && nullNodeLanguageHints.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LanguageHints = null;
+            if (parseNode.GetChildNode("max_endpoint_delay_ms") is { } nullNodeMaxEndpointDelayMs && nullNodeMaxEndpointDelayMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxEndpointDelayMs = null;
+            if (parseNode.GetChildNode("max_turn_silence") is { } nullNodeMaxTurnSilence && nullNodeMaxTurnSilence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTurnSilence = null;
+            if (parseNode.GetChildNode("min_turn_silence") is { } nullNodeMinTurnSilence && nullNodeMinTurnSilence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinTurnSilence = null;
+            if (parseNode.GetChildNode("numerals") is { } nullNodeNumerals && nullNodeNumerals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Numerals = null;
+            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+            if (parseNode.GetChildNode("remove_disfluencies") is { } nullNodeRemoveDisfluencies && nullNodeRemoveDisfluencies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoveDisfluencies = null;
+            if (parseNode.GetChildNode("smart_format") is { } nullNodeSmartFormat && nullNodeSmartFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SmartFormat = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. A comma-separated list of terms to boost for recognition during transcription, for staff names, building names, or other domain-specific vocabulary. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to Soniox.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Context { get; set; }
+        public string? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private string? _explicitNullValueContext = default!;
 #nullable restore
 #else
-        public string Context { get; set; }
+        public string Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private string _explicitNullValueContext = default!;
 #endif
         /// <summary>Available only for deepgram/flux. Confidence threshold for eager end of turn detection. Must be lower than or equal to eot_threshold. Setting this equal to eot_threshold effectively disables eager end of turn.</summary>
-        public double? EagerEotThreshold { get; set; }
+        public double? EagerEotThreshold { get => _explicitNullValueEagerEotThreshold; set { _explicitNullValueEagerEotThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eager_eot_threshold"); else _explicitNullProperties?.Remove("eager_eot_threshold"); } }
+        private double? _explicitNullValueEagerEotThreshold = default!;
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. When true, Soniox emits end-of-utterance events at the cadence configured by `max_endpoint_delay_ms`.</summary>
-        public bool? EnableEndpointDetection { get; set; }
+        public bool? EnableEndpointDetection { get => _explicitNullValueEnableEndpointDetection; set { _explicitNullValueEnableEndpointDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_endpoint_detection"); else _explicitNullProperties?.Remove("enable_endpoint_detection"); } }
+        private bool? _explicitNullValueEnableEndpointDetection = default!;
         /// <summary>Deprecated and ignored. Accepted for backwards compatibility. AssemblyAI turn detection is configured with min_turn_silence and max_turn_silence.</summary>
         [Obsolete("")]
-        public double? EndOfTurnConfidenceThreshold { get; set; }
+        public double? EndOfTurnConfidenceThreshold { get => _explicitNullValueEndOfTurnConfidenceThreshold; set { _explicitNullValueEndOfTurnConfidenceThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_of_turn_confidence_threshold"); else _explicitNullProperties?.Remove("end_of_turn_confidence_threshold"); } }
+        private double? _explicitNullValueEndOfTurnConfidenceThreshold = default!;
         /// <summary>Available only for deepgram/flux. Confidence required to trigger an end of turn. Higher values = more reliable turn detection but slightly increased latency.</summary>
-        public double? EotThreshold { get; set; }
+        public double? EotThreshold { get => _explicitNullValueEotThreshold; set { _explicitNullValueEotThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eot_threshold"); else _explicitNullProperties?.Remove("eot_threshold"); } }
+        private double? _explicitNullValueEotThreshold = default!;
         /// <summary>Available only for deepgram/flux. Maximum milliseconds of silence before forcing an end of turn, regardless of confidence.</summary>
-        public int? EotTimeoutMs { get; set; }
+        public int? EotTimeoutMs { get => _explicitNullValueEotTimeoutMs; set { _explicitNullValueEotTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eot_timeout_ms"); else _explicitNullProperties?.Remove("eot_timeout_ms"); } }
+        private int? _explicitNullValueEotTimeoutMs = default!;
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. When true, Soniox streams interim (non-final) results in addition to finalized transcripts.</summary>
-        public bool? InterimResults { get; set; }
+        public bool? InterimResults { get => _explicitNullValueInterimResults; set { _explicitNullValueInterimResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interim_results"); else _explicitNullProperties?.Remove("interim_results"); } }
+        private bool? _explicitNullValueInterimResults = default!;
         /// <summary>A comma-separated list of key terms to boost for recognition during transcription, used by Deepgram, Reson8, Speechmatics Linden 1 and AssemblyAI models. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. At most 1000 characters in total. For assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming), also at most 100 terms of up to 50 characters each. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to the speech-to-text engine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Keyterm { get; set; }
+        public string? Keyterm { get => _explicitNullValueKeyterm; set { _explicitNullValueKeyterm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyterm"); else _explicitNullProperties?.Remove("keyterm"); } }
+        private string? _explicitNullValueKeyterm = default!;
 #nullable restore
 #else
-        public string Keyterm { get; set; }
+        public string Keyterm { get => _explicitNullValueKeyterm; set { _explicitNullValueKeyterm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyterm"); else _explicitNullProperties?.Remove("keyterm"); } }
+        private string _explicitNullValueKeyterm = default!;
 #endif
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. A list of ISO 639-1 language codes (e.g. `[&quot;nl&quot;, &quot;fr&quot;]`) to pin recognition to multiple languages at once, overriding the single hint derived from `language`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? LanguageHints { get; set; }
+        public List<string>? LanguageHints { get => _explicitNullValueLanguageHints; set { _explicitNullValueLanguageHints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_hints"); else _explicitNullProperties?.Remove("language_hints"); } }
+        private List<string>? _explicitNullValueLanguageHints = default!;
 #nullable restore
 #else
-        public List<string> LanguageHints { get; set; }
+        public List<string> LanguageHints { get => _explicitNullValueLanguageHints; set { _explicitNullValueLanguageHints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_hints"); else _explicitNullProperties?.Remove("language_hints"); } }
+        private List<string> _explicitNullValueLanguageHints = default!;
 #endif
         /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. Maximum silence (in milliseconds) before Soniox emits an end-of-utterance event. Only honored when `enable_endpoint_detection` is true.</summary>
-        public int? MaxEndpointDelayMs { get; set; }
+        public int? MaxEndpointDelayMs { get => _explicitNullValueMaxEndpointDelayMs; set { _explicitNullValueMaxEndpointDelayMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_endpoint_delay_ms"); else _explicitNullProperties?.Remove("max_endpoint_delay_ms"); } }
+        private int? _explicitNullValueMaxEndpointDelayMs = default!;
         /// <summary>Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Maximum duration of silence in milliseconds before forcing an end of turn.</summary>
-        public int? MaxTurnSilence { get; set; }
+        public int? MaxTurnSilence { get => _explicitNullValueMaxTurnSilence; set { _explicitNullValueMaxTurnSilence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_turn_silence"); else _explicitNullProperties?.Remove("max_turn_silence"); } }
+        private int? _explicitNullValueMaxTurnSilence = default!;
         /// <summary>Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.</summary>
-        public int? MinTurnSilence { get; set; }
+        public int? MinTurnSilence { get => _explicitNullValueMinTurnSilence; set { _explicitNullValueMinTurnSilence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_turn_silence"); else _explicitNullProperties?.Remove("min_turn_silence"); } }
+        private int? _explicitNullValueMinTurnSilence = default!;
         /// <summary>The numerals property</summary>
-        public bool? Numerals { get; set; }
+        public bool? Numerals { get => _explicitNullValueNumerals; set { _explicitNullValueNumerals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("numerals"); else _explicitNullProperties?.Remove("numerals"); } }
+        private bool? _explicitNullValueNumerals = default!;
         /// <summary>Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Context about the conversation (domain, names, terms) to improve transcription; describe the content, do not give instructions. Leave empty unless needed. At most 1750 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prompt { get; set; }
+        public string? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string? _explicitNullValuePrompt = default!;
 #nullable restore
 #else
-        public string Prompt { get; set; }
+        public string Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string _explicitNullValuePrompt = default!;
 #endif
         /// <summary>Available only for speechmatics/linden-1. When true, filler words such as &quot;um&quot; and &quot;uh&quot; are removed from the transcript. Disfluency removal is supported only for `ar`, `cmn`, `da`, `de`, `el`, `en`, `es`, `fr`, `he`, `hi`, `hu`, `it`, `ja`, `nl`, `pl`, `pt`, and `ru`, determined by the base language (so `en-US`, `en-GB`, `en-AU`, `cmn-Hans`, and `cmn-Hant` are supported); for other languages, filler words remain in the transcript.</summary>
-        public bool? RemoveDisfluencies { get; set; }
+        public bool? RemoveDisfluencies { get => _explicitNullValueRemoveDisfluencies; set { _explicitNullValueRemoveDisfluencies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remove_disfluencies"); else _explicitNullProperties?.Remove("remove_disfluencies"); } }
+        private bool? _explicitNullValueRemoveDisfluencies = default!;
         /// <summary>The smart_format property</summary>
-        public bool? SmartFormat { get; set; }
+        public bool? SmartFormat { get => _explicitNullValueSmartFormat; set { _explicitNullValueSmartFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("smart_format"); else _explicitNullProperties?.Remove("smart_format"); } }
+        private bool? _explicitNullValueSmartFormat = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig"/> and sets the default values.
         /// </summary>
@@ -94,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -145,6 +188,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteBoolValue("remove_disfluencies", RemoveDisfluencies);
             writer.WriteBoolValue("smart_format", SmartFormat);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

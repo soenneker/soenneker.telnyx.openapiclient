@@ -61,6 +61,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_domains.Item.Rotate_dkim
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.DomainsErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.DomainsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.DomainsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

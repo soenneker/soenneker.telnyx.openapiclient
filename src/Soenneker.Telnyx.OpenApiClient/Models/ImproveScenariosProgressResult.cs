@@ -11,48 +11,75 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ImproveScenariosProgressResult : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cancelled") is { } nullNodeCancelled && nullNodeCancelled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cancelled = null;
+            if (parseNode.GetChildNode("clarification_questions") is { } nullNodeClarificationQuestions && nullNodeClarificationQuestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClarificationQuestions = null;
+            if (parseNode.GetChildNode("conversation_history") is { } nullNodeConversationHistory && nullNodeConversationHistory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationHistory = null;
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("needs_clarification") is { } nullNodeNeedsClarification && nullNodeNeedsClarification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NeedsClarification = null;
+            if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
+            if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
+            if (parseNode.GetChildNode("updated_scenarios") is { } nullNodeUpdatedScenarios && nullNodeUpdatedScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedScenarios = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cancelled property</summary>
-        public bool? Cancelled { get; set; }
+        public bool? Cancelled { get => _explicitNullValueCancelled; set { _explicitNullValueCancelled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled"); else _explicitNullProperties?.Remove("cancelled"); } }
+        private bool? _explicitNullValueCancelled = default!;
         /// <summary>The clarification_questions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultClarificationQuestionsItem>? ClarificationQuestions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultClarificationQuestionsItem>? ClarificationQuestions { get => _explicitNullValueClarificationQuestions; set { _explicitNullValueClarificationQuestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clarification_questions"); else _explicitNullProperties?.Remove("clarification_questions"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultClarificationQuestionsItem>? _explicitNullValueClarificationQuestions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultClarificationQuestionsItem> ClarificationQuestions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultClarificationQuestionsItem> ClarificationQuestions { get => _explicitNullValueClarificationQuestions; set { _explicitNullValueClarificationQuestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clarification_questions"); else _explicitNullProperties?.Remove("clarification_questions"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultClarificationQuestionsItem> _explicitNullValueClarificationQuestions = default!;
 #endif
         /// <summary>The conversation_history property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultConversationHistoryItem>? ConversationHistory { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultConversationHistoryItem>? ConversationHistory { get => _explicitNullValueConversationHistory; set { _explicitNullValueConversationHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_history"); else _explicitNullProperties?.Remove("conversation_history"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultConversationHistoryItem>? _explicitNullValueConversationHistory = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultConversationHistoryItem> ConversationHistory { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultConversationHistoryItem> ConversationHistory { get => _explicitNullValueConversationHistory; set { _explicitNullValueConversationHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_history"); else _explicitNullProperties?.Remove("conversation_history"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultConversationHistoryItem> _explicitNullValueConversationHistory = default!;
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>The needs_clarification property</summary>
-        public bool? NeedsClarification { get; set; }
+        public bool? NeedsClarification { get => _explicitNullValueNeedsClarification; set { _explicitNullValueNeedsClarification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("needs_clarification"); else _explicitNullProperties?.Remove("needs_clarification"); } }
+        private bool? _explicitNullValueNeedsClarification = default!;
         /// <summary>The session_id property</summary>
-        public int? SessionId { get; set; }
+        public int? SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private int? _explicitNullValueSessionId = default!;
         /// <summary>The success property</summary>
-        public bool? Success { get; set; }
+        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
+        private bool? _explicitNullValueSuccess = default!;
         /// <summary>The updated_scenarios property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultUpdatedScenariosItemProperty>? UpdatedScenarios { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultUpdatedScenariosItemProperty>? UpdatedScenarios { get => _explicitNullValueUpdatedScenarios; set { _explicitNullValueUpdatedScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_scenarios"); else _explicitNullProperties?.Remove("updated_scenarios"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultUpdatedScenariosItemProperty>? _explicitNullValueUpdatedScenarios = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultUpdatedScenariosItemProperty> UpdatedScenarios { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultUpdatedScenariosItemProperty> UpdatedScenarios { get => _explicitNullValueUpdatedScenarios; set { _explicitNullValueUpdatedScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_scenarios"); else _explicitNullProperties?.Remove("updated_scenarios"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultUpdatedScenariosItemProperty> _explicitNullValueUpdatedScenarios = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResult"/> and sets the default values.
@@ -69,7 +96,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResult();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResult(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,6 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("session_id", SessionId);
             writer.WriteBoolValue("success", Success);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ImproveScenariosProgressResultUpdatedScenariosItemProperty>("updated_scenarios", UpdatedScenarios);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

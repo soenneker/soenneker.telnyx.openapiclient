@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalConnectionUpload200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalConnectionUpload200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalConnectionUpload200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetExternalConnectionUpload200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return the details of an Upload request and its phone numbers.

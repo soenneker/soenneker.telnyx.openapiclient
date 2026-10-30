@@ -12,120 +12,174 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GenerateSpeechRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("aws") is { } nullNodeAws && nullNodeAws.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Aws = null;
+            if (parseNode.GetChildNode("azure") is { } nullNodeAzure && nullNodeAzure.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Azure = null;
+            if (parseNode.GetChildNode("disable_cache") is { } nullNodeDisableCache && nullNodeDisableCache.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableCache = null;
+            if (parseNode.GetChildNode("elevenlabs") is { } nullNodeElevenlabs && nullNodeElevenlabs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Elevenlabs = null;
+            if (parseNode.GetChildNode("humain") is { } nullNodeHumain && nullNodeHumain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Humain = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("minimax") is { } nullNodeMinimax && nullNodeMinimax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Minimax = null;
+            if (parseNode.GetChildNode("output_type") is { } nullNodeOutputType && nullNodeOutputType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputType = null;
+            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("resemble") is { } nullNodeResemble && nullNodeResemble.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resemble = null;
+            if (parseNode.GetChildNode("soniox") is { } nullNodeSoniox && nullNodeSoniox.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Soniox = null;
+            if (parseNode.GetChildNode("telnyx") is { } nullNodeTelnyx && nullNodeTelnyx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Telnyx = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("text_type") is { } nullNodeTextType && nullNodeTextType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextType = null;
+            if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+            if (parseNode.GetChildNode("voice_settings") is { } nullNodeVoiceSettings && nullNodeVoiceSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSettings = null;
+            if (parseNode.GetChildNode("xai") is { } nullNodeXai && nullNodeXai.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Xai = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>AWS Polly provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams? Aws { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams? Aws { get => _explicitNullValueAws; set { _explicitNullValueAws = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws"); else _explicitNullProperties?.Remove("aws"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams? _explicitNullValueAws = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams Aws { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams Aws { get => _explicitNullValueAws; set { _explicitNullValueAws = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws"); else _explicitNullProperties?.Remove("aws"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams _explicitNullValueAws = default!;
 #endif
         /// <summary>Azure Cognitive Services provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams? Azure { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams? Azure { get => _explicitNullValueAzure; set { _explicitNullValueAzure = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure"); else _explicitNullProperties?.Remove("azure"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams? _explicitNullValueAzure = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams Azure { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams Azure { get => _explicitNullValueAzure; set { _explicitNullValueAzure = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure"); else _explicitNullProperties?.Remove("azure"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams _explicitNullValueAzure = default!;
 #endif
         /// <summary>When `true`, bypass the audio cache and generate fresh audio.</summary>
-        public bool? DisableCache { get; set; }
+        public bool? DisableCache { get => _explicitNullValueDisableCache; set { _explicitNullValueDisableCache = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_cache"); else _explicitNullProperties?.Remove("disable_cache"); } }
+        private bool? _explicitNullValueDisableCache = default!;
         /// <summary>ElevenLabs provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams? Elevenlabs { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams? Elevenlabs { get => _explicitNullValueElevenlabs; set { _explicitNullValueElevenlabs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("elevenlabs"); else _explicitNullProperties?.Remove("elevenlabs"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams? _explicitNullValueElevenlabs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams Elevenlabs { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams Elevenlabs { get => _explicitNullValueElevenlabs; set { _explicitNullValueElevenlabs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("elevenlabs"); else _explicitNullProperties?.Remove("elevenlabs"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams _explicitNullValueElevenlabs = default!;
 #endif
         /// <summary>Humain provider-specific parameters. Unlike other providers, Humain has no format/sample-rate negotiation (output is always PCM16 24kHz mono) and no language parameter — language is fixed per voice.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParams? Humain { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParams? Humain { get => _explicitNullValueHumain; set { _explicitNullValueHumain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("humain"); else _explicitNullProperties?.Remove("humain"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParams? _explicitNullValueHumain = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParams Humain { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParams Humain { get => _explicitNullValueHumain; set { _explicitNullValueHumain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("humain"); else _explicitNullProperties?.Remove("humain"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParams _explicitNullValueHumain = default!;
 #endif
         /// <summary>Language code (e.g. `en-US`). Usage varies by provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Language { get; set; }
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string? _explicitNullValueLanguage = default!;
 #nullable restore
 #else
-        public string Language { get; set; }
+        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string _explicitNullValueLanguage = default!;
 #endif
         /// <summary>Minimax provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams? Minimax { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams? Minimax { get => _explicitNullValueMinimax; set { _explicitNullValueMinimax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimax"); else _explicitNullProperties?.Remove("minimax"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams? _explicitNullValueMinimax = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams Minimax { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams Minimax { get => _explicitNullValueMinimax; set { _explicitNullValueMinimax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimax"); else _explicitNullProperties?.Remove("minimax"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams _explicitNullValueMinimax = default!;
 #endif
         /// <summary>Determines the response format. `binary_output` returns raw audio bytes, `base64_output` returns base64-encoded audio in JSON.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestOutputType? OutputType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestOutputType? OutputType { get => _explicitNullValueOutputType; set { _explicitNullValueOutputType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_type"); else _explicitNullProperties?.Remove("output_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestOutputType? _explicitNullValueOutputType = default!;
         /// <summary>TTS provider. Required unless `voice` is provided.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestProvider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestProvider? _explicitNullValueProvider = default!;
         /// <summary>Resemble AI provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams? Resemble { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams? Resemble { get => _explicitNullValueResemble; set { _explicitNullValueResemble = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resemble"); else _explicitNullProperties?.Remove("resemble"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams? _explicitNullValueResemble = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams Resemble { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams Resemble { get => _explicitNullValueResemble; set { _explicitNullValueResemble = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resemble"); else _explicitNullProperties?.Remove("resemble"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ResembleProviderParams _explicitNullValueResemble = default!;
 #endif
         /// <summary>Soniox provider-specific parameters. Every voice speaks all supported languages; set `language` to the language of the text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxProviderParams? Soniox { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxProviderParams? Soniox { get => _explicitNullValueSoniox; set { _explicitNullValueSoniox = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("soniox"); else _explicitNullProperties?.Remove("soniox"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SonioxProviderParams? _explicitNullValueSoniox = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxProviderParams Soniox { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxProviderParams Soniox { get => _explicitNullValueSoniox; set { _explicitNullValueSoniox = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("soniox"); else _explicitNullProperties?.Remove("soniox"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SonioxProviderParams _explicitNullValueSoniox = default!;
 #endif
         /// <summary>Telnyx provider-specific parameters. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`. `Bayan` and `Sukhan` don&apos;t use `temperature`, `volume`, or `emotion`. `Bayan` accepts `voice_speed` from 0.5 to 2.0; `Sukhan` doesn&apos;t support it. `Bayan` synthesizes at a native 16 kHz: `sampling_rate` `8000`, `22050`, or `24000` is resampled, needs `response_format: pcm`, and isn&apos;t available with `output_type: audio_id`. `Sukhan`&apos;s `response_format` is restricted to `mp3` or `pcm` (no `wav`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams? Telnyx { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams? Telnyx { get => _explicitNullValueTelnyx; set { _explicitNullValueTelnyx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx"); else _explicitNullProperties?.Remove("telnyx"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams? _explicitNullValueTelnyx = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams Telnyx { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams Telnyx { get => _explicitNullValueTelnyx; set { _explicitNullValueTelnyx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx"); else _explicitNullProperties?.Remove("telnyx"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams _explicitNullValueTelnyx = default!;
 #endif
         /// <summary>The text to convert to speech.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get; set; }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get; set; }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string _explicitNullValueText = default!;
 #endif
         /// <summary>Text type. Use `ssml` for SSML-formatted input (supported by AWS and Azure).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestTextType? TextType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestTextType? TextType { get => _explicitNullValueTextType; set { _explicitNullValueTextType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_type"); else _explicitNullProperties?.Remove("text_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestTextType? _explicitNullValueTextType = default!;
         /// <summary>Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id`. Examples: `Telnyx.Ultra.&lt;voice_id&gt;`, `Telnyx.Bayan.Ahmed`, `Telnyx.Sukhan.urdu-professor`, `azure.en-US-AvaMultilingualNeural`, `aws.Polly.Generative.Lucia`. When provided, `provider`, `model_id`, and `voice_id` are extracted automatically and take precedence over individual parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Voice { get; set; }
+        public string? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private string? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public string Voice { get; set; }
+        public string Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private string _explicitNullValueVoice = default!;
 #endif
         /// <summary>Provider-specific voice settings. Contents vary by provider — see provider-specific parameter objects below.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty? VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty? _explicitNullValueVoiceSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty _explicitNullValueVoiceSettings = default!;
 #endif
         /// <summary>xAI provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams? Xai { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams? Xai { get => _explicitNullValueXai; set { _explicitNullValueXai = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("xai"); else _explicitNullProperties?.Remove("xai"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams? _explicitNullValueXai = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams Xai { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams Xai { get => _explicitNullValueXai; set { _explicitNullValueXai = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("xai"); else _explicitNullProperties?.Remove("xai"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams _explicitNullValueXai = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest"/> and sets the default values.
@@ -143,7 +197,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -196,6 +250,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("voice", Voice);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequestVoiceSettingsProperty>("voice_settings", VoiceSettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.XaiProviderParams>("xai", Xai);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,15 +12,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionJitterBuffer : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enable_jitter_buffer") is { } nullNodeEnableJitterBuffer && nullNodeEnableJitterBuffer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableJitterBuffer = null;
+            if (parseNode.GetChildNode("jitterbuffer_msec_max") is { } nullNodeJitterbufferMsecMax && nullNodeJitterbufferMsecMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JitterbufferMsecMax = null;
+            if (parseNode.GetChildNode("jitterbuffer_msec_min") is { } nullNodeJitterbufferMsecMin && nullNodeJitterbufferMsecMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JitterbufferMsecMin = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled.</summary>
-        public bool? EnableJitterBuffer { get; set; }
+        public bool? EnableJitterBuffer { get => _explicitNullValueEnableJitterBuffer; set { _explicitNullValueEnableJitterBuffer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_jitter_buffer"); else _explicitNullProperties?.Remove("enable_jitter_buffer"); } }
+        private bool? _explicitNullValueEnableJitterBuffer = default!;
         /// <summary>The maximum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.</summary>
-        public int? JitterbufferMsecMax { get; set; }
+        public int? JitterbufferMsecMax { get => _explicitNullValueJitterbufferMsecMax; set { _explicitNullValueJitterbufferMsecMax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitterbuffer_msec_max"); else _explicitNullProperties?.Remove("jitterbuffer_msec_max"); } }
+        private int? _explicitNullValueJitterbufferMsecMax = default!;
         /// <summary>The minimum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.</summary>
-        public int? JitterbufferMsecMin { get; set; }
+        public int? JitterbufferMsecMin { get => _explicitNullValueJitterbufferMsecMin; set { _explicitNullValueJitterbufferMsecMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitterbuffer_msec_min"); else _explicitNullProperties?.Remove("jitterbuffer_msec_min"); } }
+        private int? _explicitNullValueJitterbufferMsecMin = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer"/> and sets the default values.
         /// </summary>
@@ -39,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enable_jitter_buffer", EnableJitterBuffer);
             writer.WriteIntValue("jitterbuffer_msec_max", JitterbufferMsecMax);
             writer.WriteIntValue("jitterbuffer_msec_min", JitterbufferMsecMin);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

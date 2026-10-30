@@ -11,18 +11,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GatewayUsageDataGuardrails : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("blocked_events") is { } nullNodeBlockedEvents && nullNodeBlockedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedEvents = null;
+            if (parseNode.GetChildNode("flagged_events") is { } nullNodeFlaggedEvents && nullNodeFlaggedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlaggedEvents = null;
+            if (parseNode.GetChildNode("recent_events") is { } nullNodeRecentEvents && nullNodeRecentEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecentEvents = null;
+        }
+
         /// <summary>The blocked_events property</summary>
-        public int? BlockedEvents { get; set; }
+        public int? BlockedEvents { get => _explicitNullValueBlockedEvents; set { _explicitNullValueBlockedEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_events"); else _explicitNullProperties?.Remove("blocked_events"); } }
+        private int? _explicitNullValueBlockedEvents = default!;
         /// <summary>The flagged_events property</summary>
-        public int? FlaggedEvents { get; set; }
+        public int? FlaggedEvents { get => _explicitNullValueFlaggedEvents; set { _explicitNullValueFlaggedEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flagged_events"); else _explicitNullProperties?.Remove("flagged_events"); } }
+        private int? _explicitNullValueFlaggedEvents = default!;
         /// <summary>The recent_events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvent>? RecentEvents { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvent>? RecentEvents { get => _explicitNullValueRecentEvents; set { _explicitNullValueRecentEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recent_events"); else _explicitNullProperties?.Remove("recent_events"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvent>? _explicitNullValueRecentEvents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvent> RecentEvents { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvent> RecentEvents { get => _explicitNullValueRecentEvents; set { _explicitNullValueRecentEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recent_events"); else _explicitNullProperties?.Remove("recent_events"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvent> _explicitNullValueRecentEvents = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -32,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +70,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("blocked_events", BlockedEvents);
             writer.WriteIntValue("flagged_events", FlaggedEvents);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvent>("recent_events", RecentEvents);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GuardrailEvent>("recent_events", RecentEvents);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

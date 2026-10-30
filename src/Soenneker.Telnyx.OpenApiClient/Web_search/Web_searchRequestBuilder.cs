@@ -75,6 +75,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Web_search
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWebSearch200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateWebSearch200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

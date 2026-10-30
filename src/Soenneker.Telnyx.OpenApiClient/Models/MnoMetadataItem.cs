@@ -11,35 +11,63 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MnoMetadataItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("minMsgSamples") is { } nullNodeMinMsgSamples && nullNodeMinMsgSamples.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinMsgSamples = null;
+            if (parseNode.GetChildNode("mno") is { } nullNodeMno && nullNodeMno.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mno = null;
+            if (parseNode.GetChildNode("mnoReview") is { } nullNodeMnoReview && nullNodeMnoReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MnoReview = null;
+            if (parseNode.GetChildNode("mnoSupport") is { } nullNodeMnoSupport && nullNodeMnoSupport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MnoSupport = null;
+            if (parseNode.GetChildNode("noEmbeddedLink") is { } nullNodeNoEmbeddedLink && nullNodeNoEmbeddedLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoEmbeddedLink = null;
+            if (parseNode.GetChildNode("noEmbeddedPhone") is { } nullNodeNoEmbeddedPhone && nullNodeNoEmbeddedPhone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoEmbeddedPhone = null;
+            if (parseNode.GetChildNode("qualify") is { } nullNodeQualify && nullNodeQualify.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Qualify = null;
+            if (parseNode.GetChildNode("reqSubscriberHelp") is { } nullNodeReqSubscriberHelp && nullNodeReqSubscriberHelp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReqSubscriberHelp = null;
+            if (parseNode.GetChildNode("reqSubscriberOptin") is { } nullNodeReqSubscriberOptin && nullNodeReqSubscriberOptin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReqSubscriberOptin = null;
+            if (parseNode.GetChildNode("reqSubscriberOptout") is { } nullNodeReqSubscriberOptout && nullNodeReqSubscriberOptout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReqSubscriberOptout = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The minMsgSamples property</summary>
-        public int? MinMsgSamples { get; set; }
+        public int? MinMsgSamples { get => _explicitNullValueMinMsgSamples; set { _explicitNullValueMinMsgSamples = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minMsgSamples"); else _explicitNullProperties?.Remove("minMsgSamples"); } }
+        private int? _explicitNullValueMinMsgSamples = default!;
         /// <summary>The mno property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mno { get; set; }
+        public string? Mno { get => _explicitNullValueMno; set { _explicitNullValueMno = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mno"); else _explicitNullProperties?.Remove("mno"); } }
+        private string? _explicitNullValueMno = default!;
 #nullable restore
 #else
-        public string Mno { get; set; }
+        public string Mno { get => _explicitNullValueMno; set { _explicitNullValueMno = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mno"); else _explicitNullProperties?.Remove("mno"); } }
+        private string _explicitNullValueMno = default!;
 #endif
         /// <summary>The mnoReview property</summary>
-        public bool? MnoReview { get; set; }
+        public bool? MnoReview { get => _explicitNullValueMnoReview; set { _explicitNullValueMnoReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mnoReview"); else _explicitNullProperties?.Remove("mnoReview"); } }
+        private bool? _explicitNullValueMnoReview = default!;
         /// <summary>The mnoSupport property</summary>
-        public bool? MnoSupport { get; set; }
+        public bool? MnoSupport { get => _explicitNullValueMnoSupport; set { _explicitNullValueMnoSupport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mnoSupport"); else _explicitNullProperties?.Remove("mnoSupport"); } }
+        private bool? _explicitNullValueMnoSupport = default!;
         /// <summary>The noEmbeddedLink property</summary>
-        public bool? NoEmbeddedLink { get; set; }
+        public bool? NoEmbeddedLink { get => _explicitNullValueNoEmbeddedLink; set { _explicitNullValueNoEmbeddedLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noEmbeddedLink"); else _explicitNullProperties?.Remove("noEmbeddedLink"); } }
+        private bool? _explicitNullValueNoEmbeddedLink = default!;
         /// <summary>The noEmbeddedPhone property</summary>
-        public bool? NoEmbeddedPhone { get; set; }
+        public bool? NoEmbeddedPhone { get => _explicitNullValueNoEmbeddedPhone; set { _explicitNullValueNoEmbeddedPhone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noEmbeddedPhone"); else _explicitNullProperties?.Remove("noEmbeddedPhone"); } }
+        private bool? _explicitNullValueNoEmbeddedPhone = default!;
         /// <summary>The qualify property</summary>
-        public bool? Qualify { get; set; }
+        public bool? Qualify { get => _explicitNullValueQualify; set { _explicitNullValueQualify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("qualify"); else _explicitNullProperties?.Remove("qualify"); } }
+        private bool? _explicitNullValueQualify = default!;
         /// <summary>The reqSubscriberHelp property</summary>
-        public bool? ReqSubscriberHelp { get; set; }
+        public bool? ReqSubscriberHelp { get => _explicitNullValueReqSubscriberHelp; set { _explicitNullValueReqSubscriberHelp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reqSubscriberHelp"); else _explicitNullProperties?.Remove("reqSubscriberHelp"); } }
+        private bool? _explicitNullValueReqSubscriberHelp = default!;
         /// <summary>The reqSubscriberOptin property</summary>
-        public bool? ReqSubscriberOptin { get; set; }
+        public bool? ReqSubscriberOptin { get => _explicitNullValueReqSubscriberOptin; set { _explicitNullValueReqSubscriberOptin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reqSubscriberOptin"); else _explicitNullProperties?.Remove("reqSubscriberOptin"); } }
+        private bool? _explicitNullValueReqSubscriberOptin = default!;
         /// <summary>The reqSubscriberOptout property</summary>
-        public bool? ReqSubscriberOptout { get; set; }
+        public bool? ReqSubscriberOptout { get => _explicitNullValueReqSubscriberOptout; set { _explicitNullValueReqSubscriberOptout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reqSubscriberOptout"); else _explicitNullProperties?.Remove("reqSubscriberOptout"); } }
+        private bool? _explicitNullValueReqSubscriberOptout = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem"/> and sets the default values.
         /// </summary>
@@ -55,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,6 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("reqSubscriberHelp", ReqSubscriberHelp);
             writer.WriteBoolValue("reqSubscriberOptin", ReqSubscriberOptin);
             writer.WriteBoolValue("reqSubscriberOptout", ReqSubscriberOptout);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

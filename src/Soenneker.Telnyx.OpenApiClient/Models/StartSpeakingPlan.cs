@@ -12,19 +12,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StartSpeakingPlan : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("transcription_endpointing_plan") is { } nullNodeTranscriptionEndpointingPlan && nullNodeTranscriptionEndpointingPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEndpointingPlan = null;
+            if (parseNode.GetChildNode("wait_seconds") is { } nullNodeWaitSeconds && nullNodeWaitSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitSeconds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Endpointing thresholds used to decide when the user has finished speaking. Applies to non turn-taking transcription models. For `deepgram/flux`, use `transcription.settings.eot_threshold` / `eot_timeout_ms` / `eager_eot_threshold`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan? TranscriptionEndpointingPlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan? TranscriptionEndpointingPlan { get => _explicitNullValueTranscriptionEndpointingPlan; set { _explicitNullValueTranscriptionEndpointingPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_endpointing_plan"); else _explicitNullProperties?.Remove("transcription_endpointing_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan? _explicitNullValueTranscriptionEndpointingPlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan TranscriptionEndpointingPlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan TranscriptionEndpointingPlan { get => _explicitNullValueTranscriptionEndpointingPlan; set { _explicitNullValueTranscriptionEndpointingPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_endpointing_plan"); else _explicitNullProperties?.Remove("transcription_endpointing_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan _explicitNullValueTranscriptionEndpointingPlan = default!;
 #endif
         /// <summary>Minimum seconds to wait before the assistant starts speaking.</summary>
-        public float? WaitSeconds { get; set; }
+        public float? WaitSeconds { get => _explicitNullValueWaitSeconds; set { _explicitNullValueWaitSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wait_seconds"); else _explicitNullProperties?.Remove("wait_seconds"); } }
+        private float? _explicitNullValueWaitSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan"/> and sets the default values.
         /// </summary>
@@ -41,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan>("transcription_endpointing_plan", TranscriptionEndpointingPlan);
             writer.WriteFloatValue("wait_seconds", WaitSeconds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,32 +11,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MetadataOverviewResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("meta") is { } nullNodeMeta && nullNodeMeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Meta = null;
+            if (parseNode.GetChildNode("query_parameters") is { } nullNodeQueryParameters && nullNodeQueryParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryParameters = null;
+            if (parseNode.GetChildNode("record_types") is { } nullNodeRecordTypes && nullNodeRecordTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTypes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo? _explicitNullValueMeta = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo _explicitNullValueMeta = default!;
 #endif
         /// <summary>Map of supported query parameter names to their definitions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty? QueryParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty? QueryParameters { get => _explicitNullValueQueryParameters; set { _explicitNullValueQueryParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parameters"); else _explicitNullProperties?.Remove("query_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty? _explicitNullValueQueryParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty QueryParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty QueryParameters { get => _explicitNullValueQueryParameters; set { _explicitNullValueQueryParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parameters"); else _explicitNullProperties?.Remove("query_parameters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty _explicitNullValueQueryParameters = default!;
 #endif
         /// <summary>The record_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo>? RecordTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo>? RecordTypes { get => _explicitNullValueRecordTypes; set { _explicitNullValueRecordTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_types"); else _explicitNullProperties?.Remove("record_types"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo>? _explicitNullValueRecordTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo> RecordTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo> RecordTypes { get => _explicitNullValueRecordTypes; set { _explicitNullValueRecordTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_types"); else _explicitNullProperties?.Remove("record_types"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo> _explicitNullValueRecordTypes = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataInfo>("meta", Meta);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MetadataOverviewResponseQueryParametersProperty>("query_parameters", QueryParameters);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecordTypeInfo>("record_types", RecordTypes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

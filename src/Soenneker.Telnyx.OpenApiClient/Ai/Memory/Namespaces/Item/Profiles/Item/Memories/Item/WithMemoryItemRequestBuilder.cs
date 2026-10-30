@@ -59,6 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces.Item.Profiles.Item
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MemoryResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MemoryResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

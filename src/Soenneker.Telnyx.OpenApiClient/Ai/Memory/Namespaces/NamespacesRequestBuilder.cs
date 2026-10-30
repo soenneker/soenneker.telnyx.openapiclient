@@ -68,6 +68,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -97,6 +99,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

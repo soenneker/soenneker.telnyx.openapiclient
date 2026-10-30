@@ -12,149 +12,221 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateEmailRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attachments") is { } nullNodeAttachments && nullNodeAttachments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attachments = null;
+            if (parseNode.GetChildNode("bcc") is { } nullNodeBcc && nullNodeBcc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bcc = null;
+            if (parseNode.GetChildNode("cc") is { } nullNodeCc && nullNodeCc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cc = null;
+            if (parseNode.GetChildNode("forward_of_message_id") is { } nullNodeForwardOfMessageId && nullNodeForwardOfMessageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardOfMessageId = null;
+            if (parseNode.GetChildNode("from") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("from_name") is { } nullNodeFromName && nullNodeFromName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromName = null;
+            if (parseNode.GetChildNode("group_id") is { } nullNodeGroupId && nullNodeGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupId = null;
+            if (parseNode.GetChildNode("headers") is { } nullNodeHeaders && nullNodeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headers = null;
+            if (parseNode.GetChildNode("html_body") is { } nullNodeHtmlBody && nullNodeHtmlBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlBody = null;
+            if (parseNode.GetChildNode("ignore_suppression") is { } nullNodeIgnoreSuppression && nullNodeIgnoreSuppression.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreSuppression = null;
+            if (parseNode.GetChildNode("inline_css") is { } nullNodeInlineCss && nullNodeInlineCss.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InlineCss = null;
+            if (parseNode.GetChildNode("in_reply_to_message_id") is { } nullNodeInReplyToMessageId && nullNodeInReplyToMessageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InReplyToMessageId = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("reply_to") is { } nullNodeReplyTo && nullNodeReplyTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyTo = null;
+            if (parseNode.GetChildNode("reply_to_all") is { } nullNodeReplyToAll && nullNodeReplyToAll.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyToAll = null;
+            if (parseNode.GetChildNode("sandbox_mode") is { } nullNodeSandboxMode && nullNodeSandboxMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxMode = null;
+            if (parseNode.GetChildNode("scheduled_at") is { } nullNodeScheduledAt && nullNodeScheduledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduledAt = null;
+            if (parseNode.GetChildNode("send_at") is { } nullNodeSendAt && nullNodeSendAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendAt = null;
+            if (parseNode.GetChildNode("subject") is { } nullNodeSubject && nullNodeSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subject = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("template_id") is { } nullNodeTemplateId && nullNodeTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TemplateId = null;
+            if (parseNode.GetChildNode("template_variables") is { } nullNodeTemplateVariables && nullNodeTemplateVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TemplateVariables = null;
+            if (parseNode.GetChildNode("text_body") is { } nullNodeTextBody && nullNodeTextBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextBody = null;
+            if (parseNode.GetChildNode("to") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
+            if (parseNode.GetChildNode("tracking_settings") is { } nullNodeTrackingSettings && nullNodeTrackingSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackingSettings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attachments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>? Attachments { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>? Attachments { get => _explicitNullValueAttachments; set { _explicitNullValueAttachments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attachments"); else _explicitNullProperties?.Remove("attachments"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>? _explicitNullValueAttachments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest> Attachments { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest> Attachments { get => _explicitNullValueAttachments; set { _explicitNullValueAttachments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attachments"); else _explicitNullProperties?.Remove("attachments"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest> _explicitNullValueAttachments = default!;
 #endif
         /// <summary>The bcc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Bcc { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Bcc { get => _explicitNullValueBcc; set { _explicitNullValueBcc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bcc"); else _explicitNullProperties?.Remove("bcc"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueBcc = default!;
 #nullable restore
 #else
-        public List<string> Bcc { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> Bcc { get => _explicitNullValueBcc; set { _explicitNullValueBcc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bcc"); else _explicitNullProperties?.Remove("bcc"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueBcc = default!;
 #endif
         /// <summary>The cc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Cc { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Cc { get => _explicitNullValueCc; set { _explicitNullValueCc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc"); else _explicitNullProperties?.Remove("cc"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueCc = default!;
 #nullable restore
 #else
-        public List<string> Cc { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> Cc { get => _explicitNullValueCc; set { _explicitNullValueCc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc"); else _explicitNullProperties?.Remove("cc"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueCc = default!;
 #endif
         /// <summary>Telnyx message UUID of the message this send forwards. Forwardedmessages start a NEW thread per RFC 5322 — NO `In-Reply-To` or`References` headers are set on the outbound MIME. The id isrecorded in the message&apos;s metadata for EDR provenance only.The id is validated as a UUID but is NOT looked up against themessage store — existence is the caller&apos;s responsibility (theforward is pure metadata; it does not affect delivery). Cannot becombined with `in_reply_to_message_id` (422).</summary>
-        public Guid? ForwardOfMessageId { get; set; }
+        public Guid? ForwardOfMessageId { get => _explicitNullValueForwardOfMessageId; set { _explicitNullValueForwardOfMessageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forward_of_message_id"); else _explicitNullProperties?.Remove("forward_of_message_id"); } }
+        private Guid? _explicitNullValueForwardOfMessageId = default!;
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput? From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput _explicitNullValueFrom = default!;
 #endif
         /// <summary>Optional display name for string `from`; overrides `from.name` when provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromName { get; set; }
+        public string? FromName { get => _explicitNullValueFromName; set { _explicitNullValueFromName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_name"); else _explicitNullProperties?.Remove("from_name"); } }
+        private string? _explicitNullValueFromName = default!;
 #nullable restore
 #else
-        public string FromName { get; set; }
+        public string FromName { get => _explicitNullValueFromName; set { _explicitNullValueFromName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_name"); else _explicitNullProperties?.Remove("from_name"); } }
+        private string _explicitNullValueFromName = default!;
 #endif
         /// <summary>Optional unsubscribe-group UUID used for group-scoped suppression checks and unsubscribe handling.</summary>
-        public Guid? GroupId { get; set; }
+        public Guid? GroupId { get => _explicitNullValueGroupId; set { _explicitNullValueGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_id"); else _explicitNullProperties?.Remove("group_id"); } }
+        private Guid? _explicitNullValueGroupId = default!;
         /// <summary>Custom email headers. Write-only; not returned in responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty? Headers { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty? Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty? _explicitNullValueHeaders = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty Headers { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestHeadersProperty _explicitNullValueHeaders = default!;
 #endif
         /// <summary>HTML email body. Returned only by `GET /email_messages/{id}`; omitted from create and list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlBody { get; set; }
+        public string? HtmlBody { get => _explicitNullValueHtmlBody; set { _explicitNullValueHtmlBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_body"); else _explicitNullProperties?.Remove("html_body"); } }
+        private string? _explicitNullValueHtmlBody = default!;
 #nullable restore
 #else
-        public string HtmlBody { get; set; }
+        public string HtmlBody { get => _explicitNullValueHtmlBody; set { _explicitNullValueHtmlBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_body"); else _explicitNullProperties?.Remove("html_body"); } }
+        private string _explicitNullValueHtmlBody = default!;
 #endif
         /// <summary>When true, allows delivery to recipients whose suppressions explicitlypermit an override. Hard bounces, spam complaints, and invalid-addresssuppressions cannot be overridden. Requires the `email:override` API scope.</summary>
-        public bool? IgnoreSuppression { get; set; }
+        public bool? IgnoreSuppression { get => _explicitNullValueIgnoreSuppression; set { _explicitNullValueIgnoreSuppression = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_suppression"); else _explicitNullProperties?.Remove("ignore_suppression"); } }
+        private bool? _explicitNullValueIgnoreSuppression = default!;
         /// <summary>The inline_css property</summary>
-        public bool? InlineCss { get; set; }
+        public bool? InlineCss { get => _explicitNullValueInlineCss; set { _explicitNullValueInlineCss = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_css"); else _explicitNullProperties?.Remove("inline_css"); } }
+        private bool? _explicitNullValueInlineCss = default!;
         /// <summary>Telnyx message UUID of the message this send replies to. When provided,the API sets RFC 5322 `In-Reply-To` and `References` headers on theoutbound MIME so the recipient&apos;s mailbox (Gmail/Outlook) threads itcorrectly. The parent is looked up under the caller&apos;s account scope;a UUID belonging to another account yields a non-enumerating 404.Wire-only (Phase 1): the API sets the headers and does NOT resolve ormutate `thread_id` on the server side. Messages sent without thisparameter are standalone (no threading headers injected).Cannot be combined with `forward_of_message_id` (422).</summary>
-        public Guid? InReplyToMessageId { get; set; }
+        public Guid? InReplyToMessageId { get => _explicitNullValueInReplyToMessageId; set { _explicitNullValueInReplyToMessageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_reply_to_message_id"); else _explicitNullProperties?.Remove("in_reply_to_message_id"); } }
+        private Guid? _explicitNullValueInReplyToMessageId = default!;
         /// <summary>Custom metadata key/value pairs. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in `filter[metadata]` when listing messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestMetadataProperty _explicitNullValueMetadata = default!;
 #endif
         /// <summary>Reply-to address. If provided as an object with a name, only the email is stored; the name is ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput? ReplyTo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput? ReplyTo { get => _explicitNullValueReplyTo; set { _explicitNullValueReplyTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to"); else _explicitNullProperties?.Remove("reply_to"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput? _explicitNullValueReplyTo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput ReplyTo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput ReplyTo { get => _explicitNullValueReplyTo; set { _explicitNullValueReplyTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to"); else _explicitNullProperties?.Remove("reply_to"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput _explicitNullValueReplyTo = default!;
 #endif
         /// <summary>Indicates a reply-all intent. In Phase 1 (wire-only) this does notchange the threading headers — recipient selection is customer-controlled (`to`/`cc`), and a thread is not defined by its audience.When the referenced message has no thread context, reply-alldegrades to a plain reply (parent ID only in `References`). Theresolution engine (separate work) will expand the ancestor chainat a later phase with no API change.Only meaningful alongside `in_reply_to_message_id`.</summary>
-        public bool? ReplyToAll { get; set; }
+        public bool? ReplyToAll { get => _explicitNullValueReplyToAll; set { _explicitNullValueReplyToAll = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to_all"); else _explicitNullProperties?.Remove("reply_to_all"); } }
+        private bool? _explicitNullValueReplyToAll = default!;
         /// <summary>Validates and accepts the message without injecting it into the MTA or outbound Kafka path. Nothing is delivered: sandbox records are non-billable, consume no daily-send-limit quota, and feed no delivery-reputation signals.The reserved sandbox test-recipient domain is `test.telnyx.com`. In sandbox mode, these addresses produce deterministic recipient-scoped lifecycle events:- `delivered@test.telnyx.com`: queued -&gt; sending -&gt; sent -&gt; delivered- `hard-bounce@test.telnyx.com`: queued -&gt; sending -&gt; sent -&gt; bounced (permanent)- `soft-bounce@test.telnyx.com`: queued -&gt; sending -&gt; sent -&gt; bounced (transient)- `complaint@test.telnyx.com`: queued -&gt; sending -&gt; sent -&gt; complained- `suppressed@test.telnyx.com`: queued -&gt; suppressed- `invalid@test.telnyx.com`: queued -&gt; sending -&gt; failed (invalid recipient)- `dkim-fail@test.telnyx.com`: queued -&gt; sending -&gt; failed (DKIM unavailable)- `rate-limit@test.telnyx.com`: queued -&gt; sending -&gt; failed (rate limit exceeded)Matching is case-insensitive for both the local part and the domain and requires the exact domain `test.telnyx.com` — subdomains and other domains do not match. Mixed sandbox sends simulate only reserved test recipients; other recipients retain ordinary sandbox behavior (accepted, no delivery attempted). Hard-bounce and complaint outcomes also use the normal automatic-suppression pipeline. Non-sandbox sends to these addresses use the normal delivery path.</summary>
-        public bool? SandboxMode { get; set; }
+        public bool? SandboxMode { get => _explicitNullValueSandboxMode; set { _explicitNullValueSandboxMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_mode"); else _explicitNullProperties?.Remove("sandbox_mode"); } }
+        private bool? _explicitNullValueSandboxMode = default!;
         /// <summary>Future ISO 8601 delivery time. Invalid or non-future timestamps are rejected. Single sends return HTTP 422; in batch sends the invalid item is reported in the 207 per-item errors while other items continue. `send_at` remains a deprecated request alias. A non-null `scheduled_at` takes precedence over `send_at`; when `scheduled_at` is omitted or null, `send_at` is used.</summary>
-        public DateTimeOffset? ScheduledAt { get; set; }
+        public DateTimeOffset? ScheduledAt { get => _explicitNullValueScheduledAt; set { _explicitNullValueScheduledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduled_at"); else _explicitNullProperties?.Remove("scheduled_at"); } }
+        private DateTimeOffset? _explicitNullValueScheduledAt = default!;
         /// <summary>Deprecated alias for `scheduled_at`.</summary>
         [Obsolete("")]
-        public DateTimeOffset? SendAt { get; set; }
+        public DateTimeOffset? SendAt { get => _explicitNullValueSendAt; set { _explicitNullValueSendAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_at"); else _explicitNullProperties?.Remove("send_at"); } }
+        private DateTimeOffset? _explicitNullValueSendAt = default!;
         /// <summary>Required unless `template_id` is supplied. When using a template, the template&apos;s subject is rendered; if the template has no subject or renders empty, the request returns 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subject { get; set; }
+        public string? Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        private string? _explicitNullValueSubject = default!;
 #nullable restore
 #else
-        public string Subject { get; set; }
+        public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        private string _explicitNullValueSubject = default!;
 #endif
         /// <summary>Tags for categorization and filtering. Stored on the message, returned on message responses, and propagated to Email Detail Records. Usable in `filter[tags]` when listing messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>The template_id property</summary>
-        public Guid? TemplateId { get; set; }
+        public Guid? TemplateId { get => _explicitNullValueTemplateId; set { _explicitNullValueTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_id"); else _explicitNullProperties?.Remove("template_id"); } }
+        private Guid? _explicitNullValueTemplateId = default!;
         /// <summary>Variables for Liquid template rendering. Non-object values may cause a 422 validation error on message creation, but are silently treated as an empty object for template rendering. When the template enables `strict_variables`, a missing required variable fails the request with 422 (single send) or a per-item `unprocessable_entity` error (batch) naming the variable; no message is persisted for the failed item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty? TemplateVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty? TemplateVariables { get => _explicitNullValueTemplateVariables; set { _explicitNullValueTemplateVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_variables"); else _explicitNullProperties?.Remove("template_variables"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty? _explicitNullValueTemplateVariables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty TemplateVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty TemplateVariables { get => _explicitNullValueTemplateVariables; set { _explicitNullValueTemplateVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_variables"); else _explicitNullProperties?.Remove("template_variables"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty _explicitNullValueTemplateVariables = default!;
 #endif
         /// <summary>Plain text email body. Returned only by `GET /email_messages/{id}`; omitted from create and list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TextBody { get; set; }
+        public string? TextBody { get => _explicitNullValueTextBody; set { _explicitNullValueTextBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_body"); else _explicitNullProperties?.Remove("text_body"); } }
+        private string? _explicitNullValueTextBody = default!;
 #nullable restore
 #else
-        public string TextBody { get; set; }
+        public string TextBody { get => _explicitNullValueTextBody; set { _explicitNullValueTextBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_body"); else _explicitNullProperties?.Remove("text_body"); } }
+        private string _explicitNullValueTextBody = default!;
 #endif
         /// <summary>The to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? To { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueTo = default!;
 #nullable restore
 #else
-        public List<string> To { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueTo = default!;
 #endif
         /// <summary>Per-send open and click tracking overrides. Omitted properties inherit the sender domain&apos;s tracking settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings? TrackingSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings? TrackingSettings { get => _explicitNullValueTrackingSettings; set { _explicitNullValueTrackingSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking_settings"); else _explicitNullProperties?.Remove("tracking_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings? _explicitNullValueTrackingSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings TrackingSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings TrackingSettings { get => _explicitNullValueTrackingSettings; set { _explicitNullValueTrackingSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking_settings"); else _explicitNullProperties?.Remove("tracking_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings _explicitNullValueTrackingSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest"/> and sets the default values.
@@ -175,7 +247,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -186,8 +258,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "bcc", n => { Bcc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "cc", n => { Cc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "bcc", n => { Bcc = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "forward_of_message_id", n => { ForwardOfMessageId = n.GetGuidValue(); } },
                 { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput.CreateFromDiscriminatorValue); } },
                 { "from_name", n => { FromName = n.GetStringValue(); } },
@@ -208,7 +280,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "template_id", n => { TemplateId = n.GetGuidValue(); } },
                 { "template_variables", n => { TemplateVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
-                { "to", n => { To = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "to", n => { To = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tracking_settings", n => { TrackingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -220,8 +292,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AttachmentRequest>("attachments", Attachments);
-            writer.WriteCollectionOfPrimitiveValues<string>("bcc", Bcc);
-            writer.WriteCollectionOfPrimitiveValues<string>("cc", Cc);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("bcc", Bcc);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("cc", Cc);
             writer.WriteGuidValue("forward_of_message_id", ForwardOfMessageId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailAddressInput>("from", From);
             writer.WriteStringValue("from_name", FromName);
@@ -242,8 +314,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("template_id", TemplateId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailRequestTemplateVariablesProperty>("template_variables", TemplateVariables);
             writer.WriteStringValue("text_body", TextBody);
-            writer.WriteCollectionOfPrimitiveValues<string>("to", To);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("to", To);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrackingSettings>("tracking_settings", TrackingSettings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,19 +11,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EmailDomainVerification : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dkim") is { } nullNodeDkim && nullNodeDkim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dkim = null;
+            if (parseNode.GetChildNode("dmarc") is { } nullNodeDmarc && nullNodeDmarc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dmarc = null;
+            if (parseNode.GetChildNode("mx") is { } nullNodeMx && nullNodeMx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mx = null;
+            if (parseNode.GetChildNode("ownership") is { } nullNodeOwnership && nullNodeOwnership.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ownership = null;
+            if (parseNode.GetChildNode("spf") is { } nullNodeSpf && nullNodeSpf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spf = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The dkim property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationDkim? Dkim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationDkim? Dkim { get => _explicitNullValueDkim; set { _explicitNullValueDkim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim"); else _explicitNullProperties?.Remove("dkim"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationDkim? _explicitNullValueDkim = default!;
         /// <summary>The dmarc property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationDmarc? Dmarc { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationDmarc? Dmarc { get => _explicitNullValueDmarc; set { _explicitNullValueDmarc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc"); else _explicitNullProperties?.Remove("dmarc"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationDmarc? _explicitNullValueDmarc = default!;
         /// <summary>The mx property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationMx? Mx { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationMx? Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationMx? _explicitNullValueMx = default!;
         /// <summary>The ownership property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationOwnership? Ownership { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationOwnership? Ownership { get => _explicitNullValueOwnership; set { _explicitNullValueOwnership = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ownership"); else _explicitNullProperties?.Remove("ownership"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationOwnership? _explicitNullValueOwnership = default!;
         /// <summary>The spf property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationSpf? Spf { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationSpf? Spf { get => _explicitNullValueSpf; set { _explicitNullValueSpf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spf"); else _explicitNullProperties?.Remove("spf"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationSpf? _explicitNullValueSpf = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerification"/> and sets the default values.
         /// </summary>
@@ -39,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerification();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerification(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationMx>("mx", Mx);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationOwnership>("ownership", Ownership);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationSpf>("spf", Spf);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

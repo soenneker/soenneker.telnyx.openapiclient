@@ -66,6 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseListPublic>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseListPublic.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -95,6 +97,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Enterprises
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.BrandedCallingErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EnterprisePublicWrapped.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

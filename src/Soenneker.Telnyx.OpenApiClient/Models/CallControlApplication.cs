@@ -11,101 +11,155 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CallControlApplication : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
+            if (parseNode.GetChildNode("anchorsite_override") is { } nullNodeAnchorsiteOverride && nullNodeAnchorsiteOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnchorsiteOverride = null;
+            if (parseNode.GetChildNode("application_name") is { } nullNodeApplicationName && nullNodeApplicationName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationName = null;
+            if (parseNode.GetChildNode("call_cost_in_webhooks") is { } nullNodeCallCostInWebhooks && nullNodeCallCostInWebhooks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallCostInWebhooks = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("dtmf_type") is { } nullNodeDtmfType && nullNodeDtmfType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DtmfType = null;
+            if (parseNode.GetChildNode("first_command_timeout") is { } nullNodeFirstCommandTimeout && nullNodeFirstCommandTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstCommandTimeout = null;
+            if (parseNode.GetChildNode("first_command_timeout_secs") is { } nullNodeFirstCommandTimeoutSecs && nullNodeFirstCommandTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstCommandTimeoutSecs = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("inbound") is { } nullNodeInbound && nullNodeInbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inbound = null;
+            if (parseNode.GetChildNode("outbound") is { } nullNodeOutbound && nullNodeOutbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outbound = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("redact_dtmf_debug_logging") is { } nullNodeRedactDtmfDebugLogging && nullNodeRedactDtmfDebugLogging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactDtmfDebugLogging = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("webhook_api_version") is { } nullNodeWebhookApiVersion && nullNodeWebhookApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookApiVersion = null;
+            if (parseNode.GetChildNode("webhook_event_failover_url") is { } nullNodeWebhookEventFailoverUrl && nullNodeWebhookEventFailoverUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookEventFailoverUrl = null;
+            if (parseNode.GetChildNode("webhook_event_url") is { } nullNodeWebhookEventUrl && nullNodeWebhookEventUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookEventUrl = null;
+            if (parseNode.GetChildNode("webhook_timeout_secs") is { } nullNodeWebhookTimeoutSecs && nullNodeWebhookTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookTimeoutSecs = null;
+        }
+
         /// <summary>Specifies whether the connection can be used.</summary>
-        public bool? Active { get; set; }
+        public bool? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
+        private bool? _explicitNullValueActive = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>&lt;code&gt;Latency&lt;/code&gt; directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationAnchorsiteOverride? AnchorsiteOverride { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationAnchorsiteOverride? AnchorsiteOverride { get => _explicitNullValueAnchorsiteOverride; set { _explicitNullValueAnchorsiteOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anchorsite_override"); else _explicitNullProperties?.Remove("anchorsite_override"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationAnchorsiteOverride? _explicitNullValueAnchorsiteOverride = default!;
         /// <summary>A user-assigned name to help manage the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApplicationName { get; set; }
+        public string? ApplicationName { get => _explicitNullValueApplicationName; set { _explicitNullValueApplicationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_name"); else _explicitNullProperties?.Remove("application_name"); } }
+        private string? _explicitNullValueApplicationName = default!;
 #nullable restore
 #else
-        public string ApplicationName { get; set; }
+        public string ApplicationName { get => _explicitNullValueApplicationName; set { _explicitNullValueApplicationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_name"); else _explicitNullProperties?.Remove("application_name"); } }
+        private string _explicitNullValueApplicationName = default!;
 #endif
         /// <summary>Specifies if call cost webhooks should be sent for this Call Control Application.</summary>
-        public bool? CallCostInWebhooks { get; set; }
+        public bool? CallCostInWebhooks { get => _explicitNullValueCallCostInWebhooks; set { _explicitNullValueCallCostInWebhooks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_cost_in_webhooks"); else _explicitNullProperties?.Remove("call_cost_in_webhooks"); } }
+        private bool? _explicitNullValueCallCostInWebhooks = default!;
         /// <summary>ISO 8601 formatted date of when the resource was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; set; }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get; set; }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationDtmfType? DtmfType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationDtmfType? DtmfType { get => _explicitNullValueDtmfType; set { _explicitNullValueDtmfType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dtmf_type"); else _explicitNullProperties?.Remove("dtmf_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationDtmfType? _explicitNullValueDtmfType = default!;
         /// <summary>Specifies whether calls to phone numbers associated with this connection should hangup after timing out.</summary>
-        public bool? FirstCommandTimeout { get; set; }
+        public bool? FirstCommandTimeout { get => _explicitNullValueFirstCommandTimeout; set { _explicitNullValueFirstCommandTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_command_timeout"); else _explicitNullProperties?.Remove("first_command_timeout"); } }
+        private bool? _explicitNullValueFirstCommandTimeout = default!;
         /// <summary>Specifies how many seconds to wait before timing out a dial command.</summary>
-        public int? FirstCommandTimeoutSecs { get; set; }
+        public int? FirstCommandTimeoutSecs { get => _explicitNullValueFirstCommandTimeoutSecs; set { _explicitNullValueFirstCommandTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_command_timeout_secs"); else _explicitNullProperties?.Remove("first_command_timeout_secs"); } }
+        private int? _explicitNullValueFirstCommandTimeoutSecs = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound? Inbound { get => _explicitNullValueInbound; set { _explicitNullValueInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound"); else _explicitNullProperties?.Remove("inbound"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound? _explicitNullValueInbound = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound Inbound { get => _explicitNullValueInbound; set { _explicitNullValueInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound"); else _explicitNullProperties?.Remove("inbound"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound _explicitNullValueInbound = default!;
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound? Outbound { get => _explicitNullValueOutbound; set { _explicitNullValueOutbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound"); else _explicitNullProperties?.Remove("outbound"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound? _explicitNullValueOutbound = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound Outbound { get => _explicitNullValueOutbound; set { _explicitNullValueOutbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound"); else _explicitNullProperties?.Remove("outbound"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound _explicitNullValueOutbound = default!;
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationRecordType? _explicitNullValueRecordType = default!;
         /// <summary>When enabled, DTMF digits entered by users will be redacted in debug logs to protect PII data entered through IVR interactions.</summary>
-        public bool? RedactDtmfDebugLogging { get; set; }
+        public bool? RedactDtmfDebugLogging { get => _explicitNullValueRedactDtmfDebugLogging; set { _explicitNullValueRedactDtmfDebugLogging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redact_dtmf_debug_logging"); else _explicitNullProperties?.Remove("redact_dtmf_debug_logging"); } }
+        private bool? _explicitNullValueRedactDtmfDebugLogging = default!;
         /// <summary>Tags assigned to the Call Control Application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>ISO 8601 formatted date of when the resource was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get; set; }
+        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private string? _explicitNullValueUpdatedAt = default!;
 #nullable restore
 #else
-        public string UpdatedAt { get; set; }
+        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private string _explicitNullValueUpdatedAt = default!;
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationWebhookApiVersion? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationWebhookApiVersion? WebhookApiVersion { get => _explicitNullValueWebhookApiVersion; set { _explicitNullValueWebhookApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_api_version"); else _explicitNullProperties?.Remove("webhook_api_version"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationWebhookApiVersion? _explicitNullValueWebhookApiVersion = default!;
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as `https`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookEventFailoverUrl { get; set; }
+        public string? WebhookEventFailoverUrl { get => _explicitNullValueWebhookEventFailoverUrl; set { _explicitNullValueWebhookEventFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_failover_url"); else _explicitNullProperties?.Remove("webhook_event_failover_url"); } }
+        private string? _explicitNullValueWebhookEventFailoverUrl = default!;
 #nullable restore
 #else
-        public string WebhookEventFailoverUrl { get; set; }
+        public string WebhookEventFailoverUrl { get => _explicitNullValueWebhookEventFailoverUrl; set { _explicitNullValueWebhookEventFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_failover_url"); else _explicitNullProperties?.Remove("webhook_event_failover_url"); } }
+        private string _explicitNullValueWebhookEventFailoverUrl = default!;
 #endif
         /// <summary>The URL where webhooks related to this connection will be sent. Must include a scheme, such as `https`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookEventUrl { get; set; }
+        public string? WebhookEventUrl { get => _explicitNullValueWebhookEventUrl; set { _explicitNullValueWebhookEventUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_url"); else _explicitNullProperties?.Remove("webhook_event_url"); } }
+        private string? _explicitNullValueWebhookEventUrl = default!;
 #nullable restore
 #else
-        public string WebhookEventUrl { get; set; }
+        public string WebhookEventUrl { get => _explicitNullValueWebhookEventUrl; set { _explicitNullValueWebhookEventUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_url"); else _explicitNullProperties?.Remove("webhook_event_url"); } }
+        private string _explicitNullValueWebhookEventUrl = default!;
 #endif
         /// <summary>The webhook_timeout_secs property</summary>
-        public int? WebhookTimeoutSecs { get; set; }
+        public int? WebhookTimeoutSecs { get => _explicitNullValueWebhookTimeoutSecs; set { _explicitNullValueWebhookTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_timeout_secs"); else _explicitNullProperties?.Remove("webhook_timeout_secs"); } }
+        private int? _explicitNullValueWebhookTimeoutSecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication"/> and sets the default values.
         /// </summary>
@@ -126,7 +180,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -183,6 +237,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

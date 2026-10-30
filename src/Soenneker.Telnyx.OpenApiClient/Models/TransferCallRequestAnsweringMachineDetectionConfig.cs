@@ -12,47 +12,92 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferCallRequestAnsweringMachineDetectionConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("after_greeting_silence_millis") is { } nullNodeAfterGreetingSilenceMillis && nullNodeAfterGreetingSilenceMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AfterGreetingSilenceMillis = null;
+            if (parseNode.GetChildNode("beep_detection_profile") is { } nullNodeBeepDetectionProfile && nullNodeBeepDetectionProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepDetectionProfile = null;
+            if (parseNode.GetChildNode("beep_max_frequency_hz") is { } nullNodeBeepMaxFrequencyHz && nullNodeBeepMaxFrequencyHz.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepMaxFrequencyHz = null;
+            if (parseNode.GetChildNode("beep_min_frequency_hz") is { } nullNodeBeepMinFrequencyHz && nullNodeBeepMinFrequencyHz.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepMinFrequencyHz = null;
+            if (parseNode.GetChildNode("beep_min_tone_duration_millis") is { } nullNodeBeepMinToneDurationMillis && nullNodeBeepMinToneDurationMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepMinToneDurationMillis = null;
+            if (parseNode.GetChildNode("beep_spectral_confirmation") is { } nullNodeBeepSpectralConfirmation && nullNodeBeepSpectralConfirmation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepSpectralConfirmation = null;
+            if (parseNode.GetChildNode("beep_spectral_min_purity") is { } nullNodeBeepSpectralMinPurity && nullNodeBeepSpectralMinPurity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepSpectralMinPurity = null;
+            if (parseNode.GetChildNode("beep_spectral_reject_fax_cng") is { } nullNodeBeepSpectralRejectFaxCng && nullNodeBeepSpectralRejectFaxCng.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepSpectralRejectFaxCng = null;
+            if (parseNode.GetChildNode("beep_spectral_window_millis") is { } nullNodeBeepSpectralWindowMillis && nullNodeBeepSpectralWindowMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepSpectralWindowMillis = null;
+            if (parseNode.GetChildNode("between_words_silence_millis") is { } nullNodeBetweenWordsSilenceMillis && nullNodeBetweenWordsSilenceMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BetweenWordsSilenceMillis = null;
+            if (parseNode.GetChildNode("greeting_duration_millis") is { } nullNodeGreetingDurationMillis && nullNodeGreetingDurationMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GreetingDurationMillis = null;
+            if (parseNode.GetChildNode("greeting_silence_duration_millis") is { } nullNodeGreetingSilenceDurationMillis && nullNodeGreetingSilenceDurationMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GreetingSilenceDurationMillis = null;
+            if (parseNode.GetChildNode("greeting_total_analysis_time_millis") is { } nullNodeGreetingTotalAnalysisTimeMillis && nullNodeGreetingTotalAnalysisTimeMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GreetingTotalAnalysisTimeMillis = null;
+            if (parseNode.GetChildNode("initial_silence_millis") is { } nullNodeInitialSilenceMillis && nullNodeInitialSilenceMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialSilenceMillis = null;
+            if (parseNode.GetChildNode("maximum_number_of_words") is { } nullNodeMaximumNumberOfWords && nullNodeMaximumNumberOfWords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumNumberOfWords = null;
+            if (parseNode.GetChildNode("maximum_word_length_millis") is { } nullNodeMaximumWordLengthMillis && nullNodeMaximumWordLengthMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumWordLengthMillis = null;
+            if (parseNode.GetChildNode("prompt_end_timeout_millis") is { } nullNodePromptEndTimeoutMillis && nullNodePromptEndTimeoutMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptEndTimeoutMillis = null;
+            if (parseNode.GetChildNode("silence_threshold") is { } nullNodeSilenceThreshold && nullNodeSilenceThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SilenceThreshold = null;
+            if (parseNode.GetChildNode("total_analysis_time_millis") is { } nullNodeTotalAnalysisTimeMillis && nullNodeTotalAnalysisTimeMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalAnalysisTimeMillis = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Silence duration threshold after a greeting message or voice for it be considered human.</summary>
-        public int? AfterGreetingSilenceMillis { get; set; }
+        public int? AfterGreetingSilenceMillis { get => _explicitNullValueAfterGreetingSilenceMillis; set { _explicitNullValueAfterGreetingSilenceMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("after_greeting_silence_millis"); else _explicitNullProperties?.Remove("after_greeting_silence_millis"); } }
+        private int? _explicitNullValueAfterGreetingSilenceMillis = default!;
         /// <summary>Selects which detectors must validate a beep. `both` requires the amplitude and frequency detectors to agree. `freq_only` uses the frequency detector alone, for beeps whose volume is too unsteady for the default profile.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile? BeepDetectionProfile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile? BeepDetectionProfile { get => _explicitNullValueBeepDetectionProfile; set { _explicitNullValueBeepDetectionProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_detection_profile"); else _explicitNullProperties?.Remove("beep_detection_profile"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfigBeepDetectionProfile? _explicitNullValueBeepDetectionProfile = default!;
         /// <summary>Highest frequency, in Hz, that a tone can reach and still be treated as a beep. Only used when beep detection is active.</summary>
-        public int? BeepMaxFrequencyHz { get; set; }
+        public int? BeepMaxFrequencyHz { get => _explicitNullValueBeepMaxFrequencyHz; set { _explicitNullValueBeepMaxFrequencyHz = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_max_frequency_hz"); else _explicitNullProperties?.Remove("beep_max_frequency_hz"); } }
+        private int? _explicitNullValueBeepMaxFrequencyHz = default!;
         /// <summary>Lowest frequency, in Hz, that a tone must reach to be treated as a beep. Raising it above 480 excludes North American ringback (440 + 480 Hz), which can otherwise be reported as a beep when the `freq_only` profile is in use. Only used when beep detection is active.</summary>
-        public int? BeepMinFrequencyHz { get; set; }
+        public int? BeepMinFrequencyHz { get => _explicitNullValueBeepMinFrequencyHz; set { _explicitNullValueBeepMinFrequencyHz = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_min_frequency_hz"); else _explicitNullProperties?.Remove("beep_min_frequency_hz"); } }
+        private int? _explicitNullValueBeepMinFrequencyHz = default!;
         /// <summary>Shortest tone, in milliseconds, that can be treated as a beep. Raising it rejects brief tones such as call-progress blips. Only used when beep detection is active.</summary>
-        public int? BeepMinToneDurationMillis { get; set; }
+        public int? BeepMinToneDurationMillis { get => _explicitNullValueBeepMinToneDurationMillis; set { _explicitNullValueBeepMinToneDurationMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_min_tone_duration_millis"); else _explicitNullProperties?.Remove("beep_min_tone_duration_millis"); } }
+        private int? _explicitNullValueBeepMinToneDurationMillis = default!;
         /// <summary>When enabled, a candidate beep must pass an additional spectral check before it is reported. Only used when beep detection is active.</summary>
-        public bool? BeepSpectralConfirmation { get; set; }
+        public bool? BeepSpectralConfirmation { get => _explicitNullValueBeepSpectralConfirmation; set { _explicitNullValueBeepSpectralConfirmation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_spectral_confirmation"); else _explicitNullProperties?.Remove("beep_spectral_confirmation"); } }
+        private bool? _explicitNullValueBeepSpectralConfirmation = default!;
         /// <summary>Minimum spectral purity, from 0 to 1, for a tone to be treated as a beep. Raising it rejects mixed tones such as ringback, which combines two frequencies. Only used when beep detection is active.</summary>
-        public double? BeepSpectralMinPurity { get; set; }
+        public double? BeepSpectralMinPurity { get => _explicitNullValueBeepSpectralMinPurity; set { _explicitNullValueBeepSpectralMinPurity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_spectral_min_purity"); else _explicitNullProperties?.Remove("beep_spectral_min_purity"); } }
+        private double? _explicitNullValueBeepSpectralMinPurity = default!;
         /// <summary>When enabled, the fax CNG tone is rejected rather than reported as a beep. Only used when beep detection is active.</summary>
-        public bool? BeepSpectralRejectFaxCng { get; set; }
+        public bool? BeepSpectralRejectFaxCng { get => _explicitNullValueBeepSpectralRejectFaxCng; set { _explicitNullValueBeepSpectralRejectFaxCng = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_spectral_reject_fax_cng"); else _explicitNullProperties?.Remove("beep_spectral_reject_fax_cng"); } }
+        private bool? _explicitNullValueBeepSpectralRejectFaxCng = default!;
         /// <summary>Length of the spectral confirmation window, in milliseconds. Only used when beep detection is active.</summary>
-        public int? BeepSpectralWindowMillis { get; set; }
+        public int? BeepSpectralWindowMillis { get => _explicitNullValueBeepSpectralWindowMillis; set { _explicitNullValueBeepSpectralWindowMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_spectral_window_millis"); else _explicitNullProperties?.Remove("beep_spectral_window_millis"); } }
+        private int? _explicitNullValueBeepSpectralWindowMillis = default!;
         /// <summary>Maximum threshold for silence between words.</summary>
-        public int? BetweenWordsSilenceMillis { get; set; }
+        public int? BetweenWordsSilenceMillis { get => _explicitNullValueBetweenWordsSilenceMillis; set { _explicitNullValueBetweenWordsSilenceMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("between_words_silence_millis"); else _explicitNullProperties?.Remove("between_words_silence_millis"); } }
+        private int? _explicitNullValueBetweenWordsSilenceMillis = default!;
         /// <summary>Maximum threshold of a human greeting. If greeting longer than this value, considered machine.</summary>
-        public int? GreetingDurationMillis { get; set; }
+        public int? GreetingDurationMillis { get => _explicitNullValueGreetingDurationMillis; set { _explicitNullValueGreetingDurationMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting_duration_millis"); else _explicitNullProperties?.Remove("greeting_duration_millis"); } }
+        private int? _explicitNullValueGreetingDurationMillis = default!;
         /// <summary>If machine already detected, maximum threshold for silence between words. If exceeded, the greeting is considered ended.</summary>
-        public int? GreetingSilenceDurationMillis { get; set; }
+        public int? GreetingSilenceDurationMillis { get => _explicitNullValueGreetingSilenceDurationMillis; set { _explicitNullValueGreetingSilenceDurationMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting_silence_duration_millis"); else _explicitNullProperties?.Remove("greeting_silence_duration_millis"); } }
+        private int? _explicitNullValueGreetingSilenceDurationMillis = default!;
         /// <summary>If machine already detected, maximum timeout threshold to determine the end of the machine greeting.</summary>
-        public int? GreetingTotalAnalysisTimeMillis { get; set; }
+        public int? GreetingTotalAnalysisTimeMillis { get => _explicitNullValueGreetingTotalAnalysisTimeMillis; set { _explicitNullValueGreetingTotalAnalysisTimeMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting_total_analysis_time_millis"); else _explicitNullProperties?.Remove("greeting_total_analysis_time_millis"); } }
+        private int? _explicitNullValueGreetingTotalAnalysisTimeMillis = default!;
         /// <summary>If initial silence duration is greater than this value, consider it a machine.</summary>
-        public int? InitialSilenceMillis { get; set; }
+        public int? InitialSilenceMillis { get => _explicitNullValueInitialSilenceMillis; set { _explicitNullValueInitialSilenceMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_silence_millis"); else _explicitNullProperties?.Remove("initial_silence_millis"); } }
+        private int? _explicitNullValueInitialSilenceMillis = default!;
         /// <summary>If number of detected words is greater than this value, consder it a machine.</summary>
-        public int? MaximumNumberOfWords { get; set; }
+        public int? MaximumNumberOfWords { get => _explicitNullValueMaximumNumberOfWords; set { _explicitNullValueMaximumNumberOfWords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_number_of_words"); else _explicitNullProperties?.Remove("maximum_number_of_words"); } }
+        private int? _explicitNullValueMaximumNumberOfWords = default!;
         /// <summary>If a single word lasts longer than this threshold, consider it a machine.</summary>
-        public int? MaximumWordLengthMillis { get; set; }
+        public int? MaximumWordLengthMillis { get => _explicitNullValueMaximumWordLengthMillis; set { _explicitNullValueMaximumWordLengthMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_word_length_millis"); else _explicitNullProperties?.Remove("maximum_word_length_millis"); } }
+        private int? _explicitNullValueMaximumWordLengthMillis = default!;
         /// <summary>Maximum time Telnyx waits, in milliseconds, for the iOS call-screening prompt to end after Premium AMD initially detects a `machine`. Used when `answering_machine_detection` is `premium_ios_call_screening_detection`. Defaults to 5000 milliseconds.</summary>
-        public int? PromptEndTimeoutMillis { get; set; }
+        public int? PromptEndTimeoutMillis { get => _explicitNullValuePromptEndTimeoutMillis; set { _explicitNullValuePromptEndTimeoutMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_end_timeout_millis"); else _explicitNullProperties?.Remove("prompt_end_timeout_millis"); } }
+        private int? _explicitNullValuePromptEndTimeoutMillis = default!;
         /// <summary>Minimum noise threshold for any analysis.</summary>
-        public int? SilenceThreshold { get; set; }
+        public int? SilenceThreshold { get => _explicitNullValueSilenceThreshold; set { _explicitNullValueSilenceThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("silence_threshold"); else _explicitNullProperties?.Remove("silence_threshold"); } }
+        private int? _explicitNullValueSilenceThreshold = default!;
         /// <summary>Maximum timeout threshold for overall detection.</summary>
-        public int? TotalAnalysisTimeMillis { get; set; }
+        public int? TotalAnalysisTimeMillis { get => _explicitNullValueTotalAnalysisTimeMillis; set { _explicitNullValueTotalAnalysisTimeMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_analysis_time_millis"); else _explicitNullProperties?.Remove("total_analysis_time_millis"); } }
+        private int? _explicitNullValueTotalAnalysisTimeMillis = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfig"/> and sets the default values.
         /// </summary>
@@ -79,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -136,6 +181,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("prompt_end_timeout_millis", PromptEndTimeoutMillis);
             writer.WriteIntValue("silence_threshold", SilenceThreshold);
             writer.WriteIntValue("total_analysis_time_millis", TotalAnalysisTimeMillis);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

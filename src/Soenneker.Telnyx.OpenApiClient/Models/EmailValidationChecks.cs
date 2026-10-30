@@ -11,48 +11,70 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EmailValidationChecks : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("disposable") is { } nullNodeDisposable && nullNodeDisposable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disposable = null;
+            if (parseNode.GetChildNode("mx") is { } nullNodeMx && nullNodeMx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mx = null;
+            if (parseNode.GetChildNode("role_based") is { } nullNodeRoleBased && nullNodeRoleBased.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleBased = null;
+            if (parseNode.GetChildNode("syntax") is { } nullNodeSyntax && nullNodeSyntax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Syntax = null;
+            if (parseNode.GetChildNode("typo") is { } nullNodeTypo && nullNodeTypo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Typo = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The disposable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Disposable { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Disposable { get => _explicitNullValueDisposable; set { _explicitNullValueDisposable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disposable"); else _explicitNullProperties?.Remove("disposable"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? _explicitNullValueDisposable = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Disposable { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Disposable { get => _explicitNullValueDisposable; set { _explicitNullValueDisposable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disposable"); else _explicitNullProperties?.Remove("disposable"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck _explicitNullValueDisposable = default!;
 #endif
         /// <summary>The mx property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Mx { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? _explicitNullValueMx = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Mx { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck _explicitNullValueMx = default!;
 #endif
         /// <summary>The role_based property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? RoleBased { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? RoleBased { get => _explicitNullValueRoleBased; set { _explicitNullValueRoleBased = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_based"); else _explicitNullProperties?.Remove("role_based"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? _explicitNullValueRoleBased = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck RoleBased { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck RoleBased { get => _explicitNullValueRoleBased; set { _explicitNullValueRoleBased = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_based"); else _explicitNullProperties?.Remove("role_based"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck _explicitNullValueRoleBased = default!;
 #endif
         /// <summary>The syntax property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Syntax { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? _explicitNullValueSyntax = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Syntax { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck _explicitNullValueSyntax = default!;
 #endif
         /// <summary>The typo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck? Typo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck? Typo { get => _explicitNullValueTypo; set { _explicitNullValueTypo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("typo"); else _explicitNullProperties?.Remove("typo"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck? _explicitNullValueTypo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck Typo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck Typo { get => _explicitNullValueTypo; set { _explicitNullValueTypo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("typo"); else _explicitNullProperties?.Remove("typo"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck _explicitNullValueTypo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationChecks"/> and sets the default values.
@@ -69,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationChecks CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationChecks();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationChecks(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck>("role_based", RoleBased);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck>("syntax", Syntax);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck>("typo", Typo);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

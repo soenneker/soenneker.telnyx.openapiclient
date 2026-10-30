@@ -12,116 +12,171 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceSdkCallReport : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_id") is { } nullNodeCallId && nullNodeCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallId = null;
+            if (parseNode.GetChildNode("call_report_id") is { } nullNodeCallReportId && nullNodeCallReportId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallReportId = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("flushReason") is { } nullNodeFlushReason && nullNodeFlushReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlushReason = null;
+            if (parseNode.GetChildNode("logs") is { } nullNodeLogs && nullNodeLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logs = null;
+            if (parseNode.GetChildNode("organization_id") is { } nullNodeOrganizationId && nullNodeOrganizationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationId = null;
+            if (parseNode.GetChildNode("segment") is { } nullNodeSegment && nullNodeSegment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Segment = null;
+            if (parseNode.GetChildNode("stats") is { } nullNodeStats && nullNodeStats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stats = null;
+            if (parseNode.GetChildNode("stored_at") is { } nullNodeStoredAt && nullNodeStoredAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StoredAt = null;
+            if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+            if (parseNode.GetChildNode("telnyx_leg_id") is { } nullNodeTelnyxLegId && nullNodeTelnyxLegId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelnyxLegId = null;
+            if (parseNode.GetChildNode("telnyx_session_id") is { } nullNodeTelnyxSessionId && nullNodeTelnyxSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelnyxSessionId = null;
+            if (parseNode.GetChildNode("user_agent") is { } nullNodeUserAgent && nullNodeUserAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAgent = null;
+            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("voice_sdk_id") is { } nullNodeVoiceSdkId && nullNodeVoiceSdkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSdkId = null;
+            if (parseNode.GetChildNode("voice_sdk_id_decoded") is { } nullNodeVoiceSdkIdDecoded && nullNodeVoiceSdkIdDecoded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSdkIdDecoded = null;
+            if (parseNode.GetChildNode("voice_sdk_session_id") is { } nullNodeVoiceSdkSessionId && nullNodeVoiceSdkSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSdkSessionId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unique call identifier.</summary>
-        public Guid? CallId { get; set; }
+        public Guid? CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_id"); else _explicitNullProperties?.Remove("call_id"); } }
+        private Guid? _explicitNullValueCallId = default!;
         /// <summary>User-scoped storage grouping identifier derived from the authenticated user. This is not a unique per-call report identifier and may be shared by multiple calls for the same user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallReportId { get; set; }
+        public string? CallReportId { get => _explicitNullValueCallReportId; set { _explicitNullValueCallReportId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_report_id"); else _explicitNullProperties?.Remove("call_report_id"); } }
+        private string? _explicitNullValueCallReportId = default!;
 #nullable restore
 #else
-        public string CallReportId { get; set; }
+        public string CallReportId { get => _explicitNullValueCallReportId; set { _explicitNullValueCallReportId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_report_id"); else _explicitNullProperties?.Remove("call_report_id"); } }
+        private string _explicitNullValueCallReportId = default!;
 #endif
         /// <summary>Creation timestamp when present.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Reason the SDK flushed this stats report segment, for example an intermediate socket-close flush.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty? FlushReason { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty? FlushReason { get => _explicitNullValueFlushReason; set { _explicitNullValueFlushReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flushReason"); else _explicitNullProperties?.Remove("flushReason"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty? _explicitNullValueFlushReason = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty FlushReason { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty FlushReason { get => _explicitNullValueFlushReason; set { _explicitNullValueFlushReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flushReason"); else _explicitNullProperties?.Remove("flushReason"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportFlushReasonProperty _explicitNullValueFlushReason = default!;
 #endif
         /// <summary>Raw logs payload emitted by the Voice SDK and stored without normalization. Live responses commonly return an array of log entries, but object-shaped log payloads are also allowed for compatibility.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs? Logs { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs? Logs { get => _explicitNullValueLogs; set { _explicitNullValueLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logs"); else _explicitNullProperties?.Remove("logs"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs? _explicitNullValueLogs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs Logs { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs Logs { get => _explicitNullValueLogs; set { _explicitNullValueLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logs"); else _explicitNullProperties?.Remove("logs"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportLogs _explicitNullValueLogs = default!;
 #endif
         /// <summary>Organization associated with the stored call report when provided by the Voice SDK reporting path.</summary>
-        public Guid? OrganizationId { get; set; }
+        public Guid? OrganizationId { get => _explicitNullValueOrganizationId; set { _explicitNullValueOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_id"); else _explicitNullProperties?.Remove("organization_id"); } }
+        private Guid? _explicitNullValueOrganizationId = default!;
         /// <summary>Zero-based stats segment index when the SDK sends segmented or intermediate reports.</summary>
-        public int? Segment { get; set; }
+        public int? Segment { get => _explicitNullValueSegment; set { _explicitNullValueSegment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("segment"); else _explicitNullProperties?.Remove("segment"); } }
+        private int? _explicitNullValueSegment = default!;
         /// <summary>Raw stats payload emitted by the Voice SDK and stored without normalization. The exact shape can vary by SDK platform and version. Live responses commonly return an array of interval snapshots, but object-shaped stats payloads are also allowed for compatibility.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats? Stats { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats? Stats { get => _explicitNullValueStats; set { _explicitNullValueStats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stats"); else _explicitNullProperties?.Remove("stats"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats? _explicitNullValueStats = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats Stats { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats Stats { get => _explicitNullValueStats; set { _explicitNullValueStats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stats"); else _explicitNullProperties?.Remove("stats"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStats _explicitNullValueStats = default!;
 #endif
         /// <summary>Time when the call report was stored.</summary>
-        public DateTimeOffset? StoredAt { get; set; }
+        public DateTimeOffset? StoredAt { get => _explicitNullValueStoredAt; set { _explicitNullValueStoredAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stored_at"); else _explicitNullProperties?.Remove("stored_at"); } }
+        private DateTimeOffset? _explicitNullValueStoredAt = default!;
         /// <summary>High-level call metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty? Summary { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty? _explicitNullValueSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty Summary { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportSummaryProperty _explicitNullValueSummary = default!;
 #endif
         /// <summary>Telnyx call leg identifier for correlating the report with call-control, SIP, and media troubleshooting data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelnyxLegId { get; set; }
+        public string? TelnyxLegId { get => _explicitNullValueTelnyxLegId; set { _explicitNullValueTelnyxLegId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_leg_id"); else _explicitNullProperties?.Remove("telnyx_leg_id"); } }
+        private string? _explicitNullValueTelnyxLegId = default!;
 #nullable restore
 #else
-        public string TelnyxLegId { get; set; }
+        public string TelnyxLegId { get => _explicitNullValueTelnyxLegId; set { _explicitNullValueTelnyxLegId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_leg_id"); else _explicitNullProperties?.Remove("telnyx_leg_id"); } }
+        private string _explicitNullValueTelnyxLegId = default!;
 #endif
         /// <summary>Telnyx RTC session identifier for correlating the report with Voice SDK signaling and media-session logs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelnyxSessionId { get; set; }
+        public string? TelnyxSessionId { get => _explicitNullValueTelnyxSessionId; set { _explicitNullValueTelnyxSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_session_id"); else _explicitNullProperties?.Remove("telnyx_session_id"); } }
+        private string? _explicitNullValueTelnyxSessionId = default!;
 #nullable restore
 #else
-        public string TelnyxSessionId { get; set; }
+        public string TelnyxSessionId { get => _explicitNullValueTelnyxSessionId; set { _explicitNullValueTelnyxSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_session_id"); else _explicitNullProperties?.Remove("telnyx_session_id"); } }
+        private string _explicitNullValueTelnyxSessionId = default!;
 #endif
         /// <summary>Voice SDK user agent string reported by the client. This is the preferred SDK/platform/version dimension when present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserAgent { get; set; }
+        public string? UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_agent"); else _explicitNullProperties?.Remove("user_agent"); } }
+        private string? _explicitNullValueUserAgent = default!;
 #nullable restore
 #else
-        public string UserAgent { get; set; }
+        public string UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_agent"); else _explicitNullProperties?.Remove("user_agent"); } }
+        private string _explicitNullValueUserAgent = default!;
 #endif
         /// <summary>Authenticated user that owns the call report.</summary>
-        public Guid? UserId { get; set; }
+        public Guid? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private Guid? _explicitNullValueUserId = default!;
         /// <summary>Legacy SDK version value when the client reports one separately from the user agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get; set; }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get; set; }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>Voice SDK instance identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VoiceSdkId { get; set; }
+        public string? VoiceSdkId { get => _explicitNullValueVoiceSdkId; set { _explicitNullValueVoiceSdkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_sdk_id"); else _explicitNullProperties?.Remove("voice_sdk_id"); } }
+        private string? _explicitNullValueVoiceSdkId = default!;
 #nullable restore
 #else
-        public string VoiceSdkId { get; set; }
+        public string VoiceSdkId { get => _explicitNullValueVoiceSdkId; set { _explicitNullValueVoiceSdkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_sdk_id"); else _explicitNullProperties?.Remove("voice_sdk_id"); } }
+        private string _explicitNullValueVoiceSdkId = default!;
 #endif
         /// <summary>Decoded Voice SDK identifier metadata emitted by voice-sdk-proxy when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty? VoiceSdkIdDecoded { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty? VoiceSdkIdDecoded { get => _explicitNullValueVoiceSdkIdDecoded; set { _explicitNullValueVoiceSdkIdDecoded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_sdk_id_decoded"); else _explicitNullProperties?.Remove("voice_sdk_id_decoded"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty? _explicitNullValueVoiceSdkIdDecoded = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty VoiceSdkIdDecoded { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty VoiceSdkIdDecoded { get => _explicitNullValueVoiceSdkIdDecoded; set { _explicitNullValueVoiceSdkIdDecoded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_sdk_id_decoded"); else _explicitNullProperties?.Remove("voice_sdk_id_decoded"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty _explicitNullValueVoiceSdkIdDecoded = default!;
 #endif
         /// <summary>Voice SDK session correlation identifier used to group stats segments for the same SDK session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VoiceSdkSessionId { get; set; }
+        public string? VoiceSdkSessionId { get => _explicitNullValueVoiceSdkSessionId; set { _explicitNullValueVoiceSdkSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_sdk_session_id"); else _explicitNullProperties?.Remove("voice_sdk_session_id"); } }
+        private string? _explicitNullValueVoiceSdkSessionId = default!;
 #nullable restore
 #else
-        public string VoiceSdkSessionId { get; set; }
+        public string VoiceSdkSessionId { get => _explicitNullValueVoiceSdkSessionId; set { _explicitNullValueVoiceSdkSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_sdk_session_id"); else _explicitNullProperties?.Remove("voice_sdk_session_id"); } }
+        private string _explicitNullValueVoiceSdkSessionId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport"/> and sets the default values.
@@ -138,7 +193,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -193,6 +248,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("voice_sdk_id", VoiceSdkId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportVoiceSdkIdDecodedProperty>("voice_sdk_id_decoded", VoiceSdkIdDecoded);
             writer.WriteStringValue("voice_sdk_session_id", VoiceSdkSessionId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

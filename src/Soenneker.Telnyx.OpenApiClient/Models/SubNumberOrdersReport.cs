@@ -11,7 +11,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SubNumberOrdersReport : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("filters") is { } nullNodeFilters && nullNodeFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filters = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
@@ -19,10 +28,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The filters that were applied to generate this report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters? Filters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters? _explicitNullValueFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters Filters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters _explicitNullValueFilters = default!;
 #endif
         /// <summary>Identifies the resource.</summary>
         public Guid? Id { get; private set; }
@@ -35,7 +46,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string OrderType { get; private set; }
 #endif
         /// <summary>Indicates the completion level of the sub number orders report. The report must have a status of &apos;success&apos; before it can be downloaded.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportStatus? _explicitNullValueStatus = default!;
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>The ID of the user who created the report.</summary>
@@ -55,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters>("filters", Filters);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportStatus>("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

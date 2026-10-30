@@ -11,32 +11,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ImportExternalVetting : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("evpId") is { } nullNodeEvpId && nullNodeEvpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvpId = null;
+            if (parseNode.GetChildNode("vettingId") is { } nullNodeVettingId && nullNodeVettingId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingId = null;
+            if (parseNode.GetChildNode("vettingToken") is { } nullNodeVettingToken && nullNodeVettingToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingToken = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>External vetting provider ID for the brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EvpId { get; set; }
+        public string? EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
+        private string? _explicitNullValueEvpId = default!;
 #nullable restore
 #else
-        public string EvpId { get; set; }
+        public string EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
+        private string _explicitNullValueEvpId = default!;
 #endif
         /// <summary>Unique ID that identifies a vetting transaction performed by a vetting provider. This ID is provided by the vetting provider at time of vetting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VettingId { get; set; }
+        public string? VettingId { get => _explicitNullValueVettingId; set { _explicitNullValueVettingId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingId"); else _explicitNullProperties?.Remove("vettingId"); } }
+        private string? _explicitNullValueVettingId = default!;
 #nullable restore
 #else
-        public string VettingId { get; set; }
+        public string VettingId { get => _explicitNullValueVettingId; set { _explicitNullValueVettingId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingId"); else _explicitNullProperties?.Remove("vettingId"); } }
+        private string _explicitNullValueVettingId = default!;
 #endif
         /// <summary>Required by some providers for vetting record confirmation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VettingToken { get; set; }
+        public string? VettingToken { get => _explicitNullValueVettingToken; set { _explicitNullValueVettingToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingToken"); else _explicitNullProperties?.Remove("vettingToken"); } }
+        private string? _explicitNullValueVettingToken = default!;
 #nullable restore
 #else
-        public string VettingToken { get; set; }
+        public string VettingToken { get => _explicitNullValueVettingToken; set { _explicitNullValueVettingToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingToken"); else _explicitNullProperties?.Remove("vettingToken"); } }
+        private string _explicitNullValueVettingToken = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImportExternalVetting"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ImportExternalVetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ImportExternalVetting();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ImportExternalVetting(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("evpId", EvpId);
             writer.WriteStringValue("vettingId", VettingId);
             writer.WriteStringValue("vettingToken", VettingToken);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

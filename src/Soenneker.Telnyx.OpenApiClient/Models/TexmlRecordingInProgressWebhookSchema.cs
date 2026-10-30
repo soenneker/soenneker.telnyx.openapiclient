@@ -12,61 +12,90 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TexmlRecordingInProgressWebhookSchema : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
+            if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
+            if (parseNode.GetChildNode("CallSidLegacy") is { } nullNodeCallSidLegacy && nullNodeCallSidLegacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidLegacy = null;
+            if (parseNode.GetChildNode("ConnectionId") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("RecordingChannels") is { } nullNodeRecordingChannels && nullNodeRecordingChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingChannels = null;
+            if (parseNode.GetChildNode("RecordingSid") is { } nullNodeRecordingSid && nullNodeRecordingSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingSid = null;
+            if (parseNode.GetChildNode("RecordingSource") is { } nullNodeRecordingSource && nullNodeRecordingSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingSource = null;
+            if (parseNode.GetChildNode("RecordingStatus") is { } nullNodeRecordingStatus && nullNodeRecordingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStatus = null;
+        }
+
         /// <summary>The unique identifier of the account (user_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountSid { get; set; }
+        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        private string? _explicitNullValueAccountSid = default!;
 #nullable restore
 #else
-        public string AccountSid { get; set; }
+        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        private string _explicitNullValueAccountSid = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier of the call (call_control_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSid { get; set; }
+        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        private string? _explicitNullValueCallSid = default!;
 #nullable restore
 #else
-        public string CallSid { get; set; }
+        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        private string _explicitNullValueCallSid = default!;
 #endif
         /// <summary>Legacy call identifier, same as CallSid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSidLegacy { get; set; }
+        public string? CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        private string? _explicitNullValueCallSidLegacy = default!;
 #nullable restore
 #else
-        public string CallSidLegacy { get; set; }
+        public string CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        private string _explicitNullValueCallSidLegacy = default!;
 #endif
         /// <summary>The unique identifier of the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConnectionId"); else _explicitNullProperties?.Remove("ConnectionId"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConnectionId"); else _explicitNullProperties?.Remove("ConnectionId"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>The number of channels in the recording (1 for mono, 2 for dual-channel).</summary>
-        public int? RecordingChannels { get; set; }
+        public int? RecordingChannels { get => _explicitNullValueRecordingChannels; set { _explicitNullValueRecordingChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingChannels"); else _explicitNullProperties?.Remove("RecordingChannels"); } }
+        private int? _explicitNullValueRecordingChannels = default!;
         /// <summary>A unique identifier for the recording, generated by Telnyx (conditional, only present if recording_id is available).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordingSid { get; set; }
+        public string? RecordingSid { get => _explicitNullValueRecordingSid; set { _explicitNullValueRecordingSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingSid"); else _explicitNullProperties?.Remove("RecordingSid"); } }
+        private string? _explicitNullValueRecordingSid = default!;
 #nullable restore
 #else
-        public string RecordingSid { get; set; }
+        public string RecordingSid { get => _explicitNullValueRecordingSid; set { _explicitNullValueRecordingSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingSid"); else _explicitNullProperties?.Remove("RecordingSid"); } }
+        private string _explicitNullValueRecordingSid = default!;
 #endif
         /// <summary>The source of the recording.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordingSource { get; set; }
+        public string? RecordingSource { get => _explicitNullValueRecordingSource; set { _explicitNullValueRecordingSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingSource"); else _explicitNullProperties?.Remove("RecordingSource"); } }
+        private string? _explicitNullValueRecordingSource = default!;
 #nullable restore
 #else
-        public string RecordingSource { get; set; }
+        public string RecordingSource { get => _explicitNullValueRecordingSource; set { _explicitNullValueRecordingSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingSource"); else _explicitNullProperties?.Remove("RecordingSource"); } }
+        private string _explicitNullValueRecordingSource = default!;
 #endif
         /// <summary>The status of the recording.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InProgressRecordingStatus? RecordingStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InProgressRecordingStatus? RecordingStatus { get => _explicitNullValueRecordingStatus; set { _explicitNullValueRecordingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingStatus"); else _explicitNullProperties?.Remove("RecordingStatus"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InProgressRecordingStatus? _explicitNullValueRecordingStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingInProgressWebhookSchema"/> and sets the default values.
         /// </summary>
@@ -82,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingInProgressWebhookSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingInProgressWebhookSchema();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingInProgressWebhookSchema(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -117,6 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("RecordingSid", RecordingSid);
             writer.WriteStringValue("RecordingSource", RecordingSource);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InProgressRecordingStatus>("RecordingStatus", RecordingStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

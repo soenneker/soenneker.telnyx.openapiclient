@@ -57,6 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces.Item.Operations.It
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.OperationResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.OperationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

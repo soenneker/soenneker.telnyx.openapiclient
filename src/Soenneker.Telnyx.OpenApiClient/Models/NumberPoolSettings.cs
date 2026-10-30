@@ -12,19 +12,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NumberPoolSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("geomatch") is { } nullNodeGeomatch && nullNodeGeomatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Geomatch = null;
+            if (parseNode.GetChildNode("long_code_weight") is { } nullNodeLongCodeWeight && nullNodeLongCodeWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LongCodeWeight = null;
+            if (parseNode.GetChildNode("skip_unhealthy") is { } nullNodeSkipUnhealthy && nullNodeSkipUnhealthy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipUnhealthy = null;
+            if (parseNode.GetChildNode("sticky_sender") is { } nullNodeStickySender && nullNodeStickySender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StickySender = null;
+            if (parseNode.GetChildNode("toll_free_weight") is { } nullNodeTollFreeWeight && nullNodeTollFreeWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TollFreeWeight = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If set to true, Number Pool will try to choose a sending number with the same area code as the destinationnumber. If there are no such numbers available, a nunber with a different area code will be chosen. Currentlyonly NANP numbers are supported.</summary>
-        public bool? Geomatch { get; set; }
+        public bool? Geomatch { get => _explicitNullValueGeomatch; set { _explicitNullValueGeomatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geomatch"); else _explicitNullProperties?.Remove("geomatch"); } }
+        private bool? _explicitNullValueGeomatch = default!;
         /// <summary>Defines the probability weight for a Long Code number to be selected when sending a message.The higher the weight the higher the probability. The sum of the weights for all number typesdoes not necessarily need to add to 100.  Weight must be a non-negative number, and when equalto zero it will remove the number type from the pool.</summary>
-        public double? LongCodeWeight { get; set; }
+        public double? LongCodeWeight { get => _explicitNullValueLongCodeWeight; set { _explicitNullValueLongCodeWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("long_code_weight"); else _explicitNullProperties?.Remove("long_code_weight"); } }
+        private double? _explicitNullValueLongCodeWeight = default!;
         /// <summary>If set to true all unhealthy numbers will be automatically excluded from the pool.Health metrics per number are calculated on a regular basis, taking into account the deliverabilityrate and the amount of messages marked as spam by upstream carriers.Numbers with a deliverability rate below 25% or spam ratio over 75% will be considered unhealthy.</summary>
-        public bool? SkipUnhealthy { get; set; }
+        public bool? SkipUnhealthy { get => _explicitNullValueSkipUnhealthy; set { _explicitNullValueSkipUnhealthy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_unhealthy"); else _explicitNullProperties?.Remove("skip_unhealthy"); } }
+        private bool? _explicitNullValueSkipUnhealthy = default!;
         /// <summary>If set to true, Number Pool will try to choose the same sending number for all messages to a particularrecipient. If the sending number becomes unhealthy and `skip_unhealthy` is set to true, a newnumber will be chosen.</summary>
-        public bool? StickySender { get; set; }
+        public bool? StickySender { get => _explicitNullValueStickySender; set { _explicitNullValueStickySender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sticky_sender"); else _explicitNullProperties?.Remove("sticky_sender"); } }
+        private bool? _explicitNullValueStickySender = default!;
         /// <summary>Defines the probability weight for a Toll Free number to be selected when sending a message.The higher the weight the higher the probability. The sum of the weights for all number typesdoes not necessarily need to add to 100. Weight must be a non-negative number, and when equalto zero it will remove the number type from the pool.</summary>
-        public double? TollFreeWeight { get; set; }
+        public double? TollFreeWeight { get => _explicitNullValueTollFreeWeight; set { _explicitNullValueTollFreeWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toll_free_weight"); else _explicitNullProperties?.Remove("toll_free_weight"); } }
+        private double? _explicitNullValueTollFreeWeight = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings"/> and sets the default values.
         /// </summary>
@@ -42,7 +59,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("skip_unhealthy", SkipUnhealthy);
             writer.WriteBoolValue("sticky_sender", StickySender);
             writer.WriteDoubleValue("toll_free_weight", TollFreeWeight);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -55,6 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Refresh_client_token
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.VideoError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshRoomClientToken201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RefreshRoomClientToken201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

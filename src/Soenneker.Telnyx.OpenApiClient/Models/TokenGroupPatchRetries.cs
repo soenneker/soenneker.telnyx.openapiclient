@@ -12,15 +12,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TokenGroupPatchRetries : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("backoff") is { } nullNodeBackoff && nullNodeBackoff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Backoff = null;
+            if (parseNode.GetChildNode("max_attempts") is { } nullNodeMaxAttempts && nullNodeMaxAttempts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAttempts = null;
+            if (parseNode.GetChildNode("request_timeout_ms") is { } nullNodeRequestTimeoutMs && nullNodeRequestTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestTimeoutMs = null;
+            if (parseNode.GetChildNode("retry_delay_ms") is { } nullNodeRetryDelayMs && nullNodeRetryDelayMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryDelayMs = null;
+        }
+
         /// <summary>The backoff property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchRetriesBackoff? Backoff { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchRetriesBackoff? Backoff { get => _explicitNullValueBackoff; set { _explicitNullValueBackoff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backoff"); else _explicitNullProperties?.Remove("backoff"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchRetriesBackoff? _explicitNullValueBackoff = default!;
         /// <summary>The max_attempts property</summary>
-        public int? MaxAttempts { get; set; }
+        public int? MaxAttempts { get => _explicitNullValueMaxAttempts; set { _explicitNullValueMaxAttempts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_attempts"); else _explicitNullProperties?.Remove("max_attempts"); } }
+        private int? _explicitNullValueMaxAttempts = default!;
         /// <summary>The request_timeout_ms property</summary>
-        public int? RequestTimeoutMs { get; set; }
+        public int? RequestTimeoutMs { get => _explicitNullValueRequestTimeoutMs; set { _explicitNullValueRequestTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_timeout_ms"); else _explicitNullProperties?.Remove("request_timeout_ms"); } }
+        private int? _explicitNullValueRequestTimeoutMs = default!;
         /// <summary>The retry_delay_ms property</summary>
-        public int? RetryDelayMs { get; set; }
+        public int? RetryDelayMs { get => _explicitNullValueRetryDelayMs; set { _explicitNullValueRetryDelayMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry_delay_ms"); else _explicitNullProperties?.Remove("retry_delay_ms"); } }
+        private int? _explicitNullValueRetryDelayMs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchRetries"/> and sets the default values.
         /// </summary>
@@ -36,7 +51,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchRetries CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchRetries();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchRetries(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,7 +79,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupPatchRetriesBackoff>("backoff", Backoff);
             writer.WriteIntValue("max_attempts", MaxAttempts);
             writer.WriteIntValue("request_timeout_ms", RequestTimeoutMs);
-            writer.WriteIntValue("retry_delay_ms", RetryDelayMs);
+            writer.WriteIntValue("retry_delay_ms", RetryDelayMs);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -55,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.EnumNamespace.Item
             {
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

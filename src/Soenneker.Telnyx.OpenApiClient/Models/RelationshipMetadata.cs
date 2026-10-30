@@ -11,17 +11,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RelationshipMetadata : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("max_recommended_depth") is { } nullNodeMaxRecommendedDepth && nullNodeMaxRecommendedDepth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRecommendedDepth = null;
+            if (parseNode.GetChildNode("total_children") is { } nullNodeTotalChildren && nullNodeTotalChildren.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalChildren = null;
+            if (parseNode.GetChildNode("total_parents") is { } nullNodeTotalParents && nullNodeTotalParents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalParents = null;
+            if (parseNode.GetChildNode("total_siblings") is { } nullNodeTotalSiblings && nullNodeTotalSiblings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSiblings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The max_recommended_depth property</summary>
-        public int? MaxRecommendedDepth { get; set; }
+        public int? MaxRecommendedDepth { get => _explicitNullValueMaxRecommendedDepth; set { _explicitNullValueMaxRecommendedDepth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_recommended_depth"); else _explicitNullProperties?.Remove("max_recommended_depth"); } }
+        private int? _explicitNullValueMaxRecommendedDepth = default!;
         /// <summary>The total_children property</summary>
-        public int? TotalChildren { get; set; }
+        public int? TotalChildren { get => _explicitNullValueTotalChildren; set { _explicitNullValueTotalChildren = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_children"); else _explicitNullProperties?.Remove("total_children"); } }
+        private int? _explicitNullValueTotalChildren = default!;
         /// <summary>The total_parents property</summary>
-        public int? TotalParents { get; set; }
+        public int? TotalParents { get => _explicitNullValueTotalParents; set { _explicitNullValueTotalParents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_parents"); else _explicitNullProperties?.Remove("total_parents"); } }
+        private int? _explicitNullValueTotalParents = default!;
         /// <summary>The total_siblings property</summary>
-        public int? TotalSiblings { get; set; }
+        public int? TotalSiblings { get => _explicitNullValueTotalSiblings; set { _explicitNullValueTotalSiblings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_siblings"); else _explicitNullProperties?.Remove("total_siblings"); } }
+        private int? _explicitNullValueTotalSiblings = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipMetadata"/> and sets the default values.
         /// </summary>
@@ -37,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipMetadata();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipMetadata(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("total_children", TotalChildren);
             writer.WriteIntValue("total_parents", TotalParents);
             writer.WriteIntValue("total_siblings", TotalSiblings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -57,6 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider401ResponseSchema.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider404ResponseSchema.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider422ResponseSchema.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -84,6 +86,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider401ResponseSchema.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider404ResponseSchema.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider422ResponseSchema.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -113,6 +117,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider401ResponseSchema.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider404ResponseSchema.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider422ResponseSchema.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

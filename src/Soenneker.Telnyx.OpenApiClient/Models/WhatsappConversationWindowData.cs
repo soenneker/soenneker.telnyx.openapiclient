@@ -11,22 +11,38 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WhatsappConversationWindowData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("last_user_message_at") is { } nullNodeLastUserMessageAt && nullNodeLastUserMessageAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUserMessageAt = null;
+            if (parseNode.GetChildNode("window_active") is { } nullNodeWindowActive && nullNodeWindowActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowActive = null;
+            if (parseNode.GetChildNode("window_expires_at") is { } nullNodeWindowExpiresAt && nullNodeWindowExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowExpiresAt = null;
+            if (parseNode.GetChildNode("window_type") is { } nullNodeWindowType && nullNodeWindowType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Timestamp of the last inbound message that opened the window</summary>
-        public DateTimeOffset? LastUserMessageAt { get; set; }
+        public DateTimeOffset? LastUserMessageAt { get => _explicitNullValueLastUserMessageAt; set { _explicitNullValueLastUserMessageAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_user_message_at"); else _explicitNullProperties?.Remove("last_user_message_at"); } }
+        private DateTimeOffset? _explicitNullValueLastUserMessageAt = default!;
         /// <summary>Whether the 24-hour conversation window is currently open</summary>
-        public bool? WindowActive { get; set; }
+        public bool? WindowActive { get => _explicitNullValueWindowActive; set { _explicitNullValueWindowActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_active"); else _explicitNullProperties?.Remove("window_active"); } }
+        private bool? _explicitNullValueWindowActive = default!;
         /// <summary>When the window closes. Null if no active window.</summary>
-        public DateTimeOffset? WindowExpiresAt { get; set; }
+        public DateTimeOffset? WindowExpiresAt { get => _explicitNullValueWindowExpiresAt; set { _explicitNullValueWindowExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_expires_at"); else _explicitNullProperties?.Remove("window_expires_at"); } }
+        private DateTimeOffset? _explicitNullValueWindowExpiresAt = default!;
         /// <summary>Window type. Currently always 24h when present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WindowType { get; set; }
+        public string? WindowType { get => _explicitNullValueWindowType; set { _explicitNullValueWindowType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_type"); else _explicitNullProperties?.Remove("window_type"); } }
+        private string? _explicitNullValueWindowType = default!;
 #nullable restore
 #else
-        public string WindowType { get; set; }
+        public string WindowType { get => _explicitNullValueWindowType; set { _explicitNullValueWindowType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_type"); else _explicitNullProperties?.Remove("window_type"); } }
+        private string _explicitNullValueWindowType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappConversationWindowData"/> and sets the default values.
@@ -43,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappConversationWindowData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappConversationWindowData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappConversationWindowData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("window_active", WindowActive);
             writer.WriteDateTimeOffsetValue("window_expires_at", WindowExpiresAt);
             writer.WriteStringValue("window_type", WindowType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

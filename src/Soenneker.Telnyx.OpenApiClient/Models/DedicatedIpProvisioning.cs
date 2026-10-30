@@ -12,29 +12,46 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DedicatedIpProvisioning : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("checklist") is { } nullNodeChecklist && nullNodeChecklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checklist = null;
+            if (parseNode.GetChildNode("dns_status") is { } nullNodeDnsStatus && nullNodeDnsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DnsStatus = null;
+            if (parseNode.GetChildNode("ptr_request_pr_url") is { } nullNodePtrRequestPrUrl && nullNodePtrRequestPrUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrRequestPrUrl = null;
+            if (parseNode.GetChildNode("ptr_request_state") is { } nullNodePtrRequestState && nullNodePtrRequestState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrRequestState = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Informational progress flags for the Telnyx-managed PTR. They do not gate `start_warmup`; use `dns_status` to check whether the IP can carry mail.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist? Checklist { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist? Checklist { get => _explicitNullValueChecklist; set { _explicitNullValueChecklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checklist"); else _explicitNullProperties?.Remove("checklist"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist? _explicitNullValueChecklist = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist Checklist { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist Checklist { get => _explicitNullValueChecklist; set { _explicitNullValueChecklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checklist"); else _explicitNullProperties?.Remove("checklist"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist _explicitNullValueChecklist = default!;
 #endif
         /// <summary>`dns_confirmed`: the PTR is forward-confirmed and `dns_confirmed_at` is set. `pending_ptr`: the PTR record is not yet in place. `pending_dns`: the PTR record is waiting for forward confirmation. `dns_lost`: a previously confirmed PTR no longer confirms, or the PTR request was abandoned before it ever confirmed (`ptr_request_state` is `abandoned`); the IP carries no mail until DNS is confirmed. `not_applicable`: the IP is released or has no PTR record on file.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus? DnsStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus? DnsStatus { get => _explicitNullValueDnsStatus; set { _explicitNullValueDnsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_status"); else _explicitNullProperties?.Remove("dns_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus? _explicitNullValueDnsStatus = default!;
         /// <summary>Reference to the Telnyx PTR change request, when one exists. Informational.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PtrRequestPrUrl { get; set; }
+        public string? PtrRequestPrUrl { get => _explicitNullValuePtrRequestPrUrl; set { _explicitNullValuePtrRequestPrUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_pr_url"); else _explicitNullProperties?.Remove("ptr_request_pr_url"); } }
+        private string? _explicitNullValuePtrRequestPrUrl = default!;
 #nullable restore
 #else
-        public string PtrRequestPrUrl { get; set; }
+        public string PtrRequestPrUrl { get => _explicitNullValuePtrRequestPrUrl; set { _explicitNullValuePtrRequestPrUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_pr_url"); else _explicitNullProperties?.Remove("ptr_request_pr_url"); } }
+        private string _explicitNullValuePtrRequestPrUrl = default!;
 #endif
         /// <summary>State of the Telnyx PTR change: `pending`, `pr_open`, `merged`, `confirmed`, `failed`, or `abandoned`. Informational.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState? PtrRequestState { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState? PtrRequestState { get => _explicitNullValuePtrRequestState; set { _explicitNullValuePtrRequestState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_state"); else _explicitNullProperties?.Remove("ptr_request_state"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState? _explicitNullValuePtrRequestState = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning"/> and sets the default values.
         /// </summary>
@@ -50,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,6 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus>("dns_status", DnsStatus);
             writer.WriteStringValue("ptr_request_pr_url", PtrRequestPrUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState>("ptr_request_state", PtrRequestState);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,51 +11,75 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RecursiveCluster : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cluster_header") is { } nullNodeClusterHeader && nullNodeClusterHeader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterHeader = null;
+            if (parseNode.GetChildNode("cluster_id") is { } nullNodeClusterId && nullNodeClusterId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterId = null;
+            if (parseNode.GetChildNode("cluster_summary") is { } nullNodeClusterSummary && nullNodeClusterSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterSummary = null;
+            if (parseNode.GetChildNode("nodes") is { } nullNodeNodes && nullNodeNodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Nodes = null;
+            if (parseNode.GetChildNode("subclusters") is { } nullNodeSubclusters && nullNodeSubclusters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subclusters = null;
+            if (parseNode.GetChildNode("total_number_of_nodes") is { } nullNodeTotalNumberOfNodes && nullNodeTotalNumberOfNodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalNumberOfNodes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cluster_header property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClusterHeader { get; set; }
+        public string? ClusterHeader { get => _explicitNullValueClusterHeader; set { _explicitNullValueClusterHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_header"); else _explicitNullProperties?.Remove("cluster_header"); } }
+        private string? _explicitNullValueClusterHeader = default!;
 #nullable restore
 #else
-        public string ClusterHeader { get; set; }
+        public string ClusterHeader { get => _explicitNullValueClusterHeader; set { _explicitNullValueClusterHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_header"); else _explicitNullProperties?.Remove("cluster_header"); } }
+        private string _explicitNullValueClusterHeader = default!;
 #endif
         /// <summary>The cluster_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClusterId { get; set; }
+        public string? ClusterId { get => _explicitNullValueClusterId; set { _explicitNullValueClusterId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_id"); else _explicitNullProperties?.Remove("cluster_id"); } }
+        private string? _explicitNullValueClusterId = default!;
 #nullable restore
 #else
-        public string ClusterId { get; set; }
+        public string ClusterId { get => _explicitNullValueClusterId; set { _explicitNullValueClusterId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_id"); else _explicitNullProperties?.Remove("cluster_id"); } }
+        private string _explicitNullValueClusterId = default!;
 #endif
         /// <summary>The cluster_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClusterSummary { get; set; }
+        public string? ClusterSummary { get => _explicitNullValueClusterSummary; set { _explicitNullValueClusterSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_summary"); else _explicitNullProperties?.Remove("cluster_summary"); } }
+        private string? _explicitNullValueClusterSummary = default!;
 #nullable restore
 #else
-        public string ClusterSummary { get; set; }
+        public string ClusterSummary { get => _explicitNullValueClusterSummary; set { _explicitNullValueClusterSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_summary"); else _explicitNullProperties?.Remove("cluster_summary"); } }
+        private string _explicitNullValueClusterSummary = default!;
 #endif
         /// <summary>The nodes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode>? Nodes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode>? Nodes { get => _explicitNullValueNodes; set { _explicitNullValueNodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nodes"); else _explicitNullProperties?.Remove("nodes"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode>? _explicitNullValueNodes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode> Nodes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode> Nodes { get => _explicitNullValueNodes; set { _explicitNullValueNodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nodes"); else _explicitNullProperties?.Remove("nodes"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode> _explicitNullValueNodes = default!;
 #endif
         /// <summary>The subclusters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>? Subclusters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>? Subclusters { get => _explicitNullValueSubclusters; set { _explicitNullValueSubclusters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subclusters"); else _explicitNullProperties?.Remove("subclusters"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>? _explicitNullValueSubclusters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster> Subclusters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster> Subclusters { get => _explicitNullValueSubclusters; set { _explicitNullValueSubclusters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subclusters"); else _explicitNullProperties?.Remove("subclusters"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster> _explicitNullValueSubclusters = default!;
 #endif
         /// <summary>The total_number_of_nodes property</summary>
-        public int? TotalNumberOfNodes { get; set; }
+        public int? TotalNumberOfNodes { get => _explicitNullValueTotalNumberOfNodes; set { _explicitNullValueTotalNumberOfNodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_number_of_nodes"); else _explicitNullProperties?.Remove("total_number_of_nodes"); } }
+        private int? _explicitNullValueTotalNumberOfNodes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster"/> and sets the default values.
         /// </summary>
@@ -71,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,6 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode>("nodes", Nodes);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>("subclusters", Subclusters);
             writer.WriteIntValue("total_number_of_nodes", TotalNumberOfNodes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

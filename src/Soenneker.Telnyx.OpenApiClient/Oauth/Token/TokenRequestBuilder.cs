@@ -57,6 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Oauth.Token
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthOAuthError.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.OAuthOAuthError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TokenResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -12,20 +12,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallForwarding : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("call_forwarding_enabled") is { } nullNodeCallForwardingEnabled && nullNodeCallForwardingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallForwardingEnabled = null;
+            if (parseNode.GetChildNode("forwarding_type") is { } nullNodeForwardingType && nullNodeForwardingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingType = null;
+            if (parseNode.GetChildNode("forwards_to") is { } nullNodeForwardsTo && nullNodeForwardsTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardsTo = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates if call forwarding will be enabled for this number if forwards_to and forwarding_type are filled in. Defaults to true for backwards compatibility with APIV1 use of numbers endpoints.</summary>
-        public bool? CallForwardingEnabled { get; set; }
+        public bool? CallForwardingEnabled { get => _explicitNullValueCallForwardingEnabled; set { _explicitNullValueCallForwardingEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_forwarding_enabled"); else _explicitNullProperties?.Remove("call_forwarding_enabled"); } }
+        private bool? _explicitNullValueCallForwardingEnabled = default!;
         /// <summary>Call forwarding type. &apos;forwards_to&apos; must be set for this to have an effect.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwardingForwardingType? ForwardingType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwardingForwardingType? ForwardingType { get => _explicitNullValueForwardingType; set { _explicitNullValueForwardingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_type"); else _explicitNullProperties?.Remove("forwarding_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallForwardingForwardingType? _explicitNullValueForwardingType = default!;
         /// <summary>The phone number to which inbound calls to this number are forwarded. Inbound calls will not be forwarded if this field is left blank. If set, must be a +E.164-formatted phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForwardsTo { get; set; }
+        public string? ForwardsTo { get => _explicitNullValueForwardsTo; set { _explicitNullValueForwardsTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwards_to"); else _explicitNullProperties?.Remove("forwards_to"); } }
+        private string? _explicitNullValueForwardsTo = default!;
 #nullable restore
 #else
-        public string ForwardsTo { get; set; }
+        public string ForwardsTo { get => _explicitNullValueForwardsTo; set { _explicitNullValueForwardsTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwards_to"); else _explicitNullProperties?.Remove("forwards_to"); } }
+        private string _explicitNullValueForwardsTo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding"/> and sets the default values.
@@ -43,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("call_forwarding_enabled", CallForwardingEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallForwardingForwardingType>("forwarding_type", ForwardingType);
             writer.WriteStringValue("forwards_to", ForwardsTo);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

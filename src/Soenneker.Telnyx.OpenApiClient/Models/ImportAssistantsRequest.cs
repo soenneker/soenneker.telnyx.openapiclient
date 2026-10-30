@@ -11,27 +11,42 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ImportAssistantsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("api_key_ref") is { } nullNodeApiKeyRef && nullNodeApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyRef = null;
+            if (parseNode.GetChildNode("import_ids") is { } nullNodeImportIds && nullNodeImportIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportIds = null;
+            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Integration secret pointer that refers to the API key for the external provider. This should be an identifier for an integration secret created via /v2/integration_secrets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKeyRef { get; set; }
+        public string? ApiKeyRef { get => _explicitNullValueApiKeyRef; set { _explicitNullValueApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_ref"); else _explicitNullProperties?.Remove("api_key_ref"); } }
+        private string? _explicitNullValueApiKeyRef = default!;
 #nullable restore
 #else
-        public string ApiKeyRef { get; set; }
+        public string ApiKeyRef { get => _explicitNullValueApiKeyRef; set { _explicitNullValueApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_ref"); else _explicitNullProperties?.Remove("api_key_ref"); } }
+        private string _explicitNullValueApiKeyRef = default!;
 #endif
         /// <summary>Optional list of assistant IDs to import from the external provider. If not provided, all assistants will be imported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ImportIds { get; set; }
+        public List<string>? ImportIds { get => _explicitNullValueImportIds; set { _explicitNullValueImportIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_ids"); else _explicitNullProperties?.Remove("import_ids"); } }
+        private List<string>? _explicitNullValueImportIds = default!;
 #nullable restore
 #else
-        public List<string> ImportIds { get; set; }
+        public List<string> ImportIds { get => _explicitNullValueImportIds; set { _explicitNullValueImportIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_ids"); else _explicitNullProperties?.Remove("import_ids"); } }
+        private List<string> _explicitNullValueImportIds = default!;
 #endif
         /// <summary>The external provider to import assistants from.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequestProvider? Provider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequestProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequestProvider? _explicitNullValueProvider = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteCollectionOfPrimitiveValues<string>("import_ids", ImportIds);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequestProvider>("provider", Provider);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

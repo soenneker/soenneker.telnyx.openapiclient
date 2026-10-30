@@ -59,6 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Item
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportV2ErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportV2ErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportV2ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReport.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

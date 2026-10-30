@@ -11,21 +11,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ValidateCallReasonsResponseData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("all_pre_approved") is { } nullNodeAllPreApproved && nullNodeAllPreApproved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllPreApproved = null;
+            if (parseNode.GetChildNode("non_approved_reasons") is { } nullNodeNonApprovedReasons && nullNodeNonApprovedReasons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NonApprovedReasons = null;
+            if (parseNode.GetChildNode("requires_manual_vetting") is { } nullNodeRequiresManualVetting && nullNodeRequiresManualVetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiresManualVetting = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`true` when every supplied reason matches a pre-vetted entry in the call-reason library. When `true`, the DIR will sail through the call-reasons portion of vetting.</summary>
-        public bool? AllPreApproved { get; set; }
+        public bool? AllPreApproved { get => _explicitNullValueAllPreApproved; set { _explicitNullValueAllPreApproved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("all_pre_approved"); else _explicitNullProperties?.Remove("all_pre_approved"); } }
+        private bool? _explicitNullValueAllPreApproved = default!;
         /// <summary>Subset of the input that does NOT match the pre-vetted library. The DIR can still be submitted with these - they will go through manual review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NonApprovedReasons { get; set; }
+        public List<string>? NonApprovedReasons { get => _explicitNullValueNonApprovedReasons; set { _explicitNullValueNonApprovedReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("non_approved_reasons"); else _explicitNullProperties?.Remove("non_approved_reasons"); } }
+        private List<string>? _explicitNullValueNonApprovedReasons = default!;
 #nullable restore
 #else
-        public List<string> NonApprovedReasons { get; set; }
+        public List<string> NonApprovedReasons { get => _explicitNullValueNonApprovedReasons; set { _explicitNullValueNonApprovedReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("non_approved_reasons"); else _explicitNullProperties?.Remove("non_approved_reasons"); } }
+        private List<string> _explicitNullValueNonApprovedReasons = default!;
 #endif
         /// <summary>`true` when at least one supplied reason is in `non_approved_reasons`. Equivalent to `non_approved_reasons.length &gt; 0` and the inverse of `all_pre_approved`.</summary>
-        public bool? RequiresManualVetting { get; set; }
+        public bool? RequiresManualVetting { get => _explicitNullValueRequiresManualVetting; set { _explicitNullValueRequiresManualVetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requires_manual_vetting"); else _explicitNullProperties?.Remove("requires_manual_vetting"); } }
+        private bool? _explicitNullValueRequiresManualVetting = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidateCallReasonsResponseData"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ValidateCallReasonsResponseData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ValidateCallReasonsResponseData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ValidateCallReasonsResponseData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("all_pre_approved", AllPreApproved);
             writer.WriteCollectionOfPrimitiveValues<string>("non_approved_reasons", NonApprovedReasons);
             writer.WriteBoolValue("requires_manual_vetting", RequiresManualVetting);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

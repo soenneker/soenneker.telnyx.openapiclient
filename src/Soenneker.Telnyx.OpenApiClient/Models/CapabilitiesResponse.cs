@@ -11,25 +11,50 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CapabilitiesResponse : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("brand_entity") is { } nullNodeBrandEntity && nullNodeBrandEntity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrandEntity = null;
+            if (parseNode.GetChildNode("brand_verification") is { } nullNodeBrandVerification && nullNodeBrandVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrandVerification = null;
+            if (parseNode.GetChildNode("campaigns") is { } nullNodeCampaigns && nullNodeCampaigns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Campaigns = null;
+            if (parseNode.GetChildNode("distinct_launch_phase") is { } nullNodeDistinctLaunchPhase && nullNodeDistinctLaunchPhase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DistinctLaunchPhase = null;
+            if (parseNode.GetChildNode("invite_test_devices") is { } nullNodeInviteTestDevices && nullNodeInviteTestDevices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InviteTestDevices = null;
+            if (parseNode.GetChildNode("per_carrier_approval") is { } nullNodePerCarrierApproval && nullNodePerCarrierApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerCarrierApproval = null;
+            if (parseNode.GetChildNode("submission_sections") is { } nullNodeSubmissionSections && nullNodeSubmissionSections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmissionSections = null;
+            if (parseNode.GetChildNode("templates") is { } nullNodeTemplates && nullNodeTemplates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Templates = null;
+            if (parseNode.GetChildNode("vendor_webhooks") is { } nullNodeVendorWebhooks && nullNodeVendorWebhooks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VendorWebhooks = null;
+        }
+
         /// <summary>The brand_entity property</summary>
-        public bool? BrandEntity { get; set; }
+        public bool? BrandEntity { get => _explicitNullValueBrandEntity; set { _explicitNullValueBrandEntity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brand_entity"); else _explicitNullProperties?.Remove("brand_entity"); } }
+        private bool? _explicitNullValueBrandEntity = default!;
         /// <summary>The brand_verification property</summary>
-        public bool? BrandVerification { get; set; }
+        public bool? BrandVerification { get => _explicitNullValueBrandVerification; set { _explicitNullValueBrandVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brand_verification"); else _explicitNullProperties?.Remove("brand_verification"); } }
+        private bool? _explicitNullValueBrandVerification = default!;
         /// <summary>The campaigns property</summary>
-        public bool? Campaigns { get; set; }
+        public bool? Campaigns { get => _explicitNullValueCampaigns; set { _explicitNullValueCampaigns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaigns"); else _explicitNullProperties?.Remove("campaigns"); } }
+        private bool? _explicitNullValueCampaigns = default!;
         /// <summary>The distinct_launch_phase property</summary>
-        public bool? DistinctLaunchPhase { get; set; }
+        public bool? DistinctLaunchPhase { get => _explicitNullValueDistinctLaunchPhase; set { _explicitNullValueDistinctLaunchPhase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("distinct_launch_phase"); else _explicitNullProperties?.Remove("distinct_launch_phase"); } }
+        private bool? _explicitNullValueDistinctLaunchPhase = default!;
         /// <summary>The invite_test_devices property</summary>
-        public bool? InviteTestDevices { get; set; }
+        public bool? InviteTestDevices { get => _explicitNullValueInviteTestDevices; set { _explicitNullValueInviteTestDevices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite_test_devices"); else _explicitNullProperties?.Remove("invite_test_devices"); } }
+        private bool? _explicitNullValueInviteTestDevices = default!;
         /// <summary>The per_carrier_approval property</summary>
-        public bool? PerCarrierApproval { get; set; }
+        public bool? PerCarrierApproval { get => _explicitNullValuePerCarrierApproval; set { _explicitNullValuePerCarrierApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_carrier_approval"); else _explicitNullProperties?.Remove("per_carrier_approval"); } }
+        private bool? _explicitNullValuePerCarrierApproval = default!;
         /// <summary>The submission_sections property</summary>
-        public bool? SubmissionSections { get; set; }
+        public bool? SubmissionSections { get => _explicitNullValueSubmissionSections; set { _explicitNullValueSubmissionSections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submission_sections"); else _explicitNullProperties?.Remove("submission_sections"); } }
+        private bool? _explicitNullValueSubmissionSections = default!;
         /// <summary>The templates property</summary>
-        public bool? Templates { get; set; }
+        public bool? Templates { get => _explicitNullValueTemplates; set { _explicitNullValueTemplates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("templates"); else _explicitNullProperties?.Remove("templates"); } }
+        private bool? _explicitNullValueTemplates = default!;
         /// <summary>The vendor_webhooks property</summary>
-        public bool? VendorWebhooks { get; set; }
+        public bool? VendorWebhooks { get => _explicitNullValueVendorWebhooks; set { _explicitNullValueVendorWebhooks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vendor_webhooks"); else _explicitNullProperties?.Remove("vendor_webhooks"); } }
+        private bool? _explicitNullValueVendorWebhooks = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CapabilitiesResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CapabilitiesResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CapabilitiesResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,7 +99,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("per_carrier_approval", PerCarrierApproval);
             writer.WriteBoolValue("submission_sections", SubmissionSections);
             writer.WriteBoolValue("templates", Templates);
-            writer.WriteBoolValue("vendor_webhooks", VendorWebhooks);
+            writer.WriteBoolValue("vendor_webhooks", VendorWebhooks);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -8,34 +8,39 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChanged"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewComment"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PortoutEvent : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChanged"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChanged? WebhookPortoutFocDateChanged { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf1? PortoutEventOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChanged WebhookPortoutFocDateChanged { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf1 PortoutEventOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewComment"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewComment? WebhookPortoutNewComment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf2? PortoutEventOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewComment WebhookPortoutNewComment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf2 PortoutEventOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged? WebhookPortoutStatusChanged { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf3? PortoutEventOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged WebhookPortoutStatusChanged { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf3 PortoutEventOneOf3 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,21 +50,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("event_type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent();
-            if("portout.foc_date_changed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("PortoutEventOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WebhookPortoutFocDateChanged = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChanged();
+                
             }
-            else if("portout.new_comment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PortoutEventOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WebhookPortoutNewComment = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewComment();
+                
             }
-            else if("portout.status_changed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PortoutEventOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WebhookPortoutStatusChanged = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("event_type") != null && (parseNode.GetChildNode("event_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("portout.status_changed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "portout.foc_date_changed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "portout.new_comment".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("payload_status") == null || (parseNode.GetChildNode("payload_status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("created".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "completed".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("event_type") != null && (parseNode.GetChildNode("event_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("portout.status_changed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "portout.foc_date_changed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "portout.new_comment".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("payload_status") == null || (parseNode.GetChildNode("payload_status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("created".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "completed".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("event_type") != null && (parseNode.GetChildNode("event_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("portout.status_changed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "portout.foc_date_changed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "portout.new_comment".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("payload_status") == null || (parseNode.GetChildNode("payload_status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("created".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "completed".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.PortoutEventOneOf1 == null && result.PortoutEventOneOf2 == null && result.PortoutEventOneOf3 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.PortoutEventOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf1(), parseNode);
+            if (result.PortoutEventOneOf1 == null && result.PortoutEventOneOf2 == null && result.PortoutEventOneOf3 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.PortoutEventOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf2(), parseNode);
+            if (result.PortoutEventOneOf1 == null && result.PortoutEventOneOf2 == null && result.PortoutEventOneOf3 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.PortoutEventOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf3(), parseNode);
+            if (result.PortoutEventOneOf1 == null && result.PortoutEventOneOf2 == null && result.PortoutEventOneOf3 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,17 +81,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(WebhookPortoutFocDateChanged != null)
+            if(PortoutEventOneOf1 != null)
             {
-                return WebhookPortoutFocDateChanged.GetFieldDeserializers();
+                return PortoutEventOneOf1.GetFieldDeserializers();
             }
-            else if(WebhookPortoutNewComment != null)
+            else if(PortoutEventOneOf2 != null)
             {
-                return WebhookPortoutNewComment.GetFieldDeserializers();
+                return PortoutEventOneOf2.GetFieldDeserializers();
             }
-            else if(WebhookPortoutStatusChanged != null)
+            else if(PortoutEventOneOf3 != null)
             {
-                return WebhookPortoutStatusChanged.GetFieldDeserializers();
+                return PortoutEventOneOf3.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -87,18 +101,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (PortoutEventOneOf1 == null && PortoutEventOneOf2 == null && PortoutEventOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (PortoutEventOneOf1 != null && PortoutEventOneOf2 == null && PortoutEventOneOf3 == null) { if (PortoutEventOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PortoutEventOneOf1); return; }
+            if (PortoutEventOneOf2 != null && PortoutEventOneOf1 == null && PortoutEventOneOf3 == null) { if (PortoutEventOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PortoutEventOneOf2); return; }
+            if (PortoutEventOneOf3 != null && PortoutEventOneOf1 == null && PortoutEventOneOf2 == null) { if (PortoutEventOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PortoutEventOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(WebhookPortoutFocDateChanged != null)
+            if(PortoutEventOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChanged>(null, WebhookPortoutFocDateChanged);
+                if (PortoutEventOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf1>(null, PortoutEventOneOf1);
             }
-            else if(WebhookPortoutNewComment != null)
+            else if(PortoutEventOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewComment>(null, WebhookPortoutNewComment);
+                if (PortoutEventOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf2>(null, PortoutEventOneOf2);
             }
-            else if(WebhookPortoutStatusChanged != null)
+            else if(PortoutEventOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged>(null, WebhookPortoutStatusChanged);
+                if (PortoutEventOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEventOneOf3>(null, PortoutEventOneOf3);
             }
         }
     }

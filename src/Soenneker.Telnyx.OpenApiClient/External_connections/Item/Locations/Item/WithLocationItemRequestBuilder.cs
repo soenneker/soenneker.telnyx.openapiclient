@@ -57,6 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Ite
             {
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVoiceIntegrationsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.LocationResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.LocationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,27 +11,54 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UsageMetrics : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cache_hits") is { } nullNodeCacheHits && nullNodeCacheHits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheHits = null;
+            if (parseNode.GetChildNode("failed_requests") is { } nullNodeFailedRequests && nullNodeFailedRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedRequests = null;
+            if (parseNode.GetChildNode("input_tokens") is { } nullNodeInputTokens && nullNodeInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTokens = null;
+            if (parseNode.GetChildNode("output_tokens") is { } nullNodeOutputTokens && nullNodeOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputTokens = null;
+            if (parseNode.GetChildNode("partial_requests") is { } nullNodePartialRequests && nullNodePartialRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartialRequests = null;
+            if (parseNode.GetChildNode("requests") is { } nullNodeRequests && nullNodeRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Requests = null;
+            if (parseNode.GetChildNode("reserved_spend") is { } nullNodeReservedSpend && nullNodeReservedSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservedSpend = null;
+            if (parseNode.GetChildNode("spend") is { } nullNodeSpend && nullNodeSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spend = null;
+            if (parseNode.GetChildNode("succeeded_requests") is { } nullNodeSucceededRequests && nullNodeSucceededRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SucceededRequests = null;
+            if (parseNode.GetChildNode("unknown_requests") is { } nullNodeUnknownRequests && nullNodeUnknownRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnknownRequests = null;
+        }
+
         /// <summary>The cache_hits property</summary>
-        public int? CacheHits { get; set; }
+        public int? CacheHits { get => _explicitNullValueCacheHits; set { _explicitNullValueCacheHits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_hits"); else _explicitNullProperties?.Remove("cache_hits"); } }
+        private int? _explicitNullValueCacheHits = default!;
         /// <summary>The failed_requests property</summary>
-        public int? FailedRequests { get; set; }
+        public int? FailedRequests { get => _explicitNullValueFailedRequests; set { _explicitNullValueFailedRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_requests"); else _explicitNullProperties?.Remove("failed_requests"); } }
+        private int? _explicitNullValueFailedRequests = default!;
         /// <summary>The input_tokens property</summary>
-        public int? InputTokens { get; set; }
+        public int? InputTokens { get => _explicitNullValueInputTokens; set { _explicitNullValueInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens"); else _explicitNullProperties?.Remove("input_tokens"); } }
+        private int? _explicitNullValueInputTokens = default!;
         /// <summary>The output_tokens property</summary>
-        public int? OutputTokens { get; set; }
+        public int? OutputTokens { get => _explicitNullValueOutputTokens; set { _explicitNullValueOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens"); else _explicitNullProperties?.Remove("output_tokens"); } }
+        private int? _explicitNullValueOutputTokens = default!;
         /// <summary>The partial_requests property</summary>
-        public int? PartialRequests { get; set; }
+        public int? PartialRequests { get => _explicitNullValuePartialRequests; set { _explicitNullValuePartialRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partial_requests"); else _explicitNullProperties?.Remove("partial_requests"); } }
+        private int? _explicitNullValuePartialRequests = default!;
         /// <summary>The requests property</summary>
-        public int? Requests { get; set; }
+        public int? Requests { get => _explicitNullValueRequests; set { _explicitNullValueRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requests"); else _explicitNullProperties?.Remove("requests"); } }
+        private int? _explicitNullValueRequests = default!;
         /// <summary>USD, decimal precision at most 6 places; parse exactly to integer micro-USD, never binary float accounting.</summary>
-        public double? ReservedSpend { get; set; }
+        public double? ReservedSpend { get => _explicitNullValueReservedSpend; set { _explicitNullValueReservedSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reserved_spend"); else _explicitNullProperties?.Remove("reserved_spend"); } }
+        private double? _explicitNullValueReservedSpend = default!;
         /// <summary>USD, decimal precision at most 6 places; parse exactly to integer micro-USD, never binary float accounting.</summary>
-        public double? Spend { get; set; }
+        public double? Spend { get => _explicitNullValueSpend; set { _explicitNullValueSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend"); else _explicitNullProperties?.Remove("spend"); } }
+        private double? _explicitNullValueSpend = default!;
         /// <summary>The succeeded_requests property</summary>
-        public int? SucceededRequests { get; set; }
+        public int? SucceededRequests { get => _explicitNullValueSucceededRequests; set { _explicitNullValueSucceededRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("succeeded_requests"); else _explicitNullProperties?.Remove("succeeded_requests"); } }
+        private int? _explicitNullValueSucceededRequests = default!;
         /// <summary>The unknown_requests property</summary>
-        public int? UnknownRequests { get; set; }
+        public int? UnknownRequests { get => _explicitNullValueUnknownRequests; set { _explicitNullValueUnknownRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unknown_requests"); else _explicitNullProperties?.Remove("unknown_requests"); } }
+        private int? _explicitNullValueUnknownRequests = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +105,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("reserved_spend", ReservedSpend);
             writer.WriteDoubleValue("spend", Spend);
             writer.WriteIntValue("succeeded_requests", SucceededRequests);
-            writer.WriteIntValue("unknown_requests", UnknownRequests);
+            writer.WriteIntValue("unknown_requests", UnknownRequests);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

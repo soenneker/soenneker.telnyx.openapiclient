@@ -12,22 +12,38 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InferenceEmbeddingInterruptionSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("disable_greeting_interruption") is { } nullNodeDisableGreetingInterruption && nullNodeDisableGreetingInterruption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableGreetingInterruption = null;
+            if (parseNode.GetChildNode("enable") is { } nullNodeEnable && nullNodeEnable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enable = null;
+            if (parseNode.GetChildNode("interrupt_prediction_threshold") is { } nullNodeInterruptPredictionThreshold && nullNodeInterruptPredictionThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptPredictionThreshold = null;
+            if (parseNode.GetChildNode("start_speaking_plan") is { } nullNodeStartSpeakingPlan && nullNodeStartSpeakingPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartSpeakingPlan = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, disables user interruptions while the assistant greeting is playing.</summary>
-        public bool? DisableGreetingInterruption { get; set; }
+        public bool? DisableGreetingInterruption { get => _explicitNullValueDisableGreetingInterruption; set { _explicitNullValueDisableGreetingInterruption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_greeting_interruption"); else _explicitNullProperties?.Remove("disable_greeting_interruption"); } }
+        private bool? _explicitNullValueDisableGreetingInterruption = default!;
         /// <summary>Whether users can interrupt the assistant while it is speaking.</summary>
-        public bool? Enable { get; set; }
+        public bool? Enable { get => _explicitNullValueEnable; set { _explicitNullValueEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable"); else _explicitNullProperties?.Remove("enable"); } }
+        private bool? _explicitNullValueEnable = default!;
         /// <summary>Interrupt-prediction sensitivity, from 0.0 to 1.0. Set to null or 0.0 to disable interrupt prediction.</summary>
-        public double? InterruptPredictionThreshold { get; set; }
+        public double? InterruptPredictionThreshold { get => _explicitNullValueInterruptPredictionThreshold; set { _explicitNullValueInterruptPredictionThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interrupt_prediction_threshold"); else _explicitNullProperties?.Remove("interrupt_prediction_threshold"); } }
+        private double? _explicitNullValueInterruptPredictionThreshold = default!;
         /// <summary>Controls when the assistant starts speaking after the user stops. These thresholds primarily apply to non turn-taking transcription models. For turn-taking models like `deepgram/flux`, end-of-turn detection is driven by the transcription end-of-turn settings under `transcription.settings` instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan? StartSpeakingPlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan? StartSpeakingPlan { get => _explicitNullValueStartSpeakingPlan; set { _explicitNullValueStartSpeakingPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_speaking_plan"); else _explicitNullProperties?.Remove("start_speaking_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan? _explicitNullValueStartSpeakingPlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan StartSpeakingPlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan StartSpeakingPlan { get => _explicitNullValueStartSpeakingPlan; set { _explicitNullValueStartSpeakingPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_speaking_plan"); else _explicitNullProperties?.Remove("start_speaking_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan _explicitNullValueStartSpeakingPlan = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings"/> and sets the default values.
@@ -46,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enable", Enable);
             writer.WriteDoubleValue("interrupt_prediction_threshold", InterruptPredictionThreshold);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan>("start_speaking_plan", StartSpeakingPlan);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

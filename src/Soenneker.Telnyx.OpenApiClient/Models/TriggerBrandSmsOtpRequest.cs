@@ -12,24 +12,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TriggerBrandSmsOtpRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pinSms") is { } nullNodePinSms && nullNodePinSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PinSms = null;
+            if (parseNode.GetChildNode("successSms") is { } nullNodeSuccessSms && nullNodeSuccessSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessSms = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>SMS message template to send the OTP. Must include `@OTP_PIN@` placeholder which will be replaced with the actual PIN</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PinSms { get; set; }
+        public string? PinSms { get => _explicitNullValuePinSms; set { _explicitNullValuePinSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinSms"); else _explicitNullProperties?.Remove("pinSms"); } }
+        private string? _explicitNullValuePinSms = default!;
 #nullable restore
 #else
-        public string PinSms { get; set; }
+        public string PinSms { get => _explicitNullValuePinSms; set { _explicitNullValuePinSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinSms"); else _explicitNullProperties?.Remove("pinSms"); } }
+        private string _explicitNullValuePinSms = default!;
 #endif
         /// <summary>SMS message to send upon successful OTP verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SuccessSms { get; set; }
+        public string? SuccessSms { get => _explicitNullValueSuccessSms; set { _explicitNullValueSuccessSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successSms"); else _explicitNullProperties?.Remove("successSms"); } }
+        private string? _explicitNullValueSuccessSms = default!;
 #nullable restore
 #else
-        public string SuccessSms { get; set; }
+        public string SuccessSms { get => _explicitNullValueSuccessSms; set { _explicitNullValueSuccessSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successSms"); else _explicitNullProperties?.Remove("successSms"); } }
+        private string _explicitNullValueSuccessSms = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TriggerBrandSmsOtpRequest"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TriggerBrandSmsOtpRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TriggerBrandSmsOtpRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TriggerBrandSmsOtpRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("pinSms", PinSms);
             writer.WriteStringValue("successSms", SuccessSms);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

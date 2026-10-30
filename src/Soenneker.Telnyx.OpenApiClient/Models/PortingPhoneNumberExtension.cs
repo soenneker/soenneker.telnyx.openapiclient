@@ -11,14 +11,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PortingPhoneNumberExtension : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activation_ranges") is { } nullNodeActivationRanges && nullNodeActivationRanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationRanges = null;
+            if (parseNode.GetChildNode("extension_range") is { } nullNodeExtensionRange && nullNodeExtensionRange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtensionRange = null;
+            if (parseNode.GetChildNode("porting_phone_number_id") is { } nullNodePortingPhoneNumberId && nullNodePortingPhoneNumberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortingPhoneNumberId = null;
+        }
+
         /// <summary>Specifies the activation ranges for this porting phone number extension. The activation range must be within the extension range and should not overlap with other activation ranges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem>? ActivationRanges { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem>? ActivationRanges { get => _explicitNullValueActivationRanges; set { _explicitNullValueActivationRanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_ranges"); else _explicitNullProperties?.Remove("activation_ranges"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem>? _explicitNullValueActivationRanges = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem> ActivationRanges { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem> ActivationRanges { get => _explicitNullValueActivationRanges; set { _explicitNullValueActivationRanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_ranges"); else _explicitNullProperties?.Remove("activation_ranges"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem> _explicitNullValueActivationRanges = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -27,15 +39,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Specifies the extension range for this porting phone number extension.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange? ExtensionRange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange? ExtensionRange { get => _explicitNullValueExtensionRange; set { _explicitNullValueExtensionRange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extension_range"); else _explicitNullProperties?.Remove("extension_range"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange? _explicitNullValueExtensionRange = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange ExtensionRange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange ExtensionRange { get => _explicitNullValueExtensionRange; set { _explicitNullValueExtensionRange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extension_range"); else _explicitNullProperties?.Remove("extension_range"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange _explicitNullValueExtensionRange = default!;
 #endif
         /// <summary>Uniquely identifies this porting phone number extension.</summary>
         public Guid? Id { get; private set; }
         /// <summary>Identifies the porting phone number associated with this porting phone number extension.</summary>
-        public Guid? PortingPhoneNumberId { get; set; }
+        public Guid? PortingPhoneNumberId { get => _explicitNullValuePortingPhoneNumberId; set { _explicitNullValuePortingPhoneNumberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("porting_phone_number_id"); else _explicitNullProperties?.Remove("porting_phone_number_id"); } }
+        private Guid? _explicitNullValuePortingPhoneNumberId = default!;
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionActivationRangesItem>("activation_ranges", ActivationRanges);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange>("extension_range", ExtensionRange);
             writer.WriteGuidValue("porting_phone_number_id", PortingPhoneNumberId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

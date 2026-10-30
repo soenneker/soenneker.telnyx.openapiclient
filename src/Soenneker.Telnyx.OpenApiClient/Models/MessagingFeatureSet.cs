@@ -12,15 +12,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagingFeatureSet : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("domestic_two_way") is { } nullNodeDomesticTwoWay && nullNodeDomesticTwoWay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomesticTwoWay = null;
+            if (parseNode.GetChildNode("international_inbound") is { } nullNodeInternationalInbound && nullNodeInternationalInbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InternationalInbound = null;
+            if (parseNode.GetChildNode("international_outbound") is { } nullNodeInternationalOutbound && nullNodeInternationalOutbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InternationalOutbound = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Send messages to and receive messages from numbers in the same country.</summary>
-        public bool? DomesticTwoWay { get; set; }
+        public bool? DomesticTwoWay { get => _explicitNullValueDomesticTwoWay; set { _explicitNullValueDomesticTwoWay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domestic_two_way"); else _explicitNullProperties?.Remove("domestic_two_way"); } }
+        private bool? _explicitNullValueDomesticTwoWay = default!;
         /// <summary>Receive messages from numbers in other countries.</summary>
-        public bool? InternationalInbound { get; set; }
+        public bool? InternationalInbound { get => _explicitNullValueInternationalInbound; set { _explicitNullValueInternationalInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("international_inbound"); else _explicitNullProperties?.Remove("international_inbound"); } }
+        private bool? _explicitNullValueInternationalInbound = default!;
         /// <summary>Send messages to numbers in other countries.</summary>
-        public bool? InternationalOutbound { get; set; }
+        public bool? InternationalOutbound { get => _explicitNullValueInternationalOutbound; set { _explicitNullValueInternationalOutbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("international_outbound"); else _explicitNullProperties?.Remove("international_outbound"); } }
+        private bool? _explicitNullValueInternationalOutbound = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("domestic_two_way", DomesticTwoWay);
             writer.WriteBoolValue("international_inbound", InternationalInbound);
             writer.WriteBoolValue("international_outbound", InternationalOutbound);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

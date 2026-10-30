@@ -12,44 +12,67 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DocReqsRequirementTypeAcceptanceCriteria : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acceptable_characters") is { } nullNodeAcceptableCharacters && nullNodeAcceptableCharacters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptableCharacters = null;
+            if (parseNode.GetChildNode("acceptable_values") is { } nullNodeAcceptableValues && nullNodeAcceptableValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptableValues = null;
+            if (parseNode.GetChildNode("locality_limit") is { } nullNodeLocalityLimit && nullNodeLocalityLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalityLimit = null;
+            if (parseNode.GetChildNode("max_length") is { } nullNodeMaxLength && nullNodeMaxLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxLength = null;
+            if (parseNode.GetChildNode("min_length") is { } nullNodeMinLength && nullNodeMinLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinLength = null;
+            if (parseNode.GetChildNode("time_limit") is { } nullNodeTimeLimit && nullNodeTimeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeLimit = null;
+        }
+
         /// <summary>Specifies the allowed characters as a string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcceptableCharacters { get; set; }
+        public string? AcceptableCharacters { get => _explicitNullValueAcceptableCharacters; set { _explicitNullValueAcceptableCharacters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptable_characters"); else _explicitNullProperties?.Remove("acceptable_characters"); } }
+        private string? _explicitNullValueAcceptableCharacters = default!;
 #nullable restore
 #else
-        public string AcceptableCharacters { get; set; }
+        public string AcceptableCharacters { get => _explicitNullValueAcceptableCharacters; set { _explicitNullValueAcceptableCharacters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptable_characters"); else _explicitNullProperties?.Remove("acceptable_characters"); } }
+        private string _explicitNullValueAcceptableCharacters = default!;
 #endif
         /// <summary>Specifies the list of strictly possible values for the requirement. Ignored when empty</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AcceptableValues { get; set; }
+        public List<string>? AcceptableValues { get => _explicitNullValueAcceptableValues; set { _explicitNullValueAcceptableValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptable_values"); else _explicitNullProperties?.Remove("acceptable_values"); } }
+        private List<string>? _explicitNullValueAcceptableValues = default!;
 #nullable restore
 #else
-        public List<string> AcceptableValues { get; set; }
+        public List<string> AcceptableValues { get => _explicitNullValueAcceptableValues; set { _explicitNullValueAcceptableValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptable_values"); else _explicitNullProperties?.Remove("acceptable_values"); } }
+        private List<string> _explicitNullValueAcceptableValues = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies geography-based acceptance criteria</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocalityLimit { get; set; }
+        public string? LocalityLimit { get => _explicitNullValueLocalityLimit; set { _explicitNullValueLocalityLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locality_limit"); else _explicitNullProperties?.Remove("locality_limit"); } }
+        private string? _explicitNullValueLocalityLimit = default!;
 #nullable restore
 #else
-        public string LocalityLimit { get; set; }
+        public string LocalityLimit { get => _explicitNullValueLocalityLimit; set { _explicitNullValueLocalityLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locality_limit"); else _explicitNullProperties?.Remove("locality_limit"); } }
+        private string _explicitNullValueLocalityLimit = default!;
 #endif
         /// <summary>Maximum length allowed for the value</summary>
-        public int? MaxLength { get; set; }
+        public int? MaxLength { get => _explicitNullValueMaxLength; set { _explicitNullValueMaxLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_length"); else _explicitNullProperties?.Remove("max_length"); } }
+        private int? _explicitNullValueMaxLength = default!;
         /// <summary>Minimum length allowed for the value</summary>
-        public int? MinLength { get; set; }
+        public int? MinLength { get => _explicitNullValueMinLength; set { _explicitNullValueMinLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_length"); else _explicitNullProperties?.Remove("min_length"); } }
+        private int? _explicitNullValueMinLength = default!;
         /// <summary>Specifies time-based acceptance criteria</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimeLimit { get; set; }
+        public string? TimeLimit { get => _explicitNullValueTimeLimit; set { _explicitNullValueTimeLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_limit"); else _explicitNullProperties?.Remove("time_limit"); } }
+        private string? _explicitNullValueTimeLimit = default!;
 #nullable restore
 #else
-        public string TimeLimit { get; set; }
+        public string TimeLimit { get => _explicitNullValueTimeLimit; set { _explicitNullValueTimeLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_limit"); else _explicitNullProperties?.Remove("time_limit"); } }
+        private string _explicitNullValueTimeLimit = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria"/> and sets the default values.
@@ -66,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,6 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("max_length", MaxLength);
             writer.WriteIntValue("min_length", MinLength);
             writer.WriteStringValue("time_limit", TimeLimit);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

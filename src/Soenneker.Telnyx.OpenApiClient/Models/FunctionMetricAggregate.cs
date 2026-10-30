@@ -11,69 +11,116 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class FunctionMetricAggregate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cpu_used_cores_avg") is { } nullNodeCpuUsedCoresAvg && nullNodeCpuUsedCoresAvg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CpuUsedCoresAvg = null;
+            if (parseNode.GetChildNode("cpu_used_cores_max") is { } nullNodeCpuUsedCoresMax && nullNodeCpuUsedCoresMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CpuUsedCoresMax = null;
+            if (parseNode.GetChildNode("end_time") is { } nullNodeEndTime && nullNodeEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndTime = null;
+            if (parseNode.GetChildNode("function_id") is { } nullNodeFunctionId && nullNodeFunctionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FunctionId = null;
+            if (parseNode.GetChildNode("function_name") is { } nullNodeFunctionName && nullNodeFunctionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FunctionName = null;
+            if (parseNode.GetChildNode("memory_used_bytes_avg") is { } nullNodeMemoryUsedBytesAvg && nullNodeMemoryUsedBytesAvg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryUsedBytesAvg = null;
+            if (parseNode.GetChildNode("memory_used_bytes_max") is { } nullNodeMemoryUsedBytesMax && nullNodeMemoryUsedBytesMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryUsedBytesMax = null;
+            if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("request_client_error_rate") is { } nullNodeRequestClientErrorRate && nullNodeRequestClientErrorRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestClientErrorRate = null;
+            if (parseNode.GetChildNode("request_count") is { } nullNodeRequestCount && nullNodeRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestCount = null;
+            if (parseNode.GetChildNode("request_error_rate") is { } nullNodeRequestErrorRate && nullNodeRequestErrorRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestErrorRate = null;
+            if (parseNode.GetChildNode("request_latency_avg_ms") is { } nullNodeRequestLatencyAvgMs && nullNodeRequestLatencyAvgMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestLatencyAvgMs = null;
+            if (parseNode.GetChildNode("request_latency_p50_ms") is { } nullNodeRequestLatencyP50Ms && nullNodeRequestLatencyP50Ms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestLatencyP50Ms = null;
+            if (parseNode.GetChildNode("request_latency_p95_ms") is { } nullNodeRequestLatencyP95Ms && nullNodeRequestLatencyP95Ms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestLatencyP95Ms = null;
+            if (parseNode.GetChildNode("request_latency_p99_ms") is { } nullNodeRequestLatencyP99Ms && nullNodeRequestLatencyP99Ms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestLatencyP99Ms = null;
+            if (parseNode.GetChildNode("request_success_rate") is { } nullNodeRequestSuccessRate && nullNodeRequestSuccessRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestSuccessRate = null;
+            if (parseNode.GetChildNode("start_time") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cpu_used_cores_avg property</summary>
-        public double? CpuUsedCoresAvg { get; set; }
+        public double? CpuUsedCoresAvg { get => _explicitNullValueCpuUsedCoresAvg; set { _explicitNullValueCpuUsedCoresAvg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu_used_cores_avg"); else _explicitNullProperties?.Remove("cpu_used_cores_avg"); } }
+        private double? _explicitNullValueCpuUsedCoresAvg = default!;
         /// <summary>The cpu_used_cores_max property</summary>
-        public double? CpuUsedCoresMax { get; set; }
+        public double? CpuUsedCoresMax { get => _explicitNullValueCpuUsedCoresMax; set { _explicitNullValueCpuUsedCoresMax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu_used_cores_max"); else _explicitNullProperties?.Remove("cpu_used_cores_max"); } }
+        private double? _explicitNullValueCpuUsedCoresMax = default!;
         /// <summary>The end_time property</summary>
-        public DateTimeOffset? EndTime { get; set; }
+        public DateTimeOffset? EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_time"); else _explicitNullProperties?.Remove("end_time"); } }
+        private DateTimeOffset? _explicitNullValueEndTime = default!;
         /// <summary>The function_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FunctionId { get; set; }
+        public string? FunctionId { get => _explicitNullValueFunctionId; set { _explicitNullValueFunctionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_id"); else _explicitNullProperties?.Remove("function_id"); } }
+        private string? _explicitNullValueFunctionId = default!;
 #nullable restore
 #else
-        public string FunctionId { get; set; }
+        public string FunctionId { get => _explicitNullValueFunctionId; set { _explicitNullValueFunctionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_id"); else _explicitNullProperties?.Remove("function_id"); } }
+        private string _explicitNullValueFunctionId = default!;
 #endif
         /// <summary>The function_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FunctionName { get; set; }
+        public string? FunctionName { get => _explicitNullValueFunctionName; set { _explicitNullValueFunctionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_name"); else _explicitNullProperties?.Remove("function_name"); } }
+        private string? _explicitNullValueFunctionName = default!;
 #nullable restore
 #else
-        public string FunctionName { get; set; }
+        public string FunctionName { get => _explicitNullValueFunctionName; set { _explicitNullValueFunctionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_name"); else _explicitNullProperties?.Remove("function_name"); } }
+        private string _explicitNullValueFunctionName = default!;
 #endif
         /// <summary>The memory_used_bytes_avg property</summary>
-        public double? MemoryUsedBytesAvg { get; set; }
+        public double? MemoryUsedBytesAvg { get => _explicitNullValueMemoryUsedBytesAvg; set { _explicitNullValueMemoryUsedBytesAvg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_used_bytes_avg"); else _explicitNullProperties?.Remove("memory_used_bytes_avg"); } }
+        private double? _explicitNullValueMemoryUsedBytesAvg = default!;
         /// <summary>The memory_used_bytes_max property</summary>
-        public double? MemoryUsedBytesMax { get; set; }
+        public double? MemoryUsedBytesMax { get => _explicitNullValueMemoryUsedBytesMax; set { _explicitNullValueMemoryUsedBytesMax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_used_bytes_max"); else _explicitNullProperties?.Remove("memory_used_bytes_max"); } }
+        private double? _explicitNullValueMemoryUsedBytesMax = default!;
         /// <summary>The product property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Product { get; set; }
+        public string? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private string? _explicitNullValueProduct = default!;
 #nullable restore
 #else
-        public string Product { get; set; }
+        public string Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private string _explicitNullValueProduct = default!;
 #endif
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get; set; }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get; set; }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>The request_client_error_rate property</summary>
-        public double? RequestClientErrorRate { get; set; }
+        public double? RequestClientErrorRate { get => _explicitNullValueRequestClientErrorRate; set { _explicitNullValueRequestClientErrorRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_client_error_rate"); else _explicitNullProperties?.Remove("request_client_error_rate"); } }
+        private double? _explicitNullValueRequestClientErrorRate = default!;
         /// <summary>The request_count property</summary>
-        public double? RequestCount { get; set; }
+        public double? RequestCount { get => _explicitNullValueRequestCount; set { _explicitNullValueRequestCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_count"); else _explicitNullProperties?.Remove("request_count"); } }
+        private double? _explicitNullValueRequestCount = default!;
         /// <summary>The request_error_rate property</summary>
-        public double? RequestErrorRate { get; set; }
+        public double? RequestErrorRate { get => _explicitNullValueRequestErrorRate; set { _explicitNullValueRequestErrorRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_error_rate"); else _explicitNullProperties?.Remove("request_error_rate"); } }
+        private double? _explicitNullValueRequestErrorRate = default!;
         /// <summary>The request_latency_avg_ms property</summary>
-        public double? RequestLatencyAvgMs { get; set; }
+        public double? RequestLatencyAvgMs { get => _explicitNullValueRequestLatencyAvgMs; set { _explicitNullValueRequestLatencyAvgMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_latency_avg_ms"); else _explicitNullProperties?.Remove("request_latency_avg_ms"); } }
+        private double? _explicitNullValueRequestLatencyAvgMs = default!;
         /// <summary>The request_latency_p50_ms property</summary>
-        public double? RequestLatencyP50Ms { get; set; }
+        public double? RequestLatencyP50Ms { get => _explicitNullValueRequestLatencyP50Ms; set { _explicitNullValueRequestLatencyP50Ms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_latency_p50_ms"); else _explicitNullProperties?.Remove("request_latency_p50_ms"); } }
+        private double? _explicitNullValueRequestLatencyP50Ms = default!;
         /// <summary>The request_latency_p95_ms property</summary>
-        public double? RequestLatencyP95Ms { get; set; }
+        public double? RequestLatencyP95Ms { get => _explicitNullValueRequestLatencyP95Ms; set { _explicitNullValueRequestLatencyP95Ms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_latency_p95_ms"); else _explicitNullProperties?.Remove("request_latency_p95_ms"); } }
+        private double? _explicitNullValueRequestLatencyP95Ms = default!;
         /// <summary>The request_latency_p99_ms property</summary>
-        public double? RequestLatencyP99Ms { get; set; }
+        public double? RequestLatencyP99Ms { get => _explicitNullValueRequestLatencyP99Ms; set { _explicitNullValueRequestLatencyP99Ms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_latency_p99_ms"); else _explicitNullProperties?.Remove("request_latency_p99_ms"); } }
+        private double? _explicitNullValueRequestLatencyP99Ms = default!;
         /// <summary>The request_success_rate property</summary>
-        public double? RequestSuccessRate { get; set; }
+        public double? RequestSuccessRate { get => _explicitNullValueRequestSuccessRate; set { _explicitNullValueRequestSuccessRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_success_rate"); else _explicitNullProperties?.Remove("request_success_rate"); } }
+        private double? _explicitNullValueRequestSuccessRate = default!;
         /// <summary>The start_time property</summary>
-        public DateTimeOffset? StartTime { get; set; }
+        public DateTimeOffset? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_time"); else _explicitNullProperties?.Remove("start_time"); } }
+        private DateTimeOffset? _explicitNullValueStartTime = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FunctionMetricAggregate"/> and sets the default values.
         /// </summary>
@@ -89,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.FunctionMetricAggregate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.FunctionMetricAggregate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.FunctionMetricAggregate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -144,6 +191,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("request_latency_p99_ms", RequestLatencyP99Ms);
             writer.WriteDoubleValue("request_success_rate", RequestSuccessRate);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

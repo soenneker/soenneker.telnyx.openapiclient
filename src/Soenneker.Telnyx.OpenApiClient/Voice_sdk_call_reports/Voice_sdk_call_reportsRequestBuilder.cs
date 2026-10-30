@@ -70,6 +70,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportV2ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportV2ErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportV2ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

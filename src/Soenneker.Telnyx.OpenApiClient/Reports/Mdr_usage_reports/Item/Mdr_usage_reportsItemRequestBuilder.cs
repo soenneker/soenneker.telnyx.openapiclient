@@ -53,6 +53,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.ReportingErrorResponse77109E5D17.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -76,6 +78,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.ReportingErrorResponse77109E5D17.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,81 +11,137 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SpendEvent : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attempts") is { } nullNodeAttempts && nullNodeAttempts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attempts = null;
+            if (parseNode.GetChildNode("biller") is { } nullNodeBiller && nullNodeBiller.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Biller = null;
+            if (parseNode.GetChildNode("cache_hit") is { } nullNodeCacheHit && nullNodeCacheHit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheHit = null;
+            if (parseNode.GetChildNode("configuration_version") is { } nullNodeConfigurationVersion && nullNodeConfigurationVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfigurationVersion = null;
+            if (parseNode.GetChildNode("cost") is { } nullNodeCost && nullNodeCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cost = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("end_user_id") is { } nullNodeEndUserId && nullNodeEndUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndUserId = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("input_tokens") is { } nullNodeInputTokens && nullNodeInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTokens = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("output_tokens") is { } nullNodeOutputTokens && nullNodeOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputTokens = null;
+            if (parseNode.GetChildNode("provider_key_id") is { } nullNodeProviderKeyId && nullNodeProviderKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderKeyId = null;
+            if (parseNode.GetChildNode("rate_version") is { } nullNodeRateVersion && nullNodeRateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateVersion = null;
+            if (parseNode.GetChildNode("requested_model") is { } nullNodeRequestedModel && nullNodeRequestedModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestedModel = null;
+            if (parseNode.GetChildNode("request_id") is { } nullNodeRequestId && nullNodeRequestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestId = null;
+            if (parseNode.GetChildNode("reservation_micro_usd") is { } nullNodeReservationMicroUsd && nullNodeReservationMicroUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservationMicroUsd = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("token_group_id") is { } nullNodeTokenGroupId && nullNodeTokenGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenGroupId = null;
+            if (parseNode.GetChildNode("token_key_id") is { } nullNodeTokenKeyId && nullNodeTokenKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenKeyId = null;
+            if (parseNode.GetChildNode("token_user_id") is { } nullNodeTokenUserId && nullNodeTokenUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUserId = null;
+            if (parseNode.GetChildNode("usage_status") is { } nullNodeUsageStatus && nullNodeUsageStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageStatus = null;
+        }
+
         /// <summary>Provider attempts begun for the request (fallbacks included); 0 for a cache hit. Token and cost totals sum every attempt.</summary>
-        public int? Attempts { get; set; }
+        public int? Attempts { get => _explicitNullValueAttempts; set { _explicitNullValueAttempts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempts"); else _explicitNullProperties?.Remove("attempts"); } }
+        private int? _explicitNullValueAttempts = default!;
         /// <summary>The biller property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventBiller? Biller { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventBiller? Biller { get => _explicitNullValueBiller; set { _explicitNullValueBiller = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("biller"); else _explicitNullProperties?.Remove("biller"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventBiller? _explicitNullValueBiller = default!;
         /// <summary>The cache_hit property</summary>
-        public bool? CacheHit { get; set; }
+        public bool? CacheHit { get => _explicitNullValueCacheHit; set { _explicitNullValueCacheHit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_hit"); else _explicitNullProperties?.Remove("cache_hit"); } }
+        private bool? _explicitNullValueCacheHit = default!;
         /// <summary>The configuration_version property</summary>
-        public int? ConfigurationVersion { get; set; }
+        public int? ConfigurationVersion { get => _explicitNullValueConfigurationVersion; set { _explicitNullValueConfigurationVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_version"); else _explicitNullProperties?.Remove("configuration_version"); } }
+        private int? _explicitNullValueConfigurationVersion = default!;
         /// <summary>USD, decimal precision at most 6 places; parse exactly to integer micro-USD, never binary float accounting.</summary>
-        public double? Cost { get; set; }
+        public double? Cost { get => _explicitNullValueCost; set { _explicitNullValueCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost"); else _explicitNullProperties?.Remove("cost"); } }
+        private double? _explicitNullValueCost = default!;
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The end_user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndUserId { get; set; }
+        public string? EndUserId { get => _explicitNullValueEndUserId; set { _explicitNullValueEndUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_user_id"); else _explicitNullProperties?.Remove("end_user_id"); } }
+        private string? _explicitNullValueEndUserId = default!;
 #nullable restore
 #else
-        public string EndUserId { get; set; }
+        public string EndUserId { get => _explicitNullValueEndUserId; set { _explicitNullValueEndUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_user_id"); else _explicitNullProperties?.Remove("end_user_id"); } }
+        private string _explicitNullValueEndUserId = default!;
 #endif
         /// <summary>The id property</summary>
-        public Guid? Id { get; set; }
+        public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private Guid? _explicitNullValueId = default!;
         /// <summary>The input_tokens property</summary>
-        public int? InputTokens { get; set; }
+        public int? InputTokens { get => _explicitNullValueInputTokens; set { _explicitNullValueInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens"); else _explicitNullProperties?.Remove("input_tokens"); } }
+        private int? _explicitNullValueInputTokens = default!;
         /// <summary>Customer request tags from the x-ltg-metadata header: up to 5 entries. Keys are case-sensitive; keys starting with ltg_, telnyx_, litellm_ or cf_ (any case) are reserved. Values are strings (1-256 characters, no control or format characters), integers within +/-9007199254740991, or booleans; floats, null, objects and arrays are rejected. Values that look like credentials are rejected. Tags are attribution only: never forwarded upstream, never part of the response cache key, never used for budgets or routing. An untagged request reports {}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventMetadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventMetadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>Public alias that served (the last attempt); rate_version, biller and provider_key_id follow it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The output_tokens property</summary>
-        public int? OutputTokens { get; set; }
+        public int? OutputTokens { get => _explicitNullValueOutputTokens; set { _explicitNullValueOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens"); else _explicitNullProperties?.Remove("output_tokens"); } }
+        private int? _explicitNullValueOutputTokens = default!;
         /// <summary>The provider_key_id property</summary>
-        public Guid? ProviderKeyId { get; set; }
+        public Guid? ProviderKeyId { get => _explicitNullValueProviderKeyId; set { _explicitNullValueProviderKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_key_id"); else _explicitNullProperties?.Remove("provider_key_id"); } }
+        private Guid? _explicitNullValueProviderKeyId = default!;
         /// <summary>The rate_version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RateVersion { get; set; }
+        public string? RateVersion { get => _explicitNullValueRateVersion; set { _explicitNullValueRateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_version"); else _explicitNullProperties?.Remove("rate_version"); } }
+        private string? _explicitNullValueRateVersion = default!;
 #nullable restore
 #else
-        public string RateVersion { get; set; }
+        public string RateVersion { get => _explicitNullValueRateVersion; set { _explicitNullValueRateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_version"); else _explicitNullProperties?.Remove("rate_version"); } }
+        private string _explicitNullValueRateVersion = default!;
 #endif
         /// <summary>Public alias the caller requested; differs from model only when a group fallback served.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestedModel { get; set; }
+        public string? RequestedModel { get => _explicitNullValueRequestedModel; set { _explicitNullValueRequestedModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_model"); else _explicitNullProperties?.Remove("requested_model"); } }
+        private string? _explicitNullValueRequestedModel = default!;
 #nullable restore
 #else
-        public string RequestedModel { get; set; }
+        public string RequestedModel { get => _explicitNullValueRequestedModel; set { _explicitNullValueRequestedModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_model"); else _explicitNullProperties?.Remove("requested_model"); } }
+        private string _explicitNullValueRequestedModel = default!;
 #endif
         /// <summary>The request_id property</summary>
-        public Guid? RequestId { get; set; }
+        public Guid? RequestId { get => _explicitNullValueRequestId; set { _explicitNullValueRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_id"); else _explicitNullProperties?.Remove("request_id"); } }
+        private Guid? _explicitNullValueRequestId = default!;
         /// <summary>The reservation_micro_usd property</summary>
-        public int? ReservationMicroUsd { get; set; }
+        public int? ReservationMicroUsd { get => _explicitNullValueReservationMicroUsd; set { _explicitNullValueReservationMicroUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservation_micro_usd"); else _explicitNullProperties?.Remove("reservation_micro_usd"); } }
+        private int? _explicitNullValueReservationMicroUsd = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventStatus? _explicitNullValueStatus = default!;
         /// <summary>The token_group_id property</summary>
-        public Guid? TokenGroupId { get; set; }
+        public Guid? TokenGroupId { get => _explicitNullValueTokenGroupId; set { _explicitNullValueTokenGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_group_id"); else _explicitNullProperties?.Remove("token_group_id"); } }
+        private Guid? _explicitNullValueTokenGroupId = default!;
         /// <summary>The token_key_id property</summary>
-        public Guid? TokenKeyId { get; set; }
+        public Guid? TokenKeyId { get => _explicitNullValueTokenKeyId; set { _explicitNullValueTokenKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_key_id"); else _explicitNullProperties?.Remove("token_key_id"); } }
+        private Guid? _explicitNullValueTokenKeyId = default!;
         /// <summary>The token_user_id property</summary>
-        public Guid? TokenUserId { get; set; }
+        public Guid? TokenUserId { get => _explicitNullValueTokenUserId; set { _explicitNullValueTokenUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_user_id"); else _explicitNullProperties?.Remove("token_user_id"); } }
+        private Guid? _explicitNullValueTokenUserId = default!;
         /// <summary>The usage_status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventUsageStatus? UsageStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventUsageStatus? UsageStatus { get => _explicitNullValueUsageStatus; set { _explicitNullValueUsageStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_status"); else _explicitNullProperties?.Remove("usage_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventUsageStatus? _explicitNullValueUsageStatus = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -94,7 +150,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SpendEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SpendEvent();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SpendEvent(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -156,7 +212,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("token_group_id", TokenGroupId);
             writer.WriteGuidValue("token_key_id", TokenKeyId);
             writer.WriteGuidValue("token_user_id", TokenUserId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventUsageStatus>("usage_status", UsageStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpendEventUsageStatus>("usage_status", UsageStatus);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

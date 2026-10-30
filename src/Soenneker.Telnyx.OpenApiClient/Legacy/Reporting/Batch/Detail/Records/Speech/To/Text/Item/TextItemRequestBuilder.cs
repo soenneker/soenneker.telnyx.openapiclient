@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch.Detail.Records.S
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SttDeleteDetailReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SttDeleteDetailReportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SttDeleteDetailReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SttDeleteDetailReportResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a specific Speech to Text batch report request by ID
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Batch.Detail.Records.S
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SttGetDetailReportByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SttGetDetailReportByIdResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SttGetDetailReportByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SttGetDetailReportByIdResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a specific Speech to Text batch report request by ID

@@ -12,44 +12,67 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ExportPortoutsCsvReportFilters : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created_at__gt") is { } nullNodeCreatedAtGt && nullNodeCreatedAtGt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtGt = null;
+            if (parseNode.GetChildNode("created_at__lt") is { } nullNodeCreatedAtLt && nullNodeCreatedAtLt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtLt = null;
+            if (parseNode.GetChildNode("customer_reference__in") is { } nullNodeCustomerReferenceIn && nullNodeCustomerReferenceIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReferenceIn = null;
+            if (parseNode.GetChildNode("end_user_name") is { } nullNodeEndUserName && nullNodeEndUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndUserName = null;
+            if (parseNode.GetChildNode("phone_numbers__overlaps") is { } nullNodePhoneNumbersOverlaps && nullNodePhoneNumbersOverlaps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbersOverlaps = null;
+            if (parseNode.GetChildNode("status__in") is { } nullNodeStatusIn && nullNodeStatusIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusIn = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time the port-out was created after.</summary>
-        public DateTimeOffset? CreatedAtGt { get; set; }
+        public DateTimeOffset? CreatedAtGt { get => _explicitNullValueCreatedAtGt; set { _explicitNullValueCreatedAtGt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at__gt"); else _explicitNullProperties?.Remove("created_at__gt"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAtGt = default!;
         /// <summary>The date and time the port-out was created before.</summary>
-        public DateTimeOffset? CreatedAtLt { get; set; }
+        public DateTimeOffset? CreatedAtLt { get => _explicitNullValueCreatedAtLt; set { _explicitNullValueCreatedAtLt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at__lt"); else _explicitNullProperties?.Remove("created_at__lt"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAtLt = default!;
         /// <summary>The customer reference of the port-outs to include in the report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CustomerReferenceIn { get; set; }
+        public List<string>? CustomerReferenceIn { get => _explicitNullValueCustomerReferenceIn; set { _explicitNullValueCustomerReferenceIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference__in"); else _explicitNullProperties?.Remove("customer_reference__in"); } }
+        private List<string>? _explicitNullValueCustomerReferenceIn = default!;
 #nullable restore
 #else
-        public List<string> CustomerReferenceIn { get; set; }
+        public List<string> CustomerReferenceIn { get => _explicitNullValueCustomerReferenceIn; set { _explicitNullValueCustomerReferenceIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference__in"); else _explicitNullProperties?.Remove("customer_reference__in"); } }
+        private List<string> _explicitNullValueCustomerReferenceIn = default!;
 #endif
         /// <summary>The end user name of the port-outs to include in the report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndUserName { get; set; }
+        public string? EndUserName { get => _explicitNullValueEndUserName; set { _explicitNullValueEndUserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_user_name"); else _explicitNullProperties?.Remove("end_user_name"); } }
+        private string? _explicitNullValueEndUserName = default!;
 #nullable restore
 #else
-        public string EndUserName { get; set; }
+        public string EndUserName { get => _explicitNullValueEndUserName; set { _explicitNullValueEndUserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_user_name"); else _explicitNullProperties?.Remove("end_user_name"); } }
+        private string _explicitNullValueEndUserName = default!;
 #endif
         /// <summary>A list of phone numbers that the port-outs phone numbers must overlap with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PhoneNumbersOverlaps { get; set; }
+        public List<string>? PhoneNumbersOverlaps { get => _explicitNullValuePhoneNumbersOverlaps; set { _explicitNullValuePhoneNumbersOverlaps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers__overlaps"); else _explicitNullProperties?.Remove("phone_numbers__overlaps"); } }
+        private List<string>? _explicitNullValuePhoneNumbersOverlaps = default!;
 #nullable restore
 #else
-        public List<string> PhoneNumbersOverlaps { get; set; }
+        public List<string> PhoneNumbersOverlaps { get => _explicitNullValuePhoneNumbersOverlaps; set { _explicitNullValuePhoneNumbersOverlaps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers__overlaps"); else _explicitNullProperties?.Remove("phone_numbers__overlaps"); } }
+        private List<string> _explicitNullValuePhoneNumbersOverlaps = default!;
 #endif
         /// <summary>The status of the port-outs to include in the report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFiltersStatusInItem?>? StatusIn { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFiltersStatusInItem?>? StatusIn { get => _explicitNullValueStatusIn; set { _explicitNullValueStatusIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status__in"); else _explicitNullProperties?.Remove("status__in"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFiltersStatusInItem?>? _explicitNullValueStatusIn = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFiltersStatusInItem?> StatusIn { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFiltersStatusInItem?> StatusIn { get => _explicitNullValueStatusIn; set { _explicitNullValueStatusIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status__in"); else _explicitNullProperties?.Remove("status__in"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFiltersStatusInItem?> _explicitNullValueStatusIn = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFilters"/> and sets the default values.
@@ -66,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFilters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFilters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFilters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,6 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("end_user_name", EndUserName);
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers__overlaps", PhoneNumbersOverlaps);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCsvReportFiltersStatusInItem>("status__in", StatusIn);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

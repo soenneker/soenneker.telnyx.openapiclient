@@ -12,32 +12,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PortingEventSplitEventPayload : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("from") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("porting_phone_numbers") is { } nullNodePortingPhoneNumbers && nullNodePortingPhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortingPhoneNumbers = null;
+            if (parseNode.GetChildNode("to") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The porting order that was split.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom? From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom _explicitNullValueFrom = default!;
 #endif
         /// <summary>The list of porting phone numbers that were moved to the new porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem>? PortingPhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem>? PortingPhoneNumbers { get => _explicitNullValuePortingPhoneNumbers; set { _explicitNullValuePortingPhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("porting_phone_numbers"); else _explicitNullProperties?.Remove("porting_phone_numbers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem>? _explicitNullValuePortingPhoneNumbers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem> PortingPhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem> PortingPhoneNumbers { get => _explicitNullValuePortingPhoneNumbers; set { _explicitNullValuePortingPhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("porting_phone_numbers"); else _explicitNullProperties?.Remove("porting_phone_numbers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem> _explicitNullValuePortingPhoneNumbers = default!;
 #endif
         /// <summary>The new porting order that the phone numbers was moved to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo? To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo? _explicitNullValueTo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo _explicitNullValueTo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayload(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadFrom>("from", From);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadPortingPhoneNumbersItem>("porting_phone_numbers", PortingPhoneNumbers);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventSplitEventPayloadTo>("to", To);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

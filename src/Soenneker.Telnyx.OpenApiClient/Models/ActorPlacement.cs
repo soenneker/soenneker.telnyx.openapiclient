@@ -12,52 +12,78 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActorPlacement : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cluster_results") is { } nullNodeClusterResults && nullNodeClusterResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClusterResults = null;
+            if (parseNode.GetChildNode("clusters") is { } nullNodeClusters && nullNodeClusters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Clusters = null;
+            if (parseNode.GetChildNode("excluded_clusters") is { } nullNodeExcludedClusters && nullNodeExcludedClusters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludedClusters = null;
+            if (parseNode.GetChildNode("observed_at") is { } nullNodeObservedAt && nullNodeObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObservedAt = null;
+            if (parseNode.GetChildNode("partial") is { } nullNodePartial && nullNodePartial.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Partial = null;
+            if (parseNode.GetChildNode("policy") is { } nullNodePolicy && nullNodePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Policy = null;
+            if (parseNode.GetChildNode("unchecked_clusters") is { } nullNodeUncheckedClusters && nullNodeUncheckedClusters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UncheckedClusters = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cluster_results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ActorClusterResult>? ClusterResults { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ActorClusterResult>? ClusterResults { get => _explicitNullValueClusterResults; set { _explicitNullValueClusterResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_results"); else _explicitNullProperties?.Remove("cluster_results"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ActorClusterResult>? _explicitNullValueClusterResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ActorClusterResult> ClusterResults { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ActorClusterResult> ClusterResults { get => _explicitNullValueClusterResults; set { _explicitNullValueClusterResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster_results"); else _explicitNullProperties?.Remove("cluster_results"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.ActorClusterResult> _explicitNullValueClusterResults = default!;
 #endif
         /// <summary>Public regions with successful deployment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Clusters { get; set; }
+        public List<string>? Clusters { get => _explicitNullValueClusters; set { _explicitNullValueClusters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clusters"); else _explicitNullProperties?.Remove("clusters"); } }
+        private List<string>? _explicitNullValueClusters = default!;
 #nullable restore
 #else
-        public List<string> Clusters { get; set; }
+        public List<string> Clusters { get => _explicitNullValueClusters; set { _explicitNullValueClusters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clusters"); else _explicitNullProperties?.Remove("clusters"); } }
+        private List<string> _explicitNullValueClusters = default!;
 #endif
         /// <summary>The excluded_clusters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludedClusters { get; set; }
+        public List<string>? ExcludedClusters { get => _explicitNullValueExcludedClusters; set { _explicitNullValueExcludedClusters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("excluded_clusters"); else _explicitNullProperties?.Remove("excluded_clusters"); } }
+        private List<string>? _explicitNullValueExcludedClusters = default!;
 #nullable restore
 #else
-        public List<string> ExcludedClusters { get; set; }
+        public List<string> ExcludedClusters { get => _explicitNullValueExcludedClusters; set { _explicitNullValueExcludedClusters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("excluded_clusters"); else _explicitNullProperties?.Remove("excluded_clusters"); } }
+        private List<string> _explicitNullValueExcludedClusters = default!;
 #endif
         /// <summary>Optional ISO-8601 millisecond timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ObservedAt { get; set; }
+        public string? ObservedAt { get => _explicitNullValueObservedAt; set { _explicitNullValueObservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observed_at"); else _explicitNullProperties?.Remove("observed_at"); } }
+        private string? _explicitNullValueObservedAt = default!;
 #nullable restore
 #else
-        public string ObservedAt { get; set; }
+        public string ObservedAt { get => _explicitNullValueObservedAt; set { _explicitNullValueObservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observed_at"); else _explicitNullProperties?.Remove("observed_at"); } }
+        private string _explicitNullValueObservedAt = default!;
 #endif
         /// <summary>The partial property</summary>
-        public bool? Partial { get; set; }
+        public bool? Partial { get => _explicitNullValuePartial; set { _explicitNullValuePartial = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partial"); else _explicitNullProperties?.Remove("partial"); } }
+        private bool? _explicitNullValuePartial = default!;
         /// <summary>The policy property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActorPlacementPolicy? Policy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ActorPlacementPolicy? Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ActorPlacementPolicy? _explicitNullValuePolicy = default!;
         /// <summary>The unchecked_clusters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UncheckedClusters { get; set; }
+        public List<string>? UncheckedClusters { get => _explicitNullValueUncheckedClusters; set { _explicitNullValueUncheckedClusters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unchecked_clusters"); else _explicitNullProperties?.Remove("unchecked_clusters"); } }
+        private List<string>? _explicitNullValueUncheckedClusters = default!;
 #nullable restore
 #else
-        public List<string> UncheckedClusters { get; set; }
+        public List<string> UncheckedClusters { get => _explicitNullValueUncheckedClusters; set { _explicitNullValueUncheckedClusters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unchecked_clusters"); else _explicitNullProperties?.Remove("unchecked_clusters"); } }
+        private List<string> _explicitNullValueUncheckedClusters = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActorPlacement"/> and sets the default values.
@@ -74,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ActorPlacement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ActorPlacement();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ActorPlacement(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,6 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("partial", Partial);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActorPlacementPolicy>("policy", Policy);
             writer.WriteCollectionOfPrimitiveValues<string>("unchecked_clusters", UncheckedClusters);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

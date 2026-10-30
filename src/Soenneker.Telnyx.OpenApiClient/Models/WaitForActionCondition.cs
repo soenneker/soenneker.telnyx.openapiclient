@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WaitForActionCondition : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,21 +62,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionCondition();
             if("url_pattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WaitForActionConditionOneOf1 = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf1();
+                
             }
             else if("ref".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WaitForActionConditionOneOf2 = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf2();
+                
             }
             else if("text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WaitForActionConditionOneOf3 = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf3();
+                
             }
             else if("dom_stable".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WaitForActionConditionOneOf4 = new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf4();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("url_pattern".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("pattern") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("ref".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("observation_id") != null && parseNode.GetChildNode("ref") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("text".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("text") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("dom_stable".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.WaitForActionConditionOneOf1 == null && result.WaitForActionConditionOneOf2 == null && result.WaitForActionConditionOneOf3 == null && result.WaitForActionConditionOneOf4 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.WaitForActionConditionOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf1(), parseNode);
+            if (result.WaitForActionConditionOneOf1 == null && result.WaitForActionConditionOneOf2 == null && result.WaitForActionConditionOneOf3 == null && result.WaitForActionConditionOneOf4 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.WaitForActionConditionOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf2(), parseNode);
+            if (result.WaitForActionConditionOneOf1 == null && result.WaitForActionConditionOneOf2 == null && result.WaitForActionConditionOneOf3 == null && result.WaitForActionConditionOneOf4 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.WaitForActionConditionOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf3(), parseNode);
+            if (result.WaitForActionConditionOneOf1 == null && result.WaitForActionConditionOneOf2 == null && result.WaitForActionConditionOneOf3 == null && result.WaitForActionConditionOneOf4 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.WaitForActionConditionOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf4(), parseNode);
+            if (result.WaitForActionConditionOneOf1 == null && result.WaitForActionConditionOneOf2 == null && result.WaitForActionConditionOneOf3 == null && result.WaitForActionConditionOneOf4 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (WaitForActionConditionOneOf1 == null && WaitForActionConditionOneOf2 == null && WaitForActionConditionOneOf3 == null && WaitForActionConditionOneOf4 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (WaitForActionConditionOneOf1 != null && WaitForActionConditionOneOf2 == null && WaitForActionConditionOneOf3 == null && WaitForActionConditionOneOf4 == null) { if (WaitForActionConditionOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WaitForActionConditionOneOf1); return; }
+            if (WaitForActionConditionOneOf2 != null && WaitForActionConditionOneOf1 == null && WaitForActionConditionOneOf3 == null && WaitForActionConditionOneOf4 == null) { if (WaitForActionConditionOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WaitForActionConditionOneOf2); return; }
+            if (WaitForActionConditionOneOf3 != null && WaitForActionConditionOneOf1 == null && WaitForActionConditionOneOf2 == null && WaitForActionConditionOneOf4 == null) { if (WaitForActionConditionOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WaitForActionConditionOneOf3); return; }
+            if (WaitForActionConditionOneOf4 != null && WaitForActionConditionOneOf1 == null && WaitForActionConditionOneOf2 == null && WaitForActionConditionOneOf3 == null) { if (WaitForActionConditionOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WaitForActionConditionOneOf4); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(WaitForActionConditionOneOf1 != null)
             {
+                if (WaitForActionConditionOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf1>(null, WaitForActionConditionOneOf1);
             }
             else if(WaitForActionConditionOneOf2 != null)
             {
+                if (WaitForActionConditionOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf2>(null, WaitForActionConditionOneOf2);
             }
             else if(WaitForActionConditionOneOf3 != null)
             {
+                if (WaitForActionConditionOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf3>(null, WaitForActionConditionOneOf3);
             }
             else if(WaitForActionConditionOneOf4 != null)
             {
+                if (WaitForActionConditionOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WaitForActionConditionOneOf4>(null, WaitForActionConditionOneOf4);
             }
         }

@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Compute.Funcs.Item.Ship_inspection
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ShipInspectionResponseWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ShipInspectionResponseWrapper.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ShipInspectionResponseWrapper>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ShipInspectionResponseWrapper.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the latest ship outcome. The stage is `none` on success, `pending` while building, or a failure stage such as `build`, `platform`, `pre_build`, `deploy`, or `security_review`. This stage-neutral customer-facing path is an alias over the same inspection resource as `build_log_inspection`.

@@ -11,70 +11,109 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class StartStreamingRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("custom_parameters") is { } nullNodeCustomParameters && nullNodeCustomParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomParameters = null;
+            if (parseNode.GetChildNode("dialogflow_config") is { } nullNodeDialogflowConfig && nullNodeDialogflowConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DialogflowConfig = null;
+            if (parseNode.GetChildNode("enable_dialogflow") is { } nullNodeEnableDialogflow && nullNodeEnableDialogflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableDialogflow = null;
+            if (parseNode.GetChildNode("stream_auth_token") is { } nullNodeStreamAuthToken && nullNodeStreamAuthToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamAuthToken = null;
+            if (parseNode.GetChildNode("stream_bidirectional_codec") is { } nullNodeStreamBidirectionalCodec && nullNodeStreamBidirectionalCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalCodec = null;
+            if (parseNode.GetChildNode("stream_bidirectional_mode") is { } nullNodeStreamBidirectionalMode && nullNodeStreamBidirectionalMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalMode = null;
+            if (parseNode.GetChildNode("stream_bidirectional_sampling_rate") is { } nullNodeStreamBidirectionalSamplingRate && nullNodeStreamBidirectionalSamplingRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalSamplingRate = null;
+            if (parseNode.GetChildNode("stream_bidirectional_target_legs") is { } nullNodeStreamBidirectionalTargetLegs && nullNodeStreamBidirectionalTargetLegs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalTargetLegs = null;
+            if (parseNode.GetChildNode("stream_codec") is { } nullNodeStreamCodec && nullNodeStreamCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamCodec = null;
+            if (parseNode.GetChildNode("stream_track") is { } nullNodeStreamTrack && nullNodeStreamTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamTrack = null;
+            if (parseNode.GetChildNode("stream_url") is { } nullNodeStreamUrl && nullNodeStreamUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get; set; }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get; set; }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>Custom parameters to be sent as part of the WebSocket connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem>? CustomParameters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem>? CustomParameters { get => _explicitNullValueCustomParameters; set { _explicitNullValueCustomParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_parameters"); else _explicitNullProperties?.Remove("custom_parameters"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem>? _explicitNullValueCustomParameters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem> CustomParameters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem> CustomParameters { get => _explicitNullValueCustomParameters; set { _explicitNullValueCustomParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_parameters"); else _explicitNullProperties?.Remove("custom_parameters"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem> _explicitNullValueCustomParameters = default!;
 #endif
         /// <summary>The dialogflow_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig? DialogflowConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig? DialogflowConfig { get => _explicitNullValueDialogflowConfig; set { _explicitNullValueDialogflowConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialogflow_config"); else _explicitNullProperties?.Remove("dialogflow_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig? _explicitNullValueDialogflowConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig DialogflowConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig DialogflowConfig { get => _explicitNullValueDialogflowConfig; set { _explicitNullValueDialogflowConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialogflow_config"); else _explicitNullProperties?.Remove("dialogflow_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig _explicitNullValueDialogflowConfig = default!;
 #endif
         /// <summary>Enables Dialogflow for the current call. The default value is false.</summary>
-        public bool? EnableDialogflow { get; set; }
+        public bool? EnableDialogflow { get => _explicitNullValueEnableDialogflow; set { _explicitNullValueEnableDialogflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_dialogflow"); else _explicitNullProperties?.Remove("enable_dialogflow"); } }
+        private bool? _explicitNullValueEnableDialogflow = default!;
         /// <summary>An authentication token to be sent as part of the WebSocket connection. Maximum length is 4000 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamAuthToken { get; set; }
+        public string? StreamAuthToken { get => _explicitNullValueStreamAuthToken; set { _explicitNullValueStreamAuthToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_auth_token"); else _explicitNullProperties?.Remove("stream_auth_token"); } }
+        private string? _explicitNullValueStreamAuthToken = default!;
 #nullable restore
 #else
-        public string StreamAuthToken { get; set; }
+        public string StreamAuthToken { get => _explicitNullValueStreamAuthToken; set { _explicitNullValueStreamAuthToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_auth_token"); else _explicitNullProperties?.Remove("stream_auth_token"); } }
+        private string _explicitNullValueStreamAuthToken = default!;
 #endif
         /// <summary>Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec? StreamBidirectionalCodec { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec? StreamBidirectionalCodec { get => _explicitNullValueStreamBidirectionalCodec; set { _explicitNullValueStreamBidirectionalCodec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_bidirectional_codec"); else _explicitNullProperties?.Remove("stream_bidirectional_codec"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec? _explicitNullValueStreamBidirectionalCodec = default!;
         /// <summary>Configures method of bidirectional streaming (mp3, rtp).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode? StreamBidirectionalMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode? StreamBidirectionalMode { get => _explicitNullValueStreamBidirectionalMode; set { _explicitNullValueStreamBidirectionalMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_bidirectional_mode"); else _explicitNullProperties?.Remove("stream_bidirectional_mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode? _explicitNullValueStreamBidirectionalMode = default!;
         /// <summary>Audio sampling rate.</summary>
-        public int? StreamBidirectionalSamplingRate { get; set; }
+        public int? StreamBidirectionalSamplingRate { get => _explicitNullValueStreamBidirectionalSamplingRate; set { _explicitNullValueStreamBidirectionalSamplingRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_bidirectional_sampling_rate"); else _explicitNullProperties?.Remove("stream_bidirectional_sampling_rate"); } }
+        private int? _explicitNullValueStreamBidirectionalSamplingRate = default!;
         /// <summary>Specifies which call legs should receive the bidirectional stream audio.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? StreamBidirectionalTargetLegs { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? StreamBidirectionalTargetLegs { get => _explicitNullValueStreamBidirectionalTargetLegs; set { _explicitNullValueStreamBidirectionalTargetLegs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_bidirectional_target_legs"); else _explicitNullProperties?.Remove("stream_bidirectional_target_legs"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? _explicitNullValueStreamBidirectionalTargetLegs = default!;
         /// <summary>Specifies the codec to be used for the streamed audio. When set to &apos;default&apos; or when transcoding is not possible, the codec from the call will be used.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec? StreamCodec { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec? StreamCodec { get => _explicitNullValueStreamCodec; set { _explicitNullValueStreamCodec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_codec"); else _explicitNullProperties?.Remove("stream_codec"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec? _explicitNullValueStreamCodec = default!;
         /// <summary>Specifies which track should be streamed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestStreamTrack? StreamTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestStreamTrack? StreamTrack { get => _explicitNullValueStreamTrack; set { _explicitNullValueStreamTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_track"); else _explicitNullProperties?.Remove("stream_track"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestStreamTrack? _explicitNullValueStreamTrack = default!;
         /// <summary>The destination WebSocket address where the stream is going to be delivered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamUrl { get; set; }
+        public string? StreamUrl { get => _explicitNullValueStreamUrl; set { _explicitNullValueStreamUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_url"); else _explicitNullProperties?.Remove("stream_url"); } }
+        private string? _explicitNullValueStreamUrl = default!;
 #nullable restore
 #else
-        public string StreamUrl { get; set; }
+        public string StreamUrl { get => _explicitNullValueStreamUrl; set { _explicitNullValueStreamUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_url"); else _explicitNullProperties?.Remove("stream_url"); } }
+        private string _explicitNullValueStreamUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest"/> and sets the default values.
@@ -93,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -138,6 +177,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec>("stream_codec", StreamCodec);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestStreamTrack>("stream_track", StreamTrack);
             writer.WriteStringValue("stream_url", StreamUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

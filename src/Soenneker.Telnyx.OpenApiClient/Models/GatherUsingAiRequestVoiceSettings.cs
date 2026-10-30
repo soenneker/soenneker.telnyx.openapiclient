@@ -12,7 +12,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GatherUsingAiRequestVoiceSettings : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AwsVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,37 +82,54 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAiRequestVoiceSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAiRequestVoiceSettings();
-            if("aws".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("AwsVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AwsVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.AwsVoiceSettings();
+                
             }
-            else if("azure".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("AzureVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AzureVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings();
+                
             }
-            else if("elevenlabs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ElevenLabsVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ElevenLabsVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings();
+                
             }
-            else if("resemble".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ResembleVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ResembleVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings();
+                
             }
-            else if("soniox".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SonioxVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SonioxVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings();
+                
             }
-            else if("telnyx".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("TelnyxVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.TelnyxVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings();
+                
             }
-            else if("xai".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("XaiVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.XaiVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.XaiVoiceSettings();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("elevenlabs".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("telnyx".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("aws".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("azure".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("effect") == null || (parseNode.GetChildNode("effect")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("eq_car".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "eq_telecomhp8k".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal)))) && (parseNode.GetChildNode("gender") == null || (parseNode.GetChildNode("gender")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag3 && ("Male".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "Female".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("resemble".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("precision") == null || (parseNode.GetChildNode("precision")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("PCM_16".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "PCM_24".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "PCM_32".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "MULAW".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal)))) && (parseNode.GetChildNode("sample_rate") == null || (parseNode.GetChildNode("sample_rate")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag3 && ("8000".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "16000".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "22050".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "32000".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "44100".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "48000".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal)))) && (parseNode.GetChildNode("format") == null || (parseNode.GetChildNode("format")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag4 && ("wav".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "mp3".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("xai".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("soniox".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.AwsVoiceSettings == null && result.AzureVoiceSettings == null && result.ElevenLabsVoiceSettings == null && result.ResembleVoiceSettings == null && result.SonioxVoiceSettings == null && result.TelnyxVoiceSettings == null && result.XaiVoiceSettings == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.ElevenLabsVoiceSettings = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings(), parseNode);
+            if (result.AwsVoiceSettings == null && result.AzureVoiceSettings == null && result.ElevenLabsVoiceSettings == null && result.ResembleVoiceSettings == null && result.SonioxVoiceSettings == null && result.TelnyxVoiceSettings == null && result.XaiVoiceSettings == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.TelnyxVoiceSettings = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings(), parseNode);
+            if (result.AwsVoiceSettings == null && result.AzureVoiceSettings == null && result.ElevenLabsVoiceSettings == null && result.ResembleVoiceSettings == null && result.SonioxVoiceSettings == null && result.TelnyxVoiceSettings == null && result.XaiVoiceSettings == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.AwsVoiceSettings = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AwsVoiceSettings(), parseNode);
+            if (result.AwsVoiceSettings == null && result.AzureVoiceSettings == null && result.ElevenLabsVoiceSettings == null && result.ResembleVoiceSettings == null && result.SonioxVoiceSettings == null && result.TelnyxVoiceSettings == null && result.XaiVoiceSettings == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.AzureVoiceSettings = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings(), parseNode);
+            if (result.AwsVoiceSettings == null && result.AzureVoiceSettings == null && result.ElevenLabsVoiceSettings == null && result.ResembleVoiceSettings == null && result.SonioxVoiceSettings == null && result.TelnyxVoiceSettings == null && result.XaiVoiceSettings == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6) result.ResembleVoiceSettings = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings(), parseNode);
+            if (result.AwsVoiceSettings == null && result.AzureVoiceSettings == null && result.ElevenLabsVoiceSettings == null && result.ResembleVoiceSettings == null && result.SonioxVoiceSettings == null && result.TelnyxVoiceSettings == null && result.XaiVoiceSettings == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6) result.XaiVoiceSettings = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.XaiVoiceSettings(), parseNode);
+            if (result.AwsVoiceSettings == null && result.AzureVoiceSettings == null && result.ElevenLabsVoiceSettings == null && result.ResembleVoiceSettings == null && result.SonioxVoiceSettings == null && result.TelnyxVoiceSettings == null && result.XaiVoiceSettings == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.SonioxVoiceSettings = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings(), parseNode);
+            if (result.AwsVoiceSettings == null && result.AzureVoiceSettings == null && result.ElevenLabsVoiceSettings == null && result.ResembleVoiceSettings == null && result.SonioxVoiceSettings == null && result.TelnyxVoiceSettings == null && result.XaiVoiceSettings == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -151,33 +173,50 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AwsVoiceSettings == null && AzureVoiceSettings == null && ElevenLabsVoiceSettings == null && ResembleVoiceSettings == null && SonioxVoiceSettings == null && TelnyxVoiceSettings == null && XaiVoiceSettings == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AwsVoiceSettings != null && AzureVoiceSettings == null && ElevenLabsVoiceSettings == null && ResembleVoiceSettings == null && SonioxVoiceSettings == null && TelnyxVoiceSettings == null && XaiVoiceSettings == null) { if (AwsVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AwsVoiceSettings); return; }
+            if (AzureVoiceSettings != null && AwsVoiceSettings == null && ElevenLabsVoiceSettings == null && ResembleVoiceSettings == null && SonioxVoiceSettings == null && TelnyxVoiceSettings == null && XaiVoiceSettings == null) { if (AzureVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AzureVoiceSettings); return; }
+            if (ElevenLabsVoiceSettings != null && AwsVoiceSettings == null && AzureVoiceSettings == null && ResembleVoiceSettings == null && SonioxVoiceSettings == null && TelnyxVoiceSettings == null && XaiVoiceSettings == null) { if (ElevenLabsVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ElevenLabsVoiceSettings); return; }
+            if (ResembleVoiceSettings != null && AwsVoiceSettings == null && AzureVoiceSettings == null && ElevenLabsVoiceSettings == null && SonioxVoiceSettings == null && TelnyxVoiceSettings == null && XaiVoiceSettings == null) { if (ResembleVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ResembleVoiceSettings); return; }
+            if (SonioxVoiceSettings != null && AwsVoiceSettings == null && AzureVoiceSettings == null && ElevenLabsVoiceSettings == null && ResembleVoiceSettings == null && TelnyxVoiceSettings == null && XaiVoiceSettings == null) { if (SonioxVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SonioxVoiceSettings); return; }
+            if (TelnyxVoiceSettings != null && AwsVoiceSettings == null && AzureVoiceSettings == null && ElevenLabsVoiceSettings == null && ResembleVoiceSettings == null && SonioxVoiceSettings == null && XaiVoiceSettings == null) { if (TelnyxVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TelnyxVoiceSettings); return; }
+            if (XaiVoiceSettings != null && AwsVoiceSettings == null && AzureVoiceSettings == null && ElevenLabsVoiceSettings == null && ResembleVoiceSettings == null && SonioxVoiceSettings == null && TelnyxVoiceSettings == null) { if (XaiVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, XaiVoiceSettings); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AwsVoiceSettings != null)
             {
+                if (AwsVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsVoiceSettings>(null, AwsVoiceSettings);
             }
             else if(AzureVoiceSettings != null)
             {
+                if (AzureVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings>(null, AzureVoiceSettings);
             }
             else if(ElevenLabsVoiceSettings != null)
             {
+                if (ElevenLabsVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>(null, ElevenLabsVoiceSettings);
             }
             else if(ResembleVoiceSettings != null)
             {
+                if (ResembleVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings>(null, ResembleVoiceSettings);
             }
             else if(SonioxVoiceSettings != null)
             {
+                if (SonioxVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SonioxVoiceSettings>(null, SonioxVoiceSettings);
             }
             else if(TelnyxVoiceSettings != null)
             {
+                if (TelnyxVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings>(null, TelnyxVoiceSettings);
             }
             else if(XaiVoiceSettings != null)
             {
+                if (XaiVoiceSettings is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.XaiVoiceSettings>(null, XaiVoiceSettings);
             }
         }

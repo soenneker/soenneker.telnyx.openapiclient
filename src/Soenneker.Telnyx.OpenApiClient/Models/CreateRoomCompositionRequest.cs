@@ -11,53 +11,79 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateRoomCompositionRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
+            if (parseNode.GetChildNode("resolution") is { } nullNodeResolution && nullNodeResolution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resolution = null;
+            if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
+            if (parseNode.GetChildNode("video_layout") is { } nullNodeVideoLayout && nullNodeVideoLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VideoLayout = null;
+            if (parseNode.GetChildNode("webhook_event_failover_url") is { } nullNodeWebhookEventFailoverUrl && nullNodeWebhookEventFailoverUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookEventFailoverUrl = null;
+            if (parseNode.GetChildNode("webhook_event_url") is { } nullNodeWebhookEventUrl && nullNodeWebhookEventUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookEventUrl = null;
+            if (parseNode.GetChildNode("webhook_timeout_secs") is { } nullNodeWebhookTimeoutSecs && nullNodeWebhookTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookTimeoutSecs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The desired format of the room composition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Format { get; set; }
+        public string? Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
+        private string? _explicitNullValueFormat = default!;
 #nullable restore
 #else
-        public string Format { get; set; }
+        public string Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
+        private string _explicitNullValueFormat = default!;
 #endif
         /// <summary>The desired resolution (width/height in pixels) of the resulting video of the room composition. Both width and height are required to be between 16 and 1280; and width * height should not exceed 1280 * 720</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Resolution { get; set; }
+        public string? Resolution { get => _explicitNullValueResolution; set { _explicitNullValueResolution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution"); else _explicitNullProperties?.Remove("resolution"); } }
+        private string? _explicitNullValueResolution = default!;
 #nullable restore
 #else
-        public string Resolution { get; set; }
+        public string Resolution { get => _explicitNullValueResolution; set { _explicitNullValueResolution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution"); else _explicitNullProperties?.Remove("resolution"); } }
+        private string _explicitNullValueResolution = default!;
 #endif
         /// <summary>id of the room session associated with the room composition.</summary>
-        public Guid? SessionId { get; set; }
+        public Guid? SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private Guid? _explicitNullValueSessionId = default!;
         /// <summary>Describes the video layout of the room composition in terms of regions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty? VideoLayout { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty? VideoLayout { get => _explicitNullValueVideoLayout; set { _explicitNullValueVideoLayout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video_layout"); else _explicitNullProperties?.Remove("video_layout"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty? _explicitNullValueVideoLayout = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty VideoLayout { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty VideoLayout { get => _explicitNullValueVideoLayout; set { _explicitNullValueVideoLayout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video_layout"); else _explicitNullProperties?.Remove("video_layout"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequestVideoLayoutProperty _explicitNullValueVideoLayout = default!;
 #endif
         /// <summary>The failover URL where webhooks related to this room composition will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookEventFailoverUrl { get; set; }
+        public string? WebhookEventFailoverUrl { get => _explicitNullValueWebhookEventFailoverUrl; set { _explicitNullValueWebhookEventFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_failover_url"); else _explicitNullProperties?.Remove("webhook_event_failover_url"); } }
+        private string? _explicitNullValueWebhookEventFailoverUrl = default!;
 #nullable restore
 #else
-        public string WebhookEventFailoverUrl { get; set; }
+        public string WebhookEventFailoverUrl { get => _explicitNullValueWebhookEventFailoverUrl; set { _explicitNullValueWebhookEventFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_failover_url"); else _explicitNullProperties?.Remove("webhook_event_failover_url"); } }
+        private string _explicitNullValueWebhookEventFailoverUrl = default!;
 #endif
         /// <summary>The URL where webhooks related to this room composition will be sent. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookEventUrl { get; set; }
+        public string? WebhookEventUrl { get => _explicitNullValueWebhookEventUrl; set { _explicitNullValueWebhookEventUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_url"); else _explicitNullProperties?.Remove("webhook_event_url"); } }
+        private string? _explicitNullValueWebhookEventUrl = default!;
 #nullable restore
 #else
-        public string WebhookEventUrl { get; set; }
+        public string WebhookEventUrl { get => _explicitNullValueWebhookEventUrl; set { _explicitNullValueWebhookEventUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_event_url"); else _explicitNullProperties?.Remove("webhook_event_url"); } }
+        private string _explicitNullValueWebhookEventUrl = default!;
 #endif
         /// <summary>Specifies how many seconds to wait before timing out a webhook.</summary>
-        public int? WebhookTimeoutSecs { get; set; }
+        public int? WebhookTimeoutSecs { get => _explicitNullValueWebhookTimeoutSecs; set { _explicitNullValueWebhookTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_timeout_secs"); else _explicitNullProperties?.Remove("webhook_timeout_secs"); } }
+        private int? _explicitNullValueWebhookTimeoutSecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest"/> and sets the default values.
         /// </summary>
@@ -75,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,6 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

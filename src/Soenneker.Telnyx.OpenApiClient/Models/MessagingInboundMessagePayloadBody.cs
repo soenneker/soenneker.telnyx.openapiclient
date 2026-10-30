@@ -12,104 +12,147 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagingInboundMessagePayloadBody : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("edit") is { } nullNodeEdit && nullNodeEdit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Edit = null;
+            if (parseNode.GetChildNode("foreign_id") is { } nullNodeForeignId && nullNodeForeignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForeignId = null;
+            if (parseNode.GetChildNode("from") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("from_user_id") is { } nullNodeFromUserId && nullNodeFromUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromUserId = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("revoke") is { } nullNodeRevoke && nullNodeRevoke.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revoke = null;
+            if (parseNode.GetChildNode("suggestion_response") is { } nullNodeSuggestionResponse && nullNodeSuggestionResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuggestionResponse = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("user_file") is { } nullNodeUserFile && nullNodeUserFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserFile = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Details for an edited WhatsApp message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit? Edit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit? Edit { get => _explicitNullValueEdit; set { _explicitNullValueEdit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edit"); else _explicitNullProperties?.Remove("edit"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit? _explicitNullValueEdit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit Edit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit Edit { get => _explicitNullValueEdit; set { _explicitNullValueEdit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edit"); else _explicitNullProperties?.Remove("edit"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyEdit _explicitNullValueEdit = default!;
 #endif
         /// <summary>Meta WhatsApp message identifier for this webhook event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForeignId { get; set; }
+        public string? ForeignId { get => _explicitNullValueForeignId; set { _explicitNullValueForeignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foreign_id"); else _explicitNullProperties?.Remove("foreign_id"); } }
+        private string? _explicitNullValueForeignId = default!;
 #nullable restore
 #else
-        public string ForeignId { get; set; }
+        public string ForeignId { get => _explicitNullValueForeignId; set { _explicitNullValueForeignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foreign_id"); else _explicitNullProperties?.Remove("foreign_id"); } }
+        private string _explicitNullValueForeignId = default!;
 #endif
         /// <summary>WhatsApp sender in E.164 format. Empty when the user hides their phone number; `from_user_id` then identifies the sender.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? From { get; set; }
+        public string? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private string? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public string From { get; set; }
+        public string From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private string _explicitNullValueFrom = default!;
 #endif
         /// <summary>Business-scoped user ID (BSUID) of the WhatsApp sender when Meta provides one, for example `US.13491208655302741918`. When `from` is empty, pass this value as `to` to reply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromUserId { get; set; }
+        public string? FromUserId { get => _explicitNullValueFromUserId; set { _explicitNullValueFromUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_user_id"); else _explicitNullProperties?.Remove("from_user_id"); } }
+        private string? _explicitNullValueFromUserId = default!;
 #nullable restore
 #else
-        public string FromUserId { get; set; }
+        public string FromUserId { get => _explicitNullValueFromUserId; set { _explicitNullValueFromUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_user_id"); else _explicitNullProperties?.Remove("from_user_id"); } }
+        private string _explicitNullValueFromUserId = default!;
 #endif
         /// <summary>Telnyx identifier for this webhook message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Location shared in an RCS message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation? Location { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation Location { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyLocation _explicitNullValueLocation = default!;
 #endif
         /// <summary>Details for a revoked WhatsApp message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke? Revoke { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke? Revoke { get => _explicitNullValueRevoke; set { _explicitNullValueRevoke = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revoke"); else _explicitNullProperties?.Remove("revoke"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke? _explicitNullValueRevoke = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke Revoke { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke Revoke { get => _explicitNullValueRevoke; set { _explicitNullValueRevoke = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revoke"); else _explicitNullProperties?.Remove("revoke"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyRevoke _explicitNullValueRevoke = default!;
 #endif
         /// <summary>Selected RCS suggestion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse? SuggestionResponse { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse? SuggestionResponse { get => _explicitNullValueSuggestionResponse; set { _explicitNullValueSuggestionResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestion_response"); else _explicitNullProperties?.Remove("suggestion_response"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse? _explicitNullValueSuggestionResponse = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse SuggestionResponse { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse SuggestionResponse { get => _explicitNullValueSuggestionResponse; set { _explicitNullValueSuggestionResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestion_response"); else _explicitNullProperties?.Remove("suggestion_response"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodySuggestionResponse _explicitNullValueSuggestionResponse = default!;
 #endif
         /// <summary>RCS text string or WhatsApp text object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText? Text { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText Text { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyText _explicitNullValueText = default!;
 #endif
         /// <summary>Unix timestamp supplied by Meta.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Timestamp { get; set; }
+        public string? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        private string? _explicitNullValueTimestamp = default!;
 #nullable restore
 #else
-        public string Timestamp { get; set; }
+        public string Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        private string _explicitNullValueTimestamp = default!;
 #endif
         /// <summary>WhatsApp message body type. Edit and revoke events use `edit` and `revoke`, respectively.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>RCS file attachment and optional thumbnail.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile? UserFile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile? UserFile { get => _explicitNullValueUserFile; set { _explicitNullValueUserFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_file"); else _explicitNullProperties?.Remove("user_file"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile? _explicitNullValueUserFile = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile UserFile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile UserFile { get => _explicitNullValueUserFile; set { _explicitNullValueUserFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_file"); else _explicitNullProperties?.Remove("user_file"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile _explicitNullValueUserFile = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody"/> and sets the default values.
@@ -126,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBody(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -169,6 +212,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("type", Type);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile>("user_file", UserFile);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

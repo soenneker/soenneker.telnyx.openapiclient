@@ -11,100 +11,144 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Portability : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("altspid") is { } nullNodeAltspid && nullNodeAltspid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Altspid = null;
+            if (parseNode.GetChildNode("altspid_carrier_name") is { } nullNodeAltspidCarrierName && nullNodeAltspidCarrierName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AltspidCarrierName = null;
+            if (parseNode.GetChildNode("altspid_carrier_type") is { } nullNodeAltspidCarrierType && nullNodeAltspidCarrierType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AltspidCarrierType = null;
+            if (parseNode.GetChildNode("city") is { } nullNodeCity && nullNodeCity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) City = null;
+            if (parseNode.GetChildNode("line_type") is { } nullNodeLineType && nullNodeLineType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LineType = null;
+            if (parseNode.GetChildNode("lrn") is { } nullNodeLrn && nullNodeLrn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lrn = null;
+            if (parseNode.GetChildNode("ocn") is { } nullNodeOcn && nullNodeOcn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ocn = null;
+            if (parseNode.GetChildNode("ported_date") is { } nullNodePortedDate && nullNodePortedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortedDate = null;
+            if (parseNode.GetChildNode("ported_status") is { } nullNodePortedStatus && nullNodePortedStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortedStatus = null;
+            if (parseNode.GetChildNode("spid") is { } nullNodeSpid && nullNodeSpid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spid = null;
+            if (parseNode.GetChildNode("spid_carrier_name") is { } nullNodeSpidCarrierName && nullNodeSpidCarrierName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpidCarrierName = null;
+            if (parseNode.GetChildNode("spid_carrier_type") is { } nullNodeSpidCarrierType && nullNodeSpidCarrierType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpidCarrierType = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Alternative SPID (Service Provider ID). Often used when a carrier is using a number from another carrier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Altspid { get; set; }
+        public string? Altspid { get => _explicitNullValueAltspid; set { _explicitNullValueAltspid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("altspid"); else _explicitNullProperties?.Remove("altspid"); } }
+        private string? _explicitNullValueAltspid = default!;
 #nullable restore
 #else
-        public string Altspid { get; set; }
+        public string Altspid { get => _explicitNullValueAltspid; set { _explicitNullValueAltspid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("altspid"); else _explicitNullProperties?.Remove("altspid"); } }
+        private string _explicitNullValueAltspid = default!;
 #endif
         /// <summary>Alternative service provider name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AltspidCarrierName { get; set; }
+        public string? AltspidCarrierName { get => _explicitNullValueAltspidCarrierName; set { _explicitNullValueAltspidCarrierName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("altspid_carrier_name"); else _explicitNullProperties?.Remove("altspid_carrier_name"); } }
+        private string? _explicitNullValueAltspidCarrierName = default!;
 #nullable restore
 #else
-        public string AltspidCarrierName { get; set; }
+        public string AltspidCarrierName { get => _explicitNullValueAltspidCarrierName; set { _explicitNullValueAltspidCarrierName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("altspid_carrier_name"); else _explicitNullProperties?.Remove("altspid_carrier_name"); } }
+        private string _explicitNullValueAltspidCarrierName = default!;
 #endif
         /// <summary>Alternative service provider type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AltspidCarrierType { get; set; }
+        public string? AltspidCarrierType { get => _explicitNullValueAltspidCarrierType; set { _explicitNullValueAltspidCarrierType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("altspid_carrier_type"); else _explicitNullProperties?.Remove("altspid_carrier_type"); } }
+        private string? _explicitNullValueAltspidCarrierType = default!;
 #nullable restore
 #else
-        public string AltspidCarrierType { get; set; }
+        public string AltspidCarrierType { get => _explicitNullValueAltspidCarrierType; set { _explicitNullValueAltspidCarrierType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("altspid_carrier_type"); else _explicitNullProperties?.Remove("altspid_carrier_type"); } }
+        private string _explicitNullValueAltspidCarrierType = default!;
 #endif
         /// <summary>City name extracted from the locality in the Local Exchange Routing Guide (LERG) database</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? City { get; set; }
+        public string? City { get => _explicitNullValueCity; set { _explicitNullValueCity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("city"); else _explicitNullProperties?.Remove("city"); } }
+        private string? _explicitNullValueCity = default!;
 #nullable restore
 #else
-        public string City { get; set; }
+        public string City { get => _explicitNullValueCity; set { _explicitNullValueCity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("city"); else _explicitNullProperties?.Remove("city"); } }
+        private string _explicitNullValueCity = default!;
 #endif
         /// <summary>The line type of the phone number. Uses the same value set as carrier.type; see the API reference for the full list.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityLineType? LineType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityLineType? LineType { get => _explicitNullValueLineType; set { _explicitNullValueLineType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line_type"); else _explicitNullProperties?.Remove("line_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityLineType? _explicitNullValueLineType = default!;
         /// <summary>Local Routing Number, if assigned to the requested phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Lrn { get; set; }
+        public string? Lrn { get => _explicitNullValueLrn; set { _explicitNullValueLrn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lrn"); else _explicitNullProperties?.Remove("lrn"); } }
+        private string? _explicitNullValueLrn = default!;
 #nullable restore
 #else
-        public string Lrn { get; set; }
+        public string Lrn { get => _explicitNullValueLrn; set { _explicitNullValueLrn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lrn"); else _explicitNullProperties?.Remove("lrn"); } }
+        private string _explicitNullValueLrn = default!;
 #endif
         /// <summary>Operating Company Name (OCN) as per the Local Exchange Routing Guide (LERG) database</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ocn { get; set; }
+        public string? Ocn { get => _explicitNullValueOcn; set { _explicitNullValueOcn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ocn"); else _explicitNullProperties?.Remove("ocn"); } }
+        private string? _explicitNullValueOcn = default!;
 #nullable restore
 #else
-        public string Ocn { get; set; }
+        public string Ocn { get => _explicitNullValueOcn; set { _explicitNullValueOcn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ocn"); else _explicitNullProperties?.Remove("ocn"); } }
+        private string _explicitNullValueOcn = default!;
 #endif
         /// <summary>ISO-formatted date when the requested phone number has been ported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PortedDate { get; set; }
+        public string? PortedDate { get => _explicitNullValuePortedDate; set { _explicitNullValuePortedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ported_date"); else _explicitNullProperties?.Remove("ported_date"); } }
+        private string? _explicitNullValuePortedDate = default!;
 #nullable restore
 #else
-        public string PortedDate { get; set; }
+        public string PortedDate { get => _explicitNullValuePortedDate; set { _explicitNullValuePortedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ported_date"); else _explicitNullProperties?.Remove("ported_date"); } }
+        private string _explicitNullValuePortedDate = default!;
 #endif
         /// <summary>Indicates whether or not the requested phone number has been ported</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityPortedStatus? PortedStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityPortedStatus? PortedStatus { get => _explicitNullValuePortedStatus; set { _explicitNullValuePortedStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ported_status"); else _explicitNullProperties?.Remove("ported_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityPortedStatus? _explicitNullValuePortedStatus = default!;
         /// <summary>SPID (Service Provider ID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Spid { get; set; }
+        public string? Spid { get => _explicitNullValueSpid; set { _explicitNullValueSpid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spid"); else _explicitNullProperties?.Remove("spid"); } }
+        private string? _explicitNullValueSpid = default!;
 #nullable restore
 #else
-        public string Spid { get; set; }
+        public string Spid { get => _explicitNullValueSpid; set { _explicitNullValueSpid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spid"); else _explicitNullProperties?.Remove("spid"); } }
+        private string _explicitNullValueSpid = default!;
 #endif
         /// <summary>Service provider name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpidCarrierName { get; set; }
+        public string? SpidCarrierName { get => _explicitNullValueSpidCarrierName; set { _explicitNullValueSpidCarrierName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spid_carrier_name"); else _explicitNullProperties?.Remove("spid_carrier_name"); } }
+        private string? _explicitNullValueSpidCarrierName = default!;
 #nullable restore
 #else
-        public string SpidCarrierName { get; set; }
+        public string SpidCarrierName { get => _explicitNullValueSpidCarrierName; set { _explicitNullValueSpidCarrierName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spid_carrier_name"); else _explicitNullProperties?.Remove("spid_carrier_name"); } }
+        private string _explicitNullValueSpidCarrierName = default!;
 #endif
         /// <summary>Service provider type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpidCarrierType { get; set; }
+        public string? SpidCarrierType { get => _explicitNullValueSpidCarrierType; set { _explicitNullValueSpidCarrierType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spid_carrier_type"); else _explicitNullProperties?.Remove("spid_carrier_type"); } }
+        private string? _explicitNullValueSpidCarrierType = default!;
 #nullable restore
 #else
-        public string SpidCarrierType { get; set; }
+        public string SpidCarrierType { get => _explicitNullValueSpidCarrierType; set { _explicitNullValueSpidCarrierType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spid_carrier_type"); else _explicitNullProperties?.Remove("spid_carrier_type"); } }
+        private string _explicitNullValueSpidCarrierType = default!;
 #endif
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? State { get; set; }
+        public string? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private string? _explicitNullValueState = default!;
 #nullable restore
 #else
-        public string State { get; set; }
+        public string State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private string _explicitNullValueState = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Portability"/> and sets the default values.
@@ -121,7 +165,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.Portability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.Portability();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.Portability(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -166,6 +210,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("spid_carrier_name", SpidCarrierName);
             writer.WriteStringValue("spid_carrier_type", SpidCarrierType);
             writer.WriteStringValue("state", State);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,17 +12,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PortingEventMessagingChangedPayloadPayloadMessaging : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enable_messaging") is { } nullNodeEnableMessaging && nullNodeEnableMessaging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableMessaging = null;
+            if (parseNode.GetChildNode("messaging_capable") is { } nullNodeMessagingCapable && nullNodeMessagingCapable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingCapable = null;
+            if (parseNode.GetChildNode("messaging_port_completed") is { } nullNodeMessagingPortCompleted && nullNodeMessagingPortCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingPortCompleted = null;
+            if (parseNode.GetChildNode("messaging_port_status") is { } nullNodeMessagingPortStatus && nullNodeMessagingPortStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingPortStatus = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates whether Telnyx will port messaging capabilities from the losing carrier. If false, any messaging capabilities will stay with their current provider.</summary>
-        public bool? EnableMessaging { get; set; }
+        public bool? EnableMessaging { get => _explicitNullValueEnableMessaging; set { _explicitNullValueEnableMessaging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_messaging"); else _explicitNullProperties?.Remove("enable_messaging"); } }
+        private bool? _explicitNullValueEnableMessaging = default!;
         /// <summary>Indicates whether the porting order is messaging capable.</summary>
-        public bool? MessagingCapable { get; set; }
+        public bool? MessagingCapable { get => _explicitNullValueMessagingCapable; set { _explicitNullValueMessagingCapable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_capable"); else _explicitNullProperties?.Remove("messaging_capable"); } }
+        private bool? _explicitNullValueMessagingCapable = default!;
         /// <summary>Indicates whether the messaging port is completed.</summary>
-        public bool? MessagingPortCompleted { get; set; }
+        public bool? MessagingPortCompleted { get => _explicitNullValueMessagingPortCompleted; set { _explicitNullValueMessagingPortCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_port_completed"); else _explicitNullProperties?.Remove("messaging_port_completed"); } }
+        private bool? _explicitNullValueMessagingPortCompleted = default!;
         /// <summary>Indicates the messaging port status of the porting order.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessagingMessagingPortStatus? MessagingPortStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessagingMessagingPortStatus? MessagingPortStatus { get => _explicitNullValueMessagingPortStatus; set { _explicitNullValueMessagingPortStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_port_status"); else _explicitNullProperties?.Remove("messaging_port_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessagingMessagingPortStatus? _explicitNullValueMessagingPortStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessaging"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessaging CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessaging();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessaging(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("messaging_capable", MessagingCapable);
             writer.WriteBoolValue("messaging_port_completed", MessagingPortCompleted);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventMessagingChangedPayloadPayloadMessagingMessagingPortStatus>("messaging_port_status", MessagingPortStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListManagedAccounts200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListManagedAccounts200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListManagedAccounts200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListManagedAccounts200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new managed account owned by the authenticated user. You need to be explictly approved by Telnyx in order to become a manager account.
@@ -92,6 +92,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.UnprocessableManagedAccountEntityResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateManagedAccount200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateManagedAccount200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

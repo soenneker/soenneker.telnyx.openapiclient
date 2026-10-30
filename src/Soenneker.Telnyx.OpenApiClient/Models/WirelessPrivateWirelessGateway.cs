@@ -11,18 +11,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WirelessPrivateWirelessGateway : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("address_mode") is { } nullNodeAddressMode && nullNodeAddressMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressMode = null;
+            if (parseNode.GetChildNode("assigned_resources") is { } nullNodeAssignedResources && nullNodeAssignedResources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignedResources = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("network_id") is { } nullNodeNetworkId && nullNodeNetworkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkId = null;
+            if (parseNode.GetChildNode("region_code") is { } nullNodeRegionCode && nullNodeRegionCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionCode = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The address mode of the private wireless gateway. With static, each SIM card gets a fixed IP address from the gateway&apos;s IP range that is preserved across sessions. With dynamic, IP addresses are assigned by the network at attach time and may change between sessions.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGatewayAddressMode? AddressMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGatewayAddressMode? AddressMode { get => _explicitNullValueAddressMode; set { _explicitNullValueAddressMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address_mode"); else _explicitNullProperties?.Remove("address_mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGatewayAddressMode? _explicitNullValueAddressMode = default!;
         /// <summary>A list of the resources that have been assigned to the Private Wireless Gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>? AssignedResources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>? AssignedResources { get => _explicitNullValueAssignedResources; set { _explicitNullValueAssignedResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_resources"); else _explicitNullProperties?.Remove("assigned_resources"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>? _explicitNullValueAssignedResources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary> AssignedResources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary> AssignedResources { get => _explicitNullValueAssignedResources; set { _explicitNullValueAssignedResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_resources"); else _explicitNullProperties?.Remove("assigned_resources"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary> _explicitNullValueAssignedResources = default!;
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,13 +61,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The private wireless gateway name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The identification of the related network resource.</summary>
-        public Guid? NetworkId { get; set; }
+        public Guid? NetworkId { get => _explicitNullValueNetworkId; set { _explicitNullValueNetworkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_id"); else _explicitNullProperties?.Remove("network_id"); } }
+        private Guid? _explicitNullValueNetworkId = default!;
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,18 +82,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The name of the region where the Private Wireless Gateway is deployed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionCode { get; set; }
+        public string? RegionCode { get => _explicitNullValueRegionCode; set { _explicitNullValueRegionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_code"); else _explicitNullProperties?.Remove("region_code"); } }
+        private string? _explicitNullValueRegionCode = default!;
 #nullable restore
 #else
-        public string RegionCode { get; set; }
+        public string RegionCode { get => _explicitNullValueRegionCode; set { _explicitNullValueRegionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_code"); else _explicitNullProperties?.Remove("region_code"); } }
+        private string _explicitNullValueRegionCode = default!;
 #endif
         /// <summary>The current status or failure details of the Private Wireless Gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus _explicitNullValueStatus = default!;
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGateway CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGateway();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGateway(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -135,6 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("network_id", NetworkId);
             writer.WriteStringValue("region_code", RegionCode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus>("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

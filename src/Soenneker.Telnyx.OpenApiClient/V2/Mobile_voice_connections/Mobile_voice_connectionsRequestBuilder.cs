@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMobileVoiceConnections200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMobileVoiceConnections200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListMobileVoiceConnections200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListMobileVoiceConnections200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new mobile voice connection with the provided configuration and returns the created connection.
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMobileVoiceConnection201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateMobileVoiceConnection201Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMobileVoiceConnection201Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateMobileVoiceConnection201Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a paginated list of mobile voice connections on your account.

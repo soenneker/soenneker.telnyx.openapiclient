@@ -12,7 +12,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TosAgreement : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("product_type") is { } nullNodeProductType && nullNodeProductType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductType = null;
+            if (parseNode.GetChildNode("terms_version") is { } nullNodeTermsVersion && nullNodeTermsVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TermsVersion = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When you accepted this version of the terms.</summary>
@@ -22,14 +31,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The unique identifier of this recorded agreement.</summary>
         public Guid? Id { get; private set; }
         /// <summary>Telnyx product the Terms of Service apply to.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType? ProductType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType? ProductType { get => _explicitNullValueProductType; set { _explicitNullValueProductType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_type"); else _explicitNullProperties?.Remove("product_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType? _explicitNullValueProductType = default!;
         /// <summary>The version of the terms you accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TermsVersion { get; set; }
+        public string? TermsVersion { get => _explicitNullValueTermsVersion; set { _explicitNullValueTermsVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terms_version"); else _explicitNullProperties?.Remove("terms_version"); } }
+        private string? _explicitNullValueTermsVersion = default!;
 #nullable restore
 #else
-        public string TermsVersion { get; set; }
+        public string TermsVersion { get => _explicitNullValueTermsVersion; set { _explicitNullValueTermsVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terms_version"); else _explicitNullProperties?.Remove("terms_version"); } }
+        private string _explicitNullValueTermsVersion = default!;
 #endif
         /// <summary>Convenience alias of `terms_version`. Both keys are present on every response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TosAgreement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TosAgreement();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TosAgreement(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,6 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TosProductType>("product_type", ProductType);
             writer.WriteStringValue("terms_version", TermsVersion);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

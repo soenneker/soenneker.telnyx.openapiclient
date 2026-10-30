@@ -11,13 +11,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DialogflowConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("analyze_sentiment") is { } nullNodeAnalyzeSentiment && nullNodeAnalyzeSentiment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalyzeSentiment = null;
+            if (parseNode.GetChildNode("partial_automated_agent_reply") is { } nullNodePartialAutomatedAgentReply && nullNodePartialAutomatedAgentReply.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartialAutomatedAgentReply = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable sentiment analysis from Dialogflow.</summary>
-        public bool? AnalyzeSentiment { get; set; }
+        public bool? AnalyzeSentiment { get => _explicitNullValueAnalyzeSentiment; set { _explicitNullValueAnalyzeSentiment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analyze_sentiment"); else _explicitNullProperties?.Remove("analyze_sentiment"); } }
+        private bool? _explicitNullValueAnalyzeSentiment = default!;
         /// <summary>Enable partial automated agent reply from Dialogflow.</summary>
-        public bool? PartialAutomatedAgentReply { get; set; }
+        public bool? PartialAutomatedAgentReply { get => _explicitNullValuePartialAutomatedAgentReply; set { _explicitNullValuePartialAutomatedAgentReply = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partial_automated_agent_reply"); else _explicitNullProperties?.Remove("partial_automated_agent_reply"); } }
+        private bool? _explicitNullValuePartialAutomatedAgentReply = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig"/> and sets the default values.
         /// </summary>
@@ -35,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("analyze_sentiment", AnalyzeSentiment);
             writer.WriteBoolValue("partial_automated_agent_reply", PartialAutomatedAgentReply);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

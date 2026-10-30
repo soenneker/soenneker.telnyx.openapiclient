@@ -11,68 +11,105 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GenerateEvaluatorScenariosRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_id") is { } nullNodeAgentId && nullNodeAgentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentId = null;
+            if (parseNode.GetChildNode("extra_instructions") is { } nullNodeExtraInstructions && nullNodeExtraInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraInstructions = null;
+            if (parseNode.GetChildNode("first_message") is { } nullNodeFirstMessage && nullNodeFirstMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstMessage = null;
+            if (parseNode.GetChildNode("folder_path") is { } nullNodeFolderPath && nullNodeFolderPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FolderPath = null;
+            if (parseNode.GetChildNode("generate_expected_outcomes") is { } nullNodeGenerateExpectedOutcomes && nullNodeGenerateExpectedOutcomes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenerateExpectedOutcomes = null;
+            if (parseNode.GetChildNode("inbound_phone_number") is { } nullNodeInboundPhoneNumber && nullNodeInboundPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundPhoneNumber = null;
+            if (parseNode.GetChildNode("num_scenarios") is { } nullNodeNumScenarios && nullNodeNumScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumScenarios = null;
+            if (parseNode.GetChildNode("personalities") is { } nullNodePersonalities && nullNodePersonalities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Personalities = null;
+            if (parseNode.GetChildNode("scenario_type") is { } nullNodeScenarioType && nullNodeScenarioType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenarioType = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("test_profile") is { } nullNodeTestProfile && nullNodeTestProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestProfile = null;
+            if (parseNode.GetChildNode("tool_ids") is { } nullNodeToolIds && nullNodeToolIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_id property</summary>
-        public int? AgentId { get; set; }
+        public int? AgentId { get => _explicitNullValueAgentId; set { _explicitNullValueAgentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_id"); else _explicitNullProperties?.Remove("agent_id"); } }
+        private int? _explicitNullValueAgentId = default!;
         /// <summary>Optional guidance steering scenario generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExtraInstructions { get; set; }
+        public string? ExtraInstructions { get => _explicitNullValueExtraInstructions; set { _explicitNullValueExtraInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_instructions"); else _explicitNullProperties?.Remove("extra_instructions"); } }
+        private string? _explicitNullValueExtraInstructions = default!;
 #nullable restore
 #else
-        public string ExtraInstructions { get; set; }
+        public string ExtraInstructions { get => _explicitNullValueExtraInstructions; set { _explicitNullValueExtraInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_instructions"); else _explicitNullProperties?.Remove("extra_instructions"); } }
+        private string _explicitNullValueExtraInstructions = default!;
 #endif
         /// <summary>The first_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FirstMessage { get; set; }
+        public string? FirstMessage { get => _explicitNullValueFirstMessage; set { _explicitNullValueFirstMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_message"); else _explicitNullProperties?.Remove("first_message"); } }
+        private string? _explicitNullValueFirstMessage = default!;
 #nullable restore
 #else
-        public string FirstMessage { get; set; }
+        public string FirstMessage { get => _explicitNullValueFirstMessage; set { _explicitNullValueFirstMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_message"); else _explicitNullProperties?.Remove("first_message"); } }
+        private string _explicitNullValueFirstMessage = default!;
 #endif
         /// <summary>The folder_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FolderPath { get; set; }
+        public string? FolderPath { get => _explicitNullValueFolderPath; set { _explicitNullValueFolderPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("folder_path"); else _explicitNullProperties?.Remove("folder_path"); } }
+        private string? _explicitNullValueFolderPath = default!;
 #nullable restore
 #else
-        public string FolderPath { get; set; }
+        public string FolderPath { get => _explicitNullValueFolderPath; set { _explicitNullValueFolderPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("folder_path"); else _explicitNullProperties?.Remove("folder_path"); } }
+        private string _explicitNullValueFolderPath = default!;
 #endif
         /// <summary>Whether to generate expected-outcome prompts for the scenarios.</summary>
-        public bool? GenerateExpectedOutcomes { get; set; }
+        public bool? GenerateExpectedOutcomes { get => _explicitNullValueGenerateExpectedOutcomes; set { _explicitNullValueGenerateExpectedOutcomes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generate_expected_outcomes"); else _explicitNullProperties?.Remove("generate_expected_outcomes"); } }
+        private bool? _explicitNullValueGenerateExpectedOutcomes = default!;
         /// <summary>The inbound_phone_number property</summary>
-        public int? InboundPhoneNumber { get; set; }
+        public int? InboundPhoneNumber { get => _explicitNullValueInboundPhoneNumber; set { _explicitNullValueInboundPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_phone_number"); else _explicitNullProperties?.Remove("inbound_phone_number"); } }
+        private int? _explicitNullValueInboundPhoneNumber = default!;
         /// <summary>How many scenarios to generate.</summary>
-        public int? NumScenarios { get; set; }
+        public int? NumScenarios { get => _explicitNullValueNumScenarios; set { _explicitNullValueNumScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_scenarios"); else _explicitNullProperties?.Remove("num_scenarios"); } }
+        private int? _explicitNullValueNumScenarios = default!;
         /// <summary>The personalities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? Personalities { get; set; }
+        public List<int?>? Personalities { get => _explicitNullValuePersonalities; set { _explicitNullValuePersonalities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalities"); else _explicitNullProperties?.Remove("personalities"); } }
+        private List<int?>? _explicitNullValuePersonalities = default!;
 #nullable restore
 #else
-        public List<int?> Personalities { get; set; }
+        public List<int?> Personalities { get => _explicitNullValuePersonalities; set { _explicitNullValuePersonalities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalities"); else _explicitNullProperties?.Remove("personalities"); } }
+        private List<int?> _explicitNullValuePersonalities = default!;
 #endif
         /// <summary>Type of scenario to generate.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateEvaluatorScenariosRequestScenarioType? ScenarioType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateEvaluatorScenariosRequestScenarioType? ScenarioType { get => _explicitNullValueScenarioType; set { _explicitNullValueScenarioType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenario_type"); else _explicitNullProperties?.Remove("scenario_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GenerateEvaluatorScenariosRequestScenarioType? _explicitNullValueScenarioType = default!;
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>The test_profile property</summary>
-        public int? TestProfile { get; set; }
+        public int? TestProfile { get => _explicitNullValueTestProfile; set { _explicitNullValueTestProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_profile"); else _explicitNullProperties?.Remove("test_profile"); } }
+        private int? _explicitNullValueTestProfile = default!;
         /// <summary>The tool_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ToolIds { get; set; }
+        public List<string>? ToolIds { get => _explicitNullValueToolIds; set { _explicitNullValueToolIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_ids"); else _explicitNullProperties?.Remove("tool_ids"); } }
+        private List<string>? _explicitNullValueToolIds = default!;
 #nullable restore
 #else
-        public List<string> ToolIds { get; set; }
+        public List<string> ToolIds { get => _explicitNullValueToolIds; set { _explicitNullValueToolIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_ids"); else _explicitNullProperties?.Remove("tool_ids"); } }
+        private List<string> _explicitNullValueToolIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenerateEvaluatorScenariosRequest"/> and sets the default values.
@@ -89,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GenerateEvaluatorScenariosRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GenerateEvaluatorScenariosRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenerateEvaluatorScenariosRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -132,6 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteIntValue("test_profile", TestProfile);
             writer.WriteCollectionOfPrimitiveValues<string>("tool_ids", ToolIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

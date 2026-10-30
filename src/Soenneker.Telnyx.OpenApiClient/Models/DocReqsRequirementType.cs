@@ -11,14 +11,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DocReqsRequirementType : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acceptance_criteria") is { } nullNodeAcceptanceCriteria && nullNodeAcceptanceCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptanceCriteria = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("example") is { } nullNodeExample && nullNodeExample.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Example = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Specifies objective criteria for acceptance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria? AcceptanceCriteria { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria? AcceptanceCriteria { get => _explicitNullValueAcceptanceCriteria; set { _explicitNullValueAcceptanceCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptance_criteria"); else _explicitNullProperties?.Remove("acceptance_criteria"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria? _explicitNullValueAcceptanceCriteria = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria AcceptanceCriteria { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria AcceptanceCriteria { get => _explicitNullValueAcceptanceCriteria; set { _explicitNullValueAcceptanceCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptance_criteria"); else _explicitNullProperties?.Remove("acceptance_criteria"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeAcceptanceCriteria _explicitNullValueAcceptanceCriteria = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -33,18 +46,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Describes the requirement type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Provides one or more examples of acceptable documents</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Example { get; set; }
+        public string? Example { get => _explicitNullValueExample; set { _explicitNullValueExample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("example"); else _explicitNullProperties?.Remove("example"); } }
+        private string? _explicitNullValueExample = default!;
 #nullable restore
 #else
-        public string Example { get; set; }
+        public string Example { get => _explicitNullValueExample; set { _explicitNullValueExample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("example"); else _explicitNullProperties?.Remove("example"); } }
+        private string _explicitNullValueExample = default!;
 #endif
         /// <summary>Identifies the associated document</summary>
         public Guid? Id { get; private set; }
@@ -65,7 +82,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Defines the type of this requirement type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeType? _explicitNullValueType = default!;
         /// <summary>ISO 8601 formatted date-time indicating when the resource was last updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementType(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,6 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("example", Example);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirementTypeType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,47 +12,72 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmailDomainDkimRotation : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dkim") is { } nullNodeDkim && nullNodeDkim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dkim = null;
+            if (parseNode.GetChildNode("dns_records") is { } nullNodeDnsRecords && nullNodeDnsRecords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DnsRecords = null;
+            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("domain_id") is { } nullNodeDomainId && nullNodeDomainId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainId = null;
+            if (parseNode.GetChildNode("old_selector_retained") is { } nullNodeOldSelectorRetained && nullNodeOldSelectorRetained.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OldSelectorRetained = null;
+            if (parseNode.GetChildNode("previous_dkim_key") is { } nullNodePreviousDkimKey && nullNodePreviousDkimKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousDkimKey = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The new active DKIM key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationDkim? Dkim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationDkim? Dkim { get => _explicitNullValueDkim; set { _explicitNullValueDkim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim"); else _explicitNullProperties?.Remove("dkim"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationDkim? _explicitNullValueDkim = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationDkim Dkim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationDkim Dkim { get => _explicitNullValueDkim; set { _explicitNullValueDkim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim"); else _explicitNullProperties?.Remove("dkim"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationDkim _explicitNullValueDkim = default!;
 #endif
         /// <summary>The DKIM DNS records the customer must publish, carrying the new key&apos;s TXT value with verification reset to pending.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord>? DnsRecords { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord>? DnsRecords { get => _explicitNullValueDnsRecords; set { _explicitNullValueDnsRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_records"); else _explicitNullProperties?.Remove("dns_records"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord>? _explicitNullValueDnsRecords = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord> DnsRecords { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord> DnsRecords { get => _explicitNullValueDnsRecords; set { _explicitNullValueDnsRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_records"); else _explicitNullProperties?.Remove("dns_records"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.DnsRecord> _explicitNullValueDnsRecords = default!;
 #endif
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get; set; }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get; set; }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>The domain_id property</summary>
-        public Guid? DomainId { get; set; }
+        public Guid? DomainId { get => _explicitNullValueDomainId; set { _explicitNullValueDomainId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_id"); else _explicitNullProperties?.Remove("domain_id"); } }
+        private Guid? _explicitNullValueDomainId = default!;
         /// <summary>False for this service: one selector is fixed per domain, so rotation replaces the TXT value at the existing _domainkey host. There is no dual-selector overlap; publish the replacement TXT promptly because signing switches immediately.</summary>
-        public bool? OldSelectorRetained { get; set; }
+        public bool? OldSelectorRetained { get => _explicitNullValueOldSelectorRetained; set { _explicitNullValueOldSelectorRetained = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("old_selector_retained"); else _explicitNullProperties?.Remove("old_selector_retained"); } }
+        private bool? _explicitNullValueOldSelectorRetained = default!;
         /// <summary>The retired previous key, or null when the domain had no active key before rotation. Retained in a `retiring` state so it can be revoked after the DNS propagation grace period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationPreviousDkimKey? PreviousDkimKey { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationPreviousDkimKey? PreviousDkimKey { get => _explicitNullValuePreviousDkimKey; set { _explicitNullValuePreviousDkimKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_dkim_key"); else _explicitNullProperties?.Remove("previous_dkim_key"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationPreviousDkimKey? _explicitNullValuePreviousDkimKey = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationPreviousDkimKey PreviousDkimKey { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationPreviousDkimKey PreviousDkimKey { get => _explicitNullValuePreviousDkimKey; set { _explicitNullValuePreviousDkimKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_dkim_key"); else _explicitNullProperties?.Remove("previous_dkim_key"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationPreviousDkimKey _explicitNullValuePreviousDkimKey = default!;
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationRecordType? _explicitNullValueRecordType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotation"/> and sets the default values.
         /// </summary>
@@ -68,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,6 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("old_selector_retained", OldSelectorRetained);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationPreviousDkimKey>("previous_dkim_key", PreviousDkimKey);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDkimRotationRecordType>("record_type", RecordType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

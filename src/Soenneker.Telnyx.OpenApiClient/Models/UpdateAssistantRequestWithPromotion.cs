@@ -11,268 +11,375 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UpdateAssistantRequestWithPromotion : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("a2a_agents") is { } nullNodeA2aAgents && nullNodeA2aAgents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) A2aAgents = null;
+            if (parseNode.GetChildNode("avatar_settings") is { } nullNodeAvatarSettings && nullNodeAvatarSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvatarSettings = null;
+            if (parseNode.GetChildNode("conversation_flow") is { } nullNodeConversationFlow && nullNodeConversationFlow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationFlow = null;
+            if (parseNode.GetChildNode("delegation_settings") is { } nullNodeDelegationSettings && nullNodeDelegationSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegationSettings = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("dynamic_variables") is { } nullNodeDynamicVariables && nullNodeDynamicVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DynamicVariables = null;
+            if (parseNode.GetChildNode("dynamic_variables_webhook_timeout_ms") is { } nullNodeDynamicVariablesWebhookTimeoutMs && nullNodeDynamicVariablesWebhookTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DynamicVariablesWebhookTimeoutMs = null;
+            if (parseNode.GetChildNode("dynamic_variables_webhook_url") is { } nullNodeDynamicVariablesWebhookUrl && nullNodeDynamicVariablesWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DynamicVariablesWebhookUrl = null;
+            if (parseNode.GetChildNode("enabled_features") is { } nullNodeEnabledFeatures && nullNodeEnabledFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledFeatures = null;
+            if (parseNode.GetChildNode("external_llm") is { } nullNodeExternalLlm && nullNodeExternalLlm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalLlm = null;
+            if (parseNode.GetChildNode("fallback_config") is { } nullNodeFallbackConfig && nullNodeFallbackConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackConfig = null;
+            if (parseNode.GetChildNode("greeting") is { } nullNodeGreeting && nullNodeGreeting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Greeting = null;
+            if (parseNode.GetChildNode("insight_settings") is { } nullNodeInsightSettings && nullNodeInsightSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsightSettings = null;
+            if (parseNode.GetChildNode("instructions") is { } nullNodeInstructions && nullNodeInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instructions = null;
+            if (parseNode.GetChildNode("integrations") is { } nullNodeIntegrations && nullNodeIntegrations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integrations = null;
+            if (parseNode.GetChildNode("interruption_settings") is { } nullNodeInterruptionSettings && nullNodeInterruptionSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptionSettings = null;
+            if (parseNode.GetChildNode("llm_api_key_ref") is { } nullNodeLlmApiKeyRef && nullNodeLlmApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeyRef = null;
+            if (parseNode.GetChildNode("mcp_servers") is { } nullNodeMcpServers && nullNodeMcpServers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServers = null;
+            if (parseNode.GetChildNode("messaging_settings") is { } nullNodeMessagingSettings && nullNodeMessagingSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingSettings = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("observability_settings") is { } nullNodeObservabilitySettings && nullNodeObservabilitySettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObservabilitySettings = null;
+            if (parseNode.GetChildNode("post_conversation_settings") is { } nullNodePostConversationSettings && nullNodePostConversationSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostConversationSettings = null;
+            if (parseNode.GetChildNode("privacy_settings") is { } nullNodePrivacySettings && nullNodePrivacySettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivacySettings = null;
+            if (parseNode.GetChildNode("promote_to_main") is { } nullNodePromoteToMain && nullNodePromoteToMain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromoteToMain = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("telephony_settings") is { } nullNodeTelephonySettings && nullNodeTelephonySettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelephonySettings = null;
+            if (parseNode.GetChildNode("tool_ids") is { } nullNodeToolIds && nullNodeToolIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolIds = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+            if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
+            if (parseNode.GetChildNode("version_name") is { } nullNodeVersionName && nullNodeVersionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionName = null;
+            if (parseNode.GetChildNode("voice_settings") is { } nullNodeVoiceSettings && nullNodeVoiceSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSettings = null;
+            if (parseNode.GetChildNode("websocket_settings") is { } nullNodeWebsocketSettings && nullNodeWebsocketSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebsocketSettings = null;
+            if (parseNode.GetChildNode("widget_settings") is { } nullNodeWidgetSettings && nullNodeWidgetSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WidgetSettings = null;
+        }
+
         /// <summary>A2A agents this assistant can delegate to. Tools are not stored here: at the start of every conversation each agent&apos;s card is fetched and one tool is derived per skill the card advertises, named `a2a_&lt;name&gt;_&lt;skill_id&gt;`. The following limits are not enforced when the assistant is saved, and anything past them is dropped when the conversation starts: 64 agents per assistant, 64 skills per card, 128 derived tools per assistant, and a 6 second budget for all card fetches combined. An agent whose card cannot be fetched costs the assistant that capability for the conversation; it does not fail the call. Omit this field to leave the assistant&apos;s agents unchanged; send an empty array to remove them all.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>? A2aAgents { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>? A2aAgents { get => _explicitNullValueA2aAgents; set { _explicitNullValueA2aAgents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("a2a_agents"); else _explicitNullProperties?.Remove("a2a_agents"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>? _explicitNullValueA2aAgents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent> A2aAgents { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent> A2aAgents { get => _explicitNullValueA2aAgents; set { _explicitNullValueA2aAgents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("a2a_agents"); else _explicitNullProperties?.Remove("a2a_agents"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent> _explicitNullValueA2aAgents = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>**Beta:** Replaces the assistant&apos;s avatar configuration. Omit this field to leave the current configuration unchanged, or set it to `null` to remove the configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest? AvatarSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest? AvatarSettings { get => _explicitNullValueAvatarSettings; set { _explicitNullValueAvatarSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_settings"); else _explicitNullProperties?.Remove("avatar_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest? _explicitNullValueAvatarSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest AvatarSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest AvatarSettings { get => _explicitNullValueAvatarSettings; set { _explicitNullValueAvatarSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_settings"); else _explicitNullProperties?.Remove("avatar_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest _explicitNullValueAvatarSettings = default!;
 #endif
         /// <summary>Conversation flow as supplied by API clients (create / update).A directed graph of `FlowNodeReq` connected by `FlowEdge`s. Validationenforces unique node/edge IDs, that `start_node_id` references a realnode, and that every edge&apos;s endpoints reference real nodes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq? ConversationFlow { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq? ConversationFlow { get => _explicitNullValueConversationFlow; set { _explicitNullValueConversationFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_flow"); else _explicitNullProperties?.Remove("conversation_flow"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq? _explicitNullValueConversationFlow = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq ConversationFlow { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq ConversationFlow { get => _explicitNullValueConversationFlow; set { _explicitNullValueConversationFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_flow"); else _explicitNullProperties?.Remove("conversation_flow"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq _explicitNullValueConversationFlow = default!;
 #endif
         /// <summary>Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all — when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single `delegate` tool that returns immediately, so the conversation carries on while the backend works. Either way the backend&apos;s answer is spoken as commentary or kept as silent context, depending on `speak_results`. Beta feature.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings? DelegationSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings? DelegationSettings { get => _explicitNullValueDelegationSettings; set { _explicitNullValueDelegationSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegation_settings"); else _explicitNullProperties?.Remove("delegation_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings? _explicitNullValueDelegationSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings DelegationSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings DelegationSettings { get => _explicitNullValueDelegationSettings; set { _explicitNullValueDelegationSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegation_settings"); else _explicitNullProperties?.Remove("delegation_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings _explicitNullValueDelegationSettings = default!;
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Map of dynamic variables and their default values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotionDynamicVariables? DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotionDynamicVariables? DynamicVariables { get => _explicitNullValueDynamicVariables; set { _explicitNullValueDynamicVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_variables"); else _explicitNullProperties?.Remove("dynamic_variables"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotionDynamicVariables? _explicitNullValueDynamicVariables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotionDynamicVariables DynamicVariables { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotionDynamicVariables DynamicVariables { get => _explicitNullValueDynamicVariables; set { _explicitNullValueDynamicVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_variables"); else _explicitNullProperties?.Remove("dynamic_variables"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotionDynamicVariables _explicitNullValueDynamicVariables = default!;
 #endif
         /// <summary>Timeout in milliseconds for the dynamic variables webhook. Must be between 1 and 10000 ms. If the webhook does not respond within this timeout, the call proceeds with default values. See the [dynamic variables guide](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables).</summary>
-        public int? DynamicVariablesWebhookTimeoutMs { get; set; }
+        public int? DynamicVariablesWebhookTimeoutMs { get => _explicitNullValueDynamicVariablesWebhookTimeoutMs; set { _explicitNullValueDynamicVariablesWebhookTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_variables_webhook_timeout_ms"); else _explicitNullProperties?.Remove("dynamic_variables_webhook_timeout_ms"); } }
+        private int? _explicitNullValueDynamicVariablesWebhookTimeoutMs = default!;
         /// <summary>If `dynamic_variables_webhook_url` is set, Telnyx sends a POST request to this URL at the start of the conversation to resolve dynamic variables. **Gotcha:** the webhook response must wrap variables under a top-level `dynamic_variables` object, e.g. `{&quot;dynamic_variables&quot;: {&quot;customer_name&quot;: &quot;Jane&quot;}}`. Returning a flat object will be ignored and variables will fall back to their defaults. See the [dynamic variables guide](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) for the full request/response format and timeout behavior.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DynamicVariablesWebhookUrl { get; set; }
+        public string? DynamicVariablesWebhookUrl { get => _explicitNullValueDynamicVariablesWebhookUrl; set { _explicitNullValueDynamicVariablesWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_variables_webhook_url"); else _explicitNullProperties?.Remove("dynamic_variables_webhook_url"); } }
+        private string? _explicitNullValueDynamicVariablesWebhookUrl = default!;
 #nullable restore
 #else
-        public string DynamicVariablesWebhookUrl { get; set; }
+        public string DynamicVariablesWebhookUrl { get => _explicitNullValueDynamicVariablesWebhookUrl; set { _explicitNullValueDynamicVariablesWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_variables_webhook_url"); else _explicitNullProperties?.Remove("dynamic_variables_webhook_url"); } }
+        private string _explicitNullValueDynamicVariablesWebhookUrl = default!;
 #endif
         /// <summary>The enabled_features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?>? EnabledFeatures { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?>? EnabledFeatures { get => _explicitNullValueEnabledFeatures; set { _explicitNullValueEnabledFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_features"); else _explicitNullProperties?.Remove("enabled_features"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?>? _explicitNullValueEnabledFeatures = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?> EnabledFeatures { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?> EnabledFeatures { get => _explicitNullValueEnabledFeatures; set { _explicitNullValueEnabledFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_features"); else _explicitNullProperties?.Remove("enabled_features"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?> _explicitNullValueEnabledFeatures = default!;
 #endif
         /// <summary>The external_llm property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmReq? ExternalLlm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmReq? ExternalLlm { get => _explicitNullValueExternalLlm; set { _explicitNullValueExternalLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_llm"); else _explicitNullProperties?.Remove("external_llm"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmReq? _explicitNullValueExternalLlm = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmReq ExternalLlm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmReq ExternalLlm { get => _explicitNullValueExternalLlm; set { _explicitNullValueExternalLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_llm"); else _explicitNullProperties?.Remove("external_llm"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmReq _explicitNullValueExternalLlm = default!;
 #endif
         /// <summary>The fallback_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq? FallbackConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq? FallbackConfig { get => _explicitNullValueFallbackConfig; set { _explicitNullValueFallbackConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_config"); else _explicitNullProperties?.Remove("fallback_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq? _explicitNullValueFallbackConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq FallbackConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq FallbackConfig { get => _explicitNullValueFallbackConfig; set { _explicitNullValueFallbackConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_config"); else _explicitNullProperties?.Remove("fallback_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq _explicitNullValueFallbackConfig = default!;
 #endif
         /// <summary>Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables). Use an empty string to have the assistant wait for the user to speak first. Use the special value `&lt;assistant-speaks-first-with-model-generated-message&gt;` to have the assistant generate the greeting based on the system instructions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Greeting { get; set; }
+        public string? Greeting { get => _explicitNullValueGreeting; set { _explicitNullValueGreeting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting"); else _explicitNullProperties?.Remove("greeting"); } }
+        private string? _explicitNullValueGreeting = default!;
 #nullable restore
 #else
-        public string Greeting { get; set; }
+        public string Greeting { get => _explicitNullValueGreeting; set { _explicitNullValueGreeting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting"); else _explicitNullProperties?.Remove("greeting"); } }
+        private string _explicitNullValueGreeting = default!;
 #endif
         /// <summary>The insight_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings? InsightSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings? InsightSettings { get => _explicitNullValueInsightSettings; set { _explicitNullValueInsightSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insight_settings"); else _explicitNullProperties?.Remove("insight_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings? _explicitNullValueInsightSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings InsightSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings InsightSettings { get => _explicitNullValueInsightSettings; set { _explicitNullValueInsightSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insight_settings"); else _explicitNullProperties?.Remove("insight_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings _explicitNullValueInsightSettings = default!;
 #endif
         /// <summary>System instructions for the assistant. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Instructions { get; set; }
+        public string? Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
+        private string? _explicitNullValueInstructions = default!;
 #nullable restore
 #else
-        public string Instructions { get; set; }
+        public string Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
+        private string _explicitNullValueInstructions = default!;
 #endif
         /// <summary>Connected integrations attached to the assistant. The catalog of available integrations is at `/ai/integrations`; the user&apos;s connected integrations are at `/ai/integrations/connections`. Each item references a catalog integration by `integration_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantIntegration>? Integrations { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantIntegration>? Integrations { get => _explicitNullValueIntegrations; set { _explicitNullValueIntegrations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrations"); else _explicitNullProperties?.Remove("integrations"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantIntegration>? _explicitNullValueIntegrations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantIntegration> Integrations { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantIntegration> Integrations { get => _explicitNullValueIntegrations; set { _explicitNullValueIntegrations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrations"); else _explicitNullProperties?.Remove("integrations"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantIntegration> _explicitNullValueIntegrations = default!;
 #endif
         /// <summary>Settings for interruptions and how the assistant decides the user has finished speaking. These timings are most relevant when using non turn-taking transcription models. For turn-taking models like `deepgram/flux`, end-of-turn behavior is controlled by the transcription end-of-turn settings under `transcription.settings` (`eot_threshold`, `eot_timeout_ms`, `eager_eot_threshold`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings? InterruptionSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings? InterruptionSettings { get => _explicitNullValueInterruptionSettings; set { _explicitNullValueInterruptionSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruption_settings"); else _explicitNullProperties?.Remove("interruption_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings? _explicitNullValueInterruptionSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings InterruptionSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings InterruptionSettings { get => _explicitNullValueInterruptionSettings; set { _explicitNullValueInterruptionSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruption_settings"); else _explicitNullProperties?.Remove("interruption_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings _explicitNullValueInterruptionSettings = default!;
 #endif
         /// <summary>This is only needed when using third-party inference providers selected by `model`. The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api-reference/integration-secrets/create-a-secret) that refers to your LLM provider&apos;s API key. For bring-your-own endpoint authentication, use `external_llm.llm_api_key_ref` instead. Warning: Free plans are unlikely to work with this integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmApiKeyRef { get; set; }
+        public string? LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
+        private string? _explicitNullValueLlmApiKeyRef = default!;
 #nullable restore
 #else
-        public string LlmApiKeyRef { get; set; }
+        public string LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
+        private string _explicitNullValueLlmApiKeyRef = default!;
 #endif
         /// <summary>MCP servers attached to the assistant. Create MCP servers with `/ai/mcp_servers`, then reference them by `id` here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMcpServer>? McpServers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMcpServer>? McpServers { get => _explicitNullValueMcpServers; set { _explicitNullValueMcpServers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_servers"); else _explicitNullProperties?.Remove("mcp_servers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMcpServer>? _explicitNullValueMcpServers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMcpServer> McpServers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMcpServer> McpServers { get => _explicitNullValueMcpServers; set { _explicitNullValueMcpServers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_servers"); else _explicitNullProperties?.Remove("mcp_servers"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMcpServer> _explicitNullValueMcpServers = default!;
 #endif
         /// <summary>The messaging_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings? MessagingSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings? MessagingSettings { get => _explicitNullValueMessagingSettings; set { _explicitNullValueMessagingSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_settings"); else _explicitNullProperties?.Remove("messaging_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings? _explicitNullValueMessagingSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings MessagingSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings MessagingSettings { get => _explicitNullValueMessagingSettings; set { _explicitNullValueMessagingSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_settings"); else _explicitNullProperties?.Remove("messaging_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings _explicitNullValueMessagingSettings = default!;
 #endif
         /// <summary>ID of the model to use when `external_llm` is not set. You can use the [Get models API](https://developers.telnyx.com/api-reference/openai-chat/get-available-models-openai-compatible) to see available models. If `external_llm` is provided, the assistant uses `external_llm` instead of this field. If neither `model` nor `external_llm` is provided, Telnyx applies the default model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The observability_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq? ObservabilitySettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq? ObservabilitySettings { get => _explicitNullValueObservabilitySettings; set { _explicitNullValueObservabilitySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observability_settings"); else _explicitNullProperties?.Remove("observability_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq? _explicitNullValueObservabilitySettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq ObservabilitySettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq ObservabilitySettings { get => _explicitNullValueObservabilitySettings; set { _explicitNullValueObservabilitySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observability_settings"); else _explicitNullProperties?.Remove("observability_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq _explicitNullValueObservabilitySettings = default!;
 #endif
         /// <summary>Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq? PostConversationSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq? PostConversationSettings { get => _explicitNullValuePostConversationSettings; set { _explicitNullValuePostConversationSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post_conversation_settings"); else _explicitNullProperties?.Remove("post_conversation_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq? _explicitNullValuePostConversationSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq PostConversationSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq PostConversationSettings { get => _explicitNullValuePostConversationSettings; set { _explicitNullValuePostConversationSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post_conversation_settings"); else _explicitNullProperties?.Remove("post_conversation_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq _explicitNullValuePostConversationSettings = default!;
 #endif
         /// <summary>The privacy_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings? PrivacySettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings? PrivacySettings { get => _explicitNullValuePrivacySettings; set { _explicitNullValuePrivacySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("privacy_settings"); else _explicitNullProperties?.Remove("privacy_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings? _explicitNullValuePrivacySettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings PrivacySettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings PrivacySettings { get => _explicitNullValuePrivacySettings; set { _explicitNullValuePrivacySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("privacy_settings"); else _explicitNullProperties?.Remove("privacy_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings _explicitNullValuePrivacySettings = default!;
 #endif
         /// <summary>Indicates whether the assistant should be promoted to the main version. Defaults to true.</summary>
-        public bool? PromoteToMain { get; set; }
+        public bool? PromoteToMain { get => _explicitNullValuePromoteToMain; set { _explicitNullValuePromoteToMain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("promote_to_main"); else _explicitNullProperties?.Remove("promote_to_main"); } }
+        private bool? _explicitNullValuePromoteToMain = default!;
         /// <summary>Tags associated with the assistant. Tags can also be managed with the assistant tag endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>The telephony_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings? TelephonySettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings? TelephonySettings { get => _explicitNullValueTelephonySettings; set { _explicitNullValueTelephonySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephony_settings"); else _explicitNullProperties?.Remove("telephony_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings? _explicitNullValueTelephonySettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings TelephonySettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings TelephonySettings { get => _explicitNullValueTelephonySettings; set { _explicitNullValueTelephonySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephony_settings"); else _explicitNullProperties?.Remove("telephony_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings _explicitNullValueTelephonySettings = default!;
 #endif
         /// <summary>IDs of shared tools to attach to the assistant. New integrations should prefer `tool_ids` over inline `tools`. On update, a sent `tool_ids` array fully replaces the assistant&apos;s attached shared tools; omit the field to leave them unchanged. Single-instance tool types are counted across inline `tools` and `tool_ids` combined, so attaching a shared tool of such a type when an instance already exists returns HTTP 400 with error code 10015.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ToolIds { get; set; }
+        public List<string>? ToolIds { get => _explicitNullValueToolIds; set { _explicitNullValueToolIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_ids"); else _explicitNullProperties?.Remove("tool_ids"); } }
+        private List<string>? _explicitNullValueToolIds = default!;
 #nullable restore
 #else
-        public List<string> ToolIds { get; set; }
+        public List<string> ToolIds { get => _explicitNullValueToolIds; set { _explicitNullValueToolIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_ids"); else _explicitNullProperties?.Remove("tool_ids"); } }
+        private List<string> _explicitNullValueToolIds = default!;
 #endif
         /// <summary>Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer `tool_ids` to attach shared tools created with the AI Tools endpoints. On update, a sent `tools` array fully replaces the assistant&apos;s inline tools; omit the field to leave them unchanged. Each tool type except `function`, `webhook`, and `client_side_tool` allows at most one instance per assistant, counted across inline `tools` and shared `tool_ids` combined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed>? Tools { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed> Tools { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed> _explicitNullValueTools = default!;
 #endif
         /// <summary>The transcription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings? Transcription { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings? _explicitNullValueTranscription = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings Transcription { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings _explicitNullValueTranscription = default!;
 #endif
         /// <summary>Human-readable name for the assistant version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VersionName { get; set; }
+        public string? VersionName { get => _explicitNullValueVersionName; set { _explicitNullValueVersionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_name"); else _explicitNullProperties?.Remove("version_name"); } }
+        private string? _explicitNullValueVersionName = default!;
 #nullable restore
 #else
-        public string VersionName { get; set; }
+        public string VersionName { get => _explicitNullValueVersionName; set { _explicitNullValueVersionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_name"); else _explicitNullProperties?.Remove("version_name"); } }
+        private string _explicitNullValueVersionName = default!;
 #endif
         /// <summary>The voice_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings? VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings? _explicitNullValueVoiceSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings _explicitNullValueVoiceSettings = default!;
 #endif
         /// <summary>Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings? WebsocketSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings? WebsocketSettings { get => _explicitNullValueWebsocketSettings; set { _explicitNullValueWebsocketSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("websocket_settings"); else _explicitNullProperties?.Remove("websocket_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings? _explicitNullValueWebsocketSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings WebsocketSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings WebsocketSettings { get => _explicitNullValueWebsocketSettings; set { _explicitNullValueWebsocketSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("websocket_settings"); else _explicitNullProperties?.Remove("websocket_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings _explicitNullValueWebsocketSettings = default!;
 #endif
         /// <summary>Configuration settings for the assistant&apos;s web widget.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings? WidgetSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings? WidgetSettings { get => _explicitNullValueWidgetSettings; set { _explicitNullValueWidgetSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("widget_settings"); else _explicitNullProperties?.Remove("widget_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings? _explicitNullValueWidgetSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings WidgetSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings WidgetSettings { get => _explicitNullValueWidgetSettings; set { _explicitNullValueWidgetSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("widget_settings"); else _explicitNullProperties?.Remove("widget_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings _explicitNullValueWidgetSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotion"/> and sets the default values.
@@ -292,7 +399,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotion();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotion(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -379,6 +486,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebsocketSettings>("websocket_settings", WebsocketSettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings>("widget_settings", WidgetSettings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

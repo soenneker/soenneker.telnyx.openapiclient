@@ -12,21 +12,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RcsStandaloneCard : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("card_content") is { } nullNodeCardContent && nullNodeCardContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CardContent = null;
+            if (parseNode.GetChildNode("card_orientation") is { } nullNodeCardOrientation && nullNodeCardOrientation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CardOrientation = null;
+            if (parseNode.GetChildNode("thumbnail_image_alignment") is { } nullNodeThumbnailImageAlignment && nullNodeThumbnailImageAlignment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThumbnailImageAlignment = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The card_content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent? CardContent { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent? CardContent { get => _explicitNullValueCardContent; set { _explicitNullValueCardContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_content"); else _explicitNullProperties?.Remove("card_content"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent? _explicitNullValueCardContent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent CardContent { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent CardContent { get => _explicitNullValueCardContent; set { _explicitNullValueCardContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_content"); else _explicitNullProperties?.Remove("card_content"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent _explicitNullValueCardContent = default!;
 #endif
         /// <summary>Orientation of the card.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCardCardOrientation? CardOrientation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCardCardOrientation? CardOrientation { get => _explicitNullValueCardOrientation; set { _explicitNullValueCardOrientation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_orientation"); else _explicitNullProperties?.Remove("card_orientation"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCardCardOrientation? _explicitNullValueCardOrientation = default!;
         /// <summary>Image preview alignment for standalone cards with horizontal layout.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCardThumbnailImageAlignment? ThumbnailImageAlignment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCardThumbnailImageAlignment? ThumbnailImageAlignment { get => _explicitNullValueThumbnailImageAlignment; set { _explicitNullValueThumbnailImageAlignment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thumbnail_image_alignment"); else _explicitNullProperties?.Remove("thumbnail_image_alignment"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCardThumbnailImageAlignment? _explicitNullValueThumbnailImageAlignment = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent>("card_content", CardContent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCardCardOrientation>("card_orientation", CardOrientation);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCardThumbnailImageAlignment>("thumbnail_image_alignment", ThumbnailImageAlignment);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

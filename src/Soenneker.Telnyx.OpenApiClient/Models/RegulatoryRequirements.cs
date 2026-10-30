@@ -11,7 +11,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RegulatoryRequirements : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("regulatory_requirements") is { } nullNodeRegulatoryRequirementsProp && nullNodeRegulatoryRequirementsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulatoryRequirementsProp = null;
+        }
+
         /// <summary>The action property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,10 +49,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The regulatory_requirements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem>? RegulatoryRequirementsProp { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem>? RegulatoryRequirementsProp { get => _explicitNullValueRegulatoryRequirementsProp; set { _explicitNullValueRegulatoryRequirementsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem>? _explicitNullValueRegulatoryRequirementsProp = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem> RegulatoryRequirementsProp { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem> RegulatoryRequirementsProp { get => _explicitNullValueRegulatoryRequirementsProp; set { _explicitNullValueRegulatoryRequirementsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem> _explicitNullValueRegulatoryRequirementsProp = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements"/> and sets the default values.
@@ -61,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,6 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem>("regulatory_requirements", RegulatoryRequirementsProp);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

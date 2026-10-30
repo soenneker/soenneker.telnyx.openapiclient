@@ -12,43 +12,83 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UacInboundRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ani_number_format") is { } nullNodeAniNumberFormat && nullNodeAniNumberFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AniNumberFormat = null;
+            if (parseNode.GetChildNode("channel_limit") is { } nullNodeChannelLimit && nullNodeChannelLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelLimit = null;
+            if (parseNode.GetChildNode("codecs") is { } nullNodeCodecs && nullNodeCodecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Codecs = null;
+            if (parseNode.GetChildNode("default_routing_method") is { } nullNodeDefaultRoutingMethod && nullNodeDefaultRoutingMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultRoutingMethod = null;
+            if (parseNode.GetChildNode("dnis_number_format") is { } nullNodeDnisNumberFormat && nullNodeDnisNumberFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DnisNumberFormat = null;
+            if (parseNode.GetChildNode("generate_ringback_tone") is { } nullNodeGenerateRingbackTone && nullNodeGenerateRingbackTone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenerateRingbackTone = null;
+            if (parseNode.GetChildNode("isup_headers_enabled") is { } nullNodeIsupHeadersEnabled && nullNodeIsupHeadersEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsupHeadersEnabled = null;
+            if (parseNode.GetChildNode("prack_enabled") is { } nullNodePrackEnabled && nullNodePrackEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrackEnabled = null;
+            if (parseNode.GetChildNode("shaken_stir_enabled") is { } nullNodeShakenStirEnabled && nullNodeShakenStirEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShakenStirEnabled = null;
+            if (parseNode.GetChildNode("simultaneous_ringing") is { } nullNodeSimultaneousRinging && nullNodeSimultaneousRinging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimultaneousRinging = null;
+            if (parseNode.GetChildNode("sip_compact_headers_enabled") is { } nullNodeSipCompactHeadersEnabled && nullNodeSipCompactHeadersEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipCompactHeadersEnabled = null;
+            if (parseNode.GetChildNode("sip_region") is { } nullNodeSipRegion && nullNodeSipRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipRegion = null;
+            if (parseNode.GetChildNode("timeout_1xx_secs") is { } nullNodeTimeout1xxSecs && nullNodeTimeout1xxSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout1xxSecs = null;
+            if (parseNode.GetChildNode("timeout_2xx_secs") is { } nullNodeTimeout2xxSecs && nullNodeTimeout2xxSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout2xxSecs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>This setting allows you to set the format with which the caller&apos;s number (ANI) is sent for inbound phone calls.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestAniNumberFormat? AniNumberFormat { get; set; }
+#nullable enable
+        public string? AniNumberFormat { get => _explicitNullValueAniNumberFormat; set { _explicitNullValueAniNumberFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ani_number_format"); else _explicitNullProperties?.Remove("ani_number_format"); } }
+        private string? _explicitNullValueAniNumberFormat = default!;
+#nullable restore
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
-        public int? ChannelLimit { get; set; }
+        public int? ChannelLimit { get => _explicitNullValueChannelLimit; set { _explicitNullValueChannelLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_limit"); else _explicitNullProperties?.Remove("channel_limit"); } }
+        private int? _explicitNullValueChannelLimit = default!;
         /// <summary>Defines the list of codecs that Telnyx will send for inbound calls to a specific number on your portal account, in priority order. This only works when the Connection the number is assigned to uses Media Handling mode: default. OPUS and H.264 codecs are available only when using TCP or TLS transport for SIP.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Codecs { get; set; }
+        public List<string>? Codecs { get => _explicitNullValueCodecs; set { _explicitNullValueCodecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("codecs"); else _explicitNullProperties?.Remove("codecs"); } }
+        private List<string>? _explicitNullValueCodecs = default!;
 #nullable restore
 #else
-        public List<string> Codecs { get; set; }
+        public List<string> Codecs { get => _explicitNullValueCodecs; set { _explicitNullValueCodecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("codecs"); else _explicitNullProperties?.Remove("codecs"); } }
+        private List<string> _explicitNullValueCodecs = default!;
 #endif
         /// <summary>Default routing method to be used when a number is associated with the connection. Must be one of the routing method types or left blank, other values are not allowed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDefaultRoutingMethod? DefaultRoutingMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDefaultRoutingMethod? DefaultRoutingMethod { get => _explicitNullValueDefaultRoutingMethod; set { _explicitNullValueDefaultRoutingMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_routing_method"); else _explicitNullProperties?.Remove("default_routing_method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDefaultRoutingMethod? _explicitNullValueDefaultRoutingMethod = default!;
         /// <summary>The dnis_number_format property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDnisNumberFormat? DnisNumberFormat { get; set; }
+#nullable enable
+        public string? DnisNumberFormat { get => _explicitNullValueDnisNumberFormat; set { _explicitNullValueDnisNumberFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dnis_number_format"); else _explicitNullProperties?.Remove("dnis_number_format"); } }
+        private string? _explicitNullValueDnisNumberFormat = default!;
+#nullable restore
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
-        public bool? GenerateRingbackTone { get; set; }
+        public bool? GenerateRingbackTone { get => _explicitNullValueGenerateRingbackTone; set { _explicitNullValueGenerateRingbackTone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generate_ringback_tone"); else _explicitNullProperties?.Remove("generate_ringback_tone"); } }
+        private bool? _explicitNullValueGenerateRingbackTone = default!;
         /// <summary>When set, inbound phone calls will receive ISUP parameters via SIP headers. (Only when available and only when using TCP or TLS transport.)</summary>
-        public bool? IsupHeadersEnabled { get; set; }
+        public bool? IsupHeadersEnabled { get => _explicitNullValueIsupHeadersEnabled; set { _explicitNullValueIsupHeadersEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isup_headers_enabled"); else _explicitNullProperties?.Remove("isup_headers_enabled"); } }
+        private bool? _explicitNullValueIsupHeadersEnabled = default!;
         /// <summary>Enable PRACK messages as defined in RFC3262.</summary>
-        public bool? PrackEnabled { get; set; }
+        public bool? PrackEnabled { get => _explicitNullValuePrackEnabled; set { _explicitNullValuePrackEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prack_enabled"); else _explicitNullProperties?.Remove("prack_enabled"); } }
+        private bool? _explicitNullValuePrackEnabled = default!;
         /// <summary>When enabled the SIP Connection will receive the Identity header with Shaken/Stir data in the SIP INVITE message of inbound calls, even when using UDP transport.</summary>
-        public bool? ShakenStirEnabled { get; set; }
+        public bool? ShakenStirEnabled { get => _explicitNullValueShakenStirEnabled; set { _explicitNullValueShakenStirEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shaken_stir_enabled"); else _explicitNullProperties?.Remove("shaken_stir_enabled"); } }
+        private bool? _explicitNullValueShakenStirEnabled = default!;
         /// <summary>When enabled, allows multiple devices to ring simultaneously on incoming calls.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSimultaneousRinging? SimultaneousRinging { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSimultaneousRinging? SimultaneousRinging { get => _explicitNullValueSimultaneousRinging; set { _explicitNullValueSimultaneousRinging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simultaneous_ringing"); else _explicitNullProperties?.Remove("simultaneous_ringing"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSimultaneousRinging? _explicitNullValueSimultaneousRinging = default!;
         /// <summary>Defaults to true.</summary>
-        public bool? SipCompactHeadersEnabled { get; set; }
+        public bool? SipCompactHeadersEnabled { get => _explicitNullValueSipCompactHeadersEnabled; set { _explicitNullValueSipCompactHeadersEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_compact_headers_enabled"); else _explicitNullProperties?.Remove("sip_compact_headers_enabled"); } }
+        private bool? _explicitNullValueSipCompactHeadersEnabled = default!;
         /// <summary>Selects which `sip_region` to receive inbound calls from. If null, the default region (US) will be used.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSipRegion? SipRegion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSipRegion? SipRegion { get => _explicitNullValueSipRegion; set { _explicitNullValueSipRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_region"); else _explicitNullProperties?.Remove("sip_region"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSipRegion? _explicitNullValueSipRegion = default!;
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
-        public int? Timeout1xxSecs { get; set; }
+        public int? Timeout1xxSecs { get => _explicitNullValueTimeout1xxSecs; set { _explicitNullValueTimeout1xxSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_1xx_secs"); else _explicitNullProperties?.Remove("timeout_1xx_secs"); } }
+        private int? _explicitNullValueTimeout1xxSecs = default!;
         /// <summary>Time(sec) before aborting if call is unanswered (min: 1, max: 600).</summary>
-        public int? Timeout2xxSecs { get; set; }
+        public int? Timeout2xxSecs { get => _explicitNullValueTimeout2xxSecs; set { _explicitNullValueTimeout2xxSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_2xx_secs"); else _explicitNullProperties?.Remove("timeout_2xx_secs"); } }
+        private int? _explicitNullValueTimeout2xxSecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest"/> and sets the default values.
         /// </summary>
@@ -71,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,11 +121,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ani_number_format", n => { AniNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestAniNumberFormat>(); } },
+                { "ani_number_format", n => { AniNumberFormat = n.GetStringValue(); } },
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "codecs", n => { Codecs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "default_routing_method", n => { DefaultRoutingMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDefaultRoutingMethod>(); } },
-                { "dnis_number_format", n => { DnisNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDnisNumberFormat>(); } },
+                { "dnis_number_format", n => { DnisNumberFormat = n.GetStringValue(); } },
                 { "generate_ringback_tone", n => { GenerateRingbackTone = n.GetBoolValue(); } },
                 { "isup_headers_enabled", n => { IsupHeadersEnabled = n.GetBoolValue(); } },
                 { "prack_enabled", n => { PrackEnabled = n.GetBoolValue(); } },
@@ -104,11 +144,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestAniNumberFormat>("ani_number_format", AniNumberFormat);
+            writer.WriteStringValue("ani_number_format", AniNumberFormat);
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteCollectionOfPrimitiveValues<string>("codecs", Codecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDefaultRoutingMethod>("default_routing_method", DefaultRoutingMethod);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestDnisNumberFormat>("dnis_number_format", DnisNumberFormat);
+            writer.WriteStringValue("dnis_number_format", DnisNumberFormat);
             writer.WriteBoolValue("generate_ringback_tone", GenerateRingbackTone);
             writer.WriteBoolValue("isup_headers_enabled", IsupHeadersEnabled);
             writer.WriteBoolValue("prack_enabled", PrackEnabled);
@@ -118,6 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacInboundRequestSipRegion>("sip_region", SipRegion);
             writer.WriteIntValue("timeout_1xx_secs", Timeout1xxSecs);
             writer.WriteIntValue("timeout_2xx_secs", Timeout2xxSecs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

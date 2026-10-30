@@ -11,24 +11,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CampaignSharingChain : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("sharedByMe") is { } nullNodeSharedByMe && nullNodeSharedByMe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedByMe = null;
+            if (parseNode.GetChildNode("sharedWithMe") is { } nullNodeSharedWithMe && nullNodeSharedWithMe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedWithMe = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The sharedByMe property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? SharedByMe { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? SharedByMe { get => _explicitNullValueSharedByMe; set { _explicitNullValueSharedByMe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedByMe"); else _explicitNullProperties?.Remove("sharedByMe"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? _explicitNullValueSharedByMe = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus SharedByMe { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus SharedByMe { get => _explicitNullValueSharedByMe; set { _explicitNullValueSharedByMe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedByMe"); else _explicitNullProperties?.Remove("sharedByMe"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus _explicitNullValueSharedByMe = default!;
 #endif
         /// <summary>The sharedWithMe property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? SharedWithMe { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? SharedWithMe { get => _explicitNullValueSharedWithMe; set { _explicitNullValueSharedWithMe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedWithMe"); else _explicitNullProperties?.Remove("sharedWithMe"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? _explicitNullValueSharedWithMe = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus SharedWithMe { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus SharedWithMe { get => _explicitNullValueSharedWithMe; set { _explicitNullValueSharedWithMe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedWithMe"); else _explicitNullProperties?.Remove("sharedWithMe"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus _explicitNullValueSharedWithMe = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingChain"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingChain CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingChain();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingChain(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus>("sharedByMe", SharedByMe);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus>("sharedWithMe", SharedWithMe);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

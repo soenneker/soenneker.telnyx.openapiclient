@@ -11,30 +11,45 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NetworkRoute : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cidr") is { } nullNodeCidr && nullNodeCidr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cidr = null;
+            if (parseNode.GetChildNode("network_id") is { } nullNodeNetworkId && nullNodeNetworkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkId = null;
+            if (parseNode.GetChildNode("next_hop") is { } nullNodeNextHop && nullNodeNextHop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextHop = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The IPv4 CIDR the route covers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cidr { get; set; }
+        public string? Cidr { get => _explicitNullValueCidr; set { _explicitNullValueCidr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cidr"); else _explicitNullProperties?.Remove("cidr"); } }
+        private string? _explicitNullValueCidr = default!;
 #nullable restore
 #else
-        public string Cidr { get; set; }
+        public string Cidr { get => _explicitNullValueCidr; set { _explicitNullValueCidr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cidr"); else _explicitNullProperties?.Remove("cidr"); } }
+        private string _explicitNullValueCidr = default!;
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>Identifies the resource.</summary>
         public Guid? Id { get; private set; }
         /// <summary>The id of the Network the route belongs to.</summary>
-        public Guid? NetworkId { get; set; }
+        public Guid? NetworkId { get => _explicitNullValueNetworkId; set { _explicitNullValueNetworkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_id"); else _explicitNullProperties?.Remove("network_id"); } }
+        private Guid? _explicitNullValueNetworkId = default!;
         /// <summary>Where the Network sends traffic for the route&apos;s CIDR.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop? NextHop { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop? NextHop { get => _explicitNullValueNextHop; set { _explicitNullValueNextHop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_hop"); else _explicitNullProperties?.Remove("next_hop"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop? _explicitNullValueNextHop = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop NextHop { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop NextHop { get => _explicitNullValueNextHop; set { _explicitNullValueNextHop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_hop"); else _explicitNullProperties?.Remove("next_hop"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop _explicitNullValueNextHop = default!;
 #endif
         /// <summary>`static` for a route added with `POST /network_routes`, `attachment` for a route that another resource installed and removes.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteOrigin? Origin { get; private set; }
@@ -63,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRoute CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRoute();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRoute(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("cidr", Cidr);
             writer.WriteGuidValue("network_id", NetworkId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop>("next_hop", NextHop);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

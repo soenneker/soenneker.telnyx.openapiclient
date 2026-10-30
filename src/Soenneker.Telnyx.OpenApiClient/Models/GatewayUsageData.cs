@@ -11,38 +11,57 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GatewayUsageData : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("by_day") is { } nullNodeByDay && nullNodeByDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ByDay = null;
+            if (parseNode.GetChildNode("by_model") is { } nullNodeByModel && nullNodeByModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ByModel = null;
+            if (parseNode.GetChildNode("guardrails") is { } nullNodeGuardrails && nullNodeGuardrails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guardrails = null;
+            if (parseNode.GetChildNode("totals") is { } nullNodeTotals && nullNodeTotals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Totals = null;
+        }
+
         /// <summary>The by_day property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem>? ByDay { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem>? ByDay { get => _explicitNullValueByDay; set { _explicitNullValueByDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("by_day"); else _explicitNullProperties?.Remove("by_day"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem>? _explicitNullValueByDay = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem> ByDay { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem> ByDay { get => _explicitNullValueByDay; set { _explicitNullValueByDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("by_day"); else _explicitNullProperties?.Remove("by_day"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem> _explicitNullValueByDay = default!;
 #endif
         /// <summary>The by_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem>? ByModel { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem>? ByModel { get => _explicitNullValueByModel; set { _explicitNullValueByModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("by_model"); else _explicitNullProperties?.Remove("by_model"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem>? _explicitNullValueByModel = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem> ByModel { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem> ByModel { get => _explicitNullValueByModel; set { _explicitNullValueByModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("by_model"); else _explicitNullProperties?.Remove("by_model"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem> _explicitNullValueByModel = default!;
 #endif
         /// <summary>The guardrails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails? Guardrails { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails? Guardrails { get => _explicitNullValueGuardrails; set { _explicitNullValueGuardrails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guardrails"); else _explicitNullProperties?.Remove("guardrails"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails? _explicitNullValueGuardrails = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails Guardrails { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails Guardrails { get => _explicitNullValueGuardrails; set { _explicitNullValueGuardrails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guardrails"); else _explicitNullProperties?.Remove("guardrails"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails _explicitNullValueGuardrails = default!;
 #endif
         /// <summary>The totals property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics? Totals { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics? Totals { get => _explicitNullValueTotals; set { _explicitNullValueTotals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totals"); else _explicitNullProperties?.Remove("totals"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics? _explicitNullValueTotals = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics Totals { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics Totals { get => _explicitNullValueTotals; set { _explicitNullValueTotals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totals"); else _explicitNullProperties?.Remove("totals"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics _explicitNullValueTotals = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +97,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem>("by_day", ByDay);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem>("by_model", ByModel);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataGuardrails>("guardrails", Guardrails);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics>("totals", Totals);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageMetrics>("totals", Totals);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

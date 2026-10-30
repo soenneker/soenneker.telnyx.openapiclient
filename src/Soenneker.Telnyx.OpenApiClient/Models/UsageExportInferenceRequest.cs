@@ -11,127 +11,204 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UsageExportInferenceRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attempts") is { } nullNodeAttempts && nullNodeAttempts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attempts = null;
+            if (parseNode.GetChildNode("biller") is { } nullNodeBiller && nullNodeBiller.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Biller = null;
+            if (parseNode.GetChildNode("cache_hit") is { } nullNodeCacheHit && nullNodeCacheHit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheHit = null;
+            if (parseNode.GetChildNode("configuration_version") is { } nullNodeConfigurationVersion && nullNodeConfigurationVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfigurationVersion = null;
+            if (parseNode.GetChildNode("cost") is { } nullNodeCost && nullNodeCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cost = null;
+            if (parseNode.GetChildNode("end_user_id") is { } nullNodeEndUserId && nullNodeEndUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndUserId = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("input_tokens") is { } nullNodeInputTokens && nullNodeInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTokens = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("output_tokens") is { } nullNodeOutputTokens && nullNodeOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputTokens = null;
+            if (parseNode.GetChildNode("protocol") is { } nullNodeProtocol && nullNodeProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Protocol = null;
+            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("provider_key_id") is { } nullNodeProviderKeyId && nullNodeProviderKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderKeyId = null;
+            if (parseNode.GetChildNode("provider_model") is { } nullNodeProviderModel && nullNodeProviderModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderModel = null;
+            if (parseNode.GetChildNode("rate_version") is { } nullNodeRateVersion && nullNodeRateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateVersion = null;
+            if (parseNode.GetChildNode("request_id") is { } nullNodeRequestId && nullNodeRequestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestId = null;
+            if (parseNode.GetChildNode("revision") is { } nullNodeRevision && nullNodeRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revision = null;
+            if (parseNode.GetChildNode("route_mode") is { } nullNodeRouteMode && nullNodeRouteMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RouteMode = null;
+            if (parseNode.GetChildNode("schema_version") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
+            if (parseNode.GetChildNode("supersedes") is { } nullNodeSupersedes && nullNodeSupersedes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Supersedes = null;
+            if (parseNode.GetChildNode("timings") is { } nullNodeTimings && nullNodeTimings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timings = null;
+            if (parseNode.GetChildNode("token_group_id") is { } nullNodeTokenGroupId && nullNodeTokenGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenGroupId = null;
+            if (parseNode.GetChildNode("token_key_id") is { } nullNodeTokenKeyId && nullNodeTokenKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenKeyId = null;
+            if (parseNode.GetChildNode("token_user_id") is { } nullNodeTokenUserId && nullNodeTokenUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUserId = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("usage_source") is { } nullNodeUsageSource && nullNodeUsageSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageSource = null;
+            if (parseNode.GetChildNode("usage_status") is { } nullNodeUsageStatus && nullNodeUsageStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageStatus = null;
+        }
+
         /// <summary>The attempts property</summary>
-        public int? Attempts { get; set; }
+        public int? Attempts { get => _explicitNullValueAttempts; set { _explicitNullValueAttempts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempts"); else _explicitNullProperties?.Remove("attempts"); } }
+        private int? _explicitNullValueAttempts = default!;
         /// <summary>The biller property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestBiller? Biller { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestBiller? Biller { get => _explicitNullValueBiller; set { _explicitNullValueBiller = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("biller"); else _explicitNullProperties?.Remove("biller"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestBiller? _explicitNullValueBiller = default!;
         /// <summary>The cache_hit property</summary>
-        public bool? CacheHit { get; set; }
+        public bool? CacheHit { get => _explicitNullValueCacheHit; set { _explicitNullValueCacheHit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_hit"); else _explicitNullProperties?.Remove("cache_hit"); } }
+        private bool? _explicitNullValueCacheHit = default!;
         /// <summary>The configuration_version property</summary>
-        public int? ConfigurationVersion { get; set; }
+        public int? ConfigurationVersion { get => _explicitNullValueConfigurationVersion; set { _explicitNullValueConfigurationVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_version"); else _explicitNullProperties?.Remove("configuration_version"); } }
+        private int? _explicitNullValueConfigurationVersion = default!;
         /// <summary>USD decimal string with exactly 6 places, 0 to 1000000000.000000 (the Money bound); enforcement basis, not invoice truth.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cost { get; set; }
+        public string? Cost { get => _explicitNullValueCost; set { _explicitNullValueCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost"); else _explicitNullProperties?.Remove("cost"); } }
+        private string? _explicitNullValueCost = default!;
 #nullable restore
 #else
-        public string Cost { get; set; }
+        public string Cost { get => _explicitNullValueCost; set { _explicitNullValueCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost"); else _explicitNullProperties?.Remove("cost"); } }
+        private string _explicitNullValueCost = default!;
 #endif
         /// <summary>The end_user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndUserId { get; set; }
+        public string? EndUserId { get => _explicitNullValueEndUserId; set { _explicitNullValueEndUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_user_id"); else _explicitNullProperties?.Remove("end_user_id"); } }
+        private string? _explicitNullValueEndUserId = default!;
 #nullable restore
 #else
-        public string EndUserId { get; set; }
+        public string EndUserId { get => _explicitNullValueEndUserId; set { _explicitNullValueEndUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_user_id"); else _explicitNullProperties?.Remove("end_user_id"); } }
+        private string _explicitNullValueEndUserId = default!;
 #endif
         /// <summary>Deterministic: req_{request_id}_r{revision}. Deduplicate on id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The input_tokens property</summary>
-        public int? InputTokens { get; set; }
+        public int? InputTokens { get => _explicitNullValueInputTokens; set { _explicitNullValueInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens"); else _explicitNullProperties?.Remove("input_tokens"); } }
+        private int? _explicitNullValueInputTokens = default!;
         /// <summary>Customer request tags from the x-ltg-metadata header: up to 5 entries. Keys are case-sensitive; keys starting with ltg_, telnyx_, litellm_ or cf_ (any case) are reserved. Values are strings (1-256 characters, no control or format characters), integers within +/-9007199254740991, or booleans; floats, null, objects and arrays are rejected. Values that look like credentials are rejected. Tags are attribution only: never forwarded upstream, never part of the response cache key, never used for budgets or routing. An untagged request reports {}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestMetadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestMetadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The output_tokens property</summary>
-        public int? OutputTokens { get; set; }
+        public int? OutputTokens { get => _explicitNullValueOutputTokens; set { _explicitNullValueOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens"); else _explicitNullProperties?.Remove("output_tokens"); } }
+        private int? _explicitNullValueOutputTokens = default!;
         /// <summary>The protocol property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestProtocol? Protocol { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestProtocol? Protocol { get => _explicitNullValueProtocol; set { _explicitNullValueProtocol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocol"); else _explicitNullProperties?.Remove("protocol"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestProtocol? _explicitNullValueProtocol = default!;
         /// <summary>The provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Provider { get; set; }
+        public string? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private string? _explicitNullValueProvider = default!;
 #nullable restore
 #else
-        public string Provider { get; set; }
+        public string Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private string _explicitNullValueProvider = default!;
 #endif
         /// <summary>The provider_key_id property</summary>
-        public Guid? ProviderKeyId { get; set; }
+        public Guid? ProviderKeyId { get => _explicitNullValueProviderKeyId; set { _explicitNullValueProviderKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_key_id"); else _explicitNullProperties?.Remove("provider_key_id"); } }
+        private Guid? _explicitNullValueProviderKeyId = default!;
         /// <summary>The provider_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProviderModel { get; set; }
+        public string? ProviderModel { get => _explicitNullValueProviderModel; set { _explicitNullValueProviderModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_model"); else _explicitNullProperties?.Remove("provider_model"); } }
+        private string? _explicitNullValueProviderModel = default!;
 #nullable restore
 #else
-        public string ProviderModel { get; set; }
+        public string ProviderModel { get => _explicitNullValueProviderModel; set { _explicitNullValueProviderModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_model"); else _explicitNullProperties?.Remove("provider_model"); } }
+        private string _explicitNullValueProviderModel = default!;
 #endif
         /// <summary>The rate_version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RateVersion { get; set; }
+        public string? RateVersion { get => _explicitNullValueRateVersion; set { _explicitNullValueRateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_version"); else _explicitNullProperties?.Remove("rate_version"); } }
+        private string? _explicitNullValueRateVersion = default!;
 #nullable restore
 #else
-        public string RateVersion { get; set; }
+        public string RateVersion { get => _explicitNullValueRateVersion; set { _explicitNullValueRateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_version"); else _explicitNullProperties?.Remove("rate_version"); } }
+        private string _explicitNullValueRateVersion = default!;
 #endif
         /// <summary>The request_id property</summary>
-        public Guid? RequestId { get; set; }
+        public Guid? RequestId { get => _explicitNullValueRequestId; set { _explicitNullValueRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_id"); else _explicitNullProperties?.Remove("request_id"); } }
+        private Guid? _explicitNullValueRequestId = default!;
         /// <summary>The revision property</summary>
-        public int? Revision { get; set; }
+        public int? Revision { get => _explicitNullValueRevision; set { _explicitNullValueRevision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revision"); else _explicitNullProperties?.Remove("revision"); } }
+        private int? _explicitNullValueRevision = default!;
         /// <summary>The route_mode property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestRouteMode? RouteMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestRouteMode? RouteMode { get => _explicitNullValueRouteMode; set { _explicitNullValueRouteMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_mode"); else _explicitNullProperties?.Remove("route_mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestRouteMode? _explicitNullValueRouteMode = default!;
         /// <summary>The schema_version property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestSchemaVersion? SchemaVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestSchemaVersion? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema_version"); else _explicitNullProperties?.Remove("schema_version"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestSchemaVersion? _explicitNullValueSchemaVersion = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestStatus? _explicitNullValueStatus = default!;
         /// <summary>The stream property</summary>
-        public bool? Stream { get; set; }
+        public bool? Stream { get => _explicitNullValueStream; set { _explicitNullValueStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream"); else _explicitNullProperties?.Remove("stream"); } }
+        private bool? _explicitNullValueStream = default!;
         /// <summary>Previous revision id; keep the highest revision per request_id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Supersedes { get; set; }
+        public string? Supersedes { get => _explicitNullValueSupersedes; set { _explicitNullValueSupersedes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supersedes"); else _explicitNullProperties?.Remove("supersedes"); } }
+        private string? _explicitNullValueSupersedes = default!;
 #nullable restore
 #else
-        public string Supersedes { get; set; }
+        public string Supersedes { get => _explicitNullValueSupersedes; set { _explicitNullValueSupersedes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supersedes"); else _explicitNullProperties?.Remove("supersedes"); } }
+        private string _explicitNullValueSupersedes = default!;
 #endif
         /// <summary>The timings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings? Timings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings? Timings { get => _explicitNullValueTimings; set { _explicitNullValueTimings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timings"); else _explicitNullProperties?.Remove("timings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings? _explicitNullValueTimings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings Timings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings Timings { get => _explicitNullValueTimings; set { _explicitNullValueTimings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timings"); else _explicitNullProperties?.Remove("timings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestTimings _explicitNullValueTimings = default!;
 #endif
         /// <summary>The token_group_id property</summary>
-        public Guid? TokenGroupId { get; set; }
+        public Guid? TokenGroupId { get => _explicitNullValueTokenGroupId; set { _explicitNullValueTokenGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_group_id"); else _explicitNullProperties?.Remove("token_group_id"); } }
+        private Guid? _explicitNullValueTokenGroupId = default!;
         /// <summary>The token_key_id property</summary>
-        public Guid? TokenKeyId { get; set; }
+        public Guid? TokenKeyId { get => _explicitNullValueTokenKeyId; set { _explicitNullValueTokenKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_key_id"); else _explicitNullProperties?.Remove("token_key_id"); } }
+        private Guid? _explicitNullValueTokenKeyId = default!;
         /// <summary>The token_user_id property</summary>
-        public Guid? TokenUserId { get; set; }
+        public Guid? TokenUserId { get => _explicitNullValueTokenUserId; set { _explicitNullValueTokenUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_user_id"); else _explicitNullProperties?.Remove("token_user_id"); } }
+        private Guid? _explicitNullValueTokenUserId = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceRequestType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceRequestType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceRequestType? _explicitNullValueType = default!;
         /// <summary>The usage_source property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource? UsageSource { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource? UsageSource { get => _explicitNullValueUsageSource; set { _explicitNullValueUsageSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_source"); else _explicitNullProperties?.Remove("usage_source"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource? _explicitNullValueUsageSource = default!;
         /// <summary>The usage_status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus? UsageStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus? UsageStatus { get => _explicitNullValueUsageStatus; set { _explicitNullValueUsageStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_status"); else _explicitNullProperties?.Remove("usage_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus? _explicitNullValueUsageStatus = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -140,7 +217,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -218,7 +295,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("token_user_id", TokenUserId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceRequestType>("type", Type);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource>("usage_source", UsageSource);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus>("usage_status", UsageStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus>("usage_status", UsageStatus);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

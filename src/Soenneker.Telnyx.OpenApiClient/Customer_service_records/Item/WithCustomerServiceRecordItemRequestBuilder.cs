@@ -59,6 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records.Item
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecordForbiddenErrorResponseResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundErrorResponseResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.UnexpectedErrorResponseResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetCustomerServiceRecord200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetCustomerServiceRecord200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

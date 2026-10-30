@@ -12,17 +12,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NumberHealthMetrics : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("inbound_outbound_ratio") is { } nullNodeInboundOutboundRatio && nullNodeInboundOutboundRatio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundOutboundRatio = null;
+            if (parseNode.GetChildNode("message_count") is { } nullNodeMessageCount && nullNodeMessageCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageCount = null;
+            if (parseNode.GetChildNode("spam_ratio") is { } nullNodeSpamRatio && nullNodeSpamRatio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamRatio = null;
+            if (parseNode.GetChildNode("success_ratio") is { } nullNodeSuccessRatio && nullNodeSuccessRatio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessRatio = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ratio of messages received to the number of messages sent.</summary>
-        public float? InboundOutboundRatio { get; set; }
+        public float? InboundOutboundRatio { get => _explicitNullValueInboundOutboundRatio; set { _explicitNullValueInboundOutboundRatio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_outbound_ratio"); else _explicitNullProperties?.Remove("inbound_outbound_ratio"); } }
+        private float? _explicitNullValueInboundOutboundRatio = default!;
         /// <summary>The number of messages analyzed for the health metrics.</summary>
-        public int? MessageCount { get; set; }
+        public int? MessageCount { get => _explicitNullValueMessageCount; set { _explicitNullValueMessageCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_count"); else _explicitNullProperties?.Remove("message_count"); } }
+        private int? _explicitNullValueMessageCount = default!;
         /// <summary>The ratio of messages blocked for spam to the number of messages attempted.</summary>
-        public float? SpamRatio { get; set; }
+        public float? SpamRatio { get => _explicitNullValueSpamRatio; set { _explicitNullValueSpamRatio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_ratio"); else _explicitNullProperties?.Remove("spam_ratio"); } }
+        private float? _explicitNullValueSpamRatio = default!;
         /// <summary>The ratio of messages sucessfully delivered to the number of messages attempted.</summary>
-        public float? SuccessRatio { get; set; }
+        public float? SuccessRatio { get => _explicitNullValueSuccessRatio; set { _explicitNullValueSuccessRatio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_ratio"); else _explicitNullProperties?.Remove("success_ratio"); } }
+        private float? _explicitNullValueSuccessRatio = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("message_count", MessageCount);
             writer.WriteFloatValue("spam_ratio", SpamRatio);
             writer.WriteFloatValue("success_ratio", SuccessRatio);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -55,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Hosted_signups.Item
             {
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappHostedSignupResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappHostedSignupResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

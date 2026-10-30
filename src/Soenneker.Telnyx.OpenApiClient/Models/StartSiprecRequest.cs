@@ -11,35 +11,58 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class StartSiprecRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("connector_name") is { } nullNodeConnectorName && nullNodeConnectorName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectorName = null;
+            if (parseNode.GetChildNode("include_metadata_custom_headers") is { } nullNodeIncludeMetadataCustomHeaders && nullNodeIncludeMetadataCustomHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeMetadataCustomHeaders = null;
+            if (parseNode.GetChildNode("secure") is { } nullNodeSecure && nullNodeSecure.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secure = null;
+            if (parseNode.GetChildNode("session_timeout_secs") is { } nullNodeSessionTimeoutSecs && nullNodeSessionTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionTimeoutSecs = null;
+            if (parseNode.GetChildNode("siprec_track") is { } nullNodeSiprecTrack && nullNodeSiprecTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiprecTrack = null;
+            if (parseNode.GetChildNode("sip_transport") is { } nullNodeSipTransport && nullNodeSipTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipTransport = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Name of configured SIPREC connector to be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectorName { get; set; }
+        public string? ConnectorName { get => _explicitNullValueConnectorName; set { _explicitNullValueConnectorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connector_name"); else _explicitNullProperties?.Remove("connector_name"); } }
+        private string? _explicitNullValueConnectorName = default!;
 #nullable restore
 #else
-        public string ConnectorName { get; set; }
+        public string ConnectorName { get => _explicitNullValueConnectorName; set { _explicitNullValueConnectorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connector_name"); else _explicitNullProperties?.Remove("connector_name"); } }
+        private string _explicitNullValueConnectorName = default!;
 #endif
         /// <summary>When set, custom parameters will be added as metadata (recording.session.ExtensionParameters). Otherwise, they’ll be added to sip headers.</summary>
-        public bool? IncludeMetadataCustomHeaders { get; set; }
+        public bool? IncludeMetadataCustomHeaders { get => _explicitNullValueIncludeMetadataCustomHeaders; set { _explicitNullValueIncludeMetadataCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_metadata_custom_headers"); else _explicitNullProperties?.Remove("include_metadata_custom_headers"); } }
+        private bool? _explicitNullValueIncludeMetadataCustomHeaders = default!;
         /// <summary>Controls whether to encrypt media sent to your SRS using SRTP and TLS. When set you need to configure SRS port in your connector to 5061.</summary>
-        public bool? Secure { get; set; }
+        public bool? Secure { get => _explicitNullValueSecure; set { _explicitNullValueSecure = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secure"); else _explicitNullProperties?.Remove("secure"); } }
+        private bool? _explicitNullValueSecure = default!;
         /// <summary>Sets `Session-Expires` header to the INVITE. A reinvite is sent every half the value set. Usefull for session keep alive. Minimum value is 90, set to 0 to disable.</summary>
-        public int? SessionTimeoutSecs { get; set; }
+        public int? SessionTimeoutSecs { get => _explicitNullValueSessionTimeoutSecs; set { _explicitNullValueSessionTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_timeout_secs"); else _explicitNullProperties?.Remove("session_timeout_secs"); } }
+        private int? _explicitNullValueSessionTimeoutSecs = default!;
         /// <summary>Specifies which track should be sent on siprec session.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSiprecTrack? SiprecTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSiprecTrack? SiprecTrack { get => _explicitNullValueSiprecTrack; set { _explicitNullValueSiprecTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("siprec_track"); else _explicitNullProperties?.Remove("siprec_track"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSiprecTrack? _explicitNullValueSiprecTrack = default!;
         /// <summary>Specifies SIP transport protocol.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSipTransport? SipTransport { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSipTransport? SipTransport { get => _explicitNullValueSipTransport; set { _explicitNullValueSipTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_transport"); else _explicitNullProperties?.Remove("sip_transport"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSipTransport? _explicitNullValueSipTransport = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest"/> and sets the default values.
         /// </summary>
@@ -56,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("session_timeout_secs", SessionTimeoutSecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSiprecTrack>("siprec_track", SiprecTrack);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequestSipTransport>("sip_transport", SipTransport);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

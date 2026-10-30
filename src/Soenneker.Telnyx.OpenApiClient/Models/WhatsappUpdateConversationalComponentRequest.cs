@@ -11,24 +11,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WhatsappUpdateConversationalComponentRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("commands") is { } nullNodeCommands && nullNodeCommands.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commands = null;
+            if (parseNode.GetChildNode("ice_breakers") is { } nullNodeIceBreakers && nullNodeIceBreakers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IceBreakers = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of commands</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem>? Commands { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem>? Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem>? _explicitNullValueCommands = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem> Commands { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem> Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem> _explicitNullValueCommands = default!;
 #endif
         /// <summary>List of ice breakers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IceBreakers { get; set; }
+        public List<string>? IceBreakers { get => _explicitNullValueIceBreakers; set { _explicitNullValueIceBreakers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ice_breakers"); else _explicitNullProperties?.Remove("ice_breakers"); } }
+        private List<string>? _explicitNullValueIceBreakers = default!;
 #nullable restore
 #else
-        public List<string> IceBreakers { get; set; }
+        public List<string> IceBreakers { get => _explicitNullValueIceBreakers; set { _explicitNullValueIceBreakers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ice_breakers"); else _explicitNullProperties?.Remove("ice_breakers"); } }
+        private List<string> _explicitNullValueIceBreakers = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequest"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem>("commands", Commands);
             writer.WriteCollectionOfPrimitiveValues<string>("ice_breakers", IceBreakers);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

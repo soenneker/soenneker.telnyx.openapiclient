@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetGcbChannelZonesRequestResponseResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the non-US voice channels for your account. voice channels allow you to use Channel Billing for calls to your Telnyx phone numbers. Please check the &lt;a href=&quot;https://support.telnyx.com/en/articles/8428806-global-channel-billing&quot;&gt;Telnyx Support Articles&lt;/a&gt; section for full information and examples of how to utilize Channel Billing.

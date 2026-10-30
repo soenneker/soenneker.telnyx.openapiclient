@@ -11,17 +11,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BucketOpsTotal : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bytes_received") is { } nullNodeBytesReceived && nullNodeBytesReceived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BytesReceived = null;
+            if (parseNode.GetChildNode("bytes_sent") is { } nullNodeBytesSent && nullNodeBytesSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BytesSent = null;
+            if (parseNode.GetChildNode("ops") is { } nullNodeOps && nullNodeOps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ops = null;
+            if (parseNode.GetChildNode("successful_ops") is { } nullNodeSuccessfulOps && nullNodeSuccessfulOps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessfulOps = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of bytes received</summary>
-        public int? BytesReceived { get; set; }
+        public int? BytesReceived { get => _explicitNullValueBytesReceived; set { _explicitNullValueBytesReceived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bytes_received"); else _explicitNullProperties?.Remove("bytes_received"); } }
+        private int? _explicitNullValueBytesReceived = default!;
         /// <summary>The number of bytes sent</summary>
-        public int? BytesSent { get; set; }
+        public int? BytesSent { get => _explicitNullValueBytesSent; set { _explicitNullValueBytesSent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bytes_sent"); else _explicitNullProperties?.Remove("bytes_sent"); } }
+        private int? _explicitNullValueBytesSent = default!;
         /// <summary>The number of operations</summary>
-        public int? Ops { get; set; }
+        public int? Ops { get => _explicitNullValueOps; set { _explicitNullValueOps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ops"); else _explicitNullProperties?.Remove("ops"); } }
+        private int? _explicitNullValueOps = default!;
         /// <summary>The number of successful operations</summary>
-        public int? SuccessfulOps { get; set; }
+        public int? SuccessfulOps { get => _explicitNullValueSuccessfulOps; set { _explicitNullValueSuccessfulOps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successful_ops"); else _explicitNullProperties?.Remove("successful_ops"); } }
+        private int? _explicitNullValueSuccessfulOps = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsTotal"/> and sets the default values.
         /// </summary>
@@ -37,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsTotal CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsTotal();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsTotal(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("bytes_sent", BytesSent);
             writer.WriteIntValue("ops", Ops);
             writer.WriteIntValue("successful_ops", SuccessfulOps);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

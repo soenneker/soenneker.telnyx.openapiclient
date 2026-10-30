@@ -11,69 +11,111 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OutboundFqdn : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ani_override") is { } nullNodeAniOverride && nullNodeAniOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AniOverride = null;
+            if (parseNode.GetChildNode("ani_override_type") is { } nullNodeAniOverrideType && nullNodeAniOverrideType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AniOverrideType = null;
+            if (parseNode.GetChildNode("call_parking_enabled") is { } nullNodeCallParkingEnabled && nullNodeCallParkingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallParkingEnabled = null;
+            if (parseNode.GetChildNode("channel_limit") is { } nullNodeChannelLimit && nullNodeChannelLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelLimit = null;
+            if (parseNode.GetChildNode("encrypted_media") is { } nullNodeEncryptedMedia && nullNodeEncryptedMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedMedia = null;
+            if (parseNode.GetChildNode("generate_ringback_tone") is { } nullNodeGenerateRingbackTone && nullNodeGenerateRingbackTone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenerateRingbackTone = null;
+            if (parseNode.GetChildNode("instant_ringback_enabled") is { } nullNodeInstantRingbackEnabled && nullNodeInstantRingbackEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstantRingbackEnabled = null;
+            if (parseNode.GetChildNode("ip_authentication_method") is { } nullNodeIpAuthenticationMethod && nullNodeIpAuthenticationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAuthenticationMethod = null;
+            if (parseNode.GetChildNode("ip_authentication_token") is { } nullNodeIpAuthenticationToken && nullNodeIpAuthenticationToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAuthenticationToken = null;
+            if (parseNode.GetChildNode("localization") is { } nullNodeLocalization && nullNodeLocalization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Localization = null;
+            if (parseNode.GetChildNode("outbound_voice_profile_id") is { } nullNodeOutboundVoiceProfileId && nullNodeOutboundVoiceProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundVoiceProfileId = null;
+            if (parseNode.GetChildNode("t38_reinvite_source") is { } nullNodeT38ReinviteSource && nullNodeT38ReinviteSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) T38ReinviteSource = null;
+            if (parseNode.GetChildNode("tech_prefix") is { } nullNodeTechPrefix && nullNodeTechPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TechPrefix = null;
+            if (parseNode.GetChildNode("timeout_1xx_secs") is { } nullNodeTimeout1xxSecs && nullNodeTimeout1xxSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout1xxSecs = null;
+            if (parseNode.GetChildNode("timeout_2xx_secs") is { } nullNodeTimeout2xxSecs && nullNodeTimeout2xxSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout2xxSecs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set a phone number as the ani_override value to override caller id number on outbound calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AniOverride { get; set; }
+        public string? AniOverride { get => _explicitNullValueAniOverride; set { _explicitNullValueAniOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ani_override"); else _explicitNullProperties?.Remove("ani_override"); } }
+        private string? _explicitNullValueAniOverride = default!;
 #nullable restore
 #else
-        public string AniOverride { get; set; }
+        public string AniOverride { get => _explicitNullValueAniOverride; set { _explicitNullValueAniOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ani_override"); else _explicitNullProperties?.Remove("ani_override"); } }
+        private string _explicitNullValueAniOverride = default!;
 #endif
         /// <summary>Specifies when we should apply your ani_override setting. Only applies when ani_override is not blank.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnAniOverrideType? AniOverrideType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnAniOverrideType? AniOverrideType { get => _explicitNullValueAniOverrideType; set { _explicitNullValueAniOverrideType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ani_override_type"); else _explicitNullProperties?.Remove("ani_override_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnAniOverrideType? _explicitNullValueAniOverrideType = default!;
         /// <summary>Forces all SIP calls originated on this connection to be \&quot;parked\&quot; instead of \&quot;bridged\&quot; to the destination specified on the URI. Parked calls will return ringback to the caller and will await for a Call Control command to define which action will be taken next.</summary>
-        public bool? CallParkingEnabled { get; set; }
+        public bool? CallParkingEnabled { get => _explicitNullValueCallParkingEnabled; set { _explicitNullValueCallParkingEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_parking_enabled"); else _explicitNullProperties?.Remove("call_parking_enabled"); } }
+        private bool? _explicitNullValueCallParkingEnabled = default!;
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
-        public int? ChannelLimit { get; set; }
+        public int? ChannelLimit { get => _explicitNullValueChannelLimit; set { _explicitNullValueChannelLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_limit"); else _explicitNullProperties?.Remove("channel_limit"); } }
+        private int? _explicitNullValueChannelLimit = default!;
         /// <summary>Enable use of SRTP for encryption. Can only be set when the SIP signaling transport protocol is TLS.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get => _explicitNullValueEncryptedMedia; set { _explicitNullValueEncryptedMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_media"); else _explicitNullProperties?.Remove("encrypted_media"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? _explicitNullValueEncryptedMedia = default!;
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
-        public bool? GenerateRingbackTone { get; set; }
+        public bool? GenerateRingbackTone { get => _explicitNullValueGenerateRingbackTone; set { _explicitNullValueGenerateRingbackTone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generate_ringback_tone"); else _explicitNullProperties?.Remove("generate_ringback_tone"); } }
+        private bool? _explicitNullValueGenerateRingbackTone = default!;
         /// <summary>When set, ringback will not wait for indication before sending ringback tone to calling party.</summary>
-        public bool? InstantRingbackEnabled { get; set; }
+        public bool? InstantRingbackEnabled { get => _explicitNullValueInstantRingbackEnabled; set { _explicitNullValueInstantRingbackEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instant_ringback_enabled"); else _explicitNullProperties?.Remove("instant_ringback_enabled"); } }
+        private bool? _explicitNullValueInstantRingbackEnabled = default!;
         /// <summary>The ip_authentication_method property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnIpAuthenticationMethod? IpAuthenticationMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnIpAuthenticationMethod? IpAuthenticationMethod { get => _explicitNullValueIpAuthenticationMethod; set { _explicitNullValueIpAuthenticationMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_authentication_method"); else _explicitNullProperties?.Remove("ip_authentication_method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnIpAuthenticationMethod? _explicitNullValueIpAuthenticationMethod = default!;
         /// <summary>The ip_authentication_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IpAuthenticationToken { get; set; }
+        public string? IpAuthenticationToken { get => _explicitNullValueIpAuthenticationToken; set { _explicitNullValueIpAuthenticationToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_authentication_token"); else _explicitNullProperties?.Remove("ip_authentication_token"); } }
+        private string? _explicitNullValueIpAuthenticationToken = default!;
 #nullable restore
 #else
-        public string IpAuthenticationToken { get; set; }
+        public string IpAuthenticationToken { get => _explicitNullValueIpAuthenticationToken; set { _explicitNullValueIpAuthenticationToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_authentication_token"); else _explicitNullProperties?.Remove("ip_authentication_token"); } }
+        private string _explicitNullValueIpAuthenticationToken = default!;
 #endif
         /// <summary>A 2-character country code specifying the country whose national dialing rules should be used. For example, if set to `US` then any US number can be dialed without preprending +1 to the number. When left blank, Telnyx will try US and GB dialing rules, in that order, by default.&quot;,</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Localization { get; set; }
+        public string? Localization { get => _explicitNullValueLocalization; set { _explicitNullValueLocalization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("localization"); else _explicitNullProperties?.Remove("localization"); } }
+        private string? _explicitNullValueLocalization = default!;
 #nullable restore
 #else
-        public string Localization { get; set; }
+        public string Localization { get => _explicitNullValueLocalization; set { _explicitNullValueLocalization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("localization"); else _explicitNullProperties?.Remove("localization"); } }
+        private string _explicitNullValueLocalization = default!;
 #endif
         /// <summary>Identifies the associated outbound voice profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OutboundVoiceProfileId { get; set; }
+        public string? OutboundVoiceProfileId { get => _explicitNullValueOutboundVoiceProfileId; set { _explicitNullValueOutboundVoiceProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_voice_profile_id"); else _explicitNullProperties?.Remove("outbound_voice_profile_id"); } }
+        private string? _explicitNullValueOutboundVoiceProfileId = default!;
 #nullable restore
 #else
-        public string OutboundVoiceProfileId { get; set; }
+        public string OutboundVoiceProfileId { get => _explicitNullValueOutboundVoiceProfileId; set { _explicitNullValueOutboundVoiceProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_voice_profile_id"); else _explicitNullProperties?.Remove("outbound_voice_profile_id"); } }
+        private string _explicitNullValueOutboundVoiceProfileId = default!;
 #endif
         /// <summary>This setting only affects connections with Fax-type Outbound Voice Profiles. The setting dictates whether or not Telnyx sends a t.38 reinvite. By default, Telnyx will send the re-invite. If set to `customer`, the caller is expected to send the t.38 reinvite.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnT38ReinviteSource? T38ReinviteSource { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnT38ReinviteSource? T38ReinviteSource { get => _explicitNullValueT38ReinviteSource; set { _explicitNullValueT38ReinviteSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("t38_reinvite_source"); else _explicitNullProperties?.Remove("t38_reinvite_source"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnT38ReinviteSource? _explicitNullValueT38ReinviteSource = default!;
         /// <summary>Numerical chars only, exactly 4 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TechPrefix { get; set; }
+        public string? TechPrefix { get => _explicitNullValueTechPrefix; set { _explicitNullValueTechPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tech_prefix"); else _explicitNullProperties?.Remove("tech_prefix"); } }
+        private string? _explicitNullValueTechPrefix = default!;
 #nullable restore
 #else
-        public string TechPrefix { get; set; }
+        public string TechPrefix { get => _explicitNullValueTechPrefix; set { _explicitNullValueTechPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tech_prefix"); else _explicitNullProperties?.Remove("tech_prefix"); } }
+        private string _explicitNullValueTechPrefix = default!;
 #endif
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
-        public int? Timeout1xxSecs { get; set; }
+        public int? Timeout1xxSecs { get => _explicitNullValueTimeout1xxSecs; set { _explicitNullValueTimeout1xxSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_1xx_secs"); else _explicitNullProperties?.Remove("timeout_1xx_secs"); } }
+        private int? _explicitNullValueTimeout1xxSecs = default!;
         /// <summary>Time(sec) before aborting if call is unanswered (min: 1, max: 600).</summary>
-        public int? Timeout2xxSecs { get; set; }
+        public int? Timeout2xxSecs { get => _explicitNullValueTimeout2xxSecs; set { _explicitNullValueTimeout2xxSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_2xx_secs"); else _explicitNullProperties?.Remove("timeout_2xx_secs"); } }
+        private int? _explicitNullValueTimeout2xxSecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn"/> and sets the default values.
         /// </summary>
@@ -95,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -144,6 +186,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("tech_prefix", TechPrefix);
             writer.WriteIntValue("timeout_1xx_secs", Timeout1xxSecs);
             writer.WriteIntValue("timeout_2xx_secs", Timeout2xxSecs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -57,6 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Bot_challenge
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.BotSignupErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.BotSignupErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BotChallengeResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BotChallengeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

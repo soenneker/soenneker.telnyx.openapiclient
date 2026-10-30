@@ -11,19 +11,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OwnershipConfirmRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("evidence_document_id") is { } nullNodeEvidenceDocumentId && nullNodeEvidenceDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvidenceDocumentId = null;
+            if (parseNode.GetChildNode("still_own") is { } nullNodeStillOwn && nullNodeStillOwn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StillOwn = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional id of an uploaded document supporting the confirmation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EvidenceDocumentId { get; set; }
+        public string? EvidenceDocumentId { get => _explicitNullValueEvidenceDocumentId; set { _explicitNullValueEvidenceDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_document_id"); else _explicitNullProperties?.Remove("evidence_document_id"); } }
+        private string? _explicitNullValueEvidenceDocumentId = default!;
 #nullable restore
 #else
-        public string EvidenceDocumentId { get; set; }
+        public string EvidenceDocumentId { get => _explicitNullValueEvidenceDocumentId; set { _explicitNullValueEvidenceDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_document_id"); else _explicitNullProperties?.Remove("evidence_document_id"); } }
+        private string _explicitNullValueEvidenceDocumentId = default!;
 #endif
         /// <summary>`true` confirms you still own the number. `false` reports that you no longer own it and removes it from Number Reputation.</summary>
-        public bool? StillOwn { get; set; }
+        public bool? StillOwn { get => _explicitNullValueStillOwn; set { _explicitNullValueStillOwn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("still_own"); else _explicitNullProperties?.Remove("still_own"); } }
+        private bool? _explicitNullValueStillOwn = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OwnershipConfirmRequest"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.OwnershipConfirmRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.OwnershipConfirmRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.OwnershipConfirmRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("evidence_document_id", EvidenceDocumentId);
             writer.WriteBoolValue("still_own", StillOwn);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

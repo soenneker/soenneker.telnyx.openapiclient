@@ -12,19 +12,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallStreamingFailedBodyPayloadStreamParams : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("stream_url") is { } nullNodeStreamUrl && nullNodeStreamUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamUrl = null;
+            if (parseNode.GetChildNode("track") is { } nullNodeTrack && nullNodeTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Track = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The destination WebSocket address where the stream is going to be delivered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamUrl { get; set; }
+        public string? StreamUrl { get => _explicitNullValueStreamUrl; set { _explicitNullValueStreamUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_url"); else _explicitNullProperties?.Remove("stream_url"); } }
+        private string? _explicitNullValueStreamUrl = default!;
 #nullable restore
 #else
-        public string StreamUrl { get; set; }
+        public string StreamUrl { get => _explicitNullValueStreamUrl; set { _explicitNullValueStreamUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_url"); else _explicitNullProperties?.Remove("stream_url"); } }
+        private string _explicitNullValueStreamUrl = default!;
 #endif
         /// <summary>Specifies which track should be streamed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallStreamingFailedBodyPayloadStreamParamsTrack? Track { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallStreamingFailedBodyPayloadStreamParamsTrack? Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallStreamingFailedBodyPayloadStreamParamsTrack? _explicitNullValueTrack = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallStreamingFailedBodyPayloadStreamParams"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CallStreamingFailedBodyPayloadStreamParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallStreamingFailedBodyPayloadStreamParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CallStreamingFailedBodyPayloadStreamParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("stream_url", StreamUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallStreamingFailedBodyPayloadStreamParamsTrack>("track", Track);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -13,28 +13,45 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpendLimitBlock : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("blocked_until") is { } nullNodeBlockedUntil && nullNodeBlockedUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedUntil = null;
+            if (parseNode.GetChildNode("detected_at") is { } nullNodeDetectedAt && nullNodeDetectedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DetectedAt = null;
+            if (parseNode.GetChildNode("limit_usd") is { } nullNodeLimitUsd && nullNodeLimitUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitUsd = null;
+            if (parseNode.GetChildNode("spend_usd") is { } nullNodeSpendUsd && nullNodeSpendUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendUsd = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Exclusive end of the block: it is lifted at 00:00 UTC on this date at the latest.</summary>
-        public Date? BlockedUntil { get; set; }
+        public Date? BlockedUntil { get => _explicitNullValueBlockedUntil; set { _explicitNullValueBlockedUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_until"); else _explicitNullProperties?.Remove("blocked_until"); } }
+        private Date? _explicitNullValueBlockedUntil = default!;
         /// <summary>When the block started.</summary>
-        public DateTimeOffset? DetectedAt { get; set; }
+        public DateTimeOffset? DetectedAt { get => _explicitNullValueDetectedAt; set { _explicitNullValueDetectedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detected_at"); else _explicitNullProperties?.Remove("detected_at"); } }
+        private DateTimeOffset? _explicitNullValueDetectedAt = default!;
         /// <summary>The limit in USD that the spend went above, as a decimal string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LimitUsd { get; set; }
+        public string? LimitUsd { get => _explicitNullValueLimitUsd; set { _explicitNullValueLimitUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_usd"); else _explicitNullProperties?.Remove("limit_usd"); } }
+        private string? _explicitNullValueLimitUsd = default!;
 #nullable restore
 #else
-        public string LimitUsd { get; set; }
+        public string LimitUsd { get => _explicitNullValueLimitUsd; set { _explicitNullValueLimitUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_usd"); else _explicitNullProperties?.Remove("limit_usd"); } }
+        private string _explicitNullValueLimitUsd = default!;
 #endif
         /// <summary>Spend in USD when the block started, as a decimal string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpendUsd { get; set; }
+        public string? SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        private string? _explicitNullValueSpendUsd = default!;
 #nullable restore
 #else
-        public string SpendUsd { get; set; }
+        public string SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        private string _explicitNullValueSpendUsd = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock"/> and sets the default values.
@@ -51,7 +68,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.SpendLimitBlock(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("detected_at", DetectedAt);
             writer.WriteStringValue("limit_usd", LimitUsd);
             writer.WriteStringValue("spend_usd", SpendUsd);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

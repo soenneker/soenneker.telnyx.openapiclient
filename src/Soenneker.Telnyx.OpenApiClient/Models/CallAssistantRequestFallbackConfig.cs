@@ -12,32 +12,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallAssistantRequestFallbackConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("external_llm") is { } nullNodeExternalLlm && nullNodeExternalLlm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalLlm = null;
+            if (parseNode.GetChildNode("llm_api_key_ref") is { } nullNodeLlmApiKeyRef && nullNodeLlmApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeyRef = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>External LLM fallback configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm? ExternalLlm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm? ExternalLlm { get => _explicitNullValueExternalLlm; set { _explicitNullValueExternalLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_llm"); else _explicitNullProperties?.Remove("external_llm"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm? _explicitNullValueExternalLlm = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm ExternalLlm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm ExternalLlm { get => _explicitNullValueExternalLlm; set { _explicitNullValueExternalLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_llm"); else _explicitNullProperties?.Remove("external_llm"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm _explicitNullValueExternalLlm = default!;
 #endif
         /// <summary>Integration secret identifier for the fallback model API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmApiKeyRef { get; set; }
+        public string? LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
+        private string? _explicitNullValueLlmApiKeyRef = default!;
 #nullable restore
 #else
-        public string LlmApiKeyRef { get; set; }
+        public string LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
+        private string _explicitNullValueLlmApiKeyRef = default!;
 #endif
         /// <summary>Fallback Telnyx-hosted model to use when the primary LLM provider is unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfigExternalLlm>("external_llm", ExternalLlm);
             writer.WriteStringValue("llm_api_key_ref", LlmApiKeyRef);
             writer.WriteStringValue("model", Model);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,16 +11,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EnterpriseReputationCreate : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("check_frequency") is { } nullNodeCheckFrequency && nullNodeCheckFrequency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckFrequency = null;
+            if (parseNode.GetChildNode("loa_document_id") is { } nullNodeLoaDocumentId && nullNodeLoaDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaDocumentId = null;
+        }
+
         /// <summary>How often Telnyx refreshes the stored reputation data for this enterprise&apos;s registered numbers.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency? CheckFrequency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency? CheckFrequency { get => _explicitNullValueCheckFrequency; set { _explicitNullValueCheckFrequency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_frequency"); else _explicitNullProperties?.Remove("check_frequency"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency? _explicitNullValueCheckFrequency = default!;
         /// <summary>Id of the signed Letter of Authorization document, returned by the Telnyx Documents API after upload (upload via `POST /v2/documents`; see https://developers.telnyx.com/api/documents).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LoaDocumentId { get; set; }
+        public string? LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
+        private string? _explicitNullValueLoaDocumentId = default!;
 #nullable restore
 #else
-        public string LoaDocumentId { get; set; }
+        public string LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
+        private string _explicitNullValueLoaDocumentId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -30,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +64,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseReputationCreateCheckFrequency>("check_frequency", CheckFrequency);
-            writer.WriteStringValue("loa_document_id", LoaDocumentId);
+            writer.WriteStringValue("loa_document_id", LoaDocumentId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

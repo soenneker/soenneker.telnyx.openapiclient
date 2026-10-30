@@ -68,6 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.MessagingErrors0B38E7044B.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers2200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BulkUpdateMessagingSettingsOnPhoneNumbers2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,58 +11,85 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TranscriptionSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("api_key_ref") is { } nullNodeApiKeyRef && nullNodeApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyRef = null;
+            if (parseNode.GetChildNode("challenger") is { } nullNodeChallenger && nullNodeChallenger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Challenger = null;
+            if (parseNode.GetChildNode("fallback_models") is { } nullNodeFallbackModels && nullNodeFallbackModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackModels = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Integration secret identifier for the transcription provider API key. Currently used for Azure transcription regions that require a customer-provided API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKeyRef { get; set; }
+        public string? ApiKeyRef { get => _explicitNullValueApiKeyRef; set { _explicitNullValueApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_ref"); else _explicitNullProperties?.Remove("api_key_ref"); } }
+        private string? _explicitNullValueApiKeyRef = default!;
 #nullable restore
 #else
-        public string ApiKeyRef { get; set; }
+        public string ApiKeyRef { get => _explicitNullValueApiKeyRef; set { _explicitNullValueApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_ref"); else _explicitNullProperties?.Remove("api_key_ref"); } }
+        private string _explicitNullValueApiKeyRef = default!;
 #endif
         /// <summary>The language booster: a second model that transcribes alongside `model`, and the rule that decides which transcript the assistant uses. Both models must be streaming, or both non-streaming, and, except with `merge_words`, `model` must support `language` alongside another model (for example, `cohere/ar-stt` supports only `ar` there). If the language booster can&apos;t run, the call runs on `model` alone; if either model fails mid-call, the call continues on the other. On update, omit the field to keep the stored language booster, or send `null` to remove it. When an update changes `model` or `language` and the stored language booster no longer fits, it is removed without an error. Can&apos;t be combined with `fallback_models`; to replace stored fallbacks, send `fallback_models: []` in the same request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger? Challenger { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger? Challenger { get => _explicitNullValueChallenger; set { _explicitNullValueChallenger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenger"); else _explicitNullProperties?.Remove("challenger"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger? _explicitNullValueChallenger = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger Challenger { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger Challenger { get => _explicitNullValueChallenger; set { _explicitNullValueChallenger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenger"); else _explicitNullProperties?.Remove("challenger"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger _explicitNullValueChallenger = default!;
 #endif
         /// <summary>Up to 3 streaming models that take over transcription, in this order, when the model in use fails, at the start of a call or mid-call. `model` must be a streaming model too, and must support `language` alongside other models. On update, a list replaces the stored one: omit the field to keep the stored list, or send `null` or `[]` to remove it. When an update changes `model` or `language`, stored fallbacks that no longer fit are removed without an error. Can&apos;t be combined with `challenger`, the language booster; to replace a stored language booster, send `challenger: null` in the same request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel>? FallbackModels { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel>? FallbackModels { get => _explicitNullValueFallbackModels; set { _explicitNullValueFallbackModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_models"); else _explicitNullProperties?.Remove("fallback_models"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel>? _explicitNullValueFallbackModels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel> FallbackModels { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel> FallbackModels { get => _explicitNullValueFallbackModels; set { _explicitNullValueFallbackModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_models"); else _explicitNullProperties?.Remove("fallback_models"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel> _explicitNullValueFallbackModels = default!;
 #endif
         /// <summary>The language of the audio to be transcribed. If not set, or if set to `auto`, supported models will automatically detect the language. For `deepgram/flux`, supported values are: `auto` (Telnyx language detection controls the language hint), `multi` (no language hint), and language-specific hints `en`, `es`, `fr`, `de`, `hi`, `ru`, `pt`, `ja`, `it`, and `nl`. For `soniox/stt-rt-v4` and `soniox/stt-rt-v5`, `auto` omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. `en`, `es`) bias detection toward that language; `settings.language_hints` can pin multiple languages at once instead. For `humain/realtime`, supported values are `ar`, `en`, `codeswitch` (Arabic/English code-switching), and `auto` (resolves server-side to code-switching). Unlike other models, `humain/realtime` does not fall back to `auto` when `language` is omitted — omitting it applies `en` instead. For `reson8/turns`, supported values are `auto` (or unset) for automatic language detection, and the language codes `nl`, `en`, `fr`, `fy`, `de`, `it`, `pl`, `pt`, `es`, and `sv` to fix the transcription language. For `cohere/ar-stt`, supported values are `ar` and `en`; unlike other models, this model does not auto-detect and defaults to `ar` when `language` is omitted. For `speechmatics/linden-1`, there is no auto-detect; set a code from Speechmatics&apos; Realtime language list (67 language codes, including `es-bilingual-en` for Spanish and English bilingual, and the spelling and script variants `en-US`, `en-GB`, `en-AU`, `cmn-Hans`, and `cmn-Hant`; `en` alone uses the default spelling); unset defaults to `en`, while an explicit `auto`, `auto_beta`, or `multi` is rejected with a 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Language { get; set; }
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string? _explicitNullValueLanguage = default!;
 #nullable restore
 #else
-        public string Language { get; set; }
+        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string _explicitNullValueLanguage = default!;
 #endif
         /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `speechmatics/standard` is a Speechmatics model self-hosted by Telnyx; it supports a fixed set of language packs (including bilingual packs such as `ar_en`) and defaults to `en`.- `speechmatics/linden-1` (preview) is a vendor-hosted streaming model with no auto-detect; set `language` from Speechmatics&apos; Realtime language list (defaults to `en`).- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-3-6-pro` (AssemblyAI Universal-3.6 Pro) is a multilingual streaming model with configurable turn detection. The legacy aliases `assemblyai/universal-3-5-pro` and `assemblyai/universal-streaming` are still accepted and run the same model.- `xai/grok-stt` is a multilingual Grok STT model.- `soniox/stt-rt-v4` and `soniox/stt-rt-v5` are multilingual streaming models with automatic language detection, configurable endpointing, term biasing (`context`), and `language_hints`.- `nvidia/parakeet-v3` is a multilingual transcription model with automatic language detection.- `omi-health/omi-med-stt-v1` is an English-only medical transcription model (Parakeet-based).- `humain/realtime` is a streaming model with native Arabic and Arabic/English code-switching support.- `reson8/turns` is a turn-based streaming model covering 10 European languages with automatic language detection.- `cohere/ar-stt` is a non-streaming Arabic and English transcription model.- `telnyx/basira` is a non-streaming Arabic transcription model.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel? Model { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel? _explicitNullValueModel = default!;
         /// <summary>Region on third party cloud providers (currently Azure) if using one of their models. Some regions require `api_key_ref`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get; set; }
+        public string? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string? _explicitNullValueRegion = default!;
 #nullable restore
 #else
-        public string Region { get; set; }
+        public string Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        private string _explicitNullValueRegion = default!;
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig? Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig _explicitNullValueSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings"/> and sets the default values.
@@ -79,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,6 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel>("model", Model);
             writer.WriteStringValue("region", Region);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>("settings", Settings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

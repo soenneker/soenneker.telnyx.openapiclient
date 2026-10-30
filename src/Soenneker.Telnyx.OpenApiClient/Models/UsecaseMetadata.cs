@@ -11,34 +11,57 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UsecaseMetadata : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("annualFee") is { } nullNodeAnnualFee && nullNodeAnnualFee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualFee = null;
+            if (parseNode.GetChildNode("maxSubUsecases") is { } nullNodeMaxSubUsecases && nullNodeMaxSubUsecases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSubUsecases = null;
+            if (parseNode.GetChildNode("minSubUsecases") is { } nullNodeMinSubUsecases && nullNodeMinSubUsecases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinSubUsecases = null;
+            if (parseNode.GetChildNode("mnoMetadata") is { } nullNodeMnoMetadata && nullNodeMnoMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MnoMetadata = null;
+            if (parseNode.GetChildNode("monthlyFee") is { } nullNodeMonthlyFee && nullNodeMonthlyFee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyFee = null;
+            if (parseNode.GetChildNode("quarterlyFee") is { } nullNodeQuarterlyFee && nullNodeQuarterlyFee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuarterlyFee = null;
+            if (parseNode.GetChildNode("usecase") is { } nullNodeUsecase && nullNodeUsecase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Usecase = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Campaign annual subscription fee</summary>
-        public double? AnnualFee { get; set; }
+        public double? AnnualFee { get => _explicitNullValueAnnualFee; set { _explicitNullValueAnnualFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annualFee"); else _explicitNullProperties?.Remove("annualFee"); } }
+        private double? _explicitNullValueAnnualFee = default!;
         /// <summary>Maximum number of sub-usecases declaration required.</summary>
-        public int? MaxSubUsecases { get; set; }
+        public int? MaxSubUsecases { get => _explicitNullValueMaxSubUsecases; set { _explicitNullValueMaxSubUsecases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxSubUsecases"); else _explicitNullProperties?.Remove("maxSubUsecases"); } }
+        private int? _explicitNullValueMaxSubUsecases = default!;
         /// <summary>Minimum number of sub-usecases declaration required.</summary>
-        public int? MinSubUsecases { get; set; }
+        public int? MinSubUsecases { get => _explicitNullValueMinSubUsecases; set { _explicitNullValueMinSubUsecases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minSubUsecases"); else _explicitNullProperties?.Remove("minSubUsecases"); } }
+        private int? _explicitNullValueMinSubUsecases = default!;
         /// <summary>Map of usecase metadata for each MNO. Key is the network ID of the MNO (e.g. 10017), Value is the mno metadata for the usecase.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty? MnoMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty? MnoMetadata { get => _explicitNullValueMnoMetadata; set { _explicitNullValueMnoMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mnoMetadata"); else _explicitNullProperties?.Remove("mnoMetadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty? _explicitNullValueMnoMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty MnoMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty MnoMetadata { get => _explicitNullValueMnoMetadata; set { _explicitNullValueMnoMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mnoMetadata"); else _explicitNullProperties?.Remove("mnoMetadata"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadataMnoMetadataProperty _explicitNullValueMnoMetadata = default!;
 #endif
         /// <summary>Campaign monthly subscription fee</summary>
-        public double? MonthlyFee { get; set; }
+        public double? MonthlyFee { get => _explicitNullValueMonthlyFee; set { _explicitNullValueMonthlyFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthlyFee"); else _explicitNullProperties?.Remove("monthlyFee"); } }
+        private double? _explicitNullValueMonthlyFee = default!;
         /// <summary>Campaign quarterly subscription fee</summary>
-        public double? QuarterlyFee { get; set; }
+        public double? QuarterlyFee { get => _explicitNullValueQuarterlyFee; set { _explicitNullValueQuarterlyFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quarterlyFee"); else _explicitNullProperties?.Remove("quarterlyFee"); } }
+        private double? _explicitNullValueQuarterlyFee = default!;
         /// <summary>Campaign usecase</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Usecase { get; set; }
+        public string? Usecase { get => _explicitNullValueUsecase; set { _explicitNullValueUsecase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usecase"); else _explicitNullProperties?.Remove("usecase"); } }
+        private string? _explicitNullValueUsecase = default!;
 #nullable restore
 #else
-        public string Usecase { get; set; }
+        public string Usecase { get => _explicitNullValueUsecase; set { _explicitNullValueUsecase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usecase"); else _explicitNullProperties?.Remove("usecase"); } }
+        private string _explicitNullValueUsecase = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata"/> and sets the default values.
@@ -55,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("monthlyFee", MonthlyFee);
             writer.WriteDoubleValue("quarterlyFee", QuarterlyFee);
             writer.WriteStringValue("usecase", Usecase);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

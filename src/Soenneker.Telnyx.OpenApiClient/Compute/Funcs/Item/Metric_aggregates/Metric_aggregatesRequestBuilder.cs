@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Compute.Funcs.Item.Metric_aggregates
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FunctionMetricAggregateListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FunctionMetricAggregateListResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.FunctionMetricAggregateListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.FunctionMetricAggregateListResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns aggregate request, latency, CPU, memory, and resource-limit metrics for a function over the requested window.

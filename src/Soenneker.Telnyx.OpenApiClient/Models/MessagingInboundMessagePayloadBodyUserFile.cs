@@ -12,24 +12,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagingInboundMessagePayloadBodyUserFile : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("payload") is { } nullNodePayload && nullNodePayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payload = null;
+            if (parseNode.GetChildNode("thumbnail") is { } nullNodeThumbnail && nullNodeThumbnail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Thumbnail = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload? Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload? _explicitNullValuePayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload _explicitNullValuePayload = default!;
 #endif
         /// <summary>The thumbnail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail? Thumbnail { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail? Thumbnail { get => _explicitNullValueThumbnail; set { _explicitNullValueThumbnail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thumbnail"); else _explicitNullProperties?.Remove("thumbnail"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail? _explicitNullValueThumbnail = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail Thumbnail { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail Thumbnail { get => _explicitNullValueThumbnail; set { _explicitNullValueThumbnail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thumbnail"); else _explicitNullProperties?.Remove("thumbnail"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail _explicitNullValueThumbnail = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFile(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload>("payload", Payload);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail>("thumbnail", Thumbnail);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

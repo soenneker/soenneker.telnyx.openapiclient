@@ -11,64 +11,92 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PortingOrderEndUserAdmin : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account_number") is { } nullNodeAccountNumber && nullNodeAccountNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountNumber = null;
+            if (parseNode.GetChildNode("auth_person_name") is { } nullNodeAuthPersonName && nullNodeAuthPersonName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthPersonName = null;
+            if (parseNode.GetChildNode("billing_phone_number") is { } nullNodeBillingPhoneNumber && nullNodeBillingPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingPhoneNumber = null;
+            if (parseNode.GetChildNode("business_identifier") is { } nullNodeBusinessIdentifier && nullNodeBusinessIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessIdentifier = null;
+            if (parseNode.GetChildNode("entity_name") is { } nullNodeEntityName && nullNodeEntityName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntityName = null;
+            if (parseNode.GetChildNode("pin_passcode") is { } nullNodePinPasscode && nullNodePinPasscode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PinPasscode = null;
+            if (parseNode.GetChildNode("tax_identifier") is { } nullNodeTaxIdentifier && nullNodeTaxIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaxIdentifier = null;
+        }
+
         /// <summary>The authorized person&apos;s account number with the current service provider</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountNumber { get; set; }
+        public string? AccountNumber { get => _explicitNullValueAccountNumber; set { _explicitNullValueAccountNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_number"); else _explicitNullProperties?.Remove("account_number"); } }
+        private string? _explicitNullValueAccountNumber = default!;
 #nullable restore
 #else
-        public string AccountNumber { get; set; }
+        public string AccountNumber { get => _explicitNullValueAccountNumber; set { _explicitNullValueAccountNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_number"); else _explicitNullProperties?.Remove("account_number"); } }
+        private string _explicitNullValueAccountNumber = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Name of person authorizing the porting order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthPersonName { get; set; }
+        public string? AuthPersonName { get => _explicitNullValueAuthPersonName; set { _explicitNullValueAuthPersonName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_person_name"); else _explicitNullProperties?.Remove("auth_person_name"); } }
+        private string? _explicitNullValueAuthPersonName = default!;
 #nullable restore
 #else
-        public string AuthPersonName { get; set; }
+        public string AuthPersonName { get => _explicitNullValueAuthPersonName; set { _explicitNullValueAuthPersonName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_person_name"); else _explicitNullProperties?.Remove("auth_person_name"); } }
+        private string _explicitNullValueAuthPersonName = default!;
 #endif
         /// <summary>Billing phone number associated with these phone numbers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BillingPhoneNumber { get; set; }
+        public string? BillingPhoneNumber { get => _explicitNullValueBillingPhoneNumber; set { _explicitNullValueBillingPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_phone_number"); else _explicitNullProperties?.Remove("billing_phone_number"); } }
+        private string? _explicitNullValueBillingPhoneNumber = default!;
 #nullable restore
 #else
-        public string BillingPhoneNumber { get; set; }
+        public string BillingPhoneNumber { get => _explicitNullValueBillingPhoneNumber; set { _explicitNullValueBillingPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_phone_number"); else _explicitNullProperties?.Remove("billing_phone_number"); } }
+        private string _explicitNullValueBillingPhoneNumber = default!;
 #endif
         /// <summary>European business identification number. Applicable only in the European Union</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BusinessIdentifier { get; set; }
+        public string? BusinessIdentifier { get => _explicitNullValueBusinessIdentifier; set { _explicitNullValueBusinessIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_identifier"); else _explicitNullProperties?.Remove("business_identifier"); } }
+        private string? _explicitNullValueBusinessIdentifier = default!;
 #nullable restore
 #else
-        public string BusinessIdentifier { get; set; }
+        public string BusinessIdentifier { get => _explicitNullValueBusinessIdentifier; set { _explicitNullValueBusinessIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_identifier"); else _explicitNullProperties?.Remove("business_identifier"); } }
+        private string _explicitNullValueBusinessIdentifier = default!;
 #endif
         /// <summary>Person Name or Company name requesting the port</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EntityName { get; set; }
+        public string? EntityName { get => _explicitNullValueEntityName; set { _explicitNullValueEntityName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity_name"); else _explicitNullProperties?.Remove("entity_name"); } }
+        private string? _explicitNullValueEntityName = default!;
 #nullable restore
 #else
-        public string EntityName { get; set; }
+        public string EntityName { get => _explicitNullValueEntityName; set { _explicitNullValueEntityName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity_name"); else _explicitNullProperties?.Remove("entity_name"); } }
+        private string _explicitNullValueEntityName = default!;
 #endif
         /// <summary>PIN/passcode possibly required by the old service provider for extra verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PinPasscode { get; set; }
+        public string? PinPasscode { get => _explicitNullValuePinPasscode; set { _explicitNullValuePinPasscode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pin_passcode"); else _explicitNullProperties?.Remove("pin_passcode"); } }
+        private string? _explicitNullValuePinPasscode = default!;
 #nullable restore
 #else
-        public string PinPasscode { get; set; }
+        public string PinPasscode { get => _explicitNullValuePinPasscode; set { _explicitNullValuePinPasscode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pin_passcode"); else _explicitNullProperties?.Remove("pin_passcode"); } }
+        private string _explicitNullValuePinPasscode = default!;
 #endif
         /// <summary>European tax identification number. Applicable only in the European Union</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TaxIdentifier { get; set; }
+        public string? TaxIdentifier { get => _explicitNullValueTaxIdentifier; set { _explicitNullValueTaxIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tax_identifier"); else _explicitNullProperties?.Remove("tax_identifier"); } }
+        private string? _explicitNullValueTaxIdentifier = default!;
 #nullable restore
 #else
-        public string TaxIdentifier { get; set; }
+        public string TaxIdentifier { get => _explicitNullValueTaxIdentifier; set { _explicitNullValueTaxIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tax_identifier"); else _explicitNullProperties?.Remove("tax_identifier"); } }
+        private string _explicitNullValueTaxIdentifier = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUserAdmin"/> and sets the default values.
@@ -85,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUserAdmin CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUserAdmin();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUserAdmin(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -118,6 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("entity_name", EntityName);
             writer.WriteStringValue("pin_passcode", PinPasscode);
             writer.WriteStringValue("tax_identifier", TaxIdentifier);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

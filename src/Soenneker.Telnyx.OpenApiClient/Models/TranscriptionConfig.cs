@@ -12,19 +12,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TranscriptionConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The language of the audio to be transcribed. If not set, or if set to `auto`, supported models will automatically detect the language. Supported and meaningful values depend on the selected transcription `model`. For `deepgram/flux`, supported values are: `auto` (Telnyx language detection controls the language hint), `multi` (no language hint), and language-specific hints `en`, `es`, `fr`, `de`, `hi`, `ru`, `pt`, `ja`, `it`, and `nl`. For `soniox/stt-rt-v4`, `auto` omits the language hint and lets Soniox auto-detect; ISO 639-1 codes (e.g. `en`, `es`) bias detection toward that language. For `assemblyai/universal-3-6-pro` (and its legacy aliases `assemblyai/universal-3-5-pro` and `assemblyai/universal-streaming`), `auto` (or unset) enables native multilingual code-switching; language codes (`en`, `es`, `de`, `fr`, `pt`, `it`, `tr`, `nl`, `sv`, `no`, `da`, `fi`, `hi`, `vi`, `ar`, `he`, `ja`, `zh`, `ur`, `ru`, `ko`, `ca`, `gl`, `ro`, `et`, `fa`, `yue`, `af`, `mr`, `zu`, `xh`, `nn`) bias the session to that language. For `humain/realtime`, supported values are `ar`, `en`, `codeswitch` (Arabic/English code-switching), and `auto` (resolves server-side to code-switching). Unlike other models, `humain/realtime` does not fall back to `auto` when `language` is omitted — omitting it applies `en` instead. For `reson8/turns`, supported values are `auto` (or unset) for automatic language detection, and the language codes `nl`, `en`, `fr`, `fy`, `de`, `it`, `pl`, `pt`, `es`, and `sv` to fix the transcription language. For `cohere/ar-stt`, supported values are `ar` and `en`; unlike other models, this model does not auto-detect and defaults to `ar` when `language` is omitted. For `speechmatics/linden-1`, there is no auto-detect; set a code from Speechmatics&apos; Realtime language list (see `SpeechmaticsTranscriptionLanguage`); unset defaults to `en`, while an explicit `auto`, `auto_beta`, or `multi` is rejected (unlike `speechmatics/standard`, which defaults to `en`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Language { get; set; }
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string? _explicitNullValueLanguage = default!;
 #nullable restore
 #else
-        public string Language { get; set; }
+        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string _explicitNullValueLanguage = default!;
 #endif
         /// <summary>The speech to text model to be used by the voice assistant. Supported models include:- `deepgram/flux` (or `flux`) for live streaming turn-taking.- `deepgram/nova-3` and `deepgram/nova-2` for live streaming transcription.- `speechmatics/standard` and `speechmatics/enhanced` for live streaming transcription.- `speechmatics/linden-1` (preview, vendor-hosted) for live streaming transcription; no auto-detect, so set `language` from Speechmatics&apos; Realtime language list (defaults to `en`).- `assemblyai/universal-3-6-pro` (AssemblyAI Universal-3.6 Pro) for live streaming transcription. The legacy aliases `assemblyai/universal-3-5-pro` and `assemblyai/universal-streaming` are still accepted and run the same Universal-3.6 Pro model.- `xai/grok-stt` for live streaming transcription.- `soniox/stt-rt-v4` for live streaming multilingual transcription with automatic language detection.- `nvidia/parakeet-v3` for multilingual transcription with automatic language detection.- `omi-health/omi-med-stt-v1` for English-only medical transcription (Parakeet-based).- `humain/realtime` for live streaming transcription with native Arabic and Arabic/English code-switching support.- `reson8/turns` for live streaming turn-based transcription of 10 European languages with automatic language detection.- `cohere/ar-stt` for non-streaming Arabic and English transcription.- `azure/fast` and `azure/realtime`; Azure models require `region`, and unsupported regions require `api_key_ref`.- `google/latest_long` for non-streaming multilingual transcription.- `distil-whisper/distil-large-v2` for lower-latency English-only non-streaming transcription.- `openai/whisper-large-v3-turbo` for multilingual non-streaming transcription with automatic language detection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfigModel? Model { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfigModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfigModel? _explicitNullValueModel = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfigModel>("model", Model);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

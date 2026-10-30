@@ -12,26 +12,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InferenceEmbeddingTransferToolParamsVoicemailDetection : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("detection_config") is { } nullNodeDetectionConfig && nullNodeDetectionConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DetectionConfig = null;
+            if (parseNode.GetChildNode("detection_mode") is { } nullNodeDetectionMode && nullNodeDetectionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DetectionMode = null;
+            if (parseNode.GetChildNode("on_voicemail_detected") is { } nullNodeOnVoicemailDetected && nullNodeOnVoicemailDetected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnVoicemailDetected = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Advanced AMD detection configuration parameters. All values are optional - Telnyx will use defaults if not specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig? DetectionConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig? DetectionConfig { get => _explicitNullValueDetectionConfig; set { _explicitNullValueDetectionConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detection_config"); else _explicitNullProperties?.Remove("detection_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig? _explicitNullValueDetectionConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig DetectionConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig DetectionConfig { get => _explicitNullValueDetectionConfig; set { _explicitNullValueDetectionConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detection_config"); else _explicitNullProperties?.Remove("detection_config"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig _explicitNullValueDetectionConfig = default!;
 #endif
         /// <summary>The AMD detection mode to use. &apos;premium&apos; enables premium answering machine detection. &apos;disabled&apos; turns off AMD detection.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionMode? DetectionMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionMode? DetectionMode { get => _explicitNullValueDetectionMode; set { _explicitNullValueDetectionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detection_mode"); else _explicitNullProperties?.Remove("detection_mode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionMode? _explicitNullValueDetectionMode = default!;
         /// <summary>Action to take when voicemail is detected on the transferred call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetected? OnVoicemailDetected { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetected? OnVoicemailDetected { get => _explicitNullValueOnVoicemailDetected; set { _explicitNullValueOnVoicemailDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_voicemail_detected"); else _explicitNullProperties?.Remove("on_voicemail_detected"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetected? _explicitNullValueOnVoicemailDetected = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetected OnVoicemailDetected { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetected OnVoicemailDetected { get => _explicitNullValueOnVoicemailDetected; set { _explicitNullValueOnVoicemailDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_voicemail_detected"); else _explicitNullProperties?.Remove("on_voicemail_detected"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetected _explicitNullValueOnVoicemailDetected = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionConfig>("detection_config", DetectionConfig);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionDetectionMode>("detection_mode", DetectionMode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetected>("on_voicemail_detected", OnVoicemailDetected);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

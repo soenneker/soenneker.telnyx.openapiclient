@@ -11,98 +11,140 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PhoneNumberCampaign : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assignmentStatus") is { } nullNodeAssignmentStatus && nullNodeAssignmentStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignmentStatus = null;
+            if (parseNode.GetChildNode("brandId") is { } nullNodeBrandId && nullNodeBrandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrandId = null;
+            if (parseNode.GetChildNode("campaignId") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("failureReasons") is { } nullNodeFailureReasons && nullNodeFailureReasons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureReasons = null;
+            if (parseNode.GetChildNode("nonTmobileNumberMappingStatus") is { } nullNodeNonTmobileNumberMappingStatus && nullNodeNonTmobileNumberMappingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NonTmobileNumberMappingStatus = null;
+            if (parseNode.GetChildNode("phoneNumber") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("tcrBrandId") is { } nullNodeTcrBrandId && nullNodeTcrBrandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TcrBrandId = null;
+            if (parseNode.GetChildNode("tcrCampaignId") is { } nullNodeTcrCampaignId && nullNodeTcrCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TcrCampaignId = null;
+            if (parseNode.GetChildNode("telnyxCampaignId") is { } nullNodeTelnyxCampaignId && nullNodeTelnyxCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelnyxCampaignId = null;
+            if (parseNode.GetChildNode("tmobileNumberMappingStatus") is { } nullNodeTmobileNumberMappingStatus && nullNodeTmobileNumberMappingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TmobileNumberMappingStatus = null;
+            if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The assignment status of the number.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignAssignmentStatus? AssignmentStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignAssignmentStatus? AssignmentStatus { get => _explicitNullValueAssignmentStatus; set { _explicitNullValueAssignmentStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignmentStatus"); else _explicitNullProperties?.Remove("assignmentStatus"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignAssignmentStatus? _explicitNullValueAssignmentStatus = default!;
         /// <summary>Brand ID. Empty if the number is associated to a shared campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BrandId { get; set; }
+        public string? BrandId { get => _explicitNullValueBrandId; set { _explicitNullValueBrandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandId"); else _explicitNullProperties?.Remove("brandId"); } }
+        private string? _explicitNullValueBrandId = default!;
 #nullable restore
 #else
-        public string BrandId { get; set; }
+        public string BrandId { get => _explicitNullValueBrandId; set { _explicitNullValueBrandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandId"); else _explicitNullProperties?.Remove("brandId"); } }
+        private string _explicitNullValueBrandId = default!;
 #endif
         /// <summary>For shared campaigns, this is the TCR campaign ID, otherwise it is the campaign ID </summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignId { get; set; }
+        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaignId"); else _explicitNullProperties?.Remove("campaignId"); } }
+        private string? _explicitNullValueCampaignId = default!;
 #nullable restore
 #else
-        public string CampaignId { get; set; }
+        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaignId"); else _explicitNullProperties?.Remove("campaignId"); } }
+        private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>The createdAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; set; }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get; set; }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>Extra info about a failure to assign/unassign a number. Relevant only if the assignmentStatus is either FAILED_ASSIGNMENT or FAILED_UNASSIGNMENT</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FailureReasons { get; set; }
+        public string? FailureReasons { get => _explicitNullValueFailureReasons; set { _explicitNullValueFailureReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failureReasons"); else _explicitNullProperties?.Remove("failureReasons"); } }
+        private string? _explicitNullValueFailureReasons = default!;
 #nullable restore
 #else
-        public string FailureReasons { get; set; }
+        public string FailureReasons { get => _explicitNullValueFailureReasons; set { _explicitNullValueFailureReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failureReasons"); else _explicitNullProperties?.Remove("failureReasons"); } }
+        private string _explicitNullValueFailureReasons = default!;
 #endif
         /// <summary>The assignment status of the number towards other carriers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NonTmobileNumberMappingStatus { get; set; }
+        public string? NonTmobileNumberMappingStatus { get => _explicitNullValueNonTmobileNumberMappingStatus; set { _explicitNullValueNonTmobileNumberMappingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nonTmobileNumberMappingStatus"); else _explicitNullProperties?.Remove("nonTmobileNumberMappingStatus"); } }
+        private string? _explicitNullValueNonTmobileNumberMappingStatus = default!;
 #nullable restore
 #else
-        public string NonTmobileNumberMappingStatus { get; set; }
+        public string NonTmobileNumberMappingStatus { get => _explicitNullValueNonTmobileNumberMappingStatus; set { _explicitNullValueNonTmobileNumberMappingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nonTmobileNumberMappingStatus"); else _explicitNullProperties?.Remove("nonTmobileNumberMappingStatus"); } }
+        private string _explicitNullValueNonTmobileNumberMappingStatus = default!;
 #endif
         /// <summary>The phoneNumber property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get; set; }
+        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phoneNumber"); else _explicitNullProperties?.Remove("phoneNumber"); } }
+        private string? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phoneNumber"); else _explicitNullProperties?.Remove("phoneNumber"); } }
+        private string _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>TCR&apos;s alphanumeric ID for the brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TcrBrandId { get; set; }
+        public string? TcrBrandId { get => _explicitNullValueTcrBrandId; set { _explicitNullValueTcrBrandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcrBrandId"); else _explicitNullProperties?.Remove("tcrBrandId"); } }
+        private string? _explicitNullValueTcrBrandId = default!;
 #nullable restore
 #else
-        public string TcrBrandId { get; set; }
+        public string TcrBrandId { get => _explicitNullValueTcrBrandId; set { _explicitNullValueTcrBrandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcrBrandId"); else _explicitNullProperties?.Remove("tcrBrandId"); } }
+        private string _explicitNullValueTcrBrandId = default!;
 #endif
         /// <summary>TCR&apos;s alphanumeric ID for the campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TcrCampaignId { get; set; }
+        public string? TcrCampaignId { get => _explicitNullValueTcrCampaignId; set { _explicitNullValueTcrCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcrCampaignId"); else _explicitNullProperties?.Remove("tcrCampaignId"); } }
+        private string? _explicitNullValueTcrCampaignId = default!;
 #nullable restore
 #else
-        public string TcrCampaignId { get; set; }
+        public string TcrCampaignId { get => _explicitNullValueTcrCampaignId; set { _explicitNullValueTcrCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tcrCampaignId"); else _explicitNullProperties?.Remove("tcrCampaignId"); } }
+        private string _explicitNullValueTcrCampaignId = default!;
 #endif
         /// <summary>Campaign ID. Empty if the number is associated to a shared campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelnyxCampaignId { get; set; }
+        public string? TelnyxCampaignId { get => _explicitNullValueTelnyxCampaignId; set { _explicitNullValueTelnyxCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyxCampaignId"); else _explicitNullProperties?.Remove("telnyxCampaignId"); } }
+        private string? _explicitNullValueTelnyxCampaignId = default!;
 #nullable restore
 #else
-        public string TelnyxCampaignId { get; set; }
+        public string TelnyxCampaignId { get => _explicitNullValueTelnyxCampaignId; set { _explicitNullValueTelnyxCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyxCampaignId"); else _explicitNullProperties?.Remove("telnyxCampaignId"); } }
+        private string _explicitNullValueTelnyxCampaignId = default!;
 #endif
         /// <summary>The T-Mobile assignment status of the number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TmobileNumberMappingStatus { get; set; }
+        public string? TmobileNumberMappingStatus { get => _explicitNullValueTmobileNumberMappingStatus; set { _explicitNullValueTmobileNumberMappingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tmobileNumberMappingStatus"); else _explicitNullProperties?.Remove("tmobileNumberMappingStatus"); } }
+        private string? _explicitNullValueTmobileNumberMappingStatus = default!;
 #nullable restore
 #else
-        public string TmobileNumberMappingStatus { get; set; }
+        public string TmobileNumberMappingStatus { get => _explicitNullValueTmobileNumberMappingStatus; set { _explicitNullValueTmobileNumberMappingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tmobileNumberMappingStatus"); else _explicitNullProperties?.Remove("tmobileNumberMappingStatus"); } }
+        private string _explicitNullValueTmobileNumberMappingStatus = default!;
 #endif
         /// <summary>The updatedAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get; set; }
+        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private string? _explicitNullValueUpdatedAt = default!;
 #nullable restore
 #else
-        public string UpdatedAt { get; set; }
+        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private string _explicitNullValueUpdatedAt = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign"/> and sets the default values.
@@ -119,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -162,6 +204,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("telnyxCampaignId", TelnyxCampaignId);
             writer.WriteStringValue("tmobileNumberMappingStatus", TmobileNumberMappingStatus);
             writer.WriteStringValue("updatedAt", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,40 +12,59 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceSdkCallReportStatsOneOf2 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("audio") is { } nullNodeAudio && nullNodeAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audio = null;
+            if (parseNode.GetChildNode("connection") is { } nullNodeConnection && nullNodeConnection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connection = null;
+            if (parseNode.GetChildNode("ice") is { } nullNodeIce && nullNodeIce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ice = null;
+            if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Raw audio stats such as inbound/outbound packet, byte, jitter, packet-loss, bitrate, and audio-level metrics.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2AudioProperty? Audio { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2AudioProperty? Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2AudioProperty? _explicitNullValueAudio = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2AudioProperty Audio { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2AudioProperty Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2AudioProperty _explicitNullValueAudio = default!;
 #endif
         /// <summary>Raw connection stats such as round-trip time, packets, and bytes sent or received.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2ConnectionProperty? Connection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2ConnectionProperty? Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2ConnectionProperty? _explicitNullValueConnection = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2ConnectionProperty Connection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2ConnectionProperty Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2ConnectionProperty _explicitNullValueConnection = default!;
 #endif
         /// <summary>Raw ICE candidate-pair information, including selected pair, local/remote candidates, state, and nomination data when provided by the SDK.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2IceProperty? Ice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2IceProperty? Ice { get => _explicitNullValueIce; set { _explicitNullValueIce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ice"); else _explicitNullProperties?.Remove("ice"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2IceProperty? _explicitNullValueIce = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2IceProperty Ice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2IceProperty Ice { get => _explicitNullValueIce; set { _explicitNullValueIce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ice"); else _explicitNullProperties?.Remove("ice"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2IceProperty _explicitNullValueIce = default!;
 #endif
         /// <summary>Raw transport stats such as ICE state, DTLS state, SRTP cipher, TLS version, and selected-candidate-pair changes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2TransportProperty? Transport { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2TransportProperty? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2TransportProperty? _explicitNullValueTransport = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2TransportProperty Transport { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2TransportProperty Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2TransportProperty _explicitNullValueTransport = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2ConnectionProperty>("connection", Connection);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2IceProperty>("ice", Ice);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSdkCallReportStatsOneOf2TransportProperty>("transport", Transport);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
